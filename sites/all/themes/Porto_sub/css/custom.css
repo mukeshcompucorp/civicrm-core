@@ -1,0 +1,38 @@
+/*=======================================================================
+*** PORTO_SUB STYLE SHEET***
+========================================================================*/
+
+.fancy-login-password-link-processed {
+	font-size: 14px !important;
+	color: black !important;
+}
+
+.crm-container .crm-section .label {
+	color: black;
+}
+
+#crm-container.crm-public .label {
+	font-size: 12px;
+}
+
+.crm-container.crm-public .select2-container .select2-choice {
+	min-height: 39px;
+	margin-left: 10px;
+}
+
+.crm-container .select2-container .select2-choice abbr {
+	top: 11px !important;
+
+}
+
+#crm-container.crm-public input {
+	margin-left: 10px;
+}
+
+.crm-container.crm-public .select2-container-multi .select2-choices {
+	margin-left: 10px;
+}
+
+#crm-container.crm-public select {
+	margin-left: 10px;
+}
