@@ -52,10 +52,9 @@
 	margin: 0;
 	font-size: 2.2em;
 	font-weight: 300;
-	line-height: 42px;
-	margin: 8px 0px 12px 0;
 	float:left;
 	min-width:100%;
+	top: -58px;
 }
 
 .crm-container fieldset {
@@ -64,8 +63,13 @@
 	border: 1px solid #ccc;
 	color: #777777;
 	border-radius: 8px;
+	margin-top:80px;
 }
 
 #crm-container .credit_card_type-section .crm-credit_card_type-icons a, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:link, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:hover, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:focus, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:active {
 	margin-bottom: 10px;
+}
+
+.billing_first_name-section {
+	min-height: 74px;
 }
