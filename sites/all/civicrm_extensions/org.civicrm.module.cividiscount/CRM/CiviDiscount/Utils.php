@@ -1,9 +1,10 @@
 <?php
+
 /*
  +--------------------------------------------------------------------+
- | CiviCRM version 4.6                                                |
+ | CiviCRM version 4.5                                                |
  +--------------------------------------------------------------------+
- | Copyright CiviCRM LLC (c) 2004-2015                                |
+ | Copyright CiviCRM LLC (c) 2004-2014                                |
  +--------------------------------------------------------------------+
  | This file is a part of CiviCRM.                                    |
  |                                                                    |
@@ -26,12 +27,17 @@
 */
 
 /**
+ *
  * @package CiviDiscount
+ * @copyright CiviCRM LLC (c) 2004-2014
+ * $Id$
+ *
  */
+
 class CRM_CiviDiscount_Utils {
 
   static function getEvents() {
-    $events = array();
+    $events    = array();
     //whether we only want this date range is arguable but it is broader than the one in the core function
     // which excluded events with no end date & events in progress
     // and did a lot of extra 'work' for no benefit
@@ -55,7 +61,7 @@ class CRM_CiviDiscount_Utils {
     $values = self::getPriceSetsInfo();
 
     $priceSets = array();
-    if (!empty($values)) {
+    if (! empty($values)) {
       foreach ($values as $set) {
         $priceSets[$set['item_id']] = "{$set['ps_label']} :: {$set['pf_label']} :: {$set['item_label']}";
       }
@@ -82,7 +88,7 @@ class CRM_CiviDiscount_Utils {
     return $priceSets;
   }
 
-  static function getPriceSetsInfo($priceSetId = NULL) {
+  static function getPriceSetsInfo($priceSetId = null) {
     $params = array();
     $psTableName = 'civicrm_price_set_entity';
     if ($priceSetId) {
@@ -156,23 +162,23 @@ ORDER BY  pf_label, pfv.price_field_id, pfv.weight
       ) >= 0
     ) {
       if (CRM_Core_DAO::getFieldValue('CRM_Price_DAO_PriceSet', $priceSetId, 'is_quick_config')) {
-        return TRUE;
+        return true;
       }
     }
     else {
       if (CRM_Core_DAO::getFieldValue('CRM_Price_DAO_Set', $priceSetId, 'is_quick_config')) {
-        return TRUE;
+        return true;
       }
     }
 
-    return FALSE;
+    return false;
   }
 
   /**
    * Function to generate a random discount code.
    *
-   * @param string $chars Collection of characters to be used for the code.
-   * @param int $len Length of the code
+   * @param string  $chars  Collection of characters to be used for the code.
+   * @param int     $len    Length of the code
    *
    * @access public
    * @static
