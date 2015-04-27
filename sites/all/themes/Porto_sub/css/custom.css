@@ -11,6 +11,11 @@
 	color: black;
 }
 
+.form-radios.custom-align{
+	float: right;
+	min-width: 30%;
+}
+
 #crm-container.crm-public .label {
 	font-size: 12px;
 	text-align: left;
@@ -64,7 +69,7 @@
 	color: #777777;
 	border-radius: 8px;
 	margin-top:80px;
-	line-height: 0px;
+	/*line-height: 0px;*/
 }
 
 #crm-container .credit_card_type-section .crm-credit_card_type-icons a, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:link, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:hover, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:focus, #crm-container .credit_card_type-section .crm-credit_card_type-icons a:active {
