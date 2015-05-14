@@ -17,5 +17,19 @@ function tpg_crm_roles_user_default_roles() {
     'machine_name' => '',
   );
 
+  // Exported role: civicrm administrator.
+  $roles['civicrm administrator'] = array(
+    'name' => 'civicrm administrator',
+    'weight' => 4,
+    'machine_name' => 'civicrm_administrator',
+  );
+
+  // Exported role: content creator.
+  $roles['content creator'] = array(
+    'name' => 'content creator',
+    'weight' => 3,
+    'machine_name' => 'content_creator',
+  );
+
   return $roles;
 }
