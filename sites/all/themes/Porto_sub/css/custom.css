@@ -35,6 +35,11 @@
 	top: 11px !important;
 
 }
+
+.html.not-front.not-logged-in.no-sidebars #header {
+        min-height: 120px;
+}
+
 /*
 #crm-container.crm-public input {
 	margin-left: 10px;
