@@ -31,8 +31,9 @@
         height: 1em;
         line-height: 1em;
         position: absolute;
+        color: #3e3e3e;
+        font-family: "Open Sans", Arial, sans-serif;
         font-size: 0.8em;
-        color: #999;
         overflow: visible;
         text-align: center;
         top: 20px;
@@ -68,11 +69,11 @@
         left: 50%;
         margin-left: -7em;
         width: 20em;
+        font-size: 13px;
     }
 
     /* make it easy to see when we hover a label */
     .ui-slider-pips:not(.ui-slider-disabled) .ui-slider-pip:hover .ui-slider-label {
-        color: black;
     }
 
 
