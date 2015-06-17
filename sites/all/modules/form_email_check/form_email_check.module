@@ -1,0 +1,159 @@
+<?php
+
+function form_email_check_form_alter(&$form, &$form_state, $form_id) {  
+  
+  $match_form_id = NULL;
+  $count = 5;
+  if(variable_get('checking_form_number', '')){
+    $count = variable_get('checking_form_number', '');
+  }
+  for ($i=1; $i < $count; $i++) { 
+    if(variable_get('signup_form_id'.$i, '') == $form_id){
+      $match_form_id = $i;
+      drupal_add_js(drupal_get_path('module', 'form_email_check') . '/markup.js', 'file');
+    }
+  }
+  
+  if(!is_null($match_form_id)){
+    //might add runkit_function_add here
+    $form['#validate'][] = 'form_email_custom_validate';
+  }
+}
+
+function form_email_custom_validate($form, &$form_state) {
+  
+  $civicrm_db_key = variable_get('civicrm_db_key', '');
+  $match_form_id = NULL;
+  $contact_us_url = NULL;
+  for ($i=1; $i < 11; $i++) { 
+    if(variable_get('signup_form_id'.$i, '') == $form['#form_id']){
+      $match_form_id = $i;
+      $contact_us_url = variable_get('contact_us_url'.$i, '');
+    }
+  }
+  
+  if(!is_null($match_form_id)){
+    
+    $signup_form_id = variable_get('signup_form_id'.$match_form_id, '');
+    
+    $email_field_number = 1;
+    if(variable_get('email_field_number'.$match_form_id, '')){
+      $email_field_number = variable_get('email_field_number'.$match_form_id, '');
+    }
+    
+    $email_field_keys = array();
+    for ($i=1; $i <= $email_field_number ; $i++) {
+      if(variable_get('email_field_key'.$match_form_id.'_'.$i, '')){
+        $email_field_keys[$i] = variable_get('email_field_key'.$match_form_id.'_'.$i, '');
+      }
+    }
+
+    $submitted_email_paths = array();
+    $submitted_email_values = array();
+    foreach ($email_field_keys as $key => $value) {
+      $exactPath = "";
+      $exactValue = NULL;
+      get_full_path($form_state['values']['submitted'] , $value , $exactPath, $exactValue);
+      if(!is_null($exactValue) && $exactValue!==""){
+        $submitted_email_paths[] = "submitted][".$exactPath;
+        $submitted_email_values[] = $exactValue;
+      }
+    }
+    
+    if(!empty($submitted_email_values)){
+      
+      if(variable_get('check_contact_id'.$match_form_id, '')) {
+        
+        $cids = implode("','", $submitted_email_values);
+        $contact_exists = FALSE;
+        $contact_field = NULL;
+        
+        if(!is_null($civicrm_db_key)) {
+          db_set_active($civicrm_db_key);
+      
+          $civicrmQuery = "SELECT id FROM civicrm_contact WHERE id in ('".$cids."') AND contact_type != 'Organization'";
+          $civicrmResult = db_query($civicrmQuery);
+          $civicrmRecord = $civicrmResult->fetchCol();
+          
+          foreach ($submitted_email_values as $key => $value) {
+            $contact_field = $key;
+            if(in_array($value, $civicrmRecord)){
+              $contact_exists = TRUE;
+            }
+          }
+          
+          if(!$contact_exists) {
+            form_set_error($submitted_email_paths[$contact_field], 
+                'The membership ID you entered does not exist. If you forgot your membership ID, please find it '.'<a href="'.$contact_us_url.'">here</a>'.'.');
+          }
+        
+          db_set_active();
+        }
+        
+      } else {
+        
+        $duplicated_emails = array_diff_key($submitted_email_values, array_unique($submitted_email_values));
+
+        if(count($duplicated_emails)){
+          foreach ($duplicated_emails as $key => $value) {
+            form_set_error($submitted_email_paths[$key], 'This email is duplicated to another email in the form');
+          }
+        }
+        
+        $emails = implode("','", $submitted_email_values);
+        $drupalQuery = "SELECT mail FROM users WHERE mail in ('".$emails."')";
+        $drupalResult = db_query($drupalQuery);
+        $drupalRecord = $drupalResult->fetchCol();
+        
+        foreach ($submitted_email_values as $key => $value) {
+          if(in_array($value, $drupalRecord)){
+            form_set_error($submitted_email_paths[$key], 
+              'The email address you have entered already exists on our system, if you have forgotten your password please '.'<a href="'.$contact_us_url.'">contact us</a>'.'.');
+          }
+        }
+        
+        if(!is_null($civicrm_db_key)) {
+          db_set_active($civicrm_db_key);
+      
+          $civicrmQuery = "SELECT * FROM civicrm_email WHERE email in ('".$emails."')";
+          $civicrmResult = db_query($civicrmQuery);
+          $civicrmRecord = $civicrmResult->fetchCol();
+          
+          foreach ($submitted_email_values as $key => $value) {
+            if(in_array($value, $civicrmRecord)){
+              form_set_error($submitted_email_paths[$key], 
+                'The email address you have entered already exists on our system, if you have forgotten your password please '.'<a href="'.$contact_us_url.'">contact us</a>'.'.');
+            }
+          }
+        
+          db_set_active();
+        }
+      }
+      
+    }
+    
+  }
+
+}
+
+function get_full_path($toBeSearchedArray, $searchKey, &$exactPath, &$exactValue){
+    
+    foreach($toBeSearchedArray as $key=>$value){
+      if(count($value) > 0 && is_array($value))
+      {
+        $found = get_full_path($value , $searchKey , $exactPath, $exactValue);
+        if($found)
+        {
+          $exactPath = $key."][".$exactPath;
+          return TRUE;
+        }
+      }
+      if($key == $searchKey)
+      {
+        $exactPath = $key;
+        $exactValue = $value;
+        return TRUE;
+      }
+    }
+    return FALSE;
+}

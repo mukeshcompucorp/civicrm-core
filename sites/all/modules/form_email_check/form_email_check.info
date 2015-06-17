@@ -1,0 +1,5 @@
+name = Form Email Check
+description = Check the email for member signup for duplication.
+core = 7.x
+files[] = form_email_check.module
+scripts[] = markup.js
