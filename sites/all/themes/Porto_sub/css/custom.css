@@ -99,8 +99,16 @@ input.webform-previous {
         min-width: 130px;
 }
 
-.webform-datepicker div {
+.webform-datepicker div.form-item {
+	display: inline-block;
 	width: 31%;
+}
+
+.webform-component input[readonly].form-text {
+        background-color: #EDEDED;
+        color: #9B9A9A;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1) inset;
+        text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc;
 }
 
 .webform-component select.form-select{
