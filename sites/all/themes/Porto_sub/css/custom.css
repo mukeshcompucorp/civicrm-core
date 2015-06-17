@@ -99,6 +99,10 @@ input.webform-previous {
         min-width: 130px;
 }
 
+.webform-datepicker div {
+	width: 31%;
+}
+
 .webform-component select.form-select{
         width: 100%;
         height: 36px;
