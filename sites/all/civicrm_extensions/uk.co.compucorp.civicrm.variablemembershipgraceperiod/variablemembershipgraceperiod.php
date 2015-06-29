@@ -128,7 +128,7 @@ function variablemembershipgraceperiod_civicrm_alterCalculatedMembershipStatus(&
 
   /*
   2 - Standard - Year on year
-  Standard - Annual Direct Debit
+  3 - Standard - Annual Direct Debit
   4 - Concession - Year on year
   5 - Concession - Direct Debit
   6 - Associate membership - Year on year
@@ -148,7 +148,7 @@ function variablemembershipgraceperiod_civicrm_alterCalculatedMembershipStatus(&
   */
 
   // memberships that are to have a grace period of 3 months.
-  $memberships = [8,9,10,14,15,16,18,19,20,21,22];
+  $memberships = array(8,9,10,14,15,16,18,19,20,21,22);
 
   if(empty($arguments['membership_type_id']) || !in_array($arguments['membership_type_id'], $memberships)) {
     return;
