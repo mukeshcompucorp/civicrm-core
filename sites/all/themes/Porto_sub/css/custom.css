@@ -133,11 +133,21 @@ input.webform-previous {
 	margin-top: 60px;
 }
 
+.webform-progressbar-page span.webform-progressbar-page-label {
+	top: 20px;
+}
+
 @media (max-width: 768px) {
 
    form.webform-client-form {
-     width: 100%;
+	width: 100%;
    }
+
+   .webform-progressbar-page span.webform-progressbar-page-label {
+        margin: auto;
+	left: -20px;
+   }
+
 }
 
 @media (min-width: 769px) {
