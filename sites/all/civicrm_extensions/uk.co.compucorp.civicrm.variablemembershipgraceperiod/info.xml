@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="uk.co.compucorp.civicrm.variablemembershipgraceperiod" type="module">
+  <file>variablemembershipgraceperiod</file>
+  <name>Variable Membership Grace Period</name>
+  <description>Variable Membership Grace Period</description>
+  <license>GPL-3.0</license>
+  <maintainer>
+    <author>Marco Valente</author>
+    <email>marcov4lente@gmail.com</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">http://compucorp.co.uk</url>
+    <url desc="Documentation">http://compucorp.co.uk</url>
+    <url desc="Support">http://compucorp.co.uk</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/gpl-3.0.html</url>
+  </urls>
+  <releaseDate>2015-06-25</releaseDate>
+  <version>1.0</version>
+  <develStage>beta</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <comments>Variable Membership Grace Period</comments>
+  <civix>
+    <namespace>CRM/Variablemembershipgraceperiod</namespace>
+  </civix>
+</extension>
