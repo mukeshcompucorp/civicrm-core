@@ -4637,8 +4637,8 @@ VALUES
    ('contribution_status'           , 'Статус внесків'                , 1, 1, 1),
    ('pcp_status'                    , 'Статус PCP'                         , 1, 1, 1),
    ('pcp_owner_notify'              , 'Сповіщення власника PCP'            , 1, 1, 1),
-   ('participant_role'              , 'Роль Учасника'                   , 1, 1, 0),
-   ('event_type'                    , 'Тип Події'                         , 1, 1, 0),
+   ('participant_role'              , 'Роль учасника'                   , 1, 1, 0),
+   ('event_type'                    , 'Тип події'                         , 1, 1, 0),
    ('contact_view_options'          , 'Переглянути опції контакту'               , 1, 1, 1),
    ('contact_smart_group_display'   , 'Опції перегляду контакту в Смарт-групі'   , 1, 1, 1),
    ('contact_edit_options'          , 'Опції редагування контакту'               , 1, 1, 1),
@@ -4649,7 +4649,7 @@ VALUES
    ('grant_status'                  , 'Надавати Статус'                       , 1, 1, 0),
    ('grant_type'                    , 'Надати Тип'                         , 1, 1, 0),
    ('custom_search'                 , 'Індивідуальний пошук'                      , 1, 1, 0),
-   ('activity_status'               , 'Статус активності'                    , 1, 1, 0),
+   ('activity_status'               , 'Статус діяльності'                    , 1, 1, 0),
    ('case_type'                     , 'Тип Справи'                          , 1, 1, 0),
    ('case_status'                   , 'Статус Справи'                        , 1, 1, 0),
    ('participant_listing'           , 'Перелік Учасників.'                , 1, 1, 0),
@@ -4801,7 +4801,7 @@ VALUES
    (@option_group_id_act, 'Телефонний дзвінок',                         2, 'Phone Call',          NULL, 0, NULL, 2, NULL,                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Eлектронна пошта',                              3, 'Email',               NULL, 1, NULL, 3, 'Електронний лист відправлений.',                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Вихідне смс-повідомлення',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Текстове повідомлення (СМС) відправлено.',                                             0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Реєстрація Заходу',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Он-лайн або оф-лайн реєстрація заходу.',                                0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'Реєстрація на подію',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Он-лайн або оф-лайн реєстрація події.',                                0, 1, 1, @eventCompId, NULL),
    (@option_group_id_act, 'Внесок',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Он-лайн або оф-лайн внесок',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Заявка на Членство',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Он-лайн або оф-лайн заявка на членство.',                                 0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Подовження членства',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'Он-лайн або оф-лайн подовження членства.',                                0, 1, 1, @memberCompId, NULL),
@@ -4843,7 +4843,7 @@ VALUES
    (@option_group_id_act, 'Змінити статус членства',           35, 'Change Membership Status',   NULL, 1, NULL, 35, 'Змінити статус членства.',                         0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Змінити тип членства',             36, 'Change Membership Type',     NULL, 1, NULL, 36, 'Змінити тип членства.',                           0, 1, 1, @memberCompId, NULL),
 
-   (@option_group_id_act, 'Відмінити повторний внесок',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Скасувати повторний внесок',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Оновити платіжні деталі Повторного внеску',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Оновити повторний внесок',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
 
@@ -4949,8 +4949,8 @@ VALUES
   (@option_group_id_cvOpt, 'Діяльність'   ,   1, 'activity', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Відносини',   2, 'rel', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Групи'       ,   3, 'group', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Нотатки'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Ярлики'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Примітки'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Теги'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Зміна реєстрації'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Внески',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Членство'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
@@ -4968,7 +4968,7 @@ VALUES
   (@option_group_id_ceOpt, 'Iндивідуальні дані'              ,   1, 'CustomData', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Адреса'                  ,   2, 'Address', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Переваги у Комунікації',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Нотатки'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Примітки'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Демографія'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Мітки і Групи'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Eлектронна пошта'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
@@ -4987,7 +4987,7 @@ VALUES
   (@option_group_id_asOpt, 'Налаштовані вручну поля'           ,   2, 'custom', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Діяльність'              ,   3, 'activity', NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Відносини'           ,   4, 'relationship', NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Нотатки'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Примітки'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Зміна. Log'              ,   6, 'changeLog', NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Внески'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Членство'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
@@ -4998,7 +4998,7 @@ VALUES
   (@option_group_id_asOpt, 'Застави'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Тип контакту'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Групи'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Ярлики'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Теги'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Поштова розсилка'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_udOpt, 'Групи'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5039,7 +5039,7 @@ VALUES
   (@option_group_id_adOpt, 'Широта'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Довгота'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Адреса'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Аналіз елементів Поштової адреси', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Аатоматичний аналіз поштової адреси', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_gType, 'Отримати доступ', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_gType, 'Перелік поштової розсилки',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5087,7 +5087,7 @@ VALUES
   (@option_group_id_report , 'Звіт щодо членства (Деталізований)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Надає список членів, включаючи їхній членський статус та деталізовану інформацію по членству (дата приєднання, дата початку, дата закінчення). Також може відображати внески (платежі) асоційовані з кожним членством.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Звіт щодо членства (минулий)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Надає список членств, які вже не дійсні, або стануть недійсними на обрану Вами дату.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Звіт щодо учасників заходу (Перелік)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Надає список учасників заходу.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо доходів від заходу (короткий опис)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Проводить загальний огляд доходів від заходу. Ви можете включити головну інформацію - таку як: ID події, реєстрація, кількість відвідань, та отриманий дохід - ця інформація допоможе Вам визначити успішність заходу.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Звіт щодо доходів від заходу (короткий опис)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Проводить загальний огляд доходів від події. Ви можете включити головну інформацію - таку як: ID події, реєстрація, кількість відвідань, та отриманий дохід - ця інформація допоможе Вам визначити успішність події.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Звіт щодо доходів від заходу (детальний опис)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Допомагає Вам проаналізувати дохід отриманий від події. Звіт може містити деталізовану інформацію, розподілену за типом учасників, статусом та платіжним методом.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Звіт за зобов\'язаннями',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Звіт за зобов\'язаннями', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Звіт по існуючим зобов\'язанням, за якими ще не було виплат',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Звіт по існуючим зобов\'язанням, за якими ще не було виплат', 0, 0, 1, @pledgeCompId, NULL),
@@ -5156,7 +5156,7 @@ VALUES
   (@option_group_id_we, 'Joomla Default Editor', 3, 'Joomla Default Editor', NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_we, 'Drupal Default Editor', 4, 'Drupal Default Editor', NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_mt, 'Редактор Пошуку',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Редактор пошуку',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Імпортувати контакт',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Імпортувати діяльність',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Імпортувати внески', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
@@ -5366,7 +5366,7 @@ VALUES
      (@option_group_id_arel, 'Обліковий запис податку з продажів є', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
-   (@option_group_id_ere, 'Роль Учасника', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_ere, 'Роль учасника', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- default conference slots
    (@option_group_id_conference_slot, 'Ранкові сесії', 1, 'Morning Sessions', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5726,7 +5726,7 @@ VALUES
     ('Expired',   'Термін дії завершився', 'end_date', 'month', 1, null, null, null, 0, 0, 4, 0, 1, 0),
     ('Pending',   'В очікуванні', 'join_date', null, null,'join_date',null,null, 0, 0, 5, 0, 1, 1),
     ('Cancelled', 'Відмінено', 'join_date', null, null,'join_date',null,null, 0, 0, 6, 0, 1, 1),
-    ('Deceased',  'Більше не існує', null, null, null, null, null, null, 0, 1, 7, 0, 1, 1);
+    ('Deceased',  'Помер', null, null, null, null, null, null, 0, 1, 7, 0, 1, 1);
 
 
 INSERT INTO `civicrm_preferences_date`
@@ -6146,7 +6146,7 @@ INSERT INTO civicrm_uf_field
        (  4,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Адреси електронної пошти',            'Contact',      NULL,  NULL),
        (  5,           'organization_name',     1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Назва організації',        'Organization', NULL,  NULL),
        (  5,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Адреси електронної пошти',            'Contact',      NULL,  NULL),
-       (  6,           'household_name',        1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Прізвище сім\'ї',           'Household',    NULL,  NULL),
+       (  6,           'household_name',        1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Назва домогосподарства',           'Household',    NULL,  NULL),
        (  6,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Адреси електронної пошти',            'Contact',      NULL,  NULL),
        (  7,           'phone',                 1,           0,           1,      'User and User Admin Only',  0,           0,             1,             'Домашній телефон',               'Contact',      NULL,  1 ),
        (  7,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             1,             'Особистий мобільний телефон',              'Contact',      NULL,  2 ),
@@ -6156,7 +6156,7 @@ INSERT INTO civicrm_uf_field
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'Поштовий код',              'Contact',      NULL,  NULL),
        (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'Основна електронна пошта',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'Групи',                   'Contact',      NULL,  NULL),
-       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Ярлики',                     'Contact',      NULL,  NULL),
+       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Теги',                     'Contact',      NULL,  NULL),
        (  7,           'gender_id',             1,           0,           10,     'User and User Admin Only',  0,           0,             NULL,          'Стать',                   'Individual',   NULL,  NULL),
        (  7,           'birth_date',            1,           0,           11,     'User and User Admin Only',  0,           0,             NULL,          'Дата народження',            'Individual',   NULL,  NULL),
        (  8,           'street_address',        1,           1,           1,      'User and User Admin Only',  0,           0,             1,             'Поштова адреса (домашня)',    'Contact',      NULL,  NULL),
@@ -6241,7 +6241,7 @@ INSERT INTO `civicrm_contact_type`
   (`id`, `name`, `label`,`image_URL`, `parent_id`, `is_active`,`is_reserved`)
  VALUES
   ( 1, 'Individual'  , 'Індивідуальний'  , NULL, NULL, 1, 1),
-  ( 2, 'Household'   , 'Сім\'я'   , NULL, NULL, 1, 1),
+  ( 2, 'Household'   , 'Домогосподарство'   , NULL, NULL, 1, 1),
   ( 3, 'Organization', 'Організація', NULL, NULL, 1, 1);
 
 -- +--------------------------------------------------------------------+
@@ -22822,7 +22822,7 @@ VALUES
   (@option_group_id_soft_credit_type   , 'На честь', 1, 'in_honor_of', 1, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'Пам\'яті', 2, 'in_memory_of', 2, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'Запитуваний', 3, 'solicited', 3, 1, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Сім\'я', 4, 'household', 4, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Домогосподарство', 4, 'household', 4, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Надання робочого місця', 5, 'workplace', 5, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Партнер фонду', 6, 'foundation_affiliate', 6, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Послуги 3-ї сторони', 7, '3rd-party_service', 7, 0, 1, 0),
@@ -23696,4 +23696,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.3';
+UPDATE civicrm_domain SET version = '4.6.4';

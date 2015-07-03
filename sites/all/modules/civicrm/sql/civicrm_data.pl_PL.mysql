@@ -4653,7 +4653,7 @@ VALUES
    ('case_type'                     , 'Case Type'                          , 1, 1, 0),
    ('case_status'                   , 'Case Status'                        , 1, 1, 0),
    ('participant_listing'           , 'Participant Listing'                , 1, 1, 0),
-   ('safe_file_extension'           , 'Safe File Extension'                , 1, 1, 0),
+   ('safe_file_extension'           , 'Bezpieczne rozszerzenie pliku'                , 1, 1, 0),
    ('from_email_address'            , 'From Email Address'                 , 1, 1, 0),
    ('mapping_type'                  , 'Mapping Type'                       , 1, 1, 1),
    ('wysiwyg_editor'                , 'Edytor WYSIWYG'                     , 1, 1, 0),
@@ -4921,7 +4921,7 @@ VALUES
   (@option_group_id_cs, 'In Progress', 5, 'In Progress', NULL, 0, NULL, 5, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Overdue'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Refunded'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Partially paid', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Częściowo płatne', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Oczekiwanie na zwrot kosztów', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcp, 'Waiting Review', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
@@ -4999,7 +4999,7 @@ VALUES
   (@option_group_id_asOpt, 'Rodzaj kontaktu'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Grupy'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Tagi'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Mailing'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Wysyłki'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_udOpt, 'Grupy'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Transakcje'              , 2, 'CiviContribute', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -5390,7 +5390,7 @@ VALUES
 
 -- Financial Item Status
    (@option_group_id_financial_item_status, 'Paid', 1, 'Paid', NULL, 0, 0, 1, 'Paid', 0, 1, 1, 2, NULL),
-   (@option_group_id_financial_item_status, 'Partially paid', 2, 'Partially paid', NULL, 0, 0, 2, 'Partially paid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, 'Częściowo płatne', 2, 'Partially paid', NULL, 0, 0, 2, 'Partially paid', 0, 1, 1, 2, NULL),
    (@option_group_id_financial_item_status, 'Unpaid', 3, 'Unpaid', NULL, 0, 0, 1, 'Unpaid', 0, 1, 1, 2, NULL),
 
 -- sms_api_type
@@ -5690,7 +5690,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 've_ZA', 've', 'Venda', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'vi_VN', 'vi', 'wietnamski', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'vo_XX', 'vo', 'Volapük', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'wa_BE', 'wa', 'Walloon', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'wa_BE', 'wa', 'waloński', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'cy_GB', 'cy', 'walijski', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'wo_SN', 'wo', 'wolof', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fy_NL', 'fy', 'zachodniofryzyjski', @counter := @counter + 1),
@@ -6150,7 +6150,7 @@ INSERT INTO civicrm_uf_field
        (  6,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Adres e-mail',            'Contact',      NULL,  NULL),
        (  7,           'phone',                 1,           0,           1,      'User and User Admin Only',  0,           0,             1,             'Telefon domowy',               'Contact',      NULL,  1 ),
        (  7,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             1,             'Telefon komórkowy domowy',              'Contact',      NULL,  2 ),
-       (  7,           'street_address',        1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Primary Address',          'Contact',      NULL,  NULL),
+       (  7,           'street_address',        1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Główny adres',          'Contact',      NULL,  NULL),
        (  7,           'city',                  1,           0,           4,      'User and User Admin Only',  0,           0,             NULL,          'Miejscowość',                     'Contact',      NULL,  NULL),
        (  7,           'state_province',        1,           0,           5,      'User and User Admin Only',  0,           0,             NULL,          'Województwo/Stan',                    'Contact',      NULL,  NULL),
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'Kod pocztowy',              'Contact',      NULL,  NULL),
@@ -6177,7 +6177,7 @@ INSERT INTO civicrm_uf_field
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Status', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Otrzymany', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Źródło', 'Contribution', NULL, NULL ),
-       ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Paid By', 'Contribution', NULL, NULL ),
+       ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Rodzaj płatności', 'Contribution', NULL, NULL ),
        ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'Check Number', 'Contribution', NULL, NULL ),
        ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Wyślij pokwitowanie', 'Contribution', NULL, NULL ),
        ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'Identyfikator rachunku/faktury', 'Contribution', NULL, NULL ),
@@ -6192,7 +6192,7 @@ INSERT INTO civicrm_uf_field
        ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Rodzaj finansowania', 'Membership', NULL, NULL ),
        ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Kwota', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, 'Otrzymany', 'Membership', NULL, NULL ),
-       ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Paid By', 'Membership', NULL, NULL ),
+       ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Rodzaj płatności', 'Membership', NULL, NULL ),
        ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Check Number', 'Membership', NULL, NULL ),
        ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, 'Stan płatności', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, '„Darowizna w imieniu”', 'Membership', NULL, NULL ),
@@ -6221,7 +6221,7 @@ INSERT INTO civicrm_participant_status_type
   (11, 'Rejected',                            'Rejected',                            'Negative', 1,           0,         0,          11,     2            ),
   (12, 'Expired',                             'Wygasła',                             'Negative', 1,           1,         0,          12,     2            ),
   (13, 'Pending in cart',                     'Pending in cart',                     'Pending',  1,           1,         0,          13,     2            ),
-  (14,  'Partially paid',                      'Partially paid',                      'Positive', 1,           1,         1,          14,     2           ),
+  (14,  'Partially paid',                      'Częściowo płatne',                      'Positive', 1,           1,         1,          14,     2           ),
   (15,  'Pending refund',                      'Oczekiwanie na zwrot kosztów',                      'Positive', 1,           1,         1,          14,     2           );
 
 
@@ -23696,4 +23696,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.3';
+UPDATE civicrm_domain SET version = '4.6.4';

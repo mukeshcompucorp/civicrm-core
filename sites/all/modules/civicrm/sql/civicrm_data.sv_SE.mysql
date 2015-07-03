@@ -4637,7 +4637,7 @@ VALUES
    ('contribution_status'           , 'Status för inbetalning'                , 1, 1, 1),
    ('pcp_status'                    , 'PCP Status'                         , 1, 1, 1),
    ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
-   ('participant_role'              , 'Deltagarens roll'                   , 1, 1, 0),
+   ('participant_role'              , 'Deltagarroll'                   , 1, 1, 0),
    ('event_type'                    , 'Arrangemangstyp'                         , 1, 1, 0),
    ('contact_view_options'          , 'Alternativ för att visa kontakter'               , 1, 1, 1),
    ('contact_smart_group_display'   , 'Contact Smart Group View Options'   , 1, 1, 1),
@@ -4694,7 +4694,7 @@ VALUES
    ('sms_api_type'                  , 'Api Type'                           , 1, 1, 0),
    ('sms_provider_name'             , 'Sms Provider Internal Name'         , 1, 1, 0),
    ('auto_renew_options'            , 'Auto Renew Options'                 , 1, 1, 1),
-   ('financial_account_type'        , 'Financial Account Type'             , 1, 1, 0),
+   ('financial_account_type'        , 'Kontotyp'             , 1, 1, 0),
    ('financial_item_status'         , 'Financial Item Status'              , 1, 1, 1),
    ('label_type'                    , 'Label Type'                         , 1, 1, 0),
    ('name_badge'                    , 'Namnskyltformat'                  , 1, 1, 0),
@@ -5029,7 +5029,7 @@ VALUES
 
   (@option_group_id_adOpt, 'Gatuadress'    ,  1, 'street_address', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Extraadress 1'  ,  2, 'supplemental_address_1', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Supplemental Address 2'  ,  3, 'supplemental_address_2', NULL, 0, NULL,  3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Extra adressinformation 2'  ,  3, 'supplemental_address_2', NULL, 0, NULL,  3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Postadress'              ,  4, 'city'          , NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Postnummer' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Postnummerändelse',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
@@ -5060,7 +5060,7 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Proximity'            , 6, 'CRM_Contact_Form_Search_Custom_Proximity', NULL, 0, NULL, 6, 'Geografisk sökning', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_EventAggregate'       , 7, 'CRM_Contact_Form_Search_Custom_EventAggregate', NULL, 0, NULL, 7, 'Event Aggregate', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ActivitySearch'       , 8, 'CRM_Contact_Form_Search_Custom_ActivitySearch', NULL, 0, NULL, 8, 'Åtgärdssökning', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'Price Set Details for Event Participants', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'Detaljerad avgiftsstrukturinformation för arrangemangsdeltagare', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, 'Postnummerspann', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'Datum tillagt till CiviCRM', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Custom Group Multiple Values Listing', 0, 0, 1, NULL, NULL),
@@ -5081,7 +5081,7 @@ VALUES
   (@option_group_id_report , 'Contributions by Household Report',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Displays a detailed list of contributions grouped by household which includes contributions made by members of the household.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Top Donors Report',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, 'Provides a list of the top donors during a time period you define. You can include as many donors as you want (for example, top 100 of your donors).', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'SYBUNT Report',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT betyder något eller några år men inte detta år. Visar en lista på kontakter som gjort inbetalningar till din organisation någon gång men som inte gjort det under den tidsperiod som du angett.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'LYBUNT Report',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT means last year but not this year. Provides a list of constituents who donated last year but did not donate during the time period you specify as the current year.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'LYBUNT Report',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT betyder förra året men inte i år (\"last year but not this\"). Get en lista på personer som betalat förra året men inte under den tidsperiod du angivit som nuvarande år.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Soft Credit Report',                      'contribute/softcredit',          'CRM_Report_Form_Contribute_SoftCredit',          NULL, 0, NULL, 14, 'Shows contributions made by contacts that have been soft-credited to other contacts.', 0, 0, 1,@contributeCompId, NULL),
   (@option_group_id_report , 'Medlemskapsrapport (Sammanfattning)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Provides a summary of memberships by type and join date.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Medlemskapsrapport (detaljerad)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Provides a list of members along with their membership status and membership details (Join Date, Start Date, End Date). Can also display contributions (payments) associated with each membership.', 0, 0, 1, @memberCompId, NULL),
@@ -5356,7 +5356,7 @@ VALUES
 -- account_relationship
     (@option_group_id_arel, 'Income Account is', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
     (@option_group_id_arel, 'Credit/Contra Account is', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
-    (@option_group_id_arel, 'Accounts Receivable Account is', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'Kundfordringar registreras på konto', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
     (@option_group_id_arel, 'Credit Liability Account is', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
      (@option_group_id_arel, 'Expense Account is', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Asset Account is', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
@@ -5366,7 +5366,7 @@ VALUES
      (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
-   (@option_group_id_ere, 'Deltagarens roll', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_ere, 'Deltagarroll', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- default conference slots
    (@option_group_id_conference_slot, 'Morning Sessions', 1, 'Morning Sessions', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5404,13 +5404,13 @@ VALUES
    (@option_group_id_aro, 'Reminder for Both', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- Label Type
-   (@option_group_id_label_type, 'Event Badge', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_label_type, 'Arrangemangsnamnskylt', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Name Label format
    (@option_group_id_name_badge, 'Avery 5395', '{"name":"Avery 5395","paper-size":"a4","metric":"mm","lMargin":15,"tMargin":26,"NX":2,"NY":4,"SpaceX":10,"SpaceY":5,"width":83,"height":57,"font-size":12,"orientation":"portrait","font-name":"helvetica","font-style":"","lPadding":3,"tPadding":3}', 'Avery 5395', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'A6 Badge Portrait 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Fattorini Name Badge 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Hanging Badge 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'A6 Namnskylt Porträtt 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Fattorini Namnskylt 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Hängande namnskylt 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
 
 -- Mailing Label Formats
   (@option_group_id_label, 'Avery 3475', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":10,"font-style":"","metric":"mm","lMargin":0,"tMargin":5,"NX":3,"NY":8,"SpaceX":0,"SpaceY":0,"width":70,"height":36,"lPadding":5.08,"tPadding":5.08}',                   '3475',  'Avery', NULL, 0, 1,  NULL, 0, 1, 1, NULL, NULL),
@@ -5454,7 +5454,7 @@ VALUES
   ( 'Arrangemangsavgift'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
   ( 'Banking Fees'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
   ( 'Deposit Bank Account' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
-  ( 'Accounts Receivable'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
+  ( 'Kundfordringar'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
   ( 'Accounts Payable'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
   ( 'Premiums'             , @contactID, @opCost, 'Account to record cost of premiums provided to payors', '5100', 'COGS', 0, 1, 0, 1 ),
   ( 'Premiums inventory'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
@@ -6106,7 +6106,7 @@ INSERT INTO civicrm_uf_group
     (id, name,                 group_type,           title,                                      is_cms_user, is_reserved, help_post) VALUES
     (1,  'name_and_address',   'Individual,Contact',  'Namn och adress',   0,           0,           NULL),
     (2,  'supporter_profile',  'Individual,Contact',  'Supporter Profile',  2,           0,           '<p><strong>The information you provide will NOT be shared with any third party organisations.</strong></p><p>Thank you for getting involved in our campaign!</p>'),
-    (3,  'participant_status', 'Participant',         'Deltagarens status',             0,      1,           NULL),
+    (3,  'participant_status', 'Participant',         'Deltagarstatus',             0,      1,           NULL),
     (4,  'new_individual',     'Individual,Contact',  'Ny person'    ,             0,      1,           NULL),
     (5,  'new_organization',   'Organization,Contact','Ny organisation'  ,             0,      1,           NULL),
     (6,  'new_household',      'Household,Contact',   'Nytt hushåll'     ,             0,      1,           NULL),
@@ -6140,7 +6140,7 @@ INSERT INTO civicrm_uf_field
        (  2,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Förnamn',               'Individual',   NULL,  NULL),
        (  2,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Efternamn',                'Individual',   NULL,  NULL),
        (  2,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'E-postadress',            'Contact',      NULL,  NULL),
-       (  3,           'participant_status',    1,           1,           1,      'User and User Admin Only',  0,           0,             NULL,          'Deltagarens status',       'Participant',  NULL,  NULL),
+       (  3,           'participant_status',    1,           1,           1,      'User and User Admin Only',  0,           0,             NULL,          'Deltagarstatus',       'Participant',  NULL,  NULL),
        (  4,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Förnamn',               'Individual',   NULL,  NULL),
        (  4,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Efternamn',                'Individual',   NULL,  NULL),
        (  4,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'E-postadress',            'Contact',      NULL,  NULL),
@@ -6172,13 +6172,13 @@ INSERT INTO civicrm_uf_field
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             'Postnummer',              'Contact',      NULL,   NULL),
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'Land',                  'Contact',      NULL,   NULL),
        (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Län/Landskap',         'Contact',      NULL,   NULL),
-       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Finansiell typ', 'Contribution', NULL, NULL ),
+       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Betalningstyp', 'Contribution', NULL, NULL ),
        ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Belopp', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Status', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Mottaget', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Källa', 'Contribution', NULL, NULL ),
        ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Betalat med', 'Contribution', NULL, NULL ),
-       ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'Check Number', 'Contribution', NULL, NULL ),
+       ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'Checknummer', 'Contribution', NULL, NULL ),
        ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Skicka kvittens', 'Contribution', NULL, NULL ),
        ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'Faktura-ID', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit', 'Contribution', NULL, NULL ),
@@ -6189,11 +6189,11 @@ INSERT INTO civicrm_uf_field
        ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Slutdatum', 'Membership', NULL, NULL ),
        ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Källa', 'Membership', NULL, NULL ),
        ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Skicka kvittens', 'Membership', NULL, NULL ),
-       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Finansiell typ', 'Membership', NULL, NULL ),
+       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Betalningstyp', 'Membership', NULL, NULL ),
        ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Belopp', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, 'Mottaget', 'Membership', NULL, NULL ),
        ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Betalat med', 'Membership', NULL, NULL ),
-       ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Check Number', 'Membership', NULL, NULL ),
+       ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Checknummer', 'Membership', NULL, NULL ),
        ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, 'Betalningsstatus', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Membership', NULL, NULL ),
@@ -22755,7 +22755,7 @@ SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_accoun
 SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Campaign Contribution';
 SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'Arrangemangsavgift';
 SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Banking Fees';
-SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Accounts Receivable';
+SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Kundfordringar';
 SELECT @financial_account_id_ar        := max(id) FROM civicrm_financial_account WHERE name = 'Deposit Bank Account';
 SELECT @financial_account_id_pp        := max(id) FROM civicrm_financial_account WHERE name = 'Payment Processor Account';
 SELECT @financial_account_id_pr        := max(id) FROM civicrm_financial_account WHERE name = 'Premiums';
@@ -23696,4 +23696,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.3';
+UPDATE civicrm_domain SET version = '4.6.4';
