@@ -8,6 +8,10 @@ base theme = porto
 ; Call style sheets.
 stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/theme-responsive.css
+stylesheets[all][] = css/custom.form.slider.css
+
+scripts[] = js/jquery.sglide.2.1.2.min.js
+scripts[] = js/custom.form.slider.js
 
 ; Define theme block regions.
 regions[header_top] = Header Top

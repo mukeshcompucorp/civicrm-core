@@ -1,0 +1,59 @@
+.crm-public .crm-public-form-item {
+	height: auto;
+	width: 100%;
+}
+
+.crm-public .crm-public-form-item .label {
+	display: block;
+	width: 100%;
+	color: #777777;
+  	font-family: "Open Sans", Arial, sans-serif;
+  	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.crm-public .crm-public-form-item .content {
+	display: block;
+        width: 100%;
+}
+
+.crm-container .crm-public-form-item.crm-section .content{
+	margin-left: auto;
+}
+
+.crm-public .crm-public-form-item input{
+	float: left;
+	width: 95%;
+	margin-left: auto;
+	padding: .2em .6em .3em;
+}
+
+#crm-container.crm-public .crm-public-form-item .label {
+	display: block;
+        width: 100%;
+        color: #777777;
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 14px;
+        margin-bottom: 5px;
+}
+
+#crm-container.crm-public .price-set-row .crm-price-amount-label {
+	float: left;
+}
+
+#crm-container.crm-public .price-set-row .crm-price-amount-amount {
+        float: left;
+}
+
+#crm-container.crm-public .calc-value {
+	float: left;
+}
+
+#crm-container.crm-public .price-set-row label {
+	float:left;
+}
+
+div.crm-container .crm-public-form-item fieldset label {
+	float: left;
+	margin-left: 3px;
+}
