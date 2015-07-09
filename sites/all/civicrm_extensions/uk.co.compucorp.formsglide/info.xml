@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<extension key="uk.co.compucorp.civicrm.sliderpips" type="module">
-  <file>sliderpips</file>
-  <name>Slider Pips Library</name>
-  <description>Add slider pips library</description>
+<extension key="uk.co.compucorp.civicrm.formsglide" type="module">
+  <file>formsglide</file>
+  <name>Form sGlide Library</name>
+  <description>Add sGlide library</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>Guanhuan Chen</author>
@@ -16,6 +16,6 @@
   </compatibility>
   <comments>This is a new, undeveloped module</comments>
   <civix>
-    <namespace>CRM/Sliderpips</namespace>
+    <namespace>CRM/sGlide</namespace>
   </civix>
 </extension>

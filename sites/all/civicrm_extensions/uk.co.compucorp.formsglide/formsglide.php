@@ -1,14 +1,14 @@
 <?php
 
-require_once 'sliderpips.civix.php';
+require_once 'formsglide.civix.php';
 
 /**
  * Implementation of hook_civicrm_config
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_config
  */
-function sliderpips_civicrm_config(&$config) {
-  _sliderpips_civix_civicrm_config($config);
+function formsglide_civicrm_config(&$config) {
+  _formsglide_civix_civicrm_config($config);
 }
 
 /**
@@ -18,8 +18,8 @@ function sliderpips_civicrm_config(&$config) {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_xmlMenu
  */
-function sliderpips_civicrm_xmlMenu(&$files) {
-  _sliderpips_civix_civicrm_xmlMenu($files);
+function formsglide_civicrm_xmlMenu(&$files) {
+  _formsglide_civix_civicrm_xmlMenu($files);
 }
 
 /**
@@ -27,8 +27,8 @@ function sliderpips_civicrm_xmlMenu(&$files) {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_install
  */
-function sliderpips_civicrm_install() {
-  return _sliderpips_civix_civicrm_install();
+function formsglide_civicrm_install() {
+  return _formsglide_civix_civicrm_install();
 }
 
 /**
@@ -36,8 +36,8 @@ function sliderpips_civicrm_install() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_uninstall
  */
-function sliderpips_civicrm_uninstall() {
-  return _sliderpips_civix_civicrm_uninstall();
+function formsglide_civicrm_uninstall() {
+  return _formsglide_civix_civicrm_uninstall();
 }
 
 /**
@@ -45,8 +45,8 @@ function sliderpips_civicrm_uninstall() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_enable
  */
-function sliderpips_civicrm_enable() {
-  return _sliderpips_civix_civicrm_enable();
+function formsglide_civicrm_enable() {
+  return _formsglide_civix_civicrm_enable();
 }
 
 /**
@@ -54,8 +54,8 @@ function sliderpips_civicrm_enable() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_disable
  */
-function sliderpips_civicrm_disable() {
-  return _sliderpips_civix_civicrm_disable();
+function formsglide_civicrm_disable() {
+  return _formsglide_civix_civicrm_disable();
 }
 
 /**
@@ -69,8 +69,8 @@ function sliderpips_civicrm_disable() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_upgrade
  */
-function sliderpips_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
-  return _sliderpips_civix_civicrm_upgrade($op, $queue);
+function formsglide_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+  return _formsglide_civix_civicrm_upgrade($op, $queue);
 }
 
 /**
@@ -81,8 +81,8 @@ function sliderpips_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_managed
  */
-function sliderpips_civicrm_managed(&$entities) {
-  return _sliderpips_civix_civicrm_managed($entities);
+function formsglide_civicrm_managed(&$entities) {
+  return _formsglide_civix_civicrm_managed($entities);
 }
 
 /**
@@ -94,8 +94,8 @@ function sliderpips_civicrm_managed(&$entities) {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_caseTypes
  */
-function sliderpips_civicrm_caseTypes(&$caseTypes) {
-  _sliderpips_civix_civicrm_caseTypes($caseTypes);
+function formsglide_civicrm_caseTypes(&$caseTypes) {
+  _formsglide_civix_civicrm_caseTypes($caseTypes);
 }
 
 /**
@@ -103,8 +103,8 @@ function sliderpips_civicrm_caseTypes(&$caseTypes) {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_alterSettingsFolders
  */
-function sliderpips_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
-  _sliderpips_civix_civicrm_alterSettingsFolders($metaDataFolders);
+function formsglide_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
+  _formsglide_civix_civicrm_alterSettingsFolders($metaDataFolders);
 }
 
 /**
@@ -113,9 +113,10 @@ function sliderpips_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  *    * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_alterTemplateFile
  *     
  */
-function sliderpips_civicrm_alterTemplateFile($formName, &$form, $context, &$tplName) {
+function formsglide_civicrm_alterTemplateFile($formName, &$form, $context, &$tplName) {
   if($formName=="CRM_Event_Form_Registration_Register"||$formName=="CRM_Event_Form_Registration_AdditionalParticipant"){
-  CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.sliderpips', 'library/slider-pips/jquery-ui-slider-pips.js', 200, "html-header");
-  CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.sliderpips', 'library/slider-pips/jquery-ui-slider-pips.css');
+  CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.formsglide', 'library/sglide/jquery.sglide.2.1.2.min.js', 200, "html-header");
+  CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.formsglide', 'library/sglide/custom.form.slider.js', 201, "html-header");
+  CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.formsglide', 'library/sglide/custom.form.slider.css');
   }
 }
