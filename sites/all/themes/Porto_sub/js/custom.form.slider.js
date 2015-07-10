@@ -17,7 +17,7 @@ $(".webform-component--civicrm-1-contact-1-fieldset-fieldset--civicrm-1-contact-
                 var defaultLabel = $('label[for="'+$(radios[Math.round(sliderMax/2)-1]).attr("id")+'"]').html();
         }
         var sliderTest = $('<div id="eventvisitfrequency" class="sglide" snap></div>');
-        var sliderResult = $('<div id="eventvisitfrequencyresult">'+defaultLabel+'</div>');
+        var sliderResult = $('<div id="eventvisitfrequencyresult" class="sglide-result" >'+defaultLabel+'</div>');
         sliderTest.appendTo(this);
         sliderResult.appendTo(this);
 
@@ -26,7 +26,7 @@ $(".webform-component--civicrm-1-contact-1-fieldset-fieldset--civicrm-1-contact-
                         pill    : false,
                         totalRange: [sliderMin, sliderMax],
                         colorShift      : ['#0A0A0A', '#0A0A0A'],
-                        height: 20,
+                        height: 26,
                         snap    : {
                                         points  : sliderMax,
                                         markers : true,
