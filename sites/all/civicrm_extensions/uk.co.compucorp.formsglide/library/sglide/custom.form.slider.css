@@ -14,3 +14,19 @@ div.sglide-result {
   font-size: 12px;
   color: black;
 }
+
+@media (min-width: 768px) {
+	div.sglide {
+		width: 95% !important;
+	}
+}
+
+@media (max-width: 768px) {
+        div.sglide {
+                width: 90% !important;
+        }
+
+	div.sglide-result {
+                width: 90%;
+        }
+}
