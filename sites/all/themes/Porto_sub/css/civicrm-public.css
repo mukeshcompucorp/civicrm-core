@@ -9,8 +9,76 @@
 	color: #777777;
   	font-family: "Open Sans", Arial, sans-serif;
   	font-size: 14px;
-	margin-bottom: 5px;
 }
+
+.crm-public .crm-public-form-item .content {
+	display: block;
+        width: 100%;
+}
+
+.crm-container .crm-public-form-item.crm-section .content{
+	margin-left: auto;
+}
+
+.crm-public .crm-public-form-item input{
+	float: left;
+	margin-left: auto;
+	padding: .2em .6em .3em;
+	clear: left;
+}
+
+.crm-public .crm-public-form-item input[type=checkbox]{
+	width: auto;
+}
+
+#crm-container.crm-public .crm-public-form-item .label {
+	display: block;
+        width: 100%;
+        color: #777777;
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 14px;
+}
+
+.crm-container.crm-public .crm-public-form-item div.content {
+	margin-left: 15px;
+}
+
+.crm-container.crm-public .crm-public-form-item div.label {
+        margin-left: 3px;
+}
+
+#crm-container.crm-public .price-set-row .crm-price-amount-label {
+	float: left;
+}
+
+#crm-container.crm-public .price-set-row .crm-price-amount-amount {
+        float: left;
+}
+
+#crm-container.crm-public .calc-value {
+	float: left;
+}
+
+#crm-container.crm-public .price-set-row label {
+	float:left;
+}
+
+div.crm-container .crm-public-form-item fieldset label {
+	margin-left: 3px;
+}
+
+/* CiviCRM event register form */
+
+#crm-container.crm-public form.CRM_Event_Form_Registration_Register {
+	margin-top: -80px;
+}
+
+#crm-container.crm-public form.CRM_Event_Form_Registration_Register fieldset {
+	background-color: transparent;
+	border: none;
+}
+
+/* CiviCRM event confirmation and thankyou */
 
 #crm-container.crm-public form#Confirm .crm-public-form-item .label {
   color: black;
@@ -54,74 +122,51 @@
   margin-bottom: 10px;
 }
 
-.crm-public .crm-public-form-item .content {
-	display: block;
-        width: 100%;
-}
-
-.crm-container .crm-public-form-item.crm-section .content{
-	margin-left: auto;
-}
-
-.crm-public .crm-public-form-item input{
-	float: left;
-	margin-left: auto;
-	padding: .2em .6em .3em;
-}
-
-#crm-container.crm-public .crm-public-form-item .label {
-	display: block;
-        width: 100%;
-        color: #777777;
-        font-family: "Open Sans", Arial, sans-serif;
-        font-size: 14px;
-        margin-bottom: 5px;
-}
-
-.crm-container.crm-public .crm-public-form-item div.content {
-	margin-left: 12px;
-}
-
-.crm-container.crm-public .crm-public-form-item div.label {
-        margin-left: 3px;
-}
-
-#crm-container.crm-public .price-set-row .crm-price-amount-label {
-	float: left;
-}
-
-#crm-container.crm-public .price-set-row .crm-price-amount-amount {
-        float: left;
-}
-
-#crm-container.crm-public .calc-value {
-	float: left;
-}
-
-#crm-container.crm-public .price-set-row label {
-	float:left;
-}
-
-div.crm-container .crm-public-form-item fieldset label {
-	float: left;
-	margin-left: 3px;
-}
+/* resolution specific */
 
 @media (max-width: 768px) {
+
+	#crm-container.crm-public form.CRM_Event_Form_Registration_Register{
+		width: 100%;
+	}
+
 	.crm-public .crm-public-form-item input{
 		width: 90%;
 	}
 
-	textarea {
+	.crm-public .crm-public-form-item textarea {
 		width: 90%;
 	}
+
+	.crm-container.crm-public .crm-public-form-item .select2-container{
+        	width: 92% !important;
+	}
+
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
+
+	#crm-container.crm-public form.CRM_Event_Form_Registration_Register{
+		margin-left: 15%;
+     		min-width: 600px;
+     		width: 70%;
+	}
+
 	.crm-public .crm-public-form-item input{
                 width: 95%;
         }
+
+	.crm-public .crm-public-form-item textarea {
+                width: 95%;
+        }
+
+	.crm-container.crm-public .crm-public-form-item .select2-container{
+        	width: 96.5% !important;
+	}
+
 }
+
+/* Webform  */
 
 .custom-noshown.webform-component.webform-component--civicrm-1-participant-1-participant-event-id {
 	display: none;
