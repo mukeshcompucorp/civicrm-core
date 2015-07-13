@@ -1,32 +1,44 @@
 div.sglide {
+  margin-top: 28px !important;
+  overflow: inherit !important;
   z-index: 1 !important; 
   border: #eee solid 1px;
   background-color: #F2F2F2;
 }
 
+div.follow_bar {
+  height: inherit !important;
+}
+
 div.slider_knob {
   background: rgb(171, 169, 169) !important;
-  
+  height: 33px !important;
+  margin-top: -3px;
 }
 
 div.sglide-result {
+  margin-top: 20px;
+  width: 90%;
+  left: -16px;
   text-align: center;
   font-size: 12px;
   color: black;
 }
 
-@media (min-width: 768px) {
-	div.sglide {
-		width: 95% !important;
-	}
+@media (max-width: 421px) {
+  div.slider_knob {
+    margin-top: -6px;
+  }
 }
 
 @media (max-width: 768px) {
-        div.sglide {
-                width: 90% !important;
-        }
+  div.sglide {
+    margin-left: 5px !important;
+  }
+}
 
-	div.sglide-result {
-                width: 90%;
-        }
+@media (min-width: 769px) {
+   div.sglide {
+    margin-left: 18px !important;
+  }
 }

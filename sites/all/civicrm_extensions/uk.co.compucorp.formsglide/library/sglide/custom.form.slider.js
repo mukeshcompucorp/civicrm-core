@@ -25,6 +25,7 @@ cj( document ).ready(function() {
                         totalRange: [sliderMin, sliderMax],
                         colorShift      : ['#0A0A0A', '#0A0A0A'],
                         height: 26,
+			width: 90,
                         snap    : {
                                         points  : sliderMax,
                                         markers : true,
