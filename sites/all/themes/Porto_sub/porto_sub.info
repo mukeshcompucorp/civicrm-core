@@ -9,6 +9,7 @@ base theme = porto
 stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/theme-responsive.css
 stylesheets[all][] = css/custom.form.slider.css
+stylesheets[all][] = css/civicrm-public.css
 
 scripts[] = js/jquery.sglide.2.1.2.min.js
 scripts[] = js/custom.form.slider.js

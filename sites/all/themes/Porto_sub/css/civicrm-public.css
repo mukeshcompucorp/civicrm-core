@@ -12,6 +12,48 @@
 	margin-bottom: 5px;
 }
 
+#crm-container.crm-public form#Confirm .crm-public-form-item .label {
+  color: black;
+}
+
+#crm-container.crm-public form#ThankYou .crm-public-form-item .label {
+  color: black;
+}
+
+#crm-container.crm-public form#Confirm .crm-public-form-item .content {
+  font-weight: 200;
+  font-size: 16px;
+}
+
+#crm-container.crm-public form#ThankYou .crm-public-form-item .content {
+  font-weight: 200;
+  font-size: 16px;
+}
+
+#crm-container.crm-public form#Confirm fieldset {
+  margin-top: auto;
+}
+
+#crm-container.crm-public form#ThankYou fieldset {
+  margin-top: auto;
+}
+
+#crm-container.crm-public form#Confirm fieldset .crm-profile-view-title{
+  border: 1px dashed #777777;
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+#crm-container.crm-public form#ThankYou fieldset .crm-profile-view-title{
+  border: 1px dashed #777777;
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
 .crm-public .crm-public-form-item .content {
 	display: block;
         width: 100%;
@@ -23,7 +65,6 @@
 
 .crm-public .crm-public-form-item input{
 	float: left;
-	width: 95%;
 	margin-left: auto;
 	padding: .2em .6em .3em;
 }
@@ -35,6 +76,14 @@
         font-family: "Open Sans", Arial, sans-serif;
         font-size: 14px;
         margin-bottom: 5px;
+}
+
+.crm-container.crm-public .crm-public-form-item div.content {
+	margin-left: 12px;
+}
+
+.crm-container.crm-public .crm-public-form-item div.label {
+        margin-left: 3px;
 }
 
 #crm-container.crm-public .price-set-row .crm-price-amount-label {
@@ -56,4 +105,24 @@
 div.crm-container .crm-public-form-item fieldset label {
 	float: left;
 	margin-left: 3px;
+}
+
+@media (max-width: 768px) {
+	.crm-public .crm-public-form-item input{
+		width: 90%;
+	}
+
+	textarea {
+		width: 90%;
+	}
+}
+
+@media (min-width: 768px) {
+	.crm-public .crm-public-form-item input{
+                width: 95%;
+        }
+}
+
+.custom-noshown.webform-component.webform-component--civicrm-1-participant-1-participant-event-id {
+	display: none;
 }
