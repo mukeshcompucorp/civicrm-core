@@ -164,7 +164,9 @@
     </div>
     {include file="CRM/common/paymentBlock.tpl"}
 
-    {include file="CRM/UF/Form/Block.tpl" fields=$customPost}
+    <div class="crm-public-form-item crm-section custom_pre-section" id="CustomPreBlock">
+      {include file="CRM/UF/Form/Block.tpl" fields=$customPost}
+    </div>
 
     {if $isCaptcha}
       {include file='CRM/common/ReCAPTCHA.tpl'}
