@@ -20,6 +20,10 @@
 	margin-left: auto;
 }
 
+.crm-container .crm-public-form-item .crm-marker {
+	color: #f00;
+}
+
 .crm-public .crm-public-form-item input{
 	float: left;
 	margin-left: auto;
