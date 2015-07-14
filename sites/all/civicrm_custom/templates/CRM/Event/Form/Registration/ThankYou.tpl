@@ -209,7 +209,7 @@
     {/if}
 
     <div class="action-link section event_info_link-section">
-        <a href="{crmURL p='civicrm/event/info' q="reset=1&id=`$event.id`"}">&raquo; {ts 1=$event.event_title}Back to "%1" event information{/ts}</a>
+        <a href="http://thephotographersgallery.org.uk/">&raquo; Back to The Photographers Gallery Home{/ts}</a>
     </div>
 
     {if $event.is_public }
