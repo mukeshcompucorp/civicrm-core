@@ -92,14 +92,26 @@ div.crm-container .crm-public-form-item fieldset label {
   color: black;
 }
 
+#crm-container.crm-public form#Confirm .crm-group.event_info-group strong{
+  color: black;
+  font-size: 18px;
+}
+
+#crm-container.crm-public form#ThankYou .crm-group.event_info-group strong{
+  color: black;
+  font-size: 18px;
+}
+
 #crm-container.crm-public form#Confirm .crm-public-form-item .content {
   font-weight: 200;
-  font-size: 16px;
+  font-size: 14px;
+  margin-left: 12px;
 }
 
 #crm-container.crm-public form#ThankYou .crm-public-form-item .content {
   font-weight: 200;
-  font-size: 16px;
+  font-size: 14px;
+  margin-left: 12px;
 }
 
 #crm-container.crm-public form#Confirm fieldset {

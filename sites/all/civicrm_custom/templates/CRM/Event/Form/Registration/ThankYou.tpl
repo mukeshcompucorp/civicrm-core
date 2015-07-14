@@ -209,7 +209,7 @@
     {/if}
 
     <div class="action-link section event_info_link-section">
-        <a href="http://thephotographersgallery.org.uk/">&raquo; Back to The Photographers Gallery Home{/ts}</a>
+        <a href="http://thephotographersgallery.org.uk/">&raquo; {ts}Back to The Photographers Gallery Home{/ts}</a>
     </div>
 
     {if $event.is_public }
