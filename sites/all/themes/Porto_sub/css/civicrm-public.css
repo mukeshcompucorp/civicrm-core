@@ -51,20 +51,17 @@
         margin-left: 3px;
 }
 
-#crm-container.crm-public .price-set-row .crm-price-amount-label {
-	float: left;
+div#priceset .content input {
+	width: auto;
+	margin-right: 10px;
 }
 
-#crm-container.crm-public .price-set-row .crm-price-amount-amount {
-        float: left;
+#crm-container.crm-public .price-field-amount {
+	display: inline-block;
 }
 
 #crm-container.crm-public .calc-value {
 	float: left;
-}
-
-#crm-container.crm-public .price-set-row label {
-	float:left;
 }
 
 div.crm-container .crm-public-form-item fieldset label {
