@@ -1,0 +1,13 @@
+name = Log2u
+description = "Reach you or your applications via emails and curl when watchdog log messages are generated."
+core = 7.x
+
+files[] = log2u.module
+files[] = log2u.admin.inc
+
+configure = admin/config/system/log2u
+
+version = "7.x-1.0"
+core = "7.x"
+project = "log2u"
+
