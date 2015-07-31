@@ -104,6 +104,12 @@ input.webform-previous {
 	width: 31%;
 }
 
+.webform-component select.form-select {
+        width: 100%;
+        height: 36px;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
 .webform-component input[readonly].form-text {
         background-color: #EDEDED;
         color: #9B9A9A;
@@ -126,6 +132,10 @@ input.webform-previous {
 .webform-component textarea.form-textarea {
         height: auto;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.webform-client-form fieldset legend {
+	margin-bottom: auto;
 }
 
 .webform-client-form #wf-crm-billing-items {

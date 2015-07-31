@@ -1,7 +1,7 @@
 (function($) {
 Drupal.behaviors.tpg_form_slider = {
 attach: function (context, settings) {
-$(".webform-component--civicrm-1-contact-1-fieldset-fieldset--civicrm-1-contact-1-cg5-custom-8").each(function() {
+$(".webform-component--civicrm-1-contact-1-fieldset-fieldset--civicrm-1-contact-1-cg5-custom-8, .webform-component--about-you--civicrm-1-contact-1-cg5-custom-8").each(function() {
         var radios = $(this).find(":radio");
         $(this).find(":radio").parent().hide();
         var sliderMin = parseInt(radios.first().val(), 10);
