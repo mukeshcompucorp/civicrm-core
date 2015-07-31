@@ -79,6 +79,17 @@ div.crm-container .crm-public-form-item fieldset label {
 	border: none;
 }
 
+/* CiviCRM event additional participant form */
+
+#crm-container.crm-public form.CRM_Event_Form_Registration_AdditionalParticipant {
+        margin-top: -80px;
+}
+
+#crm-container.crm-public form.CRM_Event_Form_Registration_AdditionalParticipant fieldset {
+        background-color: transparent;
+        border: none;
+}
+
 /* CiviCRM event confirmation and thankyou */
 
 #crm-container.crm-public form#Confirm .crm-public-form-item .label {
@@ -143,6 +154,10 @@ div.crm-container .crm-public-form-item fieldset label {
 		width: 100%;
 	}
 
+	#crm-container.crm-public form.CRM_Event_Form_Registration_AdditionalParticipant{
+                width: 100%;
+        }
+
 	.crm-public .crm-public-form-item input{
 		width: 90%;
 	}
@@ -164,6 +179,12 @@ div.crm-container .crm-public-form-item fieldset label {
      		min-width: 600px;
      		width: 70%;
 	}
+
+	#crm-container.crm-public form.CRM_Event_Form_Registration_AdditionalParticipant{
+                margin-left: 15%;
+                min-width: 600px;
+                width: 70%;
+        }
 
 	.crm-public .crm-public-form-item input{
                 width: 95%;
