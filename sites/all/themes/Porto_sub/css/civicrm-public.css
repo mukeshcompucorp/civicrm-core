@@ -79,6 +79,17 @@ div.crm-container .crm-public-form-item fieldset label {
 	border: none;
 }
 
+#crm-container.crm-public form.CRM_Event_Form_Registration_Register table:nth-child(2) {
+        margin-top: 80px;
+        margin-bottom: -50px;
+        margin-left: 10px;
+}
+
+.crm-container form table label[for=discountcode] {
+	font-size: 14px;
+	color: #777777;
+}
+
 /* CiviCRM event additional participant form */
 
 #crm-container.crm-public form.CRM_Event_Form_Registration_AdditionalParticipant {
