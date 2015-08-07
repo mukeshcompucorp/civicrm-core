@@ -103,16 +103,6 @@ function form_email_custom_validate($form, &$form_state) {
         }
         
         $emails = implode("','", $submitted_email_values);
-        $drupalQuery = "SELECT mail FROM users WHERE mail in ('".$emails."')";
-        $drupalResult = db_query($drupalQuery);
-        $drupalRecord = $drupalResult->fetchCol();
-        $validate_message = 'The email address you have entered already exists on our system, if you have forgotten your password please '.'<a href="'.$contact_us_url.'">contact us</a>'.'.';
-
-        foreach ($submitted_email_values as $key => $value) {
-          if(in_array($value, $drupalRecord)){
-            form_set_error($submitted_email_paths[$key], $validate_message);
-          }
-        }
         
         if(!is_null($civicrm_db_key)) {
           db_set_active($civicrm_db_key);
