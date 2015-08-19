@@ -336,11 +336,12 @@ function mailchimp_civicrm_pre( $op, $objectName, $id, &$params ) {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_permission
  */
-function mailchimp_civicrm_permission( &$permissions ) {
-  $prefix = ts('Mailchimp') . ': '; // name of extension or module
-  $permissions = array(
-    'allow webhook posts' => $prefix . ts('allow webhook posts'),
-  );
+function mailchimp_civicrm_permission(&$permissions) {
+  //Until the Joomla/Civi integration is fixed, don't declare new perms
+  // for Joomla installs
+  if (CRM_Core_Config::singleton()->userPermissionClass->isModulePermissionSupported()) {
+    $permissions = array_merge($permissions, CRM_Mailchimp_Permission::getMailchimpPermissions());
+  }
 }
 
 /**
@@ -417,7 +418,11 @@ function mailchimp_civicrm_post( $op, $objectName, $objectId, &$objectRef ) {
 			// Get all groups, the contact is subscribed to
 			$civiGroups = CRM_Contact_BAO_GroupContact::getGroupList($objectId);
 			$civiGroups = array_keys($civiGroups);
-			
+
+			if (empty($civiGroups)) {
+				return;
+			}
+
 			// Get mailchimp details
 			$groups = CRM_Mailchimp_Utils::getGroupsToSync($civiGroups);
 			
