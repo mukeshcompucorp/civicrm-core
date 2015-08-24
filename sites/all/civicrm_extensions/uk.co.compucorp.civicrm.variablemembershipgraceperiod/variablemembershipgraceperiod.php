@@ -126,31 +126,9 @@ function variablemembershipgraceperiod_civicrm_alterSettingsFolders(&$metaDataFo
 
 function variablemembershipgraceperiod_civicrm_alterCalculatedMembershipStatus(&$membershipStatus, $arguments, $membership) {
 
-  /*
-  2 - Standard - Year on year
-  3 - Standard - Annual Direct Debit
-  4 - Concession - Year on year
-  5 - Concession - Direct Debit
-  6 - Associate membership - Year on year
-  7 - Associate membership - Direct debit
-  8 - Patrons - Direct Debit
-  9 - Patrons - Annual Direct Debit
-  10 - Patrons - Year on year
-  14 - Directors Circle - Monthly direct debit
-  15 - Directors Circle - Annual direct debit
-  16 - Directors Circle - Year on year
-  17 - TPG council - Monthly direct debit
-  18 - TPG council - Annual direct debit
-  19 - TPG council - Year on year
-  20 - TPG Contemporaries - Discounted Rate - Year on Year
-  21 - TPG Contemporaries - Discounted Rate - Monthly Direct Debit
-  22 - TPG Contemporaries - Discounted Rate - Annual Direct Debit
-  */
-
-  // memberships that are to have a grace period of 3 months.
   $memberships = array(8,9,10,14,15,16,18,19,20,21,22);
 
-  if(empty($arguments['membership_type_id']) || !in_array($arguments['membership_type_id'], $memberships)) {
+  if(empty($arguments['membership_type_id']) || !in_array($arguments['membership_type_id'], array(8, 9, 10))) {
     return;
   }
 
