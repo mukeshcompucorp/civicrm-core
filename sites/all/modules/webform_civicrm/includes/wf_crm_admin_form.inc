@@ -553,6 +553,10 @@ class wf_crm_admin_form {
    * FIXME: This is exactly the same code as buildGrantTab. More utilities and less boilerplate needed.
    */
   private function buildCaseTab() {
+    $types = wf_crm_apivalues('case', 'getoptions', array('field' => 'case_type_id'));
+    if (!$types) {
+      return;
+    }
     $this->form['caseTab'] = array(
       '#type' => 'fieldset',
       '#title' => t('Cases'),
@@ -584,7 +588,7 @@ class wf_crm_admin_form {
       );
       $this->help($this->form['caseTab']['case'][$fs]["case_{$n}_settings_existing_case_status"], 'existing_case_status');
       $case_type = wf_crm_aval($this->data, "case:{$n}:case:1:case_type_id");
-      foreach ($this->getCaseSets($case_type) as $sid => $set) {
+      foreach ($this->filterCaseSets($case_type) as $sid => $set) {
         $fs1 = "case_case_{$n}_fieldset_$sid";
         if ($sid == 'case') {
           $pos = &$this->form['caseTab']['case'][$fs];
@@ -615,7 +619,7 @@ class wf_crm_admin_form {
    * @param int|null $case_type
    * @return array
    */
-  private function getCaseSets($case_type) {
+  private function filterCaseSets($case_type) {
     $case_sets = array();
     foreach ($this->sets as $sid => $set) {
       if ($set['entity_type'] == 'case' && (!$case_type || empty($set['sub_types']) || in_array($case_type, $set['sub_types']))) {
@@ -638,15 +642,11 @@ class wf_crm_admin_form {
             $rel_type = wf_civicrm_api('relationshipType', 'getsingle', array('name_b_a' => $creator));
             $label = $creator == $manager ? ts('Case # Creator/Manager') : ts('Case # Creator');
             $set['fields']['case_creator_id']['name'] = $rel_type['label_b_a'] . ' (' . $label . ')';
+            unset($set['fields']['case_role_' . $rel_type['id']]);
           }
-          if ($manager) {
-            if ($creator == $manager) {
-              unset($set['fields']['case_role_' . $rel_type['id']]);
-            }
-            else {
-              $rel_type = wf_civicrm_api('relationshipType', 'getsingle', array('name_b_a' => $manager));
-              $set['fields']['case_role_' . $rel_type['id']]['name'] .= ' (' . ts('Case # Manager') . ')';
-            }
+          if ($manager && $manager != $creator) {
+            $rel_type = wf_civicrm_api('relationshipType', 'getsingle', array('name_b_a' => $manager));
+            $set['fields']['case_role_' . $rel_type['id']]['name'] .= ' (' . ts('Case # Manager') . ')';
           }
         }
         $case_sets[$sid] = $set;
@@ -940,6 +940,10 @@ class wf_crm_admin_form {
    * FIXME: This is nearly the same code as buildCaseTab. More utilities and less boilerplate needed.
    */
   private function buildGrantTab() {
+    $types = wf_crm_apivalues('grant', 'getoptions', array('field' => 'grant_type_id'));
+    if (!$types) {
+      return;
+    }
     $this->form['grantTab'] = array(
       '#type' => 'fieldset',
       '#title' => t('Grants'),
@@ -1549,10 +1553,10 @@ class wf_crm_admin_form {
         }
       }
       if (count($created) == 1) {
-        drupal_set_message(t('Created field: %name', array('%name' => $created[0])));
+        drupal_set_message(t('Added field: %name', array('%name' => $created[0])));
       }
       elseif ($created) {
-        drupal_set_message(t('Created !num new fields.', array('!num' => count($created))));
+        drupal_set_message(t('Added !num fields to the form.', array('!num' => count($created))));
       }
 
       // Create record
