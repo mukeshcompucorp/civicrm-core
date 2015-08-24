@@ -4286,7 +4286,8 @@ INSERT INTO civicrm_state_province (id, country_id, abbreviation, name) VALUES
 (NULL, 1081, "RL", "Racha-Lechkhumi and Kvemo Svaneti"),
 (NULL, 1081, "SZ", "Samegrelo-Zemo Svaneti"),
 (NULL, 1081, "SJ", "Samtskhe-Javakheti"),
-(NULL, 1081, "SK", "Shida Kartli");
+(NULL, 1081, "SK", "Shida Kartli"),
+(NULL, 1074, "C", "Central");
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
 -- +--------------------------------------------------------------------+
@@ -4627,7 +4628,7 @@ VALUES
    ('preferred_communication_method', 'Переважний спосіб спілкування'     , 1, 1, 0),
    ('activity_type'                 , 'Тип діяльності'                      , 1, 1, 0),
    ('gender'                        , 'Стать'                             , 1, 1, 0),
-   ('instant_messenger_service'     , 'Екранні імена у системі Миттєвих Повідомлень (МП)', 1, 1, 0),
+   ('instant_messenger_service'     , 'Імена вікон у системі Миттєвих Повідомлень (МП)', 1, 1, 0),
    ('mobile_provider'               , 'Провайдер мобільного зв\'язку'             , 1, 1, 0),
    ('individual_prefix'             , 'Особисті контактні префікси'        , 1, 1, 0),
    ('individual_suffix'             , 'Особисті контактні суфікси'        , 1, 1, 0),
@@ -4635,27 +4636,27 @@ VALUES
    ('accept_creditcard'             , 'Приймаються кредитні картки'              , 1, 1, 0),
    ('payment_instrument'            , 'Платіжні засоби'                , 1, 1, 0),
    ('contribution_status'           , 'Статус внесків'                , 1, 1, 1),
-   ('pcp_status'                    , 'Статус PCP'                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'Сповіщення власника PCP'            , 1, 1, 1),
+   ('pcp_status'                    , 'Статус ПСК'                         , 1, 1, 1),
+   ('pcp_owner_notify'              , 'Сповіщення власника ПСК'            , 1, 1, 1),
    ('participant_role'              , 'Роль учасника'                   , 1, 1, 0),
    ('event_type'                    , 'Тип події'                         , 1, 1, 0),
    ('contact_view_options'          , 'Переглянути опції контакту'               , 1, 1, 1),
    ('contact_smart_group_display'   , 'Опції перегляду контакту в Смарт-групі'   , 1, 1, 1),
    ('contact_edit_options'          , 'Опції редагування контакту'               , 1, 1, 1),
-   ('advanced_search_options'       , 'Опції розширеного пошуку'            , 1, 1, 1),
+   ('advanced_search_options'       , 'Параметри розширеного пошуку'            , 1, 1, 1),
    ('user_dashboard_options'        , 'Опції панелі управління користувача'             , 1, 1, 1),
    ('address_options'               , 'Варіанти Адресації'                 , 1, 1, 0),
    ('group_type'                    , 'Тип групи'                         , 1, 1, 0),
-   ('grant_status'                  , 'Надавати Статус'                       , 1, 1, 0),
+   ('grant_status'                  , 'Статус гранту'                       , 1, 1, 0),
    ('grant_type'                    , 'Надати Тип'                         , 1, 1, 0),
    ('custom_search'                 , 'Індивідуальний пошук'                      , 1, 1, 0),
    ('activity_status'               , 'Статус діяльності'                    , 1, 1, 0),
    ('case_type'                     , 'Тип Справи'                          , 1, 1, 0),
-   ('case_status'                   , 'Статус Справи'                        , 1, 1, 0),
+   ('case_status'                   , 'Статус справи'                        , 1, 1, 0),
    ('participant_listing'           , 'Перелік Учасників.'                , 1, 1, 0),
    ('safe_file_extension'           , 'Безпечні розширення файлів'                , 1, 1, 0),
    ('from_email_address'            , 'Електронна адреса відправника'                 , 1, 1, 0),
-   ('mapping_type'                  , 'Тип Картування'                       , 1, 1, 1),
+   ('mapping_type'                  , 'Тип картування/схеми'                       , 1, 1, 1),
    ('wysiwyg_editor'                , 'Редактор Повної графічної відповідності'                     , 1, 1, 0),
    ('recur_frequency_units'         , 'Одиниці частоти повторів'          , 1, 1, 0),
    ('phone_type'                    , 'Тип телефону'                         , 1, 1, 0),
@@ -4692,7 +4693,7 @@ VALUES
    ('batch_mode'                    , 'Пакетний режим'                         , 1, 1, 1),
    ('batch_status'                  , 'Пакетний статус'                       , 1, 1, 1),
    ('sms_api_type'                  , 'Тип Арі'                           , 1, 1, 0),
-   ('sms_provider_name'             , 'Внутрішнє ім\'я смс-провайдера'         , 1, 1, 0),
+   ('sms_provider_name'             , 'Внутрішнє ім\'я СМС-провайдера'         , 1, 1, 0),
    ('auto_renew_options'            , 'Опції автоматичного оновлення'                 , 1, 1, 1),
    ('financial_account_type'        , 'Тип Фінансового рахунку'             , 1, 1, 0),
    ('financial_item_status'         , 'Статус Фінансової позиції'              , 1, 1, 1),
@@ -4800,12 +4801,12 @@ VALUES
    (@option_group_id_act, 'Зустріч',                            1, 'Meeting', NULL, 0, NULL, 1, NULL,                                                                       0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Телефонний дзвінок',                         2, 'Phone Call',          NULL, 0, NULL, 2, NULL,                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Eлектронна пошта',                              3, 'Email',               NULL, 1, NULL, 3, 'Електронний лист відправлений.',                                                          0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Вихідне смс-повідомлення',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Текстове повідомлення (СМС) відправлено.',                                             0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Вихідне СМС-повідомлення',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Текстове повідомлення (СМС) відправлено.',                                             0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Реєстрація на подію',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Он-лайн або оф-лайн реєстрація події.',                                0, 1, 1, @eventCompId, NULL),
-   (@option_group_id_act, 'Внесок',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Он-лайн або оф-лайн внесок',                                      0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Внесок',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Он-лайн або оф-лайн внески',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Заявка на Членство',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Он-лайн або оф-лайн заявка на членство.',                                 0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Подовження членства',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'Он-лайн або оф-лайн подовження членства.',                                0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, 'Сказати другу',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Надіслати другу інформацію про кампанію внесків або захід.', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Розказати друзям',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Надіслати другу інформацію про кампанію внесків або захід.', 0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Підтвердження зобов\'язання по платежу',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Відправити підтвердження зобов\'язання по платежу',                                     0, 1, 1, @pledgeCompId, NULL),
    (@option_group_id_act, 'Нагадування про зобов\'язання по платежу',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Відправити нагадування про зобов\'язання по платежу',                                               0, 1, 1, @pledgeCompId, NULL),
    (@option_group_id_act, 'Вхідний Е-мейл',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Вхідний Е-мейл.',                                                     0, 1, 1, NULL, NULL),
@@ -4814,7 +4815,7 @@ VALUES
    (@option_group_id_act, 'Відкрити Справу',          13, 'Open Case',          NULL, 0,  0, 13, '', 0, 1, 1, @caseCompId, NULL),
    (@option_group_id_act, 'Контроль виконання',          14, 'Follow up',          NULL, 0,  0, 14, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Змінити Тип Справи',   15, 'Change Case Type',   NULL, 0,  0, 15, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Змінити Статус Справи', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, 'Змінити статус справи', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
 
    (@option_group_id_act, 'Нагадування про Подовження членства',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'оф-лайн нагадування про подовження членства.',                      0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Змінити Дату початку Справи',             18, 'Change Case Start Date',         NULL, 0,  0, 18, '', 0, 1, 1, @caseCompId, NULL ),
@@ -4829,7 +4830,7 @@ VALUES
    (@option_group_id_act, 'Додати Клієнта до Справи',                 27, 'Add Client To Case', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Activity Types for CiviCampaign
-   (@option_group_id_act, 'Дослідження',                             28, 'Survey', NULL,0, 0, 27, '', 0, 1, 1, @campaignCompId, NULL),
+   (@option_group_id_act, 'Опитування',                             28, 'Survey', NULL,0, 0, 27, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Зустрічі з виборцями',                            29, 'Canvass', NULL,0, 0, 28, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Банк Телефонів',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Перелік для візитів',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
@@ -4850,7 +4851,7 @@ VALUES
    (@option_group_id_act, 'Нагадування надіслане',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
 
  -- Activity Types for Financial Transactions Batch
-   (@option_group_id_act, 'Експортувати Рахунковий пакетний процес', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Експортувати Пакетну фінансову операцію', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Створити Пакетний процес', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Редагувати Пакет', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
 
@@ -4868,8 +4869,12 @@ VALUES
  -- for Print or Email Contribution Invoices
    (@option_group_id_act, 'Завантажити інвойс', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Завантажений інвойс.',0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Інвойс, відправлений електронною поштою', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Інвойс, відправлений електронною поштою.',0, 1, 1, NULL, NULL),
- -- for manual contact merge
-   (@option_group_id_act, 'Контакт об\'єднаний з іншим', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Контакт об\'єднаний з іншим',0, 1, 1, NULL, NULL), 
+
+  -- for manual contact merge
+   (@option_group_id_act, 'Контакт об\'єднаний з іншим', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Контакт об\'єднаний з іншим',0, 1, 1, NULL, NULL),
+
+  -- Activity Type for failed payment
+   (@option_group_id_act, 'Failed Payment', 52, 'Failed Payment', NULL, 1, 0, 43, 'Failed Payment', 0, 1, 1, @contributeCompId, NULL),
 
    (@option_group_id_gender, 'Жіноча',      1, 'Female',      NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_gender, 'Чоловіча',        2, 'Male',        NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4957,7 +4962,7 @@ VALUES
   (@option_group_id_cvOpt, 'Події'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Індивідуальні справи'        ,  10, 'CiviCase', NULL, 0, NULL,  10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Гранти'       ,  11, 'CiviGrant', NULL, 0, NULL,  11, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Застави'      ,  13, 'CiviPledge', NULL, 0, NULL,  13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Платіжні зобов’язання'      ,  13, 'CiviPledge', NULL, 0, NULL,  13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Поштова розсилка'     ,  14, 'CiviMail', NULL, 0, NULL,  14, NULL, 0, 0, 1, NULL, NULL),
 
 
@@ -4974,7 +4979,7 @@ VALUES
   (@option_group_id_ceOpt, 'Eлектронна пошта'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Телефон'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Служба обміну миттєвими повідомленнями (ІМ)'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Відкрити ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Відкритий ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Веб-сайт'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Префікс'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Офіційне звернення'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
@@ -4995,7 +5000,7 @@ VALUES
   (@option_group_id_asOpt, 'Індивідуальні справи'                   ,  10, 'CiviCase', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
     (@option_group_id_asOpt, 'Grants'                                        ,  12, 'CiviGrant', NULL, 0, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Демографія'            ,  13, 'demographics', NULL, 0, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Застави'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Платіжні зобов’язання'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Тип контакту'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Групи'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Теги'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
@@ -5006,8 +5011,8 @@ VALUES
   (@option_group_id_udOpt, 'Членство'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Події'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Мої контакти/організації', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Застави'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Особисті сторінки кампанії'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Платіжні зобов’язання'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Персональні сторінки кампаній'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Пов\'язані діяльності'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Інвойси / кредит-ноти'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5065,33 +5070,33 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'Додана дата до CiviCRM', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Перелік множинних значень Групи, яка налаштовується', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'Внески, зроблені за рік Х, але не за рік У', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'Знайти розмір внеску за міткою', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'Знайти розмір внеску за тегом', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, 'Пошук за повним текстом', 0, 0, 1, NULL, NULL),
 
 -- report templates
-  (@option_group_id_report , 'Звіт виборців (Резюме)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Надає перелік адрес та телефонів записів виборців у Вашій системі.', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Звіт виборців (Детальний)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Надає інформацію, що містить контактні дані щодо внесків, членства, заходів та діяльностей.',   0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Звіт щодо діяльності',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Надає список діяльності виборців включаючи статистику діяльності для одного/всіх контактів в зазначеному часовому проміжку (необхідно)', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Звіт по громадянах  (короткий)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Надає перелік адрес та телефонів по записах громадян у Вашій системі.', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Звіт по громадянах (детальний)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Надає інформацію, що містить контактні дані щодо внесків, членства, заходів та діяльностей.',   0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Звіт по діяльності',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Надає список діяльності громадян, включаючи статистику діяльності для одного/всіх контактів в зазначеному часовому проміжку (необхідно вказати)', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Звіт по Переліку телефонів/адрес для візитів',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Надає детальний звіт по переліку телефонів/адрес для візитів для помічених контактів', 0, 0, 0, NULL, NULL),
   (@option_group_id_report , 'Поточний звіт роботодавця',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Надає деталізований перелік відносин \"роботодавець-працівник\" разом з подробицями про роботодавця на дату колишнього працевлаштування', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Короткий звіт по внескам',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Групи і загальні показники внесків за критеріями, включаючи контакт, період часу, фінансовий тип, місцезнаходження суб\'єкта внеску тощо.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Деталізований звіт по внескам',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Перераховує певні внески за критеріями, включаючи інформацію про контакт, часовий проміжок, тип внесків, місцезнаходження суб\'єкту внеску тощо. Короткий звіт щодо внесків включається в колонку деталізованої інформації по внескам.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Повторний звіт по внескам',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Якщо задані два часових проміжка, виводиться інформація про контакти, які зробили внески в кожному часовому проміжку, та суму внеску, а також відсоток збільшення/зменшення.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Звіт по внескам від організацій',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Відображає деталізований список внесків, які згруповані по організаціям, та які включають внески зроблені працівниками цих організацій.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо внесків по домогосподарствам',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Відображає детальний перелік внесків, згрупований за домогосподарствами, і включає внески, зроблені членами домогосподарства.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Короткий звіт по внесках',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Групи і загальні показники внесків за критеріями, включаючи контакт, період часу, фінансовий тип, місцезнаходження суб\'єкта внеску тощо.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Детальний звіт по внесках',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Перераховує певні внески за критеріями, включаючи інформацію про контакт, часовий проміжок, тип внесків, місцезнаходження суб\'єкту внеску тощо. Короткий звіт по внесках включається в колонку деталізованої інформації по внесках.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Звіт по повторюваних внесках',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Якщо задані два часових проміжка, виводиться інформація про контакти, які зробили внески в кожному часовому проміжку, та суму внеску, а також відсоток збільшення/зменшення.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Звіт по внесках від організацій',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Відображає деталізований список внесків, які згруповані по організаціям, та які включають внески зроблені працівниками цих організацій.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Звіт по внесках домогосподарств',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Відображає детальний перелік внесків, згрупований за домогосподарствами, і включає внески, зроблені членами домогосподарства.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Звіт про топ спонсорів',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, 'Надає список топ спонсорів за визначений Вами період часу. Ви можете включити таку кількість спонсорів, яку захочете (наприклад, топ 100 спонсорів).', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'SYBUNT Звіт',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT означає: \"у певний рік (роки), але не в цей\". Надає список виборців, які зробили внески в певний проміжок часу існування Вашої організації, але не зробили внесок в той період часу, що був визначений Вами.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'LYBUNT Звіт',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT означає: \"минулого року, але не в цей рік\". Надає інформацію про список виборців, які зробили внески минулого року, але не зробили внески у проміжок часу, визначений Вами як поточний рік.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'SYBUNT Звіт',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT означає: \"у певний рік (роки), але не в цей рік\". Надає список громадян, які зробили внески в певний проміжок часу існування Вашої організації, але не зробили внесок в той період часу, що був визначений Вами.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'LYBUNT Звіт',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT означає: \"минулого року, але не в цей рік\". Надає інформацію про список громадян, які зробили внески минулого року, але не зробили внески у проміжок часу, визначений Вами як поточний рік.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Звіт по Пільговому кредиту',                      'contribute/softcredit',          'CRM_Report_Form_Contribute_SoftCredit',          NULL, 0, NULL, 14, 'Показує внески, зроблені контактами, які були визначені як пільгові кредити для інших контактів.', 0, 0, 1,@contributeCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо членства (короткий опис)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Надає підсумок по членству за типом і датою приєднання.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо членства (Деталізований)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Надає список членів, включаючи їхній членський статус та деталізовану інформацію по членству (дата приєднання, дата початку, дата закінчення). Також може відображати внески (платежі) асоційовані з кожним членством.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо членства (минулий)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Надає список членств, які вже не дійсні, або стануть недійсними на обрану Вами дату.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо учасників заходу (Перелік)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Надає список учасників заходу.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо доходів від заходу (короткий опис)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Проводить загальний огляд доходів від події. Ви можете включити головну інформацію - таку як: ID події, реєстрація, кількість відвідань, та отриманий дохід - ця інформація допоможе Вам визначити успішність події.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо доходів від заходу (детальний опис)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Допомагає Вам проаналізувати дохід отриманий від події. Звіт може містити деталізовану інформацію, розподілену за типом учасників, статусом та платіжним методом.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Звіт по членству (короткий)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Надає підсумок по членству за типом і датою приєднання.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Звіт по членству (детальний)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Надає список членів, включаючи їхній членський статус та деталізовану інформацію по членству (дата приєднання, дата початку, дата закінчення). Також може відображати внески (платежі) асоційовані з кожним членством.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Звіт по членствах (які закінчилися)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Надає список членств, які вже не дійсні, або стануть недійсними на обрану Вами дату.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Звіт по учасниках події (перелік)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Надає список учасників заходу.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Звіт по дохідності події (короткий)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Надає загальний огляд доходів від події. Ви можете включити основну інформацію, зокрема: ID події, реєстрація, кількість відвідувань, та отриманий дохід - ця інформація допоможе Вам визначити успішність події.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Звіт по дохідності події (детальний)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Допомагає Вам проаналізувати дохід отриманий від події. Звіт може містити деталізовану інформацію, розподілену за типом учасників, статусом та платіжним методом.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Звіт за зобов\'язаннями',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Звіт за зобов\'язаннями', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Звіт по існуючим зобов\'язанням, за якими ще не було виплат',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Звіт по існуючим зобов\'язанням, за якими ще не було виплат', 0, 0, 1, @pledgeCompId, NULL),
-  (@option_group_id_report , 'Звіт щодо відносин',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Звіт щодо відносин', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Звіт по відносинах',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Звіт по відносинах', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Короткий звіт за справою',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Надає короткий опис справ та їхніх термінів за діапазоном дат, статусом, штатом виконавців та/або роллю справи.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Звіт по часу, витраченому за справою ',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Підсумовує час, витрачений на кейсові та / або не пов\'язані з кейсами заходи за типом діяльності та контактами.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Звіт демографічної ситуації по контактах',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'Демографічне розподілення клієнтів у справі (або не пов\'язаних зі справою контактів) у ВАшій базі даних. Включає контактні поля, що налаштовуються користувачем.', 0, 0, 1, @caseCompId, NULL),
@@ -5102,7 +5107,7 @@ VALUES
   (@option_group_id_report, 'Звіт Підрахунку Переліку  Учасників', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, 'Показує перелік учасників з підрахунком учасників.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'Короткий звіт підрахунку доходів', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'Показує Короткий звіт по доходах від заходів з підрахунком.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'Деталізований звіт по справі', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, 'Деталі справи', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report, 'Звіт щодо поштових відмов', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'Звіт щодо поштових відмов', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Звіт по поштових відмовах', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'Звіт по поштових відмовах', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Короткий звіт по поштовій розсилці', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'Звітна статистика по поштовій розсилці', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Звіт про відкриття листів', 'Mailing/opened', 'CRM_Report_Form_Mailing_Opened', NULL, 0, NULL, 36, 'Відобразити контакти, які відкривали електронні листи із надісланої розсилки', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Звіт про переходи за посиланнями у листах', 'Mailing/clicks', 'CRM_Report_Form_Mailing_Clicks', NULL, 0, NULL, 37, 'Відобразити переходи за посиланнями для кожної розсилки', 0, 0, 1, @mailCompId, NULL),
@@ -5111,13 +5116,13 @@ VALUES
   (@option_group_id_report, 'Звіт протоколу внеску (короткий)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'Звіт про зміни внеску для протоколювання інфраструктури (короткий)', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Звіт протоколу внеску (детальний)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'Звіт про зміни внеску для протоколювання інфраструктури (детальний)', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Звіт по грантам (статистика)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, 'Показати статистику по грантам', 0, 0, 1, @grantCompId, NULL),
-  (@option_group_id_report, 'Звіт по дослідженню (деталізований)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Деталізований звіт по агітаційній діяльності, банку телефонів, маршрутам зустрічей з виборцями (walk lists) або іншим дослідження.', 0, 0, 1, @campaignCompId, NULL),
+  (@option_group_id_report, 'Звіт по дослідженню (деталізований)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Деталізований звіт по агітаційній діяльності, банку телефонів, маршрутам зустрічей з виборцями (walk lists) або іншим опитування.', 0, 0, 1, @campaignCompId, NULL),
   (@option_group_id_report, 'Звіт по Персональній сторінці кампанії', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Підсумовує зібрану суму і кількість людей, що зробили внесок для кожної  Персональної Сторінки Кампаній.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Короткий звіт по зобов\'язанням', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Підсумок по зобов\'язанням, включаючи суми, по яким було зроблено зобов\'язання, статус по зобов\'язанням, наступна дата платежу, дебетове сальдо, загальна сплачена сума тощо. ', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Сукупність внесків за Відносинами',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Виводить перелік історії внесків контактів, сортовані за роками, включаючи внески від контактів, пов\'язаних з цим контактом.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report,  'Деталізований звіт щодо пошти',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Надає звіт по запланованим або успішним доставкам, анулюванням підписок і відмовам, відповідям та переадресуванням.',   0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report,  'Деталізований звіт по поштових розсилках',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Надає звіт по запланованим або успішним доставкам, анулюванням підписок і відмовам, відповідям та переадресуванням.',   0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Інформація щодо внесків та членства', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Деталізована інформація по будь якому типу внесків, плюс інформація про асоційоване членство для внесків, які мають бути зроблені як членський платіж.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Звіт про періодичні внески', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Надає інформацію щодо статусу періодичних внесків', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Звіт про повторювані внески', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Надає інформацію щодо статусу періодичних внесків', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'Заплановано',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Завершено',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5261,7 +5266,7 @@ VALUES
 -- Compaign Types
   (@option_group_id_campaignType, 'Пряма кореспонденція', 1, 'Direct Mail',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignType, 'Реферальна програма', 2, 'Referral Program',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_campaignType, 'Залучення виборців', 3, 'Constituent Engagement',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignType, 'Залучення громадян', 3, 'Constituent Engagement',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Campaign Status
   (@option_group_id_campaignStatus, 'Заплановано', 1, 'Planned',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5483,7 +5488,7 @@ VALUES
   (@option_group_id_mail_approval_status, 'Жоден' , 3, 'None', NULL, 0, 0, 3, NULL, 0, 1, 1, @mailCompId, @domainID, NULL),
 
 -- custom group objects
-  (@option_group_id_cgeo, 'Дослідження', 'Survey', 'civicrm_survey', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL, NULL),
+  (@option_group_id_cgeo, 'Опитування', 'Survey', 'civicrm_survey', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL, NULL),
   (@option_group_id_cgeo, 'Індивідуальні справи',  'Case', 'civicrm_case',     NULL, 0, NULL, 2, 'CRM_Case_PseudoConstant::caseType;', 0, 0, 1, NULL, NULL, NULL);
 
 -- CRM-6138
@@ -5758,8 +5763,8 @@ VALUES
  ('PayJunction',        'Payjunction',            NULL,1,0,'User Name','Password',NULL,NULL,'Payment_PayJunction','https://payjunction.com/quick_link',NULL,NULL,NULL,'https://www.payjunctionlabs.com/quick_link',NULL,NULL,NULL,1,1),
  ('eWAY',               'eWAY (єдина валюта)', NULL,1,0,'Customer ID',NULL,NULL,NULL,'Payment_eWAY','https://www.eway.com.au/gateway_cvn/xmlpayment.asp',NULL,NULL,NULL,'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp',NULL,NULL,NULL,1,0),
  ('Payment_Express',    'DPS Експрес платіж',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
- ('Dummy',              'Умовна платіжна система',NULL,1,1,'Ім\'я користувача',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
- ('Elavon',             'Платіжна система Elavon','Elavon / Віртуальний Торговий Шлюз Nova',1,0,'SSL ID Продавця','SSL ID Користувача','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
+ ('Dummy',              'Умовний платіжний процесор',NULL,1,1,'Ім\'я користувача',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
+ ('Elavon',             'Платіжний процесор Elavon','Elavon / Віртуальний Торговий Шлюз Nova',1,0,'SSL ID Продавця','SSL ID Користувача','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
  ('Realex',             'Realex Payment',         NULL,1,0,'Merchant ID', 'Password', NULL, 'Account', 'Payment_Realex', 'https://epage.payandshop.com/epage.cgi', NULL, NULL, NULL, 'https://epage.payandshop.com/epage-remote.cgi', NULL, NULL, NULL, 1, 0 ),
  ('PayflowPro',         'PayflowPro',             NULL,1,0,'Vendor ID', 'Password', 'Partner (merchant)', 'User', 'Payment_PayflowPro', 'https://Payflowpro.paypal.com', NULL, NULL, NULL, 'https://pilot-Payflowpro.paypal.com', NULL, NULL, NULL, 1, 0 ),
  ('FirstData',          '\"FirstData\" (синонім \"linkpoint\")', '\"FirstData\" (синонім \"linkpoint\")', 1, 0, 'Store name', 'certificate path', NULL, NULL, 'Payment_FirstData', 'https://secure.linkpt.net', NULL, NULL, NULL, 'https://staging.linkpt.net', NULL, NULL, NULL, 1, NULL);
@@ -6105,7 +6110,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 INSERT INTO civicrm_uf_group
     (id, name,                 group_type,           title,                                      is_cms_user, is_reserved, help_post) VALUES
     (1,  'name_and_address',   'Individual,Contact',  'Назва та Адреса',   0,           0,           NULL),
-    (2,  'supporter_profile',  'Individual,Contact',  'Профіль Прихильника',  2,           0,           '<p><strong>Інформація, що Ви надаєте, НЕ буде розголошена жодним організаціям третьої сторони.</strong></p><p>Дякуємо за Вашу участь у цій кампанії!</p>'),
+    (2,  'supporter_profile',  'Individual,Contact',  'Профіль спонсора',  2,           0,           '<p><strong>Інформація, що Ви надаєте, НЕ буде розголошена жодним організаціям третьої сторони.</strong></p><p>Дякуємо за Вашу участь у цій кампанії!</p>'),
     (3,  'participant_status', 'Participant',         'Статус учасника',             0,      1,           NULL),
     (4,  'new_individual',     'Individual,Contact',  'Нова фізична особа'    ,             0,      1,           NULL),
     (5,  'new_organization',   'Organization,Contact','Нова організація'  ,             0,      1,           NULL),
@@ -6116,7 +6121,7 @@ INSERT INTO civicrm_uf_group
     (10, 'contribution_batch_entry', 'Contribution', 'Масове введення внесків' ,       0,      1,           NULL),
     (11, 'membership_batch_entry', 'Membership',     'Масове введення членств' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'Ваша реєстраційна інформація',         0,      0,           NULL),
-    (13, 'honoree_individual', 'Individual,Contact', 'Індивідуальна особа-лауреат',             0,      1,           NULL);
+    (13, 'honoree_individual', 'Individual,Contact', 'Фізична особа-лауреат',             0,      1,           NULL);
 
 
 INSERT INTO civicrm_uf_join
@@ -6287,7 +6292,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Справи - Надіслати копію Діяльності',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Внески - продублювати інформаційне повідомлення про Організацію',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Внески - Підтвердження (оф-лайн)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Внески - Підтвердження (он-лайн)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Внески - Інвойс',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Внески - Повторювані повідомлення Початку та Закінчення',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Внески - Повторювані повідомлення про відміну',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Внески - Повторювані оновлення платіжних реквізитів',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Внески - Повторювані оновлення',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Персональна сторінка кампанії - повідомлення Адміністратора',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Персональна сторінка кампанії - повідомлення зміни статусу Прихильника',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Персональна сторінка кампанії - Привітання Прихильника',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Персональні сторінки кампаній - Сповіщення власника',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Додаткова платіжна квитанція або повідомлення про відшкодування',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Заходи - Підтвердження та Схвалення Реєстрації (оф-лайн)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Заходи - Підтвердження та Схвалення Реєстрації (он-лайн)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Заходи - лише підтвердження',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Заходи - Повідомлення про відміну реєстрації',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Заходи - Запрошення на підтвердження реєстрації',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Заходи - Повідомлення про наближення терміну реєстрації',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Електронний лист \"Розповісти другу\"',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Членство - Підтвердження заяв та подовжень (оф-лайн) ',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Членство - Підтвердження отримання (он-лайн) ',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Членство - Автоматично оновити повідомлення про анулювання',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Членство - Автоматично оновити платіжну інформацію',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Пробний запуск - Заголовок підтвердження отримання',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Платіжні зобов\'язання - Підтвердження',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Платіжні зобов\'язання - Нагадування про сплату',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Профілі - Повідомлення Адміністратора',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Петиція - підпис додано',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Петиції - потрібна верифікація',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Справи - Надіслати копію Діяльності',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Внески - продублювати інформаційне повідомлення про Організацію',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Внески - Підтвердження (оф-лайн)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Внески - Підтвердження (он-лайн)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Внески - Інвойс',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Внески - Повторювані повідомлення Початку та Закінчення',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Внески - Повторювані повідомлення про відміну',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Внески - Повторювані оновлення платіжних реквізитів',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Внески - Повторювані оновлення',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Персональна сторінка кампанії - повідомлення Адміністратора',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Персональна сторінка кампанії - повідомлення про зміну статусу Прихильника',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Персональна сторінка кампанії - Привітання Прихильника',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Персональні сторінки кампаній - Сповіщення власника',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Додаткова платіжна квитанція або повідомлення про відшкодування',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Заходи - Підтвердження та Схвалення Реєстрації (оф-лайн)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Заходи - Підтвердження та Схвалення Реєстрації (он-лайн)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Заходи - лише підтвердження',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Заходи - Повідомлення про відміну реєстрації',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Заходи - Запрошення на підтвердження реєстрації',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Заходи - Повідомлення про наближення терміну реєстрації',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Електронний лист \"Розповісти другу\"',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Членство - Підтвердження заяв та подовжень (оф-лайн) ',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Членство - Підтвердження отримання (он-лайн) ',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Членство - Автоматично оновити повідомлення про анулювання',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Членство - Автоматично оновити платіжну інформацію',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Пробний запуск - Заголовок підтвердження отримання',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Платіжні зобов\'язання - Підтвердження',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Платіжні зобов\'язання - Нагадування про сплату',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Профілі - Повідомлення Адміністратора',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Петиція - підпис додано',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Петиції - потрібна верифікація',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -10909,7 +10914,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_notify, 0,          1) ,      
       
       
-      ('Персональна сторінка кампанії - повідомлення зміни статусу Прихильника', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Персональна сторінка кампанії - повідомлення про зміну статусу Прихильника', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11013,7 +11018,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_status_change, 1,          0),
-      ('Персональна сторінка кампанії - повідомлення зміни статусу Прихильника', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Персональна сторінка кампанії - повідомлення про зміну статусу Прихильника', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -23438,28 +23443,31 @@ VALUES
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, NULL, 'Help', 'Help', NULL, '',  NULL, '1', NULL, 110);
+    ( @domainID, NULL, 'Support', 'Support', NULL, '',  NULL, '1', NULL, 110);
 
 SET @adminHelplastID:=LAST_INSERT_ID();
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, 'http://documentation.civicrm.org',   'Documentation',      'Documentation',    NULL, 'AND', @adminHelplastID, '1', NULL, 1 ),
-    ( @domainID, 'http://forum.civicrm.org',           'Community Forums',   'Community Forums', NULL, 'AND', @adminHelplastID, '1', NULL, 2 ),
-    ( @domainID, 'http://civicrm.org/participate',     'Participate',        'Participate',      NULL, 'AND', @adminHelplastID, '1', NULL, 3 ),
-    ( @domainID, 'http://civicrm.org/what/whatiscivicrm', 'About',              'About',            NULL, 'AND', @adminHelplastID, '1', NULL, 4 );
+    ( @domainID, 'http://civicrm.org/get-started?src=iam',        'Get started',        'Get started',        NULL, 'AND', @adminHelplastID, '1', NULL, 1 ),
+    ( @domainID, 'http://civicrm.org/documentation?src=iam',      'Documentation',      'Documentation',      NULL, 'AND', @adminHelplastID, '1', NULL, 2 ),
+    ( @domainID, 'http://civicrm.org/ask-a-question?src=iam',     'Ask a question',     'Ask a question',     NULL, 'AND', @adminHelplastID, '1', NULL, 3 ),
+    ( @domainID, 'http://civicrm.org/experts?src=iam', 		  'Get expert help',    'Get expert help',    NULL, 'AND', @adminHelplastID, '1', NULL, 4 ),
+    ( @domainID, 'http://civicrm.org/about?src=iam', 		  'About CiviCRM',      'About CiviCRM',      NULL, 'AND', @adminHelplastID, '1', 1, 5 ),
+    ( @domainID, 'http://civicrm.org/register-your-site?src=iam', 'Register your site', 'Register your site', NULL, 'AND', @adminHelplastID, '1', NULL, 6 ),    
+    ( @domainID, 'http://civicrm.org/become-member?src=iam',      'Join CiviCRM',       'Join CiviCRM',       NULL, 'AND', @adminHelplastID, '1', NULL, 7 );
 
 INSERT INTO civicrm_navigation
 ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, NULL, 'Developer', 'Developer', 'administer CiviCRM', '', @adminHelplastID, '1', NULL, 5 );
+    ( @domainID, NULL, 'Developer', 'Developer', 'administer CiviCRM', '', @adminHelplastID, '1', 1, 8 );
 
 SET @devellastID:=LAST_INSERT_ID();
 INSERT INTO civicrm_navigation
 ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
 ( @domainID, 'civicrm/api', 'API Explorer','API Explorer', 'administer CiviCRM', '', @devellastID, '1', NULL, 1 ),
-( @domainID, 'http://wiki.civicrm.org/confluence/display/CRMDOC/Develop', 'Developer Docs', 'Developer Docs', 'administer CiviCRM', '', @devellastID, '1', NULL, 3 );
+( @domainID, 'http://civicrm.org/developer-documentation?src=iam', 'Developer Docs', 'Developer Docs', 'administer CiviCRM', '', @devellastID, '1', NULL, 3 );
 
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
@@ -23696,4 +23704,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.4';
+UPDATE civicrm_domain SET version = '4.6.7';

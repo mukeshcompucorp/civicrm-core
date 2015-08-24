@@ -4286,7 +4286,8 @@ INSERT INTO civicrm_state_province (id, country_id, abbreviation, name) VALUES
 (NULL, 1081, "RL", "Racha-Lechkhumi and Kvemo Svaneti"),
 (NULL, 1081, "SZ", "Samegrelo-Zemo Svaneti"),
 (NULL, 1081, "SJ", "Samtskhe-Javakheti"),
-(NULL, 1081, "SK", "Shida Kartli");
+(NULL, 1081, "SK", "Shida Kartli"),
+(NULL, 1074, "C", "Central");
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
 -- +--------------------------------------------------------------------+
@@ -4607,7 +4608,7 @@ VALUES
     ('Abonelikten Ayrılma İletisi','Unsubscribe','Abonelikten Ayrılma Onayı','Şu grupların aboneliğinden ayrıldınız: {unsubscribe.group}. {action.resubscribe} adresine bir posta göndererek ya da <a href=\"{action.resubscribeUrl}\">buraya tıklayarak</a> yeniden abone olabilirsiniz.','Şu grupların aboneliğinden ayrıldınız: {unsubscribe.group}. {action.resubscribe} adresine bir posta göndererek ya da  üzerine tıklayarak yeniden abone olabilirsiniz.',1,1),
     ('Yeniden Abone Olma İletisi','Resubscribe','Yeniden Abonelik Onayı','Şu gruplara yeniden abone oldunuz: {resubscribe.group}. {action.unsubscribe} adresine bir posta göndererek ya da <a href=\"{action.unsubscribeUrl}\">buraya tıklayarak</a> abonelikten ayrılabilirsiniz.','Şu gruplara yeniden abone oldunuz: {resubscribe.group}. {action.unsubscribe} adresine bir posta göndererek ya da {action.unsubscribeUrl} üzerine tıklayarak abonelikten ayrılabilirsiniz.',1,1),
     ('Abonelikten Ayrılma İletisi','OptOut','Ayrılma Onayı','E-posta adresiniz {domain.name} posta listelerinden çıkarıldı.','E-posta adresiniz {domain.name} posta listelerinden çıkarıldı.',1,1),
-    ('Otomatik Yanıtlayıcı','Reply','Please Send Inquiries to Our Contact Email Address','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.',1,1);
+    ('Otomatik Yanıtlayıcı','Reply','Lütfen Sorularınızı İletişim E-posta Adresimize Gönderin','Bu yanıt sistem tarafından otomatik olarak gönderilmiştir. Lütfen sorularınızı bu adrese değil, web sitemizin iletişim bölümünde yer alan e-posta adresine gönderin.','Bu yanıt sistem tarafından otomatik olarak gönderilmiştir. Lütfen sorularınızı bu adrese değil, web sitemizin iletişim bölümünde yer alan e-posta adresine gönderin.',1,1);
 
 
 -- contribution types
@@ -4616,7 +4617,7 @@ INSERT INTO
 VALUES
   ( 'Bağış'             , 0, 1, 1 ),
   ( 'Üyelik Aidatı'          , 0, 1, 1 ),
-  ( 'Kampanya Katılımı', 0, 1, 0 ),
+  ( 'Kampanya Katkısı', 0, 1, 0 ),
   ( 'Etkinlik Ücreti'            , 0, 1, 0 );
 
 -- option groups and values for 'preferred communication methods' , 'activity types', 'gender', etc.
@@ -4636,7 +4637,7 @@ VALUES
    ('payment_instrument'            , 'Ödeme Araçları'                , 1, 1, 0),
    ('contribution_status'           , 'Katkı Durumu'                , 1, 1, 1),
    ('pcp_status'                    , 'Kişisel Kampanya Sayfası Durumu'                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
+   ('pcp_owner_notify'              , 'Kişisel Kampanya Sayfası sahibi bildirimleri'            , 1, 1, 1),
    ('participant_role'              , 'Katılımcı Rolü'                   , 1, 1, 0),
    ('event_type'                    , 'Etkinlik Tipi'                         , 1, 1, 0),
    ('contact_view_options'          , 'Kişi Görüntüleme Ayarları'               , 1, 1, 1),
@@ -4698,9 +4699,9 @@ VALUES
    ('financial_item_status'         , 'Mali Öge Durumu'              , 1, 1, 1),
    ('label_type'                    , 'Etiket Tipi'                         , 1, 1, 0),
    ('name_badge'                    , 'Ad İsimliği Biçimi'                  , 1, 1, 0),
-   ('communication_style'           , 'Communication Style'                , 1, 1, 0),
-   ('msg_mode'                      , 'Message Mode'                       , 1, 1, 0),
-   ('contact_date_reminder_options' , 'Contact Date Reminder Options'      , 1, 1, 1);
+   ('communication_style'           , 'İletişim Stili'                , 1, 1, 0),
+   ('msg_mode'                      , 'İleti Kipi'                       , 1, 1, 0),
+   ('contact_date_reminder_options' , 'Kişi Tarih Anımsatma Ayarları'      , 1, 1, 1);
 
 SELECT @option_group_id_pcm            := max(id) from civicrm_option_group where name = 'preferred_communication_method';
 SELECT @option_group_id_act            := max(id) from civicrm_option_group where name = 'activity_type';
@@ -4805,9 +4806,9 @@ VALUES
    (@option_group_id_act, 'Katkı',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Çevrim içi ya da çevrim dışı katkı.',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Üyelik Kaydı',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Çevrim içi ya da çevrim dışı üyelik kaydı.',                                 0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Üyelik Yenileme',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'Çevrim içi ya da çevrim dışı üyelik yenilemesi.',                                0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, 'Arkadaşına Bildir',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Arkadaşlarınıza bir katılım kampanyası ya da etkinlikle ilgili bilgileri gönderin.', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Söz Anlaşması',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Söz Anlaşması Gönderir.',                                     0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, 'Söz Anımsatıcı',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Söz Anımsatıcı Gönderir.',                                               0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'Arkadaşına Bildir',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Arkadaşlarınıza bir katkı kampanyası ya da etkinlikle ilgili bilgileri gönderin.', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Ödeme Sözü Anlaşması',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Ödeme Sözü Anlaşmasını Gönderir.',                                     0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'Ödeme Sözü Anımsatıcı',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Ödeme Sözü Anımsatıcısını Gönderir.',                                               0, 1, 1, @pledgeCompId, NULL),
    (@option_group_id_act, 'Gelen E-posta',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Gelen E-posta.',                                                     0, 1, 1, NULL, NULL),
 
 -- Activity Types for case activities
@@ -4816,7 +4817,7 @@ VALUES
    (@option_group_id_act, 'Olay Tipini Değiştirin',   15, 'Change Case Type',   NULL, 0,  0, 15, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Olay Durumunu Değiştirin', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
 
-   (@option_group_id_act, 'Üyelik Yenileme Anımsatıcı',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'çevrimdışı üyelik yenileme anımsatıcı.',                      0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, 'Üyelik Yenileme Anımsatıcı',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'çevrim dışı üyelik yenileme anımsatıcı.',                      0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Olay Başlangıç Tarihini Değiştirin',             18, 'Change Case Start Date',         NULL, 0,  0, 18, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Toplu E-posta',                         19, 'Bulk Email',         NULL, 1, NULL, 19, 'Toplu e-posta gönderir.',                                                    0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Olay Rolü Atayın',                   20, 'Assign Case Role', NULL,0, 0, 20, '', 0, 1, 1, @caseCompId, NULL),
@@ -4860,16 +4861,20 @@ VALUES
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'Ödeme', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Ödeme', 46, 'Payment', NULL, 1, NULL, 46, 'Etkinlik ya da üyelik ücreti için kaydedilen ek ödeme.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Geri Ödeme', 47, 'Refund', NULL, 1, NULL, 47, 'Etkinlik ya da üyelik ücreti için kaydedilen geri ödeme.', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
-   (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'Kaydı Değiştirin', 48, 'Change Registration', NULL, 1, NULL, 48, 'Varolan bir etkinlik kaydını değiştirir.', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
-   (@option_group_id_act, 'Downloaded Invoice', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Downloaded Invoice.',0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Emailed Invoice.',0, 1, 1, NULL, NULL),
- -- for manual contact merge
-   (@option_group_id_act, 'Contact Merged', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Contact Merged',0, 1, 1, NULL, NULL), 
+   (@option_group_id_act, 'İndirilecek Fatura', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'İndirilecek Fatura.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'E-postalanacak Fatura', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'E-postalanacak Fatura.',0, 1, 1, NULL, NULL),
+
+  -- for manual contact merge
+   (@option_group_id_act, 'İçerik Birleştirildi', 51, 'Contact Merged', NULL, 1, NULL, 51, 'İçerik Birleştirildi',0, 1, 1, NULL, NULL),
+
+  -- Activity Type for failed payment
+   (@option_group_id_act, 'Failed Payment', 52, 'Failed Payment', NULL, 1, 0, 43, 'Failed Payment', 0, 1, 1, @contributeCompId, NULL),
 
    (@option_group_id_gender, 'Kadın',      1, 'Female',      NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_gender, 'Erkek',        2, 'Male',        NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4922,15 +4927,15 @@ VALUES
   (@option_group_id_cs, 'Süresi Geçti'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Geri Ödendi'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Kısmen ödendi', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Pending refund', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Geri ödenmesi bekleniyor', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcp, 'Gözden Geçirilmeyi Bekliyor', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Onaylandı'      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Onaylanmadı'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcpOwnerNotify, 'Owner chooses whether to receive notifications', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are sent to ALL owners'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are NOT available'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Sahip hangi bildirimleri alacağını seçsin', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Bildirimler TÜM sahiplere gönderildi'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Bildirimler KULLANILMIYOR'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, 'Katılımcı',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pRole, 'Gönüllü', 2, 'Volunteer', NULL, 1, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4977,7 +4982,7 @@ VALUES
   (@option_group_id_ceOpt, 'Open ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Web sitesi'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Ön ek'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Formal Title'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Resmi Ünvan'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Ad'               ,   14, 'First Name', NULL, 2, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'İkinci Ad'              ,   15, 'Middle Name', NULL, 2, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Soyad'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
@@ -5009,7 +5014,7 @@ VALUES
   (@option_group_id_udOpt, 'Ödeme Sözleri'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Kişisel Kampanya Sayfaları'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Atanmış İşlemler'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Faturala / Kredi Notları'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_acsOpt, 'E-posta Adresi'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Telefon'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
@@ -5042,15 +5047,15 @@ VALUES
   (@option_group_id_adOpt, 'Sokak Adresi Ayıklama', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_gType, 'Erişim Denetimi', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_gType, 'Mailing List',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'Posta Listesi',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_grantSt, 'Gönderildi', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Eligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Ineligible', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Uygun', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Uygun Değil', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Ödenen', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Awaiting Information', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Bilgi Bekleniyor', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Geri çekildi', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Approved for Payment',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Ödeme Onaylandı',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, 'Hane Halkı Adı ve Şehri', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContributionAggregate', 2, 'CRM_Contact_Form_Search_Custom_ContributionAggregate', NULL, 0, NULL, 2, 'Katkı Toplamı', 0, 0, 1, NULL, NULL),
@@ -5074,8 +5079,8 @@ VALUES
   (@option_group_id_report , 'İşlem Raporu',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Paydaşların, belirtilen bir tarih aralığı (zorunlu) için bir ya da tüm kişilerinin yaptığı işlemleri kapsar', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Yürüyüş / Telefon Listesi Raporu',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Hedeflenen kişiler için ayrıntılı yürüyüş / telefon listesi bilgilerini kapsar', 0, 0, 0, NULL, NULL),
   (@option_group_id_report , 'Geçerli İşveren Raporu',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'İşveren listesi, çalışan ilişkileri ve Başlangıç Tarihi gibi çalışma ayrıntılarını kapsar', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Özet Katılım Raporu',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Kişi, zaman aralığı, mali tip, katılımcı konumu ve benzer ölçütlere göre gruplanmış ve ara toplamları alınmış katkı bilgilerini kapsar.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Ayrıntılı Katılım Raporu',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Kişi, zaman aralığı, mali tip, katılımcı konumu ve benzer ölçütlere göre belirli katkı bilgilerini kapsar. Özet katılım raporu katılım ayrıntıları için bu raporu işaret eder.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Özet Katkı Raporu',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Kişi, zaman aralığı, mali tip, katılımcı konumu ve benzer ölçütlere göre gruplanmış ve ara toplamları alınmış katkı bilgilerini kapsar.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Ayrıntılı Katkı Raporu',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Kişi, zaman aralığı, mali tip, katılımcı konumu ve benzer ölçütlere göre belirli katkı bilgilerini kapsar. Özet katkı raporu katkı ayrıntıları için bu raporu kullanır.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Katkı Yineleme Raporu',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Belirtilen tarih aralıklarının ikisinde de, bellrtilen tutar ve artış / azalış yüzdesine göre katkıda bulunmuş kişlieri kapsar.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Kuruluşa Göre Katkı Raporu',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Kuruluşa göre gruplanmış olarak, kuruluş çalışanlarının yaptığı katkıların ayrıntılarını kapsar.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Hane Halkına Göre Katkı Raporu',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Haneye göre gruplanmış olarak, hane halkının yaptığı katkıların ayrıntılarını kapsar.', 0, 0, 1, @contributeCompId, NULL),
@@ -5086,10 +5091,10 @@ VALUES
   (@option_group_id_report , 'Özet Üyelik Raporu',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Üye bilgileri, üye tipi ve üye olma tarihini kapsar.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Ayrıntılı Üyelik Raporu',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Üye bilgileri, üyelik durumu ve üyelik ayrıntılarını (üyelik tarihi, başlangıç tarihi, bitiş tarihi) kapsar. Ayrıca her üyelik için katkı tutarları (ödemeler) görüntülenebilir.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Bitmiş Üyelik Raporu',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Belirtilen tarihte üyeliği bitmiş ya da bitecek kişileri kapsar.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Etkinlik Katılım Raporu (Liste)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Bir etkinliğe katılacak kişileri kapsar.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Etkinlik Katılımcı Raporu (Liste)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Bir etkinliğe katılacak kişileri kapsar.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Özet Etkinlik Gelir Raporu',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Bir etkinliğin gelir özetini kapsar. Etkinliğin başarısını ölçmek için etkinlik kodu, kayıt durumu, katılım durumu ve elde edilen gelir gibi temel bilgiler eklenebilir.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Ayrıntılı Etkinlik Gelir Raporu',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Bir etkinliğin gelirini incelemeye yardımcı olacak bilgileri kapsar. Katılımcı tipi, katılımcı durumu ve ödeme yöntemi gibi ayrıntılar eklenebilir.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Verilen Sözler Raporu',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Verilen Sözler Raporu', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report , 'Ödeme Sözleri Raporu',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Ödeme Sözleri Raporu', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Söz Verilip Ödenmeyenler Raporu',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Söz Verilip Ödenmeyenler Raporu', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'İlişki Raporu',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'İlişki Raporu', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Özet Olay Raporu',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Belirtilen tarih aralığı, durum, ekip üyesi ve olay rolüne uyan olayların özetini ve süresini kapsar.', 0, 0, 1, @caseCompId, NULL),
@@ -5100,7 +5105,7 @@ VALUES
   (@option_group_id_report, 'Muhasebe Hareketleri Raporu',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'Muhasebe İşlemleri Bilgilerini Kapsar', 0, 0, 1, 2, NULL),
   (@option_group_id_report , 'Ayrıntılı Bağış Raporu', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, 'Ayrıntılı Bağış Raporu', 0, 0, 1, @grantCompId, NULL),
   (@option_group_id_report, 'Sayı ve Katılımcı Listesi Raporu', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, 'Katılımcı sayısı ile katılımcı listesini kapsar.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report, 'Sayı ve Gelir Toplamı Raporu', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'Katılım sayıları ile etkinlik gelir toplamlarını kapsar.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report, 'Sayı ve Gelir Toplamı Raporu', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'Sayılar ile etkinliklerin gelir toplamlarını kapsar.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'Olay Ayrıntısı Raporu', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, 'Olay Ayrıntıları', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report, 'Geri Dönen Posta Raporu', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'Geri dönen posta raporu', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Posta Özeti Raporu', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'Postalama istatistikleri özeti', 0, 0, 1, @mailCompId, NULL),
@@ -5111,30 +5116,30 @@ VALUES
   (@option_group_id_report, 'Katkı Günlükleme Raporu (Özet)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'Günlük altyapısı için katkı değişikliği raporu (özet).', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Katkı Günlükleme Raporu (Ayrıntılı)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'Günlük altyapısı için katkı değişikliği raporu (ayrıntılı).', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Bağış Raporu (İstatistikler)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, 'Bağış istatistiklerini kapsar.', 0, 0, 1, @grantCompId, NULL),
-  (@option_group_id_report, 'Anket Raporu (Ayrıntılı)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 0, 0, 1, @campaignCompId, NULL),
-  (@option_group_id_report, 'Personal Campaign Page Report', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Summarizes amount raised and number of contributors for each Personal Campaign Page.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Pledge Summary Report', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Summary of pledges including amount pledged, pledge status, next payment date, balance due, total amount paid etc.', 0, 0, 1, @pledgeCompId, NULL),
-  (@option_group_id_report , 'Contribution Aggregate by Relationship',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'List contact\'s donation history, grouped by year, along with contributions attributed to any of the contact\'s related contacts.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report,  'Mail Detail Report',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Provides reporting on Intended and Successful Deliveries, Unsubscribes and Opt-outs, Replies and Forwards.',   0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Contribution and Membership Details', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Contribution details for any type of contribution, plus associated membership information for contributions which are in payment for memberships.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Provides information about the status of recurring contributions', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Anket Raporu (Ayrıntılı)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Seçim kampanyası, telefon bankacılığı, yürüyüş listesi ve diğer anketlerle ilgili ayrıntıları kapsar.', 0, 0, 1, @campaignCompId, NULL),
+  (@option_group_id_report, 'Kişisel Kampanya Sayfası Raporu', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Her bir Kişisel Kampanya Sayfası için toplanan bağış ve katkıda bulunan kişi sayısını kapsar.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Özet Ödeme Sözü Raporu', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Ödeme sözlerinin özeti, söz verilen tutar, sonraki ödeme tarihi, belirli bir tarihteki bakiye, ödenen toplam tutar gibi bilgileri kapsar.', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report , 'İlişkiye Göre Katkı Toplamı',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Yıla göre gruplu olarak kişinin bağış geçmişini ve kişiyle ilgili kişilerin yaptığı katkı bilgilerini kapsar.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report,  'Posta Ayrıntısı Raporu',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Gönderilen ve ulaşan postalar ile abonelikten ayrılma, yanıt ve iletme bilgilerini kapsar.',   0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Katkı ve Üyelik Ayrıntıları', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Her tür katkı ayrıntıları ve üyelik katkıları ile ilişkili üyelik bilgilerini kapsar.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report, 'Yinelenen Katkı Raporu', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Yinelenen katkıların durumu ile ilgili bilgiler sunar.', 0, 0, 1, @contributeCompId, NULL),
 
-  (@option_group_id_acs, 'Scheduled',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_acs, 'Zamanlandı',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Tamamlandı',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'İptal Edildi',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_acs, 'Left Message', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'Unreachable', 5, 'Unreachable', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'Not Required',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'Available',  7, 'Available',  NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'No-show',  8, 'No_show',  NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Not Bırakıldı', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Ulaşılamadı', 5, 'Unreachable', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Zorunlu Değil',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Uygun',  7, 'Available',  NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Görünmedi',  8, 'No_show',  NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_cas, 'Ongoing' , 1, 'Open'  ,  'Opened', 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cas, 'Resolved', 2, 'Closed',  'Closed', 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cas, 'Urgent'  , 3, 'Urgent',  'Opened', 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cas, 'Sürüyor' , 1, 'Open'  ,  'Opened', 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cas, 'Çözüldü', 2, 'Closed',  'Closed', 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cas, 'Acil'  , 3, 'Urgent',  'Opened', 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_pl, 'Name Only'     , 1, 'Name Only'      ,  NULL, 0, 0, 1, 'CRM_Event_Page_ParticipantListing_Name', 0, 1, 1, NULL, NULL),
-  (@option_group_id_pl, 'Name and Email', 2, 'Name and Email' ,  NULL, 0, 0, 2, 'CRM_Event_Page_ParticipantListing_NameAndEmail', 0, 1, 1, NULL, NULL),
-  (@option_group_id_pl, 'Name, Status and Register Date' , 3, 'Name, Status and Register Date',  NULL, 0, 0, 3, 'CRM_Event_Page_ParticipantListing_NameStatusAndDate', 0, 1, 1, NULL, NULL),
+  (@option_group_id_pl, 'Yalnız Ad'     , 1, 'Name Only'      ,  NULL, 0, 0, 1, 'CRM_Event_Page_ParticipantListing_Name', 0, 1, 1, NULL, NULL),
+  (@option_group_id_pl, 'Ad ve E-posta', 2, 'Name and Email' ,  NULL, 0, 0, 2, 'CRM_Event_Page_ParticipantListing_NameAndEmail', 0, 1, 1, NULL, NULL),
+  (@option_group_id_pl, 'Ad, Durum ve Kayıt Tarihi' , 3, 'Name, Status and Register Date',  NULL, 0, 0, 3, 'CRM_Event_Page_ParticipantListing_NameStatusAndDate', 0, 1, 1, NULL, NULL),
 
   (@option_group_id_sfe, 'jpg',   1, 'jpg',   NULL, 0, 0,  1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_sfe, 'jpeg',  2, 'jpeg',  NULL, 0, 0,  2, NULL, 0, 0, 1, NULL, NULL),
@@ -5157,19 +5162,19 @@ VALUES
   (@option_group_id_we, 'Drupal Default Editor', 4, 'Drupal Default Editor', NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_mt, 'Arama Oluşturucu',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Import Contact',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Import Activity',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Import Contribution', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Import Membership',   5, 'Import Membership',   NULL, 0, 0,    5, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Import Participant',  6, 'Import Participant',  NULL, 0, 0,    6, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Contact',      7, 'Export Contact',      NULL, 0, 0,    7, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Contribution', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Membership',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Participant', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Pledge',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Case',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Grant',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Activity',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Kişi Alma',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'İşlem Alma',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Katkı Alma', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Üyelik Alma',   5, 'Import Membership',   NULL, 0, 0,    5, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Katılımcı Alma',  6, 'Import Participant',  NULL, 0, 0,    6, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Kişi Verme',      7, 'Export Contact',      NULL, 0, 0,    7, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Katkı Verme', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Üyelik Verme',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Katılımcı Verme', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Ödeme Sözü Verme',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Olay Verme',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Bağış Verme',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'İşlem Verme',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_fu, 'gün'    , 'day'  ,    'day',  NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_fu, 'hafta'   , 'week' ,   'week',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5181,7 +5186,7 @@ VALUES
   (@option_group_id_pht, 'Cep',        2, 'Mobile'     , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pht, 'Faks'   ,        3, 'Fax'        , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pht, 'Çağrı Cihazı' ,        4, 'Pager'      , NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_pht, 'Voicemail' ,    5, 'Voicemail'  , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_pht, 'Sesli posta' ,    5, 'Voicemail'  , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
 -- custom data types.
   (@option_group_id_cdt, 'Participant Role',       '1', 'ParticipantRole',      NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL ),
@@ -5199,9 +5204,9 @@ VALUES
   (@option_group_id_mp, 'Localdir', 4, 'Localdir', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL ),
 
 -- priority
-  (@option_group_id_priority, 'Urgent', 1, 'Urgent', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_priority, 'Acil', 1, 'Urgent', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_priority, 'Normal', 2, 'Normal', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_priority, 'Low',    3, 'Low',    NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_priority, 'Düşük',    3, 'Low',    NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- redaction rule FIXME: should this be in sample data instead?
   (@option_group_id_rr, 'Vancouver', 'city_', 'city_', NULL, 0, NULL, 1, NULL, 0, 0, 0, NULL, NULL),
@@ -5249,22 +5254,22 @@ VALUES
    (@option_group_id_currency, 'USD ($)',      'USD',     'USD',       NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- event name badges
-  (@option_group_id_eventBadge,  'Name Only'     , 1, 'CRM_Event_Badge_Simple'  ,  NULL, 0, 0, 1, 'Simple Event Name Badge', 0, 1, 1, NULL, NULL),
-  (@option_group_id_eventBadge,  'Name Tent'     , 2, 'CRM_Event_Badge_NameTent',  NULL, 0, 0, 2, 'Name Tent', 0, 1, 1, NULL, NULL),
-  (@option_group_id_eventBadge , 'With Logo'     , 3, 'CRM_Event_Badge_Logo'    ,  NULL, 0, 0, 3, 'You can set your own background image',                               0, 1, 1, NULL, NULL ),
-  (@option_group_id_eventBadge , '5395 with Logo', 4, 'CRM_Event_Badge_Logo5395',  NULL, 0, 0, 4, 'Avery 5395 compatible labels with logo (4 up by 2, 59.2mm x 85.7mm)', 0, 1, 1, NULL, NULL ),
+  (@option_group_id_eventBadge,  'Yalnız Ad'     , 1, 'CRM_Event_Badge_Simple'  ,  NULL, 0, 0, 1, 'Basit Etkinlik İsimliği', 0, 1, 1, NULL, NULL),
+  (@option_group_id_eventBadge,  'Ad Afişi'     , 2, 'CRM_Event_Badge_NameTent',  NULL, 0, 0, 2, 'Ad Afişi', 0, 1, 1, NULL, NULL),
+  (@option_group_id_eventBadge , 'Logolu'     , 3, 'CRM_Event_Badge_Logo'    ,  NULL, 0, 0, 3, 'Kendi artalan görselinizi ayarlayabilirsiniz',                               0, 1, 1, NULL, NULL ),
+  (@option_group_id_eventBadge , 'Logo ile 5395', 4, 'CRM_Event_Badge_Logo5395',  NULL, 0, 0, 4, 'Logo ile Avery 5395 ile uyumlu etiketler (4 satır 2 sütun, 59.2 mm x 85.7 mm)', 0, 1, 1, NULL, NULL ),
 
 -- note privacy levels
   (@option_group_id_notePrivacy, 'Yok',        0, 'None',        NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_notePrivacy, 'Author Only', 1, 'Author Only', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_notePrivacy, 'Yalnız Yazar', 1, 'Author Only', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
 
 -- Compaign Types
-  (@option_group_id_campaignType, 'Direct Mail', 1, 'Direct Mail',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_campaignType, 'Referral Program', 2, 'Referral Program',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_campaignType, 'Constituent Engagement', 3, 'Constituent Engagement',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignType, 'Doğrudan Posta', 1, 'Direct Mail',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignType, 'Öneri Programı', 2, 'Referral Program',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignType, 'Katkıda Bulunan Bağlılığı', 3, 'Constituent Engagement',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Campaign Status
-  (@option_group_id_campaignStatus, 'Planned', 1, 'Planned',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignStatus, 'Planlanmış', 1, 'Planned',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, 'Sürüyor', 2, 'In Progress',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, 'Tamamlandı', 3, 'Completed',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, 'İptal Edildi', 4, 'Cancelled',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5363,7 +5368,7 @@ VALUES
      (@option_group_id_arel, 'Satış Maliyeti Hesabı', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Prim Birikimi Hesabı', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'İndirim Hesabı', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Satış Vergisi Hesabı:', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
    (@option_group_id_ere, 'Katılımcı Rolü', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5375,7 +5380,7 @@ VALUES
 -- default batch types
    (@option_group_id_batch_type, 'Katkı', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Üyelik', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'Verilmiş Söz Ödemesi', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
    (@option_group_id_batch_status, 'Açık', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5426,17 +5431,17 @@ VALUES
   (@option_group_id_label, 'Avery L7163', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":9,"font-style":"","metric":"in","lMargin":0.18,"tMargin":0.6,"NX":2,"NY":7,"SpaceX":0.1,"SpaceY":0,"width":3.9,"height":1.5,"lPadding":0.20,"tPadding":0.20}',          'L7163', 'Avery', NULL, 0, 11, NULL, 0, 1, 1, NULL, NULL),
 
 -- Communication Styles
-  (@option_group_id_communication_style, 'Formal'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_communication_style, 'Familiar', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Resmi'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Tanıdık', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- Message Mode
 (@option_group_id_msg_mode, 'E-posta', 'Email', 'Email', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
 (@option_group_id_msg_mode, 'SMS', 'SMS', 'SMS', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_msg_mode, 'User Preference', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_msg_mode, 'Kullanıcı Tercihi', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- Reminder Options for Contact Date Fields
-(@option_group_id_contactDateMode, 'Actual date only', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_contactDateMode, 'Each anniversary', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
+(@option_group_id_contactDateMode, 'Yalnız güncel tarih', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_contactDateMode, 'Tüm yıl dönümleri', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
 
 -- financial accounts
 SELECT @opval := value FROM civicrm_option_value WHERE name = 'Revenue' and option_group_id = @option_group_id_fat;
@@ -5450,7 +5455,7 @@ INSERT INTO
 VALUES
   ( 'Bağış'            , @contactID, @opval, 'Default account for donations', '4200', 'INC', 0, 1, 1, 1 ),
   ( 'Üyelik Aidatı'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
-  ( 'Kampanya Katılımı', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
+  ( 'Kampanya Katkısı', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
   ( 'Etkinlik Ücreti'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
   ( 'Banka Ücretleri'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
   ( 'Ön Ödeme Banka Hesabı' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
@@ -5722,7 +5727,7 @@ INSERT INTO
 VALUES
     ('New',       'Yeni', 'join_date', null, null,'join_date','month',3, 1, 0, 1, 0, 1, 0),
     ('Current',   'Geçerli', 'start_date', null, null,'end_date', null, null, 1, 0, 2, 1, 1, 0),
-    ('Grace',     'Deneme', 'end_date', null, null,'end_date','month', 1, 1, 0, 3, 0, 1, 0),
+    ('Grace',     'Ek Süre', 'end_date', null, null,'end_date','month', 1, 1, 0, 3, 0, 1, 0),
     ('Expired',   'Sona Ermiş', 'end_date', 'month', 1, null, null, null, 0, 0, 4, 0, 1, 0),
     ('Pending',   'Bekleyen', 'join_date', null, null,'join_date',null,null, 0, 0, 5, 0, 1, 1),
     ('Cancelled', 'İptal Edildi', 'join_date', null, null,'join_date',null,null, 0, 0, 6, 0, 1, 1),
@@ -5777,7 +5782,7 @@ VALUES (@drgid, 'civicrm_contact', 'first_name', 5),
        (@drgid, 'civicrm_email'  , 'email',     10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Organization', 10, 'Supervised', 'OrganizationSupervised', 'Name and Email', 0);
+VALUES ('Organization', 10, 'Supervised', 'OrganizationSupervised', 'Ad ve E-posta', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5785,7 +5790,7 @@ VALUES (@drgid, 'civicrm_contact', 'organization_name', 10),
        (@drgid, 'civicrm_email'  , 'email',             10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Household', 10, 'Supervised', 'HouseholdSupervised', 'Name and Email', 0);
+VALUES ('Household', 10, 'Supervised', 'HouseholdSupervised', 'Ad ve E-posta', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5802,7 +5807,7 @@ INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, r
 VALUES (@drgid, 'civicrm_email', 'email', 10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Organization', 10,  'Unsupervised', 'OrganizationUnsupervised', 'Name and Email', 0);
+VALUES ('Organization', 10,  'Unsupervised', 'OrganizationUnsupervised', 'Ad ve E-posta', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5810,7 +5815,7 @@ VALUES (@drgid, 'civicrm_contact', 'organization_name', 10),
        (@drgid, 'civicrm_email'  , 'email',             10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Household', 10, 'Unsupervised', 'HouseholdUnsupervised', 'Name and Email', 0);
+VALUES ('Household', 10, 'Unsupervised', 'HouseholdUnsupervised', 'Ad ve E-posta', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -6116,7 +6121,7 @@ INSERT INTO civicrm_uf_group
     (10, 'contribution_batch_entry', 'Contribution', 'Toplu Katkı Kaydı' ,       0,      1,           NULL),
     (11, 'membership_batch_entry', 'Membership',     'Toplu Üyelik Kaydı' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'Kayıt Bilgileriniz',         0,      0,           NULL),
-    (13, 'honoree_individual', 'Individual,Contact', 'Honoree Individual',             0,      1,           NULL);
+    (13, 'honoree_individual', 'Individual,Contact', 'Onurlandırılan Birey',             0,      1,           NULL);
 
 
 INSERT INTO civicrm_uf_join
@@ -6182,7 +6187,7 @@ INSERT INTO civicrm_uf_field
        ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Alındı Gönderilsin', 'Contribution', NULL, NULL ),
        ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'Fatura Kodu', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Sanal Kredi', 'Contribution', NULL, NULL ),
-       ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Contribution', NULL, NULL ),
+       ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Sanal Kredi Tipi', 'Contribution', NULL, NULL ),
        ( 11,     'membership_type',             1, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Üyelik Tipi', 'Membership', NULL, NULL ),
        ( 11,     'join_date',                   1, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Üyelik Başlangıcı', 'Membership', NULL, NULL ),
        ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Başlangıç Tarihi', 'Membership', NULL, NULL ),
@@ -6196,7 +6201,7 @@ INSERT INTO civicrm_uf_field
        ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Çek Numarası', 'Membership', NULL, NULL ),
        ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, 'Ödeme Durumu', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, 'Sanal Kredi', 'Membership', NULL, NULL ),
-       ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Membership', NULL, NULL ),
+       ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Sanal Kredi Tipi', 'Membership', NULL, NULL ),
        ( 12,     'first_name',                  1, 0,  1, 'User and User Admin Only', 0, 0, NULL, 'Ad',  'Individual', NULL, NULL),
        ( 12,     'last_name',                   1, 0,  2, 'User and User Admin Only', 0, 0, NULL, 'Soyad',   'Individual',  NULL,  NULL),
        ( 12,     'email',                       1, 0,  3, 'User and User Admin Only', 0, 0, NULL, 'E-posta Adresi', 'Contact', NULL, NULL),
@@ -6210,19 +6215,19 @@ INSERT INTO civicrm_participant_status_type
   (id, name,                                  label,                                                       class,      is_reserved, is_active, is_counted, weight, visibility_id) VALUES
   (1,  'Registered',                          'Kayıt olan',                          'Positive', 1,           1,         1,          1,      1            ),
   (2,  'Attended',                            'Katılan',                            'Positive', 0,           1,         1,          2,      2            ),
-  (3,  'No-show',                             'No-show',                             'Negative', 0,           1,         0,          3,      2            ),
+  (3,  'No-show',                             'Görünmedi',                             'Negative', 0,           1,         0,          3,      2            ),
   (4,  'Cancelled',                           'İptal Edildi',                           'Negative', 1,           1,         0,          4,      2            ),
-  (5,  'Pending from pay later',              'Pending from pay later',              'Pending',  1,           1,         1,          5,      2            ),
-  (6,  'Pending from incomplete transaction', 'Pending from incomplete transaction', 'Pending',  1,           1,         0,          6,      2            ),
-  (7,  'On waitlist',                         'On waitlist',                         'Waiting',  1,           0,         0,          7,      2            ),
-  (8,  'Awaiting approval',                   'Awaiting approval',                   'Waiting',  1,           0,         1,          8,      2            ),
-  (9,  'Pending from waitlist',               'Pending from waitlist',               'Pending',  1,           0,         1,          9,      2            ),
-  (10, 'Pending from approval',               'Pending from approval',               'Pending',  1,           0,         1,          10,     2            ),
+  (5,  'Pending from pay later',              'Daha sonra ödenmesi bekleniyor',              'Pending',  1,           1,         1,          5,      2            ),
+  (6,  'Pending from incomplete transaction', 'Eksik işlem bekleniyor', 'Pending',  1,           1,         0,          6,      2            ),
+  (7,  'On waitlist',                         'Bekleme listesinde',                         'Waiting',  1,           0,         0,          7,      2            ),
+  (8,  'Awaiting approval',                   'Onay bekliyor',                   'Waiting',  1,           0,         1,          8,      2            ),
+  (9,  'Pending from waitlist',               'Bekleme listesinde bekliyor',               'Pending',  1,           0,         1,          9,      2            ),
+  (10, 'Pending from approval',               'Onay bekliyor',               'Pending',  1,           0,         1,          10,     2            ),
   (11, 'Rejected',                            'Reddedildi',                            'Negative', 1,           0,         0,          11,     2            ),
   (12, 'Expired',                             'Sona Ermiş',                             'Negative', 1,           1,         0,          12,     2            ),
-  (13, 'Pending in cart',                     'Pending in cart',                     'Pending',  1,           1,         0,          13,     2            ),
+  (13, 'Pending in cart',                     'Sepette bekliyor',                     'Pending',  1,           1,         0,          13,     2            ),
   (14,  'Partially paid',                      'Kısmen ödendi',                      'Positive', 1,           1,         1,          14,     2           ),
-  (15,  'Pending refund',                      'Pending refund',                      'Positive', 1,           1,         1,          14,     2           );
+  (15,  'Pending refund',                      'Geri ödenmesi bekleniyor',                      'Positive', 1,           1,         1,          14,     2           );
 
 
 
@@ -6274,7 +6279,7 @@ INSERT INTO `civicrm_contact_type`
 
 INSERT INTO civicrm_option_group
   (name,                         title,            description,      is_reserved, is_active) VALUES
-    ('msg_tpl_workflow_case', 'Message Template Workflow for Cases',               'Message Template Workflow for Cases',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Message Template Workflow for Contributions',               'Message Template Workflow for Contributions',                     1,           1) ,    ('msg_tpl_workflow_event', 'Message Template Workflow for Events',               'Message Template Workflow for Events',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Message Template Workflow for Tell-a-Friend',               'Message Template Workflow for Tell-a-Friend',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Message Template Workflow for Memberships',               'Message Template Workflow for Memberships',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Message Template Workflow for Meta Templates',               'Message Template Workflow for Meta Templates',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Message Template Workflow for Pledges',               'Message Template Workflow for Pledges',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Message Template Workflow for Profiles',               'Message Template Workflow for Profiles',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Message Template Workflow for Petition',               'Message Template Workflow for Petition',                     1,           1) ;
+    ('msg_tpl_workflow_case', 'İleti Kalıbı Olay İş Akışı',               'İleti Kalıbı Olay İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Katkı İleti İş Akışı Kalıbı',               'Katkı İleti İş Akışı Kalıbı',                     1,           1) ,    ('msg_tpl_workflow_event', 'İleti Kalıbı Etkinlik İş Akışı',               'İleti Kalıbı Etkinlik İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_friend', 'İleti Kalıbı Arkadaşına Söyle İş Akışı',               'İleti Kalıbı Arkadaşına Söyle İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_membership', 'İleti Kalıbı Üyelik İş Akışı',               'İleti Kalıbı Üyelik İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_meta', 'İleti Kalıbı Üst Veri Kalıpları İş Akışı',               'İleti Kalıbı Üst Veri Kalıpları İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'İleti Kalıbı Ödeme Sözü İş Akışı',               'İleti Kalıbı Ödeme Sözü İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_uf', 'İleti Kalıbı Profil İş Akışı',               'İleti Kalıbı Profil İş Akışı',                     1,           1) ,    ('msg_tpl_workflow_petition', 'İleti Kalıbı İmza Kampanyası İş Akışı',               'İleti Kalıbı İmza Kampanyası İş Akışı',                     1,           1) ;
   SELECT @tpl_ogid_case := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_case';
   SELECT @tpl_ogid_contribution := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_contribution';
   SELECT @tpl_ogid_event := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_event';
@@ -6287,7 +6292,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Cases - Send Copy of an Activity',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Contributions - Duplicate Organization Alert',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Contributions - Receipt (off-line)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Contributions - Receipt (on-line)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Contributions - Recurring Start and End Notification',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Contributions - Recurring Cancellation Notification',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Contributions - Recurring Billing Updates',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Contributions - Recurring Updates',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Personal Campaign Pages - Admin Notification',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Personal Campaign Pages - Supporter Status Change Notification',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Personal Campaign Pages - Supporter Welcome',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Events - Registration Confirmation and Receipt (off-line)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Events - Registration Confirmation and Receipt (on-line)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Events - Receipt only',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Events - Registration Cancellation Notice',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Events - Registration Confirmation Invite',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Events - Pending Registration Expiration Notice',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Tell-a-Friend Email',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Memberships - Signup and Renewal Receipts (off-line)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Memberships - Receipt (on-line)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Memberships - Auto-renew Cancellation Notification',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Memberships - Auto-renew Billing Updates',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Test-drive - Receipt Header',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Pledges - Acknowledgement',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Pledges - Payment Reminder',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiles - Admin Notification',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Petition - signature added',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Petition - need verification',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Olaylar - Bir İşlemin Kopyasını Gönderme',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Katkılar - Kuruluş Uyarısı Kopyalama',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Katkılar - Alındı (çevrim dışı)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Katkılar - Alındı (çevrim içi)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Katkılar - Fatura',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Katkılar - Yineleme Başlangıc ve Bitiş Bildirimi',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Katkılar - Yineleme İptal Bildirimi',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Katkılar - Yineleme Faturalama Güncellemeleri',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Katkılar - Yineleme Güncellemeleri',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Kişisel Kampanya Sayfaları - Yönetici Bildirimi',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Kişisel Kampanya Sayfaları - Destekleyici Durum Değişikliği Bildirimi',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Kişisel Kampanya Sayfaları - Destekleyici Karşılama',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Kişisel Kampanya Sayfaları - Sahip Bildirimi',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Ek Ödeme Alındısı ya da Geri Ödeme Bildirimi',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Etkinlikler - Kayıt Onayı ve Alındısı (çevrim dışı)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Etkinlikler - Kayıt Onayı ve Alındısı (çevrim içi)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Etkinlikler - Yalnız alındı',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Etkinlikler - Kayıt İptal Bildirimi',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Etkinlikler - Kayıt Onay Çağrısı',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Etkinlikler - Bekleyen Kayıt Süresi Geçme Bildirimi',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Arkadaşına Söyle E-postası',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Üyelikler - Kayıt ve Yenileme Alındıları (çevrim dışı)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Üyelikler - Kayıt ve Yenileme Alındıları (çevrim içi)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Üyelikler - Otomatik Yenileme İptal Bildirimi',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Üyelikler - Otomatik Yenileme Faturalama Güncellemeleri',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Deneme Sürüşü - Alındı Üst Bilgisi',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Ödeme Sözleri - Anlaşma',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Ödeme Sözleri - Ödeme Anımsatıcı',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Ödeme Sözleri - Yönetici Bildirimi',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'İmza Kampanyası - İmza atıldı',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'İmza Kampanyası - Doğrulama gerekli',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -6325,7 +6330,7 @@ INSERT INTO civicrm_msg_template
       
       
       
-      ('Cases - Send Copy of an Activity', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
+      ('Olaylar - Bir İşlemin Kopyasını Gönderme', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
 ', '===========================================================
 {ts}Activity Summary{/ts} - {$activityTypeName}
 ===========================================================
@@ -6469,7 +6474,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_case_activity, 1,          0),
-      ('Cases - Send Copy of an Activity', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
+      ('Olaylar - Bir İşlemin Kopyasını Gönderme', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
 ', '===========================================================
 {ts}Activity Summary{/ts} - {$activityTypeName}
 ===========================================================
@@ -6615,7 +6620,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_case_activity, 0,          1) ,      
       
       
-      ('Contributions - Duplicate Organization Alert', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
+      ('Katkılar - Kuruluş Uyarısı Kopyalama', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
 ', '{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}
 {ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}
 
@@ -6720,7 +6725,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_dupalert, 1,          0),
-      ('Contributions - Duplicate Organization Alert', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
+      ('Katkılar - Kuruluş Uyarısı Kopyalama', '{ts}CiviContribute Alert: Possible Duplicate Contact Record{/ts}
 ', '{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}
 {ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}
 
@@ -6827,7 +6832,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_dupalert, 0,          1) ,      
       
       
-      ('Contributions - Receipt (off-line)', '{ts}Contribution Receipt{/ts}
+      ('Katkılar - Alındı (çevrim dışı)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7266,7 +7271,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_offline_receipt, 1,          0),
-      ('Contributions - Receipt (off-line)', '{ts}Contribution Receipt{/ts}
+      ('Katkılar - Alındı (çevrim dışı)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7707,7 +7712,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_offline_receipt, 0,          1) ,      
       
       
-      ('Contributions - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Katkılar - Alındı (çevrim içi)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -8390,7 +8395,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_online_receipt, 1,          0),
-      ('Contributions - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Katkılar - Alındı (çevrim içi)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -9075,7 +9080,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_online_receipt, 0,          1) ,      
       
       
-      ('Contributions - Invoice', '{if $title}
+      ('Katkılar - Fatura', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9522,7 +9527,7 @@ from your next payment to us</div><br/></font></td>
   </body>
 </html>
 ', @tpl_ovid_contribution_invoice_receipt, 1,          0),
-      ('Contributions - Invoice', '{if $title}
+      ('Katkılar - Fatura', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9971,7 +9976,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_invoice_receipt, 0,          1) ,      
       
       
-      ('Contributions - Recurring Start and End Notification', '{ts}Recurring Contribution Notification{/ts}
+      ('Katkılar - Yineleme Başlangıc ve Bitiş Bildirimi', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10148,7 +10153,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_notify, 1,          0),
-      ('Contributions - Recurring Start and End Notification', '{ts}Recurring Contribution Notification{/ts}
+      ('Katkılar - Yineleme Başlangıc ve Bitiş Bildirimi', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10327,7 +10332,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_notify, 0,          1) ,      
       
       
-      ('Contributions - Recurring Cancellation Notification', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('Katkılar - Yineleme İptal Bildirimi', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10365,7 +10370,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_cancelled, 1,          0),
-      ('Contributions - Recurring Cancellation Notification', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('Katkılar - Yineleme İptal Bildirimi', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10405,7 +10410,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_cancelled, 0,          1) ,      
       
       
-      ('Contributions - Recurring Billing Updates', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Katkılar - Yineleme Faturalama Güncellemeleri', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10492,7 +10497,7 @@ from your next payment to us</div><br/></font></td>
 
 </body>
 </html>', @tpl_ovid_contribution_recurring_billing, 1,          0),
-      ('Contributions - Recurring Billing Updates', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Katkılar - Yineleme Faturalama Güncellemeleri', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10581,7 +10586,7 @@ from your next payment to us</div><br/></font></td>
 </html>', @tpl_ovid_contribution_recurring_billing, 0,          1) ,      
       
       
-      ('Contributions - Recurring Updates', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Katkılar - Yineleme Güncellemeleri', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10625,7 +10630,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_edit, 1,          0),
-      ('Contributions - Recurring Updates', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Katkılar - Yineleme Güncellemeleri', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10671,7 +10676,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_edit, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Admin Notification', '{ts}Personal Campaign Page Notification{/ts}
+      ('Kişisel Kampanya Sayfaları - Yönetici Bildirimi', '{ts}Personal Campaign Page Notification{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Notification{/ts}
 
@@ -10789,7 +10794,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_notify, 1,          0),
-      ('Personal Campaign Pages - Admin Notification', '{ts}Personal Campaign Page Notification{/ts}
+      ('Kişisel Kampanya Sayfaları - Yönetici Bildirimi', '{ts}Personal Campaign Page Notification{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Notification{/ts}
 
@@ -10909,7 +10914,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Supporter Status Change Notification', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Kişisel Kampanya Sayfaları - Destekleyici Durum Değişikliği Bildirimi', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11013,7 +11018,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_status_change, 1,          0),
-      ('Personal Campaign Pages - Supporter Status Change Notification', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Kişisel Kampanya Sayfaları - Destekleyici Durum Değişikliği Bildirimi', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11119,7 +11124,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_status_change, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Supporter Welcome', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Kişisel Kampanya Sayfaları - Destekleyici Karşılama', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{ts}Dear supporter{/ts},
 {ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}
 
@@ -11277,7 +11282,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_supporter_notify, 1,          0),
-      ('Personal Campaign Pages - Supporter Welcome', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Kişisel Kampanya Sayfaları - Destekleyici Karşılama', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{ts}Dear supporter{/ts},
 {ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}
 
@@ -11437,7 +11442,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Kişisel Kampanya Sayfaları - Sahip Bildirimi', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11486,7 +11491,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Kişisel Kampanya Sayfaları - Sahip Bildirimi', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11537,7 +11542,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_owner_notify, 0,          1) ,      
       
       
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Ek Ödeme Alındısı ya da Geri Ödeme Bildirimi', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -11923,7 +11928,7 @@ from your next payment to us</div><br/></font></td>
  </body>
 </html>
 ', @tpl_ovid_payment_or_refund_notification, 1,          0),
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Ek Ödeme Alındısı ya da Geri Ödeme Bildirimi', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -12311,7 +12316,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_payment_or_refund_notification, 0,          1) ,      
       
       
-      ('Events - Registration Confirmation and Receipt (off-line)', '{ts}Event Confirmation{/ts} - {$event.title}
+      ('Etkinlikler - Kayıt Onayı ve Alındısı (çevrim dışı)', '{ts}Event Confirmation{/ts} - {$event.title}
 ', '{if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
 {/if}
@@ -13142,7 +13147,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_event_offline_receipt, 1,          0),
-      ('Events - Registration Confirmation and Receipt (off-line)', '{ts}Event Confirmation{/ts} - {$event.title}
+      ('Etkinlikler - Kayıt Onayı ve Alındısı (çevrim dışı)', '{ts}Event Confirmation{/ts} - {$event.title}
 ', '{if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
 {/if}
@@ -13975,7 +13980,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_event_offline_receipt, 0,          1) ,      
       
       
-      ('Events - Registration Confirmation and Receipt (on-line)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
+      ('Etkinlikler - Kayıt Onayı ve Alındısı (çevrim içi)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
 
 {if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
@@ -14799,7 +14804,7 @@ You were registered by: {$payer.name}
 </body>
 </html>
 ', @tpl_ovid_event_online_receipt, 1,          0),
-      ('Events - Registration Confirmation and Receipt (on-line)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
+      ('Etkinlikler - Kayıt Onayı ve Alındısı (çevrim içi)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
 
 {if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
@@ -15625,7 +15630,7 @@ You were registered by: {$payer.name}
 ', @tpl_ovid_event_online_receipt, 0,          1) ,      
       
       
-      ('Events - Receipt only', 'Receipt for {if $events_in_cart} Event Registration{/if}
+      ('Etkinlikler - Yalnız alındı', 'Receipt for {if $events_in_cart} Event Registration{/if}
 ', 'Dear {contact.display_name},
 {if $is_pay_later}
   This is being sent to you as an acknowledgement that you have registered one or more members for the following workshop, event or purchase. Please note, however, that the status of your payment is pending, and the registration for this event will not be completed until your payment is received.
@@ -15910,7 +15915,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
   </body>
 </html>
 ', @tpl_ovid_event_registration_receipt, 1,          0),
-      ('Events - Receipt only', 'Receipt for {if $events_in_cart} Event Registration{/if}
+      ('Etkinlikler - Yalnız alındı', 'Receipt for {if $events_in_cart} Event Registration{/if}
 ', 'Dear {contact.display_name},
 {if $is_pay_later}
   This is being sent to you as an acknowledgement that you have registered one or more members for the following workshop, event or purchase. Please note, however, that the status of your payment is pending, and the registration for this event will not be completed until your payment is received.
@@ -16197,7 +16202,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
 ', @tpl_ovid_event_registration_receipt, 0,          1) ,      
       
       
-      ('Events - Registration Cancellation Notice', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
+      ('Etkinlikler - Kayıt İptal Bildirimi', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your Event Registration has been cancelled.{/ts}
@@ -16404,7 +16409,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
 </body>
 </html>
 ', @tpl_ovid_participant_cancelled, 1,          0),
-      ('Events - Registration Cancellation Notice', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
+      ('Etkinlikler - Kayıt İptal Bildirimi', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your Event Registration has been cancelled.{/ts}
@@ -16613,7 +16618,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
 ', @tpl_ovid_participant_cancelled, 0,          1) ,      
       
       
-      ('Events - Registration Confirmation Invite', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
+      ('Etkinlikler - Kayıt Onay Çağrısı', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 {if !$isAdditional and $participant.id}
 
@@ -16891,7 +16896,7 @@ Click this link to go to a web page where you can confirm your registration onli
 </body>
 </html>
 ', @tpl_ovid_participant_confirm, 1,          0),
-      ('Events - Registration Confirmation Invite', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
+      ('Etkinlikler - Kayıt Onay Çağrısı', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 {if !$isAdditional and $participant.id}
 
@@ -17171,7 +17176,7 @@ Click this link to go to a web page where you can confirm your registration onli
 ', @tpl_ovid_participant_confirm, 0,          1) ,      
       
       
-      ('Events - Pending Registration Expiration Notice', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
+      ('Etkinlikler - Bekleyen Kayıt Süresi Geçme Bildirimi', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$event.event_title}Your pending event registration for %1 has expired
@@ -17385,7 +17390,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_participant_expired, 1,          0),
-      ('Events - Pending Registration Expiration Notice', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
+      ('Etkinlikler - Bekleyen Kayıt Süresi Geçme Bildirimi', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$event.event_title}Your pending event registration for %1 has expired
@@ -17601,7 +17606,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_participant_expired, 0,          1) ,      
       
       
-      ('Tell-a-Friend Email', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
+      ('Arkadaşına Söyle E-postası', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
 ', '{$senderMessage}
 
 {if $generalLink}{ts}For more information, visit:{/ts}
@@ -17658,7 +17663,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_friend, 1,          0),
-      ('Tell-a-Friend Email', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
+      ('Arkadaşına Söyle E-postası', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
 ', '{$senderMessage}
 
 {if $generalLink}{ts}For more information, visit:{/ts}
@@ -17717,7 +17722,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_friend, 0,          1) ,      
       
       
-      ('Memberships - Signup and Renewal Receipts (off-line)', '{if $receiptType EQ \'membership signup\'}
+      ('Üyelikler - Kayıt ve Yenileme Alındıları (çevrim dışı)', '{if $receiptType EQ \'membership signup\'}
 {ts}Membership Confirmation and Receipt{/ts}
 {elseif $receiptType EQ \'membership renewal\'}
 {ts}Membership Renewal Confirmation and Receipt{/ts}
@@ -18132,7 +18137,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_offline_receipt, 1,          0),
-      ('Memberships - Signup and Renewal Receipts (off-line)', '{if $receiptType EQ \'membership signup\'}
+      ('Üyelikler - Kayıt ve Yenileme Alındıları (çevrim dışı)', '{if $receiptType EQ \'membership signup\'}
 {ts}Membership Confirmation and Receipt{/ts}
 {elseif $receiptType EQ \'membership renewal\'}
 {ts}Membership Renewal Confirmation and Receipt{/ts}
@@ -18549,7 +18554,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_offline_receipt, 0,          1) ,      
       
       
-      ('Memberships - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Üyelikler - Kayıt ve Yenileme Alındıları (çevrim içi)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -19359,7 +19364,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_online_receipt, 1,          0),
-      ('Memberships - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Üyelikler - Kayıt ve Yenileme Alındıları (çevrim içi)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -20171,7 +20176,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_online_receipt, 0,          1) ,      
       
       
-      ('Memberships - Auto-renew Cancellation Notification', '{ts}Autorenew Membership Cancellation Notification{/ts}
+      ('Üyelikler - Otomatik Yenileme İptal Bildirimi', '{ts}Autorenew Membership Cancellation Notification{/ts}
 ', '{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}
 
 ===========================================================
@@ -20255,7 +20260,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_autorenew_cancelled, 1,          0),
-      ('Memberships - Auto-renew Cancellation Notification', '{ts}Autorenew Membership Cancellation Notification{/ts}
+      ('Üyelikler - Otomatik Yenileme İptal Bildirimi', '{ts}Autorenew Membership Cancellation Notification{/ts}
 ', '{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}
 
 ===========================================================
@@ -20341,7 +20346,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_autorenew_cancelled, 0,          1) ,      
       
       
-      ('Memberships - Auto-renew Billing Updates', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Üyelikler - Otomatik Yenileme Faturalama Güncellemeleri', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}
 
@@ -20430,7 +20435,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_autorenew_billing, 1,          0),
-      ('Memberships - Auto-renew Billing Updates', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Üyelikler - Otomatik Yenileme Faturalama Güncellemeleri', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}
 
@@ -20521,7 +20526,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_autorenew_billing, 0,          1) ,      
       
       
-      ('Test-drive - Receipt Header', '[TEST]
+      ('Deneme Sürüşü - Alındı Üst Bilgisi', '[TEST]
 ', '***********************************************************
 
 {ts}Test-drive Email / Receipt{/ts}
@@ -20540,7 +20545,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
  </table>
 </center>
 ', @tpl_ovid_test_preview, 1,          0),
-      ('Test-drive - Receipt Header', '[TEST]
+      ('Deneme Sürüşü - Alındı Üst Bilgisi', '[TEST]
 ', '***********************************************************
 
 {ts}Test-drive Email / Receipt{/ts}
@@ -20561,7 +20566,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_test_preview, 0,          1) ,      
       
       
-      ('Pledges - Acknowledgement', '{ts}Thank you for your Pledge{/ts}
+      ('Ödeme Sözleri - Anlaşma', '{ts}Thank you for your Pledge{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Thank you for your generous pledge. Please print this acknowledgment for your records.{/ts}
@@ -20725,7 +20730,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_acknowledge, 1,          0),
-      ('Pledges - Acknowledgement', '{ts}Thank you for your Pledge{/ts}
+      ('Ödeme Sözleri - Anlaşma', '{ts}Thank you for your Pledge{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Thank you for your generous pledge. Please print this acknowledgment for your records.{/ts}
@@ -20891,7 +20896,7 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_pledge_acknowledge, 0,          1) ,      
       
       
-      ('Pledges - Payment Reminder', '{ts}Pledge Payment Reminder{/ts}
+      ('Ödeme Sözleri - Ödeme Anımsatıcı', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -21033,7 +21038,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_reminder, 1,          0),
-      ('Pledges - Payment Reminder', '{ts}Pledge Payment Reminder{/ts}
+      ('Ödeme Sözleri - Ödeme Anımsatıcı', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -21177,7 +21182,7 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_pledge_reminder, 0,          1) ,      
       
       
-      ('Profiles - Admin Notification', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
+      ('Ödeme Sözleri - Yönetici Bildirimi', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
 ', '{ts}Submitted For:{/ts} {$displayName}
 {ts}Date:{/ts} {$currentDate}
 {ts}Contact Summary:{/ts} {$contactLink}
@@ -21264,7 +21269,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_uf_notify, 1,          0),
-      ('Profiles - Admin Notification', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
+      ('Ödeme Sözleri - Yönetici Bildirimi', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
 ', '{ts}Submitted For:{/ts} {$displayName}
 {ts}Date:{/ts} {$currentDate}
 {ts}Contact Summary:{/ts} {$contactLink}
@@ -21353,19 +21358,19 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_uf_notify, 0,          1) ,      
       
       
-      ('Petition - signature added', 'Thank you for signing {$petition.title}', 'Thank you for signing {$petition.title}.
+      ('İmza Kampanyası - İmza atıldı', 'Thank you for signing {$petition.title}', 'Thank you for signing {$petition.title}.
 ', '<p>Thank you for signing {$petition.title}.</p>
 
 {include file="CRM/Campaign/Page/Petition/SocialNetwork.tpl" petition_id=$survey_id noscript=true emailMode=true}
 ', @tpl_ovid_petition_sign, 1,          0),
-      ('Petition - signature added', 'Thank you for signing {$petition.title}', 'Thank you for signing {$petition.title}.
+      ('İmza Kampanyası - İmza atıldı', 'Thank you for signing {$petition.title}', 'Thank you for signing {$petition.title}.
 ', '<p>Thank you for signing {$petition.title}.</p>
 
 {include file="CRM/Campaign/Page/Petition/SocialNetwork.tpl" petition_id=$survey_id noscript=true emailMode=true}
 ', @tpl_ovid_petition_sign, 0,          1) ,      
       
       
-      ('Petition - need verification', 'Confirmation of signature needed for {$petition.title}
+      ('İmza Kampanyası - Doğrulama gerekli', 'Confirmation of signature needed for {$petition.title}
 ', 'Thank you for signing {$petition.title}.
 
 In order to complete your signature, we must confirm your e-mail.
@@ -21385,7 +21390,7 @@ Email confirmation page: <a href="{$petition.confirmUrl} ">{$petition.confirmUrl
 
 <p>If you did not sign this petition, please ignore this message.</p>
 ', @tpl_ovid_petition_confirmation_needed, 1,          0),
-      ('Petition - need verification', 'Confirmation of signature needed for {$petition.title}
+      ('İmza Kampanyası - Doğrulama gerekli', 'Confirmation of signature needed for {$petition.title}
 ', 'Thank you for signing {$petition.title}.
 
 In order to complete your signature, we must confirm your e-mail.
@@ -22747,12 +22752,12 @@ SELECT @option_value_rel_id_cg  := value FROM civicrm_option_value WHERE option_
 
 SELECT @financial_type_id_dtn          := max(id) FROM civicrm_financial_type WHERE name = 'Bağış';
 SELECT @financial_type_id_md         := max(id) FROM civicrm_financial_type WHERE name = 'Üyelik Aidatı';
-SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'Kampanya Katılımı';
+SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'Kampanya Katkısı';
 SELECT @financial_type_id_ef         := max(id) FROM civicrm_financial_type WHERE name = 'Etkinlik Ücreti';
 
 SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account WHERE name = 'Bağış';
 SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = 'Üyelik Aidatı';
-SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Kampanya Katılımı';
+SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Kampanya Katkısı';
 SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'Etkinlik Ücreti';
 SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Banka Ücretleri';
 SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Alınabilir Hesaplar';
@@ -22813,7 +22818,7 @@ INSERT INTO `civicrm_price_field_value` (  `price_field_id`, `name`, `label`, `a
 VALUES ( @fieldID, 'contribution_amount', 'Contribution Amount', '1', '1', '0', '1', 1);
 
 -- CRM-13833
-INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Soft Credit Types', 1, 1);
+INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Sanal Kredi Tipleri', 1, 1);
 
 SELECT @option_group_id_soft_credit_type := max(id) from civicrm_option_group where name = 'soft_credit_type';
 
@@ -22821,15 +22826,15 @@ INSERT INTO `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`,
 VALUES
   (@option_group_id_soft_credit_type   , 'Şu kişinin onuruna', 1, 'in_honor_of', 1, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'Şu kişinin anısına', 2, 'in_memory_of', 2, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Solicited', 3, 'solicited', 3, 1, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Rica Edildi', 3, 'solicited', 3, 1, 1, 1),
   (@option_group_id_soft_credit_type   , 'Hane', 4, 'household', 4, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Workplace Giving', 5, 'workplace', 5, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Foundation Affiliate', 6, 'foundation_affiliate', 6, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
+  (@option_group_id_soft_credit_type   , 'Çalışma Alanı Verme', 5, 'workplace', 5, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Temel Paydaş', 6, 'foundation_affiliate', 6, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Üçüncü Taraf Hizmet', 7, '3rd-party_service', 7, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Bağışçı Tarafından Öneri', 8, 'donor-advised_fund', 8, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Hediye Olarak', 9, 'matched_gift', 9, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Kişisel Kampanya Sayfası', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Hediye', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
@@ -23438,28 +23443,31 @@ VALUES
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, NULL, 'Help', 'Help', NULL, '',  NULL, '1', NULL, 110);
+    ( @domainID, NULL, 'Support', 'Support', NULL, '',  NULL, '1', NULL, 110);
 
 SET @adminHelplastID:=LAST_INSERT_ID();
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, 'http://documentation.civicrm.org',   'Documentation',      'Documentation',    NULL, 'AND', @adminHelplastID, '1', NULL, 1 ),
-    ( @domainID, 'http://forum.civicrm.org',           'Community Forums',   'Community Forums', NULL, 'AND', @adminHelplastID, '1', NULL, 2 ),
-    ( @domainID, 'http://civicrm.org/participate',     'Participate',        'Participate',      NULL, 'AND', @adminHelplastID, '1', NULL, 3 ),
-    ( @domainID, 'http://civicrm.org/what/whatiscivicrm', 'About',              'About',            NULL, 'AND', @adminHelplastID, '1', NULL, 4 );
+    ( @domainID, 'http://civicrm.org/get-started?src=iam',        'Get started',        'Get started',        NULL, 'AND', @adminHelplastID, '1', NULL, 1 ),
+    ( @domainID, 'http://civicrm.org/documentation?src=iam',      'Documentation',      'Documentation',      NULL, 'AND', @adminHelplastID, '1', NULL, 2 ),
+    ( @domainID, 'http://civicrm.org/ask-a-question?src=iam',     'Ask a question',     'Ask a question',     NULL, 'AND', @adminHelplastID, '1', NULL, 3 ),
+    ( @domainID, 'http://civicrm.org/experts?src=iam', 		  'Get expert help',    'Get expert help',    NULL, 'AND', @adminHelplastID, '1', NULL, 4 ),
+    ( @domainID, 'http://civicrm.org/about?src=iam', 		  'About CiviCRM',      'About CiviCRM',      NULL, 'AND', @adminHelplastID, '1', 1, 5 ),
+    ( @domainID, 'http://civicrm.org/register-your-site?src=iam', 'Register your site', 'Register your site', NULL, 'AND', @adminHelplastID, '1', NULL, 6 ),    
+    ( @domainID, 'http://civicrm.org/become-member?src=iam',      'Join CiviCRM',       'Join CiviCRM',       NULL, 'AND', @adminHelplastID, '1', NULL, 7 );
 
 INSERT INTO civicrm_navigation
 ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, NULL, 'Developer', 'Developer', 'administer CiviCRM', '', @adminHelplastID, '1', NULL, 5 );
+    ( @domainID, NULL, 'Developer', 'Developer', 'administer CiviCRM', '', @adminHelplastID, '1', 1, 8 );
 
 SET @devellastID:=LAST_INSERT_ID();
 INSERT INTO civicrm_navigation
 ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
 ( @domainID, 'civicrm/api', 'API Explorer','API Explorer', 'administer CiviCRM', '', @devellastID, '1', NULL, 1 ),
-( @domainID, 'http://wiki.civicrm.org/confluence/display/CRMDOC/Develop', 'Developer Docs', 'Developer Docs', 'administer CiviCRM', '', @devellastID, '1', NULL, 3 );
+( @domainID, 'http://civicrm.org/developer-documentation?src=iam', 'Developer Docs', 'Developer Docs', 'administer CiviCRM', '', @devellastID, '1', NULL, 3 );
 
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
@@ -23696,4 +23704,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.4';
+UPDATE civicrm_domain SET version = '4.6.7';

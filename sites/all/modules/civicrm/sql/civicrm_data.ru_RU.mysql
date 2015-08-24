@@ -4286,7 +4286,8 @@ INSERT INTO civicrm_state_province (id, country_id, abbreviation, name) VALUES
 (NULL, 1081, "RL", "Racha-Lechkhumi and Kvemo Svaneti"),
 (NULL, 1081, "SZ", "Samegrelo-Zemo Svaneti"),
 (NULL, 1081, "SJ", "Samtskhe-Javakheti"),
-(NULL, 1081, "SK", "Shida Kartli");
+(NULL, 1081, "SK", "Shida Kartli"),
+(NULL, 1074, "C", "Central");
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
 -- +--------------------------------------------------------------------+
@@ -4867,9 +4868,13 @@ VALUES
    (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
    (@option_group_id_act, 'Downloaded Invoice', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Downloaded Invoice.',0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Emailed Invoice.',0, 1, 1, NULL, NULL),
- -- for manual contact merge
-   (@option_group_id_act, 'Contact Merged', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Contact Merged',0, 1, 1, NULL, NULL), 
+   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Счет, отправленный по электронной почте.',0, 1, 1, NULL, NULL),
+
+  -- for manual contact merge
+   (@option_group_id_act, 'Контакт объединён', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Контакт объединён',0, 1, 1, NULL, NULL),
+
+  -- Activity Type for failed payment
+   (@option_group_id_act, 'Failed Payment', 52, 'Failed Payment', NULL, 1, 0, 43, 'Failed Payment', 0, 1, 1, @contributeCompId, NULL),
 
    (@option_group_id_gender, 'Женский',      1, 'Female',      NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_gender, 'Мужской',        2, 'Male',        NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4928,9 +4933,9 @@ VALUES
   (@option_group_id_pcp, 'Согласованный'      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Не согласованный'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcpOwnerNotify, 'Owner chooses whether to receive notifications', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Владелец выбирает получать уведомления или нет', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcpOwnerNotify, 'Notifications are sent to ALL owners'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are NOT available'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Уведомления недоступны '  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, 'Посетитель',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pRole, 'Волонтер', 2, 'Volunteer', NULL, 1, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -5009,7 +5014,7 @@ VALUES
   (@option_group_id_udOpt, 'Обещания'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Страницы личной кампании'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Порученные действия'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Счета / Кредитные ноты'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_acsOpt, 'Email Адрес'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Телефон'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
@@ -5028,8 +5033,8 @@ VALUES
   (@option_group_id_acConRef, 'Почтовый индекс'     , 8, 'country'       , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_adOpt, 'Почтовый адрес'    ,  1, 'street_address', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Supplemental Address 1'  ,  2, 'supplemental_address_1', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Supplemental Address 2'  ,  3, 'supplemental_address_2', NULL, 0, NULL,  3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Дополнительный адрес 1'  ,  2, 'supplemental_address_1', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Дополнительный адрес 2'  ,  3, 'supplemental_address_2', NULL, 0, NULL,  3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Город'              ,  4, 'city'          , NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Почтовый индекс' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Добавочный почтовый индекс',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
@@ -5042,7 +5047,7 @@ VALUES
   (@option_group_id_adOpt, 'Анализ почтового адреса', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_gType, 'Управление доступом', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_gType, 'Mailing List',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'Список рассылки',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_grantSt, 'Submitted', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Eligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -5375,7 +5380,7 @@ VALUES
 -- default batch types
    (@option_group_id_batch_type, 'Взнос', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Членство', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'Обещанный платёж', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
    (@option_group_id_batch_status, 'Открыт', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5508,15 +5513,15 @@ INSERT INTO civicrm_option_value
 VALUES
   (@option_group_id_languages, 0, 0, 'ab_GE', 'ab', 'Абхазский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'aa_ET', 'aa', 'Афарский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'af_ZA', 'af', 'Afrikaans', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ak_GH', 'ak', 'Akan', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'af_ZA', 'af', 'Африкаанс', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ak_GH', 'ak', 'Акан', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'sq_AL', 'sq', 'Албанский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'am_ET', 'am', 'Amharic', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'am_ET', 'am', 'Амхарский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ar_EG', 'ar', 'Арабский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'an_ES', 'an', 'Aragonese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'an_ES', 'an', 'Арагонский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'hy_AM', 'hy', 'Армянский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'as_IN', 'as', 'Assamese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'av_RU', 'av', 'Avaric', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'as_IN', 'as', 'Ассамский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'av_RU', 'av', 'Аварский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ae_XX', 'ae', 'Avestan', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ay_BO', 'ay', 'Aymara', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'az_AZ', 'az', 'Azerbaijani', @counter := @counter + 1),
@@ -23438,28 +23443,31 @@ VALUES
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, NULL, 'Help', 'Help', NULL, '',  NULL, '1', NULL, 110);
+    ( @domainID, NULL, 'Support', 'Support', NULL, '',  NULL, '1', NULL, 110);
 
 SET @adminHelplastID:=LAST_INSERT_ID();
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, 'http://documentation.civicrm.org',   'Documentation',      'Documentation',    NULL, 'AND', @adminHelplastID, '1', NULL, 1 ),
-    ( @domainID, 'http://forum.civicrm.org',           'Community Forums',   'Community Forums', NULL, 'AND', @adminHelplastID, '1', NULL, 2 ),
-    ( @domainID, 'http://civicrm.org/participate',     'Participate',        'Participate',      NULL, 'AND', @adminHelplastID, '1', NULL, 3 ),
-    ( @domainID, 'http://civicrm.org/what/whatiscivicrm', 'About',              'About',            NULL, 'AND', @adminHelplastID, '1', NULL, 4 );
+    ( @domainID, 'http://civicrm.org/get-started?src=iam',        'Get started',        'Get started',        NULL, 'AND', @adminHelplastID, '1', NULL, 1 ),
+    ( @domainID, 'http://civicrm.org/documentation?src=iam',      'Documentation',      'Documentation',      NULL, 'AND', @adminHelplastID, '1', NULL, 2 ),
+    ( @domainID, 'http://civicrm.org/ask-a-question?src=iam',     'Ask a question',     'Ask a question',     NULL, 'AND', @adminHelplastID, '1', NULL, 3 ),
+    ( @domainID, 'http://civicrm.org/experts?src=iam', 		  'Get expert help',    'Get expert help',    NULL, 'AND', @adminHelplastID, '1', NULL, 4 ),
+    ( @domainID, 'http://civicrm.org/about?src=iam', 		  'About CiviCRM',      'About CiviCRM',      NULL, 'AND', @adminHelplastID, '1', 1, 5 ),
+    ( @domainID, 'http://civicrm.org/register-your-site?src=iam', 'Register your site', 'Register your site', NULL, 'AND', @adminHelplastID, '1', NULL, 6 ),    
+    ( @domainID, 'http://civicrm.org/become-member?src=iam',      'Join CiviCRM',       'Join CiviCRM',       NULL, 'AND', @adminHelplastID, '1', NULL, 7 );
 
 INSERT INTO civicrm_navigation
 ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
-    ( @domainID, NULL, 'Developer', 'Developer', 'administer CiviCRM', '', @adminHelplastID, '1', NULL, 5 );
+    ( @domainID, NULL, 'Developer', 'Developer', 'administer CiviCRM', '', @adminHelplastID, '1', 1, 8 );
 
 SET @devellastID:=LAST_INSERT_ID();
 INSERT INTO civicrm_navigation
 ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
 VALUES
 ( @domainID, 'civicrm/api', 'API Explorer','API Explorer', 'administer CiviCRM', '', @devellastID, '1', NULL, 1 ),
-( @domainID, 'http://wiki.civicrm.org/confluence/display/CRMDOC/Develop', 'Developer Docs', 'Developer Docs', 'administer CiviCRM', '', @devellastID, '1', NULL, 3 );
+( @domainID, 'http://civicrm.org/developer-documentation?src=iam', 'Developer Docs', 'Developer Docs', 'administer CiviCRM', '', @devellastID, '1', NULL, 3 );
 
 INSERT INTO civicrm_navigation
     ( domain_id, url, label, name, permission, permission_operator, parent_id, is_active, has_separator, weight )
@@ -23696,4 +23704,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.4';
+UPDATE civicrm_domain SET version = '4.6.7';
