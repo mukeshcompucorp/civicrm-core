@@ -7,7 +7,7 @@ function form_email_check_form_alter(&$form, &$form_state, $form_id) {
   if(variable_get('checking_form_number', '')){
     $count = variable_get('checking_form_number', '');
   }
-  for ($i=1; $i < $count; $i++) { 
+  for ($i=1; $i <= $count; $i++) { 
     if(variable_get('signup_form_id'.$i, '') == $form_id){
       $match_form_id = $i;
       drupal_add_js(drupal_get_path('module', 'form_email_check') . '/markup.js', 'file');
@@ -103,6 +103,7 @@ function form_email_custom_validate($form, &$form_state) {
         }
         
         $emails = implode("','", $submitted_email_values);
+        $validate_message = 'The email address you have entered is associated with one of our existing member, if you have forgotten your password please '.'<a href="'.$contact_us_url.'">contact us</a>'.'.';
         
         if(!is_null($civicrm_db_key)) {
           db_set_active($civicrm_db_key);
