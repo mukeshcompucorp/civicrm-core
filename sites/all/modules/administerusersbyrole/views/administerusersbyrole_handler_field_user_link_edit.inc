@@ -8,17 +8,16 @@
 /**
  * Field handler to present a link to user edit.
  *
- * Identical to the base class except change call to user_edit_access() for _administerusersbyrole_can_edit_user().
+ * Identical to the base class except change call to user_edit_access() for our updated access function.
  *
  * @ingroup views_field_handlers
  */
 class administerusersbyrole_handler_field_user_link_edit extends views_handler_field_user_link_edit {
   function render_link($data, $values) {
-    // Build a pseudo account object to be able to check the access.
-    $account = new stdClass();
-    $account->uid = $data;
+    // Pull the access information from the menu router item.
+    $item = menu_get_item("user/$data/edit");
 
-    if ($data && _administerusersbyrole_can_edit_user($account)) {
+    if ($item['access']) {
       $this->options['alter']['make_link'] = TRUE;
 
       $text = !empty($this->options['text']) ? $this->options['text'] : t('edit');
