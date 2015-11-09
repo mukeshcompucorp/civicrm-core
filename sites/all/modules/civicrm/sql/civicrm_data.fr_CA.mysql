@@ -4609,8 +4609,8 @@ VALUES
     ('Message d\'accueil','Welcome','Votre abonnement a été activé','Bienvenue. Votre abonnement à la liste de diffusion {welcome.group} est effectif.','Bienvenue. Votre abonnement à la liste de diffusion {welcome.group} est effectif.',1,1),
     ('Message de désinscription','Unsubscribe','Confirmation de désabonnement','Vous avez été désabonné des groupes suivants : {unsubscribe.group}. Vous pourrez vous réabonner en envoyant un courriel à {action.resubscribe} ou en cliquant <a href=\"{action.resubscribeUrl}\">ici</a>.','Vous avez été désabonné des groupes suivants : {unsubscribe.group}. Vous pourrez vous réabonner en envoyant un courriel à {action.resubscribe} ou en cliquant sur ',1,1),
     ('Message de ré-inscription','Resubscribe','Confirmation de réabonnement','Vous avez été réabonné aux groupes suivants : {resubscribe.group}. Vous pourrez vous désabonner en envoyant un courriel à {action.unsubscribe} ou en cliquant <a href=\"{action.unsubscribeUrl}\">ici</a>.','Vous avez été réabonné aux groupes suivants : {resubscribe.group}. Vous pourrez vous désabonner en envoyant un courriel à {action.unsubscribe} ou en cliquant sur {action.unsubscribeUrl}',1,1),
-    ('Message Opt-out','OptOut','Confirmation d\'exclusion des envois massifs','Votre adresse électronique a été retirée des listes de diffusion {domain.name}.','Votre adresse électronique a été retirée des listes de diffusion {domain.name}.',1,1),
-    ('Réponse automatisée','Reply','Merci d\'envoyer vos demandes à notre adresse électronique de contact','Ceci est une réponse automatique en provenance d\'une adresse courriel non gérée par des humains. Merci d\'envoyer toute demande à l\'adresse électronique pour les contacts figurant sur notre site.','Ceci est une réponse automatique en provenance d\'une adresse courriel non gérée par des humains. Merci d\'envoyer toute demande à l\'adresse électronique pour les contacts figurant sur notre site.',1,1);
+    ('Message Opt-out','OptOut','Confirmation d\'exclusion des envois massifs','Votre adresse courriel a été retirée des listes de diffusion {domain.name}.','Votre adresse courriel a été retirée des listes de diffusion {domain.name}.',1,1),
+    ('Réponse automatisée','Reply','Veuillez envoyer vos demandes à notre adresse courriel.','Ceci est une réponse automatique en provenance d\'une adresse courriel non gérée par des humains. Merci d\'envoyer toute demande à l\'adresse électronique pour les contacts figurant sur notre site.','Ceci est une réponse automatique en provenance d\'une adresse courriel non gérée par des humains. Merci d\'envoyer toute demande à l\'adresse électronique pour les contacts figurant sur notre site.',1,1);
 
 
 -- contribution types
@@ -4639,7 +4639,7 @@ VALUES
    ('payment_instrument'            , 'Moyens de paiement'                , 1, 1, 0),
    ('contribution_status'           , 'Statut de la contribution'                , 1, 1, 1),
    ('pcp_status'                    , 'Statut PCP'                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
+   ('pcp_owner_notify'              , 'Notifications aux propriétaires de page de campagne personnelle'            , 1, 1, 1),
    ('participant_role'              , 'Rôle du participant'                   , 1, 1, 0),
    ('event_type'                    , 'Type d\'évènement'                         , 1, 1, 0),
    ('contact_view_options'          , 'Options de la visualisation des contacts'               , 1, 1, 1),
@@ -4657,7 +4657,7 @@ VALUES
    ('case_status'                   , 'Statut de dossier'                        , 1, 1, 0),
    ('participant_listing'           , 'Liste de participants'                , 1, 1, 0),
    ('safe_file_extension'           , 'Extentions de fichiers permises'                , 1, 1, 0),
-   ('from_email_address'            , 'Adresse électronique d\'expéditeur'                 , 1, 1, 0),
+   ('from_email_address'            , 'Adresse courriel d\'expéditeur'                 , 1, 1, 0),
    ('mapping_type'                  , 'Type de correspondance'                       , 1, 1, 1),
    ('wysiwyg_editor'                , 'Éditeur WYSIWYG'                     , 1, 1, 0),
    ('recur_frequency_units'         , 'Unités de période réccurentes'          , 1, 1, 0),
@@ -4702,7 +4702,7 @@ VALUES
    ('label_type'                    , 'Type de libellé'                         , 1, 1, 0),
    ('name_badge'                    , 'Format de badge nominatif'                  , 1, 1, 0),
    ('communication_style'           , 'Style de communication'                , 1, 1, 0),
-   ('msg_mode'                      , 'Message Mode'                       , 1, 1, 0),
+   ('msg_mode'                      , 'Mode message'                       , 1, 1, 0),
    ('contact_date_reminder_options' , 'Options sur la date de rappel du contact'      , 1, 1, 1);
 
 SELECT @option_group_id_pcm            := max(id) from civicrm_option_group where name = 'preferred_communication_method';
@@ -4863,17 +4863,17 @@ VALUES
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'Paiement', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Paiement', 46, 'Payment', NULL, 1, NULL, 46, 'Paiement supplémentaire enregistré pour un événement ou des frais d\'adhésion.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Remboursement', 47, 'Refund', NULL, 1, NULL, 47, 'Remboursement enregistré pour un événement ou des frais d\'adhésion.', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
-   (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'Modifier l\'inscription', 48, 'Change Registration', NULL, 1, NULL, 48, 'Modifications apportées à une inscription existante à un événement.', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
-   (@option_group_id_act, 'Downloaded Invoice', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Downloaded Invoice.',0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Emailed Invoice.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Facture téléchargée', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Facture téléchargée.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Facture envoyée par courrier électronique', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Facture envoyée par courrier électronique.',0, 1, 1, NULL, NULL),
 
   -- for manual contact merge
-   (@option_group_id_act, 'Contact Merged', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Contact Merged',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Contact fusionné', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Contact fusionné',0, 1, 1, NULL, NULL),
 
   -- Activity Type for failed payment
    (@option_group_id_act, 'Failed Payment', 52, 'Failed Payment', NULL, 1, 0, 43, 'Failed Payment', 0, 1, 1, @contributeCompId, NULL),
@@ -4929,15 +4929,15 @@ VALUES
   (@option_group_id_cs, 'En retard'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Remboursé'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Payé partiellement', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Pending refund', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Remboursement en attente', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcp, 'En attente d\'approbation', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Approuvé'      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Non approuvé'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcpOwnerNotify, 'Owner chooses whether to receive notifications', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are sent to ALL owners'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are NOT available'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Le propriétaire choisit s\'il veut recevoir des notifications', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Les notifications sont envoyées à TOUS les propriétaires'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Les notifications ne sont PAS disponibles'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, 'Participant',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pRole, 'Bénévole', 2, 'Volunteer', NULL, 1, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4984,7 +4984,7 @@ VALUES
   (@option_group_id_ceOpt, 'Open ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Site web'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Préfixe'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Formal Title'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Titre officiel'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Prénom'               ,   14, 'First Name', NULL, 2, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Deuxième nom'              ,   15, 'Middle Name', NULL, 2, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Nom de famille'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
@@ -5016,7 +5016,7 @@ VALUES
   (@option_group_id_udOpt, 'Promesses de don'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Pages personnelles de campagne'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Activités assignées'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Factures/notes de crédit'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_acsOpt, 'Adresse courriel'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Téléphone'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
@@ -5049,15 +5049,15 @@ VALUES
   (@option_group_id_adOpt, 'Analyse d\'adresse', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_gType, 'Contrôle d\'accès', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_gType, 'Mailing List',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'Liste de diffusion',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_grantSt, 'Soumis', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Eligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Ineligible', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Éligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Inéligible', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Payé', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Awaiting Information', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'En attente d\'informations', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Retiré', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Approved for Payment',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Autorisé à procéder au paiement',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, 'Nom et province/département/canton du foyer', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContributionAggregate', 2, 'CRM_Contact_Form_Search_Custom_ContributionAggregate', NULL, 0, NULL, 2, 'Cumul de contributions', 0, 0, 1, NULL, NULL),
@@ -5124,7 +5124,7 @@ VALUES
   (@option_group_id_report , 'Cumul des contributions par relation',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Fournit un historique des contributions des contacts, groupées par année, avec les contributions de tous les contacts qui sont en relation.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report,  'Compte rendu détaillé de mailing',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Fournit des informations détaillées sur les envois espérés et ceux réussis, les désabonnements et demandes d\'exclusion des envois massifs, les réponses et les transferts.',   0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Informations détaillées sur les contributions et adhésions', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Informations détaillées sur les contributions, plus les informations d\'adhésion associées pour les contributions qui correspondent au paiement d\'une cotisation.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Provides information about the status of recurring contributions', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Rapport sur les contributions récurrentes', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Fournit des informations sur le statut des contributions récurrentes', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'Planifié',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Terminé',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5370,7 +5370,7 @@ VALUES
      (@option_group_id_arel, 'Le compte de coût des produits est', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Le compte de stock cadeaux est', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Le compte réductions est', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Le compte de la taxe de vente est', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
    (@option_group_id_ere, 'Rôle du participant', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5382,7 +5382,7 @@ VALUES
 -- default batch types
    (@option_group_id_batch_type, 'Contribution', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Adhésion', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'Paiement de promesse de don', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
    (@option_group_id_batch_status, 'Ouvert', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5433,17 +5433,17 @@ VALUES
   (@option_group_id_label, 'Avery L7163', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":9,"font-style":"","metric":"in","lMargin":0.18,"tMargin":0.6,"NX":2,"NY":7,"SpaceX":0.1,"SpaceY":0,"width":3.9,"height":1.5,"lPadding":0.20,"tPadding":0.20}',          'L7163', 'Avery', NULL, 0, 11, NULL, 0, 1, 1, NULL, NULL),
 
 -- Communication Styles
-  (@option_group_id_communication_style, 'Formal'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_communication_style, 'Familiar', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Formel'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Familier', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- Message Mode
 (@option_group_id_msg_mode, 'Courriel', 'Email', 'Email', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
 (@option_group_id_msg_mode, 'SMS', 'SMS', 'SMS', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_msg_mode, 'User Preference', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_msg_mode, 'Préférence de l\'utilisateur', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- Reminder Options for Contact Date Fields
-(@option_group_id_contactDateMode, 'Actual date only', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_contactDateMode, 'Each anniversary', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
+(@option_group_id_contactDateMode, 'Date effective uniquement', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_contactDateMode, 'Tous les ans', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
 
 -- financial accounts
 SELECT @opval := value FROM civicrm_option_value WHERE name = 'Revenue' and option_group_id = @option_group_id_fat;
@@ -5802,7 +5802,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 -- the strict dedupe rules
 -- IndividualUnsupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualUnsupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Adresse électronique (réservé)', 1);
+VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Adresse courriel (réservée)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -6123,7 +6123,7 @@ INSERT INTO civicrm_uf_group
     (10, 'contribution_batch_entry', 'Contribution', 'Entrée de contributions par lot' ,       0,      1,           NULL),
     (11, 'membership_batch_entry', 'Membership',     'Entrée d\'adhésions par lot' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'Vos informations d\'inscription',         0,      0,           NULL),
-    (13, 'honoree_individual', 'Individual,Contact', 'Honoree Individual',             0,      1,           NULL);
+    (13, 'honoree_individual', 'Individual,Contact', 'Personne remerciée',             0,      1,           NULL);
 
 
 INSERT INTO civicrm_uf_join
@@ -6229,7 +6229,7 @@ INSERT INTO civicrm_participant_status_type
   (12, 'Expired',                             'Expiré',                             'Negative', 1,           1,         0,          12,     2            ),
   (13, 'Pending in cart',                     'Attente dans le panier',                     'Pending',  1,           1,         0,          13,     2            ),
   (14,  'Partially paid',                      'Payé partiellement',                      'Positive', 1,           1,         1,          14,     2           ),
-  (15,  'Pending refund',                      'Pending refund',                      'Positive', 1,           1,         1,          14,     2           );
+  (15,  'Pending refund',                      'Remboursement en attente',                      'Positive', 1,           1,         1,          14,     2           );
 
 
 
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Dossiers - Envoi d\'une copie d\'une activité',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Contributions - Avertissement sur doublon d\'organisation',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Contributions - Reçu (hors ligne)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Contributions - Reçu (en ligne)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Contributions - Notification début et fin de période',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Contributions - Notification de suppression de la périodicité',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Contributions - Mises à jour de facturation périodique',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Contributions - Mises à jour de la périodicité',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Pages personnelles de campagne - Notification à l\'administrateur',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Pages personnelles de campagne - Notification de changement de statut d\'un sympathisant',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Pages personnelles de campagne - Accueil d\'un sympathisant',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Événements - Confirmation d\'inscription et reçu (hors ligne)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Événements - Confirmation d\'inscription et reçu (en ligne)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Événements - Reçu seulement',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Événements - Notification d\'annulation d\'inscription',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Événements - Invitation à confirmer une inscription',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Événements - Notification d\'expiration d\'une inscription en attente',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Courriel de recommandation à un ami',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Adhésions - Reçu de nouvelle adhésion ou de renouvellement (hors ligne)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Adhésions - Reçu (en ligne)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Adhésions - Notification de la suppression du renouvellement automatique',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Adhésions - Mises à jour de facturation de renouvellement',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Test - Reçu',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Engagements de don - Accusé de réception',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Engagements de don - Rappel d\'échéance',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profils - Notification à l\'administrateur',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Pétition - Signature ajoutée',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Pétition - Requiert vérification',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Dossiers - Envoi d\'une copie d\'une activité',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Contributions - Avertissement sur doublon d\'organisation',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Contributions - Reçu (hors ligne)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Contributions - Reçu (en ligne)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Facture',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Contributions - Notification début et fin de période',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Contributions - Notification de suppression de la périodicité',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Contributions - Mises à jour de facturation périodique',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Contributions - Mises à jour de la périodicité',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Pages personnelles de campagne - Notification à l\'administrateur',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Pages personnelles de campagne - Notification de changement de statut d\'un sympathisant',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Pages personnelles de campagne - Accueil d\'un sympathisant',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Pages de campagne personnelle - Notification du propriétaire',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Reçu de paiement supplémentaire ou notification de remboursement',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Événements - Confirmation d\'inscription et reçu (hors ligne)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Événements - Confirmation d\'inscription et reçu (en ligne)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Événements - Reçu seulement',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Événements - Notification d\'annulation d\'inscription',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Événements - Invitation à confirmer une inscription',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Événements - Notification d\'expiration d\'une inscription en attente',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Courriel de recommandation à un ami',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Adhésions - Reçu de nouvelle adhésion ou de renouvellement (hors ligne)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Adhésions - Reçu (en ligne)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Adhésions - Notification de la suppression du renouvellement automatique',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Adhésions - Mises à jour de facturation de renouvellement',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Test - Reçu',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Engagements de don - Accusé de réception',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Engagements de don - Rappel d\'échéance',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profils - Notification à l\'administrateur',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Pétition - Signature ajoutée',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Pétition - Requiert vérification',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -8121,14 +8121,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -8804,14 +8804,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -9082,7 +9082,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_online_receipt, 0,          1) ,      
       
       
-      ('Contributions - Invoice', '{if $title}
+      ('Contributions - Facture', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9529,7 +9529,7 @@ from your next payment to us</div><br/></font></td>
   </body>
 </html>
 ', @tpl_ovid_contribution_invoice_receipt, 1,          0),
-      ('Contributions - Invoice', '{if $title}
+      ('Contributions - Facture', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Pages de campagne personnelle - Notification du propriétaire', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Pages de campagne personnelle - Notification du propriétaire', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11544,7 +11544,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_owner_notify, 0,          1) ,      
       
       
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Reçu de paiement supplémentaire ou notification de remboursement', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -11930,7 +11930,7 @@ from your next payment to us</div><br/></font></td>
  </body>
 </html>
 ', @tpl_ovid_payment_or_refund_notification, 1,          0),
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Reçu de paiement supplémentaire ou notification de remboursement', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -20537,7 +20537,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -20556,7 +20556,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -22820,7 +22820,7 @@ INSERT INTO `civicrm_price_field_value` (  `price_field_id`, `name`, `label`, `a
 VALUES ( @fieldID, 'contribution_amount', 'Contribution Amount', '1', '1', '0', '1', 1);
 
 -- CRM-13833
-INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Soft Credit Types', 1, 1);
+INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Types de crédit indirect', 1, 1);
 
 SELECT @option_group_id_soft_credit_type := max(id) from civicrm_option_group where name = 'soft_credit_type';
 
@@ -22828,15 +22828,15 @@ INSERT INTO `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`,
 VALUES
   (@option_group_id_soft_credit_type   , 'En l\'honneur de', 1, 'in_honor_of', 1, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'En mémoire de', 2, 'in_memory_of', 2, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Solicited', 3, 'solicited', 3, 1, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Sollicité', 3, 'solicited', 3, 1, 1, 1),
   (@option_group_id_soft_credit_type   , 'Ménage', 4, 'household', 4, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Workplace Giving', 5, 'workplace', 5, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Foundation Affiliate', 6, 'foundation_affiliate', 6, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
+  (@option_group_id_soft_credit_type   , 'Dons dans le cadre professionnel', 5, 'workplace', 5, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Fondation affiliée', 6, 'foundation_affiliate', 6, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Service tiers', 7, '3rd-party_service', 7, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Fonds de bienfaisance', 8, 'donor-advised_fund', 8, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Cadeau correspondant', 9, 'matched_gift', 9, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Page de campagne personnelle', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Cadeau', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
@@ -23706,4 +23706,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.9';
+UPDATE civicrm_domain SET version = '4.6.10';
