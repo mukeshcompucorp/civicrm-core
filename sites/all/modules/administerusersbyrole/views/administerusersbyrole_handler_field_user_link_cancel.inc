@@ -17,11 +17,10 @@ class administerusersbyrole_handler_field_user_link_cancel extends views_handler
   function render_link($data, $values) {
     $uid = $values->{$this->aliases['uid']};
 
-    // Build a pseudo account object to be able to check the access.
-    $account = new stdClass();
-    $account->uid = $uid;
+    // Pull the access information from the menu router item.
+    $item = menu_get_item("user/$uid/cancel");
 
-    if ($uid && _administerusersbyrole_can_cancel_user($account)) {
+    if ($item['access']) {
       $this->options['alter']['make_link'] = TRUE;
 
       $text = !empty($this->options['text']) ? $this->options['text'] : t('Cancel account');

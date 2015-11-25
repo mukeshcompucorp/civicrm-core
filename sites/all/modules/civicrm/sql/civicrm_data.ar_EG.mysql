@@ -4595,7 +4595,7 @@ INSERT INTO civicrm_tag( name, description, parent_id,used_for )
     ( 'غير ربحي', 'أيّ منظمة غير ربحية ', NULL,'civicrm_contact'),
     ( 'شركة', 'منظّمة ربحية.', NULL,'civicrm_contact'),
     ( 'هيئة حكومية ', 'أيّ هيئة حكومية. ', NULL,'civicrm_contact'),
-    ( 'المانح الأكبر ', 'High-value supporter of our organization.', NULL,'civicrm_contact'),
+    ( 'المانح الأكبر ', 'مناصر لمنظمتك قيمته عالية', NULL,'civicrm_contact'),
     ( 'متطوّع ', 'متطوّع ناشط', NULL,'civicrm_contact' );
 
 
@@ -4603,13 +4603,13 @@ INSERT INTO civicrm_tag( name, description, parent_id,used_for )
 INSERT INTO civicrm_mailing_component
     (name,component_type,subject,body_html,body_text,is_default,is_active)
 VALUES
-    ('Mailing Header','Header','Descriptive Title for this Header','Sample Header for HTML formatted content.','Sample Header for TEXT formatted content.',1,1),
-    ('Mailing Footer','Footer','Descriptive Title for this Footer.','Sample Footer for HTML formatted content<br/><a href=\"{action.optOutUrl}\">Unsubscribe</a>  <br/> {domain.address}','to unsubscribe: {action.optOutUrl}\n{domain.address}',1,1),
-    ('رسالة الاشتراك','Subscribe','طلب تأكيد الاشتراك','You have a pending subscription to the {subscribe.group} mailing list. To confirm this subscription, reply to this email or click <a href=\"{subscribe.url}\">here</a>.','You have a pending subscription to the {subscribe.group} mailing list. To confirm this subscription, reply to this email or click on this link: {subscribe.url}',1,1),
+    ('رأسية البريد','Header','عنوان توصيفي لرأس الصفحة','نموذج لرأس محتوى منسّق بلغة أتش تي أم أل','نموذج لرأس نص منسّق.',1,1),
+    ('حاشية البريد','Footer','العنوان الوصفي لهذه الحاشية.','Sample Footer for HTML formatted content<br/><a href=\"{action.optOutUrl}\">Unsubscribe</a>  <br/> {domain.address}','to unsubscribe: {action.optOutUrl}\n{domain.address}',1,1),
+    ('رسالة الاشتراك','Subscribe','طلب تأكيد الاشتراك','اشتراكك معلّق في {subscribe.group} قائمة بريدية. لتأكيد الاشتراك، ردّ على هذه الرسالة الإلكترونية، أو أنقر على <a href=\"{subscribe.url}\">هنا</a>.','اشتراكك معلّق في {subscribe.group} قائمة بريدية. لتأكيد الاشتراك، ردّ على هذه الرسالة الإلكترونية، أو أنقر على هذا الرابط: {subscribe.url}',1,1),
     ('رسالة ترحيبية','Welcome','تمّ تفعيل اشتراكك','مرحباً بك. تمّ تفعيل اشتراكك في لائحة البريد الإلكتروني 1%, ','مرحباً بك. تمّ تفعيل اشتراكك في لائحة البريد الإلكتروني 1%, ',1,1),
     ('رسالة إلغاء الاشتراك','Unsubscribe','التأكيد على إلغاء الاشتراك','تمّ إلغاء اشتراكك من المجموعات التالية: 1%. يمكنك إعادة الاشتراك من خلال إرسال بريد إلكتروني 2% أو النقر <a href=\"{action.resubscribeUrl}\">هنا</a>.','تمّ إلغاء اشتراكك من المجموعات التالية: 1%. يمكنك إعادة الاشتراك من خلال إرسال بريد إلكتروني 2% أو النقر 3%',1,1),
-    ('رسالة معاودة الاشتراك','Resubscribe','تمّ التأكيد على إعادة الاشتراك','You have been re-subscribed to the following groups: {resubscribe.group}. You can un-subscribe by mailing {action.unsubscribe} or clicking <a href=\"{action.unsubscribeUrl}\">here</a>.','You have been re-subscribed to the following groups: {resubscribe.group}. You can un-subscribe by mailing {action.unsubscribe} or clicking {action.unsubscribeUrl}',1,1),
-    ('رسالة إلغاء الاشتراك','OptOut','Opt-out Confirmation','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ',1,1),
+    ('رسالة معاودة الاشتراك','Resubscribe','تمّ التأكيد على إعادة الاشتراك','أعيد اشتراكك في المجموعات التالية:  {resubscribe.group}. لا يجوز لك إلغاء الاشتراك بمراسلة {action.unsubscribe}، أو النقر على <a href=\"{action.unsubscribeUrl}\">هنا</a>. ','أعيد اشتراكك في المجموعات التالية:  {resubscribe.group}. يجوز لك إلغاء الاشتراك بمراسلة {action.unsubscribe}، أو النقر على {action.unsubscribeUrl}',1,1),
+    ('رسالة إلغاء الاشتراك','OptOut','تأكيد الانسحاب','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ',1,1),
     ('مجيب آلي','Reply','يُرجى إرسال الاستفسارات إلى العنوان الإلكتروني لجهة الاتصال الخاصة بنا','هذا رد آلي من بريد إلكتروني غير مستخدم. يُرجى إرسال أيّ استفسار إلى عنوان البريد الإلكتروني المدرج على موقعنا الإلكتروني. ','هذا رد آلي من بريد إلكتروني غير مستخدم. يُرجى إرسال أيّ استفسار إلى عنوان البريد الإلكتروني المدرج على موقعنا الإلكتروني. ',1,1);
 
 
@@ -4630,16 +4630,16 @@ VALUES
    ('preferred_communication_method', 'وسيلة الاتصال المفضلة'     , 1, 1, 0),
    ('activity_type'                 , 'نوع النشاط'                      , 1, 1, 0),
    ('gender'                        , 'الجنس'                             , 1, 1, 0),
-   ('instant_messenger_service'     , 'اسم المستخدم على برنامج التراسل الفوري (IM)', 1, 1, 0),
+   ('instant_messenger_service'     , 'اسم المستخدم على برنامج المراسلة الفورية (IM)', 1, 1, 0),
    ('mobile_provider'               , 'مزوّدو الهواتف الخليوية'             , 1, 1, 0),
    ('individual_prefix'             , 'بادئات خاصة بجهات الاتصال الفردية '        , 1, 1, 0),
    ('individual_suffix'             , 'لواحق خاصة بجهات الاتصال الفردية'        , 1, 1, 0),
-   ('acl_role'                      , '  ACL دور '                           , 1, 1, 0),
+   ('acl_role'                      , '  دور ACL '                           , 1, 1, 0),
    ('accept_creditcard'             , 'بطاقات التسليف الموافق عليها'              , 1, 1, 0),
    ('payment_instrument'            , 'أدوات الدفع '                , 1, 1, 0),
    ('contribution_status'           , 'وضع المساهمة'                , 1, 1, 1),
    ('pcp_status'                    , 'وضع PCP '                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
+   ('pcp_owner_notify'              , 'إشعارات صاحب صفحة الحملة الشخصية'            , 1, 1, 1),
    ('participant_role'              , 'دور المشاركين '                   , 1, 1, 0),
    ('event_type'                    , 'نوع المناسبة'                         , 1, 1, 0),
    ('contact_view_options'          , 'خيارات الاطلاع على جهات الاتصال'               , 1, 1, 1),
@@ -4683,7 +4683,7 @@ VALUES
    ('system_extensions'             , 'امتدادات CiviCRM '                 , 1, 1, 0),
    ('mail_approval_status'          , 'وضع الموافقة على CiviMail '           , 1, 1, 0),
    ('engagement_index'              , 'مؤشّر الالتزام'                   , 1, 1, 0),
-   ('cg_extend_objects'             , 'Objects a custom group extends to'  , 1, 1, 0),
+   ('cg_extend_objects'             , 'الأغراض التي تنقلها مجموعة مخصصة إلى'  , 1, 1, 0),
    ('paper_size'                    , 'حجم الصفحة'                         , 1, 1, 0),
    ('pdf_format'                    , 'شكل صفحة الـPDF '                    , 1, 1, 0),
    ('label_format'                  , 'شكل تصنيف البريد '               , 1, 1, 0),
@@ -4694,7 +4694,7 @@ VALUES
    ('batch_type'                    , 'نوع الدفعة '                         , 1, 1, 1),
    ('batch_mode'                    , 'صيغة الدفعة'                         , 1, 1, 1),
    ('batch_status'                  , 'حالة الدفعة'                       , 1, 1, 1),
-   ('sms_api_type'                  , 'نوع واجهة برمجة التطبيقات'                           , 1, 1, 0),
+   ('sms_api_type'                  , 'نوع Api '                           , 1, 1, 0),
    ('sms_provider_name'             , 'الاسم الداخلي لمزوّد خدمة الرسائل القصيرة'         , 1, 1, 0),
    ('auto_renew_options'            , 'خيارات التجديد الآلي'                 , 1, 1, 1),
    ('financial_account_type'        , 'نوع الحساب المالي'             , 1, 1, 0),
@@ -4703,7 +4703,7 @@ VALUES
    ('name_badge'                    , 'صيغة بطاقة التعريف بالاسم'                  , 1, 1, 0),
    ('communication_style'           , 'نمط التواصل'                , 1, 1, 0),
    ('msg_mode'                      , 'صيغة الرسالة '                       , 1, 1, 0),
-   ('contact_date_reminder_options' , 'Contact Date Reminder Options'      , 1, 1, 1);
+   ('contact_date_reminder_options' , 'خيارات التذكير بتاريخ جهة الاتصال'      , 1, 1, 1);
 
 SELECT @option_group_id_pcm            := max(id) from civicrm_option_group where name = 'preferred_communication_method';
 SELECT @option_group_id_act            := max(id) from civicrm_option_group where name = 'activity_type';
@@ -4853,7 +4853,7 @@ VALUES
    (@option_group_id_act, 'تمّ إرسال التذكير',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
 
  -- Activity Types for Financial Transactions Batch
-   (@option_group_id_act, 'Export Accounting Batch', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'صدّر البيانات المحاسبية على دفعات', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'أنشىء الدفعة', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'عدّل الدفعة', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
 
@@ -4863,11 +4863,11 @@ VALUES
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'الدفع', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'الدفع', 46, 'Payment', NULL, 1, NULL, 46, 'مدفوعات إضافية مسجلة لرسوم المناسبة أو العضوية.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'إعادة التسديد ', 47, 'Refund', NULL, 1, NULL, 47, 'تسجيل إعادة التسديد بالنسبة لرسوم المشاركة في مناسبة أو العضوية. ', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
-   (@option_group_id_act, 'تغيير التسجيل', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'تغيير التسجيل', 48, 'Change Registration', NULL, 1, NULL, 48, 'تغييرات طرأت على تسجيل لمناسبة حالية. ', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
    (@option_group_id_act, 'الفاتورة التي جرى تنزيلها', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'الفاتورة التي جرى تنزيلها. ',0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'الفاتورة المرسلة عبر البريد الإلكتروني', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'الفاتورة المرسلة عبر البريد الإلكتروني.',0, 1, 1, NULL, NULL),
@@ -4919,7 +4919,7 @@ VALUES
   (@option_group_id_pi, 'بطاقة المدين ',   2, 'Debit Card',  NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pi, 'نقداً',         3, 'Cash',        NULL, 0, 0, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pi, 'شيك',        4, 'Check',       NULL, 0, 1, 4, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pi, 'EFT',          5, 'EFT',         NULL, 0, 0, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_pi, 'تحويلات مالية إلكترونية',          5, 'EFT',         NULL, 0, 0, 5, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_cs, 'تام'  , 1, 'Completed'  , NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'قيد الانتظار'    , 2, 'Pending'    , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -4929,14 +4929,14 @@ VALUES
   (@option_group_id_cs, 'متأخر'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'تمّت إعادة تمويله'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'مدفوع جزئياً ', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Pending refund', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'إعادة التسديد معلّقة', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcp, 'بانتظار المراجعة', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'موافق عليه '      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'غير موافق  عليه '  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcpOwnerNotify, 'المالك يختار إن كان يريد تلقي إشعارات ', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'الإشعارات أرسلت إلى جميع المالكين'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'صاحب الصفحة يختار إن كان يريد تلقي إشعارات ', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'الإشعارات أرسلت إلى جميع أصحاب الصفحات'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcpOwnerNotify, 'الإشعارات غير متوفرة '  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, 'مشارك ',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -4977,10 +4977,10 @@ VALUES
   (@option_group_id_ceOpt, 'تفضيلات الاتصالات',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'ملاحظات'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'الديموغرافيات'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'الوسومات والمجموعات '          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'الوسوم والمجموعات '          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'البريد الإلكتروني'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'هاتف'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'المحادثات الفورية'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'برنامج المراسلة الفورية'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'رمز تعريفي مفتوح'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'موقع ويب'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'البادئة'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
@@ -4990,8 +4990,8 @@ VALUES
   (@option_group_id_ceOpt, 'الاسم الأخير'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'اللاحقة'                   ,   17, 'Suffix', NULL, 2, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_asOpt, 'حقول العنوان'          ,   1, 'location', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'الحقول المخصصة'           ,   2, 'custom', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'خانات العنوان'          ,   1, 'location', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'الخانات المخصصة'           ,   2, 'custom', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'الأنشطة'              ,   3, 'activity', NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'العلاقات'           ,   4, 'relationship', NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'ملاحظات'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
@@ -5016,7 +5016,7 @@ VALUES
   (@option_group_id_udOpt, 'التبرعات المعلنة'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'صفحات الحملة الشخصية'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'النشاطات المحددة'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'الفواتير / إشعارات الدائن'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_acsOpt, 'العنوان الإلكتروني'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'هاتف'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
@@ -5046,7 +5046,7 @@ VALUES
   (@option_group_id_adOpt, 'دائرة العرض'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'خط الطول'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'اسم العنوان'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Street Address Parsing', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'تحليل عنوان الشارع', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_gType, '  صلاحيات الوصول و الاستعمال', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_gType, 'لائحة العناوين ',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5068,9 +5068,9 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_EventAggregate'       , 7, 'CRM_Contact_Form_Search_Custom_EventAggregate', NULL, 0, NULL, 7, 'مجموع المناسبات', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ActivitySearch'       , 8, 'CRM_Contact_Form_Search_Custom_ActivitySearch', NULL, 0, NULL, 8, 'البحث عن النشاطات', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'تفاصيل مجموعة الأسعار المفروضة على المشاركين في المناسبة ', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, 'Zip Code Range', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, 'نطاق الرمز البريدي', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'تاريخ الإضافة إلى CiviCRM', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Custom Group Multiple Values Listing', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'قائمة القيم المتعددة للمجموعات المخصصة', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'المساهمات التي سُجّلت في السنة X لا في السنة Y. ', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'جد قيم المساهمات من خلال الوسم ', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, 'البحث في كامل النص ', 0, 0, 1, NULL, NULL),
@@ -5104,7 +5104,7 @@ VALUES
   (@option_group_id_report , 'تقرير الوضع الديموغرافي لجهات الاتصال',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'التجزيء الديموغرافي لعملاء الملفات (وجهات الاتصال غير المرتبطة بالملفات) في قاعدة بياناتك. يتضمّن الخانات المخصصة الخاصة بجهات الاتصال. ', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'تقرير بسجلات قاعدة البيانات',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, 'سجلات النشاطات وجهات الاتصال المنشأة أو المحدّثة في فترة زمنية محدّدة. ', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'تقرير النشاطات (خلاصة)',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'إظهار إحصاءات النشاطات وفقاً للنوع/التاريخ', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report, 'تقرير حفظ الصفقات في سجلات',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'يعرض تقرير حفظ الصفقات في سجلات', 0, 0, 1, 2, NULL),
+  (@option_group_id_report, 'تقرير حفظ المعاملات في سجلات',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'يعرض تقرير حفظ المعاملات في سجلات', 0, 0, 1, 2, NULL),
   (@option_group_id_report , 'تقرير المنح (مفصّل)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, 'تقرير المنح المفصّل ', 0, 0, 1, @grantCompId, NULL),
   (@option_group_id_report, 'تقرير تعداد لوائح المشاركين', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, 'أظهر لائحة المشاركين مع عدد المشاركين.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'تقرير ملخّص المداخيل', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'يظهر ملخّص مداخيل كلّ مناسبة. ', 0, 0, 1, @eventCompId, NULL),
@@ -5163,7 +5163,7 @@ VALUES
   (@option_group_id_we, 'Joomla Default Editor', 3, 'Joomla Default Editor', NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_we, 'Drupal Default Editor', 4, 'Drupal Default Editor', NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_mt, 'Search Builder',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'معدّ البحث',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'إستورد جهة الاتصال ',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'إستورد النشاط',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'إستورد المساهمة ', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
@@ -5370,7 +5370,7 @@ VALUES
      (@option_group_id_arel, 'حساب كلفة المبيعات هو ', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'حساب جردة الامتيازات هو ', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'حساب الحسومات هو ', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'حساب الضريبة على المبيعات هو ', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
    (@option_group_id_ere, 'دور المشاركين ', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5382,7 +5382,7 @@ VALUES
 -- default batch types
    (@option_group_id_batch_type, 'المساهمة', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'العضوية', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'تسديد التعهّد', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
    (@option_group_id_batch_status, 'مفتوح ', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5415,9 +5415,9 @@ VALUES
 
 -- Name Label format
    (@option_group_id_name_badge, 'أفيري 5395', '{"name":"Avery 5395","paper-size":"a4","metric":"mm","lMargin":15,"tMargin":26,"NX":2,"NY":4,"SpaceX":10,"SpaceY":5,"width":83,"height":57,"font-size":12,"orientation":"portrait","font-name":"helvetica","font-style":"","lPadding":3,"tPadding":3}', 'Avery 5395', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'A6 Badge Portrait 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Fattorini Name Badge 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Hanging Badge 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'رسم شارة A6 بحجم 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'شارة من طراز فاتوريني بحجم  100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'شارة معلّقة بحجم 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
 
 -- Mailing Label Formats
   (@option_group_id_label, 'أفيري 3475', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":10,"font-style":"","metric":"mm","lMargin":0,"tMargin":5,"NX":3,"NY":8,"SpaceX":0,"SpaceY":0,"width":70,"height":36,"lPadding":5.08,"tPadding":5.08}',                   '3475',  'Avery', NULL, 0, 1,  NULL, 0, 1, 1, NULL, NULL),
@@ -5476,7 +5476,7 @@ INSERT INTO
    `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`, `grouping`, `filter`, `is_default`, `weight`, `description`, `is_optgroup`, `is_reserved`, `is_active`, `component_id`, `domain_id`, `visibility_id`)
 VALUES
 -- from email address.
-  (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'مجال عنوان البريد الإلكتروني واسم المرسل المبدئي.', 0, 0, 1, NULL, @domainID, NULL ),
+  (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'نطاق عنوان البريد الإلكتروني واسم المرسل الافتراضي.', 0, 0, 1, NULL, @domainID, NULL ),
 
 -- grant types
   (@option_group_id_grantTyp, 'الطوارئ'          , 1, 'Emergency'         , NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, @domainID, NULL),
@@ -5541,7 +5541,7 @@ VALUES
   (@option_group_id_languages, 0, 1, 'ca_ES', 'ca', 'الكتلانية؛ الفالنسية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ch_GU', 'ch', 'الشامورية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ce_RU', 'ce', 'الشيشانية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ny_MW', 'ny', 'Chichewa; Chewa; Nyanja', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ny_MW', 'ny', 'شيشيوا؛ سيوا؛ النيانجا', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'zh_CN', 'zh', 'الصينية (الصين) ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'zh_TW', 'zh', 'الصينية (تايوان) ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'cv_RU', 'cv', 'التشوفاشية', @counter := @counter + 1),
@@ -5551,7 +5551,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'hr_HR', 'hr', 'الكرواتية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'cs_CZ', 'cs', 'التشيكية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'da_DK', 'da', 'الدانماركية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'dv_MV', 'dv', 'Divehi; Dhivehi; Maldivian;', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'dv_MV', 'dv', 'الديفاهي؛ الدهيفاهية؛ المالديفية؛', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'nl_NL', 'nl', 'الهولندية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'dz_BT', 'dz', 'الدزونغخا', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'en_AU', 'en', 'الإنكليزية (أستراليا) ', @counter := @counter + 1),
@@ -5566,121 +5566,121 @@ VALUES
   (@option_group_id_languages, 0, 1, 'fi_FI', 'fi', 'الفنلندية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fr_CA', 'fr', 'الفرنسية (كندا)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fr_FR', 'fr', 'الفرنسية (فرنسا)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ff_SN', 'ff', 'Fula; Fulah; Pulaar; Pular', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ff_SN', 'ff', 'الفولا؛ الفولاتة؛ البولار؛ البولار', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gl_ES', 'gl', 'الغاليسية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ka_GE', 'ka', 'الجورجية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'de_DE', 'de', 'الألمانية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'de_CH', 'de', 'الألمانية (سويسرا) ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'el_GR', 'el', 'اليونانية، الحديثة ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gn_PY', 'gn', 'Guarani­', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gn_PY', 'gn', 'الغواراني', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gu_IN', 'gu', 'الغوجاراتية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ht_HT', 'ht', 'Haitian; Haitian Creole', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ht_HT', 'ht', 'الهايتية؛ الكريولية الهايتية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ha_NG', 'ha', 'الهوسية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'he_IL', 'he', 'العبرية (الحديثة) ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'hz_NA', 'hz', 'الهيريرو', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'hi_IN', 'hi', 'الهندية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ho_PG', 'ho', 'هيري موتو ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'hu_HU', 'hu', 'المجرية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'Interlingua', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'إنترلنغوا', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'id_ID', 'id', 'الأندونيسية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'Interlingue', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'الغربية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ga_IE', 'ga', 'الإيرلندية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'Igbo', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ik_US', 'ik', 'Inupiaq', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'الإيجبو', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ik_US', 'ik', 'الإينوبياك', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'io_XX', 'io', 'إيدو', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'is_IS', 'is', 'الإيسلندية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'it_IT', 'it', 'الإيطالية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'iu_CA', 'iu', 'Inuktitut', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'iu_CA', 'iu', 'الإنكتيتوتية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ja_JP', 'ja', 'اليابانية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'jv_ID', 'jv', 'Javanese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kl_GL', 'kl', 'Kalaallisut, Greenlandic', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kn_IN', 'kn', 'Kannada', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kr_NE', 'kr', 'Kanuri', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ks_IN', 'ks', 'Kashmiri', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'jv_ID', 'jv', 'الجاوية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kl_GL', 'kl', 'الغرينلاندية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kn_IN', 'kn', 'الكنادية ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kr_NE', 'kr', 'الكانورية ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ks_IN', 'ks', 'الكشميرية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'kk_KZ', 'kk', 'الكازاخية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'km_KH', 'km', 'الخمير ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ki_KE', 'ki', 'Kikuyu, Gikuyu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'rw_RW', 'rw', 'Kinyarwanda', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ky_KG', 'ky', 'Kirghiz, Kyrgyz', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kv_RU', 'kv', 'Komi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kg_CD', 'kg', 'Kongo', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ki_KE', 'ki', 'الكيكويو، الغيكويو', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'rw_RW', 'rw', 'الكينيارواندية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ky_KG', 'ky', 'القيرغيزية ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kv_RU', 'kv', 'الكومية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kg_CD', 'kg', 'الكونغو', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ko_KR', 'ko', 'الكورية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ku_IQ', 'ku', 'الكردية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kj_NA', 'kj', 'Kwanyama, Kuanyama', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kj_NA', 'kj', 'الكيونياما', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'la_VA', 'la', 'اللاتينية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lb_LU', 'lb', 'Luxembourgish, Letzeburgesch', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lg_UG', 'lg', 'Luganda', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'li_NL', 'li', 'Limburgish, Limburgan, Limburger', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ln_CD', 'ln', 'Lingala', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lo_LA', 'lo', 'Lao', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lb_LU', 'lb', 'اللوكسمبرجية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lg_UG', 'lg', 'لوغاندا', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'li_NL', 'li', 'الليمبرجيشية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ln_CD', 'ln', 'لينغالية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lo_LA', 'lo', 'لاو', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'lt_LT', 'lt', 'الليتوانية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'Luba-Katanga', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'لوبا غاتانغا', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'lv_LV', 'lv', 'اللاتفية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gv_IM', 'gv', 'Manx', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gv_IM', 'gv', 'المانكسية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mk_MK', 'mk', 'المقدونية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mg_MG', 'mg', 'Malagasy', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ms_MY', 'ms', 'Malay', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ml_IN', 'ml', 'Malayalam', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mg_MG', 'mg', 'الملغاشية ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ms_MY', 'ms', 'الملاوية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ml_IN', 'ml', 'الماليالامية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mt_MT', 'mt', 'المالطية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mi_NZ', 'mi', 'Māori', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mr_IN', 'mr', 'Marathi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mh_MH', 'mh', 'Marshallese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mi_NZ', 'mi', 'الماورية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mr_IN', 'mr', 'الماراثية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mh_MH', 'mh', 'المارشالية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mn_MN', 'mn', 'المنغولية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'na_NR', 'na', 'Nauru', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nv_US', 'nv', 'Navajo, Navaho', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'Norwegian BokmÃ¥l', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', 'North Ndebele', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'na_NR', 'na', 'ناورو ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nv_US', 'nv', 'النافاجونية ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'النرويجية ', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', 'شمال نديبيليية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ne_NP', 'ne', 'النيبالية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ng_NA', 'ng', 'Ndonga', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', 'Norwegian Nynorsk', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ng_NA', 'ng', 'اندوغا', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', 'نينوشك النرويجية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'no_NO', 'no', 'النروجية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ii_CN', 'ii', 'Nuosu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'South Ndebele', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'Occitan (after 1500)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ii_CN', 'ii', 'نيوسوية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'جنوب نديبيليية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'القُسْطَانِيَّة (بعد العام 1500)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'oj_CA', 'oj', 'أوجيبوا', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', 'Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', 'السلافونية الكنسية القديمة', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'om_ET', 'om', 'أورومو', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'or_IN', 'or', 'Oriya', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'Ossetian, Ossetic', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'or_IN', 'or', 'الأوريا', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'الأوسيتية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'pa_IN', 'pa', 'البنجابية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'pi_KH', 'pi', 'البالية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'الفارسية (إيران) ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'pl_PL', 'pl', 'البولندية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ps_AF', 'ps', 'Pashto, Pushto', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ps_AF', 'ps', 'البشتوية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'pt_BR', 'pt', 'البرتغالية (البرازيل) ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'pt_PT', 'pt', 'البرتغالية (البرتغال) ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'qu_PE', 'qu', 'Quechua', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'rm_CH', 'rm', 'Romansh', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'qu_PE', 'qu', 'الكيشوا', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'rm_CH', 'rm', 'الرومانشية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'rn_BI', 'rn', 'الكيروندية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ro_RO', 'ro', 'الرومانية، المولدافية، المولدوفية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ru_RU', 'ru', 'الروسية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sa_IN', 'sa', 'السنسكريتية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sc_IT', 'sc', 'السردينية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sd_IN', 'sd', 'Sindhi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'se_NO', 'se', 'Northern Sami', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sd_IN', 'sd', 'السندية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'se_NO', 'se', 'سامي الشمالية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sm_WS', 'sm', 'الساموا', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sg_CF', 'sg', 'سانغو', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sr_RS', 'sr', 'الصربية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gd_GB', 'gd', 'الاسكتلندية الغالية، الغالية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sn_ZW', 'sn', 'الشونا', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'si_LK', 'si', 'Sinhala, Sinhalese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'si_LK', 'si', 'السنهالية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'sk_SK', 'sk', 'السلوفاكية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'sl_SI', 'sl', 'السلوفينية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'so_SO', 'so', 'الصومالية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'st_ZA', 'st', 'Southern Sotho', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'st_ZA', 'st', 'السوتو الجنوبية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'الإسبانية؛ الكاستيليانية (إسبانيا)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'الإسبانية؛ الكاستيليانية (المكسيك)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'الإسبانية؛ الكاستيليانية (بويرتو ريكو)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'Sundanese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'السوندية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sw_TZ', 'sw', 'السواحيلية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'Swati', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'السواتية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'السويدية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ta_IN', 'ta', 'التاميلية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'te_IN', 'te', 'Telugu', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'te_IN', 'te', 'التيلوغوية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tg_TJ', 'tg', 'الطاجيك', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'th_TH', 'th', 'التايلندية ', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ti_ET', 'ti', 'Tigrinya', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'bo_CN', 'bo', 'Tibetan Standard, Tibetan, Central', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ti_ET', 'ti', 'التغرينية', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'bo_CN', 'bo', 'التبتيه الموحّدة، المركزية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tk_TM', 'tk', 'التركمانية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tl_PH', 'tl', 'التاغالوغ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tn_ZA', 'tn', 'التسوانية ', @counter := @counter + 1),
@@ -5690,7 +5690,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'tt_RU', 'tt', 'التترية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tw_GH', 'tw', 'التوي', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ty_PF', 'ty', 'التاهيتية', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ug_CN', 'ug', 'Uighur, Uyghur', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ug_CN', 'ug', 'الأويغورية ', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'uk_UA', 'uk', 'الأوكرانية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ur_PK', 'ur', 'الأردية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'uz_UZ', 'uz', 'الأوزبكية', @counter := @counter + 1),
@@ -5704,7 +5704,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'xh_ZA', 'xh', 'الخوسية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'yi_US', 'yi', 'اليديشية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'yo_NG', 'yo', 'يوروبا', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'za_CN', 'za', 'Zhuang, Chuang', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'za_CN', 'za', 'التشوانغية', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'zu_ZA', 'zu', 'الزولو', @counter := @counter + 1);
 -- /*******************************************************
 -- *
@@ -5760,8 +5760,8 @@ VALUES
  ('PayPal',             'باي بال- الامتياز في مدفوعات الموقع الإلكتروني',      NULL,1,0,'اسم المستخدم ','كلمة السر','الإمضاء',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/','https://www.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/','https://www.sandbox.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',3, 1 ),
  ('PayPal_Express',     'باي بال- إكسبرس',       NULL,1,0,'اسم المستخدم ','كلمة السر','الإمضاء',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',2,NULL),
  ('Google_Checkout',    'خدمة Google Checkout',        NULL,1,0,'الرمز التعريفي للبائع','أساسي',NULL,NULL,'Payment_Google','https://checkout.google.com/',NULL,'https://checkout.google.com/','https://checkout.google.com/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US','https://sandbox.google.com/checkout/',NULL,'https://sandbox.google.com/checkout/','https://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US',4,1),
- ('Moneris',            'Moneris',                NULL,1,0,'اسم المستخدم ','كلمة السر','الرمز التعريفي للمخزن',NULL,'Payment_Moneris','https://www3.moneris.com/',NULL,NULL,NULL,'https://esqa.moneris.com/',NULL,NULL,NULL,1,1),
- ('AuthNet',            'Authorize.Net',          NULL,1,0,'API Login','مفتاح الدفع','MD5 Hash',NULL,'Payment_AuthorizeNet','https://secure.authorize.net/gateway/transact.dll',NULL,'https://api.authorize.net/xml/v1/request.api',NULL,'https://test.authorize.net/gateway/transact.dll',NULL,'https://apitest.authorize.net/xml/v1/request.api',NULL,1,1),
+ ('Moneris',            'شركة Moneris ',                NULL,1,0,'اسم المستخدم ','كلمة السر','الرمز التعريفي للمخزن',NULL,'Payment_Moneris','https://www3.moneris.com/',NULL,NULL,NULL,'https://esqa.moneris.com/',NULL,NULL,NULL,1,1),
+ ('AuthNet',            'Authorize.Net',          NULL,1,0,'تسجيل الدخول إلى واجهة API ','مفتاح الدفع','MD5 Hash',NULL,'Payment_AuthorizeNet','https://secure.authorize.net/gateway/transact.dll',NULL,'https://api.authorize.net/xml/v1/request.api',NULL,'https://test.authorize.net/gateway/transact.dll',NULL,'https://apitest.authorize.net/xml/v1/request.api',NULL,1,1),
  ('PayJunction',        'PayJunction',            NULL,1,0,'User Name','Password',NULL,NULL,'Payment_PayJunction','https://payjunction.com/quick_link',NULL,NULL,NULL,'https://www.payjunctionlabs.com/quick_link',NULL,NULL,NULL,1,1),
  ('eWAY',               'eWAY (عملة واحدة)', NULL,1,0,'Customer ID',NULL,NULL,NULL,'Payment_eWAY','https://www.eway.com.au/gateway_cvn/xmlpayment.asp',NULL,NULL,NULL,'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp',NULL,NULL,NULL,1,0),
  ('Payment_Express',    'DPS Payment Express',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
@@ -5847,7 +5847,7 @@ INSERT INTO civicrm_county (name, state_province_id) VALUES ('Santa Clara', 1004
 -- Bounce classification patterns
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('AOL', 'AOL Terms of Service complaint', 1);
+        VALUES ('AOL', 'شروط شركة AOL بشأن الشكاوى المقدّمة حول خدماتها', 1);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'AOL';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -5868,7 +5868,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Dns', 'غر قادر على حلّ مجال المرسل إليه', 3);
+        VALUES ('Dns', 'يتعذّر حلّ نطاق المرسل إليه', 3);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Dns';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -5909,7 +5909,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Inactive', 'حساب المستخدم لم يعد فاعلاً', 1);
+        VALUES ('Inactive', 'حساب المستخدم لم يعد مفعّلاً', 1);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Inactive';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6062,7 +6062,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Spam', 'Message caught by a content filter', 1);
+        VALUES ('Spam', 'رسالة علقت في أداة فرز المحتويات', 1);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Spam';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6097,7 +6097,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Syntax', 'Error in SMTP transaction', 3);
+        VALUES ('Syntax', 'خطأ في معاملة SMTP ', 3);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Syntax';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6117,11 +6117,11 @@ INSERT INTO civicrm_uf_group
     (4,  'new_individual',     'Individual,Contact',  'فرد جديد'    ,             0,      1,           NULL),
     (5,  'new_organization',   'Organization,Contact','منظمة جديدة'  ,             0,      1,           NULL),
     (6,  'new_household',      'Household,Contact',   'أسرة جديدة'     ,             0,      1,           NULL),
-    (7,  'summary_overlay',    'Contact',             'Summary Overlay'   ,             0,      1,           NULL),
+    (7,  'summary_overlay',    'Contact',             'تراكب الخلاصة'   ,             0,      1,           NULL),
     (8,  'shared_address',     'Contact',             'عنوان مشترك'                , 0,      1,           NULL),
     (9,  'on_behalf_organization', 'Contact,Organization','بالنيابة عن المنظمة',  0,      1,           NULL),
-    (10, 'contribution_batch_entry', 'Contribution', 'Contribution Bulk Entry' ,       0,      1,           NULL),
-    (11, 'membership_batch_entry', 'Membership',     'Membership Bulk Entry' ,         0,      1,           NULL),
+    (10, 'contribution_batch_entry', 'Contribution', 'إدخال كمية من المساهمات' ,       0,      1,           NULL),
+    (11, 'membership_batch_entry', 'Membership',     'إدخال كمية من الأعضاء' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'معلومات التسجيل الخاصة بك',         0,      0,           NULL),
     (13, 'honoree_individual', 'Individual,Contact', 'الشخص المكرّم',             0,      1,           NULL);
 
@@ -6187,7 +6187,7 @@ INSERT INTO civicrm_uf_field
        ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'مدفوع من: ', 'Contribution', NULL, NULL ),
        ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'رقم الشيك', 'Contribution', NULL, NULL ),
        ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'إيصال بالإرسال', 'Contribution', NULL, NULL ),
-       ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'رمز التعريف بالفاتورة', 'Contribution', NULL, NULL ),
+       ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'معرّف الفاتورة ', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'قرض ميسّر', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'نوع القروض الميسّرة', 'Contribution', NULL, NULL ),
        ( 11,     'membership_type',             1, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'نوع العضوية', 'Membership', NULL, NULL ),
@@ -6219,17 +6219,17 @@ INSERT INTO civicrm_participant_status_type
   (2,  'Attended',                            'تمّ الحضور',                            'Positive', 0,           1,         1,          2,      2            ),
   (3,  'No-show',                             'لم يشارك',                             'Negative', 0,           1,         0,          3,      2            ),
   (4,  'Cancelled',                           'ملغى',                           'Negative', 1,           1,         0,          4,      2            ),
-  (5,  'Pending from pay later',              'Pending from pay later',              'Pending',  1,           1,         1,          5,      2            ),
-  (6,  'Pending from incomplete transaction', 'Pending from incomplete transaction', 'Pending',  1,           1,         0,          6,      2            ),
+  (5,  'Pending from pay later',              'الدفع لاحقاً',              'Pending',  1,           1,         1,          5,      2            ),
+  (6,  'Pending from incomplete transaction', 'معاملة غير ناجزة', 'Pending',  1,           1,         0,          6,      2            ),
   (7,  'On waitlist',                         'على لائحة الانتظار',                         'Waiting',  1,           0,         0,          7,      2            ),
   (8,  'Awaiting approval',                   'بانتظار الموافقة ',                   'Waiting',  1,           0,         1,          8,      2            ),
-  (9,  'Pending from waitlist',               'Pending from waitlist',               'Pending',  1,           0,         1,          9,      2            ),
-  (10, 'Pending from approval',               'Pending from approval',               'Pending',  1,           0,         1,          10,     2            ),
+  (9,  'Pending from waitlist',               'بانتظار خروج لائحة الانتظار',               'Pending',  1,           0,         1,          9,      2            ),
+  (10, 'Pending from approval',               'قيد الموافقة',               'Pending',  1,           0,         1,          10,     2            ),
   (11, 'Rejected',                            'تمّ الرفض',                            'Negative', 1,           0,         0,          11,     2            ),
   (12, 'Expired',                             'منتهي الصلاحية',                             'Negative', 1,           1,         0,          12,     2            ),
-  (13, 'Pending in cart',                     'Pending in cart',                     'Pending',  1,           1,         0,          13,     2            ),
+  (13, 'Pending in cart',                     'قيد الانتظار في العربة',                     'Pending',  1,           1,         0,          13,     2            ),
   (14,  'Partially paid',                      'مدفوع جزئياً ',                      'Positive', 1,           1,         1,          14,     2           ),
-  (15,  'Pending refund',                      'Pending refund',                      'Positive', 1,           1,         1,          14,     2           );
+  (15,  'Pending refund',                      'إعادة التسديد معلّقة',                      'Positive', 1,           1,         1,          14,     2           );
 
 
 
@@ -6281,7 +6281,7 @@ INSERT INTO `civicrm_contact_type`
 
 INSERT INTO civicrm_option_group
   (name,                         title,            description,      is_reserved, is_active) VALUES
-    ('msg_tpl_workflow_case', 'نموذج الرسائل الخاصة بعملية إدارة الملفات ',               'نموذج الرسائل الخاصة بعملية إدارة الملفات ',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'نموذج الرسائل الخاصة بعملية إدارة المساهمات',               'نموذج الرسائل الخاصة بعملية إدارة المساهمات',                     1,           1) ,    ('msg_tpl_workflow_event', 'نموذج الرسائل الخاصة بعملية إدارة المناسبات ',               'نموذج الرسائل الخاصة بعملية إدارة المناسبات ',                     1,           1) ,    ('msg_tpl_workflow_friend', 'نموذج الرسائل الخاصة بعملية التوصية للأصدقاء',               'نموذج الرسائل الخاصة بعملية التوصية للأصدقاء',                     1,           1) ,    ('msg_tpl_workflow_membership', 'نموذج الرسائل الخاصة بعملية إدارة العضويات ',               'نموذج الرسائل الخاصة بعملية إدارة العضويات ',                     1,           1) ,    ('msg_tpl_workflow_meta', 'نموذج الرسائل الخاصة بعملية إدارة نماذج الضبط العليا ',               'نموذج الرسائل الخاصة بعملية إدارة نماذج الضبط العليا ',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'نموذج الرسائل الخاصة بعملية إدارة التعهدات ',               'نموذج الرسائل الخاصة بعملية إدارة التعهدات ',                     1,           1) ,    ('msg_tpl_workflow_uf', 'نموذج الرسائل الخاصة بعملية إدارة الملفات الشخصية ',               'نموذج الرسائل الخاصة بعملية إدارة الملفات الشخصية ',                     1,           1) ,    ('msg_tpl_workflow_petition', 'نموذج الرسائل الخاصة بعملية إدارة العرائض',               'نموذج الرسائل الخاصة بعملية إدارة العرائض',                     1,           1) ;
+    ('msg_tpl_workflow_case', 'نماذج الرسائل المضبوطة سلفاً لإدارة الملفات ',               'نماذج الرسائل المضبوطة سلفاً لإدارة الملفات ',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'نماذج الرسائل المضبوطة سلفاً  لإدارة المساهمات',               'نماذج الرسائل المضبوطة سلفاً  لإدارة المساهمات',                     1,           1) ,    ('msg_tpl_workflow_event', 'نماذج الرسائل المضبوطة سلفاً لإدارة المناسبات',               'نماذج الرسائل المضبوطة سلفاً لإدارة المناسبات',                     1,           1) ,    ('msg_tpl_workflow_friend', 'نماذج الرسائل المضبوطة سلفاً لنشر خبر إلى الأصدقاء',               'نماذج الرسائل المضبوطة سلفاً لنشر خبر إلى الأصدقاء',                     1,           1) ,    ('msg_tpl_workflow_membership', 'نماذج الرسائل المضبوطة سلفاً لإدارة العضوية',               'نماذج الرسائل المضبوطة سلفاً لإدارة العضوية',                     1,           1) ,    ('msg_tpl_workflow_meta', 'نماذج الرسائل المضبوطة سلفاً لإدارة نماذج الضبط العليا ',               'نماذج الرسائل المضبوطة سلفاً لإدارة نماذج الضبط العليا ',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'نماذج الرسائل المضبوطة سلفاً لإدارة التعهدات ',               'نماذج الرسائل المضبوطة سلفاً لإدارة التعهدات ',                     1,           1) ,    ('msg_tpl_workflow_uf', 'نماذج الرسائل المضبوطة سلفاً لإدارة ملفات التعريف',               'نماذج الرسائل المضبوطة سلفاً لإدارة ملفات التعريف',                     1,           1) ,    ('msg_tpl_workflow_petition', 'نماذج الرسائل المضبوطة سلفاً لإدارة  العرائض',               'نماذج الرسائل المضبوطة سلفاً لإدارة  العرائض',                     1,           1) ;
   SELECT @tpl_ogid_case := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_case';
   SELECT @tpl_ogid_contribution := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_contribution';
   SELECT @tpl_ogid_event := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_event';
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'الملفات - أرسل نسخة عن نشاط',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'المساهمات- تنبيه إلى ازدواجية في التنظيم',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'المساهمات- الإيصال (غير إلكتروني)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'المساهمات- الإيصال (إلكتروني) ',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'المساهمات- الفاتورة ',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'المساهمات- إشعار ببداية التكرار وانتهائه',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'المساهمات- إشعار بإلغاء التكرار',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'المساهمات- تحديث الفواتير المنتظمة ',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'المساهمات- التحديثات المتكرّرة ',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'صفحات الحملات الشخصية- إشعار الإدارة ',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'صفحات الحملة الشخصية- إشعار بتغيّر وضع المناصر',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'صفحات الحملات الشخصية- الترحيب بالمناصرين',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'المناسبات- تأكيد التسجيل والإيصال (خارج الشبكة الإلكترونية)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'المناسبات- تأكيد التسجيل والإيصال (عبر الشبكة الإلكترونية)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'المناسبات- الإيصال فقط ',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'المناسبات- إشعار بإلغاء التسجيل ',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'المناسبات- دعوة إلى التأكيد على التسجيل',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'المناسبات-  بانتظار إشعار انتهاء صلاحية التسجيل ',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'البريد الإلكتروني للصديق ',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'العضوية- التسجيل وإيصالات التجديد (خارج الشبكة الإلكترونية)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'العضويات- الإيصال (إلكتروني) ',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'العضوية- إشعار بإلغاء التجديد الآلي',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'العضوية- تحديث فواتير التجديد الآلي',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'اختبار- رأسية الإيصال',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'التعهدات- عرفان وتقدير ',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'التعهدات- تذكير بالدفع',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'الملفات الشخصية- إشعار الإدارة ',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'العريضة- إضافة توقيع',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'العريضة- تحتاج إلى تحقّق',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'الملفات - أرسل نسخة عن نشاط',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'المساهمات- تنبيه إلى ازدواجية في التنظيم',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'المساهمات- الإيصال (غير إلكتروني)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'المساهمات- الإيصال (إلكتروني) ',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'المساهمات- الفاتورة ',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'المساهمات- إشعار ببداية التكرار وانتهائه',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'المساهمات- إشعار بإلغاء التكرار',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'المساهمات- تحديث الفواتير المنتظمة ',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'المساهمات- التحديثات المتكرّرة ',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'صفحات الحملات الشخصية- إشعار الإدارة ',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'صفحات الحملة الشخصية- إشعار بتغيّر وضع المناصر',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'صفحات الحملات الشخصية- الترحيب بالمناصرين',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'صفحات الحملات الشخصية - إشعارات أصحاب الصفحات',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'إيصال بقيمة الدفعة الإضافية أو إشعار باسترداد المبلغ',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'المناسبات- تأكيد التسجيل والإيصال (خارج الشبكة الإلكترونية)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'المناسبات- تأكيد التسجيل والإيصال (عبر الشبكة الإلكترونية)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'المناسبات- الإيصال فقط ',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'المناسبات- إشعار بإلغاء التسجيل ',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'المناسبات- دعوة إلى التأكيد على التسجيل',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'المناسبات-  بانتظار إشعار انتهاء صلاحية التسجيل ',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'البريد الإلكتروني للصديق ',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'العضوية- التسجيل وإيصالات التجديد (خارج الشبكة الإلكترونية)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'العضويات- الإيصال (إلكتروني) ',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'العضوية- إشعار بإلغاء التجديد الآلي',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'العضوية- تحديث فواتير التجديد الآلي',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'اختبار- رأسية الإيصال',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'التعهدات- عرفان وتقدير ',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'التعهدات- تذكير بالدفع',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'الملفات الشخصية- إشعار الإدارة ',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'العريضة- إضافة توقيع',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'العريضة- تحتاج إلى تحقّق',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -8121,14 +8121,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -8804,14 +8804,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('صفحات الحملات الشخصية - إشعارات أصحاب الصفحات', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('صفحات الحملات الشخصية - إشعارات أصحاب الصفحات', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11544,7 +11544,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_owner_notify, 0,          1) ,      
       
       
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('إيصال بقيمة الدفعة الإضافية أو إشعار باسترداد المبلغ', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -11930,7 +11930,7 @@ from your next payment to us</div><br/></font></td>
  </body>
 </html>
 ', @tpl_ovid_payment_or_refund_notification, 1,          0),
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('إيصال بقيمة الدفعة الإضافية أو إشعار باسترداد المبلغ', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -20537,7 +20537,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -20556,7 +20556,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -22830,11 +22830,11 @@ VALUES
   (@option_group_id_soft_credit_type   , 'تخليداً لـ', 2, 'in_memory_of', 2, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'مطلوب', 3, 'solicited', 3, 1, 1, 1),
   (@option_group_id_soft_credit_type   , 'منزل', 4, 'household', 4, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Workplace Giving', 5, 'workplace', 5, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Foundation Affiliate', 6, 'foundation_affiliate', 6, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'التبرّع ضمن مكان العمل', 5, 'workplace', 5, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'المؤسسة الفرعية', 6, 'foundation_affiliate', 6, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'خدمة طرف ثالث 3', 7, '3rd-party_service', 7, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'صندوق تمويل موجّه', 8, 'donor-advised_fund', 8, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'هدية مطابقة ', 9, 'matched_gift', 9, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'صفحات الحملة الشخصية', 10, 'pcp', 10, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'هدية', 11, 'gift', 11, 0, 1, 1);
 
@@ -23706,4 +23706,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.9';
+UPDATE civicrm_domain SET version = '4.6.10';

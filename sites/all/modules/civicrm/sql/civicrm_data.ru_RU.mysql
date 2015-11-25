@@ -4575,7 +4575,7 @@ INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, 
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
     VALUES( 'Child of', 'Ребенок', 'Parent of', 'Родитель', 'Отношения родитель/ребёнок.', 'Individual', 'Individual', 0 ),
           ( 'Spouse of', 'Супруг', 'Spouse of', 'Супруг', 'Супружеские отношения.', 'Individual', 'Individual', 0 ),
-          ( 'Partner of', 'Partner of', 'Partner of', 'Partner of', 'Partner relationship.', 'Individual', 'Individual', 0 ),
+          ( 'Partner of', 'Партнер', 'Partner of', 'Партнер', 'Партнерское отношение.', 'Individual', 'Individual', 0 ),
           ( 'Sibling of', 'Брат/сестра', 'Sibling of', 'Брат/сестра', 'Отношения братьев/сестёр.', 'Individual','Individual', 0 ),
           ( 'Employee of', 'Сотрудник в', 'Employer of', 'Работодатель для', 'Отношение работодателя','Individual','Organization', 1 ),
           ( 'Volunteer for', 'Волонтер в', 'Volunteer is', 'Волонтерство для', 'Отношение волонтерства','Individual','Organization', 0 ),
@@ -4639,11 +4639,11 @@ VALUES
    ('payment_instrument'            , 'Платёжные инструменты'                , 1, 1, 0),
    ('contribution_status'           , 'Статус взноса'                , 1, 1, 1),
    ('pcp_status'                    , 'PCP Статус'                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
+   ('pcp_owner_notify'              , 'Уведомления владельца PCP'            , 1, 1, 1),
    ('participant_role'              , 'Роль участника'                   , 1, 1, 0),
    ('event_type'                    , 'Тип мероприятия'                         , 1, 1, 0),
    ('contact_view_options'          , 'Опции просмотра контактов'               , 1, 1, 1),
-   ('contact_smart_group_display'   , 'Contact Smart Group View Options'   , 1, 1, 1),
+   ('contact_smart_group_display'   , 'Опции Просмотра Контактов Смарт Группы'   , 1, 1, 1),
    ('contact_edit_options'          , 'Опции редактирования контактов'               , 1, 1, 1),
    ('advanced_search_options'       , 'Опции расширенного поиска'            , 1, 1, 1),
    ('user_dashboard_options'        , 'Настройка пользовательской панели'             , 1, 1, 1),
@@ -4675,7 +4675,7 @@ VALUES
    ('contact_reference_options'     , 'Варианты автоматического завершения данных по контакту', 1, 1, 1),
    ('website_type'                  , 'Тип Веб-сайта'                       , 1, 1, 0),
    ('tag_used_for'                  , 'Тэг используемый для'                       , 1, 1, 1),
-   ('currencies_enabled'            , 'Currencies Enabled'                 , 1, 1, 0),
+   ('currencies_enabled'            , 'Разрешенные Валюты'                 , 1, 1, 0),
    ('event_badge'                   , 'Бейдж Название Мероприятия'                   , 1, 1, 0),
    ('note_privacy'                  , 'Уровень приватности для примечаний'           , 1, 1, 0),
    ('campaign_type'                 , 'Тип кампании'                      , 1, 1, 0),
@@ -4688,22 +4688,22 @@ VALUES
    ('pdf_format'                    , 'Формат страниц PDF'                    , 1, 1, 0),
    ('label_format'                  , 'Формат почтовых адресов'               , 1, 1, 0),
    ('activity_contacts'             , 'Контакты для действия'                  , 1, 1, 1),
-   ('account_relationship'          , 'Account Relationship'               , 1, 1, 0),
+   ('account_relationship'          , 'Отношение Учетной Записи'               , 1, 1, 0),
    ('event_contacts'                , 'Получатели мероприятия'                   , 1, 1, 0),
    ('conference_slot'               , 'Период проведения конференции'                    , 1, 1, 0),
    ('batch_type'                    , 'Тип пакета'                         , 1, 1, 1),
-   ('batch_mode'                    , 'Batch Mode'                         , 1, 1, 1),
+   ('batch_mode'                    , 'Режим Пакета'                         , 1, 1, 1),
    ('batch_status'                  , 'Статус пакета'                       , 1, 1, 1),
    ('sms_api_type'                  , 'Тип Api'                           , 1, 1, 0),
    ('sms_provider_name'             , 'Внутреннее имя SMS провайдера'         , 1, 1, 0),
    ('auto_renew_options'            , 'Опции автопродления'                 , 1, 1, 1),
-   ('financial_account_type'        , 'Financial Account Type'             , 1, 1, 0),
-   ('financial_item_status'         , 'Financial Item Status'              , 1, 1, 1),
-   ('label_type'                    , 'Label Type'                         , 1, 1, 0),
-   ('name_badge'                    , 'Name Badge Format'                  , 1, 1, 0),
-   ('communication_style'           , 'Communication Style'                , 1, 1, 0),
-   ('msg_mode'                      , 'Message Mode'                       , 1, 1, 0),
-   ('contact_date_reminder_options' , 'Contact Date Reminder Options'      , 1, 1, 1);
+   ('financial_account_type'        , 'Типа Финансовой Учетной записи'             , 1, 1, 0),
+   ('financial_item_status'         , 'Статус Финансового Элемента'              , 1, 1, 1),
+   ('label_type'                    , 'Тип метки'                         , 1, 1, 0),
+   ('name_badge'                    , 'Формат Имени Идентификационной Карточки'                  , 1, 1, 0),
+   ('communication_style'           , 'Стиль Коммуникации'                , 1, 1, 0),
+   ('msg_mode'                      , 'Режим Сообщения'                       , 1, 1, 0),
+   ('contact_date_reminder_options' , 'Опции Напоминания Даты Контакта'      , 1, 1, 1);
 
 SELECT @option_group_id_pcm            := max(id) from civicrm_option_group where name = 'preferred_communication_method';
 SELECT @option_group_id_act            := max(id) from civicrm_option_group where name = 'activity_type';
@@ -4803,7 +4803,7 @@ VALUES
    (@option_group_id_act, 'Встреча',                            1, 'Meeting', NULL, 0, NULL, 1, NULL,                                                                       0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Тел. Звонок',                         2, 'Phone Call',          NULL, 0, NULL, 2, NULL,                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Email',                              3, 'Email',               NULL, 1, NULL, 3, 'e-mail выслан.',                                                          0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Outbound SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Текстовое сообщение (SMS) выслано.',                                             0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Исходящее SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Текстовое сообщение (SMS) выслано.',                                             0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Регистрация Мероприятия',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Он-лайн или офф-лайн регистрация мероприятия.',                                0, 1, 1, @eventCompId, NULL),
    (@option_group_id_act, 'Взнос',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Он-лайн или офф-лайн взнос.',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Регистрация членства',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Он-лайн или офф-лайн регистрация членства.',                                 0, 1, 1, @memberCompId, NULL),
@@ -4853,24 +4853,24 @@ VALUES
    (@option_group_id_act, 'Напоминание отправлно',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
 
  -- Activity Types for Financial Transactions Batch
-   (@option_group_id_act, 'Export Accounting Batch', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Create Batch', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Экспортировать Учетный Пакет', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Создать Пакет', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Изменить пакет', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
 
 -- new sms options
-   (@option_group_id_act, 'SMS delivery', 44, 'SMS delivery', NULL, 1, NULL, 44, 'SMS delivery', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Inbound SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Inbound SMS', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Доставка SMS', 44, 'SMS delivery', NULL, 1, NULL, 44, 'Доставка SMS', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Входящее SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Входящее SMS', 0, 1, 1, NULL, NULL),
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'Payment', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Платеж', 46, 'Payment', NULL, 1, NULL, 46, 'Дополнительный платеж записан в оплату мероприятия или членства.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Возместить', 47, 'Refund', NULL, 1, NULL, 47, 'Возмещение записано для оплаты мероприятия или членства.', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
-   (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'Изменить Регистрацию', 48, 'Change Registration', NULL, 1, NULL, 48, 'Изменения в регистрацию существующего мероприятия.', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
-   (@option_group_id_act, 'Downloaded Invoice', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Downloaded Invoice.',0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Счет, отправленный по электронной почте.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Загруженный Счет', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Загруженный Счет.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Счет, отправленный по электронной почте.', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Счет, отправленный по электронной почте.',0, 1, 1, NULL, NULL),
 
   -- for manual contact merge
    (@option_group_id_act, 'Контакт объединён', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Контакт объединён',0, 1, 1, NULL, NULL),
@@ -4927,16 +4927,16 @@ VALUES
   (@option_group_id_cs, 'Не исправный'     , 4, 'Failed'     , NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'В процессе', 5, 'In Progress', NULL, 0, NULL, 5, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Истек срок'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Refunded'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Partially paid', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Pending refund', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Вомещено'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Частично оплачен', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Ожидающиеся возмещение', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcp, 'Ожидание рассмотрения', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Согласованный'      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Не согласованный'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcpOwnerNotify, 'Владелец выбирает получать уведомления или нет', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are sent to ALL owners'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Уведомление отправлено ВСЕМ владельцам'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcpOwnerNotify, 'Уведомления недоступны '  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, 'Посетитель',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -4968,9 +4968,9 @@ VALUES
   (@option_group_id_cvOpt, 'Почтовые отправления'     ,  14, 'CiviMail', NULL, 0, NULL,  14, NULL, 0, 0, 1, NULL, NULL),
 
 
-  (@option_group_id_csgOpt, 'Show Smart Groups on Demand',1, 'showondemand', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_csgOpt, 'Always Show Smart Groups',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_csgOpt, 'Hide Smart Groups'       ,   3, 'hide', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'Показывать Смарт Группы по Тредованию',1, 'showondemand', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'Всегда Показывать Смарт Группы',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'Спрятать Смарт Группы'       ,   3, 'hide', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_ceOpt, 'Настаиваемые данные'              ,   1, 'CustomData', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Адрес'                  ,   2, 'Address', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4984,7 +4984,7 @@ VALUES
   (@option_group_id_ceOpt, 'Open ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Веб-сайт'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Префикс'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Formal Title'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Официальный Заголовок'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Имя'               ,   14, 'First Name', NULL, 2, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Отчество'              ,   15, 'Middle Name', NULL, 2, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Фамилия'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
@@ -5051,13 +5051,13 @@ VALUES
   (@option_group_id_gType, 'Управление доступом', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_gType, 'Список рассылки',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_grantSt, 'Submitted', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Eligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Ineligible', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Paid', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Awaiting Information', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Withdrawn', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Approved for Payment',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Отправлено', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Подходящий', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Неподходящий', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Оплачено', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Ожидание Информации', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Оттозвано', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Одобрен для Платежа',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, 'Название и состояние домохозяйства', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContributionAggregate', 2, 'CRM_Contact_Form_Search_Custom_ContributionAggregate', NULL, 0, NULL, 2, 'Общий взнос', 0, 0, 1, NULL, NULL),
@@ -5081,8 +5081,8 @@ VALUES
   (@option_group_id_report , 'Отчет о действиях',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Предоставляет список составных мероприятий, включая статистику для одного/всех контактов в течение заданного периода времени (обязательное условие)', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Отчет по опросным листам / спискам телефонов',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Предоставляет детализированный отчет об опросных листах и списку телефонов целевых контактов', 0, 0, 0, NULL, NULL),
   (@option_group_id_report , 'Отчет о текущем работодателе',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Предоставляет подробный список отношений работника с работодателем', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Обобщенный отчет по взносам',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groups and totals contributions by criteria including contact, time period, financial type, contributor location, etc.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Детализированный отчет по взносам',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Lists specific contributions by criteria including contact, time period, financial type, contributor location, etc. Contribution summary report points to this report for contribution details.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Обобщенный отчет по взносам',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Группы и суммарные взносы по критериям, включая контакт, период времени, местонахождения лица, вносящего взнос, и т. д.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Детализированный отчет по взносам',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Отображает список конкретных взносов по критериям, включающим контакт, период времени, финансовый тип, местонахождения лица, вносящего взнос, и т. д. Краткая сводка Взносов указывает на этот отчет, для получения подробных сведений о взносах. ', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Отчет о повторных взносах',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Показывает на основании двух диапазонов дат контакты, которые вносили взносы в обоих диапазонах, вместе с суммами и процентным увеличением/уменьшением.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Отчет о взносах по организациям',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Отображает детализированный список взносов, сгруппированных по организациям, который включает в себя и взносы, сделанные сотрудниками для организаций.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Отчет о взносах по домохозяйствам',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Выводит подробный список взносов, сгруппированных по домохозяйствам, который включает в себя и взносы, сделанные членами домохозяйств.', 0, 0, 1, @contributeCompId, NULL),
@@ -5100,7 +5100,7 @@ VALUES
   (@option_group_id_report , 'Отчет: обещано, но не оплачено',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Отчет: обещано, но не оплачено', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Отчет об отношениях',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Отчет об отношениях', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Обобщенный отчет по делам',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Предоставляет сводку дел и их продолжительности в разрезе диапазона дат, статуса, участников и/или роли.', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report , 'Отчет о времени, потраченном на дело',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Aggregates time spent on case and / or non-case activities by activity type and contact.', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , 'Отчет о времени, потраченном на дело',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'По типу и контакту отображает общее время, которое было потрачено на действия, связанные и несвязанные с делами.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Отчет о демографии контактов',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'Демографическое распределение клиентов дел (и/или контактов, не связанных с делами) в вашей базе данных. Учитываются также пользовательские поля контактов.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Отчет по логам базы данных',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, 'Журнал записей контактов и действий, созданных или обновленных в течение заданного периода.', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Отчет о действиях (сводный)',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'Отображает статистику действий по типу / дате', 0, 0, 1, NULL, NULL),
@@ -5121,10 +5121,10 @@ VALUES
   (@option_group_id_report, 'Отчет об опросах (детализированный)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Подробный отчет по опросам, обзвонам, спискам для обхода и другим исследованиям.', 0, 0, 1, @campaignCompId, NULL),
   (@option_group_id_report, 'Отчет о страницах персональных кампаний', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Обобщает полученную сумму и число плательщиков для каждой страницы персональной кампании.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Краткий отчёт об обещаниях', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Сводка по обещаниям, включая сумму обещания, статус обещания, дату следующего платежа, баланс к выплате, общую выплаченную сумму и т.д.', 0, 0, 1, @pledgeCompId, NULL),
-  (@option_group_id_report , 'Contribution Aggregate by Relationship',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Отображает список истории пожертвований контакта, сгруппированный по годам, вместе со взносами, внесенными всеми взаимосвязанными контактами.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report,  'Отчет по рассылке',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Provides reporting on Intended and Successful Deliveries, Unsubscribes and Opt-outs, Replies and Forwards.',   0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report , 'Общий Взнос по Отношению',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Отображает список истории пожертвований контакта, сгруппированный по годам, вместе со взносами, внесенными всеми взаимосвязанными контактами.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report,  'Отчет по рассылке',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Обеспечивает отчетность по Запланированным и Успешным Доставкам, Аннуляции Подписок и Отказам, Ответам и Пересланным сообщениям, ',   0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Данные взноса и членства', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Детали взносов любого вида плюс связанная информация о членстве для членских взносов.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Provides information about the status of recurring contributions', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Отчет Регулярных Взносов', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Предоставляет информацию о статусе регулярных взносов', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'Запланирован',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Выполненный',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5356,21 +5356,21 @@ VALUES
 -- grouping field is specific to Quickbooks for mapping to .iif format
    (@option_group_id_fat, 'Взнос', 1, 'Asset', NULL, 0, 0, 1, 'Things you own', 0, 1, 1, 2, NULL),
    (@option_group_id_fat, 'Долг', 2, 'Liability', NULL, 0, 0, 2, 'Things you own, like a grant still to be disbursed', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Revenue', 3, 'Revenue', NULL, 0, 1, 3, 'Income from contributions and sales of tickets and memberships', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Cost of Sales', 4, 'Cost of Sales', NULL, 0, 0, 4, 'Costs incurred to get revenue, e.g. premiums for donations, dinner for a fundraising dinner ticket', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Expenses', 5, 'Expenses', NULL, 0, 0, 5, 'Things that are paid for that are consumable, e.g. grants disbursed', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, 'Доход', 3, 'Revenue', NULL, 0, 1, 3, 'Income from contributions and sales of tickets and memberships', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, 'Цена Продаж', 4, 'Cost of Sales', NULL, 0, 0, 4, 'Costs incurred to get revenue, e.g. premiums for donations, dinner for a fundraising dinner ticket', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, 'Расходы', 5, 'Expenses', NULL, 0, 0, 5, 'Things that are paid for that are consumable, e.g. grants disbursed', 0, 1, 1, 2, NULL),
 
 -- account_relationship
-    (@option_group_id_arel, 'Income Account is', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
-    (@option_group_id_arel, 'Credit/Contra Account is', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
-    (@option_group_id_arel, 'Accounts Receivable Account is', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
-    (@option_group_id_arel, 'Credit Liability Account is', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
-     (@option_group_id_arel, 'Expense Account is', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Asset Account is', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Cost of Sales Account is', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Premiums Inventory Account is', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Discounts Account is', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'Счет Дохода', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'Кредитный/Контр Счет', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
+    (@option_group_id_arel, 'Дебиторская задолженность Счета', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'Пассивный Счет', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
+     (@option_group_id_arel, 'Счет Расходов', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Активный Счет', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Счет Цены Продаж', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Счет Реестра Сувениров', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Счет Скидок', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Счет Налога С Продаж ', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
    (@option_group_id_ere, 'Роль участника', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5387,18 +5387,18 @@ VALUES
 -- default batch statuses
    (@option_group_id_batch_status, 'Открыт', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_status, 'Закрыто', 2, 'Closed', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Data Entry', 3, 'Data Entry', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Reopened', 4, 'Reopened', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Exported', 5, 'Exported', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'Ввод Данных', 3, 'Data Entry', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'Открыто снова', 4, 'Reopened', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'Экспортировано', 5, 'Exported', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch modes
-   (@option_group_id_batch_mode, 'Manual Batch', 1, 'Manual Batch', NULL, 0, 0, 1, 'Manual Batch', 0, 1, 1, 2, NULL),
-   (@option_group_id_batch_mode, 'Automatic Batch', 2, 'Automatic Batch', NULL, 0, 0, 2, 'Automatic Batch', 0, 1, 1, 2, NULL),
+   (@option_group_id_batch_mode, 'Пакет с Ручным управлением', 1, 'Manual Batch', NULL, 0, 0, 1, 'Manual Batch', 0, 1, 1, 2, NULL),
+   (@option_group_id_batch_mode, 'Пакет с Автоматическим управлением', 2, 'Automatic Batch', NULL, 0, 0, 2, 'Automatic Batch', 0, 1, 1, 2, NULL),
 
 -- Financial Item Status
-   (@option_group_id_financial_item_status, 'Paid', 1, 'Paid', NULL, 0, 0, 1, 'Paid', 0, 1, 1, 2, NULL),
-   (@option_group_id_financial_item_status, 'Partially paid', 2, 'Partially paid', NULL, 0, 0, 2, 'Partially paid', 0, 1, 1, 2, NULL),
-   (@option_group_id_financial_item_status, 'Unpaid', 3, 'Unpaid', NULL, 0, 0, 1, 'Unpaid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, 'Оплачено', 1, 'Paid', NULL, 0, 0, 1, 'Paid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, 'Частично оплачен', 2, 'Partially paid', NULL, 0, 0, 2, 'Partially paid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, 'Неоплачен', 3, 'Unpaid', NULL, 0, 0, 1, 'Unpaid', 0, 1, 1, 2, NULL),
 
 -- sms_api_type
    (@option_group_id_sms_api_type, 'http', 1, 'http', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
@@ -5406,18 +5406,18 @@ VALUES
    (@option_group_id_sms_api_type, 'smtp', 3, 'smtp', NULL, NULL, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- auto renew options
-   (@option_group_id_aro, 'Renewal Reminder (non-auto-renew memberships only)', 1, 'Renewal Reminder (non-auto-renew memberships only)', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aro, 'Auto-renew Memberships Only', 2, 'Auto-renew Memberships Only', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aro, 'Reminder for Both', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, 'Напоминание Обновления (только для членства без автоматического обновления)', 1, 'Renewal Reminder (non-auto-renew memberships only)', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, 'Только Членство с Автоматическим обновлением', 2, 'Auto-renew Memberships Only', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, 'Напоминание для Обоих', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- Label Type
-   (@option_group_id_label_type, 'Event Badge', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_label_type, 'Идентификационная карточка Мероприятия ', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Name Label format
    (@option_group_id_name_badge, 'Avery 5395', '{"name":"Avery 5395","paper-size":"a4","metric":"mm","lMargin":15,"tMargin":26,"NX":2,"NY":4,"SpaceX":10,"SpaceY":5,"width":83,"height":57,"font-size":12,"orientation":"portrait","font-name":"helvetica","font-style":"","lPadding":3,"tPadding":3}', 'Avery 5395', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'A6 Badge Portrait 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Fattorini Name Badge 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Hanging Badge 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Идентификационная карточка в книжном формате A6 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Идентификационная карточка с Именем Фатторини 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Висящая Идентификационная карточка 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
 
 -- Mailing Label Formats
   (@option_group_id_label, 'Avery 3475', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":10,"font-style":"","metric":"mm","lMargin":0,"tMargin":5,"NX":3,"NY":8,"SpaceX":0,"SpaceY":0,"width":70,"height":36,"lPadding":5.08,"tPadding":5.08}',                   '3475',  'Avery', NULL, 0, 1,  NULL, 0, 1, 1, NULL, NULL),
@@ -5433,17 +5433,17 @@ VALUES
   (@option_group_id_label, 'Avery L7163', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":9,"font-style":"","metric":"in","lMargin":0.18,"tMargin":0.6,"NX":2,"NY":7,"SpaceX":0.1,"SpaceY":0,"width":3.9,"height":1.5,"lPadding":0.20,"tPadding":0.20}',          'L7163', 'Avery', NULL, 0, 11, NULL, 0, 1, 1, NULL, NULL),
 
 -- Communication Styles
-  (@option_group_id_communication_style, 'Formal'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_communication_style, 'Familiar', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Официальный'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Знакомый', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- Message Mode
 (@option_group_id_msg_mode, 'Email', 'Email', 'Email', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
 (@option_group_id_msg_mode, 'SMS', 'SMS', 'SMS', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_msg_mode, 'User Preference', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_msg_mode, 'Предпочтение Пользователя', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- Reminder Options for Contact Date Fields
-(@option_group_id_contactDateMode, 'Actual date only', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_contactDateMode, 'Each anniversary', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
+(@option_group_id_contactDateMode, 'Только фактическая дата', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_contactDateMode, 'Каждую годовщину', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
 
 -- financial accounts
 SELECT @opval := value FROM civicrm_option_value WHERE name = 'Revenue' and option_group_id = @option_group_id_fat;
@@ -5459,14 +5459,14 @@ VALUES
   ( 'Членские взносы'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
   ( 'Взнос Кампании', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
   ( 'Оплата Мероприятия'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
-  ( 'Banking Fees'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
-  ( 'Deposit Bank Account' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
-  ( 'Accounts Receivable'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
-  ( 'Accounts Payable'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
+  ( 'Банковский Сбор'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
+  ( 'Депозитный Банковский Счет ' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
+  ( 'Дебиторская Задолженность'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
+  ( 'Кредиторская задолженность'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
   ( 'Премиальные'             , @contactID, @opCost, 'Account to record cost of premiums provided to payors', '5100', 'COGS', 0, 1, 0, 1 ),
-  ( 'Premiums inventory'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
-  ( 'Discounts'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
-  ( 'Payment Processor Account', @contactID, @opAsset, 'Account to record payments into a payment processor merchant account', '1150', 'BANK', 0, 1, 0, 0
+  ( 'Реестр Сувениров'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
+  ( 'Скидеи'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
+  ( 'Счет Платежного Оператора', @contactID, @opAsset, 'Account to record payments into a payment processor merchant account', '1150', 'BANK', 0, 1, 0, 0
 );
 
 -- Now insert option values which require domainID
@@ -5574,138 +5574,138 @@ VALUES
   (@option_group_id_languages, 0, 1, 'el_GR', 'el', 'Греческий, современный', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gn_PY', 'gn', 'Гуарани', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gu_IN', 'gu', 'Гуджарати', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ht_HT', 'ht', 'Haitian; Haitian Creole', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ha_NG', 'ha', 'Hausa', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'he_IL', 'he', 'Hebrew (modern)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'hz_NA', 'hz', 'Herero', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'hi_IN', 'hi', 'Hindi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ho_PG', 'ho', 'Hiri Motu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'hu_HU', 'hu', 'Hungarian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'Interlingua', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'id_ID', 'id', 'Indonesian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'Interlingue', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ga_IE', 'ga', 'Irish', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'Igbo', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ik_US', 'ik', 'Inupiaq', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'io_XX', 'io', 'Ido', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'is_IS', 'is', 'Icelandic', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'it_IT', 'it', 'Italian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'iu_CA', 'iu', 'Inuktitut', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'ja_JP', 'ja', 'Japanese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'jv_ID', 'jv', 'Javanese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kl_GL', 'kl', 'Kalaallisut, Greenlandic', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kn_IN', 'kn', 'Kannada', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kr_NE', 'kr', 'Kanuri', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ks_IN', 'ks', 'Kashmiri', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ht_HT', 'ht', 'Гаитянский; Гаитянский креольский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ha_NG', 'ha', 'Хауса', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'he_IL', 'he', 'Иврит (современный)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'hz_NA', 'hz', 'Гереро', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'hi_IN', 'hi', 'Хинди', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ho_PG', 'ho', 'Хири-моту', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'hu_HU', 'hu', 'Венгерский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'Интерлингва', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'id_ID', 'id', 'Индонезийский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'Интерлингве', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ga_IE', 'ga', 'Ирландский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'Игбо', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ik_US', 'ik', 'Инюпик', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'io_XX', 'io', 'Идо', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'is_IS', 'is', 'Исландский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'it_IT', 'it', 'Итальянский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'iu_CA', 'iu', 'Инуктитут', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'ja_JP', 'ja', 'Японский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'jv_ID', 'jv', 'Яванский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kl_GL', 'kl', 'Калааллисут; Гренландский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kn_IN', 'kn', 'Каннада', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kr_NE', 'kr', 'Канури', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ks_IN', 'ks', 'Кашмирский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'kk_KZ', 'kk', 'Казахский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'km_KH', 'km', 'Khmer', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ki_KE', 'ki', 'Kikuyu, Gikuyu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'rw_RW', 'rw', 'Kinyarwanda', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'km_KH', 'km', 'Кхмерский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ki_KE', 'ki', 'Кикуйю; Гикуйю', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'rw_RW', 'rw', 'Киньяруанда', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ky_KG', 'ky', 'Киргизский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kv_RU', 'kv', 'Komi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kg_CD', 'kg', 'Kongo', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kv_RU', 'kv', 'Коми', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kg_CD', 'kg', 'Конго', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ko_KR', 'ko', 'Корейский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ku_IQ', 'ku', 'Курдский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'kj_NA', 'kj', 'Kwanyama, Kuanyama', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'la_VA', 'la', 'Latin', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lb_LU', 'lb', 'Luxembourgish, Letzeburgesch', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lg_UG', 'lg', 'Luganda', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'li_NL', 'li', 'Limburgish, Limburgan, Limburger', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ln_CD', 'ln', 'Lingala', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lo_LA', 'lo', 'Lao', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'lt_LT', 'lt', 'Lithuanian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'Luba-Katanga', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lv_LV', 'lv', 'Latvian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gv_IM', 'gv', 'Manx', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mk_MK', 'mk', 'Macedonian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mg_MG', 'mg', 'Malagasy', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ms_MY', 'ms', 'Malay', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ml_IN', 'ml', 'Malayalam', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mt_MT', 'mt', 'Maltese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mi_NZ', 'mi', 'Māori', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mr_IN', 'mr', 'Marathi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mh_MH', 'mh', 'Marshallese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mn_MN', 'mn', 'Mongolian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'na_NR', 'na', 'Nauru', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nv_US', 'nv', 'Navajo, Navaho', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'Norwegian BokmÃ¥l', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', 'North Ndebele', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ne_NP', 'ne', 'Nepali', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ng_NA', 'ng', 'Ndonga', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', 'Norwegian Nynorsk', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'no_NO', 'no', 'Norwegian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ii_CN', 'ii', 'Nuosu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'South Ndebele', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'Occitan (after 1500)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'oj_CA', 'oj', 'Ojibwa', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', 'Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'om_ET', 'om', 'Oromo', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'or_IN', 'or', 'Oriya', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'Ossetian, Ossetic', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'pa_IN', 'pa', 'Panjabi, Punjabi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'pi_KH', 'pi', 'Pali', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'Persian (Iran)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'pl_PL', 'pl', 'Polish', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ps_AF', 'ps', 'Pashto, Pushto', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'pt_BR', 'pt', 'Portuguese (Brazil)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'pt_PT', 'pt', 'Portuguese (Portugal)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'qu_PE', 'qu', 'Quechua', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'rm_CH', 'rm', 'Romansh', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'rn_BI', 'rn', 'Kirundi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'ro_RO', 'ro', 'Romanian, Moldavian, Moldovan', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'kj_NA', 'kj', 'Кваньяма', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'la_VA', 'la', 'Латинский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lb_LU', 'lb', 'Люксембургский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lg_UG', 'lg', 'Луганда', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'li_NL', 'li', 'Лимбургский; Ли́мбуржский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ln_CD', 'ln', 'Лингала', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lo_LA', 'lo', 'Лаосский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'lt_LT', 'lt', 'Литовский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'Луба-катанга', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lv_LV', 'lv', 'Латышский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gv_IM', 'gv', 'Мэнский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mk_MK', 'mk', 'Македонский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mg_MG', 'mg', 'Малагасийский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ms_MY', 'ms', 'Малайский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ml_IN', 'ml', 'Малаялам', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mt_MT', 'mt', 'Мальтийский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mi_NZ', 'mi', 'Маори', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mr_IN', 'mr', 'Маратхи', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mh_MH', 'mh', 'Маршалльский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mn_MN', 'mn', 'Монгольский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'na_NR', 'na', 'Науруанский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nv_US', 'nv', 'Навахо', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'Норвежский Букмол', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', 'Северный ндебеле', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ne_NP', 'ne', 'Непальский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ng_NA', 'ng', 'Ндонга', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', 'Норвежский Ню́норск', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'no_NO', 'no', 'Норвежский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ii_CN', 'ii', 'Носу', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'Южный ндебеле', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'Окситанский (после 1500)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'oj_CA', 'oj', 'Оджибве', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', 'Старославя́нский язы́к; Церковнославянский язык; Староболгарский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'om_ET', 'om', 'Оромо', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'or_IN', 'or', 'Ория', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'Осетинский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'pa_IN', 'pa', 'Панджаби, Пенджаби', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'pi_KH', 'pi', 'Пали', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'Персидский (Иран)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'pl_PL', 'pl', 'Польский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ps_AF', 'ps', 'Пушту; Пашто́', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'pt_BR', 'pt', 'Португальский (Бразилия)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'pt_PT', 'pt', 'Потругальский (Португалия)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'qu_PE', 'qu', 'Кечуа', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'rm_CH', 'rm', 'Романшский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'rn_BI', 'rn', 'Рунди', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'ro_RO', 'ro', 'Румынский; Молдавский', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ru_RU', 'ru', 'Русский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sa_IN', 'sa', 'Sanskrit', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sc_IT', 'sc', 'Sardinian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sd_IN', 'sd', 'Sindhi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'se_NO', 'se', 'Northern Sami', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sm_WS', 'sm', 'Samoan', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sg_CF', 'sg', 'Sango', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sr_RS', 'sr', 'Serbian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gd_GB', 'gd', 'Scottish Gaelic; Gaelic', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sn_ZW', 'sn', 'Shona', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'si_LK', 'si', 'Sinhala, Sinhalese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'sk_SK', 'sk', 'Slovak', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'sl_SI', 'sl', 'Slovene', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'so_SO', 'so', 'Somali', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'st_ZA', 'st', 'Southern Sotho', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'Spanish; Castilian (Spain)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'Spanish; Castilian (Mexico)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'Spanish; Castilian (Puerto Rico)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'Sundanese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sw_TZ', 'sw', 'Swahili', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'Swati', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'Swedish', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ta_IN', 'ta', 'Tamil', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'te_IN', 'te', 'Telugu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'tg_TJ', 'tg', 'Tajik', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'th_TH', 'th', 'Thai', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ti_ET', 'ti', 'Tigrinya', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'bo_CN', 'bo', 'Tibetan Standard, Tibetan, Central', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'tk_TM', 'tk', 'Turkmen', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'tl_PH', 'tl', 'Tagalog', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'tn_ZA', 'tn', 'Tswana', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'to_TO', 'to', 'Tonga (Tonga Islands)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sa_IN', 'sa', 'Санскрит', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sc_IT', 'sc', 'Сардинский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sd_IN', 'sd', 'Синдхи', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'se_NO', 'se', 'Северносаамский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sm_WS', 'sm', 'Самоанский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sg_CF', 'sg', 'Санго', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sr_RS', 'sr', 'Сербский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gd_GB', 'gd', 'Шотла́ндский гэ́льский, Кельтский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sn_ZW', 'sn', 'Шона', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'si_LK', 'si', 'Сингальский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'sk_SK', 'sk', 'Словацкий', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'sl_SI', 'sl', 'Словенский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'so_SO', 'so', 'Сомалийский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'st_ZA', 'st', 'Сесото (южный сото)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'Испанский; Кастильский (Испания)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'Испанский; Кастильский (Мексика)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'Испанский; Кастильский (Пуэрто-Рико)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'Сунданский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sw_TZ', 'sw', 'Суахили', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'Свати', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'Шведский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ta_IN', 'ta', 'Тамильский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'te_IN', 'te', 'Телугу', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'tg_TJ', 'tg', 'Таджикский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'th_TH', 'th', 'Тайский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ti_ET', 'ti', 'Тигринья', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'bo_CN', 'bo', 'Тибетский; Центральный тибетский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'tk_TM', 'tk', 'Туркменский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'tl_PH', 'tl', 'Тагальский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'tn_ZA', 'tn', 'Тсвана', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'to_TO', 'to', 'Тонганский (острова То́нга)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'tr_TR', 'tr', 'Турецкий', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ts_ZA', 'ts', 'Tsonga', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'tt_RU', 'tt', 'Tatar', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'tw_GH', 'tw', 'Twi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ty_PF', 'ty', 'Tahitian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ug_CN', 'ug', 'Uighur, Uyghur', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'uk_UA', 'uk', 'Ukrainian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ur_PK', 'ur', 'Urdu', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ts_ZA', 'ts', 'Тсонга', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'tt_RU', 'tt', 'Татарский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'tw_GH', 'tw', 'Чви', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ty_PF', 'ty', 'Таитянский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ug_CN', 'ug', 'Уйгурский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'uk_UA', 'uk', 'Украинский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ur_PK', 'ur', 'Урду', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'uz_UZ', 'uz', 'Узбекский', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 've_ZA', 've', 'Venda', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'vi_VN', 'vi', 'Vietnamese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'vo_XX', 'vo', 'Volapük', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'wa_BE', 'wa', 'Walloon', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'cy_GB', 'cy', 'Welsh', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'wo_SN', 'wo', 'Wolof', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'fy_NL', 'fy', 'Western Frisian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'xh_ZA', 'xh', 'Xhosa', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'yi_US', 'yi', 'Yiddish', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'yo_NG', 'yo', 'Yoruba', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'za_CN', 'za', 'Zhuang, Chuang', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'zu_ZA', 'zu', 'Zulu', @counter := @counter + 1);
+  (@option_group_id_languages, 0, 0, 've_ZA', 've', 'Венда', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'vi_VN', 'vi', 'Вьетнамский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'vo_XX', 'vo', 'Волапюк', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'wa_BE', 'wa', 'Валлонский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'cy_GB', 'cy', 'Валлийский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'wo_SN', 'wo', 'Волоф', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'fy_NL', 'fy', 'Западнофризский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'xh_ZA', 'xh', 'Коса', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'yi_US', 'yi', 'Идиш', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'yo_NG', 'yo', 'Йоруба', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'za_CN', 'za', 'Чжуанский', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'zu_ZA', 'zu', 'Зулу', @counter := @counter + 1);
 -- /*******************************************************
 -- *
 -- * Encounter Medium Option Values (for case activities)
@@ -5775,7 +5775,7 @@ VALUES
 -- the fuzzy default dedupe rules
 -- IndividualSupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualSupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'Name and Email (reserved)', 1);
+VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'Имя и Электронная Почта (зарезервированные)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5802,7 +5802,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 -- the strict dedupe rules
 -- IndividualUnsupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualUnsupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Email (reserved)', 1);
+VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Электронная почта (зарезервированная)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5826,7 +5826,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 
 -- IndividualGeneral uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualGeneral)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'Name and Address (reserved)', 1);
+VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'Имя и Адрес (зарезервировынные)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -6120,10 +6120,10 @@ INSERT INTO civicrm_uf_group
     (7,  'summary_overlay',    'Contact',             'Трафарет резюме'   ,             0,      1,           NULL),
     (8,  'shared_address',     'Contact',             'Общий адрес'                , 0,      1,           NULL),
     (9,  'on_behalf_organization', 'Contact,Organization','От имени организации',  0,      1,           NULL),
-    (10, 'contribution_batch_entry', 'Contribution', 'Contribution Bulk Entry' ,       0,      1,           NULL),
-    (11, 'membership_batch_entry', 'Membership',     'Membership Bulk Entry' ,         0,      1,           NULL),
+    (10, 'contribution_batch_entry', 'Contribution', 'Массовый Ввод Взносов' ,       0,      1,           NULL),
+    (11, 'membership_batch_entry', 'Membership',     'Массовый Ввод Членства' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'Ваша регистрационная информация',         0,      0,           NULL),
-    (13, 'honoree_individual', 'Individual,Contact', 'Honoree Individual',             0,      1,           NULL);
+    (13, 'honoree_individual', 'Individual,Contact', 'Награжденное Лицо',             0,      1,           NULL);
 
 
 INSERT INTO civicrm_uf_join
@@ -6189,7 +6189,7 @@ INSERT INTO civicrm_uf_field
        ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Отправить квитанцию', 'Contribution', NULL, NULL ),
        ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'ИН счета', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Льготный кредит', 'Contribution', NULL, NULL ),
-       ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Contribution', NULL, NULL ),
+       ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Тип Льготного Кредита', 'Contribution', NULL, NULL ),
        ( 11,     'membership_type',             1, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Типы членства', 'Membership', NULL, NULL ),
        ( 11,     'join_date',                   1, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Член с', 'Membership', NULL, NULL ),
        ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Дата начала', 'Membership', NULL, NULL ),
@@ -6203,7 +6203,7 @@ INSERT INTO civicrm_uf_field
        ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Номер квитанции', 'Membership', NULL, NULL ),
        ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, 'Статус платежа', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, 'Льготный кредит', 'Membership', NULL, NULL ),
-       ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Membership', NULL, NULL ),
+       ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Тип Льготного Кредита', 'Membership', NULL, NULL ),
        ( 12,     'first_name',                  1, 0,  1, 'User and User Admin Only', 0, 0, NULL, 'Имя',  'Individual', NULL, NULL),
        ( 12,     'last_name',                   1, 0,  2, 'User and User Admin Only', 0, 0, NULL, 'Фамилия',   'Individual',  NULL,  NULL),
        ( 12,     'email',                       1, 0,  3, 'User and User Admin Only', 0, 0, NULL, 'Email Адрес', 'Contact', NULL, NULL),
@@ -6228,8 +6228,8 @@ INSERT INTO civicrm_participant_status_type
   (11, 'Rejected',                            'Отклонено',                            'Negative', 1,           0,         0,          11,     2            ),
   (12, 'Expired',                             'Срок истек',                             'Negative', 1,           1,         0,          12,     2            ),
   (13, 'Pending in cart',                     'Ожидает в корзине',                     'Pending',  1,           1,         0,          13,     2            ),
-  (14,  'Partially paid',                      'Partially paid',                      'Positive', 1,           1,         1,          14,     2           ),
-  (15,  'Pending refund',                      'Pending refund',                      'Positive', 1,           1,         1,          14,     2           );
+  (14,  'Partially paid',                      'Частично оплачен',                      'Positive', 1,           1,         1,          14,     2           ),
+  (15,  'Pending refund',                      'Ожидающиеся возмещение',                      'Positive', 1,           1,         1,          14,     2           );
 
 
 
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Дела - Отправить копию действия',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Взносы - Продублировать оповещение организации',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Взносы - Квитанция (оффлайн)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Взносы - Квитанция (онлайн)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Взносы - Уведомление о начале и завершение повторного взноса',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Взносы - уведомление от отмене регулярных взносов',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Взносы - обновление регулярных платежей',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Взносы - регулярные обновления',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Страницы персональных кампаний - Уведомление администратора',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Страницы персональных кампаний - Уведомление об изменении статуса сторонника',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Страницы персональных кампаний - Приветствие сторонника',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Мероприятия - Подтверждение регистрации и квитанция (оффлайн)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Мероприятия - Подтверждение регистрации и квитанция (онлайн)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Мероприятия - только подтверждение',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Мероприятия - Уведомление об отмене регистрации',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Мероприятия - Предложение подтвердить регистрацию',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Мероприятия - Уведомление об истечении срока ожидания регистрации',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Сообщение \"Расскажи другу\"',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Членства - Квитанции о подаче заявки и обновлении (оффлайн)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Членства - Квитанция (онлайн)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Членство - уведомление отмены автопродления',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Членство - обновление платежей автопродления',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Тестирование - Заголовок квитанции',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Обещаний - Благодарность',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Обещания - Напоминание о платеже',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Профили - Уведомление администратора',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Прошение - добавлена подпись',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Прошение - необходима проверка',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Дела - Отправить копию действия',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Взносы - Продублировать оповещение организации',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Взносы - Квитанция (оффлайн)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Взносы - Квитанция (онлайн)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Взносы - Счет',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Взносы - Уведомление о начале и завершение повторного взноса',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Взносы - уведомление от отмене регулярных взносов',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Взносы - обновление регулярных платежей',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Взносы - регулярные обновления',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Страницы персональных кампаний - Уведомление администратора',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Страницы персональных кампаний - Уведомление об изменении статуса сторонника',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Страницы персональных кампаний - Приветствие сторонника',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Страницы Персональной Кампании - Уведомление Владельца',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Квитанция Дополнительного Платежа или Уведомление о Возмещении',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Мероприятия - Подтверждение регистрации и квитанция (оффлайн)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Мероприятия - Подтверждение регистрации и квитанция (онлайн)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Мероприятия - только подтверждение',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Мероприятия - Уведомление об отмене регистрации',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Мероприятия - Предложение подтвердить регистрацию',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Мероприятия - Уведомление об истечении срока ожидания регистрации',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Сообщение \"Расскажи другу\"',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Членства - Квитанции о подаче заявки и обновлении (оффлайн)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Членства - Квитанция (онлайн)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Членство - уведомление отмены автопродления',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Членство - обновление платежей автопродления',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Тестирование - Заголовок квитанции',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Обещаний - Благодарность',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Обещания - Напоминание о платеже',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Профили - Уведомление администратора',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Прошение - добавлена подпись',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Прошение - необходима проверка',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -8121,14 +8121,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -8804,14 +8804,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -9082,7 +9082,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_online_receipt, 0,          1) ,      
       
       
-      ('Contributions - Invoice', '{if $title}
+      ('Взносы - Счет', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9529,7 +9529,7 @@ from your next payment to us</div><br/></font></td>
   </body>
 </html>
 ', @tpl_ovid_contribution_invoice_receipt, 1,          0),
-      ('Contributions - Invoice', '{if $title}
+      ('Взносы - Счет', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Страницы Персональной Кампании - Уведомление Владельца', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Страницы Персональной Кампании - Уведомление Владельца', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11544,7 +11544,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_owner_notify, 0,          1) ,      
       
       
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Квитанция Дополнительного Платежа или Уведомление о Возмещении', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -11930,7 +11930,7 @@ from your next payment to us</div><br/></font></td>
  </body>
 </html>
 ', @tpl_ovid_payment_or_refund_notification, 1,          0),
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Квитанция Дополнительного Платежа или Уведомление о Возмещении', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -20537,7 +20537,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -20556,7 +20556,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -22761,10 +22761,10 @@ SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account
 SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = 'Членские взносы';
 SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Взнос Кампании';
 SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'Оплата Мероприятия';
-SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Banking Fees';
-SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Accounts Receivable';
-SELECT @financial_account_id_ar        := max(id) FROM civicrm_financial_account WHERE name = 'Deposit Bank Account';
-SELECT @financial_account_id_pp        := max(id) FROM civicrm_financial_account WHERE name = 'Payment Processor Account';
+SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Банковский Сбор';
+SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Дебиторская Задолженность';
+SELECT @financial_account_id_ar        := max(id) FROM civicrm_financial_account WHERE name = 'Депозитный Банковский Счет ';
+SELECT @financial_account_id_pp        := max(id) FROM civicrm_financial_account WHERE name = 'Счет Платежного Оператора';
 SELECT @financial_account_id_pr        := max(id) FROM civicrm_financial_account WHERE name = 'Премиальные';
 
 INSERT INTO `civicrm_entity_financial_account`
@@ -22820,7 +22820,7 @@ INSERT INTO `civicrm_price_field_value` (  `price_field_id`, `name`, `label`, `a
 VALUES ( @fieldID, 'contribution_amount', 'Contribution Amount', '1', '1', '0', '1', 1);
 
 -- CRM-13833
-INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Soft Credit Types', 1, 1);
+INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Типы Льготного Кредита', 1, 1);
 
 SELECT @option_group_id_soft_credit_type := max(id) from civicrm_option_group where name = 'soft_credit_type';
 
@@ -22828,15 +22828,15 @@ INSERT INTO `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`,
 VALUES
   (@option_group_id_soft_credit_type   , 'В честь', 1, 'in_honor_of', 1, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'В память', 2, 'in_memory_of', 2, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Solicited', 3, 'solicited', 3, 1, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Запрошено', 3, 'solicited', 3, 1, 1, 1),
   (@option_group_id_soft_credit_type   , 'Домохозяйство', 4, 'household', 4, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Workplace Giving', 5, 'workplace', 5, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Foundation Affiliate', 6, 'foundation_affiliate', 6, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
+  (@option_group_id_soft_credit_type   , 'Предоставляющий Рабочее Место', 5, 'workplace', 5, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Отделение Организации', 6, 'foundation_affiliate', 6, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Услуги 3-ей Партии', 7, '3rd-party_service', 7, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Именной Фонд', 8, 'donor-advised_fund', 8, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Сопоставленные Подарки', 9, 'matched_gift', 9, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Страница Личной Кампании', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Подарок', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
@@ -22941,7 +22941,7 @@ INSERT INTO `civicrm_dashboard`
     VALUES
     ( @domainID, 'blog', 'CiviCRM News', 'civicrm/dashlet/blog?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/blog?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'activity', 'Действия', 'civicrm/dashlet/activity?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 1, 'civicrm/dashlet/activity?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
-    ( @domainID, 'myCases', 'My Cases', 'civicrm/dashlet/myCases?reset=1&snippet=5', 'access my cases and activities', NULL , 0, 0, 1, 2, 'civicrm/dashlet/myCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+    ( @domainID, 'myCases', 'Мои дела', 'civicrm/dashlet/myCases?reset=1&snippet=5', 'access my cases and activities', NULL , 0, 0, 1, 2, 'civicrm/dashlet/myCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'allCases', 'All Cases', 'civicrm/dashlet/allCases?reset=1&snippet=5', 'access all cases and activities', NULL , 0, 0, 1, 3, 'civicrm/dashlet/allCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'casedashboard', 'Case Dashboard Dashlet', 'civicrm/dashlet/casedashboard?reset=1&snippet=5', 'access my cases and activities,access all cases and activities', 'OR' , 0, 0, 1, 4, 'civicrm/dashlet/casedashboard?reset=1&snippet=5&context=dashletFullscreen', 1, 1);
 
@@ -23706,4 +23706,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.9';
+UPDATE civicrm_domain SET version = '4.6.10';

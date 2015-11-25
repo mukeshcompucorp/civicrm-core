@@ -4565,22 +4565,22 @@ SELECT @domainID := id FROM civicrm_domain where name = 'Default Domain Name';
 -- field is used mainly as an ID, and display_name will be shown to the user, but
 -- we have not yet finished modifying all places where the 'name' is shown.
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'ホーム', 'ホーム', 'HOME', '居住地', 0, 1, 1 );
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( '職場', '職場', 'WORK', '職場の位置', 0, 1 );
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'メイン', 'メイン', NULL, '主事務所の場所', 0, 1 );
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'その他', 'その他', NULL, '他の場所', 0, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( '職場', '職場', 'WORK', '職場のロケーション', 0, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'メイン', 'メイン', NULL, '主事務所のロケーション', 0, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'その他', 'その他', NULL, '他のロケーション', 0, 1 );
 -- the following location must stay with the untranslated Billing name, CRM-2064
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Billing',  '課金', NULL, '課金先住所の場所', 1, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Billing',  '課金', NULL, '課金先の住所所在地', 1, 1 );
 
 -- Sample relationship types
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
-    VALUES( 'Child of', '子供 of', 'Parent of', '親 of', '親子関係', 'Individual', 'Individual', 0 ),
-          ( 'Spouse of', '配偶者 of', 'Spouse of', '配偶者 of', '配偶関係', 'Individual', 'Individual', 0 ),
-          ( 'Partner of', 'Partner of', 'Partner of', 'Partner of', 'Partner relationship.', 'Individual', 'Individual', 0 ),
-          ( 'Sibling of', '兄弟姉妹 of', 'Sibling of', '兄弟姉妹 of', '兄弟姉妹関係', 'Individual','Individual', 0 ),
-          ( 'Employee of', '被雇用者 of', 'Employer of', '雇用者 of', '雇用関係','Individual','Organization', 1 ),
-          ( 'Volunteer for', 'ボランティア for', 'Volunteer is', 'ボランティア is', 'ボランティア関係','Individual','Organization', 0 ),
-          ( 'Head of Household for', '世帯主 for', 'Head of Household is', '世帯主 is', '世帯主。','Individual','Household', 1 ),
-          ( 'Household Member of', '世帯員 of', 'Household Member is', '世帯員 is', '世帯員。','Individual','Household', 1 );
+    VALUES( 'Child of', '子供 -', 'Parent of', '親 :', '親子関係', 'Individual', 'Individual', 0 ),
+          ( 'Spouse of', '配偶者 :', 'Spouse of', '配偶者 :', '配偶関係', 'Individual', 'Individual', 0 ),
+          ( 'Partner of', 'パートナー :', 'Partner of', 'パートナー :', 'パートナー関係', 'Individual', 'Individual', 0 ),
+          ( 'Sibling of', '兄弟姉妹 :', 'Sibling of', '兄弟姉妹 :', '兄弟姉妹関係', 'Individual','Individual', 0 ),
+          ( 'Employee of', '被雇用者 :', 'Employer of', '雇用者 :', '雇用関係','Individual','Organization', 1 ),
+          ( 'Volunteer for', 'ボランティア :', 'Volunteer is', 'ボランティア :', 'ボランティア関係','Individual','Organization', 0 ),
+          ( 'Head of Household for', '世帯主 :', 'Head of Household is', '世帯主 :', '世帯主','Individual','Household', 1 ),
+          ( 'Household Member of', '世帯員 :', 'Household Member is', '世帯員 :', '世帯会員','Individual','Household', 1 );
 
 -- Relationship Types for CiviCase
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
@@ -4592,25 +4592,25 @@ INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, d
 -- Sample Tags
 INSERT INTO civicrm_tag( name, description, parent_id,used_for )
     VALUES
-    ( '非営利', 'すべての非営利団体。', NULL,'civicrm_contact'),
-    ( '会社', '営利企業。', NULL,'civicrm_contact'),
-    ( '行政組織', 'すべての行政組織。', NULL,'civicrm_contact'),
-    ( '主な寄付者', '自団体の強力な支援者。', NULL,'civicrm_contact'),
-    ( 'ボランティア', 'アクティブなボランティア', NULL,'civicrm_contact' );
+    ( '非営利', 'すべての非営利団体', NULL,'civicrm_contact'),
+    ( '会社', '営利企業', NULL,'civicrm_contact'),
+    ( '行政組織', 'すべての行政組織', NULL,'civicrm_contact'),
+    ( '主要援助', '自団体の強力な支援者', NULL,'civicrm_contact'),
+    ( 'ボランティア', '有効なボランティア', NULL,'civicrm_contact' );
 
 
 -- sample CiviCRM mailing components
 INSERT INTO civicrm_mailing_component
     (name,component_type,subject,body_html,body_text,is_default,is_active)
 VALUES
-    ('メールのヘッダ','Header','ヘッダーの内容を表す名前','HTMLで書式化された内容のためのサンプルヘッダ','TEXTで書式化された内容のためのサンプルヘッダ',1,1),
-    ('メールのフッタ','Footer','フッタの内容を表す名前.','Sample Footer for HTML formatted content<br/><a href=\"{action.optOutUrl}\">Unsubscribe</a>  <br/> {domain.address}','to unsubscribe: {action.optOutUrl}\n{domain.address}',1,1),
-    ('加入メッセージ','Subscribe','購読確認要求','{subscribe.group} メーリングリストに未処理の申し込みがあります。この申し込みに関する各種の処理は<a href=\"{subscribe.url}\">このリンク</a>で行います。','{subscribe.group} メーリングリストに未処理の申し込みがあります。この申し込みに関する各種の処理は次のリンクで行います: {subscribe.url}',1,1),
-    ('歓迎メッセージ','Welcome','申し込みを受け付けました','ようこそ。{welcome.group}メーリングリストの申し込みを受け付けました。','ようこそ。{welcome.group}メーリングリストの申し込みを受け付けました。',1,1),
-    ('購読解除メッセージ','Unsubscribe','脱退確認','次のグループの購読を解除しました: {unsubscribe.group} 。再購読するには {action.resubscribe} のメールまたは<a href=\"{action.resubscribeUrl}\">ここをクリック</a>してください。','次のグループの購読を解除しました: {unsubscribe.group} 。再購読するには {action.resubscribe} のメールまたは次をクリックしてください ',1,1),
-    ('再購読メッセージ','Resubscribe','再加入確認','次のグループの購読を再開しました: {resubscribe.group} 。購読を解除するには {action.unsubscribe} のメールまたは<a href=\"{action.unsubscribeUrl}\">ここをクリック</a>してください。','次のグループの購読を再開しました: {resubscribe.group} 。購読を解除するには {action.unsubscribe} のメールまたは次をクリックしてください {action.unsubscribeUrl}',1,1),
-    ('オプトアウト・メッセージ','OptOut','オプトアウト確認','{domain.name}メーリングリストからあなたのメールアドレスを削除しました。','{domain.name}メーリングリストからあなたのメールアドレスを削除しました。',1,1),
-    ('自動返信','Reply','お問い合わせは、連絡先メールアドレスにお送りください','このメールは自動送信専用のメールアドレスによる返信です。お問い合わせは、サイトに記載されている連絡先メールアドレスにお送りください。','このメールは自動送信専用のメールアドレスによる返信です。お問い合わせは、サイトに記載されている連絡先メールアドレスにお送りください。',1,1);
+    ('メーリングのヘッダ','Header','ヘッダーの内容を表す名前','HTMLでフォーマットされた内容のためのサンプルヘッダ','TEXTでフォーマットされた内容のためのサンプルヘッダ',1,1),
+    ('メーリングのフッタ','Footer','フッタの内容を表す名前','Sample Footer for HTML formatted content<br/><a href=\"{action.optOutUrl}\">Unsubscribe</a>  <br/> {domain.address}','to unsubscribe: {action.optOutUrl}\n{domain.address}',1,1),
+    ('加入メッセージ','Subscribe','購読の確認リクエスト','{subscribe.group} メーリングリストに未処理の申し込みがあります。この申し込みに関する各種の処理は<a href=\"{subscribe.url}\">このリンク</a>で行います。','{subscribe.group} メーリングリストに未処理の申し込みがあります。この申し込みに関する各種の処理は次のリンクで行います : {subscribe.url}',1,1),
+    ('歓迎メッセージ','Welcome','申し込みを受け付けました','ようこそ。{welcome.group} メーリングリストの申し込みを受け付けました。','ようこそ。{welcome.group} メーリングリストの申し込みを受け付けました。',1,1),
+    ('購読の解除メッセージ','Unsubscribe','脱退の確認','次のグループの購読を解除しました : {unsubscribe.group} 。再購読するには {action.resubscribe} のメーリングまたは<a href=\"{action.resubscribeUrl}\">ここをクリック</a>してください。','次のグループの購読を解除しました : {unsubscribe.group} 。再購読するには {action.resubscribe} のメーリングまたは次をクリックしてください ',1,1),
+    ('再購読メッセージ','Resubscribe','再購読の確認','次のグループの購読を再開しました : {resubscribe.group} 。購読を解除するには {action.unsubscribe} のメーリングまたは<a href=\"{action.unsubscribeUrl}\">ここをクリック</a>してください。','次のグループの購読を再開しました : {resubscribe.group} 。購読を解除するには {action.unsubscribe} のメーリングまたは次をクリックしてください {action.unsubscribeUrl}',1,1),
+    ('拒否メッセージ','OptOut','拒否の確認','{domain.name} メーリングからあなたのメールアドレスを削除しました。','{domain.name} メーリングからあなたのメールアドレスを削除しました。',1,1),
+    ('自動返信','Reply','お問い合わせは、連絡先メールアドレスにお送りください','このメールは自動送信専用のメールアドレスによる返信です。お問い合わせは、ウェブサイトに記載されている連絡先メールアドレスにお送りください。','このメールは自動送信専用のメールアドレスによる返信です。お問い合わせは、ウェブサイトに記載されている連絡先メールアドレスにお送りください。',1,1);
 
 
 -- contribution types
@@ -4620,7 +4620,7 @@ VALUES
   ( '寄付'             , 0, 1, 1 ),
   ( '会費'          , 0, 1, 1 ),
   ( 'キャンペーン支援', 0, 1, 0 ),
-  ( 'イベント会費'            , 0, 1, 0 );
+  ( 'イベント料金'            , 0, 1, 0 );
 
 -- option groups and values for 'preferred communication methods' , 'activity types', 'gender', etc.
 
@@ -4628,82 +4628,82 @@ INSERT INTO
    `civicrm_option_group` (`name`, `title`, `is_reserved`, `is_active`, `is_locked`)
 VALUES
    ('preferred_communication_method', '希望する連絡方法'     , 1, 1, 0),
-   ('activity_type'                 , '活動タイプ'                      , 1, 1, 0),
+   ('activity_type'                 , 'アクティビティタイプ'                      , 1, 1, 0),
    ('gender'                        , '性別'                             , 1, 1, 0),
-   ('instant_messenger_service'     , 'インスタントメッセンジャー(IM)スクリーン名', 1, 1, 0),
+   ('instant_messenger_service'     , 'インスタントメッセンジャー (IM) スクリーン名', 1, 1, 0),
    ('mobile_provider'               , '携帯電話会社'             , 1, 1, 0),
    ('individual_prefix'             , '個人連絡先プレフィクス'        , 1, 1, 0),
    ('individual_suffix'             , '個人連絡先サフィックス'        , 1, 1, 0),
-   ('acl_role'                      , '役割のACL'                           , 1, 1, 0),
+   ('acl_role'                      , 'ACL役割'                           , 1, 1, 0),
    ('accept_creditcard'             , '利用できるクレジットカード'              , 1, 1, 0),
-   ('payment_instrument'            , '支払方法'                , 1, 1, 0),
-   ('contribution_status'           , '支援の状況'                , 1, 1, 1),
-   ('pcp_status'                    , '個人キャンペーンページ状態'                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
-   ('participant_role'              , '参加者ロール'                   , 1, 1, 0),
+   ('payment_instrument'            , '支払い方法'                , 1, 1, 0),
+   ('contribution_status'           , '支援のステータス'                , 1, 1, 1),
+   ('pcp_status'                    , '個人キャンペーンページのステータス'                         , 1, 1, 1),
+   ('pcp_owner_notify'              , 'PCPの所有者通知'            , 1, 1, 1),
+   ('participant_role'              , '参加者の役割'                   , 1, 1, 0),
    ('event_type'                    , 'イベントタイプ'                         , 1, 1, 0),
    ('contact_view_options'          , '連絡先表示オプション'               , 1, 1, 1),
-   ('contact_smart_group_display'   , 'Contact Smart Group View Options'   , 1, 1, 1),
+   ('contact_smart_group_display'   , 'スマートグループの連絡先オプションを表示'   , 1, 1, 1),
    ('contact_edit_options'          , '連絡先編集オプション'               , 1, 1, 1),
    ('advanced_search_options'       , '高度な検索のオプション'            , 1, 1, 1),
-   ('user_dashboard_options'        , 'ユーザーダッシュボードのオプション'             , 1, 1, 1),
+   ('user_dashboard_options'        , 'ユーザダッシュボードのオプション'             , 1, 1, 1),
    ('address_options'               , '住所オプション'                 , 1, 1, 0),
    ('group_type'                    , 'グループタイプ'                         , 1, 1, 0),
-   ('grant_status'                  , '助成状態'                       , 1, 1, 0),
+   ('grant_status'                  , '助成のステータス'                       , 1, 1, 0),
    ('grant_type'                    , '助成タイプ'                         , 1, 1, 0),
    ('custom_search'                 , 'カスタム検索'                      , 1, 1, 0),
-   ('activity_status'               , '活動状態'                    , 1, 1, 0),
+   ('activity_status'               , 'アクティビティのステータス'                    , 1, 1, 0),
    ('case_type'                     , '事例タイプ'                          , 1, 1, 0),
-   ('case_status'                   , '事例状態'                        , 1, 1, 0),
-   ('participant_listing'           , '参加者一覧'                , 1, 1, 0),
+   ('case_status'                   , '事例のステータス'                        , 1, 1, 0),
+   ('participant_listing'           , '参加者リスト'                , 1, 1, 0),
    ('safe_file_extension'           , '安全なファイル拡張子'                , 1, 1, 0),
-   ('from_email_address'            , '発信人のメールアドレス'                 , 1, 1, 0),
-   ('mapping_type'                  , 'マッピング・タイプ'                       , 1, 1, 1),
+   ('from_email_address'            , '差出人メールアドレス'                 , 1, 1, 0),
+   ('mapping_type'                  , 'マッピングタイプ'                       , 1, 1, 1),
    ('wysiwyg_editor'                , 'WYSIWYGエディタ'                     , 1, 1, 0),
-   ('recur_frequency_units'         , '繰り返し周期の単位'          , 1, 1, 0),
+   ('recur_frequency_units'         , '定期の頻度単位'          , 1, 1, 0),
    ('phone_type'                    , '電話タイプ'                         , 1, 1, 0),
    ('custom_data_type'              , 'カスタムデータタイプ'                   , 1, 1, 0),
    ('visibility'                    , '閲覧範囲'                         , 1, 1, 0),
    ('mail_protocol'                 , 'メールプロトコル'                      , 1, 1, 0),
    ('priority'                      , '優先度'                           , 1, 1, 0),
-   ('redaction_rule'                , '重複排除規則'                     , 1, 1, 0),
+   ('redaction_rule'                , '重複排除ルール'                     , 1, 1, 0),
    ('report_template'               , 'レポートテンプレート'                    , 1, 1, 0),
-   ('email_greeting'                , 'メール挨拶タイプ'                , 1, 1, 0),
-   ('postal_greeting'               , '手紙挨拶タイプ'               , 1, 1, 0),
+   ('email_greeting'                , 'グリーティングメールのタイプ'                , 1, 1, 0),
+   ('postal_greeting'               , 'グリーティング郵便タイプ'               , 1, 1, 0),
    ('addressee'                     , '宛先タイプ'                     , 1, 1, 0),
-   ('contact_autocomplete_options'  , '連絡先検索自動コンプリート'        , 1, 1, 1),
-   ('contact_reference_options'     , '連絡先自動補完オプション', 1, 1, 1),
-   ('website_type'                  , 'ウェブサイト タイプ'                       , 1, 1, 0),
-   ('tag_used_for'                  , '使われているタグ for'                       , 1, 1, 1),
-   ('currencies_enabled'            , 'Currencies Enabled'                 , 1, 1, 0),
-   ('event_badge'                   , 'イベント名バッジ'                   , 1, 1, 0),
+   ('contact_autocomplete_options'  , '連絡先のオートコンプリート検索'        , 1, 1, 1),
+   ('contact_reference_options'     , '連絡先のオートコンプリートオプション', 1, 1, 1),
+   ('website_type'                  , 'ウェブサイトタイプ'                       , 1, 1, 0),
+   ('tag_used_for'                  , '使われているタグ :'                       , 1, 1, 1),
+   ('currencies_enabled'            , '通貨を有効'                 , 1, 1, 0),
+   ('event_badge'                   , 'イベント名のバッジ'                   , 1, 1, 0),
    ('note_privacy'                  , '備考のプライバシーレベル'           , 1, 1, 0),
    ('campaign_type'                 , 'キャンペーンタイプ'                      , 1, 1, 0),
-   ('campaign_status'               , 'キャンペーン状態'                    , 1, 1, 0),
-   ('system_extensions'             , 'CiviCRM機能拡張'                 , 1, 1, 0),
-   ('mail_approval_status'          , 'CiviMail承認状態'           , 1, 1, 0),
+   ('campaign_status'               , 'キャンペーンのステータス'                    , 1, 1, 0),
+   ('system_extensions'             , 'CiviCRM エクステンション'                 , 1, 1, 0),
+   ('mail_approval_status'          , 'CiviMail 承認ステータス'           , 1, 1, 0),
    ('engagement_index'              , '関与インデックス'                   , 1, 1, 0),
-   ('cg_extend_objects'             , 'Objects a custom group extends to'  , 1, 1, 0),
+   ('cg_extend_objects'             , 'カスタムグループまで拡張されたオブジェクト'  , 1, 1, 0),
    ('paper_size'                    , '用紙サイズ'                         , 1, 1, 0),
-   ('pdf_format'                    , 'PDFページの書式'                    , 1, 1, 0),
-   ('label_format'                  , '郵送宛先フォーマット'               , 1, 1, 0),
-   ('activity_contacts'             , '活動連絡先'                  , 1, 1, 1),
-   ('account_relationship'          , 'Account Relationship'               , 1, 1, 0),
+   ('pdf_format'                    , 'PDFページの形式'                    , 1, 1, 0),
+   ('label_format'                  , 'メーリングラベルの形式'               , 1, 1, 0),
+   ('activity_contacts'             , 'アクティビティの連絡先'                  , 1, 1, 1),
+   ('account_relationship'          , '関係アカウント'               , 1, 1, 0),
    ('event_contacts'                , 'イベント宛先'                   , 1, 1, 0),
    ('conference_slot'               , '会議スロットラベル'                    , 1, 1, 0),
    ('batch_type'                    , 'バッチタイプ'                         , 1, 1, 1),
-   ('batch_mode'                    , 'Batch Mode'                         , 1, 1, 1),
-   ('batch_status'                  , 'バッチ状態'                       , 1, 1, 1),
+   ('batch_mode'                    , 'バッチモード'                         , 1, 1, 1),
+   ('batch_status'                  , 'バッチステータス'                       , 1, 1, 1),
    ('sms_api_type'                  , 'APIタイプ'                           , 1, 1, 0),
    ('sms_provider_name'             , 'SMSプロバイダの内部名'         , 1, 1, 0),
    ('auto_renew_options'            , '自動更新オプション'                 , 1, 1, 1),
-   ('financial_account_type'        , 'Financial Account Type'             , 1, 1, 0),
-   ('financial_item_status'         , 'Financial Item Status'              , 1, 1, 1),
-   ('label_type'                    , 'Label Type'                         , 1, 1, 0),
-   ('name_badge'                    , 'Name Badge Format'                  , 1, 1, 0),
-   ('communication_style'           , 'Communication Style'                , 1, 1, 0),
-   ('msg_mode'                      , 'Message Mode'                       , 1, 1, 0),
-   ('contact_date_reminder_options' , 'Contact Date Reminder Options'      , 1, 1, 1);
+   ('financial_account_type'        , '金融口座タイプ'             , 1, 1, 0),
+   ('financial_item_status'         , '金融項目のステータス'              , 1, 1, 1),
+   ('label_type'                    , 'ラベルタイプ'                         , 1, 1, 0),
+   ('name_badge'                    , '名前バッジの形式'                  , 1, 1, 0),
+   ('communication_style'           , '通信スタイル'                , 1, 1, 0),
+   ('msg_mode'                      , 'メッセージモード'                       , 1, 1, 0),
+   ('contact_date_reminder_options' , '事前通知オプションの連絡日'      , 1, 1, 1);
 
 SELECT @option_group_id_pcm            := max(id) from civicrm_option_group where name = 'preferred_communication_method';
 SELECT @option_group_id_act            := max(id) from civicrm_option_group where name = 'activity_type';
@@ -4798,82 +4798,82 @@ VALUES
    (@option_group_id_pcm, 'メール', 2, 'Email', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_pcm, '郵便', 3, 'Postal Mail', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_pcm, '携帯メール', 4, 'SMS', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_pcm, 'Fax', 5, 'Fax', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_pcm, 'FAX', 5, 'Fax', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
    (@option_group_id_act, '会議',                            1, 'Meeting', NULL, 0, NULL, 1, NULL,                                                                       0, 1, 1, NULL, NULL),
    (@option_group_id_act, '電話',                         2, 'Phone Call',          NULL, 0, NULL, 2, NULL,                                                          0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'メール',                              3, 'Email',               NULL, 1, NULL, 3, '送信メール.',                                                          0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Outbound SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'テキストメッセージ(SMS)を送信しました',                                             0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'イベント登録',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'オンラインまたはオフラインでのイベント登録.',                                0, 1, 1, @eventCompId, NULL),
-   (@option_group_id_act, '支援',                       6, 'Contribution',        NULL, 1, NULL, 6, 'オンラインまたはオフラインでの支援。',                                      0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, '会員権加入',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'オンラインまたはオフラインでの会員権加入。',                                 0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, '会員権更新',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'オンラインまたはオフラインでの会員権更新。',                                0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, '友人に知らせる',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, '支援キャンペーンやイベントの情報を知人に送信する。', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'プレッジ通知',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'プレッジ通知を送信。',                                     0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, 'プレッジ備忘通知',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'プレッジ備忘通知を送信。',                                               0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, '受信Eメール',                      12, 'Inbound Email',      NULL, 1, NULL, 12, '受信Eメール.',                                                     0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'メール',                              3, 'Email',               NULL, 1, NULL, 3, '送信メール',                                                          0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'アウトバウンドSMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'テキストメッセージ (SMS) を送信しました',                                             0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'イベント登録',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'オンラインまたはオフラインでのイベント登録',                                0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, '支援',                       6, 'Contribution',        NULL, 1, NULL, 6, 'オンラインまたはオフラインでの支援',                                      0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, '会員の加入',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'オンラインまたはオフラインでの会員加入',                                 0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, '会員の更新',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'オンラインまたはオフラインでの会員更新',                                0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, '友人に紹介',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, '支援キャンペーンやイベントの情報を知人に送信する。', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'プレッジ通知',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'プレッジ通知を送信',                                     0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'プレッジの事前通知',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'プレッジの事前通知を送信',                                               0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, '受信メール',                      12, 'Inbound Email',      NULL, 1, NULL, 12, '受信メール',                                                     0, 1, 1, NULL, NULL),
 
 -- Activity Types for case activities
-   (@option_group_id_act, 'Open Case',          13, 'Open Case',          NULL, 0,  0, 13, '', 0, 1, 1, @caseCompId, NULL),
-   (@option_group_id_act, '後続活動',          14, 'Follow up',          NULL, 0,  0, 14, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, '事例を開く',          13, 'Open Case',          NULL, 0,  0, 13, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'ファローアップ',          14, 'Follow up',          NULL, 0,  0, 14, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, '事例タイプの変更',   15, 'Change Case Type',   NULL, 0,  0, 15, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, '事例状態の変更', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, '事例ステータスの変更', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
 
-   (@option_group_id_act, '会員権更新備忘通知',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'オフラインでの会員権更新備忘通知.',                      0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, '会員更新の事前通知',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'オフラインでの会員更新の事前通知',                      0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, '事例開始日の変更',             18, 'Change Case Start Date',         NULL, 0,  0, 18, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, '一括メール',                         19, 'Bulk Email',         NULL, 1, NULL, 19, '一括メールを送信しました。',                                                    0, 1, 1, NULL, NULL),
-   (@option_group_id_act, '事例ロールを割り当てる',                   20, 'Assign Case Role', NULL,0, 0, 20, '', 0, 1, 1, @caseCompId, NULL),
-   (@option_group_id_act, '事例ロールを削除する',                   21, 'Remove Case Role', NULL,0, 0, 21, '', 0, 1, 1, @caseCompId, NULL),
-   (@option_group_id_act, 'PDFレター印刷',                   22, 'Print PDF Letter',    NULL, 0, NULL, 22, 'PDFレター印刷.',                                                  0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'バルクメール',                         19, 'Bulk Email',         NULL, 1, NULL, 19, 'バルクメールを送信しました。',                                                    0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '事例の役割を割り当て',                   20, 'Assign Case Role', NULL,0, 0, 20, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, '事例の役割を削除',                   21, 'Remove Case Role', NULL,0, 0, 21, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'PDFレター印刷',                   22, 'Print PDF Letter',    NULL, 0, NULL, 22, 'PDFレター印刷',                                                  0, 1, 1, NULL, NULL),
    (@option_group_id_act, '事例のマージ',                         23, 'Merge Case', NULL, 0,  NULL, 23, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, '事例再割当て',                    24, 'Reassigned Case', NULL, 0,  NULL, 24, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Link Cases',                         25, 'Link Cases', NULL, 0,  NULL, 25, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, '事例の再割当て',                    24, 'Reassigned Case', NULL, 0,  NULL, 24, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, '事例リンク',                         25, 'Link Cases', NULL, 0,  NULL, 25, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, '事例タグの変更',                   26, 'Change Case Tags', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
    (@option_group_id_act, '事例にクライアントを追加',                 27, 'Add Client To Case', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Activity Types for CiviCampaign
    (@option_group_id_act, '調査',                             28, 'Survey', NULL,0, 0, 27, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, '戸別訪問',                            29, 'Canvass', NULL,0, 0, 28, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, 'PhoneBank',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
+   (@option_group_id_act, 'フォーンバンク',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, '訪問リスト',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, '請願署名',                           32, 'Petition', NULL,0, 0, 31, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, '一括SMS',                           34, 'Mass SMS',         NULL, 1, NULL, 34, '一括SMS',                                                    0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '一斉SMS',                           34, 'Mass SMS',         NULL, 1, NULL, 34, '一斉SMS',                                                    0, 1, 1, NULL, NULL),
 
 -- Activity Types for CiviCampaign CiviCase
-   (@option_group_id_act, 'カスタムデータ変更',                 33, 'Change Custom Data', NULL,0, 0, 33, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'カスタムデータを変更',                 33, 'Change Custom Data', NULL,0, 0, 33, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Additional Membership-related Activity Types
-   (@option_group_id_act, '会員権状態変更',           35, 'Change Membership Status',   NULL, 1, NULL, 35, '会員権状態変更.',                         0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, '会員権タイプ変更',             36, 'Change Membership Type',     NULL, 1, NULL, 36, '会員権タイプ変更.',                           0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, '会員のステータスを変更',           35, 'Change Membership Status',   NULL, 1, NULL, 35, '会員のステータスを変更',                         0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, '会員タイプを変更',             36, 'Change Membership Type',     NULL, 1, NULL, 36, '会員タイプを変更',                           0, 1, 1, @memberCompId, NULL),
 
-   (@option_group_id_act, '繰返し支援キャンセル',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, '繰り返し支援課金の詳細の更新',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, '繰り返し支援の更新',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '定期的な支援をキャンセル',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '定期的な支援の課金詳細を更新',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '定期的な支援の更新',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
 
-   (@option_group_id_act, '備忘通知送信済',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '事前通知の送信',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
 
  -- Activity Types for Financial Transactions Batch
-   (@option_group_id_act, 'Export Accounting Batch', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Create Batch', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'バッチ編集', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, '会計バッチのエクスポート', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'バッチの作成', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'バッチの編集', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
 
 -- new sms options
-   (@option_group_id_act, 'SMS delivery', 44, 'SMS delivery', NULL, 1, NULL, 44, 'SMS delivery', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Inbound SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Inbound SMS', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'SMS配信', 44, 'SMS delivery', NULL, 1, NULL, 44, 'SMS配信', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'インバウンドSMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'インバウンドSMS', 0, 1, 1, NULL, NULL),
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'Payment', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, '支払い', 46, 'Payment', NULL, 1, NULL, 46, '追加の支払いは、イベントや会費について記録されます。', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, '払い戻し', 47, 'Refund', NULL, 1, NULL, 47, '払い戻しイベントや会費のために記録します。', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
-   (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, '登録の変更', 48, 'Change Registration', NULL, 1, NULL, 48, '既存のイベント登録を変更します。', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
-   (@option_group_id_act, 'Downloaded Invoice', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Downloaded Invoice.',0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Emailed Invoice.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '請求書ダウンロード', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, '請求書ダウンロード',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '請求書をメールで送信', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, '請求書をメールで送信します。',0, 1, 1, NULL, NULL),
 
   -- for manual contact merge
-   (@option_group_id_act, 'Contact Merged', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Contact Merged',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, '連絡先のマージ', 51, 'Contact Merged', NULL, 1, NULL, 51, '連絡先のマージ',0, 1, 1, NULL, NULL),
 
   -- Activity Type for failed payment
    (@option_group_id_act, 'Failed Payment', 52, 'Failed Payment', NULL, 1, 0, 43, 'Failed Payment', 0, 1, 1, @contributeCompId, NULL),
@@ -4923,21 +4923,21 @@ VALUES
 
   (@option_group_id_cs, '完了'  , 1, 'Completed'  , NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, '承認待ち'    , 2, 'Pending'    , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, '中止'  , 3, 'Cancelled'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'キャンセル'  , 3, 'Cancelled'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, '失敗'     , 4, 'Failed'     , NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, '処理中', 5, 'In Progress', NULL, 0, NULL, 5, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, '延滞'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Refunded'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Partially paid', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Pending refund', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, '払い戻し'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, '一部支払い', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, '保留の払い戻し', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcp, 'チェック待ち', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcp, '待機レビュー', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, '承認済'      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcp, '不承認'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcp, '承認なし'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcpOwnerNotify, 'Owner chooses whether to receive notifications', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are sent to ALL owners'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are NOT available'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, '所有者通知を受信するかどうかを選択してください', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, '通知はすべての所有者に送信されます'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, '通知は利用できません'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, '参加者',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pRole, 'ボランティア', 2, 'Volunteer', NULL, 1, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -4946,35 +4946,35 @@ VALUES
 
   (@option_group_id_etype, '会議', 1, 'Conference',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_etype, '展示会', 2, 'Exhibition',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_etype, '資金調達パーティ', 3, 'Fundraiser',  NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_etype, '募金', 3, 'Fundraiser',  NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_etype, '会議',    4, 'Meeting',     NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_etype, 'パフォーマンス',5, 'Performance', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_etype, 'ワークショップ',   6, 'Workshop',    NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
 
 -- note that these are not ts'ed since they are used for logic in most cases and not display
 -- they are used for display only in the prefernces field settings
-  (@option_group_id_cvOpt, '活動'   ,   1, 'activity', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'アクティビティ'   ,   1, 'activity', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, '関係',   2, 'rel', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'グループ一覧'       ,   3, 'group', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, '備考'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'タグ'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, '変更履歴'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, '支援',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, '会員権'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, '会員'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'イベント'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, '事例'        ,  10, 'CiviCase', NULL, 0, NULL,  10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, '助成'       ,  11, 'CiviGrant', NULL, 0, NULL,  11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'プレッジ'      ,  13, 'CiviPledge', NULL, 0, NULL,  13, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'メール'     ,  14, 'CiviMail', NULL, 0, NULL,  14, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'メーリング'     ,  14, 'CiviMail', NULL, 0, NULL,  14, NULL, 0, 0, 1, NULL, NULL),
 
 
-  (@option_group_id_csgOpt, 'Show Smart Groups on Demand',1, 'showondemand', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_csgOpt, 'Always Show Smart Groups',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_csgOpt, 'Hide Smart Groups'       ,   3, 'hide', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'オンデマンドスマートグループを表示',1, 'showondemand', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, '常にスマートグループを表示',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'スマートグループを非表示'       ,   3, 'hide', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_ceOpt, 'カスタムデータ'              ,   1, 'CustomData', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, '住所'                  ,   2, 'Address', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, '連絡方法',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, '通信の環境設定',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, '備考'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, '属性情報'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'タグとグループ'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
@@ -4983,8 +4983,8 @@ VALUES
   (@option_group_id_ceOpt, 'インスタントメッセンジャー'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Open ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'ウェブサイト'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'プレフィクス'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Formal Title'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'プレフィックス'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, '形式的なタイトル'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'ファーストネーム'               ,   14, 'First Name', NULL, 2, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'ミドルネーム'              ,   15, 'Middle Name', NULL, 2, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'ラストネーム'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
@@ -4992,12 +4992,12 @@ VALUES
 
   (@option_group_id_asOpt, '住所の欄'          ,   1, 'location', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'カスタムフィールド'           ,   2, 'custom', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, '活動'              ,   3, 'activity', NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'アクティビティ'              ,   3, 'activity', NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, '関係'           ,   4, 'relationship', NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, '備考'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, '変更 Log'              ,   6, 'changeLog', NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, '支援'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, '会員権'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, '会員'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'イベント'                  ,   9, 'CiviEvent', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, '事例'                   ,  10, 'CiviCase', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
     (@option_group_id_asOpt, 'Grants'                                        ,  12, 'CiviGrant', NULL, 0, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
@@ -5006,19 +5006,19 @@ VALUES
   (@option_group_id_asOpt, '連絡先タイプ'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'グループ一覧'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'タグ'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'メール'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'メーリング'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_udOpt, 'グループ一覧'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, '支援'              , 2, 'CiviContribute', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, '会員権'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, '会員'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'イベント'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, '自分の連絡先/団体', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, '自分の連絡先 / 団体', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'プレッジ'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, '個人キャンペーンのページ'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'あなたに割り当てられた活動'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, '個人キャンペーンページ'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'あなたに割り当てられたアクティビティ'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, '請求書 / クレジットノート'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_acsOpt, 'Eメール・アドレス'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acsOpt, 'メールアドレス'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, '電話'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, '番地、アパート名'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, '市町村名'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
@@ -5026,7 +5026,7 @@ VALUES
   (@option_group_id_acsOpt, '国'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, '郵便番号'     , 8, 'postal_code'   , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_acConRef, 'Eメール・アドレス'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acConRef, 'メールアドレス'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, '電話'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, '番地、アパート名'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, '市町村名'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
@@ -5035,113 +5035,113 @@ VALUES
   (@option_group_id_acConRef, '郵便番号'     , 8, 'country'       , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_adOpt, '番地、アパート名'    ,  1, 'street_address', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Supplemental Address 1'  ,  2, 'supplemental_address_1', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Supplemental Address 2'  ,  3, 'supplemental_address_2', NULL, 0, NULL,  3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, '補足住所 1'  ,  2, 'supplemental_address_1', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, '補足住所 2'  ,  3, 'supplemental_address_2', NULL, 0, NULL,  3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '市町村名'              ,  4, 'city'          , NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, '郵便番号:' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, '郵便番号の追補',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, '郵便番号 :' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, '郵便番号のサフィックス',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '地域'            ,  7, 'county'        , NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '都道府県'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '国'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '緯度'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '経度'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, '住所の名前'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, '街路住所分析', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, '街路住所の分析', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_gType, 'アクセス制御', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_gType, 'Mailing List',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'アクセスコントロール', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'メーリングリスト',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_grantSt, 'Submitted', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Eligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Ineligible', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Paid', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Awaiting Information', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Withdrawn', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Approved for Payment',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '送信', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '適格', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '不適格', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '支払い', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '待機情報', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '取り下げ', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, '承認された支払い',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, '世帯名と状態', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, '世帯名とステータス', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContributionAggregate', 2, 'CRM_Contact_Form_Search_Custom_ContributionAggregate', NULL, 0, NULL, 2, '支援額', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Basic'                , 3, 'CRM_Contact_Form_Search_Custom_Basic'       , NULL, 0, NULL, 3, '基本検索', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Group'                , 4, 'CRM_Contact_Form_Search_Custom_Group'       , NULL, 0, NULL, 4, '検索インクルード/エクスクルード', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PostalMailing'        , 5, 'CRM_Contact_Form_Search_Custom_PostalMailing', NULL, 0, NULL, 5, '郵便', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Group'                , 4, 'CRM_Contact_Form_Search_Custom_Group'       , NULL, 0, NULL, 4, '検索の除外 / 含む', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PostalMailing'        , 5, 'CRM_Contact_Form_Search_Custom_PostalMailing', NULL, 0, NULL, 5, '郵送', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Proximity'            , 6, 'CRM_Contact_Form_Search_Custom_Proximity', NULL, 0, NULL, 6, '近隣検索', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_EventAggregate'       , 7, 'CRM_Contact_Form_Search_Custom_EventAggregate', NULL, 0, NULL, 7, 'イベント総額', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ActivitySearch'       , 8, 'CRM_Contact_Form_Search_Custom_ActivitySearch', NULL, 0, NULL, 8, '活動検索', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'イベント参加者への料金セット詳細', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ActivitySearch'       , 8, 'CRM_Contact_Form_Search_Custom_ActivitySearch', NULL, 0, NULL, 8, 'アクティビティの検索', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'イベント参加者の価格セットの詳細', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, '郵便番号の範囲', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'CiviCRMに登録した日付', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'カスタムグループの複数選択肢一覧', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'CiviCRM に登録した日付', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'カスタムグループの複数選択肢をリスト', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'X年に行われたが、Y年には行われなかった支援', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, '寄付金額をタグで検索', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, '支援金額をタグで検索', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, '全文検索', 0, 0, 1, NULL, NULL),
 
 -- report templates
-  (@option_group_id_report , '構成員レポート(概要)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'システムに登録されている構成員の住所と電話番号の一覧を表示します。', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , '構成員レポート(詳細)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  '寄付、会員権、イベント、活動などの連絡先に関する情報を表示します。',   0, 0, 1, NULL, NULL),
-  (@option_group_id_report , '活動レポート',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  '指定した日付の範囲(必須)に行われた連絡先の活動の統計を含む構成員の活動一覧を表示します。', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , '訪問先/電話一覧レポート',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  '対象となる連絡先の訪問/電話リストについての詳細レポートを表示します。', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report , '現在の雇用者レポート',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  '雇用者・被雇用者の関係を、たとえば入社日などの詳細な情報を含む情報一覧を表示します。', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , '支援概要レポート',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groups and totals contributions by criteria including contact, time period, financial type, contributor location, etc.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , '支援詳細レポート',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Lists specific contributions by criteria including contact, time period, financial type, contributor location, etc. Contribution summary report points to this report for contribution details.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , '繰り返し寄付レポート',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  '日付の範囲を指定して、連絡先がその範囲内に行った支援と増加・減少の割合を表示します。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , '団体支援レポート',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  '団体ごとにまとめた支援の詳細な一覧を表示します。団体の職員による寄付も、その団体の寄付に含まれます。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , '世帯寄付レポート',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, '世帯ごとにまとめた支援の詳細な一覧を表示します。世帯の家族による寄付も、その世帯の寄付に含まれます。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'トップ寄付者レポート',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, '指定した期間中の上位支援者の一覧。表示する人数は任意に指定できます(たとえば上位100人など)。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'SYBUNTレポート',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNTは\"Some Year But (Unfortunately) Not This year\"の略語です。 これまでに寄付をしたことがあるが、指定した年度範囲内には寄付をしていない構成員の一覧を表示します。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'LYBUNTレポート',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNTは\"Last Year But (Unfortunately) Not This year\"の略語です。 昨年、寄付してくれたが、今年は寄付をしていない構成員の一覧を表示します。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , '構成員レポート (概要)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'システムに登録されている構成員の住所と電話番号のリストを表示します。', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , '構成員レポート (詳細)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  '支援、会員、イベント、アクティビティなどの連絡先に関する情報を表示します。',   0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'アクティビティレポート',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  '指定した日付の範囲 (必須) に行われた連絡先のアクティビティの統計を含む構成員のアクティビティリストを表示します。', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , '訪問先 / 電話リストレポート',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  '対象となる連絡先の訪問 / 電話リストについての詳細レポートを表示します。', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report , '現在の雇用者レポート',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  '雇用者 / 被雇用者の関係を、たとえば入社日などの詳細な情報を含む情報リストを表示します。', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , '支援概要レポート',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  '連絡先、期間、金融タイプ、支援者のロケーションなどを基準としたグループと支援の合計になります。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , '支援詳細レポート',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  '支援の詳細については、このレポートへの支援などの概要レポートポイント、連絡先、期間、金融タイプ、支援者のロケーションなどを基準とした特定の支援をリスト表示します。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , '繰り返し支援レポート',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  '日付の範囲を指定して、連絡先がその範囲内に行った支援と増加 / 減少の割合を表示します。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , '団体支援レポート',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  '団体ごとにまとめた支援の詳細なリストを表示します。団体の職員による支援も、その団体の支援に含まれます。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , '世帯支援レポート',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, '世帯ごとにまとめた支援の詳細なリストを表示します。世帯の家族による寄付も、その世帯の寄付に含まれます。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'トップ寄贈者レポート',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, '指定した期間中のトップ寄贈者のリスト。表示する人数 (例えば、上位 100 人など) は任意に指定できます。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'SYBUNT レポート',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT は \"Some Year But (Unfortunately) Not This year\" の略語です。 これまでに支援をしたことがあるが、指定した年度範囲内には支援をしていない構成員のリストを表示します。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'LYBUNT レポート',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT は \"Last Year But (Unfortunately) Not This year\" の略語です。 昨年、支援してくれたが、今年は支援をしていない構成員のリストを表示します。', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'ソフトクレジットレポート',                      'contribute/softcredit',          'CRM_Report_Form_Contribute_SoftCredit',          NULL, 0, NULL, 14, '他の連絡先からソフトクレジットされた連絡先による支援を表示。', 0, 0, 1,@contributeCompId, NULL),
-  (@option_group_id_report , '会員権レポート(概要)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'タイプと加入日でまとめた会員権の概要を提供します。', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , '会員権レポート(詳細)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'メンバー一覧を会員権状態や会員権詳細(加入日、開始日、終了日)の情報とともに表示します。またそれぞれの会員権に関連付けられた支援(支払い)を表示することもできます。', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , '会員権レポート(失効)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, '失効した会員権、または指定した日付までに失効する会員権の一覧を提供します。', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'イベント参加者レポート(一覧)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'あるイベントへの参加者一覧を表示。', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'イベント収入レポート(概要)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'イベント収入の概要を表示します。概要には、イベントID、登録、出席、収入といった重要な情報を含めることができ、イベント成功の指標にすることができます。', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'イベント収入レポート(詳細)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'イベントによる収入の分析をするためのものです。このレポートには参加者タイプ、状態、支払方法の詳細を表示することができます。', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , '会員レポート (概要)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'タイプと加入日でまとめた会員の概要を提供します。', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , '会員レポート (詳細)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'メンバーリストを会員のステータスや会員の詳細 (加入日、開始日、終了日) の情報とともに表示します。またそれぞれの会員に関連付けられた支援 (支払い) を表示することもできます。', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , '会員レポート (失効)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, '失効した会員、または指定した日付までに失効する会員のリストを提供します。', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'イベント参加者レポート (リスト)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'あるイベントへの参加者リストを表示します。', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'イベント収入レポート (概要)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'イベント収入の概要を表示します。概要には、イベントID、登録、出席、収入といった重要な情報を含めることができ、イベント成功の指標にすることができます。', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'イベント収入レポート (詳細)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'イベントによる収入の分析をするためのものです。このレポートには参加者タイプ、ステータス、支払い方法の詳細を表示することができます。', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'プレッジレポート',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'プレッジレポート', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'プレッジ後に未払いレポート',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'プレッジ後に未払いレポート', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , '関係レポート',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, '関係レポート', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , '事例概要レポート',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, '事例とその期間、状態、スタッフメンバーや事例ロールの概要を表示します。', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report , '事例所要時間レポート',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Aggregates time spent on case and / or non-case activities by activity type and contact.', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , '事例概要レポート',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, '事例とその期間、ステータス、スタッフメンバーや事例の役割の概要を表示します。', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , '事例所要時間レポート',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, '事例に使った時間の総計および / または事例以外のアクティビティ別に、アクティビティタイプや連絡先について表示します。', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , '連絡先属性情報レポート',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'データベース内の事例クライアント(または非事例連絡先)の属性情報の概要を表示します。カスタム連絡先フィールドを挿入することができます。', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report , 'データベースログレポート',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, '指定日付範囲内に作成または更新された連絡先と活動レコードの記録。', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , '活動レポート(概要)',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'タイプ/日付に関する活動統計を表示', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'データベースログレポート',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, '指定日付範囲内に作成または更新された連絡先とアクティビティレコードの記録。', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'アクティビティレポート (概要)',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'タイプ / 日付に関するアクティビティ統計を表示', 0, 0, 1, NULL, NULL),
   (@option_group_id_report, '会計取引レポート',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    '会計取引レポートの表示', 0, 0, 1, 2, NULL),
-  (@option_group_id_report , '助成レポート(詳細)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, '助成レポート詳細', 0, 0, 1, @grantCompId, NULL),
-  (@option_group_id_report, '参加者一覧回数レポート', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, '参加回数とともに参加者一覧を表示', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report, '収入カウント概要レポート', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'カウント付きでイベント収入概要を表示', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report, '事例詳細レポート', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, '事例の詳細', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report, 'メールバウンスレポート', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'メールのバウンス(エラーなどによる返送)レポート', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'メール概要レポート', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'メールの概要統計', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'メール開封レポート', 'Mailing/opened', 'CRM_Report_Form_Mailing_Opened', NULL, 0, NULL, 36, '送信したメールを開封した連絡先を表示', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'メールのクリックスルー・レポート', 'Mailing/clicks', 'CRM_Report_Form_Mailing_Clicks', NULL, 0, NULL, 37, 'メールごとのクリックの表示', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, '連絡先ログレポート(概要)', 'logging/contact/summary', 'CRM_Report_Form_Contact_LoggingSummary', NULL, 0, NULL, 38, 'ロギング環境用連絡先変更リポート(概要)', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report, '連絡先ログレポート(詳細)', 'logging/contact/detail', 'CRM_Report_Form_Contact_LoggingDetail', NULL, 0, NULL, 39, 'ロギング環境用連絡先変更リポート(詳細)', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report, '支援ログレポート(概要)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'ロギング環境用支援変更リポート(概要)', 0, 0, 0, @contributeCompId, NULL),
-  (@option_group_id_report, '支援ログレポート(詳細)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'ロギング環境用支援変更リポート(詳細)', 0, 0, 0, @contributeCompId, NULL),
-  (@option_group_id_report, '助成レポート(統計)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, '助成の統計を表示', 0, 0, 1, @grantCompId, NULL),
-  (@option_group_id_report, '調査レポート詳細)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, '戸別訪問、フォーンバンキング、訪問リスト、その他調査の詳細レポート。', 0, 0, 1, @campaignCompId, NULL),
+  (@option_group_id_report , '助成レポート (詳細)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, '助成レポートの詳細', 0, 0, 1, @grantCompId, NULL),
+  (@option_group_id_report, '参加者リストの回数レポート', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, '参加回数とともに参加者リストを表示', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report, '収入カウントの概要レポート', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'カウント付きでイベント収入概要を表示', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report, '事例の詳細レポート', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, '事例の詳細', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report, 'メールバウンスのレポート', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'メーリングバウンスの (エラーなどによる返送) レポート', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'メールの概要レポート', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'メーリングの概要統計', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'メールの開封レポート', 'Mailing/opened', 'CRM_Report_Form_Mailing_Opened', NULL, 0, NULL, 36, '送信したメーリングを開封した連絡先を表示', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'メールのクリックスルーレポート', 'Mailing/clicks', 'CRM_Report_Form_Mailing_Clicks', NULL, 0, NULL, 37, 'メーリングごとのクリックの表示', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, '連絡先ログレポート (概要)', 'logging/contact/summary', 'CRM_Report_Form_Contact_LoggingSummary', NULL, 0, NULL, 38, 'ロギング環境用の連絡先変更レポート (概要)', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report, '連絡先ログレポート (詳細)', 'logging/contact/detail', 'CRM_Report_Form_Contact_LoggingDetail', NULL, 0, NULL, 39, 'ロギング環境用の連絡先変更レポート (詳細)', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report, '支援ログレポート (概要)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'ロギング環境用の支援変更レポート (概要)', 0, 0, 0, @contributeCompId, NULL),
+  (@option_group_id_report, '支援ログレポート (詳細)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'ロギング環境用の支援変更レポート (詳細)', 0, 0, 0, @contributeCompId, NULL),
+  (@option_group_id_report, '助成レポート (統計)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, '助成の統計を表示', 0, 0, 1, @grantCompId, NULL),
+  (@option_group_id_report, '調査レポート (詳細)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, '戸別訪問、フォーンバンキング、訪問リスト、その他調査の詳細レポート。', 0, 0, 1, @campaignCompId, NULL),
   (@option_group_id_report, '個人キャンペーンページレポート', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'それぞれの個人キャンペーンページで集めた金額と支援者の数のまとめを表示。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'プレッジ概要レポート', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'プレッジの概要。プレッジされた金額、プレッジ状態、次回の支払日、不足額、支払総額などを含みます。', 0, 0, 1, @pledgeCompId, NULL),
-  (@option_group_id_report , 'Contribution Aggregate by Relationship',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  '連絡先の寄付履歴の一覧を年度ごとにグループ化して一覧表示。同時にその連絡先に関する別の連絡先の寄付も表示。', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report,  'メール詳細レポート',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  '送信、成功した配送、脱退、オプトアウト、返信、転送についてのレポートを表示します。',   0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, '支援と会員権詳細', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'すべての支援のタイプに関する詳細。また、会員権として支払われる支援についての関連する会員権の情報。', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Provides information about the status of recurring contributions', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'プレッジ概要レポート', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'プレッジの概要。プレッジされた金額、プレッジのステータス、次回の支払日、不足額、支払い総額などを含みます。', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report , '関係別に支援を集計',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  '連絡先の寄付履歴のリストを年度ごとにグループ化して一覧表示。同時にその連絡先に関する別の連絡先の寄付も表示。', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report,  'メール詳細レポート',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  '送信、成功した配送、購読解除、拒否、返信、転送についてのレポートを表示します。',   0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, '支援と会員の詳細', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'すべての支援のタイプに関する詳細。また、会員として支払われる支援についての関連する会員情報。', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report, '定期的な支援レポート', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, '定期的な支援のステータス情報を提供します', 0, 0, 1, @contributeCompId, NULL),
 
-  (@option_group_id_acs, '送信予約',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_acs, '送信予定',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, '完了',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_acs, '中止',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_acs, 'キャンセル',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, '残りのメール', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, '不到達', 5, 'Unreachable', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, '任意',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, '任意なし',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, '利用可能',  7, 'Available',  NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'No-show',  8, 'No_show',  NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, '表示しない',  8, 'No_show',  NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_cas, '実行中' , 1, 'Open'  ,  'Opened', 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cas, '解決済', 2, 'Closed',  'Closed', 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cas, '緊急'  , 3, 'Urgent',  'Opened', 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cas, '至急'  , 3, 'Urgent',  'Opened', 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_pl, '名前のみ'     , 1, 'Name Only'      ,  NULL, 0, 0, 1, 'CRM_Event_Page_ParticipantListing_Name', 0, 1, 1, NULL, NULL),
   (@option_group_id_pl, '名前とメール', 2, 'Name and Email' ,  NULL, 0, 0, 2, 'CRM_Event_Page_ParticipantListing_NameAndEmail', 0, 1, 1, NULL, NULL),
-  (@option_group_id_pl, '名前、状態、登録日' , 3, 'Name, Status and Register Date',  NULL, 0, 0, 3, 'CRM_Event_Page_ParticipantListing_NameStatusAndDate', 0, 1, 1, NULL, NULL),
+  (@option_group_id_pl, '名前、ステータス、登録日' , 3, 'Name, Status and Register Date',  NULL, 0, 0, 3, 'CRM_Event_Page_ParticipantListing_NameStatusAndDate', 0, 1, 1, NULL, NULL),
 
   (@option_group_id_sfe, 'jpg',   1, 'jpg',   NULL, 0, 0,  1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_sfe, 'jpeg',  2, 'jpeg',  NULL, 0, 0,  2, NULL, 0, 0, 1, NULL, NULL),
@@ -5164,19 +5164,19 @@ VALUES
   (@option_group_id_we, 'Drupal Default Editor', 4, 'Drupal Default Editor', NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_mt, '検索ビルダー',      1, 'Search Builder',      NULL, 0, 0,    1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '連絡先インポート',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '活動インポート',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '支援インポート', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '会員権インポート',   5, 'Import Membership',   NULL, 0, 0,    5, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '参加者インポート',  6, 'Import Participant',  NULL, 0, 0,    6, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '連絡先エクスポート',      7, 'Export Contact',      NULL, 0, 0,    7, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '支援エクスポート', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '会員権エクスポート',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '参加者エクスポート', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'プレッジエクスポート',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '事例エクスポート',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '助成エクスポート',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, '活動エクスポート',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '連絡先のインポート',      2, 'Import Contact',      NULL, 0, 0,    2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'アクティビティのインポート',     3, 'Import Activity',     NULL, 0, 0,    3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '支援のインポート', 4, 'Import Contribution', NULL, 0, 0,    4, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '会員のインポート',   5, 'Import Membership',   NULL, 0, 0,    5, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '参加者のインポート',  6, 'Import Participant',  NULL, 0, 0,    6, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '連絡先のエクスポート',      7, 'Export Contact',      NULL, 0, 0,    7, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '支援のエクスポート', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '会員のエクスポート',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '参加者のエクスポート', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'プレッジのエクスポート',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '事例のエクスポート',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, '助成のエクスポート',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'アクティビティのエクスポート',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_fu, '日'    , 'day'  ,    'day',  NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_fu, '週'   , 'week' ,   'week',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5186,8 +5186,8 @@ VALUES
 -- phone types.
   (@option_group_id_pht, '電話' ,        1, 'Phone'      , NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pht, '携帯電話',        2, 'Mobile'     , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_pht, 'Fax'   ,        3, 'Fax'        , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_pht, 'Pager' ,        4, 'Pager'      , NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_pht, 'FAX'   ,        3, 'Fax'        , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_pht, 'ポケベル' ,        4, 'Pager'      , NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pht, 'ボイスメール' ,    5, 'Voicemail'  , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
 -- custom data types.
@@ -5206,7 +5206,7 @@ VALUES
   (@option_group_id_mp, 'Localdir', 4, 'Localdir', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL ),
 
 -- priority
-  (@option_group_id_priority, '緊急', 1, 'Urgent', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_priority, '至急', 1, 'Urgent', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_priority, '通常', 2, 'Normal', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_priority, '低',    3, 'Low',    NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5256,13 +5256,13 @@ VALUES
    (@option_group_id_currency, 'USD ($)',      'USD',     'USD',       NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- event name badges
-  (@option_group_id_eventBadge,  '名前のみ'     , 1, 'CRM_Event_Badge_Simple'  ,  NULL, 0, 0, 1, 'シンプルイベント名バッジ', 0, 1, 1, NULL, NULL),
-  (@option_group_id_eventBadge,  'Name Tent'     , 2, 'CRM_Event_Badge_NameTent',  NULL, 0, 0, 2, 'Name Tent', 0, 1, 1, NULL, NULL),
+  (@option_group_id_eventBadge,  '名前のみ'     , 1, 'CRM_Event_Badge_Simple'  ,  NULL, 0, 0, 1, 'シンプルイベント名のバッジ', 0, 1, 1, NULL, NULL),
+  (@option_group_id_eventBadge,  'テント名'     , 2, 'CRM_Event_Badge_NameTent',  NULL, 0, 0, 2, 'テント名', 0, 1, 1, NULL, NULL),
   (@option_group_id_eventBadge , 'ロゴ付き'     , 3, 'CRM_Event_Badge_Logo'    ,  NULL, 0, 0, 3, '背景画像を設定することができます',                               0, 1, 1, NULL, NULL ),
-  (@option_group_id_eventBadge , '5395 ロゴ付き', 4, 'CRM_Event_Badge_Logo5395',  NULL, 0, 0, 4, 'Avery 5395 互換ラベル・ロゴ付き (4 up by 2, 59.2mm x 85.7mm)', 0, 1, 1, NULL, NULL ),
+  (@option_group_id_eventBadge , '5395 ロゴ付き', 4, 'CRM_Event_Badge_Logo5395',  NULL, 0, 0, 4, 'Avery 5395 互換ラベル / ロゴ付き (4 up by 2, 59.2mm x 85.7mm)', 0, 1, 1, NULL, NULL ),
 
 -- note privacy levels
-  (@option_group_id_notePrivacy, '無し',        0, 'None',        NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_notePrivacy, 'なし',        0, 'None',        NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_notePrivacy, '著者のみ', 1, 'Author Only', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
 
 -- Compaign Types
@@ -5271,10 +5271,10 @@ VALUES
   (@option_group_id_campaignType, '構成員の関与', 3, 'Constituent Engagement',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Campaign Status
-  (@option_group_id_campaignStatus, 'Planned', 1, 'Planned',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignStatus, '計画', 1, 'Planned',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, '処理中', 2, 'In Progress',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, '完了', 3, 'Completed',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_campaignStatus, '中止', 4, 'Cancelled',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignStatus, 'キャンセル', 4, 'Cancelled',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Engagement Level
   (@option_group_id_engagement_index, '1', 1, '1',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL ),
@@ -5348,57 +5348,57 @@ VALUES
   (@option_group_id_paperSize, 'ISO SRA4',        '{"metric":"pt","width":637.8,"height":907.09}',    'sra4',        NULL, NULL, 0, 62, NULL, 0, 0, 1, NULL, NULL),
 
 -- activity_contacts
-   (@option_group_id_aco, '活動被割当者', 1, 'Activity Assignees', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aco, '活動ソース', 2, 'Activity Source', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aco, '活動ターゲット', 3, 'Activity Targets', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aco, 'アクティビティの未割り当て者', 1, 'Activity Assignees', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aco, 'アクティビティソース', 2, 'Activity Source', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aco, 'アクティビティのターゲット', 3, 'Activity Targets', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- financial_account_type
 -- grouping field is specific to Quickbooks for mapping to .iif format
    (@option_group_id_fat, '資産', 1, 'Asset', NULL, 0, 0, 1, 'Things you own', 0, 1, 1, 2, NULL),
    (@option_group_id_fat, '負債', 2, 'Liability', NULL, 0, 0, 2, 'Things you own, like a grant still to be disbursed', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Revenue', 3, 'Revenue', NULL, 0, 1, 3, 'Income from contributions and sales of tickets and memberships', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Cost of Sales', 4, 'Cost of Sales', NULL, 0, 0, 4, 'Costs incurred to get revenue, e.g. premiums for donations, dinner for a fundraising dinner ticket', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Expenses', 5, 'Expenses', NULL, 0, 0, 5, 'Things that are paid for that are consumable, e.g. grants disbursed', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, '収入', 3, 'Revenue', NULL, 0, 1, 3, 'Income from contributions and sales of tickets and memberships', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, '販売費', 4, 'Cost of Sales', NULL, 0, 0, 4, 'Costs incurred to get revenue, e.g. premiums for donations, dinner for a fundraising dinner ticket', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, '費用', 5, 'Expenses', NULL, 0, 0, 5, 'Things that are paid for that are consumable, e.g. grants disbursed', 0, 1, 1, 2, NULL),
 
 -- account_relationship
-    (@option_group_id_arel, 'Income Account is', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
-    (@option_group_id_arel, 'Credit/Contra Account is', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
-    (@option_group_id_arel, 'Accounts Receivable Account is', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
-    (@option_group_id_arel, 'Credit Liability Account is', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
-     (@option_group_id_arel, 'Expense Account is', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Asset Account is', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Cost of Sales Account is', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Premiums Inventory Account is', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Discounts Account is', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, '所得のアカウントです', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'クレジット / Contra アカウントです', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
+    (@option_group_id_arel, '売掛金のアカウントです', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, '負債クレジットアカウントです', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
+     (@option_group_id_arel, '費用のアカウントです', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'アセットアカウントです', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, '費用の販売アカウントです', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'プレミアムの在庫アカウントです', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, '割引アカウントです', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, '消費税アカウントです', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
-   (@option_group_id_ere, '参加者ロール', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_ere, '参加者の役割', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- default conference slots
    (@option_group_id_conference_slot, '午前セッション', 1, 'Morning Sessions', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_conference_slot, '夜セッション', 2, 'Evening Sessions', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_conference_slot, '午後セッション', 2, 'Evening Sessions', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch types
    (@option_group_id_batch_type, '支援', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, '会員権', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, '会員', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'プレッジの支払い', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
-   (@option_group_id_batch_status, 'Open', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'オープン', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_status, '終了済', 2, 'Closed', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Data Entry', 3, 'Data Entry', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Reopened', 4, 'Reopened', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Exported', 5, 'Exported', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'データ入力', 3, 'Data Entry', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'リニューアルオープン', 4, 'Reopened', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'エクスポート', 5, 'Exported', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch modes
-   (@option_group_id_batch_mode, 'Manual Batch', 1, 'Manual Batch', NULL, 0, 0, 1, 'Manual Batch', 0, 1, 1, 2, NULL),
-   (@option_group_id_batch_mode, 'Automatic Batch', 2, 'Automatic Batch', NULL, 0, 0, 2, 'Automatic Batch', 0, 1, 1, 2, NULL),
+   (@option_group_id_batch_mode, '手動バッチ', 1, 'Manual Batch', NULL, 0, 0, 1, 'Manual Batch', 0, 1, 1, 2, NULL),
+   (@option_group_id_batch_mode, '自動バッチ', 2, 'Automatic Batch', NULL, 0, 0, 2, 'Automatic Batch', 0, 1, 1, 2, NULL),
 
 -- Financial Item Status
-   (@option_group_id_financial_item_status, 'Paid', 1, 'Paid', NULL, 0, 0, 1, 'Paid', 0, 1, 1, 2, NULL),
-   (@option_group_id_financial_item_status, 'Partially paid', 2, 'Partially paid', NULL, 0, 0, 2, 'Partially paid', 0, 1, 1, 2, NULL),
-   (@option_group_id_financial_item_status, 'Unpaid', 3, 'Unpaid', NULL, 0, 0, 1, 'Unpaid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, '支払い', 1, 'Paid', NULL, 0, 0, 1, 'Paid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, '一部支払い', 2, 'Partially paid', NULL, 0, 0, 2, 'Partially paid', 0, 1, 1, 2, NULL),
+   (@option_group_id_financial_item_status, '未払い', 3, 'Unpaid', NULL, 0, 0, 1, 'Unpaid', 0, 1, 1, 2, NULL),
 
 -- sms_api_type
    (@option_group_id_sms_api_type, 'http', 1, 'http', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
@@ -5406,12 +5406,12 @@ VALUES
    (@option_group_id_sms_api_type, 'smtp', 3, 'smtp', NULL, NULL, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- auto renew options
-   (@option_group_id_aro, 'Renewal Reminder (non-auto-renew memberships only)', 1, 'Renewal Reminder (non-auto-renew memberships only)', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aro, 'Auto-renew Memberships Only', 2, 'Auto-renew Memberships Only', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aro, 'Reminder for Both', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, '自動更新の事前通知 (非自動更新の会員のみ)', 1, 'Renewal Reminder (non-auto-renew memberships only)', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, '会員のみ自動更新', 2, 'Auto-renew Memberships Only', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, '両方の事前通知', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- Label Type
-   (@option_group_id_label_type, 'Event Badge', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_label_type, 'イベントバッジ', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Name Label format
    (@option_group_id_name_badge, 'Avery 5395', '{"name":"Avery 5395","paper-size":"a4","metric":"mm","lMargin":15,"tMargin":26,"NX":2,"NY":4,"SpaceX":10,"SpaceY":5,"width":83,"height":57,"font-size":12,"orientation":"portrait","font-name":"helvetica","font-style":"","lPadding":3,"tPadding":3}', 'Avery 5395', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5433,17 +5433,17 @@ VALUES
   (@option_group_id_label, 'Avery L7163', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":9,"font-style":"","metric":"in","lMargin":0.18,"tMargin":0.6,"NX":2,"NY":7,"SpaceX":0.1,"SpaceY":0,"width":3.9,"height":1.5,"lPadding":0.20,"tPadding":0.20}',          'L7163', 'Avery', NULL, 0, 11, NULL, 0, 1, 1, NULL, NULL),
 
 -- Communication Styles
-  (@option_group_id_communication_style, 'Formal'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_communication_style, 'Familiar', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, '形式的'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'ありふれた', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- Message Mode
 (@option_group_id_msg_mode, 'メール', 'Email', 'Email', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
 (@option_group_id_msg_mode, '携帯メール', 'SMS', 'SMS', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_msg_mode, 'User Preference', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_msg_mode, '優先ユーザ', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- Reminder Options for Contact Date Fields
-(@option_group_id_contactDateMode, 'Actual date only', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_contactDateMode, 'Each anniversary', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
+(@option_group_id_contactDateMode, '実際の日付のみ', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_contactDateMode, '各記念日', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
 
 -- financial accounts
 SELECT @opval := value FROM civicrm_option_value WHERE name = 'Revenue' and option_group_id = @option_group_id_fat;
@@ -5458,15 +5458,15 @@ VALUES
   ( '寄付'            , @contactID, @opval, 'Default account for donations', '4200', 'INC', 0, 1, 1, 1 ),
   ( '会費'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
   ( 'キャンペーン支援', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
-  ( 'イベント会費'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
-  ( 'Banking Fees'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
-  ( 'Deposit Bank Account' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
-  ( 'Accounts Receivable'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
-  ( 'Accounts Payable'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
-  ( 'プレゼント'             , @contactID, @opCost, 'Account to record cost of premiums provided to payors', '5100', 'COGS', 0, 1, 0, 1 ),
-  ( 'Premiums inventory'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
-  ( 'Discounts'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
-  ( 'Payment Processor Account', @contactID, @opAsset, 'Account to record payments into a payment processor merchant account', '1150', 'BANK', 0, 1, 0, 0
+  ( 'イベント料金'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
+  ( '銀行手数料'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
+  ( '預金銀行口座' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
+  ( '売掛金'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
+  ( '買掛金勘定'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
+  ( 'プレミアム'             , @contactID, @opCost, 'Account to record cost of premiums provided to payors', '5100', 'COGS', 0, 1, 0, 1 ),
+  ( 'プレミアムの在庫'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
+  ( '割引'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
+  ( '支払いプロセッサのアカウント', @contactID, @opAsset, 'Account to record payments into a payment processor merchant account', '1150', 'BANK', 0, 1, 0, 0
 );
 
 -- Now insert option values which require domainID
@@ -5476,7 +5476,7 @@ INSERT INTO
    `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`, `grouping`, `filter`, `is_default`, `weight`, `description`, `is_optgroup`, `is_reserved`, `is_active`, `component_id`, `domain_id`, `visibility_id`)
 VALUES
 -- from email address.
-  (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'デフォルトのメールアドレスドメインと発信者名', 0, 0, 1, NULL, @domainID, NULL ),
+  (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'デフォルトのメールアドレスドメインと差出人名', 0, 0, 1, NULL, @domainID, NULL ),
 
 -- grant types
   (@option_group_id_grantTyp, '緊急'          , 1, 'Emergency'         , NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, @domainID, NULL),
@@ -5487,7 +5487,7 @@ VALUES
 -- Mail Approval Status Preferences
   (@option_group_id_mail_approval_status, '承認済' , 1, 'Approved', NULL, 0, 1, 1, NULL, 0, 1, 1, @mailCompId, @domainID, NULL),
   (@option_group_id_mail_approval_status, '拒否' , 2, 'Rejected', NULL, 0, 0, 2, NULL, 0, 1, 1, @mailCompId, @domainID, NULL),
-  (@option_group_id_mail_approval_status, '無し' , 3, 'None', NULL, 0, 0, 3, NULL, 0, 1, 1, @mailCompId, @domainID, NULL),
+  (@option_group_id_mail_approval_status, 'なし' , 3, 'None', NULL, 0, 0, 3, NULL, 0, 1, 1, @mailCompId, @domainID, NULL),
 
 -- custom group objects
   (@option_group_id_cgeo, '調査', 'Survey', 'civicrm_survey', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL, NULL),
@@ -5505,7 +5505,7 @@ VALUES
 INSERT INTO `civicrm_option_group`
   (`name`, `title`, `description`, `is_reserved`, `is_active`)
 VALUES
-  ('languages', '言語', '言語一覧', 1, 1);
+  ('languages', '言語', '言語リスト', 1, 1);
 
 SELECT @option_group_id_languages      := max(id) from civicrm_option_group where name = 'languages';
 
@@ -5523,14 +5523,14 @@ VALUES
   (@option_group_id_languages, 0, 0, 'an_ES', 'an', 'アラゴン語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'hy_AM', 'hy', 'アルメニア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'as_IN', 'as', 'アッサム語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'av_RU', 'av', 'Avaric', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'av_RU', 'av', 'アヴァル語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ae_XX', 'ae', 'アヴェスター語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ay_BO', 'ay', 'アイマラ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'az_AZ', 'az', 'アゼルバイジャン語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bm_ML', 'bm', 'バンバラ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ba_RU', 'ba', 'バシキール語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'eu_ES', 'eu', 'バスク語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'be_BY', 'be', 'ベラルーシ語(白ロシア語)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'be_BY', 'be', 'ベラルーシ語 (白ロシア語)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bn_BD', 'bn', 'ベンガル語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bh_IN', 'bh', 'ビハール語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bi_VU', 'bi', 'ビスラマ語', @counter := @counter + 1),
@@ -5538,12 +5538,12 @@ VALUES
   (@option_group_id_languages, 0, 0, 'br_FR', 'br', 'ブルターニュ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'bg_BG', 'bg', 'ブルガリア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'my_MM', 'my', 'ビルマ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'ca_ES', 'ca', 'カタルーニャ語/ バレンシア語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'ca_ES', 'ca', 'カタルーニャ語 / バレンシア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ch_GU', 'ch', 'チャモロ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ce_RU', 'ce', 'チェチェン語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ny_MW', 'ny', 'チェワ語/ニャンジャ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'zh_CN', 'zh', '中国語(大陸)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'zh_TW', 'zh', '中国語(台湾)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ny_MW', 'ny', 'チェワ語 / ニャンジャ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'zh_CN', 'zh', '中国語 (大陸)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'zh_TW', 'zh', '中国語 (台湾)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'cv_RU', 'cv', 'チュバシュ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'kw_GB', 'kw', 'コーンワル語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'co_FR', 'co', 'コルシカ語', @counter := @counter + 1),
@@ -5551,43 +5551,43 @@ VALUES
   (@option_group_id_languages, 0, 0, 'hr_HR', 'hr', 'クロアチア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'cs_CZ', 'cs', 'チェコ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'da_DK', 'da', 'デンマーク語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'dv_MV', 'dv', 'ディベヒ語/モルジブ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'dv_MV', 'dv', 'ディベヒ語 / モルジブ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'nl_NL', 'nl', 'オランダ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'dz_BT', 'dz', 'ゾンカ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'en_AU', 'en', '英語(オーストラリア)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'en_CA', 'en', '英語(カナダ)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'en_GB', 'en', '英語(英国)', @counter := @counter + 1),
-  (@option_group_id_languages, 1, 1, 'en_US', 'en', '英語(米国)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'en_AU', 'en', '英語 (オーストラリア)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'en_CA', 'en', '英語 (カナダ)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'en_GB', 'en', '英語 (英国)', @counter := @counter + 1),
+  (@option_group_id_languages, 1, 1, 'en_US', 'en', '英語 (米国)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'eo_XX', 'eo', 'エスペラント語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'et_EE', 'et', 'エストニア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ee_GH', 'ee', 'エウェ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fo_FO', 'fo', 'フェロー語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fj_FJ', 'fj', 'フィジー語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fi_FI', 'fi', 'フィンランド語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'fr_CA', 'fr', 'フランス語(カナダ)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'fr_FR', 'fr', 'フランス語(フランス)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'fr_CA', 'fr', 'フランス語 (カナダ)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'fr_FR', 'fr', 'フランス語 (フランス)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ff_SN', 'ff', 'フラニ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gl_ES', 'gl', 'ガリシア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ka_GE', 'ka', 'グルジア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'de_DE', 'de', 'ドイツ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'de_CH', 'de', 'ドイツ語(スイス)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'de_CH', 'de', 'ドイツ語 (スイス)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'el_GR', 'el', 'ギリシャ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gn_PY', 'gn', 'Guarani­', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gn_PY', 'gn', 'グアラニ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gu_IN', 'gu', 'グジャラート語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ht_HT', 'ht', 'ハイチ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ha_NG', 'ha', 'ハウサ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'he_IL', 'he', '現代ヘブライ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'he_IL', 'he', 'ヘブライ語 (現代)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'hz_NA', 'hz', 'ヘレロ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'hi_IN', 'hi', 'ヒンズー語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ho_PG', 'ho', 'ヒリ・モツ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ho_PG', 'ho', 'ヒリ モツ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'hu_HU', 'hu', 'ハンガリー語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'Interlingua', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'インターリングア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'id_ID', 'id', 'インドネシア語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'Interlingue', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'インター語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ga_IE', 'ga', 'アイルランド語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'Igbo', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ik_US', 'ik', 'Inupiaq', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'io_XX', 'io', 'Ido', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'イボ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ik_US', 'ik', 'イヌピアック語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'io_XX', 'io', 'ゴーン語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'is_IS', 'is', 'アイスランド語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'it_IT', 'it', 'イタリア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'iu_CA', 'iu', 'イヌクティトゥト語', @counter := @counter + 1),
@@ -5614,7 +5614,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'ln_CD', 'ln', 'リンガラ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'lo_LA', 'lo', 'ラオス語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'lt_LT', 'lt', 'リトアニア語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'Luba-Katanga', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'オーソリゼーション - カタンガ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'lv_LV', 'lv', 'ラトビア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gv_IM', 'gv', 'マン語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mk_MK', 'mk', 'マケドニア語', @counter := @counter + 1),
@@ -5628,11 +5628,11 @@ VALUES
   (@option_group_id_languages, 0, 0, 'mn_MN', 'mn', 'モンゴル語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'na_NR', 'na', 'ナウル語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'nv_US', 'nv', 'ナバホ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'Norwegian BokmÃ¥l', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'フィンランド語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', '北ンデベレ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ne_NP', 'ne', 'ネパール語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ng_NA', 'ng', 'ンドンガ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', '新ノルウェー語(ニーノシュク)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', '新ノルウェー語 (ニーノシュク)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'no_NO', 'no', 'ノルウェイ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ii_CN', 'ii', 'ノス語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', '南ンデベレ語', @counter := @counter + 1),
@@ -5643,16 +5643,16 @@ VALUES
   (@option_group_id_languages, 0, 0, 'or_IN', 'or', 'オリヤー語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'オセチア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'pa_IN', 'pa', 'パンジャブ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'pi_KH', 'pi', 'Pali', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'ペルシャ語(イラン)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'pi_KH', 'pi', 'パーリ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'ペルシャ語 (イラン)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'pl_PL', 'pl', 'ポーランド語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ps_AF', 'ps', 'パシュトウ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'pt_BR', 'pt', 'ポルトガル語(ブラジル)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'pt_PT', 'pt', 'ポルトガル語(ポルトガル)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'pt_BR', 'pt', 'ポルトガル語 (ブラジル)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'pt_PT', 'pt', 'ポルトガル語 (ポルトガル)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'qu_PE', 'qu', 'ケチュア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'rm_CH', 'rm', 'ロマンシュ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'rn_BI', 'rn', 'キルンディ語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'ro_RO', 'ro', 'ルーマニア語/モルダビア語/モルドバ語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'ro_RO', 'ro', 'ルーマニア語 / モルダビア語 / モルドバ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ru_RU', 'ru', 'ロシア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sa_IN', 'sa', 'サンスクリット語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sc_IT', 'sc', 'サルジニア語', @counter := @counter + 1),
@@ -5661,16 +5661,16 @@ VALUES
   (@option_group_id_languages, 0, 0, 'sm_WS', 'sm', 'サモア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sg_CF', 'sg', 'サンゴ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sr_RS', 'sr', 'セルビア語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gd_GB', 'gd', 'スコットランド・ゲール語', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gd_GB', 'gd', 'スコットランド / ゲール語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sn_ZW', 'sn', 'ショナ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'si_LK', 'si', 'シンハラ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'sk_SK', 'sk', 'スロバキア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'sl_SI', 'sl', 'スロベニア語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'so_SO', 'so', 'ソマリ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'st_ZA', 'st', '南ソト語', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'スペイン語/キャステリャ語(スペイン)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'スペイン語/キャステリャ語(メキシコ)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'スペイン語/キャステリャ語(プエルトリコ)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'スペイン語 / キャステリャ語 (スペイン)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'スペイン語 / キャステリャ語 (メキシコ)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'スペイン語 / キャステリャ語 (プエルトリコ)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'スンダ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sw_TZ', 'sw', 'スワヒリ語', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'スワティ語', @counter := @counter + 1),
@@ -5720,8 +5720,8 @@ VALUES
     (@option_group_id_medium, '直接',  1, 'in_person', NULL, 0,  0, 1, NULL, 0, 1, 1),
     (@option_group_id_medium, '電話',  2, 'phone', NULL, 0,  1, 2, NULL, 0, 1, 1),
     (@option_group_id_medium, 'メール',  3, 'email', NULL, 0,  0, 3, NULL, 0, 1, 1),
-    (@option_group_id_medium, 'Fax',  4, 'fax', NULL, 0,  0, 4, NULL, 0, 1, 1),
-    (@option_group_id_medium, 'Letter Mail',  5, 'letter_mail', NULL, 0,  0, 5, NULL, 0, 1, 1);
+    (@option_group_id_medium, 'FAX',  4, 'fax', NULL, 0,  0, 4, NULL, 0, 1, 1),
+    (@option_group_id_medium, '手紙メール',  5, 'letter_mail', NULL, 0,  0, 5, NULL, 0, 1, 1);
 
 -- sample membership status entries
 INSERT INTO
@@ -5732,7 +5732,7 @@ VALUES
     ('Grace',     '猶予', 'end_date', null, null,'end_date','month', 1, 1, 0, 3, 0, 1, 0),
     ('Expired',   '期限切れ', 'end_date', 'month', 1, null, null, null, 0, 0, 4, 0, 1, 0),
     ('Pending',   '承認待ち', 'join_date', null, null,'join_date',null,null, 0, 0, 5, 0, 1, 1),
-    ('Cancelled', '中止', 'join_date', null, null,'join_date',null,null, 0, 0, 6, 0, 1, 1),
+    ('Cancelled', 'キャンセル', 'join_date', null, null,'join_date',null,null, 0, 0, 6, 0, 1, 1),
     ('Deceased',  '故人', null, null, null, null, null, null, 0, 1, 7, 0, 1, 1);
 
 
@@ -5756,7 +5756,7 @@ VALUES
 INSERT INTO `civicrm_payment_processor_type`
  (name, title, description, is_active, is_default, user_name_label, password_label, signature_label, subject_label, class_name, url_site_default, url_api_default, url_recur_default, url_button_default, url_site_test_default, url_api_test_default, url_recur_test_default, url_button_test_default, billing_mode, is_recur )
 VALUES
- ('PayPal_Standard',    'PayPal - Website Payments Standard', NULL,1,0,'Merchantアカウントのメールアドレス',NULL,NULL,NULL,'Payment_PayPalImpl','https://www.paypal.com/',NULL,'https://www.paypal.com/',NULL,'https://www.sandbox.paypal.com/',NULL,'https://www.sandbox.paypal.com/',NULL,4,1),
+ ('PayPal_Standard',    'PayPal - Website Payments Standard', NULL,1,0,'Merchant アカウントのメールアドレス',NULL,NULL,NULL,'Payment_PayPalImpl','https://www.paypal.com/',NULL,'https://www.paypal.com/',NULL,'https://www.sandbox.paypal.com/',NULL,'https://www.sandbox.paypal.com/',NULL,4,1),
  ('PayPal',             'PayPal - Website Payments Pro',      NULL,1,0,'ユーザ名','パスワード','署名',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/','https://www.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/','https://www.sandbox.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',3, 1 ),
  ('PayPal_Express',     'PayPal - Express',       NULL,1,0,'ユーザ名','パスワード','署名',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',2,NULL),
  ('Google_Checkout',    'Google Checkout',        NULL,1,0,'マーチャントID','キー',NULL,NULL,'Payment_Google','https://checkout.google.com/',NULL,'https://checkout.google.com/','https://checkout.google.com/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US','https://sandbox.google.com/checkout/',NULL,'https://sandbox.google.com/checkout/','https://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US',4,1),
@@ -5765,8 +5765,8 @@ VALUES
  ('PayJunction',        'PayJunction',            NULL,1,0,'User Name','Password',NULL,NULL,'Payment_PayJunction','https://payjunction.com/quick_link',NULL,NULL,NULL,'https://www.payjunctionlabs.com/quick_link',NULL,NULL,NULL,1,1),
  ('eWAY',               'eWAY (単一通貨)', NULL,1,0,'Customer ID',NULL,NULL,NULL,'Payment_eWAY','https://www.eway.com.au/gateway_cvn/xmlpayment.asp',NULL,NULL,NULL,'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp',NULL,NULL,NULL,1,0),
  ('Payment_Express',    'DPS Payment Express',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
- ('Dummy',              'ダミーの決済サービス',NULL,1,1,'ユーザ名',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
- ('Elavon',             'Elavon Payment Processor','Elavon / Nova Virtual Merchant',1,0,'SSL 店舗 ID ','SSLユーザID','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
+ ('Dummy',              'ダミーの支払いプロセッサ',NULL,1,1,'ユーザ名',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
+ ('Elavon',             'Elavon 支払いプロセッサ','Elavon / Nova Virtual Merchant',1,0,'SSL 店舗 ID ','SSL ユーザID','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
  ('Realex',             'Realex Payment',         NULL,1,0,'Merchant ID', 'Password', NULL, 'Account', 'Payment_Realex', 'https://epage.payandshop.com/epage.cgi', NULL, NULL, NULL, 'https://epage.payandshop.com/epage-remote.cgi', NULL, NULL, NULL, 1, 0 ),
  ('PayflowPro',         'PayflowPro',             NULL,1,0,'Vendor ID', 'Password', 'Partner (merchant)', 'User', 'Payment_PayflowPro', 'https://Payflowpro.paypal.com', NULL, NULL, NULL, 'https://pilot-Payflowpro.paypal.com', NULL, NULL, NULL, 1, 0 ),
  ('FirstData',          'FirstData (別名 linkpoint)', 'FirstData (別名 linkpoint)', 1, 0, 'Store name', 'certificate path', NULL, NULL, 'Payment_FirstData', 'https://secure.linkpt.net', NULL, NULL, NULL, 'https://staging.linkpt.net', NULL, NULL, NULL, 1, NULL);
@@ -5775,7 +5775,7 @@ VALUES
 -- the fuzzy default dedupe rules
 -- IndividualSupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualSupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'Name and Email (reserved)', 1);
+VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', '名前とメール (予約)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5802,7 +5802,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 -- the strict dedupe rules
 -- IndividualUnsupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualUnsupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Email (reserved)', 1);
+VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'メール (予約)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5826,7 +5826,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 
 -- IndividualGeneral uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualGeneral)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'Name and Address (reserved)', 1);
+VALUES ('Individual', 15, 'General', 'IndividualGeneral', '名前と住所(予約)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5847,7 +5847,7 @@ INSERT INTO civicrm_county (name, state_province_id) VALUES ('Santa Clara', 1004
 -- Bounce classification patterns
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('AOL', 'AOL Terms of Service complaint', 1);
+        VALUES ('AOL', 'サービス苦情のAOLの利用規約', 1);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'AOL';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6111,19 +6111,19 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_uf_group
     (id, name,                 group_type,           title,                                      is_cms_user, is_reserved, help_post) VALUES
-    (1,  'name_and_address',   'Individual,Contact',  '住所・氏名',   0,           0,           NULL),
-    (2,  'supporter_profile',  'Individual,Contact',  '支援者プロファイル',  2,           0,           '<p><strong>提供された情報は第三者に公開されることはありません。</strong></p><p>キャンペーンに参加していただきありがとうございます。</p>'),
-    (3,  'participant_status', 'Participant',         '参加者状態',             0,      1,           NULL),
-    (4,  'new_individual',     'Individual,Contact',  '新規個人'    ,             0,      1,           NULL),
-    (5,  'new_organization',   'Organization,Contact','新規団体'  ,             0,      1,           NULL),
-    (6,  'new_household',      'Household,Contact',   '新規世帯'     ,             0,      1,           NULL),
-    (7,  'summary_overlay',    'Contact',             '概要オーバーレイ'   ,             0,      1,           NULL),
+    (1,  'name_and_address',   'Individual,Contact',  '住所と氏名',   0,           0,           NULL),
+    (2,  'supporter_profile',  'Individual,Contact',  '支援者プロファイル',  2,           0,           '<p><strong>提供された情報は第三者に公開されることはありません。</strong></p><p>キャンペーンに参加して頂きありがとうございます。</p>'),
+    (3,  'participant_status', 'Participant',         '参加者のステータス',             0,      1,           NULL),
+    (4,  'new_individual',     'Individual,Contact',  '新しい個人'    ,             0,      1,           NULL),
+    (5,  'new_organization',   'Organization,Contact','新しい団体'  ,             0,      1,           NULL),
+    (6,  'new_household',      'Household,Contact',   '新しい世帯'     ,             0,      1,           NULL),
+    (7,  'summary_overlay',    'Contact',             '概要のオーバーレイ'   ,             0,      1,           NULL),
     (8,  'shared_address',     'Contact',             '共有住所'                , 0,      1,           NULL),
     (9,  'on_behalf_organization', 'Contact,Organization','団体名義',  0,      1,           NULL),
-    (10, 'contribution_batch_entry', 'Contribution', 'Contribution Bulk Entry' ,       0,      1,           NULL),
-    (11, 'membership_batch_entry', 'Membership',     'Membership Bulk Entry' ,         0,      1,           NULL),
+    (10, 'contribution_batch_entry', 'Contribution', '支援のバルクエントリ' ,       0,      1,           NULL),
+    (11, 'membership_batch_entry', 'Membership',     '会員のバルクエントリ' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'あなたの登録情報',         0,      0,           NULL),
-    (13, 'honoree_individual', 'Individual,Contact', 'Honoree Individual',             0,      1,           NULL);
+    (13, 'honoree_individual', 'Individual,Contact', '個人の受賞者',             0,      1,           NULL);
 
 
 INSERT INTO civicrm_uf_join
@@ -6139,38 +6139,38 @@ INSERT INTO civicrm_uf_field
        ( uf_group_id, field_name,              is_required, is_reserved, weight, visibility,                  in_selector, is_searchable, location_type_id, label,                                          field_type,    help_post, phone_type_id ) VALUES
        (  1,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'ファーストネーム',               'Individual',   NULL,  NULL),
        (  1,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'ラストネーム',                'Individual',   NULL,  NULL),
-       (  1,           'street_address',        0,           0,           3,      'User and User Admin Only',  0,           0,             1,             '番地、アパート名(自宅)',    'Contact',      NULL,  NULL),
-       (  1,           'city',                  0,           0,           4,      'User and User Admin Only',  0,           0,             1,             '市町村(自宅)',              'Contact',      NULL,  NULL),
-       (  1,           'postal_code',           0,           0,           5,      'User and User Admin Only',  0,           0,             1,             '郵便番号(自宅)',       'Contact',      NULL,  NULL),
-       (  1,           'country',               0,           0,           6,      'User and User Admin Only',  0,           0,             1,             '国(自宅)',           'Contact',      NULL,  NULL),
-       (  1,           'state_province',        0,           0,           7,      'User and User Admin Only',  0,           0,             1,             '都道府県(自宅)',             'Contact',      NULL,  NULL),
+       (  1,           'street_address',        0,           0,           3,      'User and User Admin Only',  0,           0,             1,             '番地、アパート名 (自宅)',    'Contact',      NULL,  NULL),
+       (  1,           'city',                  0,           0,           4,      'User and User Admin Only',  0,           0,             1,             '市町村 (自宅)',              'Contact',      NULL,  NULL),
+       (  1,           'postal_code',           0,           0,           5,      'User and User Admin Only',  0,           0,             1,             '郵便番号 (自宅)',       'Contact',      NULL,  NULL),
+       (  1,           'country',               0,           0,           6,      'User and User Admin Only',  0,           0,             1,             '国 (自宅)',           'Contact',      NULL,  NULL),
+       (  1,           'state_province',        0,           0,           7,      'User and User Admin Only',  0,           0,             1,             '都道府県 (自宅)',             'Contact',      NULL,  NULL),
        (  2,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'ファーストネーム',               'Individual',   NULL,  NULL),
        (  2,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'ラストネーム',                'Individual',   NULL,  NULL),
-       (  2,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Eメール・アドレス',            'Contact',      NULL,  NULL),
-       (  3,           'participant_status',    1,           1,           1,      'User and User Admin Only',  0,           0,             NULL,          '参加者状態',       'Participant',  NULL,  NULL),
+       (  2,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'メールアドレス',            'Contact',      NULL,  NULL),
+       (  3,           'participant_status',    1,           1,           1,      'User and User Admin Only',  0,           0,             NULL,          '参加者のステータス',       'Participant',  NULL,  NULL),
        (  4,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'ファーストネーム',               'Individual',   NULL,  NULL),
        (  4,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'ラストネーム',                'Individual',   NULL,  NULL),
-       (  4,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Eメール・アドレス',            'Contact',      NULL,  NULL),
+       (  4,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'メールアドレス',            'Contact',      NULL,  NULL),
        (  5,           'organization_name',     1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          '団体名',        'Organization', NULL,  NULL),
-       (  5,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Eメール・アドレス',            'Contact',      NULL,  NULL),
+       (  5,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'メールアドレス',            'Contact',      NULL,  NULL),
        (  6,           'household_name',        1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          '世帯名',           'Household',    NULL,  NULL),
-       (  6,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Eメール・アドレス',            'Contact',      NULL,  NULL),
+       (  6,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'メールアドレス',            'Contact',      NULL,  NULL),
        (  7,           'phone',                 1,           0,           1,      'User and User Admin Only',  0,           0,             1,             '自宅電話',               'Contact',      NULL,  1 ),
        (  7,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             1,             '自宅携帯電話',              'Contact',      NULL,  2 ),
        (  7,           'street_address',        1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          '優先住所',          'Contact',      NULL,  NULL),
        (  7,           'city',                  1,           0,           4,      'User and User Admin Only',  0,           0,             NULL,          '市町村名',                     'Contact',      NULL,  NULL),
        (  7,           'state_province',        1,           0,           5,      'User and User Admin Only',  0,           0,             NULL,          '都道府県',                    'Contact',      NULL,  NULL),
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          '郵便番号',              'Contact',      NULL,  NULL),
-       (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          '優先メール',            'Contact',      NULL,  NULL),
+       (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          '主なメール',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'グループ一覧',                   'Contact',      NULL,  NULL),
        (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'タグ',                     'Contact',      NULL,  NULL),
        (  7,           'gender_id',             1,           0,           10,     'User and User Admin Only',  0,           0,             NULL,          '性別',                   'Individual',   NULL,  NULL),
        (  7,           'birth_date',            1,           0,           11,     'User and User Admin Only',  0,           0,             NULL,          '誕生日',            'Individual',   NULL,  NULL),
-       (  8,           'street_address',        1,           1,           1,      'User and User Admin Only',  0,           0,             1,             '番地、アパート名(自宅)',    'Contact',      NULL,  NULL),
-       (  8,           'city',                  1,           1,           2,      'User and User Admin Only',  0,           0,             1,             '市町村(自宅)',              'Contact',      NULL,  NULL),
-       (  8,           'postal_code',           0,           0,           3,      'User and User Admin Only',  0,           0,             1,             '郵便番号(自宅)',       'Contact',      NULL,  NULL),
-       (  8,           'country',               0,           0,           4,      'User and User Admin Only',  0,           0,             1,             '国(自宅)',           'Contact',      NULL,  NULL),
-       (  8,           'state_province',        0,           0,           5,      'User and User Admin Only',  0,           0,             1,             '都道府県(自宅)',             'Contact',      NULL,  NULL),
+       (  8,           'street_address',        1,           1,           1,      'User and User Admin Only',  0,           0,             1,             '番地、アパート名 (自宅)',    'Contact',      NULL,  NULL),
+       (  8,           'city',                  1,           1,           2,      'User and User Admin Only',  0,           0,             1,             '市町村 (自宅)',              'Contact',      NULL,  NULL),
+       (  8,           'postal_code',           0,           0,           3,      'User and User Admin Only',  0,           0,             1,             '郵便番号 (自宅)',       'Contact',      NULL,  NULL),
+       (  8,           'country',               0,           0,           4,      'User and User Admin Only',  0,           0,             1,             '国 (自宅)',           'Contact',      NULL,  NULL),
+       (  8,           'state_province',        0,           0,           5,      'User and User Admin Only',  0,           0,             1,             '都道府県 (自宅)',             'Contact',      NULL,  NULL),
        (  9,           'organization_name',     1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          '団体名',        'Organization', NULL,  NULL),
        (  9,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             3,             '電話 (主)',            'Contact',      NULL,   1),
        (  9,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             3,             'メール (主)',            'Contact',      NULL,   NULL),
@@ -6179,46 +6179,46 @@ INSERT INTO civicrm_uf_field
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             '郵便番号',              'Contact',      NULL,   NULL),
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             '国',                  'Contact',      NULL,   NULL),
        (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             '都道府県',         'Contact',      NULL,   NULL),
-       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Financial Type', 'Contribution', NULL, NULL ),
-       ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, '合計', 'Contribution', NULL, NULL ),
-       ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, '状態', 'Contribution', NULL, NULL ),
+       ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, '金融タイプ', 'Contribution', NULL, NULL ),
+       ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, '額', 'Contribution', NULL, NULL ),
+       ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'ステータス', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, '受信済み', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'ソース', 'Contribution', NULL, NULL ),
-       ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Paid By', 'Contribution', NULL, NULL ),
+       ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, '支払い', 'Contribution', NULL, NULL ),
        ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, '小切手番号', 'Contribution', NULL, NULL ),
-       ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, '受領証送信', 'Contribution', NULL, NULL ),
-       ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, '送り状ID', 'Contribution', NULL, NULL ),
+       ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, '受領書の送信', 'Contribution', NULL, NULL ),
+       ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, '請求書ID', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'ソフトクレジット', 'Contribution', NULL, NULL ),
-       ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Contribution', NULL, NULL ),
-       ( 11,     'membership_type',             1, 1, 1, 'User and User Admin Only', 0, 0, NULL, '会員権タイプ', 'Membership', NULL, NULL ),
+       ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'ソフトクレジットタイプ', 'Contribution', NULL, NULL ),
+       ( 11,     'membership_type',             1, 1, 1, 'User and User Admin Only', 0, 0, NULL, '会員タイプ', 'Membership', NULL, NULL ),
        ( 11,     'join_date',                   1, 1, 2, 'User and User Admin Only', 0, 0, NULL, '入会', 'Membership', NULL, NULL ),
        ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, '開始日', 'Membership', NULL, NULL ),
        ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, '終了日', 'Membership', NULL, NULL ),
        ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'ソース', 'Membership', NULL, NULL ),
-       ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, '受領証送信', 'Membership', NULL, NULL ),
-       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Financial Type', 'Membership', NULL, NULL ),
-       ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, '合計', 'Membership', NULL, NULL ),
+       ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, '受領書の送信', 'Membership', NULL, NULL ),
+       ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, '金融タイプ', 'Membership', NULL, NULL ),
+       ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, '額', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, '受信済み', 'Membership', NULL, NULL ),
-       ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Paid By', 'Membership', NULL, NULL ),
+       ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, '支払い', 'Membership', NULL, NULL ),
        ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, '小切手番号', 'Membership', NULL, NULL ),
-       ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, '支払い状態', 'Membership', NULL, NULL ),
+       ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, '支払いステータス', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, 'ソフトクレジット', 'Membership', NULL, NULL ),
-       ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Soft Credit Type', 'Membership', NULL, NULL ),
+       ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'ソフトクレジットタイプ', 'Membership', NULL, NULL ),
        ( 12,     'first_name',                  1, 0,  1, 'User and User Admin Only', 0, 0, NULL, 'ファーストネーム',  'Individual', NULL, NULL),
        ( 12,     'last_name',                   1, 0,  2, 'User and User Admin Only', 0, 0, NULL, 'ラストネーム',   'Individual',  NULL,  NULL),
-       ( 12,     'email',                       1, 0,  3, 'User and User Admin Only', 0, 0, NULL, 'Eメール・アドレス', 'Contact', NULL, NULL),
+       ( 12,     'email',                       1, 0,  3, 'User and User Admin Only', 0, 0, NULL, 'メールアドレス', 'Contact', NULL, NULL),
        ( 13,     'prefix_id',                   0, 1,  1, 'User and User Admin Only', 0, 0, NULL, '個人プレフィクス', 'Individual', NULL, NULL),
        ( 13,     'first_name',                  1, 1,  2, 'User and User Admin Only', 0, 0, NULL, 'ファーストネーム',        'Individual', NULL, NULL),
        ( 13,     'last_name',                   1, 1,  3, 'User and User Admin Only', 0, 0, NULL, 'ラストネーム',         'Individual', NULL, NULL),
-       ( 13,     'email',                       0, 1,  4, 'User and User Admin Only', 0, 0, 1,    'Eメール・アドレス',     'Contact', NULL, NULL);
+       ( 13,     'email',                       0, 1,  4, 'User and User Admin Only', 0, 0, 1,    'メールアドレス',     'Contact', NULL, NULL);
 
 
 INSERT INTO civicrm_participant_status_type
   (id, name,                                  label,                                                       class,      is_reserved, is_active, is_counted, weight, visibility_id) VALUES
   (1,  'Registered',                          '登録済み',                          'Positive', 1,           1,         1,          1,      1            ),
   (2,  'Attended',                            '参加済',                            'Positive', 0,           1,         1,          2,      2            ),
-  (3,  'No-show',                             'No-show',                             'Negative', 0,           1,         0,          3,      2            ),
-  (4,  'Cancelled',                           '中止',                           'Negative', 1,           1,         0,          4,      2            ),
+  (3,  'No-show',                             '表示しない',                             'Negative', 0,           1,         0,          3,      2            ),
+  (4,  'Cancelled',                           'キャンセル',                           'Negative', 1,           1,         0,          4,      2            ),
   (5,  'Pending from pay later',              '後払いによる保留',              'Pending',  1,           1,         1,          5,      2            ),
   (6,  'Pending from incomplete transaction', '不完全な送金処理による保留', 'Pending',  1,           1,         0,          6,      2            ),
   (7,  'On waitlist',                         'キャンセル待ち',                         'Waiting',  1,           0,         0,          7,      2            ),
@@ -6228,8 +6228,8 @@ INSERT INTO civicrm_participant_status_type
   (11, 'Rejected',                            '拒否',                            'Negative', 1,           0,         0,          11,     2            ),
   (12, 'Expired',                             '期限切れ',                             'Negative', 1,           1,         0,          12,     2            ),
   (13, 'Pending in cart',                     'カート内の保留',                     'Pending',  1,           1,         0,          13,     2            ),
-  (14,  'Partially paid',                      'Partially paid',                      'Positive', 1,           1,         1,          14,     2           ),
-  (15,  'Pending refund',                      'Pending refund',                      'Positive', 1,           1,         1,          14,     2           );
+  (14,  'Partially paid',                      '一部支払い',                      'Positive', 1,           1,         1,          14,     2           ),
+  (15,  'Pending refund',                      '保留の払い戻し',                      'Positive', 1,           1,         1,          14,     2           );
 
 
 
@@ -6281,7 +6281,7 @@ INSERT INTO `civicrm_contact_type`
 
 INSERT INTO civicrm_option_group
   (name,                         title,            description,      is_reserved, is_active) VALUES
-    ('msg_tpl_workflow_case', '事例用のメッセージ・テンプレート・ワークフロー',               '事例用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_contribution', '寄付用のメッセージ・テンプレート・ワークフロー',               '寄付用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_event', 'イベント用のメッセージ・テンプレート・ワークフロー',               'イベント用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Tell-a-Friend用のメッセージ・テンプレート・ワークフロー',               'Tell-a-Friend用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_membership', '会員権用のメッセージ・テンプレート・ワークフロー',               '会員権用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_meta', 'メタテンプレート用のメッセージ・テンプレート・ワークフロー',               'メタテンプレート用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'プレッジ用のメッセージ・テンプレート・ワークフロー',               'プレッジ用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_uf', 'プロファイル用のメッセージ・テンプレート・ワークフロー',               'プロファイル用のメッセージ・テンプレート・ワークフロー',                     1,           1) ,    ('msg_tpl_workflow_petition', '署名用のメッセージ・テンプレート・ワークフロー',               '署名用のメッセージ・テンプレート・ワークフロー',                     1,           1) ;
+    ('msg_tpl_workflow_case', '事例用のメッセージテンプレートのワークフロー',               '事例用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_contribution', '寄付用のメッセージテンプレートのワークフロー',               '寄付用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_event', 'イベント用のメッセージテンプレートのワークフロー',               'イベント用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_friend', '友人に紹介用のメッセージテンプレートのワークフロー',               '友人に紹介用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_membership', '会員のメッセージテンプレートのワークフロー',               '会員のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_meta', 'メタテンプレート用のメッセージテンプレートのワークフロー',               'メタテンプレート用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'プレッジ用のメッセージテンプレートのワークフロー',               'プレッジ用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_uf', 'プロファイル用のメッセージテンプレートのワークフロー',               'プロファイル用のメッセージテンプレートのワークフロー',                     1,           1) ,    ('msg_tpl_workflow_petition', '署名用のメッセージテンプレートのワークフロー',               '署名用のメッセージテンプレートのワークフロー',                     1,           1) ;
   SELECT @tpl_ogid_case := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_case';
   SELECT @tpl_ogid_contribution := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_contribution';
   SELECT @tpl_ogid_event := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_event';
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', '事例 - 単一の活動のコピーを送信',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', '支援 - 重複団体の警告',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', '支援 - 受領証 (オフライン)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', '支援 - 受領証 (オンライン)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', '寄付 - 繰返し支援開始・終了通知',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', '支援 - 繰返し支援キャンセル通知',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', '支援 - 繰返し課金更新',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', '支援 - 繰返し更新',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', '個人キャンペーンページ - 管理通知',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', '個人キャンペーンページ - 支援者状態変更通知',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', '個人キャンペーンページ - 支援者ウェルカム',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'イベント - 登録確認と受領証(オフライン)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'イベント - 登録確認と受領証(オンライン)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'イベント - 受領証のみ',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'イベント - 登録確認とキャンセル通知',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'イベント - 登録確認招待',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'イベント - 保留登録の期限切れ通知',            6, 6) ,      (@tpl_ogid_friend, 'friend', '知人に知らせるメール',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', '会員権 - 加入と更新の受領証(オフライン )',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', '会員権 - 受領証 (オンライン)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', '会員権 - 自動更新キャンセル通知',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', '会員権 - 自動更新課金更新',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'テストドライブ - 受領証ヘッダ',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'プレッジ - 通知',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'プレッジ - 支払備忘通知',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'プロファイル - 管理通知',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', '署名 - 追加された署名',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', '署名 - 要検証',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', '事例 - 単一のアクティビティのコピーを送信',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', '支援 - 重複団体の警告',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', '支援 - 受領書 (オフライン)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', '支援 - 受領書 (オンライン)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', '支援 - 請求書',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', '支援 - 定期的な支援の開始と終了通知',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', '支援 - 定期的な支援のキャンセル通知',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', '支援 - 定期的な課金を更新',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', '支援 - 定期を更新',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', '個人キャンペーンページ - 管理通知',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', '個人キャンペーンページ - 支援者のステータス変更通知',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', '個人キャンペーンページ - 支援者ウェルカム',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', '個人キャンペーンページ - 所有者の通知',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', '追加の支払い受領書または払い戻しの通知',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'イベント - 登録確認と受領書 (オフライン)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'イベント - 登録確認と受領書 (オンライン)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'イベント - 受領書のみ',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'イベント - 登録確認とキャンセル通知',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'イベント - 登録確認招待',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'イベント - 保留登録の期限切れ通知',            6, 6) ,      (@tpl_ogid_friend, 'friend', '友人に紹介のメール',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', '会員 - 加入と更新の受領書 (オフライン )',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', '会員 - 受領書 (オンライン)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', '会員 - 自動更新のキャンセル通知',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', '会員 - 自動更新課金更新',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'テストドライブ - 受領書ヘッダ',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'プレッジ - 通知',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'プレッジ - 支払いの事前通知',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'プロファイル - 管理通知',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', '署名 - 追加された署名',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', '署名 - 要検証',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -6332,7 +6332,7 @@ INSERT INTO civicrm_msg_template
       
       
       
-      ('事例 - 単一の活動のコピーを送信', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
+      ('事例 - 単一のアクティビティのコピーを送信', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
 ', '===========================================================
 {ts}Activity Summary{/ts} - {$activityTypeName}
 ===========================================================
@@ -6476,7 +6476,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_case_activity, 1,          0),
-      ('事例 - 単一の活動のコピーを送信', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
+      ('事例 - 単一のアクティビティのコピーを送信', '{if $idHash}[case #{$idHash}]{/if} {$activitySubject}
 ', '===========================================================
 {ts}Activity Summary{/ts} - {$activityTypeName}
 ===========================================================
@@ -6834,7 +6834,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_dupalert, 0,          1) ,      
       
       
-      ('支援 - 受領証 (オフライン)', '{ts}Contribution Receipt{/ts}
+      ('支援 - 受領書 (オフライン)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7273,7 +7273,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_offline_receipt, 1,          0),
-      ('支援 - 受領証 (オフライン)', '{ts}Contribution Receipt{/ts}
+      ('支援 - 受領書 (オフライン)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7714,7 +7714,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_offline_receipt, 0,          1) ,      
       
       
-      ('支援 - 受領証 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('支援 - 受領書 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -8121,14 +8121,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -8397,7 +8397,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_online_receipt, 1,          0),
-      ('支援 - 受領証 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('支援 - 受領書 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -8804,14 +8804,14 @@ INSERT INTO civicrm_msg_template
          {ts 1=$cancelSubscriptionUrl}This is a recurring contribution. You can cancel future contributions by <a href="%1">visiting this web page</a>.{/ts}
         </td>
         {if $updateSubscriptionBillingUrl}
-         <tr>
          </tr>
+         <tr>
          <td colspan="2" {$labelStyle}>
           {ts 1=$updateSubscriptionBillingUrl}You can update billing details for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
          </td>
         {/if}
-       <tr>
        </tr>
+       <tr>
         <td colspan="2" {$labelStyle}>
          {ts 1=$updateSubscriptionUrl}You can update recurring contribution amount or change the number of installments for this recurring contribution by <a href="%1">visiting this web page</a>.{/ts}
         </td>
@@ -9082,7 +9082,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_online_receipt, 0,          1) ,      
       
       
-      ('Contributions - Invoice', '{if $title}
+      ('支援 - 請求書', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9529,7 +9529,7 @@ from your next payment to us</div><br/></font></td>
   </body>
 </html>
 ', @tpl_ovid_contribution_invoice_receipt, 1,          0),
-      ('Contributions - Invoice', '{if $title}
+      ('支援 - 請求書', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9978,7 +9978,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_invoice_receipt, 0,          1) ,      
       
       
-      ('寄付 - 繰返し支援開始・終了通知', '{ts}Recurring Contribution Notification{/ts}
+      ('支援 - 定期的な支援の開始と終了通知', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10155,7 +10155,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_notify, 1,          0),
-      ('寄付 - 繰返し支援開始・終了通知', '{ts}Recurring Contribution Notification{/ts}
+      ('支援 - 定期的な支援の開始と終了通知', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10334,7 +10334,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_notify, 0,          1) ,      
       
       
-      ('支援 - 繰返し支援キャンセル通知', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('支援 - 定期的な支援のキャンセル通知', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10372,7 +10372,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_cancelled, 1,          0),
-      ('支援 - 繰返し支援キャンセル通知', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('支援 - 定期的な支援のキャンセル通知', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10412,7 +10412,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_cancelled, 0,          1) ,      
       
       
-      ('支援 - 繰返し課金更新', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('支援 - 定期的な課金を更新', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10499,7 +10499,7 @@ from your next payment to us</div><br/></font></td>
 
 </body>
 </html>', @tpl_ovid_contribution_recurring_billing, 1,          0),
-      ('支援 - 繰返し課金更新', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('支援 - 定期的な課金を更新', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10588,7 +10588,7 @@ from your next payment to us</div><br/></font></td>
 </html>', @tpl_ovid_contribution_recurring_billing, 0,          1) ,      
       
       
-      ('支援 - 繰返し更新', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('支援 - 定期を更新', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10632,7 +10632,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_edit, 1,          0),
-      ('支援 - 繰返し更新', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('支援 - 定期を更新', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10916,7 +10916,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_notify, 0,          1) ,      
       
       
-      ('個人キャンペーンページ - 支援者状態変更通知', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('個人キャンペーンページ - 支援者のステータス変更通知', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11020,7 +11020,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_status_change, 1,          0),
-      ('個人キャンペーンページ - 支援者状態変更通知', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('個人キャンペーンページ - 支援者のステータス変更通知', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('個人キャンペーンページ - 所有者の通知', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('個人キャンペーンページ - 所有者の通知', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11544,7 +11544,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_owner_notify, 0,          1) ,      
       
       
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('追加の支払い受領書または払い戻しの通知', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -11930,7 +11930,7 @@ from your next payment to us</div><br/></font></td>
  </body>
 </html>
 ', @tpl_ovid_payment_or_refund_notification, 1,          0),
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('追加の支払い受領書または払い戻しの通知', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -12318,7 +12318,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_payment_or_refund_notification, 0,          1) ,      
       
       
-      ('イベント - 登録確認と受領証(オフライン)', '{ts}Event Confirmation{/ts} - {$event.title}
+      ('イベント - 登録確認と受領書 (オフライン)', '{ts}Event Confirmation{/ts} - {$event.title}
 ', '{if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
 {/if}
@@ -13149,7 +13149,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_event_offline_receipt, 1,          0),
-      ('イベント - 登録確認と受領証(オフライン)', '{ts}Event Confirmation{/ts} - {$event.title}
+      ('イベント - 登録確認と受領書 (オフライン)', '{ts}Event Confirmation{/ts} - {$event.title}
 ', '{if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
 {/if}
@@ -13982,7 +13982,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_event_offline_receipt, 0,          1) ,      
       
       
-      ('イベント - 登録確認と受領証(オンライン)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
+      ('イベント - 登録確認と受領書 (オンライン)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
 
 {if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
@@ -14806,7 +14806,7 @@ You were registered by: {$payer.name}
 </body>
 </html>
 ', @tpl_ovid_event_online_receipt, 1,          0),
-      ('イベント - 登録確認と受領証(オンライン)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
+      ('イベント - 登録確認と受領書 (オンライン)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
 
 {if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
@@ -15632,7 +15632,7 @@ You were registered by: {$payer.name}
 ', @tpl_ovid_event_online_receipt, 0,          1) ,      
       
       
-      ('イベント - 受領証のみ', 'Receipt for {if $events_in_cart} Event Registration{/if}
+      ('イベント - 受領書のみ', 'Receipt for {if $events_in_cart} Event Registration{/if}
 ', 'Dear {contact.display_name},
 {if $is_pay_later}
   This is being sent to you as an acknowledgement that you have registered one or more members for the following workshop, event or purchase. Please note, however, that the status of your payment is pending, and the registration for this event will not be completed until your payment is received.
@@ -15917,7 +15917,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
   </body>
 </html>
 ', @tpl_ovid_event_registration_receipt, 1,          0),
-      ('イベント - 受領証のみ', 'Receipt for {if $events_in_cart} Event Registration{/if}
+      ('イベント - 受領書のみ', 'Receipt for {if $events_in_cart} Event Registration{/if}
 ', 'Dear {contact.display_name},
 {if $is_pay_later}
   This is being sent to you as an acknowledgement that you have registered one or more members for the following workshop, event or purchase. Please note, however, that the status of your payment is pending, and the registration for this event will not be completed until your payment is received.
@@ -17608,7 +17608,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_participant_expired, 0,          1) ,      
       
       
-      ('知人に知らせるメール', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
+      ('友人に紹介のメール', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
 ', '{$senderMessage}
 
 {if $generalLink}{ts}For more information, visit:{/ts}
@@ -17665,7 +17665,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_friend, 1,          0),
-      ('知人に知らせるメール', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
+      ('友人に紹介のメール', '{ts 1=$senderContactName 2=$title}%1 wants you to know about %2{/ts}
 ', '{$senderMessage}
 
 {if $generalLink}{ts}For more information, visit:{/ts}
@@ -17724,7 +17724,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_friend, 0,          1) ,      
       
       
-      ('会員権 - 加入と更新の受領証(オフライン )', '{if $receiptType EQ \'membership signup\'}
+      ('会員 - 加入と更新の受領書 (オフライン )', '{if $receiptType EQ \'membership signup\'}
 {ts}Membership Confirmation and Receipt{/ts}
 {elseif $receiptType EQ \'membership renewal\'}
 {ts}Membership Renewal Confirmation and Receipt{/ts}
@@ -18139,7 +18139,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_offline_receipt, 1,          0),
-      ('会員権 - 加入と更新の受領証(オフライン )', '{if $receiptType EQ \'membership signup\'}
+      ('会員 - 加入と更新の受領書 (オフライン )', '{if $receiptType EQ \'membership signup\'}
 {ts}Membership Confirmation and Receipt{/ts}
 {elseif $receiptType EQ \'membership renewal\'}
 {ts}Membership Renewal Confirmation and Receipt{/ts}
@@ -18556,7 +18556,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_offline_receipt, 0,          1) ,      
       
       
-      ('会員権 - 受領証 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('会員 - 受領書 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -19366,7 +19366,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_online_receipt, 1,          0),
-      ('会員権 - 受領証 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('会員 - 受領書 (オンライン)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -20178,7 +20178,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_online_receipt, 0,          1) ,      
       
       
-      ('会員権 - 自動更新キャンセル通知', '{ts}Autorenew Membership Cancellation Notification{/ts}
+      ('会員 - 自動更新のキャンセル通知', '{ts}Autorenew Membership Cancellation Notification{/ts}
 ', '{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}
 
 ===========================================================
@@ -20262,7 +20262,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_autorenew_cancelled, 1,          0),
-      ('会員権 - 自動更新キャンセル通知', '{ts}Autorenew Membership Cancellation Notification{/ts}
+      ('会員 - 自動更新のキャンセル通知', '{ts}Autorenew Membership Cancellation Notification{/ts}
 ', '{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}
 
 ===========================================================
@@ -20348,7 +20348,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_autorenew_cancelled, 0,          1) ,      
       
       
-      ('会員権 - 自動更新課金更新', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('会員 - 自動更新課金更新', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}
 
@@ -20437,7 +20437,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_autorenew_billing, 1,          0),
-      ('会員権 - 自動更新課金更新', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('会員 - 自動更新課金更新', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}
 
@@ -20528,7 +20528,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_autorenew_billing, 0,          1) ,      
       
       
-      ('テストドライブ - 受領証ヘッダ', '[TEST]
+      ('テストドライブ - 受領書ヘッダ', '[TEST]
 ', '***********************************************************
 
 {ts}Test-drive Email / Receipt{/ts}
@@ -20537,7 +20537,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -20547,7 +20547,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
  </table>
 </center>
 ', @tpl_ovid_test_preview, 1,          0),
-      ('テストドライブ - 受領証ヘッダ', '[TEST]
+      ('テストドライブ - 受領書ヘッダ', '[TEST]
 ', '***********************************************************
 
 {ts}Test-drive Email / Receipt{/ts}
@@ -20556,7 +20556,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 
 ***********************************************************
 ', '<center>
- <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left">
+ <table width="620" border="0" cellpadding="0" cellspacing="0" id="crm-event_receipt_test" style="font-family: Arial, Verdana, sans-serif; text-align: left">
   <tr>
    <td>
     <p>{ts}Test-drive Email / Receipt{/ts}</p>
@@ -20898,7 +20898,7 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_pledge_acknowledge, 0,          1) ,      
       
       
-      ('プレッジ - 支払備忘通知', '{ts}Pledge Payment Reminder{/ts}
+      ('プレッジ - 支払いの事前通知', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -21040,7 +21040,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_reminder, 1,          0),
-      ('プレッジ - 支払備忘通知', '{ts}Pledge Payment Reminder{/ts}
+      ('プレッジ - 支払いの事前通知', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -22755,17 +22755,17 @@ SELECT @option_value_rel_id_cg  := value FROM civicrm_option_value WHERE option_
 SELECT @financial_type_id_dtn          := max(id) FROM civicrm_financial_type WHERE name = '寄付';
 SELECT @financial_type_id_md         := max(id) FROM civicrm_financial_type WHERE name = '会費';
 SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'キャンペーン支援';
-SELECT @financial_type_id_ef         := max(id) FROM civicrm_financial_type WHERE name = 'イベント会費';
+SELECT @financial_type_id_ef         := max(id) FROM civicrm_financial_type WHERE name = 'イベント料金';
 
 SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account WHERE name = '寄付';
 SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = '会費';
 SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'キャンペーン支援';
-SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'イベント会費';
-SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Banking Fees';
-SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Accounts Receivable';
-SELECT @financial_account_id_ar        := max(id) FROM civicrm_financial_account WHERE name = 'Deposit Bank Account';
-SELECT @financial_account_id_pp        := max(id) FROM civicrm_financial_account WHERE name = 'Payment Processor Account';
-SELECT @financial_account_id_pr        := max(id) FROM civicrm_financial_account WHERE name = 'プレゼント';
+SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'イベント料金';
+SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = '銀行手数料';
+SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = '売掛金';
+SELECT @financial_account_id_ar        := max(id) FROM civicrm_financial_account WHERE name = '預金銀行口座';
+SELECT @financial_account_id_pp        := max(id) FROM civicrm_financial_account WHERE name = '支払いプロセッサのアカウント';
+SELECT @financial_account_id_pr        := max(id) FROM civicrm_financial_account WHERE name = 'プレミアム';
 
 INSERT INTO `civicrm_entity_financial_account`
      ( entity_table, entity_id, account_relationship, financial_account_id )
@@ -22820,23 +22820,23 @@ INSERT INTO `civicrm_price_field_value` (  `price_field_id`, `name`, `label`, `a
 VALUES ( @fieldID, 'contribution_amount', 'Contribution Amount', '1', '1', '0', '1', 1);
 
 -- CRM-13833
-INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Soft Credit Types', 1, 1);
+INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'ソフトクレジットタイプ', 1, 1);
 
 SELECT @option_group_id_soft_credit_type := max(id) from civicrm_option_group where name = 'soft_credit_type';
 
 INSERT INTO `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`, `weight`, `is_default`, `is_active`, `is_reserved`)
 VALUES
-  (@option_group_id_soft_credit_type   , 'In Honor of', 1, 'in_honor_of', 1, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'In Memory of', 2, 'in_memory_of', 2, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Solicited', 3, 'solicited', 3, 1, 1, 1),
+  (@option_group_id_soft_credit_type   , '敬意を表して', 1, 'in_honor_of', 1, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , '記念して', 2, 'in_memory_of', 2, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , '要請', 3, 'solicited', 3, 1, 1, 1),
   (@option_group_id_soft_credit_type   , '世帯', 4, 'household', 4, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Workplace Giving', 5, 'workplace', 5, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Foundation Affiliate', 6, 'foundation_affiliate', 6, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
+  (@option_group_id_soft_credit_type   , 'ワークプレイスギビング', 5, 'workplace', 5, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'ファンデーションアフィリエイト', 6, 'foundation_affiliate', 6, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , '3rd パーティサービス', 7, '3rd-party_service', 7, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'ドナーアドバイズド ファンド ', 8, 'donor-advised_fund', 8, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , '一致したギフト', 9, 'matched_gift', 9, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , '個人キャンペーンページ', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'ギフト', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
@@ -22940,7 +22940,7 @@ INSERT INTO `civicrm_dashboard`
     ( `domain_id`, `name`, `label`, `url`, `permission`, `permission_operator`, `column_no`, `is_minimized`, `is_active`, `weight`, `fullscreen_url`, `is_fullscreen`, `is_reserved`)
     VALUES
     ( @domainID, 'blog', 'CiviCRM News', 'civicrm/dashlet/blog?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/blog?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
-    ( @domainID, 'activity', '活動', 'civicrm/dashlet/activity?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 1, 'civicrm/dashlet/activity?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+    ( @domainID, 'activity', 'アクティビティ', 'civicrm/dashlet/activity?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 1, 'civicrm/dashlet/activity?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'myCases', '自分の事例', 'civicrm/dashlet/myCases?reset=1&snippet=5', 'access my cases and activities', NULL , 0, 0, 1, 2, 'civicrm/dashlet/myCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'allCases', 'All Cases', 'civicrm/dashlet/allCases?reset=1&snippet=5', 'access all cases and activities', NULL , 0, 0, 1, 3, 'civicrm/dashlet/allCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'casedashboard', 'Case Dashboard Dashlet', 'civicrm/dashlet/casedashboard?reset=1&snippet=5', 'access my cases and activities,access all cases and activities', 'OR' , 0, 0, 1, 4, 'civicrm/dashlet/casedashboard?reset=1&snippet=5&context=dashletFullscreen', 1, 1);
@@ -23706,4 +23706,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.9';
+UPDATE civicrm_domain SET version = '4.6.10';
