@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for Webform Values Set
+ */
+
+/**
+ * Implementation of hook_requirements().
+ */
+function webform_values_set_requirements($phase) {
+  $requirements = array();
+  return $requirements;
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function webform_values_set_schema() {
+  $schema['webform_values_set'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Primary ID field for the table. Not used for anything except internal lookups.',
+      ),
+      'name' => array(
+        'description' => 'The name of the values set.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'form_applied_id' => array(
+        'description' => 'The name of the webform.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+      ),
+      'trigger_field' => array(
+        'description' => 'The name of the trigger field of webform.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'value_a_field' => array(
+        'description' => 'The name of the A field of webform.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'value_b_field' => array(
+        'description' => 'The name of the B field of webform.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'is_secure' => array(
+          'description' => 'Is Secure flag.',
+          'type' => 'int',
+          'size' => 'tiny',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  $schema['webform_values_set_pair'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Primary ID field for the table. Not used for anything except internal lookups.',
+      ),
+      'webform_values_set_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Relational ID to webform_values_set table.',
+      ),
+      'name' => array(
+        'description' => 'The name of the pair.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'trigger_value' => array(
+        'description' => 'The value of the triggering field.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'value_a' => array(
+        'description' => 'The value of value A field.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'value_b' => array(
+        'description' => 'The value of value B field.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+     ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function webform_values_set_install() {
+}
+
+/**
+ * Remove variables on uninstall.
+ */
+function webform_values_set_uninstall() {
+    db_query("DROP TABLE IF EXISTS `webform_values_set_pair`");
+    db_query("DROP TABLE IF EXISTS `webform_values_set`");
+  cache_clear_all('variables', 'cache');
+}

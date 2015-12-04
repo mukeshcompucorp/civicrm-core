@@ -1,0 +1,6 @@
+name = Webform Values Set
+description = "Extends Webform functionality with configurable values set triggering on specific fields."
+core = 7.x
+package = Compucorp
+
+configure = admin/config/system/webform_values_set
