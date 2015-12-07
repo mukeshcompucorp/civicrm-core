@@ -1,5 +1,7 @@
 <?php
 
+/** RM: Customisations have been annotated using a custom PHPDoc tag @custom */
+
 /* 
  * Sagepay Extension for CiviCRM - Circle Interactive 2012
  * Author: andyw@circle
@@ -68,11 +70,14 @@ class uk_co_circleinteractive_payment_sagepay_notify extends CRM_Core_Payment_Ba
 	        $ids['vendor'],           $input['AVSCV2'],        $security_key,           $input['AddressResult'],
 			$input['PostCodeResult'], $input['CV2Result'],     $input['GiftAid'],       $input['3DSecureStatus'],
             $input['CAVV'],           $input['AddressStatus'], $input['PayerStatus'],   $input['CardType'],
-			$input['Last4Digits']
+			$input['Last4Digits'],    $input['DeclineCode'],   $input['ExpiryDate'],    $input['FraudResponse'],
+            $input['BankAuthCode']
 		))));
 	    		
 		// Compare our locally constructed signature to the VPS signature returned by Sagepay
 		if ($signature !== $input['VPSSignature']) {
+
+            CRM_Core_Error::debug_log_message('Invalid VPS Signature: ' . print_r($input, true));
 			
 			// Not matched, send INVALID response and return 
 			$url         = ($component == 'event') ? 'civicrm/event/register' : 'civicrm/contribute/transact';
@@ -264,6 +269,13 @@ class uk_co_circleinteractive_payment_sagepay_notify extends CRM_Core_Payment_Ba
         $input['CardType']       = self::retrieve('CardType',       'String', 'POST', false);
         $input['Last4Digits']    = self::retrieve('Last4Digits',    'String', 'POST', false);
         $input['VPSSignature']   = self::retrieve('VPSSignature',   'String', 'POST', false);
+
+        # added for protocol v3.0 ..
+        $input['DeclineCode']    = self::retrieve('DeclineCode',   'String', 'POST', false);
+        $input['ExpiryDate']     = self::retrieve('ExpiryDate',    'String', 'POST', false);
+        $input['FraudResponse']  = self::retrieve('FraudResponse', 'String', 'POST', false);
+        $input['BankAuthCode']   = self::retrieve('BankAuthCode',  'String', 'POST', false);
+
             
 	}
 	
@@ -399,8 +411,15 @@ class uk_co_circleinteractive_payment_sagepay_notify extends CRM_Core_Payment_Ba
         
         $url         = ($this->component == 'event') ? 'civicrm/event/register' : 'civicrm/contribute/transact';
         $cancel      = ($this->component == 'event') ? '_qf_Register_display'   : '_qf_Main_display';
+
         $cancelURL   = CRM_Utils_System::url($url, "$cancel=1&cancel=1&qfKey=" . SAGEPAY_QFKEY, true, null, false, true);
-		
+
+        /** @custom This sets the cancel URL to the webform's URL, in case the user came from a webform. */
+        if (($node = self::retrieve('node', 'String', 'GET', false)) !== null) {
+            $cancelURL = CRM_Utils_System::url("node/{$node}", null, true, null, false, true);
+        }
+        // end custom
+
 		// Check status returned by gateway ...
 		
 	    if ($status == 'REJECTED' || $status == 'ERROR' || $status == 'NOTAUTHED') {
@@ -432,7 +451,11 @@ class uk_co_circleinteractive_payment_sagepay_notify extends CRM_Core_Payment_Ba
             
             $url       = ($this->component == 'event') ? 'civicrm/event/register' : 'civicrm/contribute/transact';
             $cancel    = ($this->component == 'event') ? '_qf_Register_display'   : '_qf_Main_display';
-            $cancelURL = CRM_Utils_System::url($url, "$cancel=1&cancel=1&qfKey=" . SAGEPAY_QFKEY, true, null, false, true);			
+            /**
+             * @custom This is commented out so as to allow redirection to the URL passed by 'failureUrl'
+             * GET variable, which is set in 'uk_co_circleinteractive_payment_sagepay'
+             */
+            // $cancelURL = CRM_Utils_System::url($url, "$cancel=1&cancel=1&qfKey=" . SAGEPAY_QFKEY, true, null, false, true);
             
             echo "Status=INVALID\r\n" .
                  "RedirectURL=$cancelURL\r\n" . 
@@ -455,9 +478,30 @@ class uk_co_circleinteractive_payment_sagepay_notify extends CRM_Core_Payment_Ba
         $this->completeTransaction($input, $ids, $objects, $transaction, $recur);
 
         $url       = ($input['component'] == 'event' ) ? 'civicrm/event/register' : 'civicrm/contribute/transact';
-        $returnURL = CRM_Utils_System::url($url, "_qf_ThankYou_display=1&qfKey=" . SAGEPAY_QFKEY, true, null, false, true);
 
-		echo "Status=OK\r\n" . 
+        /** @custom This is commented out in favour of the logic below */
+        // $returnURL = CRM_Utils_System::url($url, "_qf_ThankYou_display=1&qfKey=" . SAGEPAY_QFKEY, true, null, false, true);
+        // end custom
+
+        /**
+         * @custom This builds the return URL based on whether the form submitted was a Webform or a Civi's native form.
+         */
+        if (($node = self::retrieve('node', 'String', 'GET', false)) !== null) {
+            $query = array();
+            if (($sid = self::retrieve('sid', 'String', 'GET', false)) !== null) {
+                $query[] = "sid={$sid}";
+            }
+            if (($token = self::retrieve('token', 'String', 'GET', false)) !== null) {
+                $query[] = "token={$token}";
+            }
+
+            $returnURL = CRM_Utils_System::url("node/{$node}/done", implode('&', $query), true, null, false, true);
+        } else {
+            $returnURL = CRM_Utils_System::url($url, "_qf_ThankYou_display=1&qfKey=" . SAGEPAY_QFKEY, true, null, false, true);
+        }
+        // end custom
+
+		echo "Status=OK\r\n" .
 		     "RedirectURL=$returnURL\r\n";
 		
     }
