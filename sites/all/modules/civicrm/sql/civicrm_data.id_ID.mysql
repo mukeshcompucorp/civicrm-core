@@ -4564,7 +4564,7 @@ SELECT @domainID := id FROM civicrm_domain where name = 'Default Domain Name';
 -- CRM-9120 for legacy reasons we are continuing to translate the 'name', but this
 -- field is used mainly as an ID, and display_name will be shown to the user, but
 -- we have not yet finished modifying all places where the 'name' is shown.
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'Pangkal', 'Pangkal', 'HOME', 'Place of residence', 0, 1, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'Pangkal', 'Pangkal', 'HOME', 'Tempat dari  tempat tinggal', 0, 1, 1 );
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Kerja', 'Kerja', 'WORK', 'Tempat Kerja', 0, 1 );
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Utama', 'Utama', NULL, 'Tempat kantor utama', 0, 1 );
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Lainnya', 'Lainnya', NULL, 'Tempai lain', 0, 1 );
@@ -4574,13 +4574,13 @@ INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, 
 -- Sample relationship types
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
     VALUES( 'Child of', 'Anak dari', 'Parent of', 'Induk dari', 'Hubungan Induk/Anak.', 'Individual', 'Individual', 0 ),
-          ( 'Spouse of', 'Spouse of', 'Spouse of', 'Spouse of', 'Spousal relationship.', 'Individual', 'Individual', 0 ),
-          ( 'Partner of', 'Partner of', 'Partner of', 'Partner of', 'Partner relationship.', 'Individual', 'Individual', 0 ),
-          ( 'Sibling of', 'Sibling of', 'Sibling of', 'Sibling of', 'Sibling relationship.', 'Individual','Individual', 0 ),
-          ( 'Employee of', 'Employee of', 'Employer of', 'Employer of', 'Employment relationship.','Individual','Organization', 1 ),
-          ( 'Volunteer for', 'Volunteer for', 'Volunteer is', 'Volunteer is', 'Volunteer relationship.','Individual','Organization', 0 ),
-          ( 'Head of Household for', 'Head of Household for', 'Head of Household is', 'Head of Household is', 'Head of household.','Individual','Household', 1 ),
-          ( 'Household Member of', 'Household Member of', 'Household Member is', 'Household Member is', 'Household membership.','Individual','Household', 1 );
+          ( 'Spouse of', 'Pasangan dari', 'Spouse of', 'Pasangan dari', 'Hubungan pasangan', 'Individual', 'Individual', 0 ),
+          ( 'Partner of', 'Rekan dari', 'Partner of', 'Rekan dari', 'Hubungan rekan', 'Individual', 'Individual', 0 ),
+          ( 'Sibling of', 'Saudara kandung dari', 'Sibling of', 'Saudara kandung dari', 'Hubungan saudara kandung', 'Individual','Individual', 0 ),
+          ( 'Employee of', 'Pegawai dari', 'Employer of', 'Majikan dari', 'Hubungan Pekerjaan','Individual','Organization', 1 ),
+          ( 'Volunteer for', 'Sukarelawan untuk', 'Volunteer is', 'Sukarelawan adalah', 'Hubungan sukarelawan','Individual','Organization', 0 ),
+          ( 'Head of Household for', 'Kepala dari Rumah Tangga untuk', 'Head of Household is', 'Kepala dari Rumah Tangga adalah', 'Kepala dari rumah tangga ','Individual','Household', 1 ),
+          ( 'Household Member of', 'Anggota Rumah Tangga dari', 'Household Member is', 'Anggota Rumah Tangga adalah', 'Keanggotaan rumah tangga.','Individual','Household', 1 );
 
 -- Relationship Types for CiviCase
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
@@ -4592,34 +4592,34 @@ INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, d
 -- Sample Tags
 INSERT INTO civicrm_tag( name, description, parent_id,used_for )
     VALUES
-    ( 'Non-profit', 'Any not-for-profit organization.', NULL,'civicrm_contact'),
-    ( 'Company', 'For-profit organization.', NULL,'civicrm_contact'),
-    ( 'Government Entity', 'Any governmental entity.', NULL,'civicrm_contact'),
-    ( 'Major Donor', 'High-value supporter of our organization.', NULL,'civicrm_contact'),
-    ( 'Volunteer', 'Active volunteers.', NULL,'civicrm_contact' );
+    ( 'Nirlaba', 'Organisasi tidak untuk keuntungan manapun.', NULL,'civicrm_contact'),
+    ( 'haan', 'Organisasi untuk-keuntungan.', NULL,'civicrm_contact'),
+    ( 'Kesatuan Pemerintah', 'Kesatuan pemerintah manapun.', NULL,'civicrm_contact'),
+    ( 'Pemberi Utama', 'Pendukung nilai-tinggi dari organisasi kami.', NULL,'civicrm_contact'),
+    ( 'Sukarelawan', 'Sukarelawan aktif.', NULL,'civicrm_contact' );
 
 
 -- sample CiviCRM mailing components
 INSERT INTO civicrm_mailing_component
     (name,component_type,subject,body_html,body_text,is_default,is_active)
 VALUES
-    ('Mailing Header','Header','Descriptive Title for this Header','Sample Header for HTML formatted content.','Sample Header for TEXT formatted content.',1,1),
-    ('Mailing Footer','Footer','Descriptive Title for this Footer.','Sample Footer for HTML formatted content<br/><a href=\"{action.optOutUrl}\">Unsubscribe</a>  <br/> {domain.address}','to unsubscribe: {action.optOutUrl}\n{domain.address}',1,1),
-    ('Subscribe Message','Subscribe','Subscription Confirmation Request','You have a pending subscription to the {subscribe.group} mailing list. To confirm this subscription, reply to this email or click <a href=\"{subscribe.url}\">here</a>.','You have a pending subscription to the {subscribe.group} mailing list. To confirm this subscription, reply to this email or click on this link: {subscribe.url}',1,1),
-    ('Pesan Selamat Datang','Welcome','Your Subscription has been Activated','Welcome. Your subscription to the {welcome.group} mailing list has been activated.','Welcome. Your subscription to the {welcome.group} mailing list has been activated.',1,1),
-    ('Berhenti langganan Pesan','Unsubscribe','Un-subscribe Confirmation','You have been un-subscribed from the following groups: {unsubscribe.group}. You can re-subscribe by mailing {action.resubscribe} or clicking <a href=\"{action.resubscribeUrl}\">here</a>.','You have been un-subscribed from the following groups: {unsubscribe.group}. You can re-subscribe by mailing {action.resubscribe} or clicking ',1,1),
-    ('Langganan ulang Pesan','Resubscribe','Re-subscribe Confirmation','You have been re-subscribed to the following groups: {resubscribe.group}. You can un-subscribe by mailing {action.unsubscribe} or clicking <a href=\"{action.unsubscribeUrl}\">here</a>.','You have been re-subscribed to the following groups: {resubscribe.group}. You can un-subscribe by mailing {action.unsubscribe} or clicking {action.unsubscribeUrl}',1,1),
-    ('Opt-out Message','OptOut','Opt-out Confirmation','Your email address has been removed from {domain.name} mailing lists.','Your email address has been removed from {domain.name} mailing lists.',1,1),
-    ('Auto-responder','Reply','Please Send Inquiries to Our Contact Email Address','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.','This is an automated reply from an un-attended mailbox. Please send any inquiries to the contact email address listed on our web-site.',1,1);
+    ('Kepala Penyuratan','Header','Gambaran Judul untuk Kepala ini','Contoh Kepala untuk isi berbentuk HTML.','Contoh Kepala untuk isi berbentuk TEKS.',1,1),
+    ('Kaki Penyuratan','Footer','Gambaran Judul untuk Kaki ini.','Sample Footer for HTML formatted content<br/><a href=\"{action.optOutUrl}\">Unsubscribe</a>  <br/> {domain.address}','to unsubscribe: {action.optOutUrl}\n{domain.address}',1,1),
+    ('Langganan Pesan','Subscribe','Permintaan Pengasan Langganan','Anda mempunyai langganan tertunda ke daftar penyuratan {subscribe.group}. Untuk menegaskan langganan ini, balas ke email ini atau klik <a href=\"{subscribe.url}\">disini</a>.','Anda mempunyai langganan tertunda ke daftar penyuratan {subscribe.group}. Untuk menegaskan langganan ini, balas ke email ini atau klik: {subscribe.url}',1,1),
+    ('Pesan Selamat Datang','Welcome','Langganan Anda telah Diaktifkan','Selamat datang. Langganan anda ke daftar penyuratan {welcome.group} telah diaktifkan.','Selamat datang. Langganan anda ke daftar penyuratan {welcome.group} telah diaktifkan.',1,1),
+    ('Berhenti langganan Pesan','Unsubscribe','Penegasan Berhenti langganan','Anda telah berhenti langganan dari kelompok berikut: {unsubscribe.group}. Anda dapat berlangganan kembali dengan menyurati {action.resubscribe} atau mengklik <a href=\"{action.resubscribeUrl}\">disini</a>.','Anda telah berhenti langganan dari kelompok berikut: {unsubscribe.group}. Anda dapat berlangganan kembali dengan menyurati {action.resubscribe} atau mengklik ',1,1),
+    ('Langganan ulang Pesan','Resubscribe','Penegasan langganan kembali','Anda telah langganan kembali dari kelompok berikut: {resubscribe.group}. Anda dapat berlangganan kembali dengan menyurati {action.unsubscribe} atau mengklik <a href=\"{action.unsubscribeUrl}\">disini</a>.','Anda telah langganan kembali dari kelompok berikut: {resubscribe.group}. Anda dapat berlangganan kembali dengan menyurati {action.unsubscribe} atau mengklik {action.unsubscribeUrl}',1,1),
+    ('Pesan Dipisahkan','OptOut','Penegasan menyisihkan','Alamat email anda telah dipindahkan dari daftar penyuratan {domain.name}.','Alamat email anda telah dipindahkan dari daftar penyuratan {domain.name}.',1,1),
+    ('Penjawab-otomatis','Reply','Silahkan Kirim Permintaan ke Alamat Email Kontak Kami ','Ini adalah balasan otomatis dari kotak surat tidak terhadiri. Silahkan kirim permintaan apapun ke alamat email kontak terdaftar di jaringan situs kami.','Ini adalah balasan otomatis dari kotak surat tidak terhadiri. Silahkan kirim permintaan apapun ke alamat email kontak terdaftar di jaringan situs kami.',1,1);
 
 
 -- contribution types
 INSERT INTO
    civicrm_financial_type(name, is_reserved, is_active, is_deductible)
 VALUES
-  ( 'Donation'             , 0, 1, 1 ),
-  ( 'Member Dues'          , 0, 1, 1 ),
-  ( 'Campaign Contribution', 0, 1, 0 ),
+  ( 'Sumbangan'             , 0, 1, 1 ),
+  ( 'Anggota Karena'          , 0, 1, 1 ),
+  ( 'Sumbangan Kampanye', 0, 1, 0 ),
   ( 'Biaya Acara'            , 0, 1, 0 );
 
 -- option groups and values for 'preferred communication methods' , 'activity types', 'gender', etc.
@@ -4630,80 +4630,80 @@ VALUES
    ('preferred_communication_method', 'Metode Komunikasi yang Dipilih'     , 1, 1, 0),
    ('activity_type'                 , 'Tipe Kegiatan'                      , 1, 1, 0),
    ('gender'                        , 'Jenis Kelamin'                             , 1, 1, 0),
-   ('instant_messenger_service'     , 'Instant Messenger (IM) screen-names', 1, 1, 0),
-   ('mobile_provider'               , 'Mobile Phone Providers'             , 1, 1, 0),
-   ('individual_prefix'             , 'Individual contact prefixes'        , 1, 1, 0),
-   ('individual_suffix'             , 'Individual contact suffixes'        , 1, 1, 0),
-   ('acl_role'                      , 'Aturan ACL'                           , 1, 1, 0),
-   ('accept_creditcard'             , 'Accepted Credit Cards'              , 1, 1, 0),
+   ('instant_messenger_service'     , 'Nama-layar Instant Messenger (IM)', 1, 1, 0),
+   ('mobile_provider'               , 'Penyedia Telepon Bergerak'             , 1, 1, 0),
+   ('individual_prefix'             , 'Awalan kontak individu'        , 1, 1, 0),
+   ('individual_suffix'             , 'Akhiran kontak individu'        , 1, 1, 0),
+   ('acl_role'                      , 'Peran Daftar Kendali Akses'                           , 1, 1, 0),
+   ('accept_creditcard'             , 'Kartu Kredit Diterima'              , 1, 1, 0),
    ('payment_instrument'            , 'Alat Pembayaran'                , 1, 1, 0),
    ('contribution_status'           , 'Keadaan Sumbangan'                , 1, 1, 1),
-   ('pcp_status'                    , 'Keadaan PCP'                         , 1, 1, 1),
-   ('pcp_owner_notify'              , 'PCP owner notifications'            , 1, 1, 1),
+   ('pcp_status'                    , 'Keadaan Halaman Kampanye Pribadi'                         , 1, 1, 1),
+   ('pcp_owner_notify'              , 'Pemberitahuan pemilik Halaman Kampanye Pribadi'            , 1, 1, 1),
    ('participant_role'              , 'Peran Peserta'                   , 1, 1, 0),
    ('event_type'                    , 'Jenis Acara'                         , 1, 1, 0),
-   ('contact_view_options'          , 'Contact View Options'               , 1, 1, 1),
-   ('contact_smart_group_display'   , 'Contact Smart Group View Options'   , 1, 1, 1),
-   ('contact_edit_options'          , 'Contact Edit Options'               , 1, 1, 1),
-   ('advanced_search_options'       , 'Advanced Search Options'            , 1, 1, 1),
-   ('user_dashboard_options'        , 'User Dashboard Options'             , 1, 1, 1),
-   ('address_options'               , 'Addressing Options'                 , 1, 1, 0),
+   ('contact_view_options'          , 'Pilihan Lihat Kontak'               , 1, 1, 1),
+   ('contact_smart_group_display'   , 'Pilihan Lihat Kelompok Pintar Kontak'   , 1, 1, 1),
+   ('contact_edit_options'          , 'Kontak Pilihan Sunting'               , 1, 1, 1),
+   ('advanced_search_options'       , 'Pilihan Pencarian Lanjut'            , 1, 1, 1),
+   ('user_dashboard_options'        , 'Gunakan Pilihan Dasbor'             , 1, 1, 1),
+   ('address_options'               , 'Pilihan Alamat'                 , 1, 1, 0),
    ('group_type'                    , 'Tipe Grup'                         , 1, 1, 0),
    ('grant_status'                  , 'Keadaan Hadiah'                       , 1, 1, 0),
    ('grant_type'                    , 'Jenis Hibah'                         , 1, 1, 0),
    ('custom_search'                 , 'Pencarian Penyesuaian'                      , 1, 1, 0),
    ('activity_status'               , 'Status Kegiatan'                    , 1, 1, 0),
-   ('case_type'                     , 'Kenis Kasus'                          , 1, 1, 0),
+   ('case_type'                     , 'Jenis Kasus'                          , 1, 1, 0),
    ('case_status'                   , 'Keadaan Kasus'                        , 1, 1, 0),
    ('participant_listing'           , 'Daftar Peserta'                , 1, 1, 0),
-   ('safe_file_extension'           , 'Safe File Extension'                , 1, 1, 0),
-   ('from_email_address'            , 'From Email Address'                 , 1, 1, 0),
+   ('safe_file_extension'           , 'Berkas Tambahan Aman'                , 1, 1, 0),
+   ('from_email_address'            , 'Alamat Email Dari'                 , 1, 1, 0),
    ('mapping_type'                  , 'Jenis Pemetaan'                       , 1, 1, 1),
-   ('wysiwyg_editor'                , 'Perubah WYSIWYG '                     , 1, 1, 0),
-   ('recur_frequency_units'         , 'Recurring Frequency Units'          , 1, 1, 0),
+   ('wysiwyg_editor'                , 'Penyunting WYSIWYG '                     , 1, 1, 0),
+   ('recur_frequency_units'         , 'Satuan Frekuensi Berulang'          , 1, 1, 0),
    ('phone_type'                    , 'Jenis Telepon'                         , 1, 1, 0),
-   ('custom_data_type'              , 'Custom Data Type'                   , 1, 1, 0),
+   ('custom_data_type'              , 'Jenis Data Penyesuaian'                   , 1, 1, 0),
    ('visibility'                    , 'Penampakan'                         , 1, 1, 0),
    ('mail_protocol'                 , 'Protokol Surat'                      , 1, 1, 0),
    ('priority'                      , 'Prioritas'                           , 1, 1, 0),
-   ('redaction_rule'                , 'Redaction Rule'                     , 1, 1, 0),
-   ('report_template'               , 'Report Template'                    , 1, 1, 0),
-   ('email_greeting'                , 'Email Greeting Type'                , 1, 1, 0),
-   ('postal_greeting'               , 'Postal Greeting Type'               , 1, 1, 0),
-   ('addressee'                     , 'Addressee Type'                     , 1, 1, 0),
-   ('contact_autocomplete_options'  , 'Autocomplete Contact Search'        , 1, 1, 1),
-   ('contact_reference_options'     , 'Contact Reference Autocomplete Options', 1, 1, 1),
+   ('redaction_rule'                , 'Aturan Redaksi'                     , 1, 1, 0),
+   ('report_template'               , 'Cetakan Laporan'                    , 1, 1, 0),
+   ('email_greeting'                , 'Jenis Tegur Sapa Email'                , 1, 1, 0),
+   ('postal_greeting'               , 'Jenis Tegur Sapa Pos'               , 1, 1, 0),
+   ('addressee'                     , 'Jenis Alamat'                     , 1, 1, 0),
+   ('contact_autocomplete_options'  , 'Pencarian Kontak Otomatis Lengkap'        , 1, 1, 1),
+   ('contact_reference_options'     , 'Pilihan Otomatis Lengkap Acuan Kontak', 1, 1, 1),
    ('website_type'                  , 'Jenis Website'                       , 1, 1, 0),
-   ('tag_used_for'                  , 'Tag Used For'                       , 1, 1, 1),
+   ('tag_used_for'                  , 'Etiket Digunakan Untuk'                       , 1, 1, 1),
    ('currencies_enabled'            , 'Mata uang Diadakan'                 , 1, 1, 0),
-   ('event_badge'                   , 'Event Name Badge'                   , 1, 1, 0),
-   ('note_privacy'                  , 'Privacy levels for notes'           , 1, 1, 0),
+   ('event_badge'                   , 'Nama Lencana Acara'                   , 1, 1, 0),
+   ('note_privacy'                  , 'Tingkatan pribadi untuk catatan'           , 1, 1, 0),
    ('campaign_type'                 , 'Jenis Kampanye'                      , 1, 1, 0),
    ('campaign_status'               , 'Keadaan Kampanye'                    , 1, 1, 0),
    ('system_extensions'             , 'Tambahan CiviCRM'                 , 1, 1, 0),
    ('mail_approval_status'          , 'Keadaan Persetujuan CiviCRM'           , 1, 1, 0),
    ('engagement_index'              , 'Indeks Perjanjian'                   , 1, 1, 0),
-   ('cg_extend_objects'             , 'Objects a custom group extends to'  , 1, 1, 0),
+   ('cg_extend_objects'             , 'Obyek kelompok penyesuaian diperpanjang ke'  , 1, 1, 0),
    ('paper_size'                    , 'Ukuran kertas'                         , 1, 1, 0),
    ('pdf_format'                    , 'Bentuk Halaman PDF'                    , 1, 1, 0),
-   ('label_format'                  , 'Mailing Label Format'               , 1, 1, 0),
+   ('label_format'                  , 'Bentuk Label Penyuratan'               , 1, 1, 0),
    ('activity_contacts'             , 'Aktifitas Kontak'                  , 1, 1, 1),
    ('account_relationship'          , 'Hubungan Akun'               , 1, 1, 0),
-   ('event_contacts'                , 'Event Recipients'                   , 1, 1, 0),
-   ('conference_slot'               , 'Conference Slot'                    , 1, 1, 0),
-   ('batch_type'                    , 'Batch Type'                         , 1, 1, 1),
-   ('batch_mode'                    , 'Batch Mode'                         , 1, 1, 1),
-   ('batch_status'                  , 'Batch Status'                       , 1, 1, 1),
+   ('event_contacts'                , 'Penerima Acara'                   , 1, 1, 0),
+   ('conference_slot'               , 'Bagian Pertemuan'                    , 1, 1, 0),
+   ('batch_type'                    , 'Jenis Kumpulan'                         , 1, 1, 1),
+   ('batch_mode'                    , 'Suasana Kumpulan'                         , 1, 1, 1),
+   ('batch_status'                  , 'Keadaan Kumpulan'                       , 1, 1, 1),
    ('sms_api_type'                  , 'Jenis Api'                           , 1, 1, 0),
-   ('sms_provider_name'             , 'Sms Provider Internal Name'         , 1, 1, 0),
-   ('auto_renew_options'            , 'Auto Renew Options'                 , 1, 1, 1),
+   ('sms_provider_name'             , 'Nama Dalam Penyedia SMS'         , 1, 1, 0),
+   ('auto_renew_options'            , 'Pilihan otomatis Perpanjangan'                 , 1, 1, 1),
    ('financial_account_type'        , 'Jenis Akun Finansial'             , 1, 1, 0),
-   ('financial_item_status'         , 'Financial Item Status'              , 1, 1, 1),
-   ('label_type'                    , 'Label Type'                         , 1, 1, 0),
-   ('name_badge'                    , 'Name Badge Format'                  , 1, 1, 0),
-   ('communication_style'           , 'Communication Style'                , 1, 1, 0),
-   ('msg_mode'                      , 'Message Mode'                       , 1, 1, 0),
-   ('contact_date_reminder_options' , 'Contact Date Reminder Options'      , 1, 1, 1);
+   ('financial_item_status'         , 'Keadaan Barang Finansial'              , 1, 1, 1),
+   ('label_type'                    , 'Jenis Label'                         , 1, 1, 0),
+   ('name_badge'                    , 'Bentuk Nama Lencana'                  , 1, 1, 0),
+   ('communication_style'           , 'Gaya Komunikasi'                , 1, 1, 0),
+   ('msg_mode'                      , 'Suasana Pesan'                       , 1, 1, 0),
+   ('contact_date_reminder_options' , 'Pilihan Pengingat Tanggal Kontak'      , 1, 1, 1);
 
 SELECT @option_group_id_pcm            := max(id) from civicrm_option_group where name = 'preferred_communication_method';
 SELECT @option_group_id_act            := max(id) from civicrm_option_group where name = 'activity_type';
@@ -4796,46 +4796,46 @@ INSERT INTO
 VALUES
    (@option_group_id_pcm, 'Telepon', 1, 'Phone', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_pcm, 'Email', 2, 'Email', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_pcm, 'Postal Mail', 3, 'Postal Mail', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_pcm, 'Surat Pos', 3, 'Postal Mail', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_pcm, 'SMS', 4, 'SMS', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_pcm, 'Faks', 5, 'Fax', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
    (@option_group_id_act, 'Pertemuan',                            1, 'Meeting', NULL, 0, NULL, 1, NULL,                                                                       0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Panggilan Telepon',                         2, 'Phone Call',          NULL, 0, NULL, 2, NULL,                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Email',                              3, 'Email',               NULL, 1, NULL, 3, 'Email dikirim.',                                                          0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Outbound SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Text message (SMS) sent.',                                             0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Pendaftaran Acara',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Online or offline event registration.',                                0, 1, 1, @eventCompId, NULL),
-   (@option_group_id_act, 'Kontribusi',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Online or offline contribution.',                                      0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Daftar Keanggotaan',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Online or offline membership signup.',                                 0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, 'Perpanjang Keanggotaan',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'Online or offline membership renewal.',                                0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, 'SMS Keluar',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Pesan teks (SMS) dikirim.',                                             0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Pendaftaran Acara',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Pendaftaran acara daring atau tanpa jaringan,',                                0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'Kontribusi',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Sumbangan daring atau tanpa jaringan.',                                      0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Daftar Keanggotaan',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Pendaftaran keanggotaan daring atau tanpa jaringan.',                                 0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, 'Perpanjang Keanggotaan',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'perpanjangan keanggotaan daring atau tanpa jaringan.',                                0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Beritahu Teman',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Kirim informasi tentang kampanye sumbangan atau acara ke teman.', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Pledge Acknowledgment',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Send Pledge Acknowledgment.',                                     0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, 'Pengingat Hibah',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Send Pledge Reminder.',                                               0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, 'Inbound Email',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Inbound Email.',                                                     0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Pengakuan Janji',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Kirim Pengakuan Janji.',                                     0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'Pengingat Hibah',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Kirim Pengingat Janji',                                               0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'Email Masuk',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Email Masuk.',                                                     0, 1, 1, NULL, NULL),
 
 -- Activity Types for case activities
    (@option_group_id_act, 'Kasus Dibuka',          13, 'Open Case',          NULL, 0,  0, 13, '', 0, 1, 1, @caseCompId, NULL),
    (@option_group_id_act, 'Tindaklanjuti',          14, 'Follow up',          NULL, 0,  0, 14, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Rubah Jenis Kasus',   15, 'Change Case Type',   NULL, 0,  0, 15, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Change Case Status', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, 'Rubah Keadaan kasus', 16, 'Change Case Status', NULL, 0,  0, 16, '', 0, 1, 1, @caseCompId, NULL ),
 
-   (@option_group_id_act, 'Membership Renewal Reminder',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'offline membership renewal reminder.',                      0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, 'Change Case Start Date',             18, 'Change Case Start Date',         NULL, 0,  0, 18, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Bulk Email',                         19, 'Bulk Email',         NULL, 1, NULL, 19, 'Bulk Email Sent.',                                                    0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Assign Case Role',                   20, 'Assign Case Role', NULL,0, 0, 20, '', 0, 1, 1, @caseCompId, NULL),
-   (@option_group_id_act, 'Remove Case Role',                   21, 'Remove Case Role', NULL,0, 0, 21, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'Pengingat Perpanjangan keanggotaan',        17, 'Membership Renewal Reminder',  NULL, 1, NULL, 17, 'pengingat perpanjangan keanggotaan daring tanpa jaringan.',                      0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, 'Rubah Tanggal Mulai Kasus',             18, 'Change Case Start Date',         NULL, 0,  0, 18, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, 'Email Bulk',                         19, 'Bulk Email',         NULL, 1, NULL, 19, 'Email Bulk Terkirim.',                                                    0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Tugaskan Peran Kasus',                   20, 'Assign Case Role', NULL,0, 0, 20, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'Pindahkan Peran kasus',                   21, 'Remove Case Role', NULL,0, 0, 21, '', 0, 1, 1, @caseCompId, NULL),
    (@option_group_id_act, 'Cetak PDF Letter',                   22, 'Print PDF Letter',    NULL, 0, NULL, 22, 'Cetak PDF Letter.',                                                  0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Gabung Kasus',                         23, 'Merge Case', NULL, 0,  NULL, 23, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Reassigned Case',                    24, 'Reassigned Case', NULL, 0,  NULL, 24, '', 0, 1, 1, @caseCompId, NULL ),
+   (@option_group_id_act, 'Tugaskan kembali Kasus',                    24, 'Reassigned Case', NULL, 0,  NULL, 24, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Tautan Kasus',                         25, 'Link Cases', NULL, 0,  NULL, 25, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Change Case Tags',                   26, 'Change Case Tags', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
-   (@option_group_id_act, 'Add Client To Case',                 27, 'Add Client To Case', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'Rubah Etiket Kasus',                   26, 'Change Case Tags', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'Tambak Klien Ke Kasus',                 27, 'Add Client To Case', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Activity Types for CiviCampaign
    (@option_group_id_act, 'Survei',                             28, 'Survey', NULL,0, 0, 27, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, 'Canvass',                            29, 'Canvass', NULL,0, 0, 28, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, 'PhoneBank',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, 'WalkList',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
+   (@option_group_id_act, 'Kanvas',                            29, 'Canvass', NULL,0, 0, 28, '', 0, 1, 1, @campaignCompId, NULL),
+   (@option_group_id_act, 'TeleponBank',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
+   (@option_group_id_act, 'DaftarJalan',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Tanda tangan Petisi',                           32, 'Petition', NULL,0, 0, 31, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'SMS Banyak',                           34, 'Mass SMS',         NULL, 1, NULL, 34, 'SMS Banyak',                                                    0, 1, 1, NULL, NULL),
 
@@ -4843,37 +4843,37 @@ VALUES
    (@option_group_id_act, 'Rubah Data Penyesuaian',                 33, 'Change Custom Data', NULL,0, 0, 33, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Additional Membership-related Activity Types
-   (@option_group_id_act, 'Change Membership Status',           35, 'Change Membership Status',   NULL, 1, NULL, 35, 'Change Membership Status.',                         0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, 'Change Membership Type',             36, 'Change Membership Type',     NULL, 1, NULL, 36, 'Change Membership Type.',                           0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, 'Rubah Keadaan Keanggotaan',           35, 'Change Membership Status',   NULL, 1, NULL, 35, 'Rubah Keadaan Keanggotaan.',                         0, 1, 1, @memberCompId, NULL),
+   (@option_group_id_act, 'Rubah Jenis Keanggotaan',             36, 'Change Membership Type',     NULL, 1, NULL, 36, 'Rubah Jenis Keanggotaan.',                           0, 1, 1, @memberCompId, NULL),
 
-   (@option_group_id_act, 'Cancel Recurring Contribution',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Update Recurring Contribution Billing Details',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Update Recurring Contribution',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Batalkan Sumbangan Berulang',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Perbaharui Rincian Tagihan Sumbangan Berulang',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Perbaharui Sumbangan Berulang',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
 
-   (@option_group_id_act, 'Reminder Sent',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Pengingat Terkirim',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
 
  -- Activity Types for Financial Transactions Batch
    (@option_group_id_act, 'Ekspor Kumpulan Akuntansi', 41, 'Export Accounting Batch', NULL, 1, 0, 41, 'Export Accounting Batch', 0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Buat Kumpulan', 42, 'Create Batch', NULL, 1, 0, 42, 'Create Batch', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Rubah Kumpulan', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Sunting Kumpulan', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
 
 -- new sms options
    (@option_group_id_act, 'Pengiriman SMS', 44, 'SMS delivery', NULL, 1, NULL, 44, 'Pengiriman SMS', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Inbound SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Inbound SMS', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'SMS Masuk',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'SMS Masuk', 0, 1, 1, NULL, NULL),
 
 
  -- Activity types for particial payment
-   (@option_group_id_act, 'Payment', 46, 'Payment', NULL, 1, NULL, 46, 'Additional payment recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
-   (@option_group_id_act, 'Refund', 47, 'Refund', NULL, 1, NULL, 47, 'Refund recorded for event or membership fee.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Pembayaran', 46, 'Payment', NULL, 1, NULL, 46, 'Tambahan pembayaran terekam untuk acara atau biaya keanggotaan.', 0, 1, 1, @contributeCompId, NULL),
+   (@option_group_id_act, 'Dikembalikan', 47, 'Refund', NULL, 1, NULL, 47, 'PEngembalian dana direkam untuk biaya acara atau keanggotaan.', 0, 1, 1, @contributeCompId, NULL),
 
  -- for selection changes
-   (@option_group_id_act, 'Change Registration', 48, 'Change Registration', NULL, 1, NULL, 48, 'Changes to an existing event registration.', 0, 1, 1, @eventCompId, NULL),
+   (@option_group_id_act, 'Rubah Pendaftaran', 48, 'Change Registration', NULL, 1, NULL, 48, 'Perubahan ke pendaftaran acara yang ada.', 0, 1, 1, @eventCompId, NULL),
  -- for Print or Email Contribution Invoices
    (@option_group_id_act, 'Tagihan Terunduh', 49, 'Downloaded Invoice',      NULL, 1, NULL, 49, 'Tagihan Terunduh',0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Emailed Invoice', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Emailed Invoice.',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Tagihan ter email', 50, 'Emailed Invoice',      NULL, 1, NULL, 50, 'Tagihan ter email.',0, 1, 1, NULL, NULL),
 
   -- for manual contact merge
-   (@option_group_id_act, 'Contact Merged', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Contact Merged',0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Kontak Digabung', 51, 'Contact Merged', NULL, 1, NULL, 51, 'Kontak Digabung',0, 1, 1, NULL, NULL),
 
   -- Activity Type for failed payment
    (@option_group_id_act, 'Failed Payment', 52, 'Failed Payment', NULL, 1, 0, 43, 'Failed Payment', 0, 1, 1, @contributeCompId, NULL),
@@ -4922,25 +4922,25 @@ VALUES
   (@option_group_id_pi, 'EFT',          5, 'EFT',         NULL, 0, 0, 5, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_cs, 'Lengkap'  , 1, 'Completed'  , NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Ditunda'    , 2, 'Pending'    , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Tertunda'    , 2, 'Pending'    , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Batal'  , 3, 'Cancelled'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Gagal'     , 4, 'Failed'     , NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Dalam Kemajuan', 5, 'In Progress', NULL, 0, NULL, 5, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Terlambat'    , 6, 'Overdue'    , NULL, 0, NULL, 6, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Dikembalikan'   , 7, 'Refunded'   , NULL, 0, NULL, 7, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'Tidak Dibayar', 8, 'Partially paid', NULL, 0, NULL, 8, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_cs, 'Pending refund', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'Pengembalian dana Tertunda', 9, 'Pending refund', NULL, 0, NULL, 9, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pcp, 'Menunggu Ulasan', 1, 'Waiting Review', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Disetujui'      , 2, 'Approved'      , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pcp, 'Tidak Disetujui'  , 3, 'Not Approved'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
 
-  (@option_group_id_pcpOwnerNotify, 'Owner chooses whether to receive notifications', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are sent to ALL owners'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_pcpOwnerNotify, 'Notifications are NOT available'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Pemilih memilih apakah menerima pemberitahuan', 1, 'owner_chooses', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Pemberitahuan dikirim ke SEMUA pemilik'      , 2, 'all_owners'      , NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_pcpOwnerNotify, 'Pemberitahuan TIDAK tersedia'  , 3, 'no_notifications'  , NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_pRole, 'Peserta',  1, 'Attendee',  NULL, 1, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_pRole, 'Volunteer', 2, 'Volunteer', NULL, 1, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_pRole, 'Sukarelawan', 2, 'Volunteer', NULL, 1, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pRole, 'Tuan Rumah',      3, 'Host',      NULL, 1, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_pRole, 'Pembicara',   4, 'Speaker',   NULL, 1, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
 
@@ -4957,7 +4957,7 @@ VALUES
   (@option_group_id_cvOpt, 'Hubungan',   2, 'rel', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Grup'       ,   3, 'group', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Catatan'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Label'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Etiket'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Ubah Login'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Kontribusi',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Keanggotaan'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
@@ -4968,8 +4968,8 @@ VALUES
   (@option_group_id_cvOpt, 'Penyuratan'     ,  14, 'CiviMail', NULL, 0, NULL,  14, NULL, 0, 0, 1, NULL, NULL),
 
 
-  (@option_group_id_csgOpt, 'Show Smart Groups on Demand',1, 'showondemand', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_csgOpt, 'Always Show Smart Groups',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'Tampilkan Kelompok Pintar pada Permintaan',1, 'showondemand', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_csgOpt, 'Selalu Tampilkan Kelompok Pintar',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_csgOpt, 'Sembunyikan Kelompok Pintar'       ,   3, 'hide', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_ceOpt, 'Data Pilihan'              ,   1, 'CustomData', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -4977,14 +4977,14 @@ VALUES
   (@option_group_id_ceOpt, 'Pilihan Komunikasi',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Catatan'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Demografi'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Label dan Kelompok'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Etiket dan Kelompok'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Email'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Telepon'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Pesan Instan'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Buka ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Website'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Awalan'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Formal Title'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Judul Resmi'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Nama Depan'               ,   14, 'First Name', NULL, 2, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Nama Tengah'              ,   15, 'Middle Name', NULL, 2, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Nama Akhir'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
@@ -5005,7 +5005,7 @@ VALUES
   (@option_group_id_asOpt, 'Perjanjian'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Tipe Kontak'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Grup'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Label'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Etiket'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Penyuratan'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_udOpt, 'Grup'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5016,7 +5016,7 @@ VALUES
   (@option_group_id_udOpt, 'Perjanjian'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Halaman Kampaye Pribadi'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Aktifitas Ditugaskan'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Tagihan / Catatan Kredit'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_acsOpt, 'Alamat Email'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Telepon'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
@@ -5048,92 +5048,92 @@ VALUES
   (@option_group_id_adOpt, 'Nama Alamat'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Mengurai Alamat Jalan', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_gType, 'Kontrol Akses', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_gType, 'Mailing List',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'kendali Akses', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'Daftar Penyuratan',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_grantSt, 'Diajukan', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Eligible', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Ineligible', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Memenuhi syarat', 2, 'Eligible',  NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Tidak memenuhi syarat', 3, 'Ineligible', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Dibayar', 4, 'Paid', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Awaiting Information', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Menunggu Informasi', 5, 'Awaiting Information', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_grantSt, 'Penarikan', 6, 'Withdrawn', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_grantSt, 'Approved for Payment',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_grantSt, 'Disetujui untuk Pembayaran',  7, 'Approved for Payment', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, 'Household Name and State', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContributionAggregate', 2, 'CRM_Contact_Form_Search_Custom_ContributionAggregate', NULL, 0, NULL, 2, 'Contribution Aggregate', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Sample'               , 1, 'CRM_Contact_Form_Search_Custom_Sample'      , NULL, 0, NULL, 1, 'Nama dan Negara Bagian Rumah Tangga', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContributionAggregate', 2, 'CRM_Contact_Form_Search_Custom_ContributionAggregate', NULL, 0, NULL, 2, 'Keseluruhan Sumbangan', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Basic'                , 3, 'CRM_Contact_Form_Search_Custom_Basic'       , NULL, 0, NULL, 3, 'Pencarian Dasar', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Group'                , 4, 'CRM_Contact_Form_Search_Custom_Group'       , NULL, 0, NULL, 4, 'Masukkan / Keluarkan Pencarian', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PostalMailing'        , 5, 'CRM_Contact_Form_Search_Custom_PostalMailing', NULL, 0, NULL, 5, 'Penyuratan Pos', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Proximity'            , 6, 'CRM_Contact_Form_Search_Custom_Proximity', NULL, 0, NULL, 6, 'Proximity Search', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_Proximity'            , 6, 'CRM_Contact_Form_Search_Custom_Proximity', NULL, 0, NULL, 6, 'Kedekatan Pencarian', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_EventAggregate'       , 7, 'CRM_Contact_Form_Search_Custom_EventAggregate', NULL, 0, NULL, 7, 'Keseluruhan Acara', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ActivitySearch'       , 8, 'CRM_Contact_Form_Search_Custom_ActivitySearch', NULL, 0, NULL, 8, 'Pencarian Aktifitas', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'Rincian Setelan Harga untuk Peserta Acara', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, 'Jangkauan Kode Zip', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'Tanggal Ditambahkan ke CiviCRM', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Custom Group Multiple Values Listing', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'Contributions made in Year X and not Year Y', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'Find Contribution Amounts by Tag', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Daftar Nilai Banyak Kelompok Penyesuaian', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'Sumbangan dibuat dalam Tahun X dan bukan Tahun Y', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'Temukan Bilangan Sumbangan berdasarkan Etiket', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, 'Pencarian Teks', 0, 0, 1, NULL, NULL),
 
 -- report templates
-  (@option_group_id_report , 'Constituent Report (Summary)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Sediakan daftar informasi alamat dan telepon untuk rekaman pemilih di sistem anda.', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Constituent Report (Detail)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Sediakan informasi kontak yang berhubungan pada sumbangan, keanggotaan, acara dan kegiatan.',   0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Laporan Aktifitas',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Sediakan daftar aktifitas pemilih termasuk statistik untuk satu/semua kontak selama jangkauan tanggal diberikan (dibutuhkan) ', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Walk / Phone List Report',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Provides a detailed report for your walk/phonelist for targetted contacts', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report , 'Current Employer Report',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Provides detail list of employer employee relationships along with employment details Ex Join Date', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Contribution Summary Report',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groups and totals contributions by criteria including contact, time period, financial type, contributor location, etc.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Contribution Detail Report',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Lists specific contributions by criteria including contact, time period, financial type, contributor location, etc. Contribution summary report points to this report for contribution details.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Repeat Contributions Report',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Diberikan jangkauan dua tanggal, tampilkan kontak yang menyumbang di kedua jangkauan tanggal dengan bilangan disumbang setiapnya dan persentase meningkat / menurun.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Contributions by Organization Report',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Tampilkan daftar rincian sumbangan dikelompokkan berdasarkan organisasi, dimana termasuk sumbangan yang dibuat oleh karyawan untuk organisasi.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Contributions by Household Report',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Tampilkan daftar rincian sumbangan dikelompokkan berdasarkan rumah tangga dimana termasuk sumbangan yang dibuat oleh anggota rumah tangga.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Top Donors Report',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, 'Sediakan daftar penyumbang teratas selama periode waktu yang anda tentukan. Anda dapat memasukkan sebanyak penyumbang yang anda mau (sebagai contoh, 100 teratas dari penyumbang anda).', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'SYBUNT Report',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT means some year(s) but not this year. Provides a list of constituents who donated at some time in the history of your organization but did not donate during the time period you specify.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'LYBUNT Report',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT means last year but not this year. Provides a list of constituents who donated last year but did not donate during the time period you specify as the current year.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Laporan Pemilih (Ringkasan)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Sediakan daftar informasi alamat dan telepon untuk rekaman pemilih di sistem anda.', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Laporan Pemilih (Rinci)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Sediakan informasi kontak yang berhubungan pada sumbangan, keanggotaan, acara dan kegiatan.',   0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Laporan Aktifitas',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Menyediakan daftar aktifitas pemilih termasuk statistik untuk satu/semua kontak selama jangkauan tanggal diberikan(wajib) ', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Laporan Daftar Jalan / Telepon',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Sediakan laporan rinci untuk daftar jalan/telepon anda untuk sasaran kontak', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report , 'Laporan Majikan Saat ini',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Sediakan rincian daftar hubungan majikan pegawai bersama dengan rincian pekerjaan Bekas Tanggal Gabung.', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Laporan Ringkasan Sumbangan',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Kelompok dan jumlah sumbangan berdasarkan kriteria termasuk kontak, periode waktu, jenis finansial, tempat penyumbang, dll.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Laporan Rincian Sumbangan',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Daftar sumbangan khusus berdasarkan kriteria termasuk kontak, periode waktu, jenis finansial, tempat sumbangan, dll. Laporan ringkasan sumbangan menunjuk pada laporan ini untuk rincian sumbangan.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Ulangi Laporan Sumbangan',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Diberikan jangkauan dua tanggal, tampilkan kontak yang menyumbang di kedua jangkauan tanggal dengan bilangan disumbang setiapnya dan persentase meningkat / menurun.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Sumbangan berdasarkan Laporan Organisasi',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Tampilkan daftar rincian sumbangan dikelompokkan berdasarkan organisasi, dimana termasuk sumbangan yang dibuat oleh karyawan untuk organisasi.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Sumbangan ebrdasarkan Laporan Rumah Tangga',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Tampilkan daftar rincian sumbangan dikelompokkan berdasarkan rumah tangga dimana termasuk sumbangan yang dibuat oleh anggota rumah tangga.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Laporan Pemberi Teratas',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, 'Sediakan daftar penyumbang teratas selama periode waktu yang anda tentukan. Anda dapat memasukkan sebanyak penyumbang yang anda mau (sebagai contoh, 100 teratas dari pemberi anda).', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Laporan SYBUNT',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT berarti beberapa tahun tetapi tidak tahun ini. Menyediakan daftar pemilih yang menyumbangkan beberapa kali dalam sejarah organisasi anda tetapi tidak menyumbang selama periode waktu yang anda tentukan.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Laporan LYBUNT',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT berarti tahun terakhir tetapi bukan tahun ini. Menyediakan daftar pemilih yang menyumbangkan tahun terakhir tetapi tidak menyumbang selama periode waktu yang anda tetapkan seperti tahun saat ini.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Laporan Kredit Lunak',                      'contribute/softcredit',          'CRM_Report_Form_Contribute_SoftCredit',          NULL, 0, NULL, 14, 'Tampilkan sumbangan dibuat oleh kontak yang telah di kredit-lunakkan ke kontak lain.', 0, 0, 1,@contributeCompId, NULL),
-  (@option_group_id_report , 'Membership Report (Summary)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Sediakan ringkasan keanggotaan berdasarkan jenis dan tanggal gabung.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Membership Report (Detail)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Sediakan daftar anggota bersama dengan keadaan keanggotaan dan rincian keanggotaan (Tanggal Gabung, Tanggal Awal, Tanggal Akhir). Anda dapat menampilkan sumbangan (pembayaran) yang terkait dengan setiap keanggotaan.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Membership Report (Lapsed)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Provides a list of memberships that lapsed or will lapse before the date you specify.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report , 'Event Participant Report (List)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Sediakan daftar peserta untuk sebuah acara.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Event Income Report (Summary)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Sediakan ikhtisar dari pendapatan acara. Anda dapat memasukkan informasi kunci seperti ID Acara, pendaftaran, kehadiran, dan pendapatan yang dibangkitkan untuk membantu menentukan berhasilnya sebuah acara.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Event Income Report (Detail)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Membantu anda menganalisa pendapatan yang dihasilkan oleh acara. Laporan dapat termasuk rincian berdasarkan jenis peserta, keadaan dan cara pembayaran.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Laporan Keanggotaan (Ringkasan)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Sediakan ringkasan keanggotaan berdasarkan jenis dan tanggal gabung.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Laporan Keanggotaan (Rincian)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Sediakan daftar anggota bersama dengan keadaan keanggotaan dan rincian keanggotaan (Tanggal Gabung, Tanggal Awal, Tanggal Akhir). Anda dapat menampilkan sumbangan (pembayaran) yang terkait dengan setiap keanggotaan.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Laporan Keanggotaan (Bekas)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Menyediakan daftar keanggotaan yang bekas atau akan bekas sebelum tanggal anda tentukan.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Laporan Peserta Acara (Daftar)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Sediakan daftar peserta untuk sebuah acara.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Laporan Pendapatan Acara (Ringkasan)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Sediakan ikhtisar dari pendapatan acara. Anda dapat memasukkan informasi kunci seperti ID Acara, pendaftaran, kehadiran, dan pendapatan yang dibangkitkan untuk membantu menentukan berhasilnya sebuah acara.', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Laporan Pendapatan Acara (Rincian)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Membantu anda menganalisa pendapatan yang dihasilkan oleh acara. Laporan dapat termasuk rincian berdasarkan jenis peserta, keadaan dan cara pembayaran.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Laporan Janji',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Laporan Janji', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Laporan Digadai Tapi belum Dibayar',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Laporan Digadai Tapi belum Dibayar', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Laporan Hubungan',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Laporan Hubungan', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Laporan Ringkasan Kasus',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Provides a summary of cases and their duration by date range, status, staff member and / or case role.', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report , 'Case Time Spent Report',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Aggregates time spent on case and / or non-case activities by activity type and contact.', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report , 'Contact Demographics Report',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'Demographic breakdown for case clients (and or non-case contacts) in your database. Includes custom contact fields.', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report , 'Database Log Report',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, 'Log of contact and activity records created or updated in a given date range.', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Laporan Ringkasan Kasus',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Menyediakan ringkasan kasus dan lamanya mereka berdasarkan jangkauan tanggal, keadaan, anggota staff dan / atau peran kasus.', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , 'Laporan Waktu Kasus Dihabiskan',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Kumpulan waktu dihabiskan di kasus dan / atau aktivitas bukan-kasus berdasarkan jenis aktivitas dan kontak.', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , 'Laporan Demografis Kontak',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'Pemecahan demografis untuk kasus klien (dan atau kontak bukan-kasus) di basisdata anda. Menyertakan bidang kontak penyesuaian.', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , 'Laporan Catatan Basisdata',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, 'Catatan dari kontak dan rekaman aktivitas dibuat dan diperbaharui dalam jangkauan tanggal yang diberikan.', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Laporan Aktifitas (Ringkasan)',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'Tampilkan statistik aktifitas berdasarkan jenis / tanggal', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report, 'Bookkeeping Transactions Report',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'Shows Bookkeeping Transactions Report', 0, 0, 1, 2, NULL),
-  (@option_group_id_report , 'Grant Report (Detail)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, 'Rincian Laporan Hadiah', 0, 0, 1, @grantCompId, NULL),
+  (@option_group_id_report, 'Laporan Pembukuan Transaksi',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'Tampilkan Laporan Pembukuan Transaksi', 0, 0, 1, 2, NULL),
+  (@option_group_id_report , 'Laporan Hadiah (Rincian)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, 'Rincian Laporan Hadiah', 0, 0, 1, @grantCompId, NULL),
   (@option_group_id_report, 'Daftar Peserta Laporan Penghitungan', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, 'Tampilkan daftar Peserta dengan Penghitungan Peserta.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'Laporan Ringkasan Penghitungan Pendapatan', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'Tampilkan Ringkasan Pendapatan dari acara dengan Penghitungan.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'Laporan Rincian Kasus', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, 'Rincian Kasus', 0, 0, 1, @caseCompId, NULL),
-  (@option_group_id_report, 'Mail Bounce Report', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'Laporan Dibalikkan untuk Penyuratan', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Mail Summary Report', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'RIngkasan statistik untuk penyuratan ', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Mail Opened Report', 'Mailing/opened', 'CRM_Report_Form_Mailing_Opened', NULL, 0, NULL, 36, 'Tampilkan kontak yang membuka email dari penyuratan ', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Mail Clickthrough Report', 'Mailing/clicks', 'CRM_Report_Form_Mailing_Clicks', NULL, 0, NULL, 37, 'Tampilkan klik dari setiap penyuratan', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Laporan Catatan Kontak (Ringkasan)', 'logging/contact/summary', 'CRM_Report_Form_Contact_LoggingSummary', NULL, 0, NULL, 38, 'Contact modification report for the logging infrastructure (summary).', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report, 'Contact Logging Report (Detail)', 'logging/contact/detail', 'CRM_Report_Form_Contact_LoggingDetail', NULL, 0, NULL, 39, 'Contact modification report for the logging infrastructure (detail).', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report, 'Contribute Logging Report (Summary)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'Contribute modification report for the logging infrastructure (summary).', 0, 0, 0, @contributeCompId, NULL),
-  (@option_group_id_report, 'Contribute Logging Report (Detail)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'Contribute modification report for the logging infrastructure (detail).', 0, 0, 0, @contributeCompId, NULL),
-  (@option_group_id_report, 'Laporan Hibah (Statistik)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, 'Shows statistics for Grants.', 0, 0, 1, @grantCompId, NULL),
-  (@option_group_id_report, 'Laporan Survei (Rincian) ',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 0, 0, 1, @campaignCompId, NULL),
-  (@option_group_id_report, 'Personal Campaign Page Report', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Meringkaskan bilangan yang dikumpulkan dan jumlah sumbangan untuk setiap Halaman Kampanye Pribadi.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Pledge Summary Report', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Ringkasan pegadaian termasuk bilangan tergadai, keadaan gadai, tangal pembayaran berikutnya, keseimbangan hak, jumlah bilangan bayar dll.', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report, 'Laporan Surat Ditolak', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'Laporan Dibalikkan untuk Penyuratan', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Laporan Surat Ringkasan', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'RIngkasan statistik untuk penyuratan ', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Laporan Surat Terbuka', 'Mailing/opened', 'CRM_Report_Form_Mailing_Opened', NULL, 0, NULL, 36, 'Tampilkan kontak yang membuka email dari penyuratan ', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Laporan Surat Klik melalui', 'Mailing/clicks', 'CRM_Report_Form_Mailing_Clicks', NULL, 0, NULL, 37, 'Tampilkan klik dari setiap penyuratan', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Laporan Catatan Kontak (Ringkasan)', 'logging/contact/summary', 'CRM_Report_Form_Contact_LoggingSummary', NULL, 0, NULL, 38, 'Laporan perubahan kontak untuk pencatatan insfrastruktur (ringkasan).', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report, 'Laporan Pencatatan Kontak (Rincian)', 'logging/contact/detail', 'CRM_Report_Form_Contact_LoggingDetail', NULL, 0, NULL, 39, 'Laporan perubahan kontak untuk pencatatan insfrastruktur (rincian).', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report, 'Laporan Pencatatan Menyumbang (Ringkasan)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'Laporan perubahan menyumbang untuk pencatatan insfrastruktur (ringkasan).', 0, 0, 0, @contributeCompId, NULL),
+  (@option_group_id_report, 'Laporan Catatan Menyumbang (Rincian)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'Laporan perubahan menyumbang untuk pencatatan infrastruktur (rincian).', 0, 0, 0, @contributeCompId, NULL),
+  (@option_group_id_report, 'Laporan Hibah (Statistik)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, 'Tampilkan statistik untuk Hadiah.', 0, 0, 1, @grantCompId, NULL),
+  (@option_group_id_report, 'Laporan Survei (Rincian) ',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Laporan rinci untuk meneliti, telepon-bank, daftar jalan atau survei lain.', 0, 0, 1, @campaignCompId, NULL),
+  (@option_group_id_report, 'Laporan Halaman Kampanye Pribadi', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Meringkaskan bilangan yang dikumpulkan dan jumlah sumbangan untuk setiap Halaman Kampanye Pribadi.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Laporan Ringkasan Janji', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Ringkasan pegadaian termasuk bilangan tergadai, keadaan gadai, tangal pembayaran berikutnya, keseimbangan hak, jumlah bilangan bayar dll.', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Sumbangan Keseluruhan berdasarkan Hubungan',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Daftar kontak sejarah sumbangan, dikelompokkan berdasarkan tanggal, bersama dengan sumbangan dikaitkan dengan kontak hubungan yang terkait. ', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report,  'Mail Detail Report',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Provides reporting on Intended and Successful Deliveries, Unsubscribes and Opt-outs, Replies and Forwards.',   0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report,  'Laporan Rincian Surat',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Sediakan pelaporan pada Pengiriman Yang DImaksud dan Berhasil, Berhenti Langganan, Menyingkirkan, Balasan dan Terusan.',   0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Rincian Sumbangan dan Keanggotaan', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Rincian sumbangan untuk setiap jenis sumbangan, ditambah informasi keanggotaan terkait untuk sumbangan yaitu pembayaran untuk keanggotaan.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Menyediakan informasi tentang keadaan sumbangan berulang', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Laporan Sumbangan Berulang', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Menyediakan informasi tentang keadaan sumbangan berulang', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'Terjadwal',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Lengkap',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Batal',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Pesan Ditinggalkan', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, 'Tidak dapat diraih', 5, 'Unreachable', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'Tidah DIbutuhkan',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Tidah Wajib',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, 'Tersedia',  7, 'Available',  NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acs, 'No-show',  8, 'No_show',  NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Tida-ditampilkan',  8, 'No_show',  NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_cas, 'Terus menerus' , 1, 'Open'  ,  'Opened', 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cas, 'Diselesaikan', 2, 'Closed',  'Closed', 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5256,10 +5256,10 @@ VALUES
    (@option_group_id_currency, 'USD ($)',      'USD',     'USD',       NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- event name badges
-  (@option_group_id_eventBadge,  'Hanya Nama'     , 1, 'CRM_Event_Badge_Simple'  ,  NULL, 0, 0, 1, 'Simple Event Name Badge', 0, 1, 1, NULL, NULL),
+  (@option_group_id_eventBadge,  'Hanya Nama'     , 1, 'CRM_Event_Badge_Simple'  ,  NULL, 0, 0, 1, 'Nama Lambang Acara Sederhana', 0, 1, 1, NULL, NULL),
   (@option_group_id_eventBadge,  'Nama Tenda'     , 2, 'CRM_Event_Badge_NameTent',  NULL, 0, 0, 2, 'Nama Tenda', 0, 1, 1, NULL, NULL),
   (@option_group_id_eventBadge , 'Dengan Logo'     , 3, 'CRM_Event_Badge_Logo'    ,  NULL, 0, 0, 3, 'Anda dapat menyetel gambar latar sendiri',                               0, 1, 1, NULL, NULL ),
-  (@option_group_id_eventBadge , '5395 dengan Logo', 4, 'CRM_Event_Badge_Logo5395',  NULL, 0, 0, 4, 'Avery 5395 compatible labels with logo (4 up by 2, 59.2mm x 85.7mm)', 0, 1, 1, NULL, NULL ),
+  (@option_group_id_eventBadge , '5395 dengan Logo', 4, 'CRM_Event_Badge_Logo5395',  NULL, 0, 0, 4, 'Setiap 5395 label cocok dengan loho (4 oleh  2, 59.2mm x 85.7mm)', 0, 1, 1, NULL, NULL ),
 
 -- note privacy levels
   (@option_group_id_notePrivacy, 'Tidak ada',        0, 'None',        NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
@@ -5348,9 +5348,9 @@ VALUES
   (@option_group_id_paperSize, 'ISO SRA4',        '{"metric":"pt","width":637.8,"height":907.09}',    'sra4',        NULL, NULL, 0, 62, NULL, 0, 0, 1, NULL, NULL),
 
 -- activity_contacts
-   (@option_group_id_aco, 'Activity Assignees', 1, 'Activity Assignees', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aco, 'Activity Source', 2, 'Activity Source', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aco, 'Activity Targets', 3, 'Activity Targets', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aco, 'Penerima Aktivitas', 1, 'Activity Assignees', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aco, 'Sumber Aktivitas', 2, 'Activity Source', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aco, 'Sasaran Aktivitas', 3, 'Activity Targets', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- financial_account_type
 -- grouping field is specific to Quickbooks for mapping to .iif format
@@ -5362,15 +5362,15 @@ VALUES
 
 -- account_relationship
     (@option_group_id_arel, 'Akun Pendapatan adalah', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
-    (@option_group_id_arel, 'Credit/Contra Account is', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
-    (@option_group_id_arel, 'Accounts Receivable Account is', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
-    (@option_group_id_arel, 'Credit Liability Account is', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
+    (@option_group_id_arel, 'Akun Kredit/Lawan adalah', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
+    (@option_group_id_arel, 'Akun Penerimaan Akun adalah', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'Akun Kewajiban Kredit adalah', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
      (@option_group_id_arel, 'Akun Pengeluaran adalah', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Akun Modal adalah', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Akun Biaya Penjualan adalah', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Premiums Inventory Account is', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Akun Inventaris Premium adalah', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Akun Potongan adalah', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Sales Tax Account is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Akun Pajak Penjualan adalah', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
    (@option_group_id_ere, 'Peran Peserta', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5382,14 +5382,14 @@ VALUES
 -- default batch types
    (@option_group_id_batch_type, 'Kontribusi', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Keanggotaan', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'Perjanjian Pembayaran', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
    (@option_group_id_batch_status, 'Buka', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_status, 'Tutup', 2, 'Closed', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_status, 'Masukan Data', 3, 'Data Entry', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_status, 'Buka ulang', 4, 'Reopened', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_status, 'Dikeluarkan', 5, 'Exported', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_status, 'Diekspor', 5, 'Exported', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch modes
    (@option_group_id_batch_mode, 'Kumpulan Manual', 1, 'Manual Batch', NULL, 0, 0, 1, 'Manual Batch', 0, 1, 1, 2, NULL),
@@ -5406,18 +5406,18 @@ VALUES
    (@option_group_id_sms_api_type, 'smtp', 3, 'smtp', NULL, NULL, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- auto renew options
-   (@option_group_id_aro, 'Renewal Reminder (non-auto-renew memberships only)', 1, 'Renewal Reminder (non-auto-renew memberships only)', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aro, 'Auto-renew Memberships Only', 2, 'Auto-renew Memberships Only', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_aro, 'Reminder for Both', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, 'Pengingat Pembaruan (hanya bukan-pembaruan-otomatis keanggotaan)', 1, 'Renewal Reminder (non-auto-renew memberships only)', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, 'Hanya Pembaruan-otomatis Keanggotaan', 2, 'Auto-renew Memberships Only', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_aro, 'Pengingat untuk Kedua', 3, 'Reminder for Both', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- Label Type
    (@option_group_id_label_type, 'Lambang Acara', 1, 'Event Badge', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Name Label format
    (@option_group_id_name_badge, 'Setiap 5395', '{"name":"Avery 5395","paper-size":"a4","metric":"mm","lMargin":15,"tMargin":26,"NX":2,"NY":4,"SpaceX":10,"SpaceY":5,"width":83,"height":57,"font-size":12,"orientation":"portrait","font-name":"helvetica","font-style":"","lPadding":3,"tPadding":3}', 'Avery 5395', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'A6 Badge Portrait 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Fattorini Name Badge 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_name_badge, 'Hanging Badge 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Lambang A6 Portrait 150x106', '{"paper-size":"a4","orientation":"landscape","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":1,"metric":"mm","lMargin":25,"tMargin":27,"SpaceX":0,"SpaceY":35,"width":106,"height":150,"lPadding":5,"tPadding":5}', 'A6 Badge Portrait 150x106', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Nama Lencana Fattorini 100x65', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":4,"metric":"mm","lMargin":6,"tMargin":19,"SpaceX":0,"SpaceY":0,"width":100,"height":65,"lPadding":0,"tPadding":0}', 'Fattorini Name Badge 100x65', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_name_badge, 'Simbol Gantung 3-3/4\" x 4-3\"/4', '{"paper-size":"a4","orientation":"portrait","font-name":"times","font-size":6,"font-style":"","NX":2,"NY":2,"metric":"mm","lMargin":10,"tMargin":28,"SpaceX":0,"SpaceY":0,"width":96,"height":121,"lPadding":5,"tPadding":5}', 'Hanging Badge 3-3/4" x 4-3"/4', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
 
 -- Mailing Label Formats
   (@option_group_id_label, 'Avery 3475', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":10,"font-style":"","metric":"mm","lMargin":0,"tMargin":5,"NX":3,"NY":8,"SpaceX":0,"SpaceY":0,"width":70,"height":36,"lPadding":5.08,"tPadding":5.08}',                   '3475',  'Avery', NULL, 0, 1,  NULL, 0, 1, 1, NULL, NULL),
@@ -5433,17 +5433,17 @@ VALUES
   (@option_group_id_label, 'Avery L7163', '{"paper-size":"a4","orientation":"portrait","font-name":"helvetica","font-size":9,"font-style":"","metric":"in","lMargin":0.18,"tMargin":0.6,"NX":2,"NY":7,"SpaceX":0.1,"SpaceY":0,"width":3.9,"height":1.5,"lPadding":0.20,"tPadding":0.20}',          'L7163', 'Avery', NULL, 0, 11, NULL, 0, 1, 1, NULL, NULL),
 
 -- Communication Styles
-  (@option_group_id_communication_style, 'Formal'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_communication_style, 'Familiar', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Resmi'  , 1, 'formal'  , NULL, 0, 1, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_communication_style, 'Akrab', 2, 'familiar', NULL, 0, 0, 2, NULL, 0, 0, 1, NULL, NULL),
 
 -- Message Mode
 (@option_group_id_msg_mode, 'Email', 'Email', 'Email', NULL, 0, 1, 1, NULL, 0, 1, 1, NULL, NULL),
 (@option_group_id_msg_mode, 'SMS', 'SMS', 'SMS', NULL, 0, 0, 2, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_msg_mode, 'User Preference', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_msg_mode, 'Pilihan Pengguna', 'User_Preference', 'User Preference', NULL, 0, 0, 3, NULL, 0, 1, 1, NULL, NULL),
 
 -- Reminder Options for Contact Date Fields
-(@option_group_id_contactDateMode, 'Actual date only', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
-(@option_group_id_contactDateMode, 'Each anniversary', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
+(@option_group_id_contactDateMode, 'Hanya tanggal sebenarnya', '1', 'Actual date only', NULL, NULL, 0, 1, NULL, 0, 1, 1, NULL, NULL),
+(@option_group_id_contactDateMode, 'Setiap ulang tahun', '2', 'Each anniversary', NULL, NULL, 0, 2, NULL, 0, 1, 1, NULL, NULL);
 
 -- financial accounts
 SELECT @opval := value FROM civicrm_option_value WHERE name = 'Revenue' and option_group_id = @option_group_id_fat;
@@ -5455,16 +5455,16 @@ SELECT @opCost := value FROM civicrm_option_value WHERE name = 'Cost of Sales' a
 INSERT INTO
    `civicrm_financial_account` (`name`, `contact_id`, `financial_account_type_id`, `description`, `accounting_code`, `account_type_code`, `is_reserved`, `is_active`, `is_deductible`, `is_default`)
 VALUES
-  ( 'Donation'            , @contactID, @opval, 'Default account for donations', '4200', 'INC', 0, 1, 1, 1 ),
-  ( 'Member Dues'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
-  ( 'Campaign Contribution', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
+  ( 'Sumbangan'            , @contactID, @opval, 'Default account for donations', '4200', 'INC', 0, 1, 1, 1 ),
+  ( 'Anggota Karena'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
+  ( 'Sumbangan Kampanye', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
   ( 'Biaya Acara'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
   ( 'Biaya Bank'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
   ( 'Rekening Deposito Bank' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
   ( 'Akun Penerimaan'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
   ( 'Akun Pembayaran'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
   ( 'Premium'             , @contactID, @opCost, 'Account to record cost of premiums provided to payors', '5100', 'COGS', 0, 1, 0, 1 ),
-  ( 'Premiums inventory'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
+  ( 'Inventaris premium'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
   ( 'Potongan'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
   ( 'Bilangan Pengolahan Pembayaran', @contactID, @opAsset, 'Account to record payments into a payment processor merchant account', '1150', 'BANK', 0, 1, 0, 0
 );
@@ -5476,7 +5476,7 @@ INSERT INTO
    `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`, `grouping`, `filter`, `is_default`, `weight`, `description`, `is_optgroup`, `is_reserved`, `is_active`, `component_id`, `domain_id`, `visibility_id`)
 VALUES
 -- from email address.
-  (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'Default domain email address and from name.', 0, 0, 1, NULL, @domainID, NULL ),
+  (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'Alamat emal ranah awal dan nama dari.', 0, 0, 1, NULL, @domainID, NULL ),
 
 -- grant types
   (@option_group_id_grantTyp, 'Darurat'          , 1, 'Emergency'         , NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, @domainID, NULL),
@@ -5530,7 +5530,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'bm_ML', 'bm', 'Bambara', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ba_RU', 'ba', 'Bashkir', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'eu_ES', 'eu', 'Basque', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'be_BY', 'be', 'Belarusian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'be_BY', 'be', 'Belarus', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bn_BD', 'bn', 'Bengali', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bh_IN', 'bh', 'Bihari', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'bi_VU', 'bi', 'Bislama', @counter := @counter + 1),
@@ -5549,7 +5549,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'co_FR', 'co', 'Corsican', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'cr_CA', 'cr', 'Cree', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'hr_HR', 'hr', 'Kroasia', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'cs_CZ', 'cs', 'Czech', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'cs_CZ', 'cs', 'Ceko', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'da_DK', 'da', 'Denmark', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'dv_MV', 'dv', 'Divehi; Dhivehi; Maldivian;', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'nl_NL', 'nl', 'Belanda', @counter := @counter + 1),
@@ -5559,19 +5559,19 @@ VALUES
   (@option_group_id_languages, 0, 1, 'en_GB', 'en', 'Inggis (Inggris)', @counter := @counter + 1),
   (@option_group_id_languages, 1, 1, 'en_US', 'en', 'Inggris (Amerika Serikat)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'eo_XX', 'eo', 'Esperanto', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'et_EE', 'et', 'Estonian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'et_EE', 'et', 'Estonia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ee_GH', 'ee', 'Ewe', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'fo_FO', 'fo', 'Faroese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'fo_FO', 'fo', 'Kepulauan Faroe', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'fj_FJ', 'fj', 'Fiji', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fi_FI', 'fi', 'Prancis (Kanada)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'fr_CA', 'fr', 'Prancis (Prancis)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'fr_FR', 'fr', 'French (France)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'fr_FR', 'fr', 'Perancis (Perancis)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ff_SN', 'ff', 'Fula; Fulah; Pulaar; Pular', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'gl_ES', 'gl', 'Galician', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ka_GE', 'ka', 'Georgian', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'de_DE', 'de', 'German', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'de_CH', 'de', 'German (Swiss)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'el_GR', 'el', 'Greek, Modern', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'gl_ES', 'gl', 'Galisia', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ka_GE', 'ka', 'Georgia', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'de_DE', 'de', 'Jerman', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'de_CH', 'de', 'Jerman (Swis)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'el_GR', 'el', 'Yunani, Modern', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gn_PY', 'gn', 'Guarani­', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gu_IN', 'gu', 'Gujarati', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ht_HT', 'ht', 'Haitian; Haitian Creole', @counter := @counter + 1),
@@ -5580,9 +5580,9 @@ VALUES
   (@option_group_id_languages, 0, 0, 'hz_NA', 'hz', 'Herero', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'hi_IN', 'hi', 'Hindi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ho_PG', 'ho', 'Hiri Motu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'hu_HU', 'hu', 'Hungarian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'hu_HU', 'hu', 'Hungaria', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ia_XX', 'ia', 'Interlingua', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'id_ID', 'id', 'Indonesian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'id_ID', 'id', 'Indonesia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ie_XX', 'ie', 'Interlingue', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ga_IE', 'ga', 'Irlandia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ig_NG', 'ig', 'Igbo', @counter := @counter + 1),
@@ -5613,30 +5613,30 @@ VALUES
   (@option_group_id_languages, 0, 0, 'li_NL', 'li', 'Limburgish, Limburgan, Limburger', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ln_CD', 'ln', 'Lingala', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'lo_LA', 'lo', 'Lao', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'lt_LT', 'lt', 'Lithuanian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'lt_LT', 'lt', 'Lituania', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'lu_CD', 'lu', 'Luba-Katanga', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'lv_LV', 'lv', 'Latvian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'lv_LV', 'lv', 'Latvia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gv_IM', 'gv', 'Manx', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mk_MK', 'mk', 'Macedonian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mk_MK', 'mk', 'Macedonia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mg_MG', 'mg', 'Malagasy', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ms_MY', 'ms', 'Malay', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ml_IN', 'ml', 'Malayalam', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mt_MT', 'mt', 'Maltese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mi_NZ', 'mi', 'Māori', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mi_NZ', 'mi', 'Maori', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mr_IN', 'mr', 'Marathi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'mh_MH', 'mh', 'Marshallese', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'mn_MN', 'mn', 'Mongolian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'mn_MN', 'mn', 'Mongolia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'na_NR', 'na', 'Nauru', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'nv_US', 'nv', 'Navajo, Navaho', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'nb_NO', 'nb', 'Norwegian BokmÃ¥l', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', 'North Ndebele', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ne_NP', 'ne', 'Nepali', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nd_ZW', 'nd', 'Ndebele Utara', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ne_NP', 'ne', 'Nepal', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ng_NA', 'ng', 'Ndonga', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'nn_NO', 'nn', 'Norwegian Nynorsk', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'no_NO', 'no', 'Norwegian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'no_NO', 'no', 'Norwegia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ii_CN', 'ii', 'Nuosu', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'South Ndebele', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'Occitan (after 1500)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'Ndebele Selatan', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'Occitan (setelah 1500)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'oj_CA', 'oj', 'Ojibwa', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', 'Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'om_ET', 'om', 'Oromo', @counter := @counter + 1),
@@ -5644,7 +5644,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'Ossetian, Ossetic', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'pa_IN', 'pa', 'Panjabi, Punjabi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'pi_KH', 'pi', 'Pali', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'Persian (Iran)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'fa_IR', 'fa', 'Persia (Iran)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'pl_PL', 'pl', 'Polish', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ps_AF', 'ps', 'Pashto, Pushto', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'pt_BR', 'pt', 'Portugis (Brasil)', @counter := @counter + 1),
@@ -5653,14 +5653,14 @@ VALUES
   (@option_group_id_languages, 0, 0, 'rm_CH', 'rm', 'Romansh', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'rn_BI', 'rn', 'Kirundi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'ro_RO', 'ro', 'Romanian, Moldavian, Moldovan', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'ru_RU', 'ru', 'Russian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'ru_RU', 'ru', 'Rusia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sa_IN', 'sa', 'Sanskrit', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sc_IT', 'sc', 'Sardinian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sc_IT', 'sc', 'Sardinia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sd_IN', 'sd', 'Sindhi', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'se_NO', 'se', 'Northern Sami', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sm_WS', 'sm', 'Samoan', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sm_WS', 'sm', 'Samoa', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sg_CF', 'sg', 'Sango', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'sr_RS', 'sr', 'Serbian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'sr_RS', 'sr', 'Serbia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'gd_GB', 'gd', 'Scottish Gaelic; Gaelic', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sn_ZW', 'sn', 'Shona', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'si_LK', 'si', 'Sinhala, Sinhalese', @counter := @counter + 1),
@@ -5668,34 +5668,34 @@ VALUES
   (@option_group_id_languages, 0, 1, 'sl_SI', 'sl', 'Slovene', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'so_SO', 'so', 'Somali', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'st_ZA', 'st', 'Southern Sotho', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'Spanish; Castilian (Spain)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'Spanish; Castilian (Mexico)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'Spanish; Castilian (Puerto Rico)', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'Sundanese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_ES', 'es', 'Spanyol; Castilian (Spanyol)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_MX', 'es', 'Spanyol; Castilian (Mexico)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'es_PR', 'es', 'Spanyol; Castilian (Puerto Rico)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'su_ID', 'su', 'Sunda', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'sw_TZ', 'sw', 'Swahili', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ss_ZA', 'ss', 'Swati', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'Swedish', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'sv_SE', 'sv', 'Swedia', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ta_IN', 'ta', 'Tamil', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'te_IN', 'te', 'Telugu', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tg_TJ', 'tg', 'Tajik', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'th_TH', 'th', 'Thai', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ti_ET', 'ti', 'Tigrinya', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'bo_CN', 'bo', 'Tibetan Standard, Tibetan, Central', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'bo_CN', 'bo', 'Standar Tibet, Tibet, Tengah', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tk_TM', 'tk', 'Turkmen', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tl_PH', 'tl', 'Tagalog', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tn_ZA', 'tn', 'Tsawan', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'to_TO', 'to', 'Tonga (Tonga Islands)', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'to_TO', 'to', 'Tonga (Kepulauan Tonga)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 1, 'tr_TR', 'tr', 'Turki', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ts_ZA', 'ts', 'Tsonga', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tt_RU', 'tt', 'Tatar', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'tw_GH', 'tw', 'Twi', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'ty_PF', 'ty', 'Tahitian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'ty_PF', 'ty', 'Tahiti', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ug_CN', 'ug', 'Uighur, Uyghur', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'uk_UA', 'uk', 'Ukrainian', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'uk_UA', 'uk', 'Ukraina', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'ur_PK', 'ur', 'Urdu', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'uz_UZ', 'uz', 'Uzbek', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 've_ZA', 've', 'Venda', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 1, 'vi_VN', 'vi', 'Vietnamese', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 1, 'vi_VN', 'vi', 'Vietnam', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'vo_XX', 'vo', 'Volapük', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'wa_BE', 'wa', 'Walloon', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'cy_GB', 'cy', 'Welsh', @counter := @counter + 1),
@@ -5717,7 +5717,7 @@ SELECT @option_group_id_medium        := max(id) from civicrm_option_group where
 INSERT INTO
    `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`, `grouping`, `filter`, `is_default`, `weight`, `description`, `is_optgroup`, `is_reserved`, `is_active`)
 VALUES
-    (@option_group_id_medium, 'In Person',  1, 'in_person', NULL, 0,  0, 1, NULL, 0, 1, 1),
+    (@option_group_id_medium, 'Secara Pribadi',  1, 'in_person', NULL, 0,  0, 1, NULL, 0, 1, 1),
     (@option_group_id_medium, 'Telepon',  2, 'phone', NULL, 0,  1, 2, NULL, 0, 1, 1),
     (@option_group_id_medium, 'Email',  3, 'email', NULL, 0,  0, 3, NULL, 0, 1, 1),
     (@option_group_id_medium, 'Faks',  4, 'fax', NULL, 0,  0, 4, NULL, 0, 1, 1),
@@ -5731,7 +5731,7 @@ VALUES
     ('Current',   'Sekarang', 'start_date', null, null,'end_date', null, null, 1, 0, 2, 1, 1, 0),
     ('Grace',     'Rahmat', 'end_date', null, null,'end_date','month', 1, 1, 0, 3, 0, 1, 0),
     ('Expired',   'Kadaluarsa', 'end_date', 'month', 1, null, null, null, 0, 0, 4, 0, 1, 0),
-    ('Pending',   'Ditunda', 'join_date', null, null,'join_date',null,null, 0, 0, 5, 0, 1, 1),
+    ('Pending',   'Tertunda', 'join_date', null, null,'join_date',null,null, 0, 0, 5, 0, 1, 1),
     ('Cancelled', 'Batal', 'join_date', null, null,'join_date',null,null, 0, 0, 6, 0, 1, 1),
     ('Deceased',  'Mendiang', null, null, null, null, null, null, 0, 1, 7, 0, 1, 1);
 
@@ -5757,19 +5757,19 @@ INSERT INTO `civicrm_payment_processor_type`
  (name, title, description, is_active, is_default, user_name_label, password_label, signature_label, subject_label, class_name, url_site_default, url_api_default, url_recur_default, url_button_default, url_site_test_default, url_api_test_default, url_recur_test_default, url_button_test_default, billing_mode, is_recur )
 VALUES
  ('PayPal_Standard',    'PayPal  - Standar Pembayaran Situs', NULL,1,0,'Email Akun Pedagang',NULL,NULL,NULL,'Payment_PayPalImpl','https://www.paypal.com/',NULL,'https://www.paypal.com/',NULL,'https://www.sandbox.paypal.com/',NULL,'https://www.sandbox.paypal.com/',NULL,4,1),
- ('PayPal',             'PayPal - Website Payments Pro',      NULL,1,0,'Nama User','Kata Sandi','Tanda Tangan',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/','https://www.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/','https://www.sandbox.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',3, 1 ),
+ ('PayPal',             'PayPal - Profesional Pembayaran Jaringan Situs',      NULL,1,0,'Nama User','Kata Sandi','Tanda Tangan',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/','https://www.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/','https://www.sandbox.paypal.com/','https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',3, 1 ),
  ('PayPal_Express',     'PayPal - Ekspres',       NULL,1,0,'Nama User','Kata Sandi','Tanda Tangan',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',2,NULL),
  ('Google_Checkout',    'Google Checkout',        NULL,1,0,'ID Pedagang','Kunci',NULL,NULL,'Payment_Google','https://checkout.google.com/',NULL,'https://checkout.google.com/','https://checkout.google.com/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US','https://sandbox.google.com/checkout/',NULL,'https://sandbox.google.com/checkout/','https://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US',4,1),
  ('Moneris',            'Moneris',                NULL,1,0,'Nama User','Kata Sandi','ID Toko',NULL,'Payment_Moneris','https://www3.moneris.com/',NULL,NULL,NULL,'https://esqa.moneris.com/',NULL,NULL,NULL,1,1),
  ('AuthNet',            'Authorize.Net',          NULL,1,0,'Login API','Kunci Induk','MD5 Hash',NULL,'Payment_AuthorizeNet','https://secure.authorize.net/gateway/transact.dll',NULL,'https://api.authorize.net/xml/v1/request.api',NULL,'https://test.authorize.net/gateway/transact.dll',NULL,'https://apitest.authorize.net/xml/v1/request.api',NULL,1,1),
  ('PayJunction',        'PayJunction',            NULL,1,0,'User Name','Password',NULL,NULL,'Payment_PayJunction','https://payjunction.com/quick_link',NULL,NULL,NULL,'https://www.payjunctionlabs.com/quick_link',NULL,NULL,NULL,1,1),
  ('eWAY',               'eWAY (Mata uang Tunggal) ', NULL,1,0,'Customer ID',NULL,NULL,NULL,'Payment_eWAY','https://www.eway.com.au/gateway_cvn/xmlpayment.asp',NULL,NULL,NULL,'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp',NULL,NULL,NULL,1,0),
- ('Payment_Express',    'DPS Payment Express',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
+ ('Payment_Express',    'Ekspres Pembayaran DPS',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
  ('Dummy',              'Pengolahan Pembayaran Tiruan',NULL,1,1,'Nama User',NULL,NULL,NULL,'Payment_Dummy',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,1),
- ('Elavon',             'Pengolahan Pembayaran Elavon','Elavon / Nova Virtual Merchant',1,0,'SSL ID Pedagang','SSL ID Pengguna','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
- ('Realex',             'Realex Payment',         NULL,1,0,'Merchant ID', 'Password', NULL, 'Account', 'Payment_Realex', 'https://epage.payandshop.com/epage.cgi', NULL, NULL, NULL, 'https://epage.payandshop.com/epage-remote.cgi', NULL, NULL, NULL, 1, 0 ),
+ ('Elavon',             'Pengolahan Pembayaran Elavon','Pedagang Maya Elavon / Nova',1,0,'SSL ID Pedagang','SSL ID Pengguna','SSL PIN',NULL,'Payment_Elavon','https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do',NULL,NULL,NULL,1,0),
+ ('Realex',             'Pembayaran Realex',         NULL,1,0,'Merchant ID', 'Password', NULL, 'Account', 'Payment_Realex', 'https://epage.payandshop.com/epage.cgi', NULL, NULL, NULL, 'https://epage.payandshop.com/epage-remote.cgi', NULL, NULL, NULL, 1, 0 ),
  ('PayflowPro',         'PayflowPro',             NULL,1,0,'Vendor ID', 'Password', 'Partner (merchant)', 'User', 'Payment_PayflowPro', 'https://Payflowpro.paypal.com', NULL, NULL, NULL, 'https://pilot-Payflowpro.paypal.com', NULL, NULL, NULL, 1, 0 ),
- ('FirstData',          'FirstData (aka linkpoint)', 'FirstData (aka linkpoint)', 1, 0, 'Store name', 'certificate path', NULL, NULL, 'Payment_FirstData', 'https://secure.linkpt.net', NULL, NULL, NULL, 'https://staging.linkpt.net', NULL, NULL, NULL, 1, NULL);
+ ('FirstData',          'FirstData (alias titiktautan)', 'FirstData (alias titiktautan)', 1, 0, 'Store name', 'certificate path', NULL, NULL, 'Payment_FirstData', 'https://secure.linkpt.net', NULL, NULL, NULL, 'https://staging.linkpt.net', NULL, NULL, NULL, 1, NULL);
 
 
 -- the fuzzy default dedupe rules
@@ -5826,7 +5826,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 
 -- IndividualGeneral uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualGeneral)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'Name and Address (reserved)', 1);
+VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'Nama dan Alamat (dipesan)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5847,7 +5847,7 @@ INSERT INTO civicrm_county (name, state_province_id) VALUES ('Santa Clara', 1004
 -- Bounce classification patterns
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('AOL', 'AOL Terms of Service complaint', 1);
+        VALUES ('AOL', 'Keluhan Ketentuan Layanan AOL', 1);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'AOL';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -5868,7 +5868,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Dns', 'Unable to resolve recipient domain', 3);
+        VALUES ('Dns', 'Tidak dapat menyelesaikan ranah penerima', 3);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Dns';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -5881,7 +5881,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Host', 'Unable to deliver to destintation mail server', 3);
+        VALUES ('Host', 'Tidak dapat mengirim ke peladen surat tujuan', 3);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Host';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -5998,7 +5998,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Loop', 'Mail routing error', 3);
+        VALUES ('Loop', 'Kesalahan perutean surat', 3);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Loop';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6117,13 +6117,13 @@ INSERT INTO civicrm_uf_group
     (4,  'new_individual',     'Individual,Contact',  'Individu Baru'    ,             0,      1,           NULL),
     (5,  'new_organization',   'Organization,Contact','Organisasi Baru'  ,             0,      1,           NULL),
     (6,  'new_household',      'Household,Contact',   'Rumah tangga Baru'     ,             0,      1,           NULL),
-    (7,  'summary_overlay',    'Contact',             'Summary Overlay'   ,             0,      1,           NULL),
+    (7,  'summary_overlay',    'Contact',             'Hamparan Ringkasan'   ,             0,      1,           NULL),
     (8,  'shared_address',     'Contact',             'Alamat Berbagi'                , 0,      1,           NULL),
     (9,  'on_behalf_organization', 'Contact,Organization','Atas Nama Organisasi',  0,      1,           NULL),
     (10, 'contribution_batch_entry', 'Contribution', 'Contribution Bulk Entry' ,       0,      1,           NULL),
     (11, 'membership_batch_entry', 'Membership',     'Membership Bulk Entry' ,         0,      1,           NULL),
     (12, 'event_registration', 'Individual,Contact', 'Info Pendaftaran Anda',         0,      0,           NULL),
-    (13, 'honoree_individual', 'Individual,Contact', 'Honoree Individual',             0,      1,           NULL);
+    (13, 'honoree_individual', 'Individual,Contact', 'Individu Penerima Kehormatan',             0,      1,           NULL);
 
 
 INSERT INTO civicrm_uf_join
@@ -6163,7 +6163,7 @@ INSERT INTO civicrm_uf_field
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'Kode Pos',              'Contact',      NULL,  NULL),
        (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'Email Utama',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'Grup',                   'Contact',      NULL,  NULL),
-       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Label',                     'Contact',      NULL,  NULL),
+       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Etiket',                     'Contact',      NULL,  NULL),
        (  7,           'gender_id',             1,           0,           10,     'User and User Admin Only',  0,           0,             NULL,          'Jenis Kelamin',                   'Individual',   NULL,  NULL),
        (  7,           'birth_date',            1,           0,           11,     'User and User Admin Only',  0,           0,             NULL,          'Tanggal Lahir',            'Individual',   NULL,  NULL),
        (  8,           'street_address',        1,           1,           1,      'User and User Admin Only',  0,           0,             1,             'Alamat Jalan (Rumah)',    'Contact',      NULL,  NULL),
@@ -6180,7 +6180,7 @@ INSERT INTO civicrm_uf_field
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'Negara',                  'Contact',      NULL,   NULL),
        (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Negara Bagian/Propinsi',         'Contact',      NULL,   NULL),
        ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Jenis Finansial', 'Contribution', NULL, NULL ),
-       ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Amount', 'Contribution', NULL, NULL ),
+       ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Bilangan', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Status', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Diterima', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Sumber', 'Contribution', NULL, NULL ),
@@ -6197,7 +6197,7 @@ INSERT INTO civicrm_uf_field
        ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Sumber', 'Membership', NULL, NULL ),
        ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Kirim Penerimaan', 'Membership', NULL, NULL ),
        ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Jenis Finansial', 'Membership', NULL, NULL ),
-       ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Amount', 'Membership', NULL, NULL ),
+       ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Bilangan', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, 'Diterima', 'Membership', NULL, NULL ),
        ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Dibayar Oleh', 'Membership', NULL, NULL ),
        ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Periksa Angka', 'Membership', NULL, NULL ),
@@ -6217,19 +6217,19 @@ INSERT INTO civicrm_participant_status_type
   (id, name,                                  label,                                                       class,      is_reserved, is_active, is_counted, weight, visibility_id) VALUES
   (1,  'Registered',                          'Terdaftar',                          'Positive', 1,           1,         1,          1,      1            ),
   (2,  'Attended',                            'Dihadiri',                            'Positive', 0,           1,         1,          2,      2            ),
-  (3,  'No-show',                             'No-show',                             'Negative', 0,           1,         0,          3,      2            ),
+  (3,  'No-show',                             'Tida-ditampilkan',                             'Negative', 0,           1,         0,          3,      2            ),
   (4,  'Cancelled',                           'Batal',                           'Negative', 1,           1,         0,          4,      2            ),
-  (5,  'Pending from pay later',              'Ditunda untuk bayar nanti',              'Pending',  1,           1,         1,          5,      2            ),
-  (6,  'Pending from incomplete transaction', 'Ditunda dari transaksi tidak lengkap', 'Pending',  1,           1,         0,          6,      2            ),
+  (5,  'Pending from pay later',              'Tertunda untuk bayar nanti',              'Pending',  1,           1,         1,          5,      2            ),
+  (6,  'Pending from incomplete transaction', 'Tertunda dari transaksi tidak lengkap', 'Pending',  1,           1,         0,          6,      2            ),
   (7,  'On waitlist',                         'Di daftar tunggu',                         'Waiting',  1,           0,         0,          7,      2            ),
   (8,  'Awaiting approval',                   'Menunggu Persetujuan',                   'Waiting',  1,           0,         1,          8,      2            ),
-  (9,  'Pending from waitlist',               'Ditunda dari daftar tunggu',               'Pending',  1,           0,         1,          9,      2            ),
-  (10, 'Pending from approval',               'Ditunda dari persetujuan',               'Pending',  1,           0,         1,          10,     2            ),
+  (9,  'Pending from waitlist',               'Tertunda dari daftar tunggu',               'Pending',  1,           0,         1,          9,      2            ),
+  (10, 'Pending from approval',               'Tertunda dari persetujuan',               'Pending',  1,           0,         1,          10,     2            ),
   (11, 'Rejected',                            'Ditolak',                            'Negative', 1,           0,         0,          11,     2            ),
   (12, 'Expired',                             'Kadaluarsa',                             'Negative', 1,           1,         0,          12,     2            ),
-  (13, 'Pending in cart',                     'Ditunda di keranjang',                     'Pending',  1,           1,         0,          13,     2            ),
+  (13, 'Pending in cart',                     'Tertunda di keranjang',                     'Pending',  1,           1,         0,          13,     2            ),
   (14,  'Partially paid',                      'Tidak Dibayar',                      'Positive', 1,           1,         1,          14,     2           ),
-  (15,  'Pending refund',                      'Pending refund',                      'Positive', 1,           1,         1,          14,     2           );
+  (15,  'Pending refund',                      'Pengembalian dana Tertunda',                      'Positive', 1,           1,         1,          14,     2           );
 
 
 
@@ -6248,7 +6248,7 @@ INSERT INTO `civicrm_contact_type`
   (`id`, `name`, `label`,`image_URL`, `parent_id`, `is_active`,`is_reserved`)
  VALUES
   ( 1, 'Individual'  , 'Individu'  , NULL, NULL, 1, 1),
-  ( 2, 'Household'   , 'Rumahtangga'   , NULL, NULL, 1, 1),
+  ( 2, 'Household'   , 'Rumah Tangga'   , NULL, NULL, 1, 1),
   ( 3, 'Organization', 'Organisasi', NULL, NULL, 1, 1);
 
 -- +--------------------------------------------------------------------+
@@ -6281,7 +6281,7 @@ INSERT INTO `civicrm_contact_type`
 
 INSERT INTO civicrm_option_group
   (name,                         title,            description,      is_reserved, is_active) VALUES
-    ('msg_tpl_workflow_case', 'Message Template Workflow for Cases',               'Message Template Workflow for Cases',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Message Template Workflow for Contributions',               'Message Template Workflow for Contributions',                     1,           1) ,    ('msg_tpl_workflow_event', 'Message Template Workflow for Events',               'Message Template Workflow for Events',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Message Template Workflow for Tell-a-Friend',               'Message Template Workflow for Tell-a-Friend',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Message Template Workflow for Memberships',               'Message Template Workflow for Memberships',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Message Template Workflow for Meta Templates',               'Message Template Workflow for Meta Templates',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Message Template Workflow for Pledges',               'Message Template Workflow for Pledges',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Message Template Workflow for Profiles',               'Message Template Workflow for Profiles',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Message Template Workflow for Petition',               'Message Template Workflow for Petition',                     1,           1) ;
+    ('msg_tpl_workflow_case', 'Alurkerja Cetakan Pesan untuk Kasus',               'Alurkerja Cetakan Pesan untuk Kasus',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Alurkerja Cetakan Pesan untuk Sumbangan',               'Alurkerja Cetakan Pesan untuk Sumbangan',                     1,           1) ,    ('msg_tpl_workflow_event', 'Alurkerja Cetakan Pesan untuk Acara',               'Alurkerja Cetakan Pesan untuk Acara',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Alurkerja Cetakan Pesan untuk Beritahu-Teman',               'Alurkerja Cetakan Pesan untuk Beritahu-Teman',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Alurkerja Cetakan Pesan untuk Keanggotaan',               'Alurkerja Cetakan Pesan untuk Keanggotaan',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Alurkerja Cetakan Pesan untuk Meta Cetakan',               'Alurkerja Cetakan Pesan untuk Meta Cetakan',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Alurkerja Cetakan Pesan untuk Janji',               'Alurkerja Cetakan Pesan untuk Janji',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Alurkerja Cetakan Pesan untuk Profil',               'Alurkerja Cetakan Pesan untuk Profil',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Alurkerja Cetakan Pesan untuk Petisi',               'Alurkerja Cetakan Pesan untuk Petisi',                     1,           1) ;
   SELECT @tpl_ogid_case := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_case';
   SELECT @tpl_ogid_contribution := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_contribution';
   SELECT @tpl_ogid_event := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_event';
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Kasus - Kirim Salinan Aktifitas',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Sumbangan - Pemberitahuan Organisasi Rangkap',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Contributions - Receipt (off-line)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Contributions - Receipt (on-line)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Contributions - Recurring Start and End Notification',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Contributions - Recurring Cancellation Notification',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Contributions - Recurring Billing Updates',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Contributions - Recurring Updates',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Personal Campaign Pages - Admin Notification',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Personal Campaign Pages - Supporter Status Change Notification',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Personal Campaign Pages - Supporter Welcome',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Events - Registration Confirmation and Receipt (off-line)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Events - Registration Confirmation and Receipt (on-line)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Acara - Hanya penerimaan',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Events - Registration Cancellation Notice',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Events - Registration Confirmation Invite',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Events - Pending Registration Expiration Notice',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Email Beritahu-Teman',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Memberships - Signup and Renewal Receipts (off-line)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Memberships - Receipt (on-line)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Memberships - Auto-renew Cancellation Notification',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Memberships - Auto-renew Billing Updates',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Test-drive - Receipt Header',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Janji - Pengakuan',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Janji - Pengingat Pembayaran',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profil - Pemberitahuan Admin',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Petisi - tanda tangan ditambahkan',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Petisi - butuh pengecekan',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Kasus - Kirim Salinan Aktifitas',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Sumbangan - Pemberitahuan Organisasi Rangkap',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Sumbangan - Penerimaan (tanpa-jaringan)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Sumbangan - Penerimaan (daring)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Sumbangan - Tagihan',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Sumbangan - Pemberitahuan Awal dan Akhir Berulang',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Sumbangan - Pemberitahuan Pembatalan Berulang',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Sumbangan - Pembaharuan Tagihan Berulang',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Sumbangan - Permbaharuan Berulang',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Halaman Kampanye Pribadi - Pemberitahuan Admin',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Halaman Kampanye Pribadi - Pemberitahuan Perubahan Keadaan Pendukung',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Halaman Kampanye Pribadi - Selamat Datang Pendukung',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Halaman Kampanye Pribadi - Pemberitahuan Pemilik',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Penerimaan Pembayaran Tambahan atau Pemberitahuan Pengembalian',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Acara - Penegasan Pendaftaran dan Penerimaan (tanpa-jaringan)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Acara - Penegasan Pendaftaran dan Penerimaan (daring)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Acara - Hanya penerimaan',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Acara - Pemberitahuan Pembatalan Pendaftaran',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Acara - Pendaftaran dan Penegasan Undang',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Acara - Pemberitahuan Kadaluarsa Pendaftaran Tertunda',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Email Beritahu-Teman',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Keanggotaan - Daftar dan Perpanjang Penerimaan (tanpa-jaringan)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Keanggotaan - Penerimaan (tanpa-jaringan)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Keanggotaan - Pemberitahuan Pembatalan Pembaruan-otomatis',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Keanggotaan - Memperbaharui Tagihan Pembaruan-otomatis',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Percobaan - Kepala Penerima',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Janji - Pengakuan',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Janji - Pengingat Pembayaran',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profil - Pemberitahuan Admin',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Petisi - tanda tangan ditambahkan',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Petisi - butuh pengecekan',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -6834,7 +6834,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_dupalert, 0,          1) ,      
       
       
-      ('Contributions - Receipt (off-line)', '{ts}Contribution Receipt{/ts}
+      ('Sumbangan - Penerimaan (tanpa-jaringan)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7273,7 +7273,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_offline_receipt, 1,          0),
-      ('Contributions - Receipt (off-line)', '{ts}Contribution Receipt{/ts}
+      ('Sumbangan - Penerimaan (tanpa-jaringan)', '{ts}Contribution Receipt{/ts}
 ', '{if $formValues.receipt_text}
 {$formValues.receipt_text}
 {else}{ts}Thank you for your support.{/ts}{/if}
@@ -7714,7 +7714,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_offline_receipt, 0,          1) ,      
       
       
-      ('Contributions - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Sumbangan - Penerimaan (daring)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -8397,7 +8397,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_online_receipt, 1,          0),
-      ('Contributions - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Sumbangan - Penerimaan (daring)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -9082,7 +9082,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_online_receipt, 0,          1) ,      
       
       
-      ('Contributions - Invoice', '{if $title}
+      ('Sumbangan - Tagihan', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9529,7 +9529,7 @@ from your next payment to us</div><br/></font></td>
   </body>
 </html>
 ', @tpl_ovid_contribution_invoice_receipt, 1,          0),
-      ('Contributions - Invoice', '{if $title}
+      ('Sumbangan - Tagihan', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9978,7 +9978,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_invoice_receipt, 0,          1) ,      
       
       
-      ('Contributions - Recurring Start and End Notification', '{ts}Recurring Contribution Notification{/ts}
+      ('Sumbangan - Pemberitahuan Awal dan Akhir Berulang', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10155,7 +10155,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_notify, 1,          0),
-      ('Contributions - Recurring Start and End Notification', '{ts}Recurring Contribution Notification{/ts}
+      ('Sumbangan - Pemberitahuan Awal dan Akhir Berulang', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10334,7 +10334,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_notify, 0,          1) ,      
       
       
-      ('Contributions - Recurring Cancellation Notification', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('Sumbangan - Pemberitahuan Pembatalan Berulang', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10372,7 +10372,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_cancelled, 1,          0),
-      ('Contributions - Recurring Cancellation Notification', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('Sumbangan - Pemberitahuan Pembatalan Berulang', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10412,7 +10412,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_cancelled, 0,          1) ,      
       
       
-      ('Contributions - Recurring Billing Updates', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Sumbangan - Pembaharuan Tagihan Berulang', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10499,7 +10499,7 @@ from your next payment to us</div><br/></font></td>
 
 </body>
 </html>', @tpl_ovid_contribution_recurring_billing, 1,          0),
-      ('Contributions - Recurring Billing Updates', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Sumbangan - Pembaharuan Tagihan Berulang', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10588,7 +10588,7 @@ from your next payment to us</div><br/></font></td>
 </html>', @tpl_ovid_contribution_recurring_billing, 0,          1) ,      
       
       
-      ('Contributions - Recurring Updates', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Sumbangan - Permbaharuan Berulang', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10632,7 +10632,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_edit, 1,          0),
-      ('Contributions - Recurring Updates', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Sumbangan - Permbaharuan Berulang', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10678,7 +10678,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_edit, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Admin Notification', '{ts}Personal Campaign Page Notification{/ts}
+      ('Halaman Kampanye Pribadi - Pemberitahuan Admin', '{ts}Personal Campaign Page Notification{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Notification{/ts}
 
@@ -10796,7 +10796,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_notify, 1,          0),
-      ('Personal Campaign Pages - Admin Notification', '{ts}Personal Campaign Page Notification{/ts}
+      ('Halaman Kampanye Pribadi - Pemberitahuan Admin', '{ts}Personal Campaign Page Notification{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Notification{/ts}
 
@@ -10916,7 +10916,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Supporter Status Change Notification', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Halaman Kampanye Pribadi - Pemberitahuan Perubahan Keadaan Pendukung', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11020,7 +11020,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_status_change, 1,          0),
-      ('Personal Campaign Pages - Supporter Status Change Notification', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Halaman Kampanye Pribadi - Pemberitahuan Perubahan Keadaan Pendukung', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11126,7 +11126,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_status_change, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Supporter Welcome', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Halaman Kampanye Pribadi - Selamat Datang Pendukung', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{ts}Dear supporter{/ts},
 {ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}
 
@@ -11284,7 +11284,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_supporter_notify, 1,          0),
-      ('Personal Campaign Pages - Supporter Welcome', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Halaman Kampanye Pribadi - Selamat Datang Pendukung', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{ts}Dear supporter{/ts},
 {ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}
 
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Halaman Kampanye Pribadi - Pemberitahuan Pemilik', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Halaman Kampanye Pribadi - Pemberitahuan Pemilik', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11544,7 +11544,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_owner_notify, 0,          1) ,      
       
       
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Penerimaan Pembayaran Tambahan atau Pemberitahuan Pengembalian', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -11930,7 +11930,7 @@ from your next payment to us</div><br/></font></td>
  </body>
 </html>
 ', @tpl_ovid_payment_or_refund_notification, 1,          0),
-      ('Additional Payment Receipt or Refund Notification', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
+      ('Penerimaan Pembayaran Tambahan atau Pemberitahuan Pengembalian', '{if $isRefund}{ts}Refund Notification{/ts}{else}{ts}Payment Receipt{/ts}{/if} - {if $component eq \'event\'}{$event.title}{/if}', 'Dear {$contactDisplayName}
 {if $paymentConfig.confirm_email_text}
 {$paymentConfig.confirm_email_text}
 {elseif $isRefund}
@@ -12318,7 +12318,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_payment_or_refund_notification, 0,          1) ,      
       
       
-      ('Events - Registration Confirmation and Receipt (off-line)', '{ts}Event Confirmation{/ts} - {$event.title}
+      ('Acara - Penegasan Pendaftaran dan Penerimaan (tanpa-jaringan)', '{ts}Event Confirmation{/ts} - {$event.title}
 ', '{if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
 {/if}
@@ -13149,7 +13149,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_event_offline_receipt, 1,          0),
-      ('Events - Registration Confirmation and Receipt (off-line)', '{ts}Event Confirmation{/ts} - {$event.title}
+      ('Acara - Penegasan Pendaftaran dan Penerimaan (tanpa-jaringan)', '{ts}Event Confirmation{/ts} - {$event.title}
 ', '{if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
 {/if}
@@ -13982,7 +13982,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_event_offline_receipt, 0,          1) ,      
       
       
-      ('Events - Registration Confirmation and Receipt (on-line)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
+      ('Acara - Penegasan Pendaftaran dan Penerimaan (daring)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
 
 {if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
@@ -14806,7 +14806,7 @@ You were registered by: {$payer.name}
 </body>
 </html>
 ', @tpl_ovid_event_online_receipt, 1,          0),
-      ('Events - Registration Confirmation and Receipt (on-line)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
+      ('Acara - Penegasan Pendaftaran dan Penerimaan (daring)', '{if $isOnWaitlist}{ts}Wait List Confirmation{/ts}{else}{ts}Registration Confirmation{/ts}{/if} - {$event.event_title}', 'Dear {contact.display_name},
 
 {if $event.confirm_email_text AND (not $isOnWaitlist AND not $isRequireApproval)}
 {$event.confirm_email_text}
@@ -16204,7 +16204,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
 ', @tpl_ovid_event_registration_receipt, 0,          1) ,      
       
       
-      ('Events - Registration Cancellation Notice', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
+      ('Acara - Pemberitahuan Pembatalan Pendaftaran', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your Event Registration has been cancelled.{/ts}
@@ -16411,7 +16411,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
 </body>
 </html>
 ', @tpl_ovid_participant_cancelled, 1,          0),
-      ('Events - Registration Cancellation Notice', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
+      ('Acara - Pemberitahuan Pembatalan Pendaftaran', '{ts 1=$event.event_title}Event Registration Cancelled for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your Event Registration has been cancelled.{/ts}
@@ -16620,7 +16620,7 @@ Total: {$total|crmMoney:$currency|string_format:"%10s"}
 ', @tpl_ovid_participant_cancelled, 0,          1) ,      
       
       
-      ('Events - Registration Confirmation Invite', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
+      ('Acara - Pendaftaran dan Penegasan Undang', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 {if !$isAdditional and $participant.id}
 
@@ -16898,7 +16898,7 @@ Click this link to go to a web page where you can confirm your registration onli
 </body>
 </html>
 ', @tpl_ovid_participant_confirm, 1,          0),
-      ('Events - Registration Confirmation Invite', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
+      ('Acara - Pendaftaran dan Penegasan Undang', '{ts 1=$event.event_title}Confirm your registration for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 {if !$isAdditional and $participant.id}
 
@@ -17178,7 +17178,7 @@ Click this link to go to a web page where you can confirm your registration onli
 ', @tpl_ovid_participant_confirm, 0,          1) ,      
       
       
-      ('Events - Pending Registration Expiration Notice', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
+      ('Acara - Pemberitahuan Kadaluarsa Pendaftaran Tertunda', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$event.event_title}Your pending event registration for %1 has expired
@@ -17392,7 +17392,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_participant_expired, 1,          0),
-      ('Events - Pending Registration Expiration Notice', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
+      ('Acara - Pemberitahuan Kadaluarsa Pendaftaran Tertunda', '{ts 1=$event.event_title}Event registration has expired for %1{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$event.event_title}Your pending event registration for %1 has expired
@@ -17724,7 +17724,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_friend, 0,          1) ,      
       
       
-      ('Memberships - Signup and Renewal Receipts (off-line)', '{if $receiptType EQ \'membership signup\'}
+      ('Keanggotaan - Daftar dan Perpanjang Penerimaan (tanpa-jaringan)', '{if $receiptType EQ \'membership signup\'}
 {ts}Membership Confirmation and Receipt{/ts}
 {elseif $receiptType EQ \'membership renewal\'}
 {ts}Membership Renewal Confirmation and Receipt{/ts}
@@ -18139,7 +18139,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_offline_receipt, 1,          0),
-      ('Memberships - Signup and Renewal Receipts (off-line)', '{if $receiptType EQ \'membership signup\'}
+      ('Keanggotaan - Daftar dan Perpanjang Penerimaan (tanpa-jaringan)', '{if $receiptType EQ \'membership signup\'}
 {ts}Membership Confirmation and Receipt{/ts}
 {elseif $receiptType EQ \'membership renewal\'}
 {ts}Membership Renewal Confirmation and Receipt{/ts}
@@ -18556,7 +18556,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_offline_receipt, 0,          1) ,      
       
       
-      ('Memberships - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Keanggotaan - Penerimaan (tanpa-jaringan)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -19366,7 +19366,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_online_receipt, 1,          0),
-      ('Memberships - Receipt (on-line)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Keanggotaan - Penerimaan (tanpa-jaringan)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -20178,7 +20178,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_online_receipt, 0,          1) ,      
       
       
-      ('Memberships - Auto-renew Cancellation Notification', '{ts}Autorenew Membership Cancellation Notification{/ts}
+      ('Keanggotaan - Pemberitahuan Pembatalan Pembaruan-otomatis', '{ts}Autorenew Membership Cancellation Notification{/ts}
 ', '{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}
 
 ===========================================================
@@ -20262,7 +20262,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_autorenew_cancelled, 1,          0),
-      ('Memberships - Auto-renew Cancellation Notification', '{ts}Autorenew Membership Cancellation Notification{/ts}
+      ('Keanggotaan - Pemberitahuan Pembatalan Pembaruan-otomatis', '{ts}Autorenew Membership Cancellation Notification{/ts}
 ', '{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}
 
 ===========================================================
@@ -20348,7 +20348,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_autorenew_cancelled, 0,          1) ,      
       
       
-      ('Memberships - Auto-renew Billing Updates', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Keanggotaan - Memperbaharui Tagihan Pembaruan-otomatis', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}
 
@@ -20437,7 +20437,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_membership_autorenew_billing, 1,          0),
-      ('Memberships - Auto-renew Billing Updates', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Keanggotaan - Memperbaharui Tagihan Pembaruan-otomatis', '{ts}Membership Autorenewal Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}
 
@@ -20528,7 +20528,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_membership_autorenew_billing, 0,          1) ,      
       
       
-      ('Test-drive - Receipt Header', '[TEST]
+      ('Percobaan - Kepala Penerima', '[TEST]
 ', '***********************************************************
 
 {ts}Test-drive Email / Receipt{/ts}
@@ -20547,7 +20547,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
  </table>
 </center>
 ', @tpl_ovid_test_preview, 1,          0),
-      ('Test-drive - Receipt Header', '[TEST]
+      ('Percobaan - Kepala Penerima', '[TEST]
 ', '***********************************************************
 
 {ts}Test-drive Email / Receipt{/ts}
@@ -22752,14 +22752,14 @@ SELECT @option_value_rel_id_ar  := value FROM civicrm_option_value WHERE option_
 SELECT @option_value_rel_id_as  := value FROM civicrm_option_value WHERE option_group_id = @option_group_id_arel AND name = 'Asset Account is';
 SELECT @option_value_rel_id_cg  := value FROM civicrm_option_value WHERE option_group_id = @option_group_id_arel AND name = 'Cost of Sales Account is';
 
-SELECT @financial_type_id_dtn          := max(id) FROM civicrm_financial_type WHERE name = 'Donation';
-SELECT @financial_type_id_md         := max(id) FROM civicrm_financial_type WHERE name = 'Member Dues';
-SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'Campaign Contribution';
+SELECT @financial_type_id_dtn          := max(id) FROM civicrm_financial_type WHERE name = 'Sumbangan';
+SELECT @financial_type_id_md         := max(id) FROM civicrm_financial_type WHERE name = 'Anggota Karena';
+SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'Sumbangan Kampanye';
 SELECT @financial_type_id_ef         := max(id) FROM civicrm_financial_type WHERE name = 'Biaya Acara';
 
-SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account WHERE name = 'Donation';
-SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = 'Member Dues';
-SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Campaign Contribution';
+SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account WHERE name = 'Sumbangan';
+SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = 'Anggota Karena';
+SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Sumbangan Kampanye';
 SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'Biaya Acara';
 SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Biaya Bank';
 SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Akun Penerimaan';
@@ -22828,15 +22828,15 @@ INSERT INTO `civicrm_option_value` (`option_group_id`, `label`, `value`, `name`,
 VALUES
   (@option_group_id_soft_credit_type   , 'Untuk Menghormati', 1, 'in_honor_of', 1, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'Untuk Mengingat', 2, 'in_memory_of', 2, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Solicited', 3, 'solicited', 3, 1, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Rumahtangga', 4, 'household', 4, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Workplace Giving', 5, 'workplace', 5, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Foundation Affiliate', 6, 'foundation_affiliate', 6, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
-  (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
+  (@option_group_id_soft_credit_type   , 'Diminta', 3, 'solicited', 3, 1, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Rumah Tangga', 4, 'household', 4, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Pemberian Tempat kerja', 5, 'workplace', 5, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Afiliasi Yayasan', 6, 'foundation_affiliate', 6, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Layanan pihak-ke3', 7, '3rd-party_service', 7, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Dana disarankan-pemberi', 8, 'donor-advised_fund', 8, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Hadiah Cocok', 9, 'matched_gift', 9, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'Halaman Kampanye Pribadi', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Hadiah', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
 -- | CiviCRM version 4.6                                                |
@@ -22940,6 +22940,8 @@ INSERT INTO `civicrm_dashboard`
     ( `domain_id`, `name`, `label`, `url`, `permission`, `permission_operator`, `column_no`, `is_minimized`, `is_active`, `weight`, `fullscreen_url`, `is_fullscreen`, `is_reserved`)
     VALUES
     ( @domainID, 'blog', 'CiviCRM News', 'civicrm/dashlet/blog?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/blog?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+    ( @domainID, 'getting-started', 'Getting Started', 'civicrm/dashlet/getting-started?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/getting-started?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+
     ( @domainID, 'activity', 'Aktivitas', 'civicrm/dashlet/activity?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 1, 'civicrm/dashlet/activity?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'myCases', 'Kasus Saya', 'civicrm/dashlet/myCases?reset=1&snippet=5', 'access my cases and activities', NULL , 0, 0, 1, 2, 'civicrm/dashlet/myCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'allCases', 'All Cases', 'civicrm/dashlet/allCases?reset=1&snippet=5', 'access all cases and activities', NULL , 0, 0, 1, 3, 'civicrm/dashlet/allCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
@@ -23292,21 +23294,22 @@ INSERT INTO civicrm_navigation
 VALUES
     ( @domainID, 'civicrm/admin/setting/component?reset=1', 'Enable CiviCRM Components', 'Enable Components',                                 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 1 ),
     ( @domainID, 'civicrm/admin/extensions?reset=1',        'Manage Extensions', 'Manage Extensions', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 2 ),
-    ( @domainID, 'civicrm/admin/setting/smtp?reset=1',                  'Outbound Email (SMTP/Sendmail)', 'Outbound Email',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 3 ),
-    ( @domainID, 'civicrm/admin/paymentProcessor?reset=1',              'Payment Processors', 'Payment Processors',                           'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 4 ),
-    ( @domainID, 'civicrm/admin/setting/mapping?reset=1',               'Mapping and Geocoding', 'Mapping and Geocoding',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 5 ),
-    ( @domainID, 'civicrm/admin/setting/misc?reset=1',                  'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 6 ),
-    ( @domainID, 'civicrm/admin/setting/path?reset=1',                  'Directories',        'Directories',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 7 ),
-    ( @domainID, 'civicrm/admin/setting/url?reset=1',                   'Resource URLs',      'Resource URLs',                                'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 8 ),
-    ( @domainID, 'civicrm/admin/setting/updateConfigBackend?reset=1',   'Cleanup Caches and Update Paths', 'Cleanup Caches and Update Paths', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 9 ),
-    ( @domainID, 'civicrm/admin/setting/uf?reset=1',                    'CMS Database Integration',    'CMS Integration',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 10 ),
-    ( @domainID, 'civicrm/admin/options/safe_file_extension?reset=1', 'Safe File Extensions', 'Safe File Extensions','administer CiviCRM', '',@systemSettingslastID, '1', NULL, 11 ),
-    ( @domainID, 'civicrm/admin/options?reset=1',                       'Option Groups', 'Option Groups',                                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 12 ),
-    ( @domainID, 'civicrm/admin/mapping?reset=1',                       'Import/Export Mappings', 'Import/Export Mappings',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 13 ),
-    ( @domainID, 'civicrm/admin/setting/debug?reset=1',                 'Debugging and Error Handling','Debugging and Error Handling',        'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 14 ),
-    ( @domainID, 'civicrm/admin/setting/preferences/multisite?reset=1', 'Multi Site Settings', 'Multi Site Settings',                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 15 ),
-    ( @domainID, 'civicrm/admin/job?reset=1',                           'Scheduled Jobs', 'Scheduled Jobs',                                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 16 ),
-    ( @domainID, 'civicrm/admin/sms/provider?reset=1', 'SMS Providers', 'SMS Providers',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 17 );
+    ( @domainID, 'civicrm/a/#/cxn',                                     'Connections', 'Connections',                                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 3 ),
+    ( @domainID, 'civicrm/admin/setting/smtp?reset=1',                  'Outbound Email (SMTP/Sendmail)', 'Outbound Email',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 4 ),
+    ( @domainID, 'civicrm/admin/paymentProcessor?reset=1',              'Payment Processors', 'Payment Processors',                           'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 5 ),
+    ( @domainID, 'civicrm/admin/setting/mapping?reset=1',               'Mapping and Geocoding', 'Mapping and Geocoding',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 6 ),
+    ( @domainID, 'civicrm/admin/setting/misc?reset=1',                  'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 7 ),
+    ( @domainID, 'civicrm/admin/setting/path?reset=1',                  'Directories',        'Directories',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 8 ),
+    ( @domainID, 'civicrm/admin/setting/url?reset=1',                   'Resource URLs',      'Resource URLs',                                'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 9 ),
+    ( @domainID, 'civicrm/admin/setting/updateConfigBackend?reset=1',   'Cleanup Caches and Update Paths', 'Cleanup Caches and Update Paths', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 10 ),
+    ( @domainID, 'civicrm/admin/setting/uf?reset=1',                    'CMS Database Integration',    'CMS Integration',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 11 ),
+    ( @domainID, 'civicrm/admin/options/safe_file_extension?reset=1', 'Safe File Extensions', 'Safe File Extensions','administer CiviCRM', '',@systemSettingslastID, '1', NULL, 12 ),
+    ( @domainID, 'civicrm/admin/options?reset=1',                       'Option Groups', 'Option Groups',                                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 13 ),
+    ( @domainID, 'civicrm/admin/mapping?reset=1',                       'Import/Export Mappings', 'Import/Export Mappings',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 14 ),
+    ( @domainID, 'civicrm/admin/setting/debug?reset=1',                 'Debugging and Error Handling','Debugging and Error Handling',        'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 15 ),
+    ( @domainID, 'civicrm/admin/setting/preferences/multisite?reset=1', 'Multi Site Settings', 'Multi Site Settings',                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 16 ),
+    ( @domainID, 'civicrm/admin/job?reset=1',                           'Scheduled Jobs', 'Scheduled Jobs',                                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 17 ),
+    ( @domainID, 'civicrm/admin/sms/provider?reset=1', 'SMS Providers', 'SMS Providers',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 18 );
 
 
 -- begin component admin menus
@@ -23706,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.10';
+UPDATE civicrm_domain SET version = '4.6.12';
