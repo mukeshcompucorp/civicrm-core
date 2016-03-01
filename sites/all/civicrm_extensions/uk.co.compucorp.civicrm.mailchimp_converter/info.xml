@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="uk.co.compucorp.civicrm.mailchimp_converter" type="module">
+  <file>mailchimp_converter</file>
+  <name>Mailchimp token converter</name>
+  <description>A CiviCRM extension to replace mailchimp tokens with CiviCRM tokens, configuring the token replacement on a case-by-case basis.</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Pawe&#x142; &#x141;uczkiewicz, Jamie Novick</author>
+    <email>pawel@compucorp.co.uk, jamie@compucorp.co.uk</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">https://github.com/compucorp/uk.co.compucorp.civicrm.mailchimp_converter</url>
+    <url desc="Documentation">https://github.com/compucorp/uk.co.compucorp.civicrm.mailchimp_converter</url>
+    <url desc="Support">support@compucorp.co.uk</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+  </urls>
+  <releaseDate>2016-02-16</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.6</ver>
+  </compatibility>
+  <comments>This is a new, undeveloped module</comments>
+  <civix>
+    <namespace>CRM/MailchimpConverter</namespace>
+  </civix>
+</extension>
