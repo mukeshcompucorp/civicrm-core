@@ -126,22 +126,30 @@ function variablemembershipgraceperiod_civicrm_alterSettingsFolders(&$metaDataFo
 
 function variablemembershipgraceperiod_civicrm_alterCalculatedMembershipStatus(&$membershipStatus, $arguments, $membership) {
 
-  $memberships = array(8,9,10,14,15,16,18,19,20,21,22);
+  $memberships = array(
+    //Contemporaries, Contemporaries Annual DD, Contemporaries Monthly DD, Contemporaries Discounted
+    //Contemporaries Discounted Annual DD, Contemporaries Discounted Monthly DD
+    20, 21, 22, 23, 24 ,25,
+    //Patron, Patron Annual DD, Patron Monthly DD, Directors' Circle,
+    //Directors' Circle Annual DD, Directors' Circle Monthly DD, Council, Council Annual DD
+    10, 9, 8, 16, 15, 14, 19, 18,
+    //Advisory TPGC Committee, Advisory TPGC Committee Annual DD, Advisory TPGC Committee Monthly DD
+    //Honorary TPGC Committee, Honorary TPGC Ambassador, Honorary TPGC Patron
+    28, 29, 30, 31, 32, 35
+  );
 
-  if(empty($arguments['membership_type_id']) || !in_array($arguments['membership_type_id'], array(8, 9, 10))) {
+  if(empty($arguments['membership_type_id']) || in_array($arguments['membership_type_id'], $memberships)) {
     return;
   }
 
   $statusDate = strtotime($arguments['status_date']);
   $endDate = strtotime($arguments['end_date']);
-  $graceEndDate = strtotime('+ 3 months', $endDate);
 
-  if($statusDate > $endDate && $statusDate <= $graceEndDate) {
+  if($statusDate > $endDate) {
 
-    $membershipStatus['name'] = 'Grace';
-    $membershipStatus['id'] = 3;
-
-  }
-
+    $membershipStatus['name'] = 'Expired';
+    $membershipStatus['id'] = 4;
 
   }
+
+}
