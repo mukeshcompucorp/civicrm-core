@@ -4636,7 +4636,7 @@ VALUES
    ('individual_suffix'             , 'Achtervoegsel voor personen'        , 1, 1, 0),
    ('acl_role'                      , 'ACL-rol'                           , 1, 1, 0),
    ('accept_creditcard'             , 'Geaccepteerde credit kaarten'              , 1, 1, 0),
-   ('payment_instrument'            , 'Betalingsinstrumenten'                , 1, 1, 0),
+   ('payment_instrument'            , 'Betaalwijzen'                , 1, 1, 0),
    ('contribution_status'           , 'Bijdragestatus'                , 1, 1, 1),
    ('pcp_status'                    , 'PCP Status'                         , 1, 1, 1),
    ('pcp_owner_notify'              , 'PCP eigenaar notificaties'            , 1, 1, 1),
@@ -4673,7 +4673,7 @@ VALUES
    ('addressee'                     , 'Geadresseerde type'                     , 1, 1, 0),
    ('contact_autocomplete_options'  , 'Autocomplete contacten zoeken'        , 1, 1, 1),
    ('contact_reference_options'     , 'Contact Referentie Aanvul Opties', 1, 1, 1),
-   ('website_type'                  , 'Website Type'                       , 1, 1, 0),
+   ('website_type'                  , 'Websitetype'                       , 1, 1, 0),
    ('tag_used_for'                  , 'Kenmerk gebruikt voor'                       , 1, 1, 1),
    ('currencies_enabled'            , 'Valuta ingeschakeld'                 , 1, 1, 0),
    ('event_badge'                   , 'Naam van het evenement label'                   , 1, 1, 0),
@@ -5043,8 +5043,8 @@ VALUES
   (@option_group_id_adOpt, 'Streek'            ,  7, 'county'        , NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Staat/Provincie'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Land'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'breedtegraad'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'lengtegraad'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Breedtegraad'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Lengtegraad'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Adresnaam'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Straatadres verwerking', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.12';
+UPDATE civicrm_domain SET version = '4.6.14';
