@@ -4564,12 +4564,12 @@ SELECT @domainID := id FROM civicrm_domain where name = 'Default Domain Name';
 -- CRM-9120 for legacy reasons we are continuing to translate the 'name', but this
 -- field is used mainly as an ID, and display_name will be shown to the user, but
 -- we have not yet finished modifying all places where the 'name' is shown.
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'الصفحة الرئيسية', 'الصفحة الرئيسية', 'HOME', 'مكان الإقامة ', 0, 1, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'الرئيسية', 'الرئيسية', 'HOME', 'مكان الإقامة ', 0, 1, 1 );
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'العمل', 'العمل', 'WORK', 'موقع العمل ', 0, 1 );
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'الأساسي', 'الأساسي', NULL, 'موقع المكتب الرئيسي ', 0, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'الرئيسي', 'الرئيسي', NULL, 'موقع المكتب الرئيسي ', 0, 1 );
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'آخر', 'آخر', NULL, 'موقع آخر', 0, 1 );
 -- the following location must stay with the untranslated Billing name, CRM-2064
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Billing',  'إرسال الفواتير', NULL, 'عنوان إرسال الفواتير ', 1, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Billing',  'مكان استلام الفواتير', NULL, 'عنوان إرسال الفواتير ', 1, 1 );
 
 -- Sample relationship types
 INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, description, contact_type_a, contact_type_b, is_reserved )
@@ -4609,7 +4609,7 @@ VALUES
     ('رسالة ترحيبية','Welcome','تمّ تفعيل اشتراكك','مرحباً بك. تمّ تفعيل اشتراكك في لائحة البريد الإلكتروني 1%, ','مرحباً بك. تمّ تفعيل اشتراكك في لائحة البريد الإلكتروني 1%, ',1,1),
     ('رسالة إلغاء الاشتراك','Unsubscribe','التأكيد على إلغاء الاشتراك','تمّ إلغاء اشتراكك من المجموعات التالية: 1%. يمكنك إعادة الاشتراك من خلال إرسال بريد إلكتروني 2% أو النقر <a href=\"{action.resubscribeUrl}\">هنا</a>.','تمّ إلغاء اشتراكك من المجموعات التالية: 1%. يمكنك إعادة الاشتراك من خلال إرسال بريد إلكتروني 2% أو النقر 3%',1,1),
     ('رسالة معاودة الاشتراك','Resubscribe','تمّ التأكيد على إعادة الاشتراك','أعيد اشتراكك في المجموعات التالية:  {resubscribe.group}. لا يجوز لك إلغاء الاشتراك بمراسلة {action.unsubscribe}، أو النقر على <a href=\"{action.unsubscribeUrl}\">هنا</a>. ','أعيد اشتراكك في المجموعات التالية:  {resubscribe.group}. يجوز لك إلغاء الاشتراك بمراسلة {action.unsubscribe}، أو النقر على {action.unsubscribeUrl}',1,1),
-    ('رسالة إلغاء الاشتراك','OptOut','تأكيد الانسحاب','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ',1,1),
+    ('رسالة انسحاب','OptOut','تأكيد الانسحاب','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ','تمّ إلغاء عنوان بريدك الإلكتروني من لوائح البريد الإلكتروني 1%. ',1,1),
     ('مجيب آلي','Reply','يُرجى إرسال الاستفسارات إلى العنوان الإلكتروني لجهة الاتصال الخاصة بنا','هذا رد آلي من بريد إلكتروني غير مستخدم. يُرجى إرسال أيّ استفسار إلى عنوان البريد الإلكتروني المدرج على موقعنا الإلكتروني. ','هذا رد آلي من بريد إلكتروني غير مستخدم. يُرجى إرسال أيّ استفسار إلى عنوان البريد الإلكتروني المدرج على موقعنا الإلكتروني. ',1,1);
 
 
@@ -4627,13 +4627,13 @@ VALUES
 INSERT INTO
    `civicrm_option_group` (`name`, `title`, `is_reserved`, `is_active`, `is_locked`)
 VALUES
-   ('preferred_communication_method', 'وسيلة الاتصال المفضلة'     , 1, 1, 0),
+   ('preferred_communication_method', 'وسيلة الاتصال المفضّلة'     , 1, 1, 0),
    ('activity_type'                 , 'نوع النشاط'                      , 1, 1, 0),
    ('gender'                        , 'الجنس'                             , 1, 1, 0),
-   ('instant_messenger_service'     , 'اسم المستخدم على برنامج المراسلة الفورية (IM)', 1, 1, 0),
-   ('mobile_provider'               , 'مزوّدو الهواتف الخليوية'             , 1, 1, 0),
-   ('individual_prefix'             , 'بادئات خاصة بجهات الاتصال الفردية '        , 1, 1, 0),
-   ('individual_suffix'             , 'لواحق خاصة بجهات الاتصال الفردية'        , 1, 1, 0),
+   ('instant_messenger_service'     , 'اسم الشاشة لخدمة التراسل الفوري (IM)', 1, 1, 0),
+   ('mobile_provider'               , 'مزوّد خدمة الهاتف المحمول'             , 1, 1, 0),
+   ('individual_prefix'             , 'ألقاب جهات الاتصال الفردية البادئة'        , 1, 1, 0),
+   ('individual_suffix'             , 'ألقاب جهات الاتصال الفردية اللاحقة'        , 1, 1, 0),
    ('acl_role'                      , '  دور ACL '                           , 1, 1, 0),
    ('accept_creditcard'             , 'بطاقات التسليف الموافق عليها'              , 1, 1, 0),
    ('payment_instrument'            , 'أدوات الدفع '                , 1, 1, 0),
@@ -4651,11 +4651,11 @@ VALUES
    ('group_type'                    , 'نوع المجموعة'                         , 1, 1, 0),
    ('grant_status'                  , 'حالة المنحة '                       , 1, 1, 0),
    ('grant_type'                    , 'نوع المنحة '                         , 1, 1, 0),
-   ('custom_search'                 , 'بحث مخصص'                      , 1, 1, 0),
-   ('activity_status'               , 'حالة النشاط'                    , 1, 1, 0),
+   ('custom_search'                 , 'البحث المخصص'                      , 1, 1, 0),
+   ('activity_status'               , 'وضع النشاط'                    , 1, 1, 0),
    ('case_type'                     , 'نوع الملف '                          , 1, 1, 0),
    ('case_status'                   , 'حالة الملف'                        , 1, 1, 0),
-   ('participant_listing'           , 'لائحة المشاركين '                , 1, 1, 0),
+   ('participant_listing'           , 'قوائم المشاركين'                , 1, 1, 0),
    ('safe_file_extension'           , 'امتدادة الملف الآمنة '                , 1, 1, 0),
    ('from_email_address'            , 'البريد الإلكتروني للمرسل'                 , 1, 1, 0),
    ('mapping_type'                  , 'نوع خريطة التوزيعات'                       , 1, 1, 1),
@@ -4667,13 +4667,13 @@ VALUES
    ('mail_protocol'                 , 'بروتوكول البريد '                      , 1, 1, 0),
    ('priority'                      , 'الأولوية'                           , 1, 1, 0),
    ('redaction_rule'                , 'قاعدة التنقيح'                     , 1, 1, 0),
-   ('report_template'               , 'نموذج التقرير'                    , 1, 1, 0),
-   ('email_greeting'                , 'نوع التحية في البريد الإلكتروني '                , 1, 1, 0),
-   ('postal_greeting'               , 'نوع التحية في البريد العادي'               , 1, 1, 0),
-   ('addressee'                     , 'نوع المخاطَب'                     , 1, 1, 0),
+   ('report_template'               , 'نموذج التقارير'                    , 1, 1, 0),
+   ('email_greeting'                , 'نوع التحية عبر البريد الإلكتروني'                , 1, 1, 0),
+   ('postal_greeting'               , 'نوع التحية عبر البريد العادي'               , 1, 1, 0),
+   ('addressee'                     , 'نوع المرسل إليه'                     , 1, 1, 0),
    ('contact_autocomplete_options'  , 'البحث عن جهات الاتصال المستكمل آلياً'        , 1, 1, 1),
    ('contact_reference_options'     , 'خيارات الاستكمال الآلي لمراجع جهات الاتصال', 1, 1, 1),
-   ('website_type'                  , 'نوع الموقع الإلكتروني'                       , 1, 1, 0),
+   ('website_type'                  , 'أنواع المواقع الإلكترونية'                       , 1, 1, 0),
    ('tag_used_for'                  , 'الوسم مستخدم لـ'                       , 1, 1, 1),
    ('currencies_enabled'            , 'تفعيل العملات'                 , 1, 1, 0),
    ('event_badge'                   , 'بطاقة التعريف باسم المناسبة'                   , 1, 1, 0),
@@ -4701,7 +4701,7 @@ VALUES
    ('financial_item_status'         , 'وضع البند المالي'              , 1, 1, 1),
    ('label_type'                    , 'نوع التصنيف'                         , 1, 1, 0),
    ('name_badge'                    , 'صيغة بطاقة التعريف بالاسم'                  , 1, 1, 0),
-   ('communication_style'           , 'نمط التواصل'                , 1, 1, 0),
+   ('communication_style'           , 'خصائص شكل الاتصالات'                , 1, 1, 0),
    ('msg_mode'                      , 'صيغة الرسالة '                       , 1, 1, 0),
    ('contact_date_reminder_options' , 'خيارات التذكير بتاريخ جهة الاتصال'      , 1, 1, 1);
 
@@ -4837,7 +4837,7 @@ VALUES
    (@option_group_id_act, 'بنك الاتصالات',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'لائحة مرجعية',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'توقيع العريضة',                           32, 'Petition', NULL,0, 0, 31, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, 'رسائل نصية قصيرة هائلة',                           34, 'Mass SMS',         NULL, 1, NULL, 34, 'رسائل نصية قصيرة هائلة',                                                    0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'رسائل نصية قصيرة جماعية',                           34, 'Mass SMS',         NULL, 1, NULL, 34, 'رسائل نصية قصيرة جماعية',                                                    0, 1, 1, NULL, NULL),
 
 -- Activity Types for CiviCampaign CiviCase
    (@option_group_id_act, 'غيّر البيانات المخصّصة',                 33, 'Change Custom Data', NULL,0, 0, 33, '', 0, 1, 1, @caseCompId, NULL),
@@ -4898,8 +4898,8 @@ VALUES
    (@option_group_id_prefix, 'سيّد',  3, 'Mr.',  NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_prefix, 'دكتور',  4, 'Dr.',  NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
 
-   (@option_group_id_suffix, 'الابن ',  1, 'Jr.', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_suffix, 'الأب ',  2, 'Sr.', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_suffix, 'الأب',  1, 'Jr.', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_suffix, 'الابن',  2, 'Sr.', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_suffix, 'II',  3, 'II',  NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_suffix, 'III', 4, 'III', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_suffix, 'IV',  5, 'IV',  NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
@@ -4921,7 +4921,7 @@ VALUES
   (@option_group_id_pi, 'شيك',        4, 'Check',       NULL, 0, 1, 4, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_pi, 'تحويلات مالية إلكترونية',          5, 'EFT',         NULL, 0, 0, 5, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_cs, 'تام'  , 1, 'Completed'  , NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_cs, 'منجز'  , 1, 'Completed'  , NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'قيد الانتظار'    , 2, 'Pending'    , NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'ملغى'  , 3, 'Cancelled'  , NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_cs, 'لم تنجح العملية'     , 4, 'Failed'     , NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
@@ -4961,7 +4961,7 @@ VALUES
   (@option_group_id_cvOpt, 'سجل التغييرات'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'مساهمات وإشتراكات ماليه',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'العضويات'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'الأحداث'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'المناسبات'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'الحالات'        ,  10, 'CiviCase', NULL, 0, NULL,  10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'مِنَح'       ,  11, 'CiviGrant', NULL, 0, NULL,  11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'التبرعات المعلنة'      ,  13, 'CiviPledge', NULL, 0, NULL,  13, NULL, 0, 0, 1, NULL, NULL),
@@ -4976,18 +4976,18 @@ VALUES
   (@option_group_id_ceOpt, 'العنوان'                  ,   2, 'Address', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'تفضيلات الاتصالات',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'ملاحظات'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'الديموغرافيات'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'الخصائص الديموغرافية'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'الوسوم والمجموعات '          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'البريد الإلكتروني'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'هاتف'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'برنامج المراسلة الفورية'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'المراسلة الفورية'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'رمز تعريفي مفتوح'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'موقع ويب'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'موقع إلكتروني'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'البادئة'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'العنوان الرسمي '             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'الاسم الأول'               ,   14, 'First Name', NULL, 2, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'الاسم الأوسط'              ,   15, 'Middle Name', NULL, 2, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'الاسم الأخير'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'الشهرة'                ,   16, 'Last Name', NULL, 2, NULL, 16, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'اللاحقة'                   ,   17, 'Suffix', NULL, 2, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_asOpt, 'خانات العنوان'          ,   1, 'location', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
@@ -4998,10 +4998,10 @@ VALUES
   (@option_group_id_asOpt, 'تغيير  Log'              ,   6, 'changeLog', NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'مساهمات وإشتراكات ماليه'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'العضويات'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'الأحداث'                  ,   9, 'CiviEvent', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'المناسبات'                  ,   9, 'CiviEvent', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'الحالات'                   ,  10, 'CiviCase', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
     (@option_group_id_asOpt, 'Grants'                                        ,  12, 'CiviGrant', NULL, 0, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'الديموغرافيات'            ,  13, 'demographics', NULL, 0, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'الخصائص الديموغرافية'            ,  13, 'demographics', NULL, 0, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'التبرعات المعلنة'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'نوع جهة الاتصال'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'المجموعات'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
@@ -5011,7 +5011,7 @@ VALUES
   (@option_group_id_udOpt, 'المجموعات'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'مساهمات وإشتراكات ماليه'              , 2, 'CiviContribute', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'العضويات'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'الأحداث'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'المناسبات'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'جهات الاتصال/المنظّمات الخاصة بي', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'التبرعات المعلنة'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'صفحات الحملة الشخصية'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
@@ -5023,7 +5023,7 @@ VALUES
   (@option_group_id_acsOpt, 'عنوان الشارع'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'المدينة'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'المقاطعة/الولاية'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acsOpt, 'الدولة'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acsOpt, 'البلد'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'الرمز البريدي'     , 8, 'postal_code'   , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_acConRef, 'العنوان الإلكتروني'   , 2, 'email'         , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
@@ -5031,7 +5031,7 @@ VALUES
   (@option_group_id_acConRef, 'عنوان الشارع'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'المدينة'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'المقاطعة/الولاية'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acConRef, 'الدولة'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acConRef, 'البلد'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'الرمز البريدي'     , 8, 'country'       , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_adOpt, 'عنوان الشارع'    ,  1, 'street_address', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
@@ -5040,9 +5040,9 @@ VALUES
   (@option_group_id_adOpt, 'المدينة'              ,  4, 'city'          , NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'الرمز البريدي' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'لاحقة الرمز البريدي',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'المحافظة/الولاية'            ,  7, 'county'        , NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'مقاطعة'            ,  7, 'county'        , NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'المقاطعة/الولاية'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'الدولة'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'البلد'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'دائرة العرض'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'خط الطول'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'اسم العنوان'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
@@ -5107,7 +5107,7 @@ VALUES
   (@option_group_id_report, 'تقرير حفظ المعاملات في سجلات',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'يعرض تقرير حفظ المعاملات في سجلات', 0, 0, 1, 2, NULL),
   (@option_group_id_report , 'تقرير المنح (مفصّل)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, 'تقرير المنح المفصّل ', 0, 0, 1, @grantCompId, NULL),
   (@option_group_id_report, 'تقرير تعداد لوائح المشاركين', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, 'أظهر لائحة المشاركين مع عدد المشاركين.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report, 'تقرير ملخّص المداخيل', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'يظهر ملخّص مداخيل كلّ مناسبة. ', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report, 'تقرير موجز عن الإيرادات بالأرقام', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'يظهر ملخّص مداخيل كلّ مناسبة. ', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'تقرير مفصّل عن الملف ', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, 'تفاصيل الملف', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report, 'تقرير ارتداد الرسائل الإلكترونية', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'تقرير الرسائل البريدية المرتدّة', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'تقرير خلاصة الرسائل الإلكترونية', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'ملخص إحصائيات البريد', 0, 0, 1, @mailCompId, NULL),
@@ -5127,7 +5127,7 @@ VALUES
   (@option_group_id_report, 'تقرير المساهمات المتكرّرة ', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'يقدّم معلومات عن حالة المساهمات المتكرّرة ', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'مقرّر ',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_acs, 'تام',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_acs, 'منجز',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'ملغى',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'رسالة متروكة', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, 'لا يمكن الاتصال به', 5, 'Unreachable', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
@@ -5140,7 +5140,7 @@ VALUES
   (@option_group_id_cas, 'طارئ'  , 3, 'Urgent',  'Opened', 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_pl, 'الاسم فقط '     , 1, 'Name Only'      ,  NULL, 0, 0, 1, 'CRM_Event_Page_ParticipantListing_Name', 0, 1, 1, NULL, NULL),
-  (@option_group_id_pl, 'الاسم والبريد الإلكتروني ', 2, 'Name and Email' ,  NULL, 0, 0, 2, 'CRM_Event_Page_ParticipantListing_NameAndEmail', 0, 1, 1, NULL, NULL),
+  (@option_group_id_pl, 'الإسم والبريد الإلكتروني', 2, 'Name and Email' ,  NULL, 0, 0, 2, 'CRM_Event_Page_ParticipantListing_NameAndEmail', 0, 1, 1, NULL, NULL),
   (@option_group_id_pl, 'الاسم، الحالة وتاريخ التسجيل ' , 3, 'Name, Status and Register Date',  NULL, 0, 0, 3, 'CRM_Event_Page_ParticipantListing_NameStatusAndDate', 0, 1, 1, NULL, NULL),
 
   (@option_group_id_sfe, 'jpg',   1, 'jpg',   NULL, 0, 0,  1, NULL, 0, 0, 1, NULL, NULL),
@@ -5273,7 +5273,7 @@ VALUES
 -- Campaign Status
   (@option_group_id_campaignStatus, 'مخطّط ', 1, 'Planned',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, 'جاري التطبيق', 2, 'In Progress',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_campaignStatus, 'تام', 3, 'Completed',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_campaignStatus, 'منجز', 3, 'Completed',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_campaignStatus, 'ملغى', 4, 'Cancelled',  NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
 
 -- Engagement Level
@@ -5505,7 +5505,7 @@ VALUES
 INSERT INTO `civicrm_option_group`
   (`name`, `title`, `description`, `is_reserved`, `is_active`)
 VALUES
-  ('languages', 'اللغات ', 'لائحة اللغات ', 1, 1);
+  ('languages', 'اللغات', 'لائحة اللغات ', 1, 1);
 
 SELECT @option_group_id_languages      := max(id) from civicrm_option_group where name = 'languages';
 
@@ -5775,7 +5775,7 @@ VALUES
 -- the fuzzy default dedupe rules
 -- IndividualSupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualSupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'الاسم والبريد الإلكتروني (محجوز)', 1);
+VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'الإسم والبريد الإلكتروني (محجوزان)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5784,7 +5784,7 @@ VALUES (@drgid, 'civicrm_contact', 'first_name', 5),
        (@drgid, 'civicrm_email'  , 'email',     10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Organization', 10, 'Supervised', 'OrganizationSupervised', 'الاسم والبريد الإلكتروني ', 0);
+VALUES ('Organization', 10, 'Supervised', 'OrganizationSupervised', 'الإسم والبريد الإلكتروني', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5792,7 +5792,7 @@ VALUES (@drgid, 'civicrm_contact', 'organization_name', 10),
        (@drgid, 'civicrm_email'  , 'email',             10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Household', 10, 'Supervised', 'HouseholdSupervised', 'الاسم والبريد الإلكتروني ', 0);
+VALUES ('Household', 10, 'Supervised', 'HouseholdSupervised', 'الإسم والبريد الإلكتروني', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5809,7 +5809,7 @@ INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, r
 VALUES (@drgid, 'civicrm_email', 'email', 10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Organization', 10,  'Unsupervised', 'OrganizationUnsupervised', 'الاسم والبريد الإلكتروني ', 0);
+VALUES ('Organization', 10,  'Unsupervised', 'OrganizationUnsupervised', 'الإسم والبريد الإلكتروني', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5817,7 +5817,7 @@ VALUES (@drgid, 'civicrm_contact', 'organization_name', 10),
        (@drgid, 'civicrm_email'  , 'email',             10);
 
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Household', 10, 'Unsupervised', 'HouseholdUnsupervised', 'الاسم والبريد الإلكتروني ', 0);
+VALUES ('Household', 10, 'Unsupervised', 'HouseholdUnsupervised', 'الإسم والبريد الإلكتروني', 0);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5826,7 +5826,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 
 -- IndividualGeneral uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualGeneral)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'الاسم والعنوان (محجوز)', 1);
+VALUES ('Individual', 15, 'General', 'IndividualGeneral', 'الإسم والعنوان (محجوزان)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -6138,22 +6138,22 @@ VALUES
 INSERT INTO civicrm_uf_field
        ( uf_group_id, field_name,              is_required, is_reserved, weight, visibility,                  in_selector, is_searchable, location_type_id, label,                                          field_type,    help_post, phone_type_id ) VALUES
        (  1,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'الاسم الأول',               'Individual',   NULL,  NULL),
-       (  1,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'الاسم الأخير',                'Individual',   NULL,  NULL),
+       (  1,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'الشهرة',                'Individual',   NULL,  NULL),
        (  1,           'street_address',        0,           0,           3,      'User and User Admin Only',  0,           0,             1,             'عنوان الشارع (المنزل)',    'Contact',      NULL,  NULL),
        (  1,           'city',                  0,           0,           4,      'User and User Admin Only',  0,           0,             1,             'المدينة (المنزل)',              'Contact',      NULL,  NULL),
        (  1,           'postal_code',           0,           0,           5,      'User and User Admin Only',  0,           0,             1,             'الرمز البريدي (المنزل)',       'Contact',      NULL,  NULL),
        (  1,           'country',               0,           0,           6,      'User and User Admin Only',  0,           0,             1,             'البلد (المنزل)',           'Contact',      NULL,  NULL),
        (  1,           'state_province',        0,           0,           7,      'User and User Admin Only',  0,           0,             1,             'الولاية (المنزل)',             'Contact',      NULL,  NULL),
        (  2,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'الاسم الأول',               'Individual',   NULL,  NULL),
-       (  2,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'الاسم الأخير',                'Individual',   NULL,  NULL),
+       (  2,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'الشهرة',                'Individual',   NULL,  NULL),
        (  2,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'العنوان الإلكتروني',            'Contact',      NULL,  NULL),
        (  3,           'participant_status',    1,           1,           1,      'User and User Admin Only',  0,           0,             NULL,          'وضع المشارك',       'Participant',  NULL,  NULL),
        (  4,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'الاسم الأول',               'Individual',   NULL,  NULL),
-       (  4,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'الاسم الأخير',                'Individual',   NULL,  NULL),
+       (  4,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'الشهرة',                'Individual',   NULL,  NULL),
        (  4,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'العنوان الإلكتروني',            'Contact',      NULL,  NULL),
        (  5,           'organization_name',     1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'اسم المنظمة',        'Organization', NULL,  NULL),
        (  5,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'العنوان الإلكتروني',            'Contact',      NULL,  NULL),
-       (  6,           'household_name',        1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'اسم الملكية المنزلية',           'Household',    NULL,  NULL),
+       (  6,           'household_name',        1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'إسم الأسرة',           'Household',    NULL,  NULL),
        (  6,           'email',                 0,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'العنوان الإلكتروني',            'Contact',      NULL,  NULL),
        (  7,           'phone',                 1,           0,           1,      'User and User Admin Only',  0,           0,             1,             'هاتف المنزل',               'Contact',      NULL,  1 ),
        (  7,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             1,             'خليوي المنزل',              'Contact',      NULL,  2 ),
@@ -6161,7 +6161,7 @@ INSERT INTO civicrm_uf_field
        (  7,           'city',                  1,           0,           4,      'User and User Admin Only',  0,           0,             NULL,          'المدينة',                     'Contact',      NULL,  NULL),
        (  7,           'state_province',        1,           0,           5,      'User and User Admin Only',  0,           0,             NULL,          'الحالة',                    'Contact',      NULL,  NULL),
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'الرمز البريدي',              'Contact',      NULL,  NULL),
-       (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'البريد الرئيسي',            'Contact',      NULL,  NULL),
+       (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'البريد الإلكتروني الرئيسي',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'المجموعات',                   'Contact',      NULL,  NULL),
        (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'الوسوم',                     'Contact',      NULL,  NULL),
        (  7,           'gender_id',             1,           0,           10,     'User and User Admin Only',  0,           0,             NULL,          'الجنس',                   'Individual',   NULL,  NULL),
@@ -6177,11 +6177,11 @@ INSERT INTO civicrm_uf_field
        (  9,           'street_address',        1,           0,           4,      'User and User Admin Only',  0,           0,             3,             'عنوان الشارع',           'Contact',      NULL,   NULL),
        (  9,           'city',                  1,           0,           5,      'User and User Admin Only',  0,           0,             3,             'المدينة',                     'Contact',      NULL,   NULL),
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             'الرمز البريدي',              'Contact',      NULL,   NULL),
-       (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'الدولة',                  'Contact',      NULL,   NULL),
+       (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'البلد',                  'Contact',      NULL,   NULL),
        (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'المقاطعة/الولاية',         'Contact',      NULL,   NULL),
        ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'النوع المالي', 'Contribution', NULL, NULL ),
        ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'مبلغ', 'Contribution', NULL, NULL ),
-       ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'الحالة', 'Contribution', NULL, NULL ),
+       ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'الوضع', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'تمّ الاستلام', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'المصدر', 'Contribution', NULL, NULL ),
        ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'مدفوع من: ', 'Contribution', NULL, NULL ),
@@ -6192,8 +6192,8 @@ INSERT INTO civicrm_uf_field
        ( 10,     'soft_credit_type',            0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'نوع القروض الميسّرة', 'Contribution', NULL, NULL ),
        ( 11,     'membership_type',             1, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'نوع العضوية', 'Membership', NULL, NULL ),
        ( 11,     'join_date',                   1, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'عضو منذ', 'Membership', NULL, NULL ),
-       ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'يبدأ بتاريخ', 'Membership', NULL, NULL ),
-       ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'ينتهي بتاريخ', 'Membership', NULL, NULL ),
+       ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'تاريخ البدء', 'Membership', NULL, NULL ),
+       ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'تاريخ النهاية', 'Membership', NULL, NULL ),
        ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'المصدر', 'Membership', NULL, NULL ),
        ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'إيصال بالإرسال', 'Membership', NULL, NULL ),
        ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'النوع المالي', 'Membership', NULL, NULL ),
@@ -6205,11 +6205,11 @@ INSERT INTO civicrm_uf_field
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, 'قرض ميسّر', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'نوع القروض الميسّرة', 'Membership', NULL, NULL ),
        ( 12,     'first_name',                  1, 0,  1, 'User and User Admin Only', 0, 0, NULL, 'الاسم الأول',  'Individual', NULL, NULL),
-       ( 12,     'last_name',                   1, 0,  2, 'User and User Admin Only', 0, 0, NULL, 'الاسم الأخير',   'Individual',  NULL,  NULL),
+       ( 12,     'last_name',                   1, 0,  2, 'User and User Admin Only', 0, 0, NULL, 'الشهرة',   'Individual',  NULL,  NULL),
        ( 12,     'email',                       1, 0,  3, 'User and User Admin Only', 0, 0, NULL, 'العنوان الإلكتروني', 'Contact', NULL, NULL),
        ( 13,     'prefix_id',                   0, 1,  1, 'User and User Admin Only', 0, 0, NULL, 'البادئة الشخصية', 'Individual', NULL, NULL),
        ( 13,     'first_name',                  1, 1,  2, 'User and User Admin Only', 0, 0, NULL, 'الاسم الأول',        'Individual', NULL, NULL),
-       ( 13,     'last_name',                   1, 1,  3, 'User and User Admin Only', 0, 0, NULL, 'الاسم الأخير',         'Individual', NULL, NULL),
+       ( 13,     'last_name',                   1, 1,  3, 'User and User Admin Only', 0, 0, NULL, 'الشهرة',         'Individual', NULL, NULL),
        ( 13,     'email',                       0, 1,  4, 'User and User Admin Only', 0, 0, 1,    'العنوان الإلكتروني',     'Contact', NULL, NULL);
 
 
@@ -6248,7 +6248,7 @@ INSERT INTO `civicrm_contact_type`
   (`id`, `name`, `label`,`image_URL`, `parent_id`, `is_active`,`is_reserved`)
  VALUES
   ( 1, 'Individual'  , 'فرد'  , NULL, NULL, 1, 1),
-  ( 2, 'Household'   , 'منزل'   , NULL, NULL, 1, 1),
+  ( 2, 'Household'   , 'أسرة'   , NULL, NULL, 1, 1),
   ( 3, 'Organization', 'منظمة', NULL, NULL, 1, 1);
 
 -- +--------------------------------------------------------------------+
@@ -22829,7 +22829,7 @@ VALUES
   (@option_group_id_soft_credit_type   , 'تكريماً لـ', 1, 'in_honor_of', 1, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'تخليداً لـ', 2, 'in_memory_of', 2, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'مطلوب', 3, 'solicited', 3, 1, 1, 1),
-  (@option_group_id_soft_credit_type   , 'منزل', 4, 'household', 4, 0, 1, 0),
+  (@option_group_id_soft_credit_type   , 'أسرة', 4, 'household', 4, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'التبرّع ضمن مكان العمل', 5, 'workplace', 5, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'المؤسسة الفرعية', 6, 'foundation_affiliate', 6, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'خدمة طرف ثالث 3', 7, '3rd-party_service', 7, 0, 1, 0),
@@ -22940,6 +22940,8 @@ INSERT INTO `civicrm_dashboard`
     ( `domain_id`, `name`, `label`, `url`, `permission`, `permission_operator`, `column_no`, `is_minimized`, `is_active`, `weight`, `fullscreen_url`, `is_fullscreen`, `is_reserved`)
     VALUES
     ( @domainID, 'blog', 'CiviCRM News', 'civicrm/dashlet/blog?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/blog?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+    ( @domainID, 'getting-started', 'Getting Started', 'civicrm/dashlet/getting-started?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/getting-started?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+
     ( @domainID, 'activity', 'الأنشطة', 'civicrm/dashlet/activity?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 1, 'civicrm/dashlet/activity?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'myCases', 'ملفاتي', 'civicrm/dashlet/myCases?reset=1&snippet=5', 'access my cases and activities', NULL , 0, 0, 1, 2, 'civicrm/dashlet/myCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'allCases', 'All Cases', 'civicrm/dashlet/allCases?reset=1&snippet=5', 'access all cases and activities', NULL , 0, 0, 1, 3, 'civicrm/dashlet/allCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
@@ -23292,21 +23294,22 @@ INSERT INTO civicrm_navigation
 VALUES
     ( @domainID, 'civicrm/admin/setting/component?reset=1', 'Enable CiviCRM Components', 'Enable Components',                                 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 1 ),
     ( @domainID, 'civicrm/admin/extensions?reset=1',        'Manage Extensions', 'Manage Extensions', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 2 ),
-    ( @domainID, 'civicrm/admin/setting/smtp?reset=1',                  'Outbound Email (SMTP/Sendmail)', 'Outbound Email',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 3 ),
-    ( @domainID, 'civicrm/admin/paymentProcessor?reset=1',              'Payment Processors', 'Payment Processors',                           'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 4 ),
-    ( @domainID, 'civicrm/admin/setting/mapping?reset=1',               'Mapping and Geocoding', 'Mapping and Geocoding',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 5 ),
-    ( @domainID, 'civicrm/admin/setting/misc?reset=1',                  'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 6 ),
-    ( @domainID, 'civicrm/admin/setting/path?reset=1',                  'Directories',        'Directories',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 7 ),
-    ( @domainID, 'civicrm/admin/setting/url?reset=1',                   'Resource URLs',      'Resource URLs',                                'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 8 ),
-    ( @domainID, 'civicrm/admin/setting/updateConfigBackend?reset=1',   'Cleanup Caches and Update Paths', 'Cleanup Caches and Update Paths', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 9 ),
-    ( @domainID, 'civicrm/admin/setting/uf?reset=1',                    'CMS Database Integration',    'CMS Integration',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 10 ),
-    ( @domainID, 'civicrm/admin/options/safe_file_extension?reset=1', 'Safe File Extensions', 'Safe File Extensions','administer CiviCRM', '',@systemSettingslastID, '1', NULL, 11 ),
-    ( @domainID, 'civicrm/admin/options?reset=1',                       'Option Groups', 'Option Groups',                                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 12 ),
-    ( @domainID, 'civicrm/admin/mapping?reset=1',                       'Import/Export Mappings', 'Import/Export Mappings',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 13 ),
-    ( @domainID, 'civicrm/admin/setting/debug?reset=1',                 'Debugging and Error Handling','Debugging and Error Handling',        'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 14 ),
-    ( @domainID, 'civicrm/admin/setting/preferences/multisite?reset=1', 'Multi Site Settings', 'Multi Site Settings',                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 15 ),
-    ( @domainID, 'civicrm/admin/job?reset=1',                           'Scheduled Jobs', 'Scheduled Jobs',                                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 16 ),
-    ( @domainID, 'civicrm/admin/sms/provider?reset=1', 'SMS Providers', 'SMS Providers',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 17 );
+    ( @domainID, 'civicrm/a/#/cxn',                                     'Connections', 'Connections',                                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 3 ),
+    ( @domainID, 'civicrm/admin/setting/smtp?reset=1',                  'Outbound Email (SMTP/Sendmail)', 'Outbound Email',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 4 ),
+    ( @domainID, 'civicrm/admin/paymentProcessor?reset=1',              'Payment Processors', 'Payment Processors',                           'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 5 ),
+    ( @domainID, 'civicrm/admin/setting/mapping?reset=1',               'Mapping and Geocoding', 'Mapping and Geocoding',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 6 ),
+    ( @domainID, 'civicrm/admin/setting/misc?reset=1',                  'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 7 ),
+    ( @domainID, 'civicrm/admin/setting/path?reset=1',                  'Directories',        'Directories',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 8 ),
+    ( @domainID, 'civicrm/admin/setting/url?reset=1',                   'Resource URLs',      'Resource URLs',                                'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 9 ),
+    ( @domainID, 'civicrm/admin/setting/updateConfigBackend?reset=1',   'Cleanup Caches and Update Paths', 'Cleanup Caches and Update Paths', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 10 ),
+    ( @domainID, 'civicrm/admin/setting/uf?reset=1',                    'CMS Database Integration',    'CMS Integration',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 11 ),
+    ( @domainID, 'civicrm/admin/options/safe_file_extension?reset=1', 'Safe File Extensions', 'Safe File Extensions','administer CiviCRM', '',@systemSettingslastID, '1', NULL, 12 ),
+    ( @domainID, 'civicrm/admin/options?reset=1',                       'Option Groups', 'Option Groups',                                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 13 ),
+    ( @domainID, 'civicrm/admin/mapping?reset=1',                       'Import/Export Mappings', 'Import/Export Mappings',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 14 ),
+    ( @domainID, 'civicrm/admin/setting/debug?reset=1',                 'Debugging and Error Handling','Debugging and Error Handling',        'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 15 ),
+    ( @domainID, 'civicrm/admin/setting/preferences/multisite?reset=1', 'Multi Site Settings', 'Multi Site Settings',                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 16 ),
+    ( @domainID, 'civicrm/admin/job?reset=1',                           'Scheduled Jobs', 'Scheduled Jobs',                                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 17 ),
+    ( @domainID, 'civicrm/admin/sms/provider?reset=1', 'SMS Providers', 'SMS Providers',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 18 );
 
 
 -- begin component admin menus
@@ -23706,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.10';
+UPDATE civicrm_domain SET version = '4.6.14';

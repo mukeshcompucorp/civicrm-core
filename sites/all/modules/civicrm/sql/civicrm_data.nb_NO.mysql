@@ -4619,7 +4619,7 @@ INSERT INTO
 VALUES
   ( 'Gave'             , 0, 1, 1 ),
   ( 'Medlemsbetalinger'          , 0, 1, 1 ),
-  ( 'Aksjonsgave', 0, 1, 0 ),
+  ( 'Kampanjegave', 0, 1, 0 ),
   ( 'Arrangementspris'            , 0, 1, 0 );
 
 -- option groups and values for 'preferred communication methods' , 'activity types', 'gender', etc.
@@ -4674,12 +4674,12 @@ VALUES
    ('contact_autocomplete_options'  , 'Autofullfør kontakt søk'        , 1, 1, 1),
    ('contact_reference_options'     , 'Autofullførvalg for kontaktreferanse', 1, 1, 1),
    ('website_type'                  , 'Nettstedstype'                       , 1, 1, 0),
-   ('tag_used_for'                  , 'Etikett brukt for'                       , 1, 1, 1),
+   ('tag_used_for'                  , 'Tag brukt for'                       , 1, 1, 1),
    ('currencies_enabled'            , 'Currencies Enabled'                 , 1, 1, 0),
    ('event_badge'                   , 'Navneskilt for arrangement'                   , 1, 1, 0),
    ('note_privacy'                  , 'Personvernnivå for notater'           , 1, 1, 0),
-   ('campaign_type'                 , 'Aksjontype'                      , 1, 1, 0),
-   ('campaign_status'               , 'Aksjonstatus'                    , 1, 1, 0),
+   ('campaign_type'                 , 'Kampanjetype'                      , 1, 1, 0),
+   ('campaign_status'               , 'Kampanjestatus'                    , 1, 1, 0),
    ('system_extensions'             , 'CiviCRM utvidelser'                 , 1, 1, 0),
    ('mail_approval_status'          , 'CiviMail godkjenningsstatus'           , 1, 1, 0),
    ('engagement_index'              , 'Engasjementsindeks'                   , 1, 1, 0),
@@ -4808,9 +4808,9 @@ VALUES
    (@option_group_id_act, 'Gave',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Online eller offline gave.',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Medlemskapspåmelding',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Online eller offline medlemskapspåmelding.',                                 0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Medlemskapsfornyelse',                 8, 'Membership Renewal',  NULL, 1, NULL, 8, 'Online eller offline medlemskapsfornyelse.',                                0, 1, 1, @memberCompId, NULL),
-   (@option_group_id_act, 'Fortell en venn',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Send informasjon om en gaveaksjon eller arrangement til en venn.', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Avtale bekreftelse',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Send avtale bekreftelse.',                                     0, 1, 1, @pledgeCompId, NULL),
-   (@option_group_id_act, 'Avtale påminner',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Send avtalepåminner',                                               0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'Fortell en venn',                      9, 'Tell a Friend',       NULL, 1, NULL, 9, 'Send informasjon om en gavekampanje eller arrangement til en venn.', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Lovnad bekreftelse',              10, 'Pledge Acknowledgment',  NULL, 1, NULL, 10, 'Send lovnadsbekreftelse.',                                     0, 1, 1, @pledgeCompId, NULL),
+   (@option_group_id_act, 'Lovnadspåminner',                    11, 'Pledge Reminder',    NULL, 1, NULL, 11, 'Send lovnadspåminner',                                               0, 1, 1, @pledgeCompId, NULL),
    (@option_group_id_act, 'Innkommende e-post',                      12, 'Inbound Email',      NULL, 1, NULL, 12, 'Innkommende e-post.',                                                     0, 1, 1, NULL, NULL),
 
 -- Activity Types for case activities
@@ -4828,7 +4828,7 @@ VALUES
    (@option_group_id_act, 'Flett sak',                         23, 'Merge Case', NULL, 0,  NULL, 23, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Sak tilknyttet på nytt',                    24, 'Reassigned Case', NULL, 0,  NULL, 24, '', 0, 1, 1, @caseCompId, NULL ),
    (@option_group_id_act, 'Link saker',                         25, 'Link Cases', NULL, 0,  NULL, 25, '', 0, 1, 1, @caseCompId, NULL ),
-   (@option_group_id_act, 'Endre saksmerkelapper',                   26, 'Change Case Tags', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
+   (@option_group_id_act, 'Endre sakstagger',                   26, 'Change Case Tags', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
    (@option_group_id_act, 'Legg til klient til sak',                 27, 'Add Client To Case', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Activity Types for CiviCampaign
@@ -4957,14 +4957,14 @@ VALUES
   (@option_group_id_cvOpt, 'Slektskap',   2, 'rel', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Grupper'       ,   3, 'group', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Notater'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Merkelapp'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Tags'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Endringslogg'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Gaver',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Medlemskap'  ,   8, 'CiviMember', NULL, 0, NULL,  8,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Arrangementer'       ,   9, 'CiviEvent', NULL, 0, NULL,  9,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Saker'        ,  10, 'CiviCase', NULL, 0, NULL,  10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Bevilgninger'       ,  11, 'CiviGrant', NULL, 0, NULL,  11, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Avtaler'      ,  13, 'CiviPledge', NULL, 0, NULL,  13, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Lovnader'      ,  13, 'CiviPledge', NULL, 0, NULL,  13, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Utsendelser'     ,  14, 'CiviMail', NULL, 0, NULL,  14, NULL, 0, 0, 1, NULL, NULL),
 
 
@@ -4977,7 +4977,7 @@ VALUES
   (@option_group_id_ceOpt, 'Kommunikasjonspreferanser',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Notater'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Demografi'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Merkelapper og grupper'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Tagger og grupper'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'E-post'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Telefon'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Lynmeldingstjeneste'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
@@ -5002,10 +5002,10 @@ VALUES
   (@option_group_id_asOpt, 'Saker'                   ,  10, 'CiviCase', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
     (@option_group_id_asOpt, 'Grants'                                        ,  12, 'CiviGrant', NULL, 0, NULL, 14, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Demografi'            ,  13, 'demographics', NULL, 0, NULL, 15, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Avtaler'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Lovnader'                 ,  15, 'CiviPledge', NULL, 0, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Kontakttype'            ,  16, 'contactType', NULL, 0, NULL, 18, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Grupper'                  ,  17, 'groups', NULL, 0, NULL, 19, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Merkelapp'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Tags'                    ,  18, 'tags', NULL, 0, NULL, 20, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Utsendelse'                 ,  19, 'CiviMail', NULL, 0, NULL, 21, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_udOpt, 'Grupper'                     , 1, 'Groups', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5013,8 +5013,8 @@ VALUES
   (@option_group_id_udOpt, 'Medlemskap'                , 3, 'CiviMember', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Arrangementer'                     , 4, 'CiviEvent', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Mine kontakter / organisasjoner', 5, 'Permissioned Orgs', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Avtaler'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_udOpt, 'Personlige aksjonssider'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Lovnader'                    , 7, 'CiviPledge', NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_udOpt, 'Personlige kampanjesider'    , 8, 'PCP', NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Tilknyttede aktiviteter'        , 9, 'Assigned Activities', NULL, 0, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_udOpt, 'Invoices / Credit Notes'     , 10, 'Invoices / Credit Notes', NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5072,7 +5072,7 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'Dato lagt til CiviCRM', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Tilpasset gruppe flerverdivisning', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'Gaver gitt i år X og ikke år Y', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'Finn gavebeløp etter merkelapp', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_TagContributions'     ,14, 'CRM_Contact_Form_Search_Custom_TagContributions', NULL, 0, NULL, 14, 'Finn gavebeløp etter tag', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, 'Fulltekst-søk', 0, 0, 1, NULL, NULL),
 
 -- report templates
@@ -5096,8 +5096,8 @@ VALUES
   (@option_group_id_report , 'Arrangementsdeltakerrapport (Liste)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Gir en liste over deltakere for et arrangement.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Inntektsrapport for arrangement (oppsummering)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Gir en oversik over arrangementsinntekt. Du kan ta med nøkkelinformasjon som arrangements-ID, registrering, deltakelse, og inntekter generert, for å hjelpe deg til å vurdere suksessen av arrangementet.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Inntektsrapport for arrangement (detalj)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Hjelper deg å analysere inntekten generert fra et arrangement. Rapporten kan inneholde detaljer som deltakertyper, status og betalingsmåte.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Avtalerapport',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Avtalerapport', 0, 0, 1, @pledgeCompId, NULL),
-  (@option_group_id_report , 'Avtalt men ikke betalt - rapport',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Avtalt men ikke betalt - rapport', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report , 'Lovnadsrapport',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Lovnadsrapport', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report , 'Lovet men ikke betalt - rapport',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Lovet men ikke betalt - rapport', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Relasjonsrapport',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Relasjonsrapport', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Sak oppsummeringsrapport',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Gir en oppsummering av saker og deres varighet etter datointervall, status, stabsmedlem og / eller saksrolle.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Sak tid brukt rapport',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Aggregates time spent on case and / or non-case activities by activity type and contact.', 0, 0, 1, @caseCompId, NULL),
@@ -5119,12 +5119,12 @@ VALUES
   (@option_group_id_report, 'Rapport over gaveloggføring (detalj)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'Rapport over gaveendringer for loggføringsinsfrastruktturen (detalj).', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Bevilgning rapport (statistikker)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, 'Vis statistikker for bevilgninger.', 0, 0, 1, @grantCompId, NULL),
   (@option_group_id_report, 'Rapport over undersøkelse (detalj)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Detaljert rapport over dør-til-død, telefongaver, gå-lister eller andre undersøkelser.', 0, 0, 1, @campaignCompId, NULL),
-  (@option_group_id_report, 'Personlig aksjonsside rapport', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Summerer opp beløp samlet inn og antall givere for hver personlige aksjonsside.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Avtaleoppsummering rapport', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Oppsummering av avtaler inkluderer avtalt beløp, avtalestatus, neste betalingsdato, forfallsbalanse, totalt beløp betalt, o.l.', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report, 'Personlig kampanjeside rapport', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Summerer opp beløp samlet inn og antall givere for hver personlige kampanjeside.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Lovnadsoppsummering rapport', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Oppsummering av lovnader inkluderer lovet beløp, lovnadsstatus, neste betalingsdato, forfallsbalanse, totalt beløp betalt, o.l.', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Contribution Aggregate by Relationship',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Vis liste over en kontakts gavehistorie, gruppert etter år, sammen med gaver tilskrevet alle kontaktens relaterte kontaketer.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report,  'E-post detalj rapport',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Gir rapporter om intenderte og fullførte leveringer, avmeldinger og bortvelginger, svar og videresendinger.',   0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Gave og medlemskapsdetaljger', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Gavedetaljer for alle typer gaver, plus tilknyttet medlemskapsinformasjon for gaver som er betaling for medlemskap.', 0, 0, 1, @memberCompId, NULL),
-  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Provides information about the status of recurring contributions', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report, 'Recurring Contributions Report', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Gir informasjon om statusen til gjentagende gaver', 0, 0, 1, @contributeCompId, NULL),
 
   (@option_group_id_acs, 'Planlagt',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Fullført',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
@@ -5173,7 +5173,7 @@ VALUES
   (@option_group_id_mt, 'Eksporter gave', 8, 'Export Contribution', NULL, 0, 0,    8, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Eksporter medlemskap',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Eksporter deltager', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Eksporter avtale',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Eksporter lovnad',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Eksporter sak',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Eksporter bevilgning',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Eksporter aktivitet',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
@@ -5382,7 +5382,7 @@ VALUES
 -- default batch types
    (@option_group_id_batch_type, 'Gave', 1, 'Contribution', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
    (@option_group_id_batch_type, 'Medlemskap', 2, 'Membership', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
-   (@option_group_id_batch_type, 'Pledge Payment', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
+   (@option_group_id_batch_type, 'Lovet betaling', 3, 'Pledge Payment', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
 
 -- default batch statuses
    (@option_group_id_batch_status, 'Åpen', 1, 'Open', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5457,7 +5457,7 @@ INSERT INTO
 VALUES
   ( 'Gave'            , @contactID, @opval, 'Default account for donations', '4200', 'INC', 0, 1, 1, 1 ),
   ( 'Medlemsbetalinger'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
-  ( 'Aksjonsgave', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
+  ( 'Kampanjegave', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
   ( 'Arrangementspris'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
   ( 'Banking Fees'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
   ( 'Deposit Bank Account' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
@@ -6112,7 +6112,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 INSERT INTO civicrm_uf_group
     (id, name,                 group_type,           title,                                      is_cms_user, is_reserved, help_post) VALUES
     (1,  'name_and_address',   'Individual,Contact',  'Navn og adresse',   0,           0,           NULL),
-    (2,  'supporter_profile',  'Individual,Contact',  'Støttespiller profil',  2,           0,           '<p><strong>Informasjonen du angir vil IKKE bli delt med noen tredjepartsorganisasjoner.</strong></p><p>Takk for at du involverer deg i aksjonen vår!</p>'),
+    (2,  'supporter_profile',  'Individual,Contact',  'Støttespiller profil',  2,           0,           '<p><strong>Informasjonen du angir vil IKKE bli delt med noen tredjepartsorganisasjoner.</strong></p><p>Takk for at du involverer deg i kampanjen vår!</p>'),
     (3,  'participant_status', 'Participant',         'Deltakerstatus',             0,      1,           NULL),
     (4,  'new_individual',     'Individual,Contact',  'Ny person'    ,             0,      1,           NULL),
     (5,  'new_organization',   'Organization,Contact','Ny organisasjon'  ,             0,      1,           NULL),
@@ -6163,7 +6163,7 @@ INSERT INTO civicrm_uf_field
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'Postnummer',              'Contact',      NULL,  NULL),
        (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'Primær e-post',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'Grupper',                   'Contact',      NULL,  NULL),
-       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Merkelapp',                     'Contact',      NULL,  NULL),
+       (  7,           'tag',                   1,           0,           9,      'User and User Admin Only',  0,           0,             NULL,          'Tags',                     'Contact',      NULL,  NULL),
        (  7,           'gender_id',             1,           0,           10,     'User and User Admin Only',  0,           0,             NULL,          'Kjønn',                   'Individual',   NULL,  NULL),
        (  7,           'birth_date',            1,           0,           11,     'User and User Admin Only',  0,           0,             NULL,          'Fødselsdato',            'Individual',   NULL,  NULL),
        (  8,           'street_address',        1,           1,           1,      'User and User Admin Only',  0,           0,             1,             'Gateadresse (Hjem)',    'Contact',      NULL,  NULL),
@@ -6281,7 +6281,7 @@ INSERT INTO `civicrm_contact_type`
 
 INSERT INTO civicrm_option_group
   (name,                         title,            description,      is_reserved, is_active) VALUES
-    ('msg_tpl_workflow_case', 'Meldingsmal for arbeidsflyt for saker',               'Meldingsmal for arbeidsflyt for saker',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Meldingsmal arbeidsflyt for gaver',               'Meldingsmal arbeidsflyt for gaver',                     1,           1) ,    ('msg_tpl_workflow_event', 'Meldingsmal arbeidsflyt for arrangementer',               'Meldingsmal arbeidsflyt for arrangementer',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Meldingsmal arbeidsflyt for \'Fortell en venn\'',               'Meldingsmal arbeidsflyt for \'Fortell en venn\'',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Meldingsmal arbeidsflyt for medlemskap',               'Meldingsmal arbeidsflyt for medlemskap',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Meldingsmal arbeidsflyt for Meta-maler',               'Meldingsmal arbeidsflyt for Meta-maler',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Meldingsmal arbeidsflyt for avtaler',               'Meldingsmal arbeidsflyt for avtaler',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Meldingsmal arbeidsflyt for profiler',               'Meldingsmal arbeidsflyt for profiler',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Meldingsmal arbeidsflyt for underskriftskampanje',               'Meldingsmal arbeidsflyt for underskriftskampanje',                     1,           1) ;
+    ('msg_tpl_workflow_case', 'Meldingsmal for arbeidsflyt for saker',               'Meldingsmal for arbeidsflyt for saker',                     1,           1) ,    ('msg_tpl_workflow_contribution', 'Meldingsmal arbeidsflyt for gaver',               'Meldingsmal arbeidsflyt for gaver',                     1,           1) ,    ('msg_tpl_workflow_event', 'Meldingsmal arbeidsflyt for arrangementer',               'Meldingsmal arbeidsflyt for arrangementer',                     1,           1) ,    ('msg_tpl_workflow_friend', 'Meldingsmal arbeidsflyt for \'Fortell en venn\'',               'Meldingsmal arbeidsflyt for \'Fortell en venn\'',                     1,           1) ,    ('msg_tpl_workflow_membership', 'Meldingsmal arbeidsflyt for medlemskap',               'Meldingsmal arbeidsflyt for medlemskap',                     1,           1) ,    ('msg_tpl_workflow_meta', 'Meldingsmal arbeidsflyt for Meta-maler',               'Meldingsmal arbeidsflyt for Meta-maler',                     1,           1) ,    ('msg_tpl_workflow_pledge', 'Meldingsmal arbeidsflyt for lovnader',               'Meldingsmal arbeidsflyt for lovnader',                     1,           1) ,    ('msg_tpl_workflow_uf', 'Meldingsmal arbeidsflyt for profiler',               'Meldingsmal arbeidsflyt for profiler',                     1,           1) ,    ('msg_tpl_workflow_petition', 'Meldingsmal arbeidsflyt for underskriftskampanje',               'Meldingsmal arbeidsflyt for underskriftskampanje',                     1,           1) ;
   SELECT @tpl_ogid_case := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_case';
   SELECT @tpl_ogid_contribution := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_contribution';
   SELECT @tpl_ogid_event := MAX(id) FROM civicrm_option_group WHERE name = 'msg_tpl_workflow_event';
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Saker - send kopi av en aktivitet',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Gaver - Varsel om dublett organisasjon',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Gaver - Kvittering (offline)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Gaver - Kvittering (online)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Gaver - Gjentagende begynnelse og slutt melding',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Gaver - gjentagende kanselleringsmelding',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Gaver - gjentagende betalingsdetaljer',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Gaver - gjentagende oppdateringer',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Personlige aksjonssider - administratormelding',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Personlige aksjonssider - støttespiller statusendringsmelding',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Personlige aksjonssider - støttespiller velkomst',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personal Campaign Pages - Owner Notification',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Arrangementer - registreringsbekreftelse og kvittering (offline)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Arrangementer - registreringsbekreftelse og kvittering (online)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Arrangementer - kun kvittering',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Arrangementer - registreringskanselleringsnotis',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Arrangementer - registreringsbekreftelsesinvitasjon',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Arrangementer - avventende registrering utløpelsesnotis',            6, 6) ,      (@tpl_ogid_friend, 'friend', '\'Fortell en venn\' e-post',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Medlemskap - Påmeldings- og fornyelses-kvitteringer (offline)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Medlemskap - kvittering (online)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Medlemskap - autoforny kanselleringsmelding',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Medlemskap - autoforny betalingsdetaljer',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Testkjør - kvitteringstopptekst',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Avtaler - bekreftelse',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Avtaler - Betalingspåminner',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiler - Admin-melding',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Underskriftskampanje - signatur lagt til',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Underskriftskampanje - trenger verifikasjon',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Saker - send kopi av en aktivitet',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Gaver - Varsel om dublett organisasjon',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Gaver - Kvittering (offline)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Gaver - Kvittering (online)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributions - Invoice',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Gaver - Gjentagende begynnelse og slutt melding',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Gaver - gjentagende kanselleringsmelding',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Gaver - gjentagende betalingsdetaljer',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Gaver - gjentagende oppdateringer',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Personlige kampanjesider - administratormelding',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Personlige kampanjesider - støttespiller statusendringsmelding',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Personlige kampanjesider - støttespiller velkomst',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Personlig kampanjesider - Eier melding',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Additional Payment Receipt or Refund Notification',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Arrangementer - registreringsbekreftelse og kvittering (offline)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Arrangementer - registreringsbekreftelse og kvittering (online)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Arrangementer - kun kvittering',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Arrangementer - registreringskanselleringsnotis',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Arrangementer - registreringsbekreftelsesinvitasjon',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Arrangementer - avventende registrering utløpelsesnotis',            6, 6) ,      (@tpl_ogid_friend, 'friend', '\'Fortell en venn\' e-post',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Medlemskap - Påmeldings- og fornyelses-kvitteringer (offline)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Medlemskap - kvittering (online)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Medlemskap - autoforny kanselleringsmelding',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Medlemskap - autoforny betalingsdetaljer',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Testkjør - kvitteringstopptekst',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Lovnader - bekreftelse',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Lovnader - Betalingspåminner',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiler - Admin-melding',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Underskriftskampanje - signatur lagt til',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Underskriftskampanje - trenger verifikasjon',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -10678,7 +10678,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_edit, 0,          1) ,      
       
       
-      ('Personlige aksjonssider - administratormelding', '{ts}Personal Campaign Page Notification{/ts}
+      ('Personlige kampanjesider - administratormelding', '{ts}Personal Campaign Page Notification{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Notification{/ts}
 
@@ -10796,7 +10796,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_notify, 1,          0),
-      ('Personlige aksjonssider - administratormelding', '{ts}Personal Campaign Page Notification{/ts}
+      ('Personlige kampanjesider - administratormelding', '{ts}Personal Campaign Page Notification{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Notification{/ts}
 
@@ -10916,7 +10916,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_notify, 0,          1) ,      
       
       
-      ('Personlige aksjonssider - støttespiller statusendringsmelding', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Personlige kampanjesider - støttespiller statusendringsmelding', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11020,7 +11020,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_status_change, 1,          0),
-      ('Personlige aksjonssider - støttespiller statusendringsmelding', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Personlige kampanjesider - støttespiller statusendringsmelding', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{if $pcpStatus eq \'Approved\'}
 ============================
 {ts}Your Personal Campaign Page{/ts}
@@ -11126,7 +11126,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_status_change, 0,          1) ,      
       
       
-      ('Personlige aksjonssider - støttespiller velkomst', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Personlige kampanjesider - støttespiller velkomst', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{ts}Dear supporter{/ts},
 {ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}
 
@@ -11284,7 +11284,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_supporter_notify, 1,          0),
-      ('Personlige aksjonssider - støttespiller velkomst', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
+      ('Personlige kampanjesider - støttespiller velkomst', '{ts 1=$contribPageTitle}Your Personal Campaign Page for %1{/ts}
 ', '{ts}Dear supporter{/ts},
 {ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}
 
@@ -11444,7 +11444,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_pcp_supporter_notify, 0,          1) ,      
       
       
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Personlig kampanjesider - Eier melding', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -11493,7 +11493,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_pcp_owner_notify, 1,          0),
-      ('Personal Campaign Pages - Owner Notification', '{ts}Someone has just donated to your personal campaign page{/ts}
+      ('Personlig kampanjesider - Eier melding', '{ts}Someone has just donated to your personal campaign page{/ts}
 ', '===========================================================
 {ts}Personal Campaign Page Owner Notification{/ts}
 
@@ -20568,7 +20568,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_test_preview, 0,          1) ,      
       
       
-      ('Avtaler - bekreftelse', '{ts}Thank you for your Pledge{/ts}
+      ('Lovnader - bekreftelse', '{ts}Thank you for your Pledge{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Thank you for your generous pledge. Please print this acknowledgment for your records.{/ts}
@@ -20732,7 +20732,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_acknowledge, 1,          0),
-      ('Avtaler - bekreftelse', '{ts}Thank you for your Pledge{/ts}
+      ('Lovnader - bekreftelse', '{ts}Thank you for your Pledge{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Thank you for your generous pledge. Please print this acknowledgment for your records.{/ts}
@@ -20898,7 +20898,7 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_pledge_acknowledge, 0,          1) ,      
       
       
-      ('Avtaler - Betalingspåminner', '{ts}Pledge Payment Reminder{/ts}
+      ('Lovnader - Betalingspåminner', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -21040,7 +21040,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_reminder, 1,          0),
-      ('Avtaler - Betalingspåminner', '{ts}Pledge Payment Reminder{/ts}
+      ('Lovnader - Betalingspåminner', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -22754,12 +22754,12 @@ SELECT @option_value_rel_id_cg  := value FROM civicrm_option_value WHERE option_
 
 SELECT @financial_type_id_dtn          := max(id) FROM civicrm_financial_type WHERE name = 'Gave';
 SELECT @financial_type_id_md         := max(id) FROM civicrm_financial_type WHERE name = 'Medlemsbetalinger';
-SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'Aksjonsgave';
+SELECT @financial_type_id_cc         := max(id) FROM civicrm_financial_type WHERE name = 'Kampanjegave';
 SELECT @financial_type_id_ef         := max(id) FROM civicrm_financial_type WHERE name = 'Arrangementspris';
 
 SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account WHERE name = 'Gave';
 SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = 'Medlemsbetalinger';
-SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Aksjonsgave';
+SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Kampanjegave';
 SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'Arrangementspris';
 SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Banking Fees';
 SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Accounts Receivable';
@@ -22820,7 +22820,7 @@ INSERT INTO `civicrm_price_field_value` (  `price_field_id`, `name`, `label`, `a
 VALUES ( @fieldID, 'contribution_amount', 'Contribution Amount', '1', '1', '0', '1', 1);
 
 -- CRM-13833
-INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Soft Credit Types', 1, 1);
+INSERT INTO civicrm_option_group (`name`, `title`, `is_reserved`, `is_active`) VALUES ('soft_credit_type', 'Myk kreditt-typer', 1, 1);
 
 SELECT @option_group_id_soft_credit_type := max(id) from civicrm_option_group where name = 'soft_credit_type';
 
@@ -22835,7 +22835,7 @@ VALUES
   (@option_group_id_soft_credit_type   , '3rd-party Service', 7, '3rd-party_service', 7, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Donor-advised Fund', 8, 'donor-advised_fund', 8, 0, 1, 0),
   (@option_group_id_soft_credit_type   , 'Matched Gift', 9, 'matched_gift', 9, 0, 1, 0),
-  (@option_group_id_soft_credit_type   , 'Personal Campaign Page', 10, 'pcp', 10, 0, 1, 1),
+  (@option_group_id_soft_credit_type   , 'Personlig kampanjeside', 10, 'pcp', 10, 0, 1, 1),
   (@option_group_id_soft_credit_type   , 'Gift', 11, 'gift', 11, 0, 1, 1);
 
 -- +--------------------------------------------------------------------+
@@ -22940,6 +22940,8 @@ INSERT INTO `civicrm_dashboard`
     ( `domain_id`, `name`, `label`, `url`, `permission`, `permission_operator`, `column_no`, `is_minimized`, `is_active`, `weight`, `fullscreen_url`, `is_fullscreen`, `is_reserved`)
     VALUES
     ( @domainID, 'blog', 'CiviCRM News', 'civicrm/dashlet/blog?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/blog?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+    ( @domainID, 'getting-started', 'Getting Started', 'civicrm/dashlet/getting-started?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 0, 'civicrm/dashlet/getting-started?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
+
     ( @domainID, 'activity', 'Aktiviteter', 'civicrm/dashlet/activity?reset=1&snippet=5', 'access CiviCRM', NULL, 0, 0, 1, 1, 'civicrm/dashlet/activity?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'myCases', 'Mine saker', 'civicrm/dashlet/myCases?reset=1&snippet=5', 'access my cases and activities', NULL , 0, 0, 1, 2, 'civicrm/dashlet/myCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
     ( @domainID, 'allCases', 'All Cases', 'civicrm/dashlet/allCases?reset=1&snippet=5', 'access all cases and activities', NULL , 0, 0, 1, 3, 'civicrm/dashlet/allCases?reset=1&snippet=5&context=dashletFullscreen', 1, 1),
@@ -23292,21 +23294,22 @@ INSERT INTO civicrm_navigation
 VALUES
     ( @domainID, 'civicrm/admin/setting/component?reset=1', 'Enable CiviCRM Components', 'Enable Components',                                 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 1 ),
     ( @domainID, 'civicrm/admin/extensions?reset=1',        'Manage Extensions', 'Manage Extensions', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 2 ),
-    ( @domainID, 'civicrm/admin/setting/smtp?reset=1',                  'Outbound Email (SMTP/Sendmail)', 'Outbound Email',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 3 ),
-    ( @domainID, 'civicrm/admin/paymentProcessor?reset=1',              'Payment Processors', 'Payment Processors',                           'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 4 ),
-    ( @domainID, 'civicrm/admin/setting/mapping?reset=1',               'Mapping and Geocoding', 'Mapping and Geocoding',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 5 ),
-    ( @domainID, 'civicrm/admin/setting/misc?reset=1',                  'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 6 ),
-    ( @domainID, 'civicrm/admin/setting/path?reset=1',                  'Directories',        'Directories',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 7 ),
-    ( @domainID, 'civicrm/admin/setting/url?reset=1',                   'Resource URLs',      'Resource URLs',                                'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 8 ),
-    ( @domainID, 'civicrm/admin/setting/updateConfigBackend?reset=1',   'Cleanup Caches and Update Paths', 'Cleanup Caches and Update Paths', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 9 ),
-    ( @domainID, 'civicrm/admin/setting/uf?reset=1',                    'CMS Database Integration',    'CMS Integration',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 10 ),
-    ( @domainID, 'civicrm/admin/options/safe_file_extension?reset=1', 'Safe File Extensions', 'Safe File Extensions','administer CiviCRM', '',@systemSettingslastID, '1', NULL, 11 ),
-    ( @domainID, 'civicrm/admin/options?reset=1',                       'Option Groups', 'Option Groups',                                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 12 ),
-    ( @domainID, 'civicrm/admin/mapping?reset=1',                       'Import/Export Mappings', 'Import/Export Mappings',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 13 ),
-    ( @domainID, 'civicrm/admin/setting/debug?reset=1',                 'Debugging and Error Handling','Debugging and Error Handling',        'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 14 ),
-    ( @domainID, 'civicrm/admin/setting/preferences/multisite?reset=1', 'Multi Site Settings', 'Multi Site Settings',                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 15 ),
-    ( @domainID, 'civicrm/admin/job?reset=1',                           'Scheduled Jobs', 'Scheduled Jobs',                                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 16 ),
-    ( @domainID, 'civicrm/admin/sms/provider?reset=1', 'SMS Providers', 'SMS Providers',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 17 );
+    ( @domainID, 'civicrm/a/#/cxn',                                     'Connections', 'Connections',                                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 3 ),
+    ( @domainID, 'civicrm/admin/setting/smtp?reset=1',                  'Outbound Email (SMTP/Sendmail)', 'Outbound Email',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 4 ),
+    ( @domainID, 'civicrm/admin/paymentProcessor?reset=1',              'Payment Processors', 'Payment Processors',                           'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 5 ),
+    ( @domainID, 'civicrm/admin/setting/mapping?reset=1',               'Mapping and Geocoding', 'Mapping and Geocoding',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 6 ),
+    ( @domainID, 'civicrm/admin/setting/misc?reset=1',                  'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 7 ),
+    ( @domainID, 'civicrm/admin/setting/path?reset=1',                  'Directories',        'Directories',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 8 ),
+    ( @domainID, 'civicrm/admin/setting/url?reset=1',                   'Resource URLs',      'Resource URLs',                                'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 9 ),
+    ( @domainID, 'civicrm/admin/setting/updateConfigBackend?reset=1',   'Cleanup Caches and Update Paths', 'Cleanup Caches and Update Paths', 'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 10 ),
+    ( @domainID, 'civicrm/admin/setting/uf?reset=1',                    'CMS Database Integration',    'CMS Integration',                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 11 ),
+    ( @domainID, 'civicrm/admin/options/safe_file_extension?reset=1', 'Safe File Extensions', 'Safe File Extensions','administer CiviCRM', '',@systemSettingslastID, '1', NULL, 12 ),
+    ( @domainID, 'civicrm/admin/options?reset=1',                       'Option Groups', 'Option Groups',                                     'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 13 ),
+    ( @domainID, 'civicrm/admin/mapping?reset=1',                       'Import/Export Mappings', 'Import/Export Mappings',                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 14 ),
+    ( @domainID, 'civicrm/admin/setting/debug?reset=1',                 'Debugging and Error Handling','Debugging and Error Handling',        'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 15 ),
+    ( @domainID, 'civicrm/admin/setting/preferences/multisite?reset=1', 'Multi Site Settings', 'Multi Site Settings',                         'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 16 ),
+    ( @domainID, 'civicrm/admin/job?reset=1',                           'Scheduled Jobs', 'Scheduled Jobs',                                   'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 17 ),
+    ( @domainID, 'civicrm/admin/sms/provider?reset=1', 'SMS Providers', 'SMS Providers',                                  'administer CiviCRM', '', @systemSettingslastID, '1', NULL, 18 );
 
 
 -- begin component admin menus
@@ -23706,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.10';
+UPDATE civicrm_domain SET version = '4.6.14';

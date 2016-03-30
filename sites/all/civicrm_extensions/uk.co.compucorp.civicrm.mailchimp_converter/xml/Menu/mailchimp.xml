@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/mailchimp/convert</path>
+    <page_callback>CRM_MailchimpConverter_Form_ConvertMailing</page_callback>
+    <title>Convert Mailchimp Template</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/mailchimp/token-mappings</path>
+    <page_callback>CRM_MailchimpConverter_Page_TokenMappings</page_callback>
+    <title>Manage Mailchimp Replacements</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/mailchimp/addmapping</path>
+    <page_callback>CRM_MailchimpConverter_Form_CreateTokenMapping</page_callback>
+    <title>CreateTokenMapping</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/mailchimp/removemapping</path>
+    <page_callback>CRM_MailchimpConverter_Page_RemoveTokenMapping</page_callback>
+    <title>RemoveTokenMapping</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
