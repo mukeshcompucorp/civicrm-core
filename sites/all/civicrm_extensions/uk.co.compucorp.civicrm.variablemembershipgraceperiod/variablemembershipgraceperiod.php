@@ -138,7 +138,7 @@ function variablemembershipgraceperiod_civicrm_alterCalculatedMembershipStatus(&
     28, 29, 30, 31, 32, 35
   );
 
-  if(empty($arguments['membership_type_id']) || in_array($arguments['membership_type_id'], $memberships)) {
+  if(empty($arguments['membership_type_id']) || in_array($arguments['membership_type_id'], $memberships) || empty($arguments['end_date'])) {
     return;
   }
 
