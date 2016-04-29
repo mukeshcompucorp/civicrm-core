@@ -26,7 +26,7 @@ class CRM_Civigiftaid_Form_Admin extends CRM_Core_Form {
   public function buildQuickForm() {
     CRM_Utils_System::setTitle(ts('Gift Aid - Settings'));
 
-    $this->add('checkbox', 'globally_enabled', 'Globally Enabled');
+    $this->add('checkbox', 'globally_enabled', 'Globally Enabled?');
 
     $this->add(
       'select',
@@ -146,7 +146,7 @@ class CRM_Civigiftaid_Form_Admin extends CRM_Core_Form {
    * @throws \CiviCRM_API3_Exception
    */
   private function getFinancialTypes() {
-    $result = civicrm_api3('FinancialType', 'get', array('sequential' => 1));
+    $result = civicrm_api3('FinancialType', 'get', array('sequential' => 1, 'is_active' => 1));
 
     $types = array();
     foreach ($result['values'] as $type) {
