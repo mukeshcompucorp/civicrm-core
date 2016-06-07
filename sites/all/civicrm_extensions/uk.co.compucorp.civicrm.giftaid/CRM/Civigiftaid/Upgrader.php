@@ -63,6 +63,9 @@ class CRM_Civigiftaid_Upgrader extends CRM_Civigiftaid_Upgrader_Base {
         $result = civicrm_api('OptionValue', 'create', $params);
       }
     }
+
+    $this->upgrade_3000();
+    $this->upgrade_3101();
   }
 
   /**
@@ -114,6 +117,7 @@ class CRM_Civigiftaid_Upgrader extends CRM_Civigiftaid_Upgrader_Base {
       $reportClass->delete();
     }
 
+    $this->unsetSettings();
   }
 
   /**
@@ -208,18 +212,162 @@ class CRM_Civigiftaid_Upgrader extends CRM_Civigiftaid_Upgrader_Base {
   }
 
   /**
-   * Run a update schema
+   * Perform upgrade to version 2.1
    *
    * @return TRUE on success
    * @throws Exception
    */
   public function upgrade_2100() {
-    $this->ctx->log->info('Applying update 2100');
+    $this->log('Applying update 2100');
     self::removeLegacyRegisteredReport();
     return TRUE;
   }
 
+  /**
+   * Perform upgrade to version 3.0
+   *
+   * @return bool
+   */
+  public function upgrade_3000() {
+    $this->log('Applying update 3000');
 
+    // Set default settings.
+    $this->setDefaultSettings();
+
+    // Create database schema.
+    $this->executeSqlFile('sql/upgrade_3000.sql');
+
+    // Import existing batches.
+    static::importBatches();
+
+    return TRUE;
+  }
+
+  /*
+   * Set up Past Year Submissions Job
+   */
+  public function upgrade_3101()
+  {
+    $this->log('Applying update 3101');
+
+    // create scheduled job
+    $dao = new CRM_Core_DAO_Job();
+    $dao->api_entity = 'gift_aid';
+    $dao->api_action = 'makepastyearsubmissions';
+    $dao->find(TRUE);
+    if (!$dao->id)
+    {
+      $dao = new CRM_Core_DAO_Job();
+      $dao->domain_id = CRM_Core_Config::domainID();
+      $dao->run_frequency = 'Daily';
+      $dao->parameters = null;
+      $dao->name = 'Make Past Year Submissions';
+      $dao->description = 'Make Past Year Submissions';
+      $dao->api_entity = 'gift_aid';
+      $dao->api_action = 'makepastyearsubmissions';
+      $dao->is_active = 0;
+      $dao->save();
+    }
+
+    return TRUE;
+  }
+
+  public function upgrade_3102() {
+    $this->log('Applying update 3102');
+
+    // Alter existing eligible_for_gift_aid columns
+    CRM_Core_DAO::executeQuery("ALTER TABLE civicrm_value_gift_aid_declaration MODIFY COLUMN eligible_for_gift_aid int");
+    CRM_Core_DAO::executeQuery("ALTER TABLE civicrm_value_gift_aid_submission MODIFY COLUMN eligible_for_gift_aid int");
+
+    // Update custom field type from String to Int
+    CRM_Core_DAO::executeQuery("UPDATE civicrm_custom_field SET data_type = 'Int' WHERE name = 'Eligible_for_Gift_Aid'");
+
+    // Add new option groups and options
+    $og1 = civicrm_api3('OptionGroup', 'create', array(
+      'sequential' => 1,
+      'name' => "eligibility_declaration_options",
+      'title' => "Eligibility Declaration Options",
+      'label' => "Eligibility Declaration Options",
+      'is_active' => 1,
+      'is_reserved' => 1,
+    ));
+
+    $og2 = civicrm_api3('OptionGroup', 'create', array(
+      'sequential' => 1,
+      'name' => "uk_taxpayer_options",
+      'title' => "UK Taxpayer Options",
+      'label' => "UK Taxpayer Options",
+      'is_active' => 1,
+      'is_reserved' => 1
+    ));
+
+    $og1Id = CRM_Utils_Array::value('id', $og1);
+    $og2Id = CRM_Utils_Array::value('id', $og2);
+
+    $optionValues = array (
+      array (
+        'sequential' => 1,
+        'option_group_id' => $og1Id,
+        'label' => 'Yes',
+        'value' => 1,
+        'name' => 'eligible_for_giftaid',
+      ),
+      array (
+        'sequential' => 1,
+        'option_group_id' => $og1Id,
+        'label' => 'No',
+        'value' => 0,
+        'name' => 'not_eligible_for_giftaid',
+      ),
+      array (
+        'sequential' => 1,
+        'option_group_id' => $og1Id,
+        'label' => 'Yes, in the Past 4 Years',
+        'value' => 3,
+        'name' => 'past_four_years',
+      ),
+      array (
+        'sequential' => 1,
+        'option_group_id' => $og2Id,
+        'label' => 'Yes',
+        'value' => 1,
+        'name' => 'yes_uk_taxpayer',
+      ),
+      array (
+        'sequential' => 1,
+        'option_group_id' => $og2Id,
+        'label' => 'No',
+        'value' => 0,
+        'name' => 'not_uk_taxpayer',
+      ),
+      array (
+        'sequential' => 1,
+        'option_group_id' => $og2Id,
+        'label' => 'Yes, in the Past 4 Years',
+        'value' => 3,
+        'name' => 'uk_taxpayer_past_four_years',
+      ),
+    );
+
+    foreach($optionValues as $params) {
+      $result = civicrm_api3('OptionValue', 'create', $params);
+    }
+
+    $declarationCustomGroupID = CRM_Utils_Array::value('id',civicrm_api('CustomGroup', 'getsingle', array(
+      'version' => 3,
+      'name' => 'Gift_Aid_Declaration')
+    ));
+
+    $submissionCustomGroupId = CRM_Utils_Array::value('id',civicrm_api('CustomGroup', 'getsingle', array(
+      'version' => 3,
+      'name' => 'Gift_Aid')
+    ));
+
+    CRM_Core_DAO::executeQuery("UPDATE civicrm_custom_field SET option_group_id = {$og1Id} WHERE name = 'Eligible_for_Gift_Aid' AND custom_group_id = {$declarationCustomGroupID}");
+    CRM_Core_DAO::executeQuery("UPDATE civicrm_custom_field SET option_group_id = {$og2Id} WHERE name = 'Eligible_for_Gift_Aid' AND custom_group_id = {$submissionCustomGroupId}");
+
+    return TRUE;
+  }
 
   /**
    * Example: Run an external SQL script
@@ -334,4 +482,85 @@ class CRM_Civigiftaid_Upgrader extends CRM_Civigiftaid_Upgrader_Base {
     }
   }
 
+  public static function migrateToThree($ctx) {
+    $ctx->executeSqlFile('sql/upgrade_3100');
+  }
+
+  /**
+   * Set the default admin settings for the extension.
+   */
+  private function setDefaultSettings() {
+    $settings = new stdClass();
+
+    // Set 'Globally Enabled' by default
+    $settings->globally_enabled = 1;
+    $settings->financial_types_enabled = array();
+
+    CRM_Core_BAO_Setting::setItem(
+      $settings,
+      'Extension',
+      $this->getExtensionKey() . ':settings'
+    );
+  }
+
+  /**
+   * Remove the admin settings for the extension.
+   *
+   * @throws \CRM_Extension_Exception
+   */
+  private function unsetSettings() {
+    $settingName = $this->getExtensionKey() . ':settings';
+
+    CRM_Core_BAO_Setting::executeQuery("DELETE FROM civicrm_setting WHERE name = '{$settingName}'");
+  }
+
+  /**
+   * Create default settings for existing batches, for which settings don't already exist.
+   */
+  private static function importBatches() {
+    $sql = /** @lang MySQL */
+      "
+      SELECT id
+      FROM civicrm_batch
+      WHERE name LIKE 'GiftAid%'
+    ";
+
+    $dao = CRM_Core_DAO::executeQuery($sql);
+
+    $basicRateTax = CRM_Civigiftaid_Utils_Contribution::getBasicRateTax();
+
+    while ($dao->fetch()) {
+      // Only add settings for batches for which settings don't exist already
+      if (CRM_Civigiftaid_BAO_BatchSettings::findByBatchId($dao->id) === FALSE) {
+        // Set globally enabled to TRUE by default, for existing batches
+        CRM_Civigiftaid_BAO_BatchSettings::create(array(
+          'batch_id' => (int) $dao->id,
+          'financial_types_enabled' => array(),
+          'globally_enabled' => TRUE,
+          'basic_rate_tax' => $basicRateTax
+        ));
+      }
+    }
+  }
+
+  /**
+   * @return string
+   * @throws \CRM_Extension_Exception
+   * @throws \CRM_Extension_Exception_ParseException
+   */
+  private function getExtensionKey() {
+    $info = CRM_Extension_Info::loadFromFile(__DIR__ . '/../../info.xml');
+
+    if (empty($info->key)) {
+      throw new CRM_Extension_Exception('Extension key not found for Gift Aid extension');
+    }
+
+    return $info->key;
+  }
+
+  private function log($message) {
+    if (is_object($this->ctx) && method_exists($this->ctx, 'info')) {
+      $this->ctx->log->info($message);
+    }
+  }
 }
