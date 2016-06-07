@@ -4564,9 +4564,9 @@ SELECT @domainID := id FROM civicrm_domain where name = 'Default Domain Name';
 -- CRM-9120 for legacy reasons we are continuing to translate the 'name', but this
 -- field is used mainly as an ID, and display_name will be shown to the user, but
 -- we have not yet finished modifying all places where the 'name' is shown.
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'Thuis', 'Thuis', 'HOME', 'Woonplaats', 0, 1, 1 );
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Werk', 'Werk', 'WORK', 'Werk adres', 0, 1 );
-INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Primair', 'Primair', NULL, 'Hoofdkantoor', 0, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active, is_default ) VALUES( 'Thuis', 'Thuis', 'HOME', 'Woonadres', 0, 1, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Werk', 'Werk', 'WORK', 'Werkadres', 0, 1 );
+INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Primair', 'Primair', NULL, 'Hoofdlocatie', 0, 1 );
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Andere', 'Andere', NULL, 'Andere vestiging', 0, 1 );
 -- the following location must stay with the untranslated Billing name, CRM-2064
 INSERT INTO civicrm_location_type( name, display_name, vcard_name, description, is_reserved, is_active ) VALUES( 'Billing',  'Factuuradres', NULL, 'Factuuradres', 1, 1 );
@@ -4577,7 +4577,7 @@ INSERT INTO civicrm_relationship_type( name_a_b,label_a_b, name_b_a,label_b_a, d
           ( 'Spouse of', 'Echtgeno(o)t(e) van', 'Spouse of', 'Echtgeno(o)t(e) van', 'Huwelijkse relatie', 'Individual', 'Individual', 0 ),
           ( 'Partner of', 'Partner van', 'Partner of', 'Partner van', 'Partner relatie', 'Individual', 'Individual', 0 ),
           ( 'Sibling of', 'Broer/zus van', 'Sibling of', 'Broer/zus van', 'Broer/zus relatie', 'Individual','Individual', 0 ),
-          ( 'Employee of', 'Medewerker van', 'Employer of', 'Werknemer van', 'Werkrelatie','Individual','Organization', 1 ),
+          ( 'Employee of', 'Werknemer van', 'Employer of', 'Werknemer is', 'Werkrelatie','Individual','Organization', 1 ),
           ( 'Volunteer for', 'Vrijwilliger voor', 'Volunteer is', 'Vrijwilliger is', 'Vrijwilligers relatie','Individual','Organization', 0 ),
           ( 'Head of Household for', 'Hoofd van het huishouden', 'Head of Household is', 'Hoofd van het huishouden is', 'Hoofd van het huishouden','Individual','Household', 1 ),
           ( 'Household Member of', 'Lid van het huishouden', 'Household Member is', 'Lid van het huishouden is', 'Lidmaatschap van een huishouden','Individual','Household', 1 );
@@ -4635,7 +4635,7 @@ VALUES
    ('individual_prefix'             , 'Aanhef voor personen'        , 1, 1, 0),
    ('individual_suffix'             , 'Achtervoegsel voor personen'        , 1, 1, 0),
    ('acl_role'                      , 'ACL-rol'                           , 1, 1, 0),
-   ('accept_creditcard'             , 'Geaccepteerde credit kaarten'              , 1, 1, 0),
+   ('accept_creditcard'             , 'Geaccepteerde creditcards'              , 1, 1, 0),
    ('payment_instrument'            , 'Betaalwijzen'                , 1, 1, 0),
    ('contribution_status'           , 'Bijdragestatus'                , 1, 1, 1),
    ('pcp_status'                    , 'PCP Status'                         , 1, 1, 1),
@@ -4647,7 +4647,7 @@ VALUES
    ('contact_edit_options'          , 'Opties contact wijzigen'               , 1, 1, 1),
    ('advanced_search_options'       , 'Opties geavanceerd zoeken'            , 1, 1, 1),
    ('user_dashboard_options'        , 'Overzicht gebruikersopties'             , 1, 1, 1),
-   ('address_options'               , 'Adresseer opties'                 , 1, 1, 0),
+   ('address_options'               , 'Opties adressering'                 , 1, 1, 0),
    ('group_type'                    , 'Type groep'                         , 1, 1, 0),
    ('grant_status'                  , 'Toelage status'                       , 1, 1, 0),
    ('grant_type'                    , 'Type toelage'                         , 1, 1, 0),
@@ -4657,8 +4657,8 @@ VALUES
    ('case_status'                   , 'Dossiertype'                        , 1, 1, 0),
    ('participant_listing'           , 'Deelnemers overzicht'                , 1, 1, 0),
    ('safe_file_extension'           , 'Veilige bestandsextensies'                , 1, 1, 0),
-   ('from_email_address'            , 'VAN e-mailadres'                 , 1, 1, 0),
-   ('mapping_type'                  , 'Landkaart Type'                       , 1, 1, 1),
+   ('from_email_address'            , 'E-mailadres afzender'                 , 1, 1, 0),
+   ('mapping_type'                  , 'Kaarttype'                       , 1, 1, 1),
    ('wysiwyg_editor'                , 'WYSIWYG tekstverwerker'                     , 1, 1, 0),
    ('recur_frequency_units'         , 'Periodieke eenheden frequentie'          , 1, 1, 0),
    ('phone_type'                    , 'Telefoontype'                         , 1, 1, 0),
@@ -4677,10 +4677,10 @@ VALUES
    ('tag_used_for'                  , 'Kenmerk gebruikt voor'                       , 1, 1, 1),
    ('currencies_enabled'            , 'Valuta ingeschakeld'                 , 1, 1, 0),
    ('event_badge'                   , 'Naam van het evenement label'                   , 1, 1, 0),
-   ('note_privacy'                  , 'Privacy niveau voor aantekeningen'           , 1, 1, 0),
+   ('note_privacy'                  , 'Privacy-niveaus voor notities'           , 1, 1, 0),
    ('campaign_type'                 , 'Type campagne'                      , 1, 1, 0),
    ('campaign_status'               , 'Campagnestatus'                    , 1, 1, 0),
-   ('system_extensions'             , 'CiviCRM extensies'                 , 1, 1, 0),
+   ('system_extensions'             , 'CiviCRM-extensies'                 , 1, 1, 0),
    ('mail_approval_status'          , 'CiviMail status goedkeuring'           , 1, 1, 0),
    ('engagement_index'              , 'Betrokkenheidsindex'                   , 1, 1, 0),
    ('cg_extend_objects'             , 'Een aangepaste groep uitbreiden naar '  , 1, 1, 0),
@@ -4691,11 +4691,11 @@ VALUES
    ('account_relationship'          , 'Account relatie'               , 1, 1, 0),
    ('event_contacts'                , 'Evenement ontvangstbewijs'                   , 1, 1, 0),
    ('conference_slot'               , 'Conferentie Slot'                    , 1, 1, 0),
-   ('batch_type'                    , 'Batch Type'                         , 1, 1, 1),
+   ('batch_type'                    , 'Batchtype'                         , 1, 1, 1),
    ('batch_mode'                    , 'Batch mode'                         , 1, 1, 1),
-   ('batch_status'                  , 'Batch Status'                       , 1, 1, 1),
+   ('batch_status'                  , 'Batch-status'                       , 1, 1, 1),
    ('sms_api_type'                  , 'Api Type'                           , 1, 1, 0),
-   ('sms_provider_name'             , 'SMS Provider Interne Naam'         , 1, 1, 0),
+   ('sms_provider_name'             , 'Interne naam SMS-provider'         , 1, 1, 0),
    ('auto_renew_options'            , 'Opties automatisch verlengen'                 , 1, 1, 1),
    ('financial_account_type'        , 'Financieel rekeningtype'             , 1, 1, 0),
    ('financial_item_status'         , 'Financieel item status'              , 1, 1, 1),
@@ -4803,7 +4803,7 @@ VALUES
    (@option_group_id_act, 'Bijeenkomst',                            1, 'Meeting', NULL, 0, NULL, 1, NULL,                                                                       0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Telefoongesprek',                         2, 'Phone Call',          NULL, 0, NULL, 2, NULL,                                                          0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'E-mail',                              3, 'Email',               NULL, 1, NULL, 3, 'Verzonden mail',                                                          0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Uitgaande SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'Verzonden SMS bericht(en)',                                             0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Uitgaande SMS',                       4, 'SMS',                 NULL, 1, NULL, 4, 'SMS bericht(en) verzonden.',                                             0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Evenement registratie',                 5, 'Event Registration',  NULL, 1, NULL, 5, 'Online of offline evenement registratie',                                0, 1, 1, @eventCompId, NULL),
    (@option_group_id_act, 'Bijdrage',                       6, 'Contribution',        NULL, 1, NULL, 6, 'Online of offline contributie',                                      0, 1, 1, @contributeCompId, NULL),
    (@option_group_id_act, 'Inschrijving lidmaatschap',                  7, 'Membership Signup',   NULL, 1, NULL, 7, 'Online of offline inschrijving lidmaatschap',                                 0, 1, 1, @memberCompId, NULL),
@@ -4837,7 +4837,7 @@ VALUES
    (@option_group_id_act, 'Per telefoon benaderen',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Looplijst',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Handtekening petitie',                           32, 'Petition', NULL,0, 0, 31, '', 0, 1, 1, @campaignCompId, NULL),
-   (@option_group_id_act, 'Massa SMS',                           34, 'Mass SMS',         NULL, 1, NULL, 34, 'Massa SMS',                                                    0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Massa-SMS',                           34, 'Mass SMS',         NULL, 1, NULL, 34, 'Massa-SMS',                                                    0, 1, 1, NULL, NULL),
 
 -- Activity Types for CiviCampaign CiviCase
    (@option_group_id_act, 'Wijzig aangepaste gegevens',                 33, 'Change Custom Data', NULL,0, 0, 33, '', 0, 1, 1, @caseCompId, NULL),
@@ -4846,9 +4846,9 @@ VALUES
    (@option_group_id_act, 'Wijzig lidmaatschapsstatus',           35, 'Change Membership Status',   NULL, 1, NULL, 35, 'Wijzig lidmaatschapsstatus.',                         0, 1, 1, @memberCompId, NULL),
    (@option_group_id_act, 'Wijzig lidmaatschapstype',             36, 'Change Membership Type',     NULL, 1, NULL, 36, 'Wijzig lidmaatschapstype.',                           0, 1, 1, @memberCompId, NULL),
 
-   (@option_group_id_act, 'Stop periodieke bijdrage',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Wijzig betalingsgegevens periodieke bijdrage ',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
-   (@option_group_id_act, 'Wijzig periodieke bijdrage',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Periodieke bijdrage stopzetten',      37, 'Cancel Recurring Contribution', NULL,1, 0, 37, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Betalingsgegevens periodieke bijdrage wijzigen',      38, 'Update Recurring Contribution Billing Details', NULL,1, 0, 38, '', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'Periodieke bijdrage wijzigen',      39, 'Update Recurring Contribution', NULL,1, 0, 39, '', 0, 1, 1, NULL, NULL),
 
    (@option_group_id_act, 'Herinnering verzonden',                40, 'Reminder Sent', NULL, 1, 0, 40, '', 0, 1, 1, NULL, NULL),
 
@@ -4858,7 +4858,7 @@ VALUES
    (@option_group_id_act, 'Bewerk batch', 43, 'Edit Batch', NULL, 1, 0, 43, 'Edit Batch', 0, 1, 1, @contributeCompId, NULL),
 
 -- new sms options
-   (@option_group_id_act, 'SMS aflevering', 44, 'SMS delivery', NULL, 1, NULL, 44, 'SMS aflevering', 0, 1, 1, NULL, NULL),
+   (@option_group_id_act, 'SMS-aflevering', 44, 'SMS delivery', NULL, 1, NULL, 44, 'SMS-aflevering', 0, 1, 1, NULL, NULL),
    (@option_group_id_act, 'Inkomende SMS',  45, 'Inbound SMS', NULL, 1, NULL,  45, 'Inkomende SMS', 0, 1, 1, NULL, NULL),
 
 
@@ -4956,7 +4956,7 @@ VALUES
   (@option_group_id_cvOpt, 'Activiteiten'   ,   1, 'activity', NULL, 0, NULL,  1,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Relaties',   2, 'rel', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Groepen'       ,   3, 'group', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_cvOpt, 'Aantekeningen'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_cvOpt, 'Notities'        ,   4, 'note', NULL, 0, NULL,  4,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Kenmerken'         ,   5, 'tag', NULL, 0, NULL,  5,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Wijzigingenlogboek'   ,   6, 'log', NULL, 0, NULL,  6,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_cvOpt, 'Bijdragen',   7, 'CiviContribute', NULL, 0, NULL,  7,  NULL, 0, 0, 1, NULL, NULL),
@@ -4972,16 +4972,16 @@ VALUES
   (@option_group_id_csgOpt, 'Toon smartgroepen altijd',   2, 'alwaysshow', NULL, 0, NULL,  2,  NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_csgOpt, 'Verberg smartgroepen'       ,   3, 'hide', NULL, 0, NULL,  3,  NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_ceOpt, 'Specifieke gegevens'              ,   1, 'CustomData', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Aangepaste gegevens'              ,   1, 'CustomData', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Adres'                  ,   2, 'Address', NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Communicatievoorkeuren',   3, 'CommunicationPreferences', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Aantekeningen'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'Notities'                    ,   4, 'Notes', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Demografie'             ,   5, 'Demographics', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Kenmerken en Groepen'          ,   6, 'TagsAndGroups', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'E-mail'                    ,   7, 'Email', NULL, 1, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Telefoon'                    ,   8, 'Phone', NULL, 1, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Instant Messenger'        ,   9, 'IM', NULL, 1, NULL, 9, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_ceOpt, 'Open ID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_ceOpt, 'OpenID'                  ,   10, 'OpenID', NULL, 1, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Website'                  ,   11, 'Website', NULL, 1, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Voorvoegsel'                   ,   12, 'Prefix', NULL, 2, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_ceOpt, 'Formele titel'             ,   13, 'Formal Title', NULL, 2, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
@@ -4991,10 +4991,10 @@ VALUES
   (@option_group_id_ceOpt, 'Achtervoegsel'                   ,   17, 'Suffix', NULL, 2, NULL, 17, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_asOpt, 'Adresvelden'          ,   1, 'location', NULL, 0, NULL,  1, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Specifieke gegevensgroepen'           ,   2, 'custom', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Aangepaste gegevensgroepen'           ,   2, 'custom', NULL, 0, NULL,  2, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Activiteiten'              ,   3, 'activity', NULL, 0, NULL,  4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Relaties'           ,   4, 'relationship', NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_asOpt, 'Aantekeningen'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_asOpt, 'Notities'                   ,   5, 'notes', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Wijzig Log'              ,   6, 'changeLog', NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Bijdragen'           ,   7, 'CiviContribute', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_asOpt, 'Lidmaatschappen'             ,   8, 'CiviMember', NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
@@ -5022,7 +5022,7 @@ VALUES
   (@option_group_id_acsOpt, 'Telefoon'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Straat en huisnummer'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Plaats'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acsOpt, 'Staat/Provincie'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acsOpt, 'Staat/provincie'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Land'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Postcode'     , 8, 'postal_code'   , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5030,7 +5030,7 @@ VALUES
   (@option_group_id_acConRef, 'Telefoon'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Straat en huisnummer'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Plaats'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acConRef, 'Staat/Provincie'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acConRef, 'Staat/provincie'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Land'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Postcode'     , 8, 'country'       , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5041,14 +5041,14 @@ VALUES
   (@option_group_id_adOpt, 'Postcode' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Toevoeging postcode',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Streek'            ,  7, 'county'        , NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Staat/Provincie'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Staat/provincie'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Land'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Breedtegraad'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Lengtegraad'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Adresnaam'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Straatadres verwerking', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
-  (@option_group_id_gType, 'Toegangscontrole', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_gType, 'toegangscontrole', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_gType, 'Mailinglijst',   2, 'Mailing List',   NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_grantSt, 'Verzonden', 1, 'Submitted',  NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, NULL),
@@ -5068,7 +5068,7 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_EventAggregate'       , 7, 'CRM_Contact_Form_Search_Custom_EventAggregate', NULL, 0, NULL, 7, 'Gemiddelde per evenement', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ActivitySearch'       , 8, 'CRM_Contact_Form_Search_Custom_ActivitySearch', NULL, 0, NULL, 8, 'Activiteiten zoeken', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_PriceSet'             , 9, 'CRM_Contact_Form_Search_Custom_PriceSet', NULL, 0, NULL, 9, 'Prijsset details voor evenement deelnemers', 0, 0, 1, NULL, NULL),
-  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, 'Postcode range', 0, 0, 1, NULL, NULL),
+  (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ZipCodeRange'         ,10, 'CRM_Contact_Form_Search_Custom_ZipCodeRange', NULL, 0, NULL, 10, 'Postcoderange', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_DateAdded'            ,11, 'CRM_Contact_Form_Search_Custom_DateAdded', NULL, 0, NULL, 11, 'Datum toegevoegd aan CiviCRM', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_MultipleValues'       ,12, 'CRM_Contact_Form_Search_Custom_MultipleValues', NULL, 0, NULL, 12, 'Overzicht aangepaste velden meerdere waarden', 0, 0, 1, NULL, NULL),
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_ContribSYBNT'         ,13, 'CRM_Contact_Form_Search_Custom_ContribSYBNT', NULL, 0, NULL, 13, 'Contributies in jaar X en niet in jaar Y', 0, 0, 1, NULL, NULL),
@@ -5076,12 +5076,12 @@ VALUES
   (@option_group_id_csearch , 'CRM_Contact_Form_Search_Custom_FullText'             ,15, 'CRM_Contact_Form_Search_Custom_FullText', NULL, 0, NULL, 15, 'Zoeken in volledige tekst', 0, 0, 1, NULL, NULL),
 
 -- report templates
-  (@option_group_id_report , 'Rapport achterban (samenvatting)',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Geeft een lijst met adressen en telefoon-informatie van uw contacten.', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Overzichtsrapport achterban',            'contact/summary',                'CRM_Report_Form_Contact_Summary',                NULL, 0, NULL, 1,  'Geeft een lijst met adressen en telefoon-informatie van uw contacten.', 0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Rapport achterban (details)',             'contact/detail',                 'CRM_Report_Form_Contact_Detail',                 NULL, 0, NULL, 2,  'Geeft informatie over donateurs, lidmaatschappen, evenementen en activiteiten.',   0, 0, 1, NULL, NULL),
   (@option_group_id_report , 'Rapport activiteiten',                         'activity',                       'CRM_Report_Form_Activity',                       NULL, 0, NULL, 3,  'Geeft een lijst van activiteiten van uw achterban, inclusief statistieken over activiteiten voor een of alle contacten gedurende een periode (verplicht)', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Rapport langs deuren en telefoontjes',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Geeft een gedetailleerd overzicht van de resultaten langs de deuren gaan en de telefoongesprekken met contacten.', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report , 'Rapport langs deuren en telefoontjes',                'walklist',                       'CRM_Report_Form_Walklist_Walklist',                       NULL, 0, NULL, 4,  'Geeft een gedetailleerd overzicht met relevante contacten geschikt voor een bezoek/telefoonlijst', 0, 0, 0, NULL, NULL),
   (@option_group_id_report , 'Rapport huidige werkgever',                 'contact/currentEmployer',        'CRM_Report_Form_Contact_CurrentEmployer',        NULL, 0, NULL, 5,  'Toont gedetailleerde lijst van werkgever - werknemer relaties met begin- en einddatum', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Rapport samenvatting donaties',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groepeer en totaliseer bijdragen met criteria (contact, periode, financieel type...).', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Overzichtsrapport donaties',             'contribute/summary',             'CRM_Report_Form_Contribute_Summary',             NULL, 0, NULL, 6,  'Groepeer en totaliseer bijdragen met criteria (contact, periode, financieel type...).', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Rapport gedetailleerd donaties',              'contribute/detail',              'CRM_Report_Form_Contribute_Detail',              NULL, 0, NULL, 7,  'Toont specifieke bijdragen volgens criteria (contact, periode, financieel type...).  Het rapport Overzicht bijdragen gebruikt dit rapport voor de details van de bijdrage.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Herhaal Bijdrage Rapport',             'contribute/repeat',              'CRM_Report_Form_Contribute_Repeat',              NULL, 0, NULL, 8,  'Toont voor twee opgegeven periodes contacten die in beide periodes een bijdrage gedaan met het bedrag van de bijdragen en het percentage verschil tussen die bijdragen.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Rapport Bijdragen van organisaties',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Toont een getailleerde lijst met bijdragen gegroepeerd per organisatie, inclusief bijdragen gedaan door werknemers van die organisatie.', 0, 0, 1, @contributeCompId, NULL),
@@ -5090,43 +5090,43 @@ VALUES
   (@option_group_id_report , 'Rapport SYBUNT',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT (Some Years BUt Not This year). Geeft een overzicht van uw achterban die in het verleden doneerde maar niet in de periode die u opgeeft. ', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Rapport LYBUNT',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT (Last Year BUt Not This year). Geeft een overzicht van uw achterban die vorig jaar doneerde maar niet in de periode die u opgeeft als het huidige jaar.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Rapport Verdiensten',                      'contribute/softcredit',          'CRM_Report_Form_Contribute_SoftCredit',          NULL, 0, NULL, 14, 'Toont bijdragen gedaan door contacten die een zacht-krediet hebben gekregen van andere contacten.', 0, 0, 1,@contributeCompId, NULL),
-  (@option_group_id_report , 'Rapport lidmaatschap (samenvatting)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Geeft een overzicht van lidmaatschappen per type en startdatum', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report , 'Overzichtsrapport lidmaatschappen',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Geeft een overzicht van lidmaatschappen per type en startdatum', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Rapport lidmaatschap (detail)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Geeft een overzicht van leden met hun lidmaatschapsstatus en andere details (datum lid, startdatum, einddatum). Ook kunnen de bijdragen per lidmaatschap getoond worden.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Rapport lidmaatschap (verlopen)',              'member/lapse',                   'CRM_Report_Form_Member_Lapse',                   NULL, 0, NULL, 17, 'Geeft een overzicht van lidmaatschappen die zijn verlopen of verlopen net voor de datum die u opgeeft. ', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Rapport deelname evenement (lijst)',         'event/participantListing',       'CRM_Report_Form_Event_ParticipantListing',       NULL, 0, NULL, 18, 'Geeft een lijst van deelnemers aan een evenement.', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report , 'Rapport evenement opbrengst (samenvatting)',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Geeft een overzicht van opbrengsten van een evenement. U kunt informatie opnemen zoals Evenement ID, registratie, deelname en opbrengst gegenereerd om u te helpen het succes van een evenement te bepalen. ', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report , 'Overzichtsrapport inkomsten evenementen',           'event/summary',                  'CRM_Report_Form_Event_Summary',                  NULL, 0, NULL, 19, 'Geeft een overzicht van opbrengsten van een evenement. U kunt informatie opnemen zoals Evenement ID, registratie, deelname en opbrengst gegenereerd om u te helpen het succes van een evenement te bepalen. ', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Rapport evenement opbrengst (detail)',            'event/income',                   'CRM_Report_Form_Event_Income',                   NULL, 0, NULL, 20, 'Helpt u de opbrengst van een evenement te analyseren. Het rapport kan details bevatten over het type deelnemer, status en betaalmethode.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report , 'Rapport toezeggingen',                           'pledge/detail',                 'CRM_Report_Form_Pledge_Detail',                 NULL, 0, NULL, 21,   'Rapport toezeggingen', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Rapport toegezegd maar niet betaald',             'pledge/pbnp',                    'CRM_Report_Form_Pledge_Pbnp',                    NULL, 0, NULL, 22, 'Rapport toegezegd maar niet betaald', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Rapport relaties',                     'contact/relationship',           'CRM_Report_Form_Contact_Relationship',           NULL, 0, NULL, 23, 'Rapport relaties', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Rapport overzicht van dossiers',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Een overzicht van dossiers, de duur, status, medewerker en/of dossierrol.', 0, 0, 1, @caseCompId, NULL),
+  (@option_group_id_report , 'Overzichtsrapport dossiers',                     'case/summary',                   'CRM_Report_Form_Case_Summary',                   NULL, 0, NULL, 24, 'Een overzicht van dossiers, de duur, status, medewerker en/of dossierrol.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Rapport tijd besteed per dossier',                  'case/timespent',                 'CRM_Report_Form_Case_TimeSpent',                 NULL, 0, NULL, 25, 'Samengevoegde tijd besteed aan dossiers en/of bijkomende activiteiten per activiteitstype en contact.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Rapport demografie contacten',             'case/demographics',              'CRM_Report_Form_Case_Demographics',              NULL, 0, NULL, 26, 'Demografisch gemiddelde voor zakelijke cliënten (en niet-zakelijke contacten) in uw database. Inclusief aangepaste contactvelden.', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report , 'Database Log Rapport',                     'contact/log',                    'CRM_Report_Form_Contact_Log',                    NULL, 0, NULL, 27, 'Log van contacten en activiteiten gecreëerd of bewerkt gedurende een op te geven periode', 0, 0, 1, NULL, NULL),
-  (@option_group_id_report , 'Rapport activiteiten (samenvatting)',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'Toont statistieken van een activiteit per type / datum', 0, 0, 1, NULL, NULL),
+  (@option_group_id_report , 'Overzichtsrapport activiteiten',               'activitySummary',                'CRM_Report_Form_ActivitySummary',                NULL, 0, NULL, 28, 'Toont statistieken van een activiteit per type / datum', 0, 0, 1, NULL, NULL),
   (@option_group_id_report, 'Boekhouding transactie rapport',          'contribute/bookkeeping',         'CRM_Report_Form_Contribute_Bookkeeping',         NULL, 0, 0, 29,    'Toon boekhouding transactie rapport', 0, 0, 1, 2, NULL),
   (@option_group_id_report , 'Rapport toelage (details)', 'grant/detail', 'CRM_Report_Form_Grant_Detail', NULL, 0, 0, 30, 'Rapport toelage in detail', 0, 0, 1, @grantCompId, NULL),
   (@option_group_id_report, 'Rapport aantal deelnemers', 'event/participantlist', 'CRM_Report_Form_Event_ParticipantListCount', NULL, 0, 0, 31, 'Toont een overzicht van deelnemers met totalen', 0, 0, 1, @eventCompId, NULL),
-  (@option_group_id_report, 'Rapport inkomsten (samenvatting)', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'Toont het rapport inkomsten van evenementen met totalen', 0, 0, 1, @eventCompId, NULL),
+  (@option_group_id_report, 'Overzichtsrapport inkomsten', 'event/incomesummary', 'CRM_Report_Form_Event_IncomeCountSummary', NULL, 0, 0, 32, 'Toont een inkomstenrapport voor evenementen met totalen.', 0, 0, 1, @eventCompId, NULL),
   (@option_group_id_report, 'Rapport dossier details', 'case/detail', 'CRM_Report_Form_Case_Detail', NULL, 0, 0, 33, 'Details van dossier', 0, 0, 1, @caseCompId, NULL),
   (@option_group_id_report, 'Rapport afgewezen mail', 'Mailing/bounce', 'CRM_Report_Form_Mailing_Bounce', NULL, 0, NULL, 34, 'Rapport met bounces voor massamails', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Rapport mailing (samenvatting)', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'Overzicht en statistieken van verzonden mailings', 0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'E-mail overzichtsrapport', 'Mailing/summary', 'CRM_Report_Form_Mailing_Summary', NULL, 0, NULL, 35, 'Overzicht en statistieken van verzonden mailings', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Rapport geopende mail', 'Mailing/opened', 'CRM_Report_Form_Mailing_Opened', NULL, 0, NULL, 36, 'Toont contacten die mail van een mailing hebben geopend', 0, 0, 1, @mailCompId, NULL),
   (@option_group_id_report, 'Rapport klikken n.a.v. mail', 'Mailing/clicks', 'CRM_Report_Form_Mailing_Clicks', NULL, 0, NULL, 37, 'Toont hoe vaak ontvangers op links hebben geklikt in een mail gestuurd met CiviMail', 0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Contact Logging Rapport (Samenvatting)', 'logging/contact/summary', 'CRM_Report_Form_Contact_LoggingSummary', NULL, 0, NULL, 38, 'Rapport aanpassingen contacten voor de log infrastructuur (samenvatting)', 0, 0, 0, NULL, NULL),
+  (@option_group_id_report, 'Overzichtsrapport contact-logging', 'logging/contact/summary', 'CRM_Report_Form_Contact_LoggingSummary', NULL, 0, NULL, 38, 'Overzichtsrapport aanpassingen contacten voor logging-infrastructuur', 0, 0, 0, NULL, NULL),
   (@option_group_id_report, 'Contact Logging Rapport', 'logging/contact/detail', 'CRM_Report_Form_Contact_LoggingDetail', NULL, 0, NULL, 39, 'Rapport waarin aanpassingen getoond worden voor de log infrastructuur (samenvatting)', 0, 0, 0, NULL, NULL),
-  (@option_group_id_report, 'Rapport Bijdrage Logging (Samenvatting)', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'Rapport Bijdrage aanpassingen voor logging infrastructuur (samenvatting).', 0, 0, 0, @contributeCompId, NULL),
+  (@option_group_id_report, 'Overzichtsrapport bijdrage-logging', 'logging/contribute/summary', 'CRM_Report_Form_Contribute_LoggingSummary', NULL, 0, NULL, 40, 'Rapport Bijdrage aanpassingen voor logging infrastructuur (samenvatting).', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Rapport Bijdrage Logging (Detail)', 'logging/contribute/detail', 'CRM_Report_Form_Contribute_LoggingDetail', NULL, 0, NULL, 41, 'Rapport Bijdrage aanpassingen voor logging infrastructuur (gedetailleerd).', 0, 0, 0, @contributeCompId, NULL),
   (@option_group_id_report, 'Rapport toelagen (statistieken)', 'grant/statistics', 'CRM_Report_Form_Grant_Statistics', NULL, 0, NULL, 42, 'Toont statistieken voor toelagen.', 0, 0, 1, @grantCompId, NULL),
-  (@option_group_id_report, 'Rapport Enquête (Detail)',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Gedetailleerd rapport voor onderzoeken, telebankieren, actielijsten en andere enquêtes.', 0, 0, 1, @campaignCompId, NULL),
+  (@option_group_id_report, 'Detailrapport enquête',    'survey/detail', 'CRM_Report_Form_Campaign_SurveyDetails',  NULL, 0, NULL, 43, 'Gedetailleerd rapport voor onderzoeken, telebankieren, actielijsten en andere enquêtes.', 0, 0, 1, @campaignCompId, NULL),
   (@option_group_id_report, 'Rapport Persoonlijke Campagne', 'contribute/pcp', 'CRM_Report_Form_Contribute_PCP', NULL, 0, NULL, 44, 'Samenvatting binnengehaalde bedrag met het aantal donateurs voor alle persoonlijke campagne pagina\'s.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'Rapport Toezeggingen Samenvatting', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Samenvatting van toezeggingen inclusief het toegezegde bedrag, de status, de volgende betalingsdatum, het totale betaalde bedrag, enz.', 0, 0, 1, @pledgeCompId, NULL),
+  (@option_group_id_report , 'Overzichtsrapport toezeggingen', 'pledge/summary', 'CRM_Report_Form_Pledge_Summary', NULL, 0, NULL, 45, 'Samenvatting van toezeggingen inclusief het toegezegde bedrag, de status, de volgende betalingsdatum, het totale betaalde bedrag, enz.', 0, 0, 1, @pledgeCompId, NULL),
   (@option_group_id_report , 'Bijdragen samengevoegd per relatietype',                   'contribute/history',              'CRM_Report_Form_Contribute_History',              NULL, 0, NULL, 46,  'Overzicht donatie geschiedenis van contact, per jaar gegroepeerd, inclusief bijdragen aan het contact gerelateerde contacten.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report,  'E-mail Detail Rapport',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Geeft een overzicht van onder meer geplande en uitgevoerde leveringen, afmeldingen, reacties.',   0, 0, 1, @mailCompId, NULL),
-  (@option_group_id_report, 'Gegevens Contributie en Lidmaatschap', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Informatie over alle soorten bijdragen inclusief bijbehorende lidmaatschap van bijdragen voor betalingen van lidmaatschap.', 0, 0, 1, @memberCompId, NULL),
+  (@option_group_id_report,  'Detailrapport mailings',                                            'mailing/detail',     'CRM_Report_Form_Mailing_Detail',          NULL, 0, NULL, 47,  'Geeft een overzicht van onder meer geplande en uitgevoerde leveringen, afmeldingen, reacties.',   0, 0, 1, @mailCompId, NULL),
+  (@option_group_id_report, 'Gegevens contributie en lidmaatschap', 'member/contributionDetail', 'CRM_Report_Form_Member_ContributionDetail', NULL, 0, NULL, 48, 'Informatie over alle soorten bijdragen inclusief bijbehorende lidmaatschap van bijdragen voor betalingen van lidmaatschap.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report, 'Periodieke Bijdragen Rapport', 'contribute/recur', 'CRM_Report_Form_Contribute_Recur',               NULL, 0, NULL, 49, 'Geeft informatie over periodieke bijdragen.', 0, 0, 1, @contributeCompId, NULL),
 
-  (@option_group_id_acs, 'Gepland',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_acs, 'Ingepland',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Gereed',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Geannuleerd',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Bericht achter gelaten', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
@@ -5354,8 +5354,8 @@ VALUES
 
 -- financial_account_type
 -- grouping field is specific to Quickbooks for mapping to .iif format
-   (@option_group_id_fat, 'Aanwinst', 1, 'Asset', NULL, 0, 0, 1, 'Things you own', 0, 1, 1, 2, NULL),
-   (@option_group_id_fat, 'Betrouwbaarheid', 2, 'Liability', NULL, 0, 0, 2, 'Things you own, like a grant still to be disbursed', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, 'Debiteuren', 1, 'Asset', NULL, 0, 0, 1, 'Things you own', 0, 1, 1, 2, NULL),
+   (@option_group_id_fat, 'Crediteuren', 2, 'Liability', NULL, 0, 0, 2, 'Things you own, like a grant still to be disbursed', 0, 1, 1, 2, NULL),
    (@option_group_id_fat, 'Opbrengsten', 3, 'Revenue', NULL, 0, 1, 3, 'Income from contributions and sales of tickets and memberships', 0, 1, 1, 2, NULL),
    (@option_group_id_fat, 'Verkoopkosten', 4, 'Cost of Sales', NULL, 0, 0, 4, 'Costs incurred to get revenue, e.g. premiums for donations, dinner for a fundraising dinner ticket', 0, 1, 1, 2, NULL),
    (@option_group_id_fat, 'Uitgaven', 5, 'Expenses', NULL, 0, 0, 5, 'Things that are paid for that are consumable, e.g. grants disbursed', 0, 1, 1, 2, NULL),
@@ -5363,14 +5363,14 @@ VALUES
 -- account_relationship
     (@option_group_id_arel, 'Inkomsten rekening is', 1, 'Income Account is', NULL, 0, 1, 1, 'Income Account is', 0, 1, 1, 2, NULL),
     (@option_group_id_arel, 'Tegenrekening is', 2, 'Credit/Contra Account is', NULL, 0, 0, 2, 'Credit/Contra Account is', 0, 1, 0, 2, NULL),
-    (@option_group_id_arel, 'Rekeningen ontvangstenrekening is', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
+    (@option_group_id_arel, 'Rekening te ontvangen betalingen is', 3, 'Accounts Receivable Account is', NULL, 0, 0, 3, 'Accounts Receivable Account is', 0, 1, 1, 2, NULL),
     (@option_group_id_arel, 'Credit verplichtingenrekening is', 4, 'Credit Liability Account is', NULL, 0, 0, 4, 'Credit Liability Account is', 0, 1, 0, 2, NULL),
      (@option_group_id_arel, 'Uitgavenrekening is', 5, 'Expense Account is', NULL, 0, 0, 5, 'Expense Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Bezittingenrekening is', 6, 'Asset Account is', NULL, 0, 0, 6, 'Asset Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Verkoopkostenrekening is', 7, 'Cost of Sales Account is', NULL, 0, 0, 7, 'Cost of Sales Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Geschenken Inventarisrekening is', 8, 'Premiums Inventory Account is', NULL, 0, 0, 8, 'Premiums Inventory Account is', 0, 1, 1, 2, NULL),
      (@option_group_id_arel, 'Kortingsrekening is', 9, 'Discounts Account is', NULL, 0, 0, 9, 'Discounts Account is', 0, 1, 1, 2, NULL),
-     (@option_group_id_arel, 'Verkoop Belastingaccount is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
+     (@option_group_id_arel, 'Rekening omzetbelasting is', 10, 'Sales Tax Account is', NULL, 0, 0, 10, 'Sales Tax Account is', 0, 1, 1, 2, NULL),
 
 -- event_contacts
    (@option_group_id_ere, 'Rol van deelnemers', 1, 'participant_role', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL),
@@ -5479,7 +5479,7 @@ VALUES
   (@option_group_id_fma, '"FIXME" <info@EXAMPLE.ORG>', '1', '"FIXME" <info@EXAMPLE.ORG>', NULL, 0, 1, 1, 'Standaard domein e-mailadres en \'van\' adres', 0, 0, 1, NULL, @domainID, NULL ),
 
 -- grant types
-  (@option_group_id_grantTyp, 'Crisis'          , 1, 'Emergency'         , NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, @domainID, NULL),
+  (@option_group_id_grantTyp, 'Noodgeval'          , 1, 'Emergency'         , NULL, 0, 1,    1, NULL, 0, 0, 1, NULL, @domainID, NULL),
   (@option_group_id_grantTyp, 'Ondersteuning families'     , 2, 'Family Support'    , NULL, 0, NULL, 2, NULL, 0, 0, 1, NULL, @domainID, NULL),
   (@option_group_id_grantTyp, 'Algemene bescherming' , 3, 'General Protection', NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, @domainID, NULL),
   (@option_group_id_grantTyp, 'straffeloosheid'           , 4, 'Impunity'          , NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, @domainID, NULL),
@@ -5638,7 +5638,7 @@ VALUES
   (@option_group_id_languages, 0, 0, 'nr_ZA', 'nr', 'Zuid Ndebele', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'oc_FR', 'oc', 'Occitaans (na 1500)', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'oj_CA', 'oj', 'Ojibwa', @counter := @counter + 1),
-  (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', '(Oud) Kerkelijk Slavisch, Oud Bulgaars, Oud Slavisch', @counter := @counter + 1),
+  (@option_group_id_languages, 0, 0, 'cu_BG', 'cu', 'Oudkerkslavisch, Kerkslavisch, Oud-Bulgaars, Oud-Slavisch', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'om_ET', 'om', 'Oromo', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'or_IN', 'or', 'Oriya', @counter := @counter + 1),
   (@option_group_id_languages, 0, 0, 'os_GE', 'os', 'Ossetisch, Osseets', @counter := @counter + 1),
@@ -5728,7 +5728,7 @@ INSERT INTO
     civicrm_membership_status(name, label, start_event, start_event_adjust_unit, start_event_adjust_interval, end_event, end_event_adjust_unit, end_event_adjust_interval, is_current_member, is_admin, weight, is_default, is_active, is_reserved)
 VALUES
     ('New',       'Nieuw', 'join_date', null, null,'join_date','month',3, 1, 0, 1, 0, 1, 0),
-    ('Current',   'Huidig', 'start_date', null, null,'end_date', null, null, 1, 0, 2, 1, 1, 0),
+    ('Current',   'Actief', 'start_date', null, null,'end_date', null, null, 1, 0, 2, 1, 1, 0),
     ('Grace',     'Uitstel', 'end_date', null, null,'end_date','month', 1, 1, 0, 3, 0, 1, 0),
     ('Expired',   'Verlopen', 'end_date', 'month', 1, null, null, null, 0, 0, 4, 0, 1, 0),
     ('Pending',   'In behandeling', 'join_date', null, null,'join_date',null,null, 0, 0, 5, 0, 1, 1),
@@ -5761,7 +5761,7 @@ VALUES
  ('PayPal_Express',     'PayPal - Express',       NULL,1,0,'Gebruikersnaam','Wachtwoord','Handtekening',NULL,'Payment_PayPalImpl','https://www.paypal.com/','https://api-3t.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif','https://www.sandbox.paypal.com/','https://api-3t.sandbox.paypal.com/',NULL,'https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif',2,NULL),
  ('Google_Checkout',    'Google Checkout',        NULL,1,0,'Merchant ID','sleutel',NULL,NULL,'Payment_Google','https://checkout.google.com/',NULL,'https://checkout.google.com/','https://checkout.google.com/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US','https://sandbox.google.com/checkout/',NULL,'https://sandbox.google.com/checkout/','https://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=YOURMERCHANTIDHERE&w=160&h=43&style=white&variant=text&loc=en_US',4,1),
  ('Moneris',            'Moneris',                NULL,1,0,'Gebruikersnaam','Wachtwoord','winkel ID',NULL,'Payment_Moneris','https://www3.moneris.com/',NULL,NULL,NULL,'https://esqa.moneris.com/',NULL,NULL,NULL,1,1),
- ('AuthNet',            'Authorize.Net',          NULL,1,0,'API login','Betaal sleutel','MD5 Hash',NULL,'Payment_AuthorizeNet','https://secure.authorize.net/gateway/transact.dll',NULL,'https://api.authorize.net/xml/v1/request.api',NULL,'https://test.authorize.net/gateway/transact.dll',NULL,'https://apitest.authorize.net/xml/v1/request.api',NULL,1,1),
+ ('AuthNet',            'Authorize.Net',          NULL,1,0,'API-login','Betaal sleutel','MD5-hash',NULL,'Payment_AuthorizeNet','https://secure.authorize.net/gateway/transact.dll',NULL,'https://api.authorize.net/xml/v1/request.api',NULL,'https://test.authorize.net/gateway/transact.dll',NULL,'https://apitest.authorize.net/xml/v1/request.api',NULL,1,1),
  ('PayJunction',        'PayJunction',            NULL,1,0,'User Name','Password',NULL,NULL,'Payment_PayJunction','https://payjunction.com/quick_link',NULL,NULL,NULL,'https://www.payjunctionlabs.com/quick_link',NULL,NULL,NULL,1,1),
  ('eWAY',               'eWAY (Single Currency)', NULL,1,0,'Customer ID',NULL,NULL,NULL,'Payment_eWAY','https://www.eway.com.au/gateway_cvn/xmlpayment.asp',NULL,NULL,NULL,'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp',NULL,NULL,NULL,1,0),
  ('Payment_Express',    'DPS Payment Express',    NULL,1,0,'User ID','Key','Mac Key - pxaccess only',NULL,'Payment_PaymentExpress','https://www.paymentexpress.com/pleaseenteraurl',NULL,NULL,NULL,'https://www.paymentexpress.com/pleaseenteratesturl',NULL,NULL,NULL,4,0),
@@ -5847,7 +5847,7 @@ INSERT INTO civicrm_county (name, state_province_id) VALUES ('Santa Clara', 1004
 -- Bounce classification patterns
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('AOL', 'Klacht m.b.t. AOL voorwaarden', 1);
+        VALUES ('AOL', 'Klacht m.b.t. AOL-voorwaarden', 1);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'AOL';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6097,7 +6097,7 @@ INSERT INTO civicrm_mailing_bounce_pattern
 
 INSERT INTO civicrm_mailing_bounce_type
         (name, description, hold_threshold)
-        VALUES ('Syntax', 'Fout in SMTP transactie', 3);
+        VALUES ('Syntax', 'Fout in SMTP-transactie', 3);
 
 SELECT @bounceTypeID := max(id) FROM civicrm_mailing_bounce_type WHERE name = 'Syntax';
 INSERT INTO civicrm_mailing_bounce_pattern
@@ -6117,7 +6117,7 @@ INSERT INTO civicrm_uf_group
     (4,  'new_individual',     'Individual,Contact',  'Nieuwe persoon'    ,             0,      1,           NULL),
     (5,  'new_organization',   'Organization,Contact','Nieuwe organisatie'  ,             0,      1,           NULL),
     (6,  'new_household',      'Household,Contact',   'Nieuw huishouden'     ,             0,      1,           NULL),
-    (7,  'summary_overlay',    'Contact',             'Samenvatting'   ,             0,      1,           NULL),
+    (7,  'summary_overlay',    'Contact',             'Overzicht'   ,             0,      1,           NULL),
     (8,  'shared_address',     'Contact',             'Gedeeld adres'                , 0,      1,           NULL),
     (9,  'on_behalf_organization', 'Contact,Organization','Namens organisatie',  0,      1,           NULL),
     (10, 'contribution_batch_entry', 'Contribution', 'Bulk-invoer bijdragen' ,       0,      1,           NULL),
@@ -6178,14 +6178,14 @@ INSERT INTO civicrm_uf_field
        (  9,           'city',                  1,           0,           5,      'User and User Admin Only',  0,           0,             3,             'Plaats',                     'Contact',      NULL,   NULL),
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             'Postcode',              'Contact',      NULL,   NULL),
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'Land',                  'Contact',      NULL,   NULL),
-       (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Staat/Provincie',         'Contact',      NULL,   NULL),
+       (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Staat/provincie',         'Contact',      NULL,   NULL),
        ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Financieel type', 'Contribution', NULL, NULL ),
        ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Bedrag', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Status', 'Contribution', NULL, NULL ),
        ( 10,     'receive_date',                1, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Ontvangen', 'Contribution', NULL, NULL ),
-       ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Bron', 'Contribution', NULL, NULL ),
+       ( 10,     'contribution_source',         0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Herkomst', 'Contribution', NULL, NULL ),
        ( 10,     'payment_instrument',          0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Betaald door', 'Contribution', NULL, NULL ),
-       ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'Controle Getal', 'Contribution', NULL, NULL ),
+       ( 10,     'check_number',                0, 0, 7, 'User and User Admin Only', 0, 0, NULL, 'Controlegetal', 'Contribution', NULL, NULL ),
        ( 10,     'send_receipt',                0, 0, 8, 'User and User Admin Only', 0, 0, NULL, 'Verzend factuur', 'Contribution', NULL, NULL ),
        ( 10,     'invoice_id',                  0, 0, 9, 'User and User Admin Only', 0, 0, NULL, 'Factuur ID', 'Contribution', NULL, NULL ),
        ( 10,     'soft_credit',                 0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Zacht krediet', 'Contribution', NULL, NULL ),
@@ -6194,13 +6194,13 @@ INSERT INTO civicrm_uf_field
        ( 11,     'join_date',                   1, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Lid sinds', 'Membership', NULL, NULL ),
        ( 11,     'membership_start_date',       0, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Begindatum', 'Membership', NULL, NULL ),
        ( 11,     'membership_end_date',         0, 1, 4, 'User and User Admin Only', 0, 0, NULL, 'Einddatum', 'Membership', NULL, NULL ),
-       ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Bron', 'Membership', NULL, NULL ),
+       ( 11,     'membership_source',           0, 0, 5, 'User and User Admin Only', 0, 0, NULL, 'Herkomst', 'Membership', NULL, NULL ),
        ( 11,     'send_receipt',                0, 0, 6, 'User and User Admin Only', 0, 0, NULL, 'Verzend factuur', 'Membership', NULL, NULL ),
        ( 11,     'financial_type',              0, 1, 7, 'User and User Admin Only', 0, 0, NULL, 'Financieel type', 'Membership', NULL, NULL ),
        ( 11,     'total_amount',                0, 1, 8, 'User and User Admin Only', 0, 0, NULL, 'Bedrag', 'Membership', NULL, NULL ),
        ( 11,     'receive_date',                1, 1, 9, 'User and User Admin Only', 0, 0, NULL, 'Ontvangen', 'Membership', NULL, NULL ),
        ( 11,     'payment_instrument',          0, 0, 10, 'User and User Admin Only', 0, 0, NULL, 'Betaald door', 'Membership', NULL, NULL ),
-       ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Controle Getal', 'Membership', NULL, NULL ),
+       ( 11,     'check_number',                0, 0, 11, 'User and User Admin Only', 0, 0, NULL, 'Controlegetal', 'Membership', NULL, NULL ),
        ( 11,     'contribution_status_id',      1, 1, 12, 'User and User Admin Only', 0, 0, NULL, 'Betaling status', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit',                 0, 0, 13, 'User and User Admin Only', 0, 0, NULL, 'Zacht krediet', 'Membership', NULL, NULL ),
        ( 11,     'soft_credit_type',            0, 0, 14, 'User and User Admin Only', 0, 0, NULL, 'Zacht krediettype', 'Membership', NULL, NULL ),
@@ -6216,7 +6216,7 @@ INSERT INTO civicrm_uf_field
 INSERT INTO civicrm_participant_status_type
   (id, name,                                  label,                                                       class,      is_reserved, is_active, is_counted, weight, visibility_id) VALUES
   (1,  'Registered',                          'Geregistreerd',                          'Positive', 1,           1,         1,          1,      1            ),
-  (2,  'Attended',                            'Deel genomen',                            'Positive', 0,           1,         1,          2,      2            ),
+  (2,  'Attended',                            'Deelgenomen',                            'Positive', 0,           1,         1,          2,      2            ),
   (3,  'No-show',                             'Niet gekomen',                             'Negative', 0,           1,         0,          3,      2            ),
   (4,  'Cancelled',                           'Geannuleerd',                           'Negative', 1,           1,         0,          4,      2            ),
   (5,  'Pending from pay later',              'Afhankelijk van betaling',              'Pending',  1,           1,         1,          5,      2            ),
@@ -6294,7 +6294,7 @@ INSERT INTO civicrm_option_group
 
 INSERT INTO civicrm_option_value
   (option_group_id,        name,       label,   value,                                  weight) VALUES
-      (@tpl_ogid_case, 'case_activity', 'Dossiers - Stuur kopie van een activiteit',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Contributies - Dubbele organisatie waarschuwing',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Contributies - Factuur (off-line)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Bijdragen - Ontvangst (online)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Contributies - Facturen',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Bijdragen - Periodieke Begin en Eind Bevestiging',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Bevestiging stoppen periodieke bijdrage',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Wijzigingen periodieke betalingen',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Bijdragen - Periodieke Wijzigingen',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Persoonlijke campagne pagina\'s - notificatie beheerder',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Persoonlijke campagnepagina\'s - Notificatie statuswijziging supporter ',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Persoonlijke campagne pagina\'s - Welkom supporter',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Persoonlijke Campagne Pagina\'s - Eigenaar notificatie',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Aanvullende notificatie voor ontvangst betaling of terugbetaling',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Evenementen - Bevestiging inschrijving en ontvangstbewijs (off-line)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Evenementen - Bevestiging inschrijving en ontvangstbewijs (online)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Evenementen - alleen ontvangstbewijs',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Evenementen - Annulering inschrijving',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Evenementen - Bevestiging inschrijving en uitnodiging',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Evenementen - In afwachting van verloop registratie bericht',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Informeer-een-vriend mail',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Lidmaatschap - Inschrijf en vernieuw bewijs (off-line)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Lidmaatschap - ontvangstbewijs (on-line)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Lidmaatschappen - automatisch vernieuwen kennisgeving annulering',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Lidmaatschappen - automatisch vernieuwen facturatie updates',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Test - Ontvangst Kop',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Toezeggingen - Bevestigen',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Toezeggingen - Betalingsherinnering',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiel - Beheer Bevestiging',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Petitie - handtekening toegevoegd',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Petitie - in afwachting van verificatie',            2, 2) ;
+      (@tpl_ogid_case, 'case_activity', 'Dossiers - Stuur kopie van een activiteit',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_dupalert', 'Contributies - Dubbele organisatie waarschuwing',            1, 1) ,      (@tpl_ogid_contribution, 'contribution_offline_receipt', 'Contributies - Factuur (off-line)',            2, 2) ,      (@tpl_ogid_contribution, 'contribution_online_receipt', 'Bijdragen - ontvangstbewijs (online)',            3, 3) ,      (@tpl_ogid_contribution, 'contribution_invoice_receipt', 'Bijdragen - factuur',            4, 4) ,      (@tpl_ogid_contribution, 'contribution_recurring_notify', 'Bijdragen - notificatie begin en eind periodieke bijdragen',            5, 5) ,      (@tpl_ogid_contribution, 'contribution_recurring_cancelled', 'Bijdragen - bevestiging stoppen periodieke bijdrage',            6, 6) ,      (@tpl_ogid_contribution, 'contribution_recurring_billing', 'Bijdragen - wijzigingen periodieke betalingen',            7, 7) ,      (@tpl_ogid_contribution, 'contribution_recurring_edit', 'Bijdragen - periodieke wijzigingen',            8, 8) ,      (@tpl_ogid_contribution, 'pcp_notify', 'Persoonlijke campagne pagina\'s - notificatie beheerder',            9, 9) ,      (@tpl_ogid_contribution, 'pcp_status_change', 'Persoonlijke campagnepagina\'s - Notificatie statuswijziging supporter ',            10, 10) ,      (@tpl_ogid_contribution, 'pcp_supporter_notify', 'Persoonlijke campagne pagina\'s - Welkom supporter',            11, 11) ,      (@tpl_ogid_contribution, 'pcp_owner_notify', 'Persoonlijke Campagne Pagina\'s - Eigenaar notificatie',            12, 12) ,      (@tpl_ogid_contribution, 'payment_or_refund_notification', 'Aanvullende notificatie voor ontvangst betaling of terugbetaling',            13, 13) ,      (@tpl_ogid_event, 'event_offline_receipt', 'Evenementen - Bevestiging inschrijving en ontvangstbewijs (off-line)',            1, 1) ,      (@tpl_ogid_event, 'event_online_receipt', 'Evenementen - Bevestiging inschrijving en ontvangstbewijs (online)',            2, 2) ,      (@tpl_ogid_event, 'event_registration_receipt', 'Evenementen - alleen ontvangstbewijs',            3, 3) ,      (@tpl_ogid_event, 'participant_cancelled', 'Evenementen - Annulering inschrijving',            4, 4) ,      (@tpl_ogid_event, 'participant_confirm', 'Evenementen - Bevestiging inschrijving en uitnodiging',            5, 5) ,      (@tpl_ogid_event, 'participant_expired', 'Evenementen - In afwachting van verloop registratie bericht',            6, 6) ,      (@tpl_ogid_friend, 'friend', 'Informeer-een-vriend mail',            1, 1) ,      (@tpl_ogid_membership, 'membership_offline_receipt', 'Lidmaatschap - Inschrijf en vernieuw bewijs (off-line)',            1, 1) ,      (@tpl_ogid_membership, 'membership_online_receipt', 'Lidmaatschap - ontvangstbewijs (on-line)',            2, 2) ,      (@tpl_ogid_membership, 'membership_autorenew_cancelled', 'Lidmaatschappen - automatisch vernieuwen kennisgeving annulering',            3, 3) ,      (@tpl_ogid_membership, 'membership_autorenew_billing', 'Lidmaatschappen - automatisch vernieuwen facturatie updates',            4, 4) ,      (@tpl_ogid_meta, 'test_preview', 'Test - Ontvangst Kop',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_acknowledge', 'Toezeggingen - bevestiging',            1, 1) ,      (@tpl_ogid_pledge, 'pledge_reminder', 'Toezeggingen - betalingsherinnering',            2, 2) ,      (@tpl_ogid_uf, 'uf_notify', 'Profiel - Notificatie beheerder',            1, 1) ,      (@tpl_ogid_petition, 'petition_sign', 'Petitie - handtekening toegevoegd',            1, 1) ,      (@tpl_ogid_petition, 'petition_confirmation_needed', 'Petitie - in afwachting van verificatie',            2, 2) ;
     SELECT @tpl_ovid_case_activity := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_case AND name = 'case_activity';
     SELECT @tpl_ovid_contribution_dupalert := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_dupalert';
     SELECT @tpl_ovid_contribution_offline_receipt := MAX(id) FROM civicrm_option_value WHERE option_group_id = @tpl_ogid_contribution AND name = 'contribution_offline_receipt';
@@ -7714,7 +7714,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_offline_receipt, 0,          1) ,      
       
       
-      ('Bijdragen - Ontvangst (online)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Bijdragen - ontvangstbewijs (online)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -8397,7 +8397,7 @@ INSERT INTO civicrm_msg_template
 </body>
 </html>
 ', @tpl_ovid_contribution_online_receipt, 1,          0),
-      ('Bijdragen - Ontvangst (online)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
+      ('Bijdragen - ontvangstbewijs (online)', '{if $is_pay_later}{ts}Invoice{/ts}{else}{ts}Receipt{/ts}{/if} - {$title}
 ', '{if $receipt_text}
 {$receipt_text}
 {/if}
@@ -9082,7 +9082,7 @@ INSERT INTO civicrm_msg_template
 ', @tpl_ovid_contribution_online_receipt, 0,          1) ,      
       
       
-      ('Contributies - Facturen', '{if $title}
+      ('Bijdragen - factuur', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9529,7 +9529,7 @@ from your next payment to us</div><br/></font></td>
   </body>
 </html>
 ', @tpl_ovid_contribution_invoice_receipt, 1,          0),
-      ('Contributies - Facturen', '{if $title}
+      ('Bijdragen - factuur', '{if $title}
   {if $component}
     {if $component == \'event\'}
       {ts 1=$title}Event Registration Invoice: %1{/ts}
@@ -9978,7 +9978,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_invoice_receipt, 0,          1) ,      
       
       
-      ('Bijdragen - Periodieke Begin en Eind Bevestiging', '{ts}Recurring Contribution Notification{/ts}
+      ('Bijdragen - notificatie begin en eind periodieke bijdragen', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10155,7 +10155,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_notify, 1,          0),
-      ('Bijdragen - Periodieke Begin en Eind Bevestiging', '{ts}Recurring Contribution Notification{/ts}
+      ('Bijdragen - notificatie begin en eind periodieke bijdragen', '{ts}Recurring Contribution Notification{/ts}
 ', '{ts 1=$displayName}Dear %1{/ts},
 
 {if $recur_txnType eq \'START\'}
@@ -10334,7 +10334,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_notify, 0,          1) ,      
       
       
-      ('Bevestiging stoppen periodieke bijdrage', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('Bijdragen - bevestiging stoppen periodieke bijdrage', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10372,7 +10372,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_cancelled, 1,          0),
-      ('Bevestiging stoppen periodieke bijdrage', '{ts}Recurring Contribution Cancellation Notification{/ts}
+      ('Bijdragen - bevestiging stoppen periodieke bijdrage', '{ts}Recurring Contribution Cancellation Notification{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Your recurring contribution of %1, every %2 %3 has been cancelled as requested.{/ts}
@@ -10412,7 +10412,7 @@ from your next payment to us</div><br/></font></td>
 ', @tpl_ovid_contribution_recurring_cancelled, 0,          1) ,      
       
       
-      ('Wijzigingen periodieke betalingen', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Bijdragen - wijzigingen periodieke betalingen', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10499,7 +10499,7 @@ from your next payment to us</div><br/></font></td>
 
 </body>
 </html>', @tpl_ovid_contribution_recurring_billing, 1,          0),
-      ('Wijzigingen periodieke betalingen', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Bijdragen - wijzigingen periodieke betalingen', '{ts}Recurring Contribution Billing Updates{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}
 
@@ -10588,7 +10588,7 @@ from your next payment to us</div><br/></font></td>
 </html>', @tpl_ovid_contribution_recurring_billing, 0,          1) ,      
       
       
-      ('Bijdragen - Periodieke Wijzigingen', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Bijdragen - periodieke wijzigingen', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -10632,7 +10632,7 @@ from your next payment to us</div><br/></font></td>
 </body>
 </html>
 ', @tpl_ovid_contribution_recurring_edit, 1,          0),
-      ('Bijdragen - Periodieke Wijzigingen', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
+      ('Bijdragen - periodieke wijzigingen', '{ts}Recurring Contribution Update Notification{/ts}', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Your recurring contribution has been updated as requested:{/ts}
 
@@ -20568,7 +20568,7 @@ or want to inquire about reinstating your registration for this event.{/ts}</p>
 ', @tpl_ovid_test_preview, 0,          1) ,      
       
       
-      ('Toezeggingen - Bevestigen', '{ts}Thank you for your Pledge{/ts}
+      ('Toezeggingen - bevestiging', '{ts}Thank you for your Pledge{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Thank you for your generous pledge. Please print this acknowledgment for your records.{/ts}
@@ -20732,7 +20732,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_acknowledge, 1,          0),
-      ('Toezeggingen - Bevestigen', '{ts}Thank you for your Pledge{/ts}
+      ('Toezeggingen - bevestiging', '{ts}Thank you for your Pledge{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts}Thank you for your generous pledge. Please print this acknowledgment for your records.{/ts}
@@ -20898,7 +20898,7 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_pledge_acknowledge, 0,          1) ,      
       
       
-      ('Toezeggingen - Betalingsherinnering', '{ts}Pledge Payment Reminder{/ts}
+      ('Toezeggingen - betalingsherinnering', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -21040,7 +21040,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_pledge_reminder, 1,          0),
-      ('Toezeggingen - Betalingsherinnering', '{ts}Pledge Payment Reminder{/ts}
+      ('Toezeggingen - betalingsherinnering', '{ts}Pledge Payment Reminder{/ts}
 ', '{ts 1=$contact.display_name}Dear %1{/ts},
 
 {ts 1=$next_payment|truncate:10:\'\'|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}
@@ -21184,7 +21184,7 @@ or need to modify your payment schedule.{/ts}</p>
 ', @tpl_ovid_pledge_reminder, 0,          1) ,      
       
       
-      ('Profiel - Beheer Bevestiging', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
+      ('Profiel - Notificatie beheerder', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
 ', '{ts}Submitted For:{/ts} {$displayName}
 {ts}Date:{/ts} {$currentDate}
 {ts}Contact Summary:{/ts} {$contactLink}
@@ -21271,7 +21271,7 @@ or need to modify your payment schedule.{/ts}</p>
 </body>
 </html>
 ', @tpl_ovid_uf_notify, 1,          0),
-      ('Profiel - Beheer Bevestiging', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
+      ('Profiel - Notificatie beheerder', '{$grouptitle} {ts 1=$displayName}Submitted by %1{/ts}
 ', '{ts}Submitted For:{/ts} {$displayName}
 {ts}Date:{/ts} {$currentDate}
 {ts}Contact Summary:{/ts} {$contactLink}
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.16';
+UPDATE civicrm_domain SET version = '4.6.17';
