@@ -5087,8 +5087,8 @@ VALUES
   (@option_group_id_report , 'Contributions by Organization Report',    'contribute/organizationSummary', 'CRM_Report_Form_Contribute_OrganizationSummary', NULL, 0, NULL, 9,  'Displays a detailed list of contributions grouped by organization, which includes contributions made by employees for the organisation.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Contributions by Household Report',       'contribute/householdSummary',    'CRM_Report_Form_Contribute_HouseholdSummary',    NULL, 0, NULL, 10, 'Displays a detailed list of contributions grouped by household which includes contributions made by members of the household.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Top Donors Report',                       'contribute/topDonor',            'CRM_Report_Form_Contribute_TopDonor',            NULL, 0, NULL, 11, 'Provides a list of the top donors during a time period you define. You can include as many donors as you want (for example, top 100 of your donors).', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'SYBUNT Report',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT betyder något eller några år men inte detta år. Visar en lista på kontakter som gjort inbetalningar till din organisation någon gång men som inte gjort det under den tidsperiod som du angett.', 0, 0, 1, @contributeCompId, NULL),
-  (@option_group_id_report , 'LYBUNT Report',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT betyder förra året men inte i år (\"last year but not this\"). Get en lista på personer som betalat förra året men inte under den tidsperiod du angivit som nuvarande år.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Rapport \"Något År Men Inte Detta\"',                           'contribute/sybunt',              'CRM_Report_Form_Contribute_Sybunt',              NULL, 0, NULL, 12, 'SYBUNT betyder något eller några år men inte detta år. Visar en lista på kontakter som gjort inbetalningar till din organisation någon gång men som inte gjort det under den tidsperiod som du angett.', 0, 0, 1, @contributeCompId, NULL),
+  (@option_group_id_report , 'Rapport \"Förra Året Men Inte Detta\"',                           'contribute/lybunt',              'CRM_Report_Form_Contribute_Lybunt',              NULL, 0, NULL, 13, 'LYBUNT betyder förra året men inte i år (\"last year but not this\"). Get en lista på personer som betalat förra året men inte under den tidsperiod du angivit som nuvarande år.', 0, 0, 1, @contributeCompId, NULL),
   (@option_group_id_report , 'Soft Credit Report',                      'contribute/softcredit',          'CRM_Report_Form_Contribute_SoftCredit',          NULL, 0, NULL, 14, 'Shows contributions made by contacts that have been soft-credited to other contacts.', 0, 0, 1,@contributeCompId, NULL),
   (@option_group_id_report , 'Medlemskapsrapport (Sammanfattning)',             'member/summary',                 'CRM_Report_Form_Member_Summary',                 NULL, 0, NULL, 15, 'Provides a summary of memberships by type and join date.', 0, 0, 1, @memberCompId, NULL),
   (@option_group_id_report , 'Medlemskapsrapport (detaljerad)',              'member/detail',                  'CRM_Report_Form_Member_Detail',                  NULL, 0, NULL, 16, 'Provides a list of members along with their membership status and membership details (Join Date, Start Date, End Date). Can also display contributions (payments) associated with each membership.', 0, 0, 1, @memberCompId, NULL),
@@ -5129,7 +5129,7 @@ VALUES
   (@option_group_id_acs, 'Schemalagd',  1, 'Scheduled',  NULL, 0, 1,    1, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Slutförd',  2, 'Completed',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_acs, 'Avbruten',  3, 'Cancelled',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_acs, 'Left Message', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acs, 'Lämnade meddelande', 4, 'Left Message', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, 'Inte nåbar', 5, 'Unreachable', NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, 'Inte obligatoriskt',  6, 'Not Required',  NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acs, 'Tillgänglig',  7, 'Available',  NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
@@ -5174,12 +5174,12 @@ VALUES
   (@option_group_id_mt, 'Exportera medlemskap',   9, 'Export Membership',   NULL, 0, 0,    9, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Exportera deltagare', 10, 'Export Participant',  NULL, 0, 0,   10, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Export Pledge',      11, 'Export Pledge',       NULL, 0, 0,   11, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_mt, 'Export Case',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_mt, 'Exportera ärende',        12, 'Export Case',         NULL, 0, 0,   12, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Export Grant',       13, 'Export Grant',        NULL, 0, 0,   13, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_mt, 'Exportera åtgärd',    14, 'Export Activity',     NULL, 0, 0,   14, NULL, 0, 1, 1, NULL, NULL),
 
   (@option_group_id_fu, 'dag'    , 'day'  ,    'day',  NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
-  (@option_group_id_fu, 'vecka'   , 'week' ,   'week',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
+  (@option_group_id_fu, 'week'   , 'week' ,   'week',  NULL, 0, NULL, 2, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_fu, 'månad'  , 'month',  'month',  NULL, 0, NULL, 3, NULL, 0, 1, 1, NULL, NULL),
   (@option_group_id_fu, 'år'   , 'year' ,   'year',  NULL, 0, NULL, 4, NULL, 0, 1, 1, NULL, NULL),
 
@@ -5459,13 +5459,13 @@ VALUES
   ( 'Member Dues'          , @contactID, @opval, 'Default account for membership sales', '4400', 'INC', 0, 1, 1, 0 ),
   ( 'Campaign Contribution', @contactID, @opval, 'Sample account for recording payments to a campaign', '4100', 'INC', 0, 1, 0, 0 ),
   ( 'Arrangemangsavgift'            , @contactID, @opval, 'Default account for event ticket sales', '4300', 'INC', 0, 1, 0, 0 ),
-  ( 'Banking Fees'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
+  ( 'Bankavgifter'         , @contactID, @opexp, 'Payment processor fees and manually recorded banking fees', '5200', 'EXP', 0, 1, 0, 1 ),
   ( 'Deposit Bank Account' , @contactID, @opAsset, 'All manually recorded cash and cheques go to this account', '1100', 'BANK', 0, 1, 0, 1 ),
   ( 'Kundfordringar'  , @contactID, @opAsset, 'Amounts to be received later (eg pay later event revenues)', '1200', 'AR', 0, 1, 0, 0 ),
   ( 'Accounts Payable'     , @contactID, @opLiability, 'Amounts to be paid out such as grants and refunds', '2200', 'AP', 0, 1, 0, 1 ),
   ( 'Premiums'             , @contactID, @opCost, 'Account to record cost of premiums provided to payors', '5100', 'COGS', 0, 1, 0, 1 ),
   ( 'Premiums inventory'   , @contactID, @opAsset, 'Account representing value of premiums inventory', '1375', 'OCASSET', 0, 1, 0, 0 ),
-  ( 'Discounts'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
+  ( 'Rabatter'            , @contactID, @opval, 'Contra-revenue account for amounts discounted from sales', '4900', 'INC', 0, 1, 0, 0 ),
   ( 'Payment Processor Account', @contactID, @opAsset, 'Account to record payments into a payment processor merchant account', '1150', 'BANK', 0, 1, 0, 0
 );
 
@@ -5505,7 +5505,7 @@ VALUES
 INSERT INTO `civicrm_option_group`
   (`name`, `title`, `description`, `is_reserved`, `is_active`)
 VALUES
-  ('languages', 'Languages', 'List of Languages', 1, 1);
+  ('languages', 'Languages', 'Lista över språk', 1, 1);
 
 SELECT @option_group_id_languages      := max(id) from civicrm_option_group where name = 'languages';
 
@@ -5775,7 +5775,7 @@ VALUES
 -- the fuzzy default dedupe rules
 -- IndividualSupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualSupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'Name and Email (reserved)', 1);
+VALUES ('Individual', 20, 'Supervised', 'IndividualSupervised', 'Namn och epost (reserverad)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -5802,7 +5802,7 @@ VALUES (@drgid, 'civicrm_contact', 'household_name', 10),
 -- the strict dedupe rules
 -- IndividualUnsupervised uses hard-coded optimized query (CRM_Dedupe_BAO_QueryBuilder_IndividualUnsupervised)
 INSERT INTO civicrm_dedupe_rule_group (contact_type, threshold, used, name, title, is_reserved)
-VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Email (reserved)', 1);
+VALUES ('Individual', 10, 'Unsupervised', 'IndividualUnsupervised', 'Epost (reserverad)', 1);
 
 SELECT @drgid := MAX(id) FROM civicrm_dedupe_rule_group;
 INSERT INTO civicrm_dedupe_rule (dedupe_rule_group_id, rule_table, rule_field, rule_weight)
@@ -22761,7 +22761,7 @@ SELECT @financial_account_id_dtn       := max(id) FROM civicrm_financial_account
 SELECT @financial_account_id_md         := max(id) FROM civicrm_financial_account WHERE name = 'Member Dues';
 SELECT @financial_account_id_cc         := max(id) FROM civicrm_financial_account WHERE name = 'Campaign Contribution';
 SELECT @financial_account_id_ef         := max(id) FROM civicrm_financial_account WHERE name = 'Arrangemangsavgift';
-SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Banking Fees';
+SELECT @financial_account_id_bf         := max(id) FROM civicrm_financial_account WHERE name = 'Bankavgifter';
 SELECT @financial_account_id_ap        := max(id) FROM civicrm_financial_account WHERE name = 'Kundfordringar';
 SELECT @financial_account_id_ar        := max(id) FROM civicrm_financial_account WHERE name = 'Deposit Bank Account';
 SELECT @financial_account_id_pp        := max(id) FROM civicrm_financial_account WHERE name = 'Payment Processor Account';
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.16';
+UPDATE civicrm_domain SET version = '4.6.17';
