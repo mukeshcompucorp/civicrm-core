@@ -4609,7 +4609,7 @@ VALUES
     ('Message d\'accueil','Welcome','Votre abonnement a été activé','Bienvenue. Votre abonnement à la liste de diffusion {welcome.group} est effectif.','Bienvenue. Votre abonnement à la liste de diffusion {welcome.group} est effectif.',1,1),
     ('Message de désinscription','Unsubscribe','Confirmation de désabonnement','Vous avez été désabonné des groupes suivants : {unsubscribe.group}. Vous pourrez vous réabonner en envoyant un courriel à {action.resubscribe} ou en cliquant <a href=\"{action.resubscribeUrl}\">ici</a>.','Vous avez été désabonné des groupes suivants : {unsubscribe.group}. Vous pourrez vous réabonner en envoyant un courriel à {action.resubscribe} ou en cliquant sur ',1,1),
     ('Message de ré-inscription','Resubscribe','Confirmation de réabonnement','Vous avez été réabonné aux groupes suivants : {resubscribe.group}. Vous pourrez vous désabonner en envoyant un courriel à {action.unsubscribe} ou en cliquant <a href=\"{action.unsubscribeUrl}\">ici</a>.','Vous avez été réabonné aux groupes suivants : {resubscribe.group}. Vous pourrez vous désabonner en envoyant un courriel à {action.unsubscribe} ou en cliquant sur {action.unsubscribeUrl}',1,1),
-    ('Message Opt-out','OptOut','Confirmation d\'exclusion des envois massifs','Votre adresse courriel a été retirée des listes de diffusion {domain.name}.','Votre adresse courriel a été retirée des listes de diffusion {domain.name}.',1,1),
+    ('Message d\'exclusion des envois','OptOut','Confirmation d\'exclusion des envois massifs','Votre adresse courriel a été retirée des listes de diffusion {domain.name}.','Votre adresse courriel a été retirée des listes de diffusion {domain.name}.',1,1),
     ('Réponse automatisée','Reply','Veuillez envoyer vos demandes à notre adresse courriel.','Ceci est une réponse automatique en provenance d\'une adresse courriel non gérée par des humains. Merci d\'envoyer toute demande à l\'adresse électronique pour les contacts figurant sur notre site.','Ceci est une réponse automatique en provenance d\'une adresse courriel non gérée par des humains. Merci d\'envoyer toute demande à l\'adresse électronique pour les contacts figurant sur notre site.',1,1);
 
 
@@ -4682,7 +4682,7 @@ VALUES
    ('campaign_status'               , 'Statut de la campagne'                    , 1, 1, 0),
    ('system_extensions'             , 'Extensions CiviCRM'                 , 1, 1, 0),
    ('mail_approval_status'          , 'Statut d\'approbation CiviMail'           , 1, 1, 0),
-   ('engagement_index'              , 'Index d\'engagement'                   , 1, 1, 0),
+   ('engagement_index'              , 'Indice d\'engagement'                   , 1, 1, 0),
    ('cg_extend_objects'             , 'Types de données de base pour un groupe de données personnalisées '  , 1, 1, 0),
    ('paper_size'                    , 'Format de papier'                         , 1, 1, 0),
    ('pdf_format'                    , 'Format de page PDF'                    , 1, 1, 0),
@@ -5045,7 +5045,7 @@ VALUES
   (@option_group_id_adOpt, 'Pays'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Latitude'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Longitude'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Adresse'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Nom du lieu'      , 12, 'address_name', NULL, 0, NULL, 12, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Analyse d\'adresse', 13, 'street_address_parsing', NULL, 0, NULL, 13, NULL, 0, 0, 1, NULL, NULL),
 
   (@option_group_id_gType, 'Contrôle d\'accès', 1, 'Access Control', NULL, 0, NULL, 1, NULL, 0, 1, 1, NULL, NULL),
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.17';
+UPDATE civicrm_domain SET version = '4.6.21';
