@@ -4832,7 +4832,7 @@ VALUES
    (@option_group_id_act, 'Добавить клиента к делу',                 27, 'Add Client To Case', NULL,0, 0, 26, '', 0, 1, 1, @caseCompId, NULL),
 
 -- Activity Types for CiviCampaign
-   (@option_group_id_act, 'Обзор',                             28, 'Survey', NULL,0, 0, 27, '', 0, 1, 1, @campaignCompId, NULL),
+   (@option_group_id_act, 'Опрос',                             28, 'Survey', NULL,0, 0, 27, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Canvass',                            29, 'Canvass', NULL,0, 0, 28, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'PhoneBank',                          30, 'PhoneBank', NULL,0, 0, 29, '', 0, 1, 1, @campaignCompId, NULL),
    (@option_group_id_act, 'Опросный лист',                           31, 'WalkList', NULL,0, 0, 30, '', 0, 1, 1, @campaignCompId, NULL),
@@ -5022,7 +5022,7 @@ VALUES
   (@option_group_id_acsOpt, 'Телефон'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Почтовый адрес'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Город'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acsOpt, 'Область/Штат'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acsOpt, 'Регион'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Страна'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acsOpt, 'Почтовый индекс'     , 8, 'postal_code'   , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5030,7 +5030,7 @@ VALUES
   (@option_group_id_acConRef, 'Телефон'           , 3, 'phone'         , NULL, 0, NULL, 3, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Почтовый адрес'  , 4, 'street_address', NULL, 0, NULL, 4, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Город'            , 5, 'city'          , NULL, 0, NULL, 5, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_acConRef, 'Область/Штат'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_acConRef, 'Регион'  , 6, 'state_province', NULL, 0, NULL, 6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Страна'         , 7, 'country'       , NULL, 0, NULL, 7, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_acConRef, 'Почтовый индекс'     , 8, 'country'       , NULL, 0, NULL, 8, NULL, 0, 0, 1, NULL, NULL),
 
@@ -5041,7 +5041,7 @@ VALUES
   (@option_group_id_adOpt, 'Почтовый индекс' ,  5, 'postal_code'   , NULL, 0, NULL,  5, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Добавочный почтовый индекс',  6, 'postal_code_suffix', NULL, 0, NULL,  6, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Округ'            ,  7, 'county'        , NULL, 0, NULL,  7, NULL, 0, 0, 1, NULL, NULL),
-  (@option_group_id_adOpt, 'Область/Штат'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
+  (@option_group_id_adOpt, 'Регион'  ,  8, 'state_province', NULL, 0, NULL,  8, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Страна'           ,  9, 'country'       , NULL, 0, NULL,  9, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Широта'          , 10, 'geo_code_1'    , NULL, 0, NULL, 10, NULL, 0, 0, 1, NULL, NULL),
   (@option_group_id_adOpt, 'Долгота'         , 11, 'geo_code_2', NULL, 0, NULL, 11, NULL, 0, 0, 1, NULL, NULL),
@@ -5490,7 +5490,7 @@ VALUES
   (@option_group_id_mail_approval_status, 'Ничего' , 3, 'None', NULL, 0, 0, 3, NULL, 0, 1, 1, @mailCompId, @domainID, NULL),
 
 -- custom group objects
-  (@option_group_id_cgeo, 'Обзор', 'Survey', 'civicrm_survey', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL, NULL),
+  (@option_group_id_cgeo, 'Опрос', 'Survey', 'civicrm_survey', NULL, 0, NULL, 1, NULL, 0, 0, 1, NULL, NULL, NULL),
   (@option_group_id_cgeo, 'Дела',  'Case', 'civicrm_case',     NULL, 0, NULL, 2, 'CRM_Case_PseudoConstant::caseType;', 0, 0, 1, NULL, NULL, NULL);
 
 -- CRM-6138
@@ -6143,7 +6143,7 @@ INSERT INTO civicrm_uf_field
        (  1,           'city',                  0,           0,           4,      'User and User Admin Only',  0,           0,             1,             'Город (дом)',              'Contact',      NULL,  NULL),
        (  1,           'postal_code',           0,           0,           5,      'User and User Admin Only',  0,           0,             1,             'Почтовый индекс (дом)',       'Contact',      NULL,  NULL),
        (  1,           'country',               0,           0,           6,      'User and User Admin Only',  0,           0,             1,             'Страна (дом)',           'Contact',      NULL,  NULL),
-       (  1,           'state_province',        0,           0,           7,      'User and User Admin Only',  0,           0,             1,             'Область (дом)',             'Contact',      NULL,  NULL),
+       (  1,           'state_province',        0,           0,           7,      'User and User Admin Only',  0,           0,             1,             'Регион (дом)',             'Contact',      NULL,  NULL),
        (  2,           'first_name',            1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Имя',               'Individual',   NULL,  NULL),
        (  2,           'last_name',             1,           0,           2,      'User and User Admin Only',  0,           0,             NULL,          'Фамилия',                'Individual',   NULL,  NULL),
        (  2,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Email Адрес',            'Contact',      NULL,  NULL),
@@ -6159,7 +6159,7 @@ INSERT INTO civicrm_uf_field
        (  7,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             1,             'Мобильный телефон',              'Contact',      NULL,  2 ),
        (  7,           'street_address',        1,           0,           3,      'User and User Admin Only',  0,           0,             NULL,          'Основной адрес',          'Contact',      NULL,  NULL),
        (  7,           'city',                  1,           0,           4,      'User and User Admin Only',  0,           0,             NULL,          'Город',                     'Contact',      NULL,  NULL),
-       (  7,           'state_province',        1,           0,           5,      'User and User Admin Only',  0,           0,             NULL,          'Область',                    'Contact',      NULL,  NULL),
+       (  7,           'state_province',        1,           0,           5,      'User and User Admin Only',  0,           0,             NULL,          'Регион',                    'Contact',      NULL,  NULL),
        (  7,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             NULL,          'Почтовый индекс',              'Contact',      NULL,  NULL),
        (  7,           'email',                 1,           0,           7,      'User and User Admin Only',  0,           0,             NULL,          'Основной email',            'Contact',      NULL,  NULL),
        (  7,           'group',                 1,           0,           8,      'User and User Admin Only',  0,           0,             NULL,          'Группы',                   'Contact',      NULL,  NULL),
@@ -6170,7 +6170,7 @@ INSERT INTO civicrm_uf_field
        (  8,           'city',                  1,           1,           2,      'User and User Admin Only',  0,           0,             1,             'Город (дом)',              'Contact',      NULL,  NULL),
        (  8,           'postal_code',           0,           0,           3,      'User and User Admin Only',  0,           0,             1,             'Почтовый индекс (дом)',       'Contact',      NULL,  NULL),
        (  8,           'country',               0,           0,           4,      'User and User Admin Only',  0,           0,             1,             'Страна (дом)',           'Contact',      NULL,  NULL),
-       (  8,           'state_province',        0,           0,           5,      'User and User Admin Only',  0,           0,             1,             'Область (дом)',             'Contact',      NULL,  NULL),
+       (  8,           'state_province',        0,           0,           5,      'User and User Admin Only',  0,           0,             1,             'Регион (дом)',             'Contact',      NULL,  NULL),
        (  9,           'organization_name',     1,           0,           1,      'User and User Admin Only',  0,           0,             NULL,          'Название организации',        'Organization', NULL,  NULL),
        (  9,           'phone',                 1,           0,           2,      'User and User Admin Only',  0,           0,             3,             'Телефон (основной) ',            'Contact',      NULL,   1),
        (  9,           'email',                 1,           0,           3,      'User and User Admin Only',  0,           0,             3,             'Адрес электронной почты (основной) ',            'Contact',      NULL,   NULL),
@@ -6178,7 +6178,7 @@ INSERT INTO civicrm_uf_field
        (  9,           'city',                  1,           0,           5,      'User and User Admin Only',  0,           0,             3,             'Город',                     'Contact',      NULL,   NULL),
        (  9,           'postal_code',           1,           0,           6,      'User and User Admin Only',  0,           0,             3,             'Почтовый индекс',              'Contact',      NULL,   NULL),
        (  9,           'country',               1,           0,           7,      'User and User Admin Only',  0,           0,             3,             'Страна',                  'Contact',      NULL,   NULL),
-       (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Область/Штат',         'Contact',      NULL,   NULL),
+       (  9,           'state_province',        1,           0,           8,      'User and User Admin Only',  0,           0,             3,             'Регион',         'Contact',      NULL,   NULL),
        ( 10,     'financial_type',              0, 1, 1, 'User and User Admin Only', 0, 0, NULL, 'Тип финансов', 'Contribution', NULL, NULL ),
        ( 10,     'total_amount',                0, 1, 2, 'User and User Admin Only', 0, 0, NULL, 'Сумма', 'Contribution', NULL, NULL ),
        ( 10,     'contribution_status_id',      1, 1, 3, 'User and User Admin Only', 0, 0, NULL, 'Статус', 'Contribution', NULL, NULL ),
@@ -23709,4 +23709,4 @@ INSERT INTO `civicrm_report_instance`
 VALUES
     (  @domainID, 'Survey Details', 'survey/detail', 'Detailed report for canvassing, phone-banking, walk lists or other surveys.', 'access CiviReport', 'a:39:{s:6:"fields";a:2:{s:9:"sort_name";s:1:"1";s:6:"result";s:1:"1";}s:22:"assignee_contact_id_op";s:2:"eq";s:25:"assignee_contact_id_value";s:0:"";s:12:"sort_name_op";s:3:"has";s:15:"sort_name_value";s:0:"";s:17:"street_number_min";s:0:"";s:17:"street_number_max";s:0:"";s:16:"street_number_op";s:3:"lte";s:19:"street_number_value";s:0:"";s:14:"street_name_op";s:3:"has";s:17:"street_name_value";s:0:"";s:15:"postal_code_min";s:0:"";s:15:"postal_code_max";s:0:"";s:14:"postal_code_op";s:3:"lte";s:17:"postal_code_value";s:0:"";s:7:"city_op";s:3:"has";s:10:"city_value";s:0:"";s:20:"state_province_id_op";s:2:"in";s:23:"state_province_id_value";a:0:{}s:13:"country_id_op";s:2:"in";s:16:"country_id_value";a:0:{}s:12:"survey_id_op";s:2:"in";s:15:"survey_id_value";a:0:{}s:12:"status_id_op";s:2:"eq";s:15:"status_id_value";s:1:"1";s:11:"custom_1_op";s:2:"in";s:14:"custom_1_value";a:0:{}s:11:"custom_2_op";s:2:"in";s:14:"custom_2_value";a:0:{}s:17:"custom_3_relative";s:1:"0";s:13:"custom_3_from";s:0:"";s:11:"custom_3_to";s:0:"";s:11:"description";s:75:"Detailed report for canvassing, phone-banking, walk lists or other surveys.";s:13:"email_subject";s:0:"";s:8:"email_to";s:0:"";s:8:"email_cc";s:0:"";s:10:"permission";s:17:"access CiviReport";s:6:"groups";s:0:"";s:9:"domain_id";i:1;}');
 
-UPDATE civicrm_domain SET version = '4.6.17';
+UPDATE civicrm_domain SET version = '4.6.21';

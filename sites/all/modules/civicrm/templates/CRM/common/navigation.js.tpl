@@ -37,17 +37,17 @@
           </div>
         </form>
         <ul>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" checked="checked" value="" name="quickSearchField">{if $includeEmail}{ts}Name/Email{/ts}{else}{ts}Name{/ts}{/if}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="contact_id" name="quickSearchField">{ts}Contact ID{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="external_identifier" name="quickSearchField">{ts}External ID{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="first_name" name="quickSearchField">{ts}First Name{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="last_name" name="quickSearchField">{ts}Last Name{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="eml" value="email" name="quickSearchField">{ts}Email{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="phe" value="phone_numeric" name="quickSearchField">{ts}Phone{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="sts" value="street_address" name="quickSearchField">{ts}Street Address{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="sts" value="city" name="quickSearchField">{ts}City{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="sts" value="postal_code" name="quickSearchField">{ts}Postal Code{/ts}</label></li>
-          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="job_title" name="quickSearchField">{ts}Job Title{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" checked="checked" value="" name="quickSearchField"> {if $includeEmail}{ts}Name/Email{/ts}{else}{ts}Name{/ts}{/if}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="contact_id" name="quickSearchField"> {ts}Contact ID{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="external_identifier" name="quickSearchField"> {ts}External ID{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="first_name" name="quickSearchField"> {ts}First Name{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="last_name" name="quickSearchField"> {ts}Last Name{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="eml" value="email" name="quickSearchField"> {ts}Email{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="phe" value="phone_numeric" name="quickSearchField"> {ts}Phone{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="sts" value="street_address" name="quickSearchField"> {ts}Street Address{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="sts" value="city" name="quickSearchField"> {ts}City{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="sts" value="postal_code" name="quickSearchField"> {ts}Postal Code{/ts}</label></li>
+          <li><label class="crm-quickSearchField"><input type="radio" data-tablename="cc" value="job_title" name="quickSearchField"> {ts}Job Title{/ts}</label></li>
         </ul>
       </li>
     {/if}
@@ -103,10 +103,20 @@ $('#civicrm-menu').ready(function() {
           };
         CRM.api3('contact', 'getquick', params).done(function(result) {
           var ret = [];
-          if (result.values) {
+          if (result.values.length > 0) {
+            $('#sort_name_navigation').autocomplete('widget').menu('option', 'disabled', false);
             $.each(result.values, function(k, v) {
               ret.push({value: v.id, label: v.data});
-            })
+            });
+          } else {
+            $('#sort_name_navigation').autocomplete('widget').menu('option', 'disabled', true);
+            var label = option.closest('label').text();
+            var msg = ts('{/literal}{ts escape='js' 1='%1'}%1 not found.{/ts}'{literal}, {1: label});
+            // Remind user they are not searching by contact name (unless they enter a number)
+            if (params.field_name && !(/[\d].*/.test(params.name))) {
+              msg += {/literal}' {ts escape='js'}Did you mean to search by Name/Email instead?{/ts}'{literal};
+            }
+            ret.push({value: '0', label: msg});
           }
           response(ret);
         })
@@ -115,12 +125,16 @@ $('#civicrm-menu').ready(function() {
         return false;
       },
       select: function (event, ui) {
-        document.location = CRM.url('civicrm/contact/view', {reset: 1, cid: ui.item.value});
+        if (ui.item.value > 0) {
+          document.location = CRM.url('civicrm/contact/view', {reset: 1, cid: ui.item.value});
+        }
         return false;
       },
       create: function() {
         // Place menu in front
-        $(this).autocomplete('widget').css('z-index', $('#civicrm-menu').css('z-index'));
+        $(this).autocomplete('widget')
+          .addClass('crm-quickSearch-results')
+          .css('z-index', $('#civicrm-menu').css('z-index'));
       }
     })
     .keydown(function() {
@@ -167,8 +181,10 @@ $('#civicrm-menu').ready(function() {
     var $menu = $('#sort_name_navigation').autocomplete('widget');
     if ($('li.ui-menu-item', $menu).length === 1) {
       var cid = $('li.ui-menu-item', $menu).data('ui-autocomplete-item').value;
-      document.location = CRM.url('civicrm/contact/view', {reset: 1, cid: cid});
-      return false;
+      if (cid > 0) {
+        document.location = CRM.url('civicrm/contact/view', {reset: 1, cid: cid});
+        return false;
+      }
     }
   });
   // Close menu after selecting an item
