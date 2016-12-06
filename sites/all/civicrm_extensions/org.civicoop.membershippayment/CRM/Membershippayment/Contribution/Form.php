@@ -36,13 +36,21 @@ class CRM_Membershippayment_Contribution_Form {
     }
 
     $values = $form->controller->exportValues($form->getVar('_name'));
-    if($form->_submitValues['member_contact'] != $form->getVar('_contactID')) {
-      $this->updateContributionContact($contribution_id, $form->_submitValues['member_contact']);
-    }
 
     $membership_id = false;
     if (!empty($form->_submitValues['membership_id'])) {
       $membership_id = $form->_submitValues['membership_id'];
+    }
+
+    // create soft contribution entry if contact ID and member contact are different
+    if(!empty($form->_submitValues['member_contact']) && ($form->_submitValues['member_contact'] != $contactId)) {
+      $result = civicrm_api3('ContributionSoft', 'create', array(
+        'sequential' => 1,
+        'contribution_id' => $contribution_id,
+        'amount' => $form->_submitValues['total_amount'],
+        'contact_id' => $form->_submitValues['member_contact'],
+        'soft_credit_type_id' => $form->_submitValues['soft_credit_type_id'],
+      ));
     }
 
     if (!$membership_payment_id && $membership_id) {
@@ -98,11 +106,17 @@ class CRM_Membershippayment_Contribution_Form {
     $form->addEntityRef('member_contact', ts('Member Contact'));
     $form->add('select', 'membership_id', ts('Membership'), $memberships);
 
+    $softCreditTypes = array('' => ts('- Select Soft Credit Type -')) + CRM_Core_OptionGroup::values('soft_credit_type');
+    $form->add('select', 'soft_credit_type_id', ts('Soft Credit'), $softCreditTypes);
+
     if ($current_membership_id) {
       $defaults['membership_id'] = $current_membership_id;
     }
 
+    $form->assign('contact_id', $contact_id);
+
     $defaults['member_contact'] = $contact_id;
+    $defaults['soft_credit_type_id'] = CRM_Utils_Array::value(ts('Gift'), array_flip($softCreditTypes));
     $form->setDefaults($defaults);
 
     CRM_Core_Region::instance('page-body')->add($snippet);
@@ -125,19 +139,6 @@ class CRM_Membershippayment_Contribution_Form {
       $memberships[$dao->id] = $display_name." - ".CRM_Member_PseudoConstant::membershipType($dao->membership_type_id) . ': '.CRM_Member_PseudoConstant::membershipStatus($dao->status_id, null, 'label').' ('.$startDate->format('d-m-Y').' - '.$endDate->format('d-m-Y').')';
     }
     return $memberships;
-  }
-
-  /**
-   * Update contact ID for given contribution ID
-   *
-   * @param Integer $contribution_id
-   * @param Integer $contactId
-   */
-  private function updateContributionContact($contribution_id, $contactId) {
-    $sql = "UPDATE `civicrm_contribution` SET `contact_id` = %1 WHERE `id` = %2";
-    $params[1] = array($contactId, 'Integer');
-    $params[2] = array($contribution_id, 'Integer');
-    CRM_Core_DAO::executeQuery($sql, $params);
   }
 
   /**
