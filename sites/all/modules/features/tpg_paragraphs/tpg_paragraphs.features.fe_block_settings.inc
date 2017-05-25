@@ -1,0 +1,280 @@
+<?php
+/**
+ * @file
+ * tpg_paragraphs.features.fe_block_settings.inc
+ */
+
+/**
+ * Implements hook_default_fe_block_settings().
+ */
+function tpg_paragraphs_default_fe_block_settings() {
+  $export = array();
+
+  $export['version'] = '2.0';
+
+  $export['service_links-service_links'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'service_links',
+    'module' => 'service_links',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Share',
+    'visibility' => 0,
+  );
+
+  $export['service_links-service_links_not_node'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'service_links_not_node',
+    'module' => 'service_links',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 5,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-07638bbcc700a6c786d46b7710bcf395'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => '07638bbcc700a6c786d46b7710bcf395',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => 'header_top',
+        'status' => 1,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-561be599b982dd2ae38c000b1df22b2c'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => '561be599b982dd2ae38c000b1df22b2c',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => 'header_top',
+        'status' => 1,
+        'theme' => 'porto_sub',
+        'weight' => -19,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-b669b3b4ff80a85e0a4d56d000071204'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'b669b3b4ff80a85e0a4d56d000071204',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-d475a0d271ff2b5a475c0f47720f179e'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'd475a0d271ff2b5a475c0f47720f179e',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => 'header_top',
+        'status' => 1,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  return $export;
+}

@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ */
+function tpg_global_update_7001() {
+  $modules = [''];
+  if (empty(module_enable($modules))) {
+    throw new DrupalUpdateException(implode(', ', $modules) . ' or dependencies could not be enabled');
+  }
+}
