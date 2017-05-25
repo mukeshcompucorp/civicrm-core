@@ -195,6 +195,27 @@ function porto_preprocess_page(&$vars, $hook) {
 }
 
 /**
+ * Implements template_preprocess_node.
+ *
+ * @param      array  $variables
+ */
+function porto_preprocess_node(&$variables) {
+
+  // Paragraphs page node.
+  foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
+    // Loading paragraphs bundle from automated id.
+    $data = paragraphs_item_load($paragraph_item['value']);
+
+    if ($data->bundle == 'title_section') {
+      // Unset Subtype field value depending upon Show tags field value.
+      if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
+        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_subtype']);
+      }
+    }
+  }
+}
+
+/**
  * Define some variables for use in theme templates.
  */
 function porto_process_page(&$variables) {
