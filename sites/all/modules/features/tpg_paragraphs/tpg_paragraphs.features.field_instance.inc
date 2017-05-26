@@ -170,7 +170,7 @@ function tpg_paragraphs_field_default_field_instances() {
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => 0,
+      'title_field' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -179,16 +179,26 @@ function tpg_paragraphs_field_default_field_instances() {
       'settings' => array(
         'manualcrop_crop_info' => 1,
         'manualcrop_default_crop_area' => 1,
-        'manualcrop_enable' => 0,
+        'manualcrop_enable' => 1,
         'manualcrop_inline_crop' => 0,
         'manualcrop_instant_crop' => 0,
         'manualcrop_instant_preview' => 1,
         'manualcrop_keyboard' => 1,
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
-        'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 0,
+        'manualcrop_styles_list' => array(
+          '2_column_image_left_402x267' => '2_column_image_left_402x267',
+          '2_column_image_left_and_right_400x472' => '2_column_image_left_and_right_400x472',
+          '2_column_image_right_400_39x601_91' => '2_column_image_right_400_39x601_91',
+          '3_column_image_left_505x337' => '3_column_image_left_505x337',
+          'full_width_image_1285x500' => 'full_width_image_1285x500',
+          'gallery_image_reading_width_962x642' => 'gallery_image_reading_width_962x642',
+          'image_2_3_width_535x631' => 'image_2_3_width_535x631',
+          'image_full_reading_width_820x622' => 'image_full_reading_width_820x622',
+          'image_right_350x350' => 'image_right_350x350',
+        ),
+        'manualcrop_styles_mode' => 'exclude',
+        'manualcrop_thumblist' => 1,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -227,32 +237,54 @@ function tpg_paragraphs_field_default_field_instances() {
     'settings' => array(
       'add_mode' => 'select',
       'allowed_bundles' => array(
+        '2_column_image_left_image_right' => -1,
+        '2_column_image_left_no_image' => -1,
         '2_column_left_text_only' => -1,
+        '2_column_text_left_image_right' => -1,
         '3_column_text_left_image_right' => -1,
+        'attachments' => -1,
         'block_quote' => -1,
         'bulleted_list' => -1,
         'button' => -1,
         'embed_video' => -1,
         'full_width_image_caption' => -1,
+        'header_gallery' => -1,
+        'image_left_2_3_width' => -1,
         'image_left_text_right' => -1,
+        'image_reading_width_colorbox' => -1,
+        'page_type_date_added' => -1,
         'reading_width_image_caption' => -1,
-        'text_left_image_right' => -1,
+        'reading_width_maps' => -1,
+        'related_activities' => -1,
+        'text_reading_width' => -1,
         'title' => -1,
+        'title_section' => -1,
       ),
       'bundle_weights' => array(
+        '2_column_image_left_image_right' => 14,
+        '2_column_image_left_no_image' => 15,
         '2_column_left_text_only' => 2,
+        '2_column_text_left_image_right' => 17,
         '3_column_text_left_image_right' => 3,
+        'attachments' => 19,
         'block_quote' => 4,
         'bulleted_list' => 5,
         'button' => 6,
         'embed_video' => 7,
         'full_width_image_caption' => 8,
+        'header_gallery' => 25,
+        'image_left_2_3_width' => 26,
         'image_left_text_right' => 9,
+        'image_reading_width_colorbox' => 28,
+        'page_type_date_added' => 29,
         'reading_width_image_caption' => 10,
-        'text_left_image_right' => 11,
+        'reading_width_maps' => 31,
+        'related_activities' => 32,
+        'text_reading_width' => 33,
         'title' => 12,
+        'title_section' => 35,
       ),
-      'default_edit_mode' => 'open',
+      'default_edit_mode' => 'closed',
       'title' => 'Paragraph',
       'title_multiple' => 'Paragraphs',
       'user_register_form' => FALSE,
@@ -910,14 +942,14 @@ function tpg_paragraphs_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'paragraphs_item-attachments-field_paragraphs_documents'.
-  $field_instances['paragraphs_item-attachments-field_paragraphs_documents'] = array(
+  // 'paragraphs_item-attachments-field_paragraphs_attachments'.
+  $field_instances['paragraphs_item-attachments-field_paragraphs_attachments'] = array(
     'bundle' => 'attachments',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
@@ -931,13 +963,13 @@ function tpg_paragraphs_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_paragraphs_documents',
-    'label' => 'Documents',
+    'field_name' => 'field_paragraphs_attachments',
+    'label' => 'Attachments',
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
       'file_directory' => '',
-      'file_extensions' => 'txt pdf doc xls docx',
+      'file_extensions' => 'txt pdf doc xls docx jpg png',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -948,7 +980,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1243,7 +1275,7 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_full_width_image',
-    'label' => 'Full width Image',
+    'label' => 'Full Width Image',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -1385,7 +1417,7 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraphs_image_2_3_width',
-    'label' => 'Image 2/3 width',
+    'label' => '2/3 Width Image Left',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -1619,7 +1651,7 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_reading_image',
-    'label' => 'Reading Image',
+    'label' => 'Reading Width Image',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -1789,7 +1821,7 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_reading_image',
-    'label' => 'Reading image',
+    'label' => 'Reading Width Image',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -1837,19 +1869,19 @@ function tpg_paragraphs_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'paragraphs_item-text_left_image_right-field_paragraph_left_text'.
-  $field_instances['paragraphs_item-text_left_image_right-field_paragraph_left_text'] = array(
-    'bundle' => 'text_left_image_right',
+  // 'paragraphs_item-reading_width_maps-field_paragraphs_location'.
+  $field_instances['paragraphs_item-reading_width_maps-field_paragraphs_location'] = array(
+    'bundle' => 'reading_width_maps',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'location_cck',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'type' => 'location_map',
+        'weight' => 0,
       ),
       'paragraphs_editor_preview' => array(
         'label' => 'above',
@@ -1859,101 +1891,37 @@ function tpg_paragraphs_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_paragraph_left_text',
-    'label' => 'Text Left ',
+    'field_name' => 'field_paragraphs_location',
+    'label' => 'Location Map',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
+      'active' => 0,
+      'module' => 'location_cck',
+      'settings' => array(),
+      'type' => 'location',
       'weight' => 1,
     ),
   );
 
   // Exported field_instance:
-  // 'paragraphs_item-text_left_image_right-field_paragraph_right_image'.
-  $field_instances['paragraphs_item-text_left_image_right-field_paragraph_right_image'] = array(
-    'bundle' => 'text_left_image_right',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 2,
-      ),
-      'paragraphs_editor_preview' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_paragraph_right_image',
-    'label' => 'Image Right',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
-      'image_field_caption' => 1,
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'image',
-      'settings' => array(
-        'manualcrop_crop_info' => 1,
-        'manualcrop_default_crop_area' => 1,
-        'manualcrop_enable' => 1,
-        'manualcrop_inline_crop' => 0,
-        'manualcrop_instant_crop' => 0,
-        'manualcrop_instant_preview' => 1,
-        'manualcrop_keyboard' => 1,
-        'manualcrop_maximize_default_crop_area' => 0,
-        'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
-        'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 1,
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'image_image',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'paragraphs_item-text_left_image_right-field_paragraph_title'.
-  $field_instances['paragraphs_item-text_left_image_right-field_paragraph_title'] = array(
-    'bundle' => 'text_left_image_right',
+  // 'paragraphs_item-reading_width_webform-field_webform_entity'.
+  $field_instances['paragraphs_item-reading_width_webform-field_webform_entity'] = array(
+    'bundle' => 'reading_width_webform',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'bypass_access' => FALSE,
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 0,
       ),
       'paragraphs_editor_preview' => array(
@@ -1964,21 +1932,68 @@ function tpg_paragraphs_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_paragraph_title',
-    'label' => 'Title',
+    'field_name' => 'field_webform_entity',
+    'label' => 'Webform Entity',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'entityreference',
       'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
         'size' => 60,
       ),
-      'type' => 'text_textfield',
-      'weight' => 0,
+      'type' => 'entityreference_autocomplete',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-related_activities-field_related_activities'.
+  $field_instances['paragraphs_item-related_activities-field_related_activities'] = array(
+    'bundle' => 'related_activities',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => 1,
+          'use_content_language' => 1,
+          'view_mode' => 'teaser',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_related_activities',
+    'label' => 'Related Activities',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 1,
     ),
   );
 
@@ -2291,6 +2306,8 @@ function tpg_paragraphs_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('2/3 Width Image Left');
+  t('Attachments');
   t('Author Name');
   t('Block quote');
   t('Bulleted List');
@@ -2298,20 +2315,19 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Date Added');
   t('Date Published');
   t('Description');
-  t('Documents');
-  t('Full width Image');
+  t('Full Width Image');
   t('Gallery Image');
   t('Homepage Publish Dates');
   t('Homepage weight');
-  t('Image 2/3 width');
   t('Image Left');
   t('Image Right');
   t('Left Text');
+  t('Location Map');
   t('Overview page Image');
   t('Page Type');
   t('Paragraphs Content');
-  t('Reading Image');
-  t('Reading image');
+  t('Reading Width Image');
+  t('Related Activities');
   t('Show Logo linked to homepage');
   t('Show Tags');
   t('Subtype');
@@ -2319,6 +2335,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Text Right');
   t('Title');
   t('Video');
+  t('Webform Entity');
 
   return $field_instances;
 }

@@ -292,6 +292,29 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'video_embed_field',
   );
 
+  // Exported field_base: 'field_paragraphs_attachments'.
+  $field_bases['field_paragraphs_attachments'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_paragraphs_attachments',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
   // Exported field_base: 'field_paragraphs_content'.
   $field_bases['field_paragraphs_content'] = array(
     'active' => 1,
@@ -365,29 +388,6 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_paragraphs_documents'.
-  $field_bases['field_paragraphs_documents'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_paragraphs_documents',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 0,
-      'display_field' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
-  );
-
   // Exported field_base: 'field_paragraphs_gallery_image'.
   $field_bases['field_paragraphs_gallery_image'] = array(
     'active' => 1,
@@ -430,6 +430,90 @@ function tpg_paragraphs_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_paragraphs_location'.
+  $field_bases['field_paragraphs_location'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_paragraphs_location',
+    'indexes' => array(
+      'lid' => array(
+        0 => 'lid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'location_cck',
+    'settings' => array(
+      'gmap_macro' => '[gmap ]',
+      'gmap_marker' => 'small red',
+      'location_settings' => array(
+        'display' => array(
+          'hide' => array(
+            'additional' => 0,
+            'city' => 0,
+            'coords' => 'coords',
+            'country' => 0,
+            'country_name' => 0,
+            'locpick' => 'locpick',
+            'map_link' => 'map_link',
+            'name' => 0,
+            'postal_code' => 0,
+            'province' => 0,
+            'province_name' => 0,
+            'street' => 0,
+          ),
+        ),
+        'form' => array(
+          'fields' => array(
+            'additional' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 6,
+            ),
+            'city' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 8,
+            ),
+            'country' => array(
+              'collect' => 1,
+              'default' => 'gb',
+              'weight' => 14,
+            ),
+            'locpick' => array(
+              'collect' => 1,
+              'weight' => 20,
+            ),
+            'name' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 2,
+            ),
+            'postal_code' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 12,
+            ),
+            'province' => array(
+              'collect' => 0,
+              'default' => '',
+              'weight' => 10,
+              'widget' => 'autocomplete',
+            ),
+            'street' => array(
+              'collect' => 1,
+              'default' => '',
+              'weight' => 4,
+            ),
+          ),
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'location',
   );
 
   // Exported field_base: 'field_paragraphs_page_type'.
@@ -526,6 +610,39 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_related_activities'.
+  $field_bases['field_related_activities'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_related_activities',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_show_logo'.
   $field_bases['field_show_logo'] = array(
     'active' => 1,
@@ -549,6 +666,41 @@ function tpg_paragraphs_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_webform_entity'.
+  $field_bases['field_webform_entity'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_webform_entity',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'webform' => 'webform',
+        ),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
   );
 
   return $field_bases;
