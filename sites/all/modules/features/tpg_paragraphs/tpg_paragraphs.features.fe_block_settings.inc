@@ -56,6 +56,50 @@ function tpg_paragraphs_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['service_links-service_links_fisheye'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'service_links_fisheye',
+    'module' => 'service_links',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 6,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['service_links-service_links_not_node'] = array(
     'cache' => -1,
     'custom' => 0,
@@ -216,8 +260,8 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
       'porto_sub' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'porto_sub',
         'weight' => 0,
       ),

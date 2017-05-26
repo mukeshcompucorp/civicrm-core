@@ -222,6 +222,25 @@ function tpg_paragraphs_image_default_styles() {
     ),
   );
 
+  // Exported image style: overview_page_image_400x271.
+  $styles['overview_page_image_400x271'] = array(
+    'label' => 'Overview page Image 400x271',
+    'effects' => array(
+      12 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 400,
+          'height' => 271,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'overview_page_image_400x271',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   return $styles;
 }
 
@@ -294,12 +313,12 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'embed_video' => array(
-      'name' => 'Embed video',
+      'name' => 'Embed Video',
       'bundle' => 'embed_video',
       'locked' => '1',
     ),
     'full_width_image_caption' => array(
-      'name' => 'Full width image + caption',
+      'name' => 'Full Width Image + Caption',
       'bundle' => 'full_width_image_caption',
       'locked' => '1',
     ),
@@ -309,7 +328,7 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'image_left_2_3_width' => array(
-      'name' => 'Image Left 2/3 width',
+      'name' => '2/3 Width Image Left',
       'bundle' => 'image_left_2_3_width',
       'locked' => '1',
     ),
@@ -319,7 +338,7 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'image_reading_width_colorbox' => array(
-      'name' => 'Image Reading Width + Colorbox',
+      'name' => 'Reading Width Image + Colorbox',
       'bundle' => 'image_reading_width_colorbox',
       'locked' => '1',
     ),
@@ -329,17 +348,27 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'reading_width_image_caption' => array(
-      'name' => 'Reading width image + caption',
+      'name' => 'Reading Width Image + Caption',
       'bundle' => 'reading_width_image_caption',
       'locked' => '1',
     ),
-    'text_left_image_right' => array(
-      'name' => 'Text Left + Image Right',
-      'bundle' => 'text_left_image_right',
+    'reading_width_maps' => array(
+      'name' => 'Reading Width Location Maps',
+      'bundle' => 'reading_width_maps',
+      'locked' => '1',
+    ),
+    'reading_width_webform' => array(
+      'name' => 'Reading Width Webform',
+      'bundle' => 'reading_width_webform',
+      'locked' => '1',
+    ),
+    'related_activities' => array(
+      'name' => 'Related Activities',
+      'bundle' => 'related_activities',
       'locked' => '1',
     ),
     'text_reading_width' => array(
-      'name' => 'Text Reading Width',
+      'name' => 'Reading Width Text',
       'bundle' => 'text_reading_width',
       'locked' => '1',
     ),

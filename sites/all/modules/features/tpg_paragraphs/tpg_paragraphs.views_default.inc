@@ -27,7 +27,9 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
@@ -42,11 +44,6 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -84,7 +81,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Paragraphs item: Full width Image */
+  /* Field: Paragraphs item: Full Width Image */
   $handler->display->display_options['fields']['field_full_width_image']['id'] = 'field_full_width_image';
   $handler->display->display_options['fields']['field_full_width_image']['table'] = 'field_data_field_full_width_image';
   $handler->display->display_options['fields']['field_full_width_image']['field'] = 'field_full_width_image';
@@ -226,6 +223,71 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['bundle']['value'] = array(
     'header_gallery' => 'header_gallery',
   );
+
+  /* Display: Location Map */
+  $handler = $view->new_display('block', 'Location Map', 'location_maps');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'ip_geoloc_map';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => '',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['ip_geoloc_views_plugin_latitude'] = array(
+    'location_latitude' => 'location_latitude',
+  );
+  $handler->display->display_options['style_options']['center_option'] = '1';
+  $handler->display->display_options['style_options']['gps_roles'] = array(
+    1 => '1',
+    2 => '2',
+    30037204 => 0,
+    190826733 => 0,
+    151263223 => 0,
+    203538000 => 0,
+    152836380 => 0,
+    204855824 => 0,
+    199295989 => 0,
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Paragraphs item: Location Map (field_paragraphs_location) */
+  $handler->display->display_options['relationships']['field_paragraphs_location_lid']['id'] = 'field_paragraphs_location_lid';
+  $handler->display->display_options['relationships']['field_paragraphs_location_lid']['table'] = 'field_data_field_paragraphs_location';
+  $handler->display->display_options['relationships']['field_paragraphs_location_lid']['field'] = 'field_paragraphs_location_lid';
+  $handler->display->display_options['relationships']['field_paragraphs_location_lid']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Location: Latitude */
+  $handler->display->display_options['fields']['latitude']['id'] = 'latitude';
+  $handler->display->display_options['fields']['latitude']['table'] = 'location';
+  $handler->display->display_options['fields']['latitude']['field'] = 'latitude';
+  $handler->display->display_options['fields']['latitude']['relationship'] = 'field_paragraphs_location_lid';
+  $handler->display->display_options['fields']['latitude']['label'] = '';
+  $handler->display->display_options['fields']['latitude']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['latitude']['style'] = 'dd';
+  /* Field: Location: Longitude */
+  $handler->display->display_options['fields']['longitude']['id'] = 'longitude';
+  $handler->display->display_options['fields']['longitude']['table'] = 'location';
+  $handler->display->display_options['fields']['longitude']['field'] = 'longitude';
+  $handler->display->display_options['fields']['longitude']['relationship'] = 'field_paragraphs_location_lid';
+  $handler->display->display_options['fields']['longitude']['label'] = '';
+  $handler->display->display_options['fields']['longitude']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['longitude']['style'] = 'dd';
   $export['paragraphs_entities'] = $view;
 
   $view = new view();
