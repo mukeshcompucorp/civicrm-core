@@ -9,42 +9,7 @@
  * Implements hook_views_pre_render().
  */
 function tpg_global_views_pre_render(&$view) {
-  // Related Activities view.
-  if ($view->name == 'related_activities') {
-    $view->result = _tpg_global_related_terms($view->result);
-  }
-}
 
-/**
- * Identifies content with same taxonomy term for SubType field.
- * @param object
- *    View results oject.
- * @return object
- *    Modified view results object.
- */
-function _tpg_global_related_terms($results) {
-  // Fetching node object from menu.
-  $node = menu_get_object('node');
-
-  foreach ($node->field_paragraphs_content['und'] as $key => $paragraph_item) {
-    // Loading paragraphs bundle from automated id.
-    $data = paragraphs_item_load($paragraph_item['value']);
-    // Checking Title section bundle that contains SubType Term reference field.
-    if ($data->bundle == 'title_section') {
-      foreach ($results as $key => $result) {
-        // Term id from other contents.
-        $term_id = $result->field_field_paragraphs_subtype[0]['raw']['tid'];
-
-        // Checks term id one from the menu object id if not same removes the
-        // content from the view results.
-        if ($term_id != $data->field_paragraphs_subtype['und'][0]['tid']) {
-          unset($results[$key]);
-        }
-      }
-      return $results;
-    }
-  }
-  return array();
 }
 
 /**

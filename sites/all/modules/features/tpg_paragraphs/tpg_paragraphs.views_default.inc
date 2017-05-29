@@ -315,13 +315,22 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_paragraphs_type' => 'field_paragraphs_type',
+    'field_paragraphs_date_published' => 'field_paragraphs_date_published',
+  );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['id'] = 'reverse_field_related_activities_paragraphs_item';
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['field'] = 'reverse_field_related_activities_paragraphs_item';
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['required'] = TRUE;
   /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
-  /* Field: Paragraphs item: Page Type */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_paragraphs_page_type']['id'] = 'field_paragraphs_page_type';
   $handler->display->display_options['fields']['field_paragraphs_page_type']['table'] = 'field_data_field_paragraphs_page_type';
   $handler->display->display_options['fields']['field_paragraphs_page_type']['field'] = 'field_paragraphs_page_type';
@@ -335,7 +344,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Paragraphs item: Subtype */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_paragraphs_subtype']['id'] = 'field_paragraphs_subtype';
   $handler->display->display_options['fields']['field_paragraphs_subtype']['table'] = 'field_data_field_paragraphs_subtype';
   $handler->display->display_options['fields']['field_paragraphs_subtype']['field'] = 'field_paragraphs_subtype';
@@ -343,7 +352,6 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_subtype']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_subtype']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_paragraphs_subtype']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -373,33 +381,48 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'paragraphs_page' => 'paragraphs_page',
   );
-  /* Filter criterion: Paragraphs item: Subtype (field_paragraphs_subtype) */
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['id'] = 'field_paragraphs_subtype_tid';
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['table'] = 'field_data_field_paragraphs_subtype';
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['field'] = 'field_paragraphs_subtype_tid';
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['relationship'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['operator'] = 'not empty';
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_paragraphs_subtype_tid']['vocabulary'] = 'tags';
 
   /* Display: Related Activities */
-  $handler = $view->new_display('block', 'Related Activities', 'related_activities');
+  $handler = $view->new_display('block', 'Related Activities', 'related_activities_block');
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['id'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
   /* Field: Paragraphs item: Page Type */
-  $handler->display->display_options['fields']['field_paragraphs_page_type']['id'] = 'field_paragraphs_page_type';
-  $handler->display->display_options['fields']['field_paragraphs_page_type']['table'] = 'field_data_field_paragraphs_page_type';
-  $handler->display->display_options['fields']['field_paragraphs_page_type']['field'] = 'field_paragraphs_page_type';
-  $handler->display->display_options['fields']['field_paragraphs_page_type']['relationship'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['fields']['field_paragraphs_page_type']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraphs_page_type']['element_label_colon'] = FALSE;
-  /* Field: Paragraphs item: Date Added */
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['id'] = 'field_paragraphs_date_added';
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['table'] = 'field_data_field_paragraphs_date_added';
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['field'] = 'field_paragraphs_date_added';
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['relationship'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_paragraphs_date_added']['settings'] = array(
+  $handler->display->display_options['fields']['field_paragraphs_type']['id'] = 'field_paragraphs_type';
+  $handler->display->display_options['fields']['field_paragraphs_type']['table'] = 'field_data_field_paragraphs_type';
+  $handler->display->display_options['fields']['field_paragraphs_type']['field'] = 'field_paragraphs_type';
+  $handler->display->display_options['fields']['field_paragraphs_type']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_type']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_type']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_paragraphs_type']['delta_offset'] = '0';
+  /* Field: Paragraphs item: Date Published */
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['id'] = 'field_paragraphs_date_published';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['table'] = 'field_data_field_paragraphs_date_published';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['field'] = 'field_paragraphs_date_published';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['settings'] = array(
     'format_type' => 'short_date_only',
     'fromto' => 'both',
     'multiple_number' => '',
@@ -407,22 +430,15 @@ function tpg_paragraphs_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Paragraphs item: Subtype */
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['id'] = 'field_paragraphs_subtype';
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['table'] = 'field_data_field_paragraphs_subtype';
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['field'] = 'field_paragraphs_subtype';
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['relationship'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_paragraphs_subtype']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Paragraphs item: Title */
+  $handler->display->display_options['fields']['field_paragraph_title']['id'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['table'] = 'field_data_field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['field'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraph_title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraph_title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
   $export['related_activities'] = $view;
 
   return $export;

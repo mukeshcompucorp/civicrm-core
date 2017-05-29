@@ -342,11 +342,6 @@ function tpg_paragraphs_paragraphs_info() {
       'bundle' => 'image_reading_width_colorbox',
       'locked' => '1',
     ),
-    'page_type_date_added' => array(
-      'name' => 'Page Type + Date Added',
-      'bundle' => 'page_type_date_added',
-      'locked' => '1',
-    ),
     'reading_width_image_caption' => array(
       'name' => 'Reading Width Image + Caption',
       'bundle' => 'reading_width_image_caption',
@@ -370,11 +365,6 @@ function tpg_paragraphs_paragraphs_info() {
     'text_reading_width' => array(
       'name' => 'Reading Width Text',
       'bundle' => 'text_reading_width',
-      'locked' => '1',
-    ),
-    'title' => array(
-      'name' => 'Title + Description',
-      'bundle' => 'title',
       'locked' => '1',
     ),
     'title_section' => array(
