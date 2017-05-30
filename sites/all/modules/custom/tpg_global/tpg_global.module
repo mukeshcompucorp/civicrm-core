@@ -6,10 +6,23 @@
  */
 
 /**
- * Implements hook_views_pre_render().
+ * Implements hook_node_view_alter().
  */
-function tpg_global_views_pre_render(&$view) {
+function tpg_global_node_view_alter(&$build) {
 
+  // Adding read more to Linked Entity nodes.
+  if ($build['#view_mode'] == 'overview') {
+    $node = $build['#node'];
+    $links=array();
+    $links['node-readmore'] = array(
+      'title' => t('> read more'),
+      'href' => 'node/' . $node->nid,
+      'html' => TRUE,
+      'attributes' => array('rel' => 'tag', 'class' => array('entity-read-more')),
+    );
+    // Assign links
+    $build['links']['node']['#links']=$links;
+  }
 }
 
 /**

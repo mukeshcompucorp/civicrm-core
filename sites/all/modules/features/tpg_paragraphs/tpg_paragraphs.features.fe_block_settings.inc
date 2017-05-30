@@ -234,9 +234,12 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-57800a35622528c39b7316d05173e444'] = array(
     'cache' => -1,
+    'custom' => 0,
     'delta' => '57800a35622528c39b7316d05173e444',
     'module' => 'views',
-    'node_types' => array(),
+    'node_types' => array(
+      0 => 'paragraphs_page',
+    ),
     'pages' => '',
     'roles' => array(),
     'themes' => array(
@@ -271,6 +274,8 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   $export['views-b74a753cec1f9a066a73c05d7fe55837'] = array(
