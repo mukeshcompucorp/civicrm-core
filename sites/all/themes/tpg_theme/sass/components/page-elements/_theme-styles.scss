@@ -1,0 +1,71 @@
+// Colors
+$white: #fff;
+$black: #000;
+
+$light-grey: #eee;
+$light-blue: #ddf;
+
+body {
+  background: $light-grey;
+}
+
+.container {
+  background: $light-blue;
+  border-bottom: 1px dashed;
+  border-left: 1px dashed;
+  border-right: 1px dashed;
+}
+
+.main-menu {
+  @include clr;
+  border-top: 1px dashed $black;
+  padding: 10px;
+
+  li {
+    float: left;
+  }
+
+  a {
+    background: $light-grey;
+    border: 1px solid $black;
+    display: block;
+    margin-right: 5px;
+    padding: 5px;
+    text-decoration: none;
+  }
+}
+
+.admin-menu-processed a {
+  font-size: 11px;
+}
+
+// System reset
+ul.menu li {
+  margin: 0;
+}
+
+li.expanded,
+li.collapsed,
+li.leaf {
+  margin: 0;
+  padding: 0;
+}
+
+ul.inline li {
+  padding: 0;
+}
+
+.breadcrumb {
+  padding-bottom: 0;
+}
+
+.more-link {
+  text-align: left;
+}
+
+ul li.collapsed,
+ul li.leaf {
+  list-style-image: none;
+  list-style-type: none;
+  text-overflow: ellipsis;
+}
