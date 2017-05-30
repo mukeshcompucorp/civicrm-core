@@ -69,8 +69,8 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('./fonts'));
 });
 
-/* Min CSS */
-gulp.task('css_min', ['sass'], function () {
+/* CSS concat*/
+gulp.task('css_concat', ['sass', 'sass_lint'], function () {
   gulp.src($css)
     .pipe(concat('main.css'))
     .pipe(gulp.dest('./dist'))
@@ -79,27 +79,15 @@ gulp.task('css_min', ['sass'], function () {
     .pipe(gulp.dest('./dist'));
 });
 
-/* Min JS */
-gulp.task('js_min', function () {
-  gulp.src($js)
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('./dist'))
-    .pipe(jsmin({path: './dist/main.js'}))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./dist'))
-});
-
-/* CSS concat*/
-gulp.task('css_concat', ['sass', 'sass_lint'], function () {
-  gulp.src($css)
-    .pipe(concat('main.css'))
-    .pipe(gulp.dest('./dist'));
-});
-
 /* JS concat */
 gulp.task('js_concat', function () {
   gulp.src($js)
+    .pipe(sourcemaps.init())
     .pipe(concat('main.js'))
+    .pipe(gulp.dest('./dist'))
+    .pipe(jsmin({path: './dist/main.min.js'}))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist'));
 });
 
@@ -132,7 +120,6 @@ gulp.task('sass', function () {
       outputStyle: 'nested',
     }))
     .pipe(sass.sync())
-    .pipe(concat({ path: './main.css'}))
     .pipe(autoprefixer({
       browsers: ['last 5 versions'],
       cascade: false
@@ -170,6 +157,3 @@ gulp.task('default', ['watch']);
 
 /* Default task */
 gulp.task('compile', ['css_concat', 'js_concat', 'sprite', 'fonts']);
-
-/* Live task */
-gulp.task('live', ['compile', 'css_min', 'js_min']);
