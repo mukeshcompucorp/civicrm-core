@@ -1,9 +1,6 @@
 // When two sidebars exists
 .two-sidebars {
-  .first-sidebar {
-    @include make-md-column(3);
-  }
-
+  .first-sidebar,
   .second-sidebar {
     @include make-md-column(3);
   }

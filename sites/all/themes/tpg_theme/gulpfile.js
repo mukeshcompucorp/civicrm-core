@@ -155,5 +155,5 @@ gulp.task('watch', ['css_concat', 'js_concat', 'sprite', 'fonts'], function() {
 /* Default task */
 gulp.task('default', ['watch']);
 
-/* Default task */
+/* Gulp compile */
 gulp.task('compile', ['css_concat', 'js_concat', 'sprite', 'fonts']);
