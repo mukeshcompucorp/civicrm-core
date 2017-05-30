@@ -209,7 +209,7 @@ function porto_preprocess_node(&$variables) {
     if ($data->bundle == 'title_section') {
       // Unset Subtype field value depending upon Show tags field value.
       if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
-        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_subtype']);
+        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);
       }
     }
   }

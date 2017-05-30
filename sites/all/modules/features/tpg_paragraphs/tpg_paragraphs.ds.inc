@@ -553,20 +553,14 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'field_related_activities',
-      ),
-    ),
-    'fields' => array(
-      'field_related_activities' => 'ds_content',
-    ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
   );
@@ -645,15 +639,19 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_paragraph_title',
+        0 => 'field_paragraphs_type',
         1 => 'field_paragraphs_date_published',
-        2 => 'field_paragraphs_subtype',
+        2 => 'field_paragraph_title',
+        3 => 'field_paragraph_description',
+        4 => 'field_paragraphs_tags_viewpoints',
       ),
     ),
     'fields' => array(
-      'field_paragraph_title' => 'ds_content',
+      'field_paragraphs_type' => 'ds_content',
       'field_paragraphs_date_published' => 'ds_content',
-      'field_paragraphs_subtype' => 'ds_content',
+      'field_paragraph_title' => 'ds_content',
+      'field_paragraph_description' => 'ds_content',
+      'field_paragraphs_tags_viewpoints' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(

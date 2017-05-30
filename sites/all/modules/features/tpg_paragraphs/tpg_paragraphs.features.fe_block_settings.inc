@@ -232,10 +232,51 @@ function tpg_paragraphs_default_fe_block_settings() {
     'visibility' => 0,
   );
 
-  $export['views-b669b3b4ff80a85e0a4d56d000071204'] = array(
+  $export['views-57800a35622528c39b7316d05173e444'] = array(
+    'cache' => -1,
+    'delta' => '57800a35622528c39b7316d05173e444',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  $export['views-b74a753cec1f9a066a73c05d7fe55837'] = array(
     'cache' => -1,
     'custom' => 0,
-    'delta' => 'b669b3b4ff80a85e0a4d56d000071204',
+    'delta' => 'b74a753cec1f9a066a73c05d7fe55837',
     'module' => 'views',
     'node_types' => array(),
     'pages' => '',
