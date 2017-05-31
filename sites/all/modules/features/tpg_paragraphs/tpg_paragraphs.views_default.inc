@@ -381,6 +381,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Related Activities */
   $handler = $view->new_display('block', 'Related Activities', 'related_activities_block');
