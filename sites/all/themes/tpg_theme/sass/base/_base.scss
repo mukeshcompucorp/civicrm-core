@@ -9,8 +9,11 @@ html {
   }
 
   * {
-    @include rem(font-size, 14px);
+    @include rem(font-size, $p);
     box-sizing: border-box;
+    color: color(text);
+    font-family: $main-font;
+    font-weight: $bold;
   }
 }
 
@@ -26,10 +29,68 @@ img {
 }
 
 a {
+  text-decoration: underline;
   transition: all .4s ease-in-out;
 
   &:hover {
+    text-decoration: none;
     transition: all .4s ease-in-out;
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  color: color(heading);
+  font-weight: $bold;
+  text-decoration: underline;
+}
+
+h1,
+.h1 {
+  @include lh-fs(56px, $h1);
+  line-height: 56px;
+}
+
+h2,
+.h2 {
+  @include lh-fs(25px, $h2);
+}
+
+h3,
+.h3 {
+  @include lh-fs(25px, $h3);
+}
+
+h4,
+.h4 {
+  @include lh-fs(18px, $h4);
+}
+
+blockquote,
+label,
+li,
+a,
+p {
+  @include lh-fs(28px, $p);
+  color: color(text);
+  font-weight: $bold;
+}
+
+p {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  padding-left: 30px;
+}

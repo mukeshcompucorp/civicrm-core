@@ -12,15 +12,27 @@ button * {
   }
 }
 
-// select,
-// input[type='file'],
-// input[type='password'],
-// input[type='text'] {
-// }
+select,
+input[type='password'],
+input[type='email'],
+input[type='text'] {
+  background-color: color(form-bg);
+  border: 1px solid transparent;
+  padding: 6px 10px 2px;
 
-// input[type='submit'],
-// button {
-// }
+  &:focus {
+    border-color: color(focused-input);
+  }
+}
+
+input[type='submit'],
+button {
+  @include rem(padding, 14px 12px 10px);
+  background-color: color(main);
+  border: 0;
+  color: color(button-color);
+  line-height: 1;
+}
 
 // select {
 // }
@@ -32,22 +44,50 @@ select:hover {
 // textarea {
 // }
 
+.form-item,
+.form-actions {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 input[type='checkbox'] {
+  @include rem(height, 32px);
+  @include rem(width, 32px);
   appearance: checkbox;
+  margin: -5px 0 0;
+  opacity: 0;
 
-  // + label {
-  // }
+  + label {
+    display: inline-block;
+    font-weight: $bold;
+    padding-left: 14px;
+    padding-top: 5px;
+    position: relative;
 
-  // &:checked + label {
-  // }
+    &:before {
+      @include rem(height, 32px);
+      @include rem(left, -35px);
+      @include rem(width, 32px);
+      background-color: color(form-bg);
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &:checked + label:after {
+    @include fa-icon('\f00d');
+    @include rem(height, 16px);
+    @include rem(left, -27px);
+    @include rem(top, 9px);
+    @include rem(width, 16px);
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+  }
 }
 
 input[type='radio'] {
   appearance: radio;
-
-  // + label {
-  // }
-
-  // &:checked + label {
-  // }
 }
