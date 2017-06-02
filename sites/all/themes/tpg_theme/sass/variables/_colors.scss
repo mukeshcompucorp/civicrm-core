@@ -9,13 +9,26 @@ $chroma: define-default-color-scheme('branding', 'The site\'s main colors. Can b
 $chroma: add-colors((
   black:         #000,
   white:         #fff,
+
+  black-lighten: #222,
+  white-darken:  #ddd,
+
+  dark-grey:     #6d6d6d
 ));
 
 // Define color names for functional uses.
 $chroma: define-color-scheme('functional', 'Colors used by functional parts of the design.');
 $chroma: add-colors('functional', (
   // Colors used in the main content area.
-  text:             'black',
+  main:             'black',
+  heading:          'black',
+  text:             'black-lighten',
+
+  card-bg:          'white',
+
+  form-bg:          'white',
+  focused-input:    'black-lighten',
+  button-color:     'white-darken'
 ));
 
 $chroma-active-scheme: 'functional';

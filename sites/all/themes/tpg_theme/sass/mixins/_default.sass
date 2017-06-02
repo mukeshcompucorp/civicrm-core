@@ -84,12 +84,15 @@
     clear: both
     visibility: hidden
 
+=lh-fs($lh, $fs)
+  +rem(font-size, $fs)
+  line-height: $lh / $fs + 0.00001
+
 =fa-icon($ico)
-  &:before
-    content: $ico
-    display: inline-block
-    font: normal normal normal 14px/1 FontAwesome
-    font-size: inherit
-    text-rendering: auto
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
+  content: $ico
+  display: inline-block
+  font: normal normal normal 14px/1 FontAwesome
+  font-size: inherit
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
