@@ -72,11 +72,11 @@ h4,
   @include lh-fs(18px, $h4);
 }
 
-blockquote,
-label,
-li,
 a,
-p {
+p,
+li,
+label,
+blockquote {
   @include lh-fs(28px, $p);
   color: color(text);
   font-weight: $bold;
