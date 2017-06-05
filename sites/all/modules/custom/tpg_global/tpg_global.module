@@ -37,8 +37,7 @@ function tpg_global_views_query_alter(&$view, &$query) {
 function tpg_global_views_pre_render(&$view) {
 
   // Related Activities view alter.
-  if ($view->name == 'related_activities') {
-
+  if ($view->name == 'related_activities' && $view->current_display == 'related_activities_block') {
     $related_nodes = array();
     $node = menu_get_object('node');
 
