@@ -1,0 +1,32 @@
+.paragraphs-item-title-section {
+  .field-name-field-paragraphs-type {
+    float: left;
+  }
+
+  .field-name-field-paragraphs-date-published {
+    float: right;
+
+    ~ * {
+      clear: both;
+    }
+  }
+
+  .field-name-field-paragraphs-tags-viewpoints {
+    position: relative;
+
+    h2 {
+      text-decoration: none;
+    }
+
+    a {
+      @include viewpoint;
+      position: absolute;
+      right: 100%;
+      top: auto;
+    }
+  }
+
+  .field-name-field-paragraph-description {
+    @include rem(margin-bottom, 48px);
+  }
+}

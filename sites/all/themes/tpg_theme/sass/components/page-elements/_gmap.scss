@@ -1,0 +1,4 @@
+.gmap-map {
+  @include rem(min-height, 420px);
+  min-width: 100%;
+}
