@@ -67,7 +67,7 @@
 
 <div id="page-wrapper">
   <header id="header" class="header">
-    <div class="header-inner container clearfix">
+    <div class="header-inner clearfix">
       <?php if ($logo): ?>
         <div id="logo" class="logo">
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
@@ -81,7 +81,7 @@
     </div>
   </header>
   <div class="content-wrap">
-    <div class="content-inner container" id="content">
+    <div class="content-inner" id="content">
       <?php if (!empty($tabs['#primary'])): ?>
         <div class="tabs-wrapper">
           <?php print render($tabs); ?>
@@ -91,19 +91,17 @@
 
       <?php if ($breadcrumb): ?>
         <div id="breadcrumb-wrapper">
-          <div class="container clearfix">
+          <div class="clearfix">
             <?php print $breadcrumb; ?>
           </div>
         </div>
       <?php endif; ?>
 
-      <section id="post-content" class="post-content row clearfix" role="main">
+      <section id="post-content" class="post-content clearfix" role="main">
         <?php if ($action_links): ?>
-          <div class="col-xs-12">
-            <ul class="action-links">
-              <?php print render($action_links); ?>
-            </ul>
-          </div>
+          <ul class="action-links">
+            <?php print render($action_links); ?>
+          </ul>
         <?php endif; ?>
 
         <?php if ($page['sidebar_first']): ?>

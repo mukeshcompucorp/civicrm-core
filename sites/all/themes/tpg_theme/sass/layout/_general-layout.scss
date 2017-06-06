@@ -1,38 +1,7 @@
-// When two sidebars exists
-.two-sidebars {
-  .first-sidebar,
-  .second-sidebar {
-    @include make-md-column(3);
-  }
+.entity-paragraphs-item {
+  @include rem(margin-bottom, 48px);
 
-  .main-content {
-    @include make-md-column(6);
+  &.paragraphs-item-title-section {
+    margin-bottom: 0;
   }
-}
-
-// When only first sidebar exists
-.sidebar-first {
-  .first-sidebar {
-    @include make-md-column(3);
-  }
-
-  .main-content {
-    @include make-md-column(9);
-  }
-}
-
-// When only second sidebar exists
-.sidebar-second {
-  .second-sidebar {
-    @include make-md-column(3);
-  }
-
-  .main-content {
-    @include make-md-column(9);
-  }
-}
-
-// When no sidebars
-.no-sidebars .main-content {
-  @include make-xs-column(12);
 }
