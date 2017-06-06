@@ -16,21 +16,31 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = '2_column_image_left_image_right';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->layout = 'ds_2col';
   $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'field_paragraph_left_image',
+      ),
+      'right' => array(
+        1 => 'field_paragraph_right_image',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraph_left_image' => 'left',
+      'field_paragraph_right_image' => 'right',
+    ),
     'classes' => array(),
     'wrappers' => array(
-      'header' => 'div',
       'left' => 'div',
       'right' => 'div',
-      'footer' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => 0,
+    'layout_disable_css' => 1,
   );
   $export['paragraphs_item|2_column_image_left_image_right|default'] = $ds_layout;
 
@@ -40,7 +50,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = '2_column_image_left_no_image';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_2col';
+  $ds_layout->layout = 'two_col_img_left_img_right';
   $ds_layout->settings = array(
     'regions' => array(
       'left' => array(
@@ -60,7 +70,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => 0,
+    'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|2_column_image_left_no_image|default'] = $ds_layout;
 
@@ -206,24 +216,28 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'block_quote';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_1col';
+  $ds_layout->layout = 'full_width_middle';
   $ds_layout->settings = array(
     'regions' => array(
-      'ds_content' => array(
+      'center' => array(
         0 => 'field_paragraph_title',
         1 => 'field_paragraph_left_text',
       ),
     ),
     'fields' => array(
-      'field_paragraph_title' => 'ds_content',
-      'field_paragraph_left_text' => 'ds_content',
+      'field_paragraph_title' => 'center',
+      'field_paragraph_left_text' => 'center',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'sidebar_first' => 'div',
+      'center' => 'div',
+      'sidebar_second' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
   );
@@ -235,23 +249,23 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'bulleted_list';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_1col';
+  $ds_layout->layout = 'full_width_middle';
   $ds_layout->settings = array(
     'regions' => array(
-      'ds_content' => array(
+      'center' => array(
         0 => 'field_paragraph_title',
         1 => 'field_paragraph_left_text',
-        2 => 'field_test_list',
       ),
     ),
     'fields' => array(
-      'field_paragraph_title' => 'ds_content',
-      'field_paragraph_left_text' => 'ds_content',
-      'field_test_list' => 'ds_content',
+      'field_paragraph_title' => 'center',
+      'field_paragraph_left_text' => 'center',
     ),
     'classes' => array(),
     'wrappers' => array(
-      'ds_content' => 'div',
+      'sidebar_first' => 'div',
+      'center' => 'div',
+      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -279,11 +293,13 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'field_paragraph_button' => 'ds_content',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
   );
@@ -366,7 +382,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'image_left_2_3_width';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_2col_fluid';
+  $ds_layout->layout = 'image_left_2_3_width';
   $ds_layout->settings = array(
     'regions' => array(
       'left' => array(
@@ -379,14 +395,13 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'classes' => array(),
     'wrappers' => array(
       'left' => 'div',
-      'right' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => 0,
+    'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|image_left_2_3_width|default'] = $ds_layout;
 
@@ -396,8 +411,22 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'image_left_text_right';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_2col';
+  $ds_layout->layout = 'two_equal_column_middle';
   $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'field_paragraph_left_image',
+      ),
+      'right' => array(
+        1 => 'field_paragraph_title',
+        2 => 'field_paragraph_right_text',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraph_left_image' => 'left',
+      'field_paragraph_title' => 'right',
+      'field_paragraph_right_text' => 'right',
+    ),
     'classes' => array(),
     'wrappers' => array(
       'left' => 'div',
@@ -408,21 +437,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => 0,
-    'regions' => array(
-      'left' => array(
-        0 => 'field_paragraph_left_image',
-      ),
-      'right' => array(
-        0 => 'field_paragraph_title',
-        1 => 'field_paragraph_right_text',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraph_left_image' => 'left',
-      'field_paragraph_title' => 'right',
-      'field_paragraph_right_text' => 'right',
-    ),
+    'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|image_left_text_right|default'] = $ds_layout;
 
@@ -443,11 +458,13 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'field_reading_image' => 'ds_content',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
   );
@@ -553,6 +570,14 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_related_activities',
+      ),
+    ),
+    'fields' => array(
+      'field_related_activities' => 'ds_content',
+    ),
     'classes' => array(),
     'wrappers' => array(
       'ds_content' => 'div',
@@ -608,22 +633,26 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'text_reading_width';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_1col';
+  $ds_layout->layout = 'full_width_middle';
   $ds_layout->settings = array(
     'regions' => array(
-      'ds_content' => array(
+      'center' => array(
         0 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
-      'field_paragraph_description' => 'ds_content',
+      'field_paragraph_description' => 'center',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'sidebar_first' => 'div',
+      'center' => 'div',
+      'sidebar_second' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
   );
