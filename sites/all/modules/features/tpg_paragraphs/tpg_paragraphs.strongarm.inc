@@ -700,6 +700,9 @@ function tpg_paragraphs_strongarm() {
       'full' => array(
         'custom_settings' => TRUE,
       ),
+      'paragraphs_editor_preview' => array(
+        'custom_settings' => TRUE,
+      ),
       'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
