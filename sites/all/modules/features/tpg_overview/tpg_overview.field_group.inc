@@ -1,0 +1,49 @@
+<?php
+/**
+ * @file
+ * tpg_overview.field_group.inc
+ */
+
+/**
+ * Implements hook_field_group_info().
+ */
+function tpg_overview_field_group_info() {
+  $field_groups = array();
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_links|field_collection_item|field_external_links|form';
+  $field_group->group_name = 'group_links';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_external_links';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Links',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_external_link_title',
+      1 => 'field_card_image',
+      2 => 'field_link_description',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Links',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-links field-group-fieldset',
+        'description' => '',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $field_groups['group_links|field_collection_item|field_external_links|form'] = $field_group;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Links');
+
+  return $field_groups;
+}

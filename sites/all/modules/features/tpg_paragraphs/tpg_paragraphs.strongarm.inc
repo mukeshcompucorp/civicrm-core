@@ -69,6 +69,16 @@ function tpg_paragraphs_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ds_extras_view_modes_overview_page';
+  $strongarm->value = array(
+    0 => 'default',
+    1 => 'teaser',
+  );
+  $export['ds_extras_view_modes_overview_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__paragraphs_page';
   $strongarm->value = array(
     'view_modes' => array(
@@ -96,6 +106,9 @@ function tpg_paragraphs_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -109,6 +122,10 @@ function tpg_paragraphs_strongarm() {
       'display' => array(
         'sharethis' => array(
           'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'overview' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),
@@ -131,6 +148,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -156,6 +179,12 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -177,6 +206,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -202,6 +237,12 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -223,6 +264,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -251,6 +298,9 @@ function tpg_paragraphs_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -272,6 +322,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -300,6 +356,9 @@ function tpg_paragraphs_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -321,6 +380,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -346,6 +411,12 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -367,6 +438,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -392,6 +469,12 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -413,6 +496,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -438,6 +527,12 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -461,6 +556,12 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -482,6 +583,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -510,6 +617,9 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -523,7 +633,23 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_paragraphs_item__reading_width_webform';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'paragraphs_editor_preview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(),
@@ -549,6 +675,9 @@ function tpg_paragraphs_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -570,6 +699,12 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -599,6 +734,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'related_activities' => array(
+        'custom_settings' => TRUE,
+      ),
+      'overview' => array(
         'custom_settings' => TRUE,
       ),
     ),
