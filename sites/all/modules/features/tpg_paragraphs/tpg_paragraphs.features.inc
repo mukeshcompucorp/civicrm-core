@@ -343,7 +343,7 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'image_reading_width_colorbox' => array(
-      'name' => 'Reading Width Image + Colorbox',
+      'name' => 'Reading Width Image + Lightbox',
       'bundle' => 'image_reading_width_colorbox',
       'locked' => '1',
     ),
