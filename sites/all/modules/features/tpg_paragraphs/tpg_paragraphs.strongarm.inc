@@ -739,7 +739,7 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
-      'events_detail' => array(
+      'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
     ),
