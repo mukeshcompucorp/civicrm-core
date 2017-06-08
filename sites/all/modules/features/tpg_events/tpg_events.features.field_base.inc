@@ -51,15 +51,15 @@ function tpg_events_field_default_field_bases() {
       'cache_enabled' => 0,
       'granularity' => array(
         'day' => 'day',
-        'hour' => 0,
-        'minute' => 0,
+        'hour' => 'hour',
+        'minute' => 'minute',
         'month' => 'month',
         'second' => 0,
         'year' => 'year',
       ),
-      'timezone_db' => '',
+      'timezone_db' => 'UTC',
       'todate' => 'required',
-      'tz_handling' => 'none',
+      'tz_handling' => 'site',
     ),
     'translatable' => 0,
     'type' => 'datetime',
@@ -93,28 +93,6 @@ function tpg_events_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_event_overview_image'.
-  $field_bases['field_event_overview_image'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_event_overview_image',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'image',
-  );
-
   // Exported field_base: 'field_event_type'.
   $field_bases['field_event_type'] = array(
     'active' => 1,
@@ -139,90 +117,6 @@ function tpg_events_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_event_venue'.
-  $field_bases['field_event_venue'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_event_venue',
-    'indexes' => array(
-      'lid' => array(
-        0 => 'lid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'location_cck',
-    'settings' => array(
-      'gmap_macro' => '[gmap ]',
-      'gmap_marker' => 'big red',
-      'location_settings' => array(
-        'display' => array(
-          'hide' => array(
-            'additional' => 0,
-            'city' => 0,
-            'coords' => 'coords',
-            'country' => 0,
-            'country_name' => 0,
-            'locpick' => 'locpick',
-            'map_link' => 'map_link',
-            'name' => 0,
-            'postal_code' => 0,
-            'province' => 0,
-            'province_name' => 0,
-            'street' => 0,
-          ),
-        ),
-        'form' => array(
-          'fields' => array(
-            'additional' => array(
-              'collect' => 1,
-              'default' => '',
-              'weight' => 6,
-            ),
-            'city' => array(
-              'collect' => 1,
-              'default' => '',
-              'weight' => 8,
-            ),
-            'country' => array(
-              'collect' => 1,
-              'default' => 'gb',
-              'weight' => 14,
-            ),
-            'locpick' => array(
-              'collect' => 1,
-              'weight' => 20,
-            ),
-            'name' => array(
-              'collect' => 0,
-              'default' => '',
-              'weight' => 2,
-            ),
-            'postal_code' => array(
-              'collect' => 1,
-              'default' => '',
-              'weight' => 12,
-            ),
-            'province' => array(
-              'collect' => 1,
-              'default' => '',
-              'weight' => 10,
-              'widget' => 'autocomplete',
-            ),
-            'street' => array(
-              'collect' => 1,
-              'default' => '',
-              'weight' => 4,
-            ),
-          ),
-        ),
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'location',
   );
 
   // Exported field_base: 'field_events_related_activities'.
@@ -402,32 +296,6 @@ function tpg_events_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_tags_and_viewpoints'.
-  $field_bases['field_tags_and_viewpoints'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_tags_and_viewpoints',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'tags',
-          'parent' => 0,
-        ),
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
   );
 
   return $field_bases;

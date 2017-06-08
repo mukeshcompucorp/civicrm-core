@@ -14,7 +14,8 @@ function tpg_events_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Members get priority';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'membership_block';
-  $fe_block_boxes->body = '<a href="#">> Join now</a>';
+  $fe_block_boxes->body = '<p><a href="#">&gt; Join now</a></p>
+';
 
   $export['membership_block'] = $fe_block_boxes;
 

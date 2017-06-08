@@ -21,7 +21,7 @@ function tpg_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Whats on',
-    'weight' => '11',
+    'weight' => '10',
     'children' => array(
       0 => 'field_show_in_future_season',
       1 => 'field_show_in_current_season',
