@@ -21,7 +21,7 @@ function tpg_global_node_view_alter(&$build) {
       'attributes' => array('rel' => 'tag', 'class' => array('entity-read-more')),
     );
     // Assign links
-    $build['links']['node']['#links']=$links;
+    $build['links']['node']['#links'] = $links;
   }
 }
 
@@ -29,6 +29,38 @@ function tpg_global_node_view_alter(&$build) {
  * Implements hook_views_query_alter().
  */
 function tpg_global_views_query_alter(&$view, &$query) {
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function tpg_global_views_pre_render(&$view) {
+  // Related Activities view alter.
+  if ($view->name == 'related_activities' && ($view->current_display == 'related_activities_block' || $view->current_display == 'event_related_activities')) {
+    $related_nodes = array();
+    $node = menu_get_object('node');
+
+    $paragraphs_content = $node->field_paragraphs_content['und'];
+    if ($view->current_display == 'event_related_activities') {
+      $paragraphs_content = $node->field_events_related_activities ['und'];
+    }
+    foreach ($paragraphs_content as $key => $paragraph_item) {
+      // Loading paragraphs bundle from automated id.
+      $data = paragraphs_item_load($paragraph_item['value']);
+      // Fetching Related Activities node nids.
+      if ($data->bundle == 'related_activities') {
+        foreach ($data->field_related_activities['und'] as $key => $related_activities) {
+          $related_nodes[] = $related_activities['target_id'];
+        }
+      }
+    }
+    foreach ($view->result as $key => $value) {
+      // Removing unrelated nodes.
+      if (!in_array($value->nid, $related_nodes)) {
+        unset($view->result[$key]);
+      }
+    }
+  }
 }
 
 /**

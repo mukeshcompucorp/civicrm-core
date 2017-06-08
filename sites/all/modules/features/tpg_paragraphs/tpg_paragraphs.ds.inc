@@ -1639,17 +1639,19 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'field_paragraphs_type',
         1 => 'field_paragraphs_date_published',
-        2 => 'field_paragraph_title',
-        3 => 'field_paragraph_description',
+        2 => 'field_event_dates',
+        3 => 'field_paragraph_title',
         4 => 'field_paragraphs_tags_viewpoints',
+        5 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
       'field_paragraphs_type' => 'ds_content',
       'field_paragraphs_date_published' => 'ds_content',
+      'field_event_dates' => 'ds_content',
       'field_paragraph_title' => 'ds_content',
-      'field_paragraph_description' => 'ds_content',
       'field_paragraphs_tags_viewpoints' => 'ds_content',
+      'field_paragraph_description' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(

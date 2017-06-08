@@ -322,6 +322,11 @@ function tpg_paragraphs_paragraphs_info() {
       'bundle' => 'full_width_image_caption',
       'locked' => '1',
     ),
+    'full_width_video_header' => array(
+      'name' => 'Full Width Video Header',
+      'bundle' => 'full_width_video_header',
+      'locked' => '1',
+    ),
     'header_gallery' => array(
       'name' => 'Header Gallery',
       'bundle' => 'header_gallery',
@@ -338,7 +343,7 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'image_reading_width_colorbox' => array(
-      'name' => 'Reading Width Image + Colorbox',
+      'name' => 'Reading Width Image + Lightbox',
       'bundle' => 'image_reading_width_colorbox',
       'locked' => '1',
     ),
