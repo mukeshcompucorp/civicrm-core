@@ -13,22 +13,26 @@ $chroma: add-colors((
   black-lighten: #222,
   white-darken:  #ddd,
 
-  dark-grey:     #6d6d6d
+  dark-grey:     #6d6d6d,
+  light-grey:    #d7d7d7
 ));
 
 // Define color names for functional uses.
 $chroma: define-color-scheme('functional', 'Colors used by functional parts of the design.');
 $chroma: add-colors('functional', (
   // Colors used in the main content area.
-  main:             'black',
-  heading:          'black',
-  text:             'black-lighten',
+  main:                   'black',
+  heading:                'black',
+  text:                   'black-lighten',
 
-  card-bg:          'white',
+  page-bg:                'light-grey',
 
-  form-bg:          'white',
-  focused-input:    'black-lighten',
-  button-color:     'white-darken'
+  card-bg:                'white',
+  admin-menu-text-color:  'white',
+
+  form-bg:                'white',
+  focused-input:          'black-lighten',
+  button-color:           'white-darken'
 ));
 
 $chroma-active-scheme: 'functional';

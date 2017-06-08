@@ -145,7 +145,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -155,6 +155,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -174,7 +177,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -184,6 +187,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -203,7 +209,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -213,6 +219,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -232,7 +241,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -242,6 +251,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -261,7 +273,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -271,6 +283,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -290,7 +305,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -299,6 +314,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -319,7 +337,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -329,6 +347,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -348,7 +369,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -357,6 +378,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -377,7 +401,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -387,6 +411,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -406,7 +433,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -416,6 +443,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -435,7 +465,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -445,6 +475,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -464,7 +497,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -474,6 +507,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -493,7 +529,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -503,6 +539,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -522,7 +561,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -532,6 +571,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -551,7 +593,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -561,6 +603,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -580,7 +625,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -590,6 +635,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -609,7 +657,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
@@ -618,6 +666,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -640,11 +691,14 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -667,7 +721,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
@@ -676,6 +730,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -696,7 +753,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -706,6 +763,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'diff_standard' => array(
         'custom_settings' => FALSE,
+      ),
+      'full_content_narrow' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -725,7 +785,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -737,6 +797,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -866,7 +929,7 @@ function tpg_paragraphs_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'gmap_marker_file';
-  $strongarm->value = '33';
+  $strongarm->value = '44';
   $export['gmap_marker_file'] = $strongarm;
 
   $strongarm = new stdClass();
