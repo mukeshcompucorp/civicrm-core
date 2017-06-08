@@ -202,41 +202,41 @@ function tpg_paragraphs_field_default_field_instances() {
         'button' => -1,
         'embed_video' => -1,
         'full_width_image_caption' => -1,
+        'full_width_video_header' => -1,
         'header_gallery' => -1,
         'image_left_2_3_width' => -1,
         'image_left_text_right' => -1,
         'image_reading_width_colorbox' => -1,
-        'page_type_date_added' => -1,
         'reading_width_image_caption' => -1,
         'reading_width_maps' => -1,
+        'reading_width_webform' => -1,
         'related_activities' => -1,
         'text_reading_width' => -1,
-        'title' => -1,
         'title_section' => -1,
       ),
       'bundle_weights' => array(
-        '2_column_image_left_image_right' => 14,
-        '2_column_image_left_no_image' => 15,
-        '2_column_left_text_only' => 2,
-        '2_column_text_left_image_right' => 17,
-        '3_column_text_left_image_right' => 3,
-        'attachments' => 19,
-        'block_quote' => 4,
-        'bulleted_list' => 5,
-        'button' => 6,
-        'embed_video' => 7,
-        'full_width_image_caption' => 8,
-        'header_gallery' => 25,
-        'image_left_2_3_width' => 26,
-        'image_left_text_right' => 9,
-        'image_reading_width_colorbox' => 28,
-        'page_type_date_added' => 29,
-        'reading_width_image_caption' => 10,
-        'reading_width_maps' => 31,
-        'related_activities' => 32,
-        'text_reading_width' => 33,
-        'title' => 12,
-        'title_section' => 35,
+        '2_column_image_left_image_right' => -44,
+        '2_column_image_left_no_image' => -43,
+        '2_column_left_text_only' => -42,
+        '2_column_text_left_image_right' => -41,
+        '3_column_text_left_image_right' => -40,
+        'attachments' => -39,
+        'block_quote' => -38,
+        'bulleted_list' => -37,
+        'button' => -36,
+        'embed_video' => -35,
+        'full_width_image_caption' => -34,
+        'full_width_video_header' => -33,
+        'header_gallery' => -32,
+        'image_left_2_3_width' => -31,
+        'image_left_text_right' => -30,
+        'image_reading_width_colorbox' => -29,
+        'reading_width_image_caption' => -28,
+        'reading_width_maps' => -27,
+        'reading_width_webform' => -26,
+        'related_activities' => -25,
+        'text_reading_width' => -24,
+        'title_section' => -23,
       ),
       'default_edit_mode' => 'closed',
       'title' => 'Paragraph',
@@ -2713,6 +2713,81 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'paragraphs_item-title_section-field_event_dates'.
+  $field_instances['paragraphs_item-title_section-field_event_dates'] = array(
+    'bundle' => 'title_section',
+    'deleted' => 0,
+    'description' => '<strong>FOR EVENTS ONLY</strong>',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'short_date_only',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => 0,
+        ),
+        'type' => 'date_default',
+        'weight' => 2,
+      ),
+      'events_detail' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'short_date_only',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => 0,
+        ),
+        'type' => 'date_default',
+        'weight' => 1,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_event_dates',
+    'label' => 'Event Dates',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance:
   // 'paragraphs_item-title_section-field_paragraph_description'.
   $field_instances['paragraphs_item-title_section-field_paragraph_description'] = array(
@@ -2726,7 +2801,14 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 5,
+      ),
+      'events_detail' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -2786,6 +2868,13 @@ function tpg_paragraphs_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'events_detail' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -2867,6 +2956,12 @@ function tpg_paragraphs_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 1,
+      ),
+      'events_detail' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -2978,7 +3073,13 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
+      ),
+      'events_detail' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -3099,7 +3200,13 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
+      ),
+      'events_detail' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -3165,6 +3272,13 @@ function tpg_paragraphs_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
         'weight' => 4,
+      ),
+      'events_detail' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 3,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -3242,6 +3356,13 @@ function tpg_paragraphs_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_plain',
         'weight' => 0,
       ),
+      'events_detail' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 0,
+      ),
       'full' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
@@ -3300,6 +3421,7 @@ function tpg_paragraphs_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('2/3 Width Image Left');
+  t('<strong>FOR EVENTS ONLY</strong>');
   t('Attachments');
   t('Author Name');
   t('Block quote');
@@ -3307,6 +3429,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Button');
   t('Date Published');
   t('Description');
+  t('Event Dates');
   t('Full Width Image');
   t('Gallery Image');
   t('Homepage Publish Dates');

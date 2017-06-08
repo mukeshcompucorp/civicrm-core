@@ -1361,6 +1361,9 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_category_vocs';
   $strongarm->value = array(
+    4 => 0,
+    3 => 0,
+    2 => 0,
     1 => 0,
   );
   $export['service_links_category_vocs'] = $strongarm;
@@ -1403,7 +1406,9 @@ function tpg_paragraphs_strongarm() {
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
+    'diff_standard' => 0,
     'token' => 0,
+    'overview' => 0,
     'revision' => 0,
   );
   $export['service_links_link_view_modes'] = $strongarm;
@@ -1420,11 +1425,12 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_node_types';
   $strongarm->value = array(
+    'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
     'article' => 0,
     'page' => 0,
     'document' => 0,
-    'testing_paragrpahs' => 0,
+    'overview_page' => 0,
     'webform' => 0,
   );
   $export['service_links_node_types'] = $strongarm;
@@ -1439,7 +1445,9 @@ function tpg_paragraphs_strongarm() {
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
+    'diff_standard' => 0,
     'token' => 0,
+    'overview' => 0,
     'revision' => 0,
   );
   $export['service_links_node_view_modes'] = $strongarm;

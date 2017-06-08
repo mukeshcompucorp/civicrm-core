@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TPG Events feature.
+ */
+
+include_once 'tpg_events.features.inc';

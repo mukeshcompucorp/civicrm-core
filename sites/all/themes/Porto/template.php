@@ -195,11 +195,21 @@ function porto_preprocess_page(&$vars, $hook) {
 }
 
 /**
- * Implements template_preprocess_node.
- *
- * @param      array  $variables
+ * Implements template_preprocess_node().
  */
 function porto_preprocess_node(&$variables) {
+
+  // Events Detail Node.
+  if ($variables['type'] == 'events_detail') {
+    foreach ($variables['field_paragraphs_entity'] as $key => $paragraph_item) {
+      // Loading paragraphs bundle from automated id.
+      $data = paragraphs_item_load($paragraph_item['value']);
+      if ($data->bundle == 'title_section') {
+        // Unset Date Published field for events node as we want to show event dates.
+        unset($variables['content']['field_paragraphs_entity'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_date_published']);
+      }
+    }
+  }
 
   // Paragraphs page node.
   foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
@@ -216,7 +226,7 @@ function porto_preprocess_node(&$variables) {
 }
 
 /**
- * Define some variables for use in theme templates.
+ * Implements hook_process_page().
  */
 function porto_process_page(&$variables) {
   // Assign site name and slogan toggle theme settings to variables.
@@ -327,7 +337,7 @@ function porto_status_messages($variables) {
 }
 
 /**
- * Impelements hook_form_alter()
+ * Impelements hook_form_alter().
  */
 function porto_form_alter(&$form, &$form_state, $form_id) {
 
@@ -357,6 +367,29 @@ function porto_form_alter(&$form, &$form_state, $form_id) {
 
     );
 
+  }
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function porto_page_alter(&$page){
+
+  $node = menu_get_object('node');
+  if ($node->type == 'events_detail') {
+    // Removing Members get priority block depending upon show_membership_block field value.
+    if (!$node->field_show_membership_block['und'][0]['value']) {
+      // Fetching block id of Members get priority from fe_block machine name.
+      $block_query = db_select('fe_block_boxes', 'fb')
+              ->fields('fb', array('bid'))
+              ->condition('fb.machine_name', 'membership_block')
+              ->execute();
+      $block_id = $block_query->fetchField();
+
+      if ($block_id) {
+        unset($page["sidebar_right"]["block_$block_id"]);
+      }
+    }
   }
 }
 
