@@ -156,9 +156,6 @@ function tpg_paragraphs_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
-      'test' => array(
-        'custom_settings' => TRUE,
-      ),
       'full_content_narrow' => array(
         'custom_settings' => TRUE,
       ),
