@@ -58,7 +58,7 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => -21,
       ),
     ),
-    'title' => 'Share',
+    'title' => '<none>',
     'visibility' => 0,
   );
 

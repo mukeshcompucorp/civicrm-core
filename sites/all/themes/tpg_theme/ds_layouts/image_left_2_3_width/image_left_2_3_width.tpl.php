@@ -27,11 +27,9 @@
         <?php print render($title_suffix['contextual_links']); ?>
       <?php endif; ?>
 
-      <div class="row">
-        <<?php print $left_wrapper; ?> class="ds-left<?php print $left_classes; ?>">
-          <?php print $left; ?>
-        </<?php print $left_wrapper; ?>>
-      </div>
+      <<?php print $left_wrapper; ?> class="ds-left<?php print $left_classes; ?>">
+        <?php print $left; ?>
+      </<?php print $left_wrapper; ?>>
     </div>
   </div>
 </<?php print $layout_wrapper ?>>
