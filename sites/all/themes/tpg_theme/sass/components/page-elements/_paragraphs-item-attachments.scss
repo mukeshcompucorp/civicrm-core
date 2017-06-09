@@ -1,0 +1,41 @@
+.paragraphs-item-attachments {
+
+  .file-icon {
+    display: none;
+  }
+
+  .file {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:before {
+      @include fa-icon('\f016');
+      margin-right: 5px;
+    }
+
+    &[href*='.png']:before {
+      @include fa-icon('\f1c5');
+    }
+
+    &[href*='.txt']:before {
+      @include fa-icon('\f0f6');
+    }
+
+    &[href*='.pdf']:before {
+      @include fa-icon('\f1c1');
+    }
+
+    &[href*='.xls']:before {
+      @include fa-icon('\f1c3');
+    }
+
+    &[href*='.doc']:before {
+      @include fa-icon('\f1c2');
+    }
+  }
+
+}
