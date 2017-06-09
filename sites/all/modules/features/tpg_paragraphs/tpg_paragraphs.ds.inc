@@ -17,6 +17,20 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = '2_column_left_text_only';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_left_text' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'p',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -41,6 +55,20 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = '2_column_text_left_image_right';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_left_text' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'p',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -65,6 +93,20 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = '3_column_text_left_image_right';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_left_text' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'p',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -190,6 +232,20 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'image_left_text_right';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_right_text' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'p',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(

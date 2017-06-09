@@ -52,7 +52,7 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'content',
+        'region' => 'footer',
         'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => -21,

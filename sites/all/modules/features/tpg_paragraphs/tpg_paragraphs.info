@@ -252,6 +252,7 @@ features[variable][] = comment_paragraphs_page
 features[variable][] = comment_preview_paragraphs_page
 features[variable][] = comment_subject_field_paragraphs_page
 features[variable][] = date_format_short_date_only
+features[variable][] = ds_extras_field_template
 features[variable][] = ds_extras_view_modes_overview_page
 features[variable][] = field_bundle_settings_node__paragraphs_page
 features[variable][] = field_bundle_settings_paragraphs_item__2_column_image_left_image_right

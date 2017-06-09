@@ -69,7 +69,7 @@
   <header id="header" class="header">
     <div class="header-inner clearfix">
       <?php if ($logo): ?>
-        <div id="logo" class="logo">
+        <div id="logo" class="logo container clearfix relative">
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
             <img src="<?php print $logo; ?>"/>
           </a>
@@ -83,14 +83,14 @@
   <div class="content-wrap">
     <div class="content-inner" id="content">
       <?php if (!empty($tabs['#primary'])): ?>
-        <div class="tabs-wrapper">
+        <div class="tabs-wrapper container">
           <?php print render($tabs); ?>
         </div>
       <?php endif; ?>
       <?php print $messages; ?>
 
       <?php if ($breadcrumb): ?>
-        <div id="breadcrumb-wrapper">
+        <div id="breadcrumb-wrapper" class="container">
           <div class="clearfix">
             <?php print $breadcrumb; ?>
           </div>
@@ -99,7 +99,7 @@
 
       <section id="post-content" class="post-content clearfix" role="main">
         <?php if ($action_links): ?>
-          <ul class="action-links">
+          <ul class="action-links container">
             <?php print render($action_links); ?>
           </ul>
         <?php endif; ?>
@@ -113,9 +113,11 @@
         <div class="main-content">
           <?php print render($title_prefix); ?>
           <?php if ($title): ?>
-            <h1 class="page-title">
-              <?php print $title; ?>
-            </h1>
+            <div class="container">
+              <h1 class="page-title">
+                <?php print $title; ?>
+              </h1>
+            </div>
           <?php endif; ?>
           <?php print render($title_suffix); ?>
           <?php print render($page['content']); ?>
