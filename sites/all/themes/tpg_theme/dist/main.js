@@ -6,7 +6,7 @@
       this.addStrToElement('blockquote', context);
     },
     addStrToElement: function(el, context) {
-      var $el = $(el);
+      var $el = $(el, context);
       if ($el.length) {
         $el.find('p:first-child').prepend('»');
         $el.find('p:last-child').append('«');

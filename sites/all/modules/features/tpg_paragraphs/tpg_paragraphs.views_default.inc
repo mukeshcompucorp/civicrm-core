@@ -70,6 +70,8 @@ function tpg_paragraphs_views_default_views() {
 
   /* Display: Full width image */
   $handler = $view->new_display('block', 'Full width image', 'full_width_image_block');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'header-image';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
