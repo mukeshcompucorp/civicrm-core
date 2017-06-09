@@ -110,7 +110,7 @@ function tpg_theme_page_alter(&$page) {
       $block_id = $block_query->fetchField();
 
       if ($block_id) {
-        unset($page["sidebar_right"]["block_$block_id"]);
+        unset($page["sidebar_second"]["block_$block_id"]);
       }
     }
   }

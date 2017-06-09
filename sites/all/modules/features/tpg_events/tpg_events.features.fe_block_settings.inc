@@ -52,7 +52,7 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'header',
+        'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => -23,
@@ -102,7 +102,7 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'header',
+        'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => -21,
@@ -157,7 +157,7 @@ function tpg_events_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => 0,
+        'weight' => -20,
       ),
     ),
     'title' => '',
@@ -206,7 +206,7 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'header',
+        'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => -22,
