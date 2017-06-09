@@ -13,29 +13,28 @@
     text-decoration: none;
 
     &:before {
-      @include fa-icon('\f016');
+      @include fa-icon($fa-icon-file);
       margin-right: 5px;
     }
 
     &[href*='.png']:before {
-      @include fa-icon('\f1c5');
+      @include fa-icon($fa-icon-png);
     }
 
     &[href*='.txt']:before {
-      @include fa-icon('\f0f6');
+      @include fa-icon($fa-icon-txt);
     }
 
     &[href*='.pdf']:before {
-      @include fa-icon('\f1c1');
+      @include fa-icon($fa-icon-pdf);
     }
 
     &[href*='.xls']:before {
-      @include fa-icon('\f1c3');
+      @include fa-icon($fa-icon-xls);
     }
 
     &[href*='.doc']:before {
-      @include fa-icon('\f1c2');
+      @include fa-icon($fa-icon-doc);
     }
   }
-
 }
