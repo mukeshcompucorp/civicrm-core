@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implements hook_css_alter().
  */
@@ -46,4 +47,71 @@ function tpg_theme_panels_flexible($vars) {
   $output .= "</div>\n</div>\n";
 
   return $output;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function tpg_theme_preprocess_page(&$vars, $hook) {
+  // Removing site logo depending upon show logo field value.
+  $node = menu_get_object('node');
+  if ($node->type == 'paragraphs_page') {
+    if(!$node->field_show_logo['und'][0]['value']) {
+      unset($vars['logo']);
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function tpg_theme_preprocess_node(&$variables) {
+
+  // Events Detail Node.
+  if ($variables['type'] == 'events_detail') {
+    foreach ($variables['field_paragraphs_entity'] as $key => $paragraph_item) {
+      // Loading paragraphs bundle from automated id.
+      $data = paragraphs_item_load($paragraph_item['value']);
+      if ($data->bundle == 'title_section') {
+        // Unset Date Published field for events node as we want to show event dates.
+        unset($variables['content']['field_paragraphs_entity'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_date_published']);
+      }
+    }
+  }
+
+  // Paragraphs page node.
+  foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
+    // Loading paragraphs bundle from automated id.
+    $data = paragraphs_item_load($paragraph_item['value']);
+
+    if ($data->bundle == 'title_section') {
+      // Unset Subtype field value depending upon Show tags field value.
+      if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
+        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function tpg_theme_page_alter(&$page) {
+
+  $node = menu_get_object('node');
+  if ($node->type == 'events_detail') {
+    // Removing Members get priority block depending upon show_membership_block field value.
+    if (!$node->field_show_membership_block['und'][0]['value']) {
+      // Fetching block id of Members get priority from fe_block machine name.
+      $block_query = db_select('fe_block_boxes', 'fb')
+              ->fields('fb', array('bid'))
+              ->condition('fb.machine_name', 'membership_block')
+              ->execute();
+      $block_id = $block_query->fetchField();
+
+      if ($block_id) {
+        unset($page["sidebar_right"]["block_$block_id"]);
+      }
+    }
+  }
 }
