@@ -75,19 +75,25 @@ function tpg_theme_preprocess_node(&$variables) {
       if ($data->bundle == 'title_section') {
         // Unset Date Published field for events node as we want to show event dates.
         unset($variables['content']['field_paragraphs_entity'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_date_published']);
+        // Unset Subtype field value depending upon Show tags field value.
+        if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
+          unset($variables['content']['field_paragraphs_entity'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);
+        }
       }
     }
   }
+  // Paragraphs Page Node.
+  if ($variables['type'] == 'paragraphs_page') {
+    // Paragraphs page node.
+    foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
+      // Loading paragraphs bundle from automated id.
+      $data = paragraphs_item_load($paragraph_item['value']);
 
-  // Paragraphs page node.
-  foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
-    // Loading paragraphs bundle from automated id.
-    $data = paragraphs_item_load($paragraph_item['value']);
-
-    if ($data->bundle == 'title_section') {
-      // Unset Subtype field value depending upon Show tags field value.
-      if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
-        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);
+      if ($data->bundle == 'title_section') {
+        // Unset Subtype field value depending upon Show tags field value.
+        if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
+          unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);
+        }
       }
     }
   }
