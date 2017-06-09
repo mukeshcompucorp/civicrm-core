@@ -1,4 +1,14 @@
-.header .header-image img {
-  margin-left: auto;
-  margin-right: auto;
+.header {
+
+  .logo a {
+    left: 10px;
+    position: absolute;
+    top: 24px;
+    z-index: 1;
+  }
+
+  .header-image img {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

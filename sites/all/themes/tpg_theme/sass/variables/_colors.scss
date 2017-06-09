@@ -32,7 +32,9 @@ $chroma: add-colors('functional', (
 
   form-bg:                'white',
   focused-input:          'black-lighten',
-  button-color:           'white-darken'
+  button-color:           'white-darken',
+
+  caption-color:          'dark-grey'
 ));
 
 $chroma-active-scheme: 'functional';

@@ -3,7 +3,7 @@
 
   Drupal.behaviors.qoutes = {
     attach: function (context, settings) {
-      this.addStrToElement('blockquote', context);
+      this.addStrToElement('blockquote:not(.image-field-caption)', context);
     },
     addStrToElement: function(el, context) {
       var $el = $(el, context);

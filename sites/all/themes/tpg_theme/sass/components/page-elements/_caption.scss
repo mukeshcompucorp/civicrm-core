@@ -1,0 +1,11 @@
+.image-field-caption {
+  font-style: normal;
+  margin-top: 8px;
+  padding-left: 0;
+
+  p {
+    @include lh-fs(18px, 14px);
+    color: color(caption-color);
+    font-weight: 700;
+  }
+}
