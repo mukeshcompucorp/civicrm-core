@@ -126,6 +126,25 @@ function tpg_paragraphs_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'paragraphs_item|attachments|full';
+  $ds_fieldsetting->entity_type = 'paragraphs_item';
+  $ds_fieldsetting->bundle = 'attachments';
+  $ds_fieldsetting->view_mode = 'full';
+  $ds_fieldsetting->settings = array(
+    'field_paragraphs_attachments' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-el' => 'h4',
+          'lbw-el' => 'h4',
+        ),
+      ),
+    ),
+  );
+  $export['paragraphs_item|attachments|full'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'paragraphs_item|block_quote|full';
   $ds_fieldsetting->entity_type = 'paragraphs_item';
   $ds_fieldsetting->bundle = 'block_quote';
@@ -712,6 +731,37 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|attachments|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'paragraphs_item|attachments|full';
+  $ds_layout->entity_type = 'paragraphs_item';
+  $ds_layout->bundle = 'attachments';
+  $ds_layout->view_mode = 'full';
+  $ds_layout->layout = 'full_width_middle';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'center' => array(
+        0 => 'field_paragraphs_attachments',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraphs_attachments' => 'center',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'sidebar_first' => 'div',
+      'center' => 'div',
+      'sidebar_second' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['paragraphs_item|attachments|full'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
