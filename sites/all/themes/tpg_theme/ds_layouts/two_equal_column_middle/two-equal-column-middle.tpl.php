@@ -21,7 +21,7 @@
 ?>
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
   <div class="row">
-    <div class="col-md-8 col-md-push-2">
+    <div class="<?php print !empty($node) && $node->type == 'events_detail' ? 'col-md-6 col-md-push-3' : 'col-md-8 col-md-push-2' ?>">
       <!-- Needed to activate contextual links -->
       <?php if (isset($title_suffix['contextual_links'])): ?>
         <?php print render($title_suffix['contextual_links']); ?>

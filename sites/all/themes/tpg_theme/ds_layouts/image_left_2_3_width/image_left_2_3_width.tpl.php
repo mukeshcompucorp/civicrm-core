@@ -21,13 +21,13 @@
 ?>
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
   <div class="row">
-    <div class="col-md-66pc-of-8 col-md-push-2">
+    <div class="<?php print !empty($node) && $node->type == 'events_detail' ? 'col-md-4 col-md-push-3' : 'col-md-66pc-of-8 col-md-push-2' ?>">
       <!-- Needed to activate contextual links -->
       <?php if (isset($title_suffix['contextual_links'])): ?>
         <?php print render($title_suffix['contextual_links']); ?>
       <?php endif; ?>
 
-      <<?php print $left_wrapper; ?> class="ds-left<?php print $left_classes; ?>">
+      <<?php print $left_wrapper; ?> class="ds-left <?php print $left_classes; ?>">
         <?php print $left; ?>
       </<?php print $left_wrapper; ?>>
     </div>

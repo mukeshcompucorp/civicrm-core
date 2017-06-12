@@ -19,11 +19,13 @@
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
   <div class="row">
 
-    <<?php print $sidebar_first_wrapper; ?> class="ds-sidebar-first col-md-2<?php print $sidebar_first_classes; ?>">
+    <<?php print $sidebar_first_wrapper; ?> class="ds-sidebar-first
+      <?php print !empty($node) && $node->type == 'events_detail' ? 'col-md-3' : 'col-md-2' ?>
+      <?php print $sidebar_first_classes; ?>">
       <?php print $sidebar_first; ?>
     </<?php print $sidebar_first_wrapper; ?>>
 
-    <div class="col-md-8">
+    <div class="<?php print !empty($node) && $node->type == 'events_detail' ? 'col-md-6' : 'col-md-8' ?>">
       <!-- Needed to activate contextual links -->
       <?php if (isset($title_suffix['contextual_links'])): ?>
         <?php print render($title_suffix['contextual_links']); ?>
@@ -34,7 +36,9 @@
       </<?php print $center_wrapper; ?>>
     </div>
 
-    <<?php print $sidebar_second_wrapper; ?> class="ds-sidebar-second col-md-2<?php print $sidebar_second_classes; ?>">
+    <<?php print $sidebar_second_wrapper; ?> class="ds-sidebar-second
+      <?php print !empty($node) && $node->type == 'events_detail' ? 'col-md-3' : 'col-md-2' ?>
+      <?php print $sidebar_second_classes; ?>">
       <?php print $sidebar_second; ?>
     </<?php print $sidebar_second_wrapper; ?>>
   </div>

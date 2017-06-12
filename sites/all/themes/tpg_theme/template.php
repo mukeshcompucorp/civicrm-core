@@ -115,3 +115,15 @@ function tpg_theme_page_alter(&$page) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_entity().
+ */
+function tpg_theme_preprocess_entity(&$variables) {
+  if ($variables['entity_type'] == 'paragraphs_item') {
+    if (arg(0) == 'node' && is_numeric(arg(1))) {
+      $node = node_load(arg(1));
+      $variables['node'] = $node;
+    }
+  }
+}
