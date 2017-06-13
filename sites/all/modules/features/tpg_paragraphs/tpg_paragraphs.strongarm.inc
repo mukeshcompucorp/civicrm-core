@@ -164,7 +164,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -196,7 +196,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -228,7 +228,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -260,7 +260,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -292,7 +292,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -324,7 +324,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -356,7 +356,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -388,7 +388,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -420,7 +420,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -452,7 +452,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -484,7 +484,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -516,7 +516,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -548,7 +548,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -580,7 +580,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -612,7 +612,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -644,7 +644,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -676,7 +676,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -705,7 +705,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -740,7 +740,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -772,7 +772,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -807,7 +807,7 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full_content_narrow' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -936,7 +936,7 @@ function tpg_paragraphs_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'gmap_marker_file';
-  $strongarm->value = '33';
+  $strongarm->value = '21';
   $export['gmap_marker_file'] = $strongarm;
 
   $strongarm = new stdClass();

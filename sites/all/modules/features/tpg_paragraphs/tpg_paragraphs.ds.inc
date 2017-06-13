@@ -1298,6 +1298,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'classes' => array(),
     'wrappers' => array(
       'left' => 'div',
+      'right' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -1587,14 +1588,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'full';
   $ds_layout->layout = 'full_width_container';
   $ds_layout->settings = array(
-    'regions' => array(
-      'center' => array(
-        0 => 'field_related_activities',
-      ),
-    ),
-    'fields' => array(
-      'field_related_activities' => 'center',
-    ),
     'classes' => array(),
     'wrappers' => array(
       'center' => 'div',
@@ -1819,6 +1812,22 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'full_content_narrow';
   $ds_layout->layout = 'full_width_narrow';
   $ds_layout->settings = array(
+    'regions' => array(
+      'center' => array(
+        0 => 'field_paragraphs_type',
+        1 => 'field_paragraphs_date_published',
+        2 => 'field_paragraph_title',
+        3 => 'field_paragraphs_tags_viewpoints',
+        4 => 'field_paragraph_description',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraphs_type' => 'center',
+      'field_paragraphs_date_published' => 'center',
+      'field_paragraph_title' => 'center',
+      'field_paragraphs_tags_viewpoints' => 'center',
+      'field_paragraph_description' => 'center',
+    ),
     'classes' => array(),
     'wrappers' => array(
       'sidebar_first' => 'div',
@@ -1831,24 +1840,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
-    'regions' => array(
-      'sidebar_first' => array(
-        0 => 'field_paragraphs_tags_viewpoints',
-      ),
-      'center' => array(
-        0 => 'field_paragraphs_type',
-        1 => 'field_paragraphs_date_published',
-        2 => 'field_paragraph_title',
-        3 => 'field_paragraph_description',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraphs_tags_viewpoints' => 'sidebar_first',
-      'field_paragraphs_type' => 'center',
-      'field_paragraphs_date_published' => 'center',
-      'field_paragraph_title' => 'center',
-      'field_paragraph_description' => 'center',
-    ),
   );
   $export['paragraphs_item|title_section|full_content_narrow'] = $ds_layout;
 

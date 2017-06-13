@@ -14,22 +14,27 @@
  *
  * - $left: Rendered content for the "Left" region.
  * - $left_classes: String of classes that can be used to style the "Left" region.
- *
+ *<?php print isset($add_class) ? 'col-md-4 col-md-push-3' : 'col-md-66pc-of-8 col-md-push-2'; ?>
  * - $right: Rendered content for the "Right" region.
  * - $right_classes: String of classes that can be used to style the "Right" region.
  */
 ?>
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
   <div class="row">
-    <div class="col-md-66pc-of-8 col-md-push-2">
+
+    <div class="<?php print $add_classes['sidebar_first']; ?>"></div>
+    <div class="<?php print $add_classes['content']; ?>">
       <!-- Needed to activate contextual links -->
       <?php if (isset($title_suffix['contextual_links'])): ?>
         <?php print render($title_suffix['contextual_links']); ?>
       <?php endif; ?>
-
-      <<?php print $left_wrapper; ?> class="ds-left<?php print $left_classes; ?>">
-        <?php print $left; ?>
-      </<?php print $left_wrapper; ?>>
+      <div class="row">
+        <div class="col-md-8">
+          <<?php print $left_wrapper; ?> class="ds-left <?php print $left_classes; ?>">
+            <?php print $left; ?>
+          </<?php print $left_wrapper; ?>>
+        </div>
+      </div>
     </div>
   </div>
 </<?php print $layout_wrapper ?>>

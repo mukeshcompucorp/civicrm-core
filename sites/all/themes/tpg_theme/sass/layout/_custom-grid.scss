@@ -5,7 +5,3 @@
 .col-md-5-of-8 {
   @include make-md-column(7.5);
 }
-
-.col-md-66pc-of-8 {
-  @include make-md-column(5.33);
-}

@@ -14,6 +14,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-event_plan_your_visit'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'machine_name' => 'event_plan_your_visit',
     'module' => 'block',
@@ -64,6 +65,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-membership_block'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'machine_name' => 'membership_block',
     'module' => 'block',
@@ -114,6 +116,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['views-db35b63cccfa6e17d8e93330e7e2a946'] = array(
     'cache' => -1,
+    'css_class' => 'related-activities-wrapper',
     'custom' => 0,
     'delta' => 'db35b63cccfa6e17d8e93330e7e2a946',
     'module' => 'views',
@@ -166,6 +169,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['views-events_entity-events_book_now'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'events_entity-events_book_now',
     'module' => 'views',

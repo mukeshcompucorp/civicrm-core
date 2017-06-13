@@ -21,7 +21,9 @@
 ?>
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
   <div class="row">
-    <div class="col-md-8 col-md-push-2">
+
+    <div class="<?php print $add_classes['sidebar_first']; ?>"></div>
+    <div class="<?php print $add_classes['content']; ?>">
       <!-- Needed to activate contextual links -->
       <?php if (isset($title_suffix['contextual_links'])): ?>
         <?php print render($title_suffix['contextual_links']); ?>

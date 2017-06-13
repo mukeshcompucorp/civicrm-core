@@ -87,7 +87,11 @@
           <?php print render($tabs); ?>
         </div>
       <?php endif; ?>
-      <?php print $messages; ?>
+      <?php if ($messages): ?>
+        <div class="container">
+          <?php print $messages; ?>
+        </div>
+      <?php endif; ?>
 
       <?php if ($breadcrumb): ?>
         <div id="breadcrumb-wrapper" class="container">

@@ -1,0 +1,52 @@
+.related-activities {
+  * {
+    color: color(related-activities-color);
+  }
+
+  &-wrapper {
+    @include rem(padding-bottom, 45px);
+    @include rem(padding-top, 20px);
+    background-color: color(darken-background);
+
+    > h2 {
+      @include container;
+      @include rem(font-size, 18px);
+    }
+  }
+
+  > .view-content {
+    @include make-row;
+  }
+
+  [class*='field-paragraphs-overview-image'] {
+    @include rem(margin-bottom, 10px);
+  }
+
+  [class*='field-paragraphs-date-published'] *,
+  [class*='field-paragraphs-type'] * {
+    @include lh-fs(18px, 12px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  [class*='field-paragraphs-date-published'] * {
+    float: right;
+  }
+
+  [class*='field-paragraphs-type'] * {
+    float: left;
+  }
+
+  [class*='field-paragraph-title'] {
+    clear: both;
+
+    a {
+      display: inline-block;
+      max-width: 325px;
+      overflow: hidden;
+      text-decoration: underline;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

@@ -14,6 +14,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['service_links-service_links'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'service_links',
     'module' => 'service_links',
@@ -64,6 +65,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['service_links-service_links_fisheye'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'service_links_fisheye',
     'module' => 'service_links',
@@ -114,6 +116,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['service_links-service_links_not_node'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'service_links_not_node',
     'module' => 'service_links',
@@ -164,6 +167,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-07638bbcc700a6c786d46b7710bcf395'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => '07638bbcc700a6c786d46b7710bcf395',
     'module' => 'views',
@@ -214,6 +218,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-561be599b982dd2ae38c000b1df22b2c'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => '561be599b982dd2ae38c000b1df22b2c',
     'module' => 'views',
@@ -264,6 +269,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-57800a35622528c39b7316d05173e444'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => '57800a35622528c39b7316d05173e444',
     'module' => 'views',
@@ -316,6 +322,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-b74a753cec1f9a066a73c05d7fe55837'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'b74a753cec1f9a066a73c05d7fe55837',
     'module' => 'views',
@@ -366,6 +373,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-d475a0d271ff2b5a475c0f47720f179e'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'd475a0d271ff2b5a475c0f47720f179e',
     'module' => 'views',
