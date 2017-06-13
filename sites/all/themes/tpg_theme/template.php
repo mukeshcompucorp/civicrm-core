@@ -121,9 +121,25 @@ function tpg_theme_page_alter(&$page) {
  */
 function tpg_theme_preprocess_entity(&$variables) {
   if ($variables['entity_type'] == 'paragraphs_item') {
-    if (arg(0) == 'node' && is_numeric(arg(1))) {
-      $node = node_load(arg(1));
-      $variables['node'] = $node;
+    // Get node object.
+    $node = menu_get_object('node');
+    $classes = $variables['add_classes'] = [];
+    if ($node) {
+      switch ($node->type) {
+        case 'events_detail':
+          $classes['sidebar_first'] = 'col-md-3';
+          $classes['sidebar_second'] = 'col-md-3';
+          $classes['content'] = 'col-md-6';
+          break;
+        default:
+          $classes['sidebar_first'] = 'col-md-2';
+          $classes['sidebar_second'] = 'col-md-2';
+          $classes['content'] = 'col-md-8';
+          break;
+      }
+      if ($classes) {
+        $variables['add_classes'] = $classes;
+      }
     }
   }
 }
