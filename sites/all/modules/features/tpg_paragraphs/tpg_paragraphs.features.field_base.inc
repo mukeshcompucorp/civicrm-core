@@ -53,6 +53,21 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_header_video_url'.
+  $field_bases['field_header_video_url'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_header_video_url',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'video_embed_field',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'video_embed_field',
+  );
+
   // Exported field_base: 'field_homepage_publish_dates'.
   $field_bases['field_homepage_publish_dates'] = array(
     'active' => 1,

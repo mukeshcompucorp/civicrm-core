@@ -157,7 +157,7 @@ function tpg_events_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'revision' => array(
         'custom_settings' => FALSE,
@@ -172,7 +172,7 @@ function tpg_events_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '15',
         ),
       ),
       'display' => array(),

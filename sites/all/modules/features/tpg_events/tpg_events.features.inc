@@ -33,15 +33,7 @@ function tpg_events_node_info() {
       'base' => 'node_content',
       'description' => t('Use <em> events_detail </em> for creating Events page.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'webform' => array(
-      'name' => t('Webform'),
-      'base' => 'node_content',
-      'description' => t('Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Internal Reference Name/Title'),
       'help' => '',
     ),
   );

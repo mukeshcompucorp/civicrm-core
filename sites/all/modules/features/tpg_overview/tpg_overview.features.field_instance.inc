@@ -187,9 +187,10 @@ function tpg_overview_field_default_field_instances() {
         'weight' => 3,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_external_links',
-    'label' => 'External Links',
+    'label' => 'Internal Links',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -223,6 +224,7 @@ function tpg_overview_field_default_field_instances() {
         'weight' => 2,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_linked_entity',
     'label' => 'Linked Entity',
@@ -405,7 +407,7 @@ function tpg_overview_field_default_field_instances() {
   t('Body');
   t('Card Image');
   t('External Link Title');
-  t('External Links');
+  t('Internal Links');
   t('Link Description');
   t('Linked Entity');
   t('Overview Section');

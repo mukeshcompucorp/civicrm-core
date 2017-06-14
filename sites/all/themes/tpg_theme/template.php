@@ -60,6 +60,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
       unset($vars['logo']);
     }
   }
+  // Hiding page title.
+  $pages = array('events_detail', 'paragraphs_page');
+  if (in_array($node->type, $pages)) {
+    $vars['title'] = '';
+  }
 }
 
 /**
