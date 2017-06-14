@@ -19,26 +19,21 @@
  * - $right_classes: String of classes that can be used to style the "Right" region.
  */
 ?>
-<<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
+<<?php print $layout_wrapper; print $layout_attributes; ?> class="<?php print $classes;?> clearfix">
+
+  <!-- Needed to activate contextual links -->
+  <?php if (isset($title_suffix['contextual_links'])): ?>
+    <?php print render($title_suffix['contextual_links']); ?>
+  <?php endif; ?>
+
   <div class="row">
+    <<?php print $left_wrapper; ?> class="ds-left col-md-3-of-8 <?php print $left_classes; ?>">
+      <?php print $left; ?>
+    </<?php print $left_wrapper; ?>>
 
-    <div class="<?php print $add_classes['sidebar_first']; ?>"></div>
-    <div class="<?php print $add_classes['content']; ?>">
-      <!-- Needed to activate contextual links -->
-      <?php if (isset($title_suffix['contextual_links'])): ?>
-        <?php print render($title_suffix['contextual_links']); ?>
-      <?php endif; ?>
-
-      <div class="row">
-        <<?php print $left_wrapper; ?> class="ds-left col-md-3-of-8 <?php print $left_classes; ?>">
-          <?php print $left; ?>
-        </<?php print $left_wrapper; ?>>
-
-        <<?php print $right_wrapper; ?> class="ds-right col-md-5-of-8 <?php print $right_classes; ?>">
-          <?php print $right; ?>
-        </<?php print $right_wrapper; ?>>
-      </div>
-    </div>
+    <<?php print $right_wrapper; ?> class="ds-right col-md-5-of-8 <?php print $right_classes; ?>">
+      <?php print $right; ?>
+    </<?php print $right_wrapper; ?>>
   </div>
 </<?php print $layout_wrapper ?>>
 

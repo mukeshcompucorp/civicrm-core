@@ -310,10 +310,10 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'content',
+        'region' => 'full_width_bottom',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => 0,
+        'weight' => -22,
       ),
     ),
     'title' => '',

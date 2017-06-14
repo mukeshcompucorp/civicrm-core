@@ -829,37 +829,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|block_quote|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'block_quote';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'classes' => array(),
-    'wrappers' => array(
-      'center' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-    'regions' => array(
-      'center' => array(
-        0 => 'field_paragraph_title',
-        1 => 'field_paragraph_left_text',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraph_title' => 'center',
-      'field_paragraph_left_text' => 'center',
-    ),
-  );
-  $export['paragraphs_item|block_quote|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|bulleted_list|default';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'bulleted_list';
@@ -924,37 +893,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|bulleted_list|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'bulleted_list';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'classes' => array(),
-    'wrappers' => array(
-      'center' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-    'regions' => array(
-      'center' => array(
-        0 => 'field_paragraph_title',
-        1 => 'field_paragraph_left_text',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraph_title' => 'center',
-      'field_paragraph_left_text' => 'center',
-    ),
-  );
-  $export['paragraphs_item|bulleted_list|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|button|default';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'button';
@@ -1015,39 +953,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|button|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'button';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'center' => array(
-        0 => 'field_title',
-        1 => 'field_paragraph_button',
-      ),
-    ),
-    'fields' => array(
-      'field_title' => 'center',
-      'field_paragraph_button' => 'center',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'sidebar_first' => 'div',
-      'center' => 'div',
-      'sidebar_second' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-  );
-  $export['paragraphs_item|button|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|embed_video|default';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'embed_video';
@@ -1104,37 +1009,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|embed_video|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'embed_video';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'center' => array(
-        0 => 'field_paragraph_video',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraph_video' => 'center',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'sidebar_first' => 'div',
-      'center' => 'div',
-      'sidebar_second' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-  );
-  $export['paragraphs_item|embed_video|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|full_width_image_caption|default';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'full_width_image_caption';
@@ -1160,7 +1034,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'full_width_image_caption';
   $ds_layout->view_mode = 'full';
-  $ds_layout->layout = 'full_width';
+  $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
     'classes' => array(),
     'wrappers' => array(
@@ -1174,27 +1048,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|full_width_image_caption|full'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|full_width_image_caption|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'full_width_image_caption';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width';
-  $ds_layout->settings = array(
-    'classes' => array(),
-    'wrappers' => array(
-      'ds_content' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-  );
-  $export['paragraphs_item|full_width_image_caption|full_content_narrow'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
@@ -1495,33 +1348,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|reading_width_maps|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'reading_width_maps';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'classes' => array(),
-    'wrappers' => array(),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-    'regions' => array(
-      'center' => array(
-        0 => 'field_paragraphs_location',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraphs_location' => 'center',
-    ),
-  );
-  $export['paragraphs_item|reading_width_maps|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|reading_width_webform|full';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'reading_width_webform';
@@ -1586,7 +1412,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'related_activities';
   $ds_layout->view_mode = 'full';
-  $ds_layout->layout = 'full_width_container';
+  $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
     'classes' => array(),
     'wrappers' => array(
@@ -1701,33 +1527,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|text_reading_width|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'text_reading_width';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'classes' => array(),
-    'wrappers' => array(),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-    'regions' => array(
-      'center' => array(
-        0 => 'field_paragraph_description',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraph_description' => 'center',
-    ),
-  );
-  $export['paragraphs_item|text_reading_width|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|title_section|default';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'title_section';
@@ -1806,45 +1605,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'paragraphs_item|title_section|full_content_narrow';
-  $ds_layout->entity_type = 'paragraphs_item';
-  $ds_layout->bundle = 'title_section';
-  $ds_layout->view_mode = 'full_content_narrow';
-  $ds_layout->layout = 'full_width_narrow';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'center' => array(
-        0 => 'field_paragraphs_type',
-        1 => 'field_paragraphs_date_published',
-        2 => 'field_paragraph_title',
-        3 => 'field_paragraphs_tags_viewpoints',
-        4 => 'field_paragraph_description',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraphs_type' => 'center',
-      'field_paragraphs_date_published' => 'center',
-      'field_paragraph_title' => 'center',
-      'field_paragraphs_tags_viewpoints' => 'center',
-      'field_paragraph_description' => 'center',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'sidebar_first' => 'div',
-      'center' => 'div',
-      'sidebar_second' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
-  );
-  $export['paragraphs_item|title_section|full_content_narrow'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'paragraphs_item|title_section|overview';
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'title_section';
@@ -1919,15 +1679,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
  */
 function tpg_paragraphs_ds_view_modes_info() {
   $export = array();
-
-  $ds_view_mode = new stdClass();
-  $ds_view_mode->api_version = 1;
-  $ds_view_mode->view_mode = 'full_content_narrow';
-  $ds_view_mode->label = 'Full content narrow';
-  $ds_view_mode->entities = array(
-    'paragraphs_item' => 'paragraphs_item',
-  );
-  $export['full_content_narrow'] = $ds_view_mode;
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;

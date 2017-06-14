@@ -64,7 +64,6 @@
  * @see template_process()
  */
 ?>
-
 <div id="page-wrapper">
   <header id="header" class="header">
     <div class="header-inner clearfix">
@@ -101,38 +100,48 @@
         </div>
       <?php endif; ?>
 
-      <section id="post-content" class="post-content clearfix" role="main">
-        <?php if ($action_links): ?>
-          <ul class="action-links container">
-            <?php print render($action_links); ?>
-          </ul>
-        <?php endif; ?>
+      <section id="post-content" class="post-content container" role="main">
+        <div class="row">
+          <?php if ($action_links): ?>
+            <ul class="action-links">
+              <?php print render($action_links); ?>
+            </ul>
+          <?php endif; ?>
 
-        <?php if ($page['sidebar_first']): ?>
-          <aside id="first-sidebar" class="first-sidebar" role="complementary">
-            <?php print render($page['sidebar_first']); ?>
-          </aside>
-        <?php endif; ?>
+          <div class="<?php print $add_classes['sidebar_first']; ?>">
+            <?php if ($page['sidebar_first']): ?>
+              <aside id="first-sidebar" class="first-sidebar" role="complementary">
+                <?php print render($page['sidebar_first']); ?>
+              </aside>
+            <?php endif; ?>
+          </div>
 
-        <div class="main-content">
-          <?php print render($title_prefix); ?>
-          <?php if ($title): ?>
-            <div class="container">
+          <div class="main-content <?php print $add_classes['content']; ?>">
+            <?php print render($title_prefix); ?>
+            <?php if ($title): ?>
               <h1 class="page-title">
                 <?php print $title; ?>
               </h1>
-            </div>
-          <?php endif; ?>
-          <?php print render($title_suffix); ?>
-          <?php print render($page['content']); ?>
-        </div>
+            <?php endif; ?>
+            <?php print render($title_suffix); ?>
+            <?php print render($page['content']); ?>
+          </div>
 
-        <?php if ($page['sidebar_second']): ?>
-          <aside id="second-sidebar" class="second-sidebar" role="complementary">
-            <?php print render($page['sidebar_second']); ?>
-          </aside>
-        <?php endif; ?>
+          <div class="<?php print $add_classes['sidebar_second']; ?>">
+            <?php if ($page['sidebar_second']): ?>
+              <aside id="second-sidebar" class="second-sidebar" role="complementary">
+                <?php print render($page['sidebar_second']); ?>
+              </aside>
+            <?php endif; ?>
+          </div>
+        </div>
       </section>
+
+      <?php if ($page['full_width_bottom']): ?>
+        <div id="full-width-bottom" class="full-width-bottom" role="complementary">
+          <?php print render($page['full_width_bottom']); ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 
