@@ -60,7 +60,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
       unset($vars['logo']);
     }
   }
-
+  // Setting page layout.
   $classes = $vars['add_classes'] = [];
   if ($node) {
     switch ($node->type) {
@@ -78,6 +78,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
     if ($classes) {
       $vars['add_classes'] = $classes;
     }
+  }
+  // Hiding page title.
+  $pages = array('events_detail', 'paragraphs_page');
+  if (in_array($node->type, $pages)) {
+    $vars['title'] = '';
   }
 }
 

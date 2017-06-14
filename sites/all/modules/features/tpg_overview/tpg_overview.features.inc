@@ -29,7 +29,7 @@ function tpg_overview_node_info() {
       'base' => 'node_content',
       'description' => t('Use <em> overview_page </em> for creating overview content pages.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Internal Reference Name/Title'),
       'help' => '',
     ),
   );

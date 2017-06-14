@@ -31,6 +31,7 @@ features[field_base][] = field_linked_entity
 features[field_base][] = field_overview_section
 features[field_base][] = field_subtitle
 features[field_base][] = field_subtitle_description
+features[field_group][] = group_items|field_collection_item|field_overview_section|form
 features[field_group][] = group_links|field_collection_item|field_external_links|form
 features[field_instance][] = field_collection_item-field_external_links-field_card_image
 features[field_instance][] = field_collection_item-field_external_links-field_external_link_title
