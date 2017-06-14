@@ -1744,15 +1744,17 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_paragraphs_type',
-        1 => 'field_paragraphs_date_published',
-        2 => 'field_event_dates',
-        3 => 'field_paragraph_title',
-        4 => 'field_paragraphs_tags_viewpoints',
-        5 => 'field_paragraph_description',
+        1 => 'field_paragraphs_event_type',
+        2 => 'field_paragraphs_date_published',
+        3 => 'field_event_dates',
+        4 => 'field_paragraph_title',
+        5 => 'field_paragraphs_tags_viewpoints',
+        6 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
       'field_paragraphs_type' => 'ds_content',
+      'field_paragraphs_event_type' => 'ds_content',
       'field_paragraphs_date_published' => 'ds_content',
       'field_event_dates' => 'ds_content',
       'field_paragraph_title' => 'ds_content',
@@ -1783,14 +1785,16 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'regions' => array(
       'center' => array(
         0 => 'field_paragraphs_type',
-        1 => 'field_paragraphs_date_published',
-        2 => 'field_paragraph_title',
-        3 => 'field_paragraphs_tags_viewpoints',
-        4 => 'field_paragraph_description',
+        1 => 'field_paragraphs_event_type',
+        2 => 'field_paragraphs_date_published',
+        3 => 'field_paragraph_title',
+        4 => 'field_paragraphs_tags_viewpoints',
+        5 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
       'field_paragraphs_type' => 'center',
+      'field_paragraphs_event_type' => 'center',
       'field_paragraphs_date_published' => 'center',
       'field_paragraph_title' => 'center',
       'field_paragraphs_tags_viewpoints' => 'center',
@@ -1819,6 +1823,23 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'full_content_narrow';
   $ds_layout->layout = 'full_width_narrow';
   $ds_layout->settings = array(
+    'regions' => array(
+      'center' => array(
+        0 => 'field_paragraphs_type',
+        1 => 'field_paragraphs_date_published',
+        2 => 'field_paragraph_title',
+        3 => 'field_paragraphs_tags_viewpoints',
+        4 => 'field_paragraph_description',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraphs_tags_viewpoints' => 'sidebar_first',
+      'field_paragraphs_type' => 'center',
+      'field_paragraphs_event_type' => 'center',
+      'field_paragraphs_date_published' => 'center',
+      'field_paragraph_title' => 'center',
+      'field_paragraph_description' => 'center',
+    ),
     'classes' => array(),
     'wrappers' => array(
       'sidebar_first' => 'div',
@@ -1831,24 +1852,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
-    'regions' => array(
-      'sidebar_first' => array(
-        0 => 'field_paragraphs_tags_viewpoints',
-      ),
-      'center' => array(
-        0 => 'field_paragraphs_type',
-        1 => 'field_paragraphs_date_published',
-        2 => 'field_paragraph_title',
-        3 => 'field_paragraph_description',
-      ),
-    ),
-    'fields' => array(
-      'field_paragraphs_tags_viewpoints' => 'sidebar_first',
-      'field_paragraphs_type' => 'center',
-      'field_paragraphs_date_published' => 'center',
-      'field_paragraph_title' => 'center',
-      'field_paragraph_description' => 'center',
-    ),
   );
   $export['paragraphs_item|title_section|full_content_narrow'] = $ds_layout;
 
@@ -1864,19 +1867,19 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'field_paragraphs_overview_image',
         1 => 'field_paragraphs_type',
-        2 => 'field_paragraphs_date_published',
-        3 => 'field_paragraph_title',
-        4 => 'field_paragraph_description',
-        5 => 'read_more',
+        2 => 'field_paragraphs_event_type',
+        3 => 'field_paragraphs_date_published',
+        4 => 'field_paragraph_title',
+        5 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
       'field_paragraphs_overview_image' => 'ds_content',
       'field_paragraphs_type' => 'ds_content',
+      'field_paragraphs_event_type' => 'ds_content',
       'field_paragraphs_date_published' => 'ds_content',
       'field_paragraph_title' => 'ds_content',
       'field_paragraph_description' => 'ds_content',
-      'read_more' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(

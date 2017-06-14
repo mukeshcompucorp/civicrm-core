@@ -35,19 +35,29 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
   // Altering the Overview view mode content.
   if ($view_mode == 'overview') {
 
-    foreach ($node->content['field_paragraphs_content'] as $key => $value) {
+    $paragraphs_content = array();
+    switch ($node->type) {
+      case 'events_detail':
+        $paragraphs_content = &$node->content['field_paragraphs_entity'];
+        break;
+      case 'paragraphs_page':
+        $paragraphs_content = &$node->content['field_paragraphs_content'];
+        break;
+    }
+    foreach ($paragraphs_content as $key => $value) {
       if (is_int($key)) {
         // Fetching the key of the paragraphs item.
         $item_key = key($value['entity']['paragraphs_item']);
 
         // Altering title and overview image field for title_section paragraph bundle.
         if ($value['entity']['paragraphs_item'][$item_key]['#bundle'] == 'title_section') {
+
           // Adding link to node page for title field.
-          $title_markup = $node->content['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$item_key]['field_paragraph_title'][0]['#markup'];
-          $node->content['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$item_key]['field_paragraph_title'][0]['#markup'] = l($title_markup, '/node/' . $node->nid);
+          $title_markup = &$paragraphs_content[$key]['entity']['paragraphs_item'][$item_key]['field_paragraph_title'][0]['#markup'];
+          $title_markup = l($title_markup, '/node/' . $node->nid);
 
           // Adding image path.
-          $node->content['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$item_key]['field_paragraphs_overview_image'][0]['#path']['path'] = '/node/' . $node->nid;
+          $paragraphs_content[$key]['entity']['paragraphs_item'][$item_key]['field_paragraphs_overview_image'][0]['#path']['path'] = '/node/' . $node->nid;
         }
       }
     }
@@ -71,7 +81,7 @@ function tpg_global_views_pre_render(&$view) {
 
     $paragraphs_content = $node->field_paragraphs_content['und'];
     if ($view->current_display == 'event_related_activities') {
-      $paragraphs_content = $node->field_events_related_activities ['und'];
+      $paragraphs_content = $node->field_events_related_activities['und'];
     }
     foreach ($paragraphs_content as $key => $paragraph_item) {
       // Loading paragraphs bundle from automated id.
@@ -97,14 +107,32 @@ function tpg_global_views_pre_render(&$view) {
  */
 function tpg_global_form_alter(&$form, &$form_state, $form_id) {
 
-  if ($form_id == 'events_detail_node_form' || $form_id == 'paragraphs_page_node_form') {
-    // Adding range of weights for Homepage weight field.
-    $range = array();
-    for ($i = -20; $i <= 20; ++$i) {
-      $range[$i] = $i;
+  if ($form_id == 'paragraphs_page_node_form') {
+    // Adding homepage weight options.
+    _tpg_global_homepage_weight_range($form);
+
+    // Hiding Event type and Event date fields.
+    foreach ($form['field_paragraphs_content']['und'] as $key => $value) {
+      if (is_int($key)) {
+        if ($value['#bundle'] == 'title_section') {
+          unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_event_type']);
+          unset($form['field_paragraphs_content']['und'][$key]['field_event_dates']);
+        }
+      }
     }
-    $form['field_homepage_weight']['und']['#options'] = $range;
-    $form['field_homepage_weight']['und']['#default_value'] = $form['#node']->field_homepage_weight['und'][0] ? $form['#node']->field_homepage_weight['und'][0] : 0;
+  }
+
+  if ($form_id == 'events_detail_node_form') {
+    // Hiding Page Type field.
+    foreach ($form['field_paragraphs_entity']['und'] as $key => $value) {
+      if (is_int($key)) {
+        if ($value['#bundle'] == 'title_section') {
+          unset($form['field_paragraphs_entity']['und'][$key]['field_paragraphs_type']);
+        }
+      }
+    }
+    // Adding homepage weight options.
+    _tpg_global_homepage_weight_range($form);
   }
 
   // Adding Date Range and Altering Location Proximity Search for Events Map.
@@ -128,4 +156,20 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     );
     $form['submit']['#weight'] = 5;
   }
+}
+
+/**
+ * Adding range of weights for Homepage weight field.
+ *
+ * @param $form array
+ *    Content type form array.
+ */
+function _tpg_global_homepage_weight_range(&$form = array()) {
+
+  $range = array();
+  for ($i = -20; $i <= 20; ++$i) {
+    $range[$i] = $i;
+  }
+  $form['field_homepage_weight']['und']['#options'] = $range;
+  $form['field_homepage_weight']['und']['#default_value'] = $form['#node']->field_homepage_weight['und'][0] ? $form['#node']->field_homepage_weight['und'][0] : 0;
 }

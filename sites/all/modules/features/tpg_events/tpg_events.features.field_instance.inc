@@ -314,51 +314,6 @@ function tpg_events_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-events_detail-field_event_type'.
-  $field_instances['node-events_detail-field_event_type'] = array(
-    'bundle' => 'events_detail',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'overview' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_event_type',
-    'label' => 'Event Type',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'taxonomy',
-      'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'taxonomy_autocomplete',
-      'weight' => 12,
-    ),
-  );
-
   // Exported field_instance:
   // 'node-events_detail-field_events_related_activities'.
   $field_instances['node-events_detail-field_events_related_activities'] = array(
@@ -957,7 +912,6 @@ function tpg_events_field_default_field_instances() {
   t('Event Free Link');
   t('Event Sold out message');
   t('Event Status');
-  t('Event Type');
   t('Homepage weight');
   t('Paragraphs Entity');
   t('Paragraphs Related Activities');

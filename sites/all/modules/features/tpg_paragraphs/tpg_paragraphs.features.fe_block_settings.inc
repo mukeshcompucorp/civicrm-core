@@ -416,6 +416,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-header_video-header_video_block'] = array(
     'cache' => -1,
+    'custom' => 0,
     'delta' => 'header_video-header_video_block',
     'module' => 'views',
     'node_types' => array(),
@@ -459,6 +460,8 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   return $export;

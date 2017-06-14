@@ -653,15 +653,15 @@ function tpg_paragraphs_views_default_views() {
     'image_style' => 'overview_page_image_400x271',
     'image_link' => 'content',
   );
-  /* Field: Paragraphs item: Page Type */
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['id'] = 'field_paragraphs_type_1';
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['table'] = 'field_data_field_paragraphs_type';
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['field'] = 'field_paragraphs_type';
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['type'] = 'taxonomy_term_reference_plain';
-  $handler->display->display_options['fields']['field_paragraphs_type_1']['delta_offset'] = '0';
+  /* Field: Paragraphs item: Event Type */
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['id'] = 'field_paragraphs_event_type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['table'] = 'field_data_field_paragraphs_event_type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['field'] = 'field_paragraphs_event_type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Paragraphs item: Event Dates */
   $handler->display->display_options['fields']['field_event_dates']['id'] = 'field_event_dates';
   $handler->display->display_options['fields']['field_event_dates']['table'] = 'field_data_field_event_dates';
