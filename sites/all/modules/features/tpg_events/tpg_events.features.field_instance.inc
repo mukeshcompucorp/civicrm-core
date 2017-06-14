@@ -149,11 +149,7 @@ function tpg_events_field_default_field_instances() {
   // Exported field_instance: 'node-events_detail-field_event_sold_out'.
   $field_instances['node-events_detail-field_event_sold_out'] = array(
     'bundle' => 'events_detail',
-    'default_value' => array(
-      0 => array(
-        'value' => 'SOLD OUT',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
