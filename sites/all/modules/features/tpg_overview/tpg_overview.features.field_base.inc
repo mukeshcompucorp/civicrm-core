@@ -153,6 +153,7 @@ function tpg_overview_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
+          'events_detail' => 'events_detail',
           'paragraphs_page' => 'paragraphs_page',
         ),
       ),
