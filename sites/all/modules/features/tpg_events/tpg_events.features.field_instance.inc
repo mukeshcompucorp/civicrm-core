@@ -409,6 +409,53 @@ function tpg_events_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-events_detail-field_homepage_card_tag'.
+  $field_instances['node-events_detail-field_homepage_card_tag'] = array(
+    'bundle' => 'events_detail',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 16,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage_card_tag',
+    'label' => 'Homepage Card Tag',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 45,
+    ),
+  );
+
   // Exported field_instance: 'node-events_detail-field_homepage_publish_dates'.
   $field_instances['node-events_detail-field_homepage_publish_dates'] = array(
     'bundle' => 'events_detail',
@@ -912,6 +959,7 @@ function tpg_events_field_default_field_instances() {
   t('Event Free Link');
   t('Event Sold out message');
   t('Event Status');
+  t('Homepage Card Tag');
   t('Homepage weight');
   t('Paragraphs Entity');
   t('Paragraphs Related Activities');

@@ -116,6 +116,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-whats_on_now_upcoming'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'machine_name' => 'whats_on_now_upcoming',
     'module' => 'block',
@@ -166,6 +167,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-whats_on_past_programme'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'machine_name' => 'whats_on_past_programme',
     'module' => 'block',

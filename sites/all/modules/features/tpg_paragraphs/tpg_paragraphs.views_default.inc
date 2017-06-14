@@ -528,12 +528,6 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Paragraphs item: Related Activities (field_related_activities:delta) */
-  $handler->display->display_options['sorts']['delta']['id'] = 'delta';
-  $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_related_activities';
-  $handler->display->display_options['sorts']['delta']['field'] = 'delta';
-  $handler->display->display_options['sorts']['delta']['relationship'] = 'reverse_field_related_activities_paragraphs_item';
-  $handler->display->display_options['sorts']['delta']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -692,12 +686,6 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Paragraphs item: Related Activities (field_related_activities:delta) */
-  $handler->display->display_options['sorts']['delta']['id'] = 'delta';
-  $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_related_activities';
-  $handler->display->display_options['sorts']['delta']['field'] = 'delta';
-  $handler->display->display_options['sorts']['delta']['relationship'] = 'reverse_field_related_activities_paragraphs_item';
-  $handler->display->display_options['sorts']['delta']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
