@@ -1,0 +1,32 @@
+.plan-your-visit,
+.membership-block {
+  h2 {
+    @include lh-fs(22px, 14px);
+    font-weight: bold;
+  }
+
+  p {
+    @include lh-fs(18px, 14px);
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+}
+
+.book-tickets {
+  @include rem(margin-bottom, 60px);
+
+  [class*="book-now"] a {
+    @include button;
+    display: inline-block;
+  }
+}
+
+.membership-block {
+  @include rem(margin-bottom, 60px);
+
+  .content a {
+    @include lh-fs(23px, 14px);
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

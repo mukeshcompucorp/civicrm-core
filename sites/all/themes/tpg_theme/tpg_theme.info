@@ -10,11 +10,12 @@ screenshot = screenshot.jpg
 stylesheets[all][] = dist/main.css
 ;stylesheets[all][] = dist/main.min.css
 
-regions[header]         = Header
-regions[content]        = Content
-regions[sidebar_first]  = First Sidebar
-regions[sidebar_second] = Second Sidebar
-regions[footer]         = Footer
+regions[header]            = Header
+regions[content]           = Content
+regions[full_width_bottom] = Full width bottom region
+regions[sidebar_first]     = First Sidebar
+regions[sidebar_second]    = Second Sidebar
+regions[footer]            = Footer
 
 scripts[] = dist/main.js
 ;scripts[] = dist/main.min.js

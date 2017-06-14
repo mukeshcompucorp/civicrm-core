@@ -16,32 +16,17 @@
  * - $center_classes: String of classes that can be used to style the "Center" region.
  */
 ?>
-<<?php print $layout_wrapper; print $layout_attributes; ?> class="container <?php print $classes;?> clearfix">
-  <div class="row">
+<<?php print $layout_wrapper; print $layout_attributes; ?> class="<?php print $classes;?> clearfix">
 
-    <<?php print $sidebar_first_wrapper; ?> class="ds-sidebar-first
-      <?php print $add_classes['sidebar_first']; ?>
-      <?php print $sidebar_first_classes; ?>">
-      <?php print $sidebar_first; ?>
-    </<?php print $sidebar_first_wrapper; ?>>
+  <!-- Needed to activate contextual links -->
+  <?php if (isset($title_suffix['contextual_links'])): ?>
+    <?php print render($title_suffix['contextual_links']); ?>
+  <?php endif; ?>
 
-    <div class="<?php print $add_classes['content']; ?>">
-      <!-- Needed to activate contextual links -->
-      <?php if (isset($title_suffix['contextual_links'])): ?>
-        <?php print render($title_suffix['contextual_links']); ?>
-      <?php endif; ?>
+  <<?php print $center_wrapper; ?> class="ds-center<?php print $center_classes; ?>">
+    <?php print $center; ?>
+  </<?php print $center_wrapper; ?>>
 
-      <<?php print $center_wrapper; ?> class="ds-center<?php print $center_classes; ?>">
-        <?php print $center; ?>
-      </<?php print $center_wrapper; ?>>
-    </div>
-
-    <<?php print $sidebar_second_wrapper; ?> class="ds-sidebar-second
-      <?php print $add_classes['sidebar_second']; ?>
-      <?php print $sidebar_second_classes; ?>">
-      <?php print $sidebar_second; ?>
-    </<?php print $sidebar_second_wrapper; ?>>
-  </div>
 </<?php print $layout_wrapper ?>>
 
 <!-- Needed to activate display suite support on forms -->

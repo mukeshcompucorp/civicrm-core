@@ -60,6 +60,25 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
       unset($vars['logo']);
     }
   }
+  // Setting page layout.
+  $classes = $vars['add_classes'] = [];
+  if ($node) {
+    switch ($node->type) {
+      case 'events_detail':
+        $classes['sidebar_first'] = 'col-md-3';
+        $classes['sidebar_second'] = 'col-md-3';
+        $classes['content'] = 'col-md-6';
+        break;
+      default:
+        $classes['sidebar_first'] = 'col-md-2';
+        $classes['sidebar_second'] = 'col-md-2';
+        $classes['content'] = 'col-md-8';
+        break;
+    }
+    if ($classes) {
+      $vars['add_classes'] = $classes;
+    }
+  }
   // Hiding page title.
   $pages = array('events_detail', 'paragraphs_page');
   if (in_array($node->type, $pages)) {
@@ -122,34 +141,6 @@ function tpg_theme_page_alter(&$page) {
 
       if ($block_id) {
         unset($page["sidebar_second"]["block_$block_id"]);
-      }
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_entity().
- */
-function tpg_theme_preprocess_entity(&$variables) {
-  if ($variables['entity_type'] == 'paragraphs_item') {
-    // Get node object.
-    $node = menu_get_object('node');
-    $classes = $variables['add_classes'] = [];
-    if ($node) {
-      switch ($node->type) {
-        case 'events_detail':
-          $classes['sidebar_first'] = 'col-md-3';
-          $classes['sidebar_second'] = 'col-md-3';
-          $classes['content'] = 'col-md-6';
-          break;
-        default:
-          $classes['sidebar_first'] = 'col-md-2';
-          $classes['sidebar_second'] = 'col-md-2';
-          $classes['content'] = 'col-md-8';
-          break;
-      }
-      if ($classes) {
-        $variables['add_classes'] = $classes;
       }
     }
   }
