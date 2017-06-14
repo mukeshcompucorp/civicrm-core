@@ -22,13 +22,15 @@
     @include rem(margin-bottom, 10px);
   }
 
-  [class*='field-paragraphs-date-published'] *,
-  [class*='field-paragraphs-type'] * {
+  [class*='field-event-dates'] *,
+  [class*='field-paragraphs-type'] *,
+  [class*='field-paragraphs-date-published'] * {
     @include lh-fs(18px, 12px);
     font-weight: bold;
     text-transform: uppercase;
   }
 
+  [class*='field-event-dates'] *,
   [class*='field-paragraphs-date-published'] * {
     float: right;
   }
