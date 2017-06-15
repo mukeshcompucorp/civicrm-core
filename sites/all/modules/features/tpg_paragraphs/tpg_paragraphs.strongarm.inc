@@ -123,7 +123,10 @@ function tpg_paragraphs_strongarm() {
           'weight' => '0',
         ),
         'locations' => array(
-          'weight' => '7',
+          'weight' => '4',
+        ),
+        'path' => array(
+          'weight' => '5',
         ),
       ),
       'display' => array(

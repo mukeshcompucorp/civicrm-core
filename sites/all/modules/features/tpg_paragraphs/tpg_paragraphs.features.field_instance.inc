@@ -22,7 +22,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -52,7 +52,73 @@ function tpg_paragraphs_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-paragraphs_page-field_homepage_image'.
+  $field_instances['node-paragraphs_page-field_homepage_image'] = array(
+    'bundle' => 'paragraphs_page',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage_image',
+    'label' => 'Homepage Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'image_field_caption' => 0,
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 9,
     ),
   );
 
@@ -82,9 +148,10 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_publish_dates',
-    'label' => 'Homepage Publish Dates',
+    'label' => 'Add Dates',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -106,7 +173,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -136,9 +203,10 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_weight',
-    'label' => 'Homepage weight',
+    'label' => 'Weight',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -148,7 +216,7 @@ function tpg_paragraphs_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 8,
     ),
   );
 
@@ -166,7 +234,7 @@ function tpg_paragraphs_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'paragraphs_view',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -296,7 +364,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 6,
+      'weight' => 3,
     ),
   );
 
@@ -864,6 +932,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraph_right_image',
     'label' => 'Image Right',
@@ -902,6 +971,7 @@ function tpg_paragraphs_field_default_field_instances() {
           'image_2_3_width_535x631' => 'image_2_3_width_535x631',
           'image_full_reading_width_820x622' => 'image_full_reading_width_820x622',
           'image_right_350x350' => 'image_right_350x350',
+          'overview_page_image_400x271' => 'overview_page_image_400x271',
         ),
         'manualcrop_styles_mode' => 'exclude',
         'manualcrop_thumblist' => 1,
@@ -1661,7 +1731,7 @@ function tpg_paragraphs_field_default_field_instances() {
           'video_style' => 'normal',
         ),
         'type' => 'video_embed_field',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1672,7 +1742,7 @@ function tpg_paragraphs_field_default_field_instances() {
           'video_style' => 'normal',
         ),
         'type' => 'video_embed_field',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'full_content_narrow' => array(
         'label' => 'hidden',
@@ -1717,6 +1787,60 @@ function tpg_paragraphs_field_default_field_instances() {
       'settings' => array(),
       'type' => 'video_embed_field_video',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'paragraphs_item-embed_video-field_video_title'.
+  $field_instances['paragraphs_item-embed_video-field_video_title'] = array(
+    'bundle' => 'embed_video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_video_title',
+    'label' => 'Video Title',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
     ),
   );
 
@@ -2886,6 +3010,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraph_description',
     'label' => 'Description',
@@ -2965,10 +3090,11 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 2,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraph_title',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -3231,6 +3357,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 5,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraphs_overview_image',
     'label' => 'Overview Image',
@@ -3518,6 +3645,7 @@ function tpg_paragraphs_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('2/3 Width Image Left');
   t('<strong>FOR EVENTS ONLY</strong>');
+  t('Add Dates');
   t('Attachments');
   t('Author Name');
   t('Block quote');
@@ -3530,8 +3658,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Full Width Image');
   t('Gallery Image');
   t('Header Video URL');
-  t('Homepage Publish Dates');
-  t('Homepage weight');
+  t('Homepage Image');
   t('Image Left');
   t('Image Right');
   t('Left Text');
@@ -3548,7 +3675,9 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Text Right');
   t('Title');
   t('Video');
+  t('Video Title');
   t('Webform Entity');
+  t('Weight');
 
   return $field_instances;
 }
