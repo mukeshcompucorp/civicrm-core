@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TPG content feature.
+ */
+
+include_once 'tpg_content.features.inc';
