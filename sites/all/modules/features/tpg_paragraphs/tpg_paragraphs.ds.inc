@@ -930,12 +930,10 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'center' => array(
-        0 => 'field_title',
-        1 => 'field_paragraph_button',
+        0 => 'field_paragraph_button',
       ),
     ),
     'fields' => array(
-      'field_title' => 'center',
       'field_paragraph_button' => 'center',
     ),
     'classes' => array(),
