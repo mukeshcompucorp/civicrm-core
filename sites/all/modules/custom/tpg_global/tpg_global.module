@@ -101,9 +101,7 @@ function tpg_global_views_pre_render(&$view) {
         }
       }
     }
-    if ($related_nodes) {
-      $view->result = $related_nodes;
-    }
+    $view->result = $related_nodes;
   }
 }
 

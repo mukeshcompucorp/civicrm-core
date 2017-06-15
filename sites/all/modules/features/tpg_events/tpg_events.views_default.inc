@@ -287,7 +287,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'field_event_type' => 'field_event_type',
+    'field_paragraphs_event_type' => 'field_paragraphs_event_type',
     'field_event_dates' => 'field_event_dates',
   );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
@@ -320,6 +320,15 @@ function tpg_events_views_default_views() {
     'image_style' => 'overview_page_image_400x271',
     'image_link' => '',
   );
+  /* Field: Paragraphs item: Event Type */
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['id'] = 'field_paragraphs_event_type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['table'] = 'field_data_field_paragraphs_event_type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['field'] = 'field_paragraphs_event_type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Paragraphs item: Event Dates */
   $handler->display->display_options['fields']['field_event_dates']['id'] = 'field_event_dates';
   $handler->display->display_options['fields']['field_event_dates']['table'] = 'field_data_field_event_dates';
@@ -370,6 +379,31 @@ function tpg_events_views_default_views() {
     'events_detail' => 'events_detail',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Paragraphs item: Event Type (field_paragraphs_event_type) */
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['id'] = 'field_paragraphs_event_type_tid';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['table'] = 'field_data_field_paragraphs_event_type';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['field'] = 'field_paragraphs_event_type_tid';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['expose']['operator_id'] = 'field_paragraphs_event_type_tid_op';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['expose']['label'] = 'WHAT';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['expose']['operator'] = 'field_paragraphs_event_type_tid_op';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['expose']['identifier'] = 'field_paragraphs_event_type_tid';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    190826733 => 0,
+    151263223 => 0,
+    203538000 => 0,
+    152836380 => 0,
+    204855824 => 0,
+    199295989 => 0,
+  );
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['vocabulary'] = 'event_type';
   /* Filter criterion: Content: Event Artists (field_event_artists) */
   $handler->display->display_options['filters']['field_event_artists_tid']['id'] = 'field_event_artists_tid';
   $handler->display->display_options['filters']['field_event_artists_tid']['table'] = 'field_data_field_event_artists';
@@ -395,33 +429,12 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_event_artists_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_event_artists_tid']['vocabulary'] = 'artists';
   $handler->display->display_options['filters']['field_event_artists_tid']['hierarchy'] = 1;
-  /* Filter criterion: Content: Event For (field_event_for) */
-  $handler->display->display_options['filters']['field_event_for_value']['id'] = 'field_event_for_value';
-  $handler->display->display_options['filters']['field_event_for_value']['table'] = 'field_data_field_event_for';
-  $handler->display->display_options['filters']['field_event_for_value']['field'] = 'field_event_for_value';
-  $handler->display->display_options['filters']['field_event_for_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_for_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_event_for_value']['expose']['operator_id'] = 'field_event_for_value_op';
-  $handler->display->display_options['filters']['field_event_for_value']['expose']['label'] = 'FOR';
-  $handler->display->display_options['filters']['field_event_for_value']['expose']['operator'] = 'field_event_for_value_op';
-  $handler->display->display_options['filters']['field_event_for_value']['expose']['identifier'] = 'field_event_for_value';
-  $handler->display->display_options['filters']['field_event_for_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    30037204 => 0,
-    190826733 => 0,
-    151263223 => 0,
-    203538000 => 0,
-    152836380 => 0,
-    204855824 => 0,
-    199295989 => 0,
-  );
-  $handler->display->display_options['filters']['field_event_for_value']['reduce_duplicates'] = TRUE;
   /* Filter criterion: Content: Show in current season -  start date (field_show_in_current_season) */
   $handler->display->display_options['filters']['field_show_in_current_season_value']['id'] = 'field_show_in_current_season_value';
   $handler->display->display_options['filters']['field_show_in_current_season_value']['table'] = 'field_data_field_show_in_current_season';
   $handler->display->display_options['filters']['field_show_in_current_season_value']['field'] = 'field_show_in_current_season_value';
   $handler->display->display_options['filters']['field_show_in_current_season_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_show_in_current_season_value']['group'] = 1;
   $handler->display->display_options['filters']['field_show_in_current_season_value']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_show_in_current_season_value']['default_date'] = 'today';
   /* Filter criterion: Content: Show in current season - end date (field_show_in_current_season:value2) */
@@ -429,6 +442,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['table'] = 'field_data_field_show_in_current_season';
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['field'] = 'field_show_in_current_season_value2';
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_show_in_current_season_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['default_date'] = 'today';
   $handler->display->display_options['path'] = 'whats-on/now-upcoming';

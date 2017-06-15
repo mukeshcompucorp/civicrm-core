@@ -77,6 +77,7 @@ features[field_instance][] = node-events_detail-field_show_membership_block
 features[field_instance][] = node-events_detail-field_show_video_header
 features[node][] = events_detail
 features[taxonomy][] = artists
+features[taxonomy][] = event_for
 features[taxonomy][] = event_type
 features[variable][] = comment_anonymous_events_detail
 features[variable][] = comment_anonymous_webform

@@ -21,7 +21,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -71,7 +71,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'overview' => array(
         'label' => 'above',
@@ -127,19 +127,19 @@ function tpg_events_field_default_field_instances() {
     'bundle' => 'events_detail',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => ' Select list of who the event is “for”',
+    'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 1,
       ),
       'overview' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -148,6 +148,7 @@ function tpg_events_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_event_for',
     'label' => 'Event For',
@@ -156,10 +157,13 @@ function tpg_events_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
       'weight' => 2,
     ),
   );
@@ -175,7 +179,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'overview' => array(
         'label' => 'above',
@@ -238,7 +242,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'overview' => array(
         'label' => 'above',
@@ -283,7 +287,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'overview' => array(
         'label' => 'above',
@@ -326,7 +330,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -418,10 +422,9 @@ function tpg_events_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 16,
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'overview' => array(
         'label' => 'above',
@@ -466,7 +469,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'overview' => array(
         'label' => 'above',
@@ -521,7 +524,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'overview' => array(
         'label' => 'above',
@@ -744,7 +747,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -797,7 +800,7 @@ function tpg_events_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 41,
+      'weight' => 42,
     ),
   );
 
@@ -946,13 +949,12 @@ function tpg_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t(' Select list of who the event is “for”');
   t('Event Artists');
   t('Event Book Now Link');
   t('Event For');
