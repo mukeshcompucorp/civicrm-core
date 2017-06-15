@@ -21,7 +21,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -71,7 +71,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'overview' => array(
         'label' => 'above',
@@ -127,19 +127,19 @@ function tpg_events_field_default_field_instances() {
     'bundle' => 'events_detail',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => ' Select list of who the event is “for”',
+    'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 1,
       ),
       'overview' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -148,6 +148,7 @@ function tpg_events_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_event_for',
     'label' => 'Event For',
@@ -156,10 +157,13 @@ function tpg_events_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
       'weight' => 2,
     ),
   );
@@ -175,7 +179,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'overview' => array(
         'label' => 'above',
@@ -238,7 +242,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'overview' => array(
         'label' => 'above',
@@ -283,7 +287,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'overview' => array(
         'label' => 'above',
@@ -326,7 +330,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -409,6 +413,122 @@ function tpg_events_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-events_detail-field_homepage_card_tag'.
+  $field_instances['node-events_detail-field_homepage_card_tag'] = array(
+    'bundle' => 'events_detail',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage_card_tag',
+    'label' => 'Card Tag',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 45,
+    ),
+  );
+
+  // Exported field_instance: 'node-events_detail-field_homepage_image'.
+  $field_instances['node-events_detail-field_homepage_image'] = array(
+    'bundle' => 'events_detail',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 16,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage_image',
+    'label' => 'Homepage Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'image_field_caption' => 0,
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 46,
+    ),
+  );
+
   // Exported field_instance: 'node-events_detail-field_homepage_publish_dates'.
   $field_instances['node-events_detail-field_homepage_publish_dates'] = array(
     'bundle' => 'events_detail',
@@ -419,7 +539,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'overview' => array(
         'label' => 'above',
@@ -437,7 +557,7 @@ function tpg_events_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_publish_dates',
-    'label' => 'Publish Dates',
+    'label' => 'Add Dates',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -474,7 +594,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'overview' => array(
         'label' => 'above',
@@ -492,7 +612,7 @@ function tpg_events_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_weight',
-    'label' => 'Homepage weight',
+    'label' => 'Weight',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -697,7 +817,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -750,7 +870,7 @@ function tpg_events_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 41,
+      'weight' => 42,
     ),
   );
 
@@ -899,28 +1019,29 @@ function tpg_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t(' Select list of who the event is “for”');
+  t('Add Dates');
+  t('Card Tag');
   t('Event Artists');
   t('Event Book Now Link');
   t('Event For');
   t('Event Free Link');
   t('Event Sold out message');
   t('Event Status');
-  t('Homepage weight');
+  t('Homepage Image');
   t('Paragraphs Entity');
   t('Paragraphs Related Activities');
   t('Paragraphs Video');
-  t('Publish Dates');
   t('Show Membership Block');
   t('Show Video Header');
   t('Show in current season');
   t('Show in future season');
+  t('Weight');
 
   return $field_instances;
 }

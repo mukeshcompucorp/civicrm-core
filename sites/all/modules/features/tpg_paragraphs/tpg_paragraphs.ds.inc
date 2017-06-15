@@ -959,10 +959,12 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_paragraph_video',
+        0 => 'field_video_title',
+        1 => 'field_paragraph_video',
       ),
     ),
     'fields' => array(
+      'field_video_title' => 'ds_content',
       'field_paragraph_video' => 'ds_content',
     ),
     'classes' => array(),
@@ -988,18 +990,22 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'center' => array(
-        0 => 'field_paragraph_video',
+        0 => 'field_video_title',
+        1 => 'field_paragraph_video',
       ),
     ),
     'fields' => array(
+      'field_video_title' => 'center',
       'field_paragraph_video' => 'center',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'center' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
   );

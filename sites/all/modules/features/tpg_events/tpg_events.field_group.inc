@@ -21,10 +21,12 @@ function tpg_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Homepage Publishing Options',
-    'weight' => '16',
+    'weight' => '15',
     'children' => array(
       0 => 'field_homepage_publish_dates',
       1 => 'field_homepage_weight',
+      2 => 'field_homepage_card_tag',
+      3 => 'field_homepage_image',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
