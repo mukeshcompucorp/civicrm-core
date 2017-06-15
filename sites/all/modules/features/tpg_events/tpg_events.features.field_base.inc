@@ -102,24 +102,22 @@ function tpg_events_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_event_for',
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
+    'module' => 'taxonomy',
     'settings' => array(
       'allowed_values' => array(
-        'Everyone' => 'Everyone',
-        'Teachers & Group Leaders' => 'Teachers & Group Leaders',
-        'Families' => 'Families',
-        'Photographers' => 'Photographers',
-        'Students' => 'Students',
+        0 => array(
+          'vocabulary' => 'event_for',
+          'parent' => 0,
+        ),
       ),
-      'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'list_text',
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_event_free_link'.

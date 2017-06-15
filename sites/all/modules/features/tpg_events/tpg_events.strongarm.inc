@@ -172,7 +172,7 @@ function tpg_events_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '15',
+          'weight' => '14',
         ),
       ),
       'display' => array(),
