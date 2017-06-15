@@ -442,7 +442,7 @@ function tpg_events_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_card_tag',
-    'label' => 'Homepage Card Tag',
+    'label' => 'Card Tag',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -456,6 +456,76 @@ function tpg_events_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 45,
+    ),
+  );
+
+  // Exported field_instance: 'node-events_detail-field_homepage_image'.
+  $field_instances['node-events_detail-field_homepage_image'] = array(
+    'bundle' => 'events_detail',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 16,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage_image',
+    'label' => 'Homepage Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'image_field_caption' => 0,
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 0,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 0,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 46,
     ),
   );
 
@@ -487,7 +557,7 @@ function tpg_events_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_publish_dates',
-    'label' => 'Publish Dates',
+    'label' => 'Add Dates',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -542,7 +612,7 @@ function tpg_events_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_homepage_weight',
-    'label' => 'Homepage weight',
+    'label' => 'Weight',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -955,22 +1025,23 @@ function tpg_events_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Add Dates');
+  t('Card Tag');
   t('Event Artists');
   t('Event Book Now Link');
   t('Event For');
   t('Event Free Link');
   t('Event Sold out message');
   t('Event Status');
-  t('Homepage Card Tag');
-  t('Homepage weight');
+  t('Homepage Image');
   t('Paragraphs Entity');
   t('Paragraphs Related Activities');
   t('Paragraphs Video');
-  t('Publish Dates');
   t('Show Membership Block');
   t('Show Video Header');
   t('Show in current season');
   t('Show in future season');
+  t('Weight');
 
   return $field_instances;
 }

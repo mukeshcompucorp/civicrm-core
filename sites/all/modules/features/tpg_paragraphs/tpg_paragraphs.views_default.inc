@@ -111,6 +111,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
@@ -174,6 +175,13 @@ function tpg_paragraphs_views_default_views() {
     'image_style' => 'full_width_image_1285x500',
     'image_link' => 'content',
   );
+  /* Field: Image field caption: Full Width Image (caption) */
+  $handler->display->display_options['fields']['caption']['id'] = 'caption';
+  $handler->display->display_options['fields']['caption']['table'] = 'field_full_width_image_field_image_field_caption';
+  $handler->display->display_options['fields']['caption']['field'] = 'caption';
+  $handler->display->display_options['fields']['caption']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['caption']['label'] = '';
+  $handler->display->display_options['fields']['caption']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
 
   /* Display: Banner Image Left Right  */
@@ -726,6 +734,71 @@ function tpg_paragraphs_views_default_views() {
     'title_section' => 'title_section',
   );
   $handler->display->display_options['filters']['bundle_1']['group'] = 2;
+
+  /* Display: Entity Reference */
+  $handler = $view->new_display('entityreference', 'Entity Reference', 'entityreference_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'field_paragraph_title' => 'field_paragraph_title',
+    'field_paragraph_title_1' => 'field_paragraph_title_1',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['id'] = 'reverse_field_related_activities_paragraphs_item';
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['field'] = 'reverse_field_related_activities_paragraphs_item';
+  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['required'] = TRUE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Content: Paragraphs Entity (field_paragraphs_entity) */
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['table'] = 'field_data_field_paragraphs_entity';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['field'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['delta'] = '-1';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Paragraphs item: Title */
+  $handler->display->display_options['fields']['field_paragraph_title']['id'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['table'] = 'field_data_field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['field'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
+  /* Field: Paragraphs item: Title */
+  $handler->display->display_options['fields']['field_paragraph_title_1']['id'] = 'field_paragraph_title_1';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['table'] = 'field_data_field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['field'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $export['related_activities'] = $view;
 
   return $export;

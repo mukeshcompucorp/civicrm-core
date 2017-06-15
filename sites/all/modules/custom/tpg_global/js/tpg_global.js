@@ -2,7 +2,26 @@
 
   Drupal.behaviors.global_js = {
     attach: function (context,settings) {
-    	
+    	// Hiding Homepage Publishing options for Paragraphs Page.
+    	$('#paragraphs-page-node-form .group-homepage-pub-options').hide();
+    	$('#events-detail-node-form .group-homepage-options').hide();
+
+
+    	// Toogle Fieldset Homepage Publishing Options pending upon the Promoted to front page.
+    	$("#paragraphs-page-node-form input[name='promote']").click( function(){
+   			if ( $(this).is(':checked') ) {
+   				$('#paragraphs-page-node-form .group-homepage-pub-options').show();
+   			}else {
+   				$('#paragraphs-page-node-form .group-homepage-pub-options').hide();
+   			}
+		});
+    	$("#events-detail-node-form input[name='promote']").click( function(){
+   			if ( $(this).is(':checked') ) {
+   				$('#events-detail-node-form .group-homepage-options').show();
+   			}else {
+   				$('#events-detail-node-form .group-homepage-options').hide();
+   			}
+		});
 
     	if ($('input.daterangepicker').length){
 
