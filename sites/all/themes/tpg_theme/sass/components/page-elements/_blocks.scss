@@ -15,7 +15,7 @@
 .book-tickets {
   @include rem(margin-bottom, 60px);
 
-  [class*="book-now"] a {
+  [class*='book-now'] a {
     @include button;
     display: inline-block;
   }
