@@ -5,9 +5,18 @@
   text-align: right;
 
   em,
+  b,
+  span,
+  strong,
   p {
     @include lh-fs(18px, 14px);
     color: color(caption-color);
     font-weight: 700;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .image-field-caption {
+    text-align: left;
   }
 }

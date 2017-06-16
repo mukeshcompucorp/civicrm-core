@@ -30,3 +30,10 @@
     text-decoration: none;
   }
 }
+
+@include breakpoint($md-1 0) {
+  .book-tickets,
+  .membership-block {
+    @include rem(margin-bottom, 15px);
+  }
+}
