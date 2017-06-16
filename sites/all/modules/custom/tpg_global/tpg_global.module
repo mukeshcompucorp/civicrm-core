@@ -134,6 +134,17 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     _tpg_global_homepage_weight_range($form);
   }
 
+  // Overview node form alter.
+  if ($form_id == 'overview_page_node_form') {
+    // Altering the Field collection overview section.
+    foreach ($form['field_overview_section']['und'] as $key => $value) {
+      if (is_int($key)) {
+        $form['field_overview_section']['und'][$key]['field_links']['und']['form']['field_external_link_title']['und'][0]['#title_display'] = 'invisible';
+        $form['field_overview_section']['und'][$key]['field_links']['und']['form']['status']['#access'] = FALSE;
+      }
+    }
+  }
+
   // Adding Date Range and Altering Location Proximity Search for Events Map.
   if ($form_id == 'views_exposed_form' && ($form_state['view']->name == 'whats_on') && ( $form_state['view']->current_display == 'now_upcoming_view_page')) {
     // Added Date range.
