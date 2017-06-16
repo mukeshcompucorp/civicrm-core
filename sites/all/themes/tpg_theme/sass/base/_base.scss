@@ -103,7 +103,6 @@ blockquote {
 }
 
 @include breakpoint($md-1 0) {
-
   h1,
   .h1 {
     @include lh-fs(38px, $h1-resp);

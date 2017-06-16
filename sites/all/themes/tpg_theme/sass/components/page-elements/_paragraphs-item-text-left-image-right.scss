@@ -1,5 +1,4 @@
 @include breakpoint($md-1 0) {
-
   .paragraphs-item-2-column-text-left-image-right img {
     @include rem(margin-top, 15px);
   }
