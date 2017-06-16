@@ -339,15 +339,15 @@ function tpg_paragraphs_ds_custom_fields_info() {
   $ds_field = new stdClass();
   $ds_field->api_version = 1;
   $ds_field->field = 'read_more';
-  $ds_field->label = 'Read more';
+  $ds_field->label = 'Read more external links';
   $ds_field->field_type = 5;
   $ds_field->entities = array(
-    'field_collection_item' => 'field_collection_item',
+    'node' => 'node',
   );
   $ds_field->ui_limit = '*|*';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '<p><a href="[field_collection_item:field-external-link-title:url]" class="entity-read-more">&gt; read more</a></p>
+      'value' => '<p><a class="entity-read-more" href="[node:field-external-link-title:url]">&gt; read more</a></p>
 ',
       'format' => 'full_html',
     ),
