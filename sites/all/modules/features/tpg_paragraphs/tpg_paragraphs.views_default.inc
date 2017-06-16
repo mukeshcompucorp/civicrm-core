@@ -30,17 +30,32 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Content: Paragraphs Video (field_paragraphs_video) */
-  $handler->display->display_options['relationships']['field_paragraphs_video_value']['id'] = 'field_paragraphs_video_value';
-  $handler->display->display_options['relationships']['field_paragraphs_video_value']['table'] = 'field_data_field_paragraphs_video';
-  $handler->display->display_options['relationships']['field_paragraphs_video_value']['field'] = 'field_paragraphs_video_value';
-  $handler->display->display_options['relationships']['field_paragraphs_video_value']['required'] = TRUE;
-  $handler->display->display_options['relationships']['field_paragraphs_video_value']['delta'] = '-1';
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_entity) */
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['table'] = 'field_data_field_paragraphs_entity';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['field'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['delta'] = '-1';
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Field: Paragraphs item: Header Video URL */
+  $handler->display->display_options['fields']['field_header_video_url_1']['id'] = 'field_header_video_url_1';
+  $handler->display->display_options['fields']['field_header_video_url_1']['table'] = 'field_data_field_header_video_url';
+  $handler->display->display_options['fields']['field_header_video_url_1']['field'] = 'field_header_video_url';
+  $handler->display->display_options['fields']['field_header_video_url_1']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['fields']['field_header_video_url_1']['label'] = '';
+  $handler->display->display_options['fields']['field_header_video_url_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_header_video_url_1']['click_sort_column'] = 'video_url';
+  $handler->display->display_options['fields']['field_header_video_url_1']['settings'] = array(
+    'video_style' => 'normal',
+  );
   /* Field: Paragraphs item: Header Video URL */
   $handler->display->display_options['fields']['field_header_video_url']['id'] = 'field_header_video_url';
   $handler->display->display_options['fields']['field_header_video_url']['table'] = 'field_data_field_header_video_url';
   $handler->display->display_options['fields']['field_header_video_url']['field'] = 'field_header_video_url';
-  $handler->display->display_options['fields']['field_header_video_url']['relationship'] = 'field_paragraphs_video_value';
+  $handler->display->display_options['fields']['field_header_video_url']['relationship'] = 'field_paragraphs_content_value';
   $handler->display->display_options['fields']['field_header_video_url']['label'] = '';
   $handler->display->display_options['fields']['field_header_video_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_header_video_url']['click_sort_column'] = 'video_url';
@@ -71,6 +86,10 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -83,10 +102,20 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
   $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
   $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_video_value';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['filters']['bundle']['value'] = array(
     'full_width_video_header' => 'full_width_video_header',
   );
+  $handler->display->display_options['filters']['bundle']['group'] = 2;
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle_1']['id'] = 'bundle_1';
+  $handler->display->display_options['filters']['bundle_1']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle_1']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle_1']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle_1']['value'] = array(
+    'full_width_video_header' => 'full_width_video_header',
+  );
+  $handler->display->display_options['filters']['bundle_1']['group'] = 2;
   $export['header_video'] = $view;
 
   $view = new view();
