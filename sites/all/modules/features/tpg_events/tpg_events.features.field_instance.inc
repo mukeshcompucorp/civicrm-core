@@ -677,7 +677,7 @@ function tpg_events_field_default_field_instances() {
         'button' => 'button',
         'embed_video' => 'embed_video',
         'full_width_image_caption' => 'full_width_image_caption',
-        'full_width_video_header' => -1,
+        'full_width_video_header' => 'full_width_video_header',
         'header_gallery' => 'header_gallery',
         'image_left_2_3_width' => 'image_left_2_3_width',
         'image_left_text_right' => 'image_left_text_right',
@@ -724,100 +724,6 @@ function tpg_events_field_default_field_instances() {
       'settings' => array(),
       'type' => 'paragraphs_embed',
       'weight' => 10,
-    ),
-  );
-
-  // Exported field_instance: 'node-events_detail-field_paragraphs_video'.
-  $field_instances['node-events_detail-field_paragraphs_video'] = array(
-    'bundle' => 'events_detail',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 15,
-      ),
-      'overview' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 26,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_paragraphs_video',
-    'label' => 'Paragraphs Video',
-    'required' => 0,
-    'settings' => array(
-      'add_mode' => 'select',
-      'allowed_bundles' => array(
-        '2_column_image_left_image_right' => -1,
-        '2_column_image_left_no_image' => -1,
-        '2_column_left_text_only' => -1,
-        '2_column_text_left_image_right' => -1,
-        '3_column_text_left_image_right' => -1,
-        'attachments' => -1,
-        'block_quote' => -1,
-        'bulleted_list' => -1,
-        'button' => -1,
-        'embed_video' => -1,
-        'full_width_image_caption' => -1,
-        'full_width_video_header' => 'full_width_video_header',
-        'header_gallery' => -1,
-        'image_left_2_3_width' => -1,
-        'image_left_text_right' => -1,
-        'image_reading_width_colorbox' => -1,
-        'reading_width_image_caption' => -1,
-        'reading_width_maps' => -1,
-        'reading_width_webform' => -1,
-        'related_activities' => -1,
-        'text_reading_width' => -1,
-        'title_section' => -1,
-      ),
-      'bundle_weights' => array(
-        '2_column_image_left_image_right' => 2,
-        '2_column_image_left_no_image' => 3,
-        '2_column_left_text_only' => 4,
-        '2_column_text_left_image_right' => 5,
-        '3_column_text_left_image_right' => 6,
-        'attachments' => 7,
-        'block_quote' => 8,
-        'bulleted_list' => 9,
-        'button' => 10,
-        'embed_video' => 11,
-        'full_width_image_caption' => 12,
-        'full_width_video_header' => 13,
-        'header_gallery' => 14,
-        'image_left_2_3_width' => 15,
-        'image_left_text_right' => 16,
-        'image_reading_width_colorbox' => 17,
-        'reading_width_image_caption' => 18,
-        'reading_width_maps' => 19,
-        'reading_width_webform' => 20,
-        'related_activities' => 21,
-        'text_reading_width' => 22,
-        'title_section' => 23,
-      ),
-      'default_edit_mode' => 'open',
-      'title' => 'Paragraph',
-      'title_multiple' => 'Paragraphs',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'paragraphs',
-      'settings' => array(),
-      'type' => 'paragraphs_embed',
-      'weight' => 13,
     ),
   );
 
@@ -975,54 +881,6 @@ function tpg_events_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-events_detail-field_show_video_header'.
-  $field_instances['node-events_detail-field_show_video_header'] = array(
-    'bundle' => 'events_detail',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 13,
-      ),
-      'overview' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 24,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_show_video_header',
-    'label' => 'Show Video Header',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 12,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Add Dates');
@@ -1036,9 +894,7 @@ function tpg_events_field_default_field_instances() {
   t('Homepage Image');
   t('Paragraphs Content');
   t('Paragraphs Related Activities');
-  t('Paragraphs Video');
   t('Show Membership Block');
-  t('Show Video Header');
   t('Show in current season');
   t('Show in future season');
   t('Weight');
