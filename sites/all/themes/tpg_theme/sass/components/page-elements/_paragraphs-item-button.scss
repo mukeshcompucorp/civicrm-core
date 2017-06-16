@@ -4,8 +4,14 @@
   .field-item {
     @include rem(margin-right, 8px);
     float: left;
-  }
 
+    a {
+      @include button;
+    }
+  }
+}
+
+.share-links {
   a {
     font-size: 0;
 
