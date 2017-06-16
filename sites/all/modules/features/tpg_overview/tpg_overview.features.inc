@@ -24,6 +24,22 @@ function tpg_overview_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function tpg_overview_node_info() {
   $items = array(
+    'external_links' => array(
+      'name' => t('External Links'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Internal Reference Name/Title'),
+      'help' => '',
+    ),
+    'internal_links' => array(
+      'name' => t('Internal Links'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Internal Reference Name/Title'),
+      'help' => '',
+    ),
     'overview_page' => array(
       'name' => t('Overview Page'),
       'base' => 'node_content',

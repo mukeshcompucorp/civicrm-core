@@ -588,7 +588,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
-  /* Relationship: Content: Paragraphs Entity (field_paragraphs_entity) */
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_entity) */
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['table'] = 'field_data_field_paragraphs_entity';
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['field'] = 'field_paragraphs_entity_value';
@@ -761,7 +761,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
   $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
-  /* Relationship: Content: Paragraphs Entity (field_paragraphs_entity) */
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_entity) */
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['table'] = 'field_data_field_paragraphs_entity';
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['field'] = 'field_paragraphs_entity_value';

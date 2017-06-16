@@ -424,6 +424,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-header_video-header_video_block'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'header_video-header_video_block',
     'module' => 'views',
