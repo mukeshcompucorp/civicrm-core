@@ -36,7 +36,7 @@ function tpg_overview_field_group_info() {
         'classes' => 'group-external-link field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsed',
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_external_link|node|external_links|form'] = $field_group;
