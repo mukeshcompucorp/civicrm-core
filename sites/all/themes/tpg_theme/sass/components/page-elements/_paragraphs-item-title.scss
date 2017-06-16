@@ -1,6 +1,17 @@
 .paragraphs-item-title-section {
+  .field-name-field-paragraphs-type,
+  .field-name-field-paragraphs-date-published {
+    @include rem(margin-bottom, 5px);
+
+    * {
+      @include rem(font-size, $p-sm);
+      color: color(main);
+    }
+  }
+
   .field-name-field-paragraphs-type {
     float: left;
+    text-transform: uppercase;
   }
 
   .field-name-field-paragraphs-date-published {
@@ -32,5 +43,28 @@
 
   .field-name-field-paragraph-description {
     @include rem(margin-bottom, 48px);
+  }
+}
+
+@include breakpoint($md-1 0) {
+
+  .paragraphs-item-title-section {
+    .field-name-field-paragraphs-date-published {
+      text-transform: uppercase;
+    }
+
+    .field-name-field-paragraph-description {
+      @include rem(margin-bottom, 32px);
+    }
+
+    .field-name-field-paragraphs-tags-viewpoints {
+      a {
+        position: static;
+      }
+
+      h2 {
+        margin-bottom: 0;
+      }
+    }
   }
 }

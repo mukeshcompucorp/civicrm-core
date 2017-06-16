@@ -101,3 +101,12 @@ blockquote {
   font-style: italic;
   padding-left: 30px;
 }
+
+@include breakpoint($md-1 0) {
+
+  h1,
+  .h1 {
+    @include lh-fs(38px, $h1-resp);
+    @include rem(margin-bottom, 26px);
+  }
+}

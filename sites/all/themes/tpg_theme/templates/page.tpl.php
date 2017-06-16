@@ -101,12 +101,14 @@
       <?php endif; ?>
 
       <section id="post-content" class="post-content container" role="main">
-        <div class="row">
-          <?php if ($action_links): ?>
-            <ul class="action-links">
-              <?php print render($action_links); ?>
-            </ul>
-          <?php endif; ?>
+
+        <?php if ($action_links): ?>
+          <ul class="action-links">
+            <?php print render($action_links); ?>
+          </ul>
+        <?php endif; ?>
+
+        <div class="row flex-responsive">
 
           <div class="<?php print $add_classes['sidebar_first']; ?>">
             <?php if ($page['sidebar_first']): ?>
