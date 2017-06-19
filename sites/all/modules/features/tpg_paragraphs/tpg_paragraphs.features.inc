@@ -341,7 +341,7 @@ function tpg_paragraphs_paragraphs_info() {
       'locked' => '1',
     ),
     'image_left_text_right' => array(
-      'name' => 'Image Left + Text Right',
+      'name' => '2 Column: Image Left + Text Right',
       'bundle' => 'image_left_text_right',
       'locked' => '1',
     ),

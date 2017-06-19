@@ -162,7 +162,6 @@ features[field_base][] = field_paragraphs_type
 features[field_base][] = field_reading_image
 features[field_base][] = field_related_activities
 features[field_base][] = field_show_logo
-features[field_base][] = field_title
 features[field_base][] = field_video_title
 features[field_base][] = field_webform_entity
 features[field_group][] = group_homepage_pub_options|node|paragraphs_page|form
