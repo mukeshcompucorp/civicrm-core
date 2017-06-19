@@ -23,7 +23,7 @@
    			}
 		});
 
-    	if ($('input.daterangepicker').length){
+    	if ($('.page-whats-on input.daterangepicker').length) {
 
 	    	$('input.daterangepicker').each(function(index, element) {
 	    		
@@ -41,9 +41,9 @@
 		          },
 		         	presetRanges: [
 						{text: 'Today', dateStart: function() { return moment() }, dateEnd: function() { return moment() } },
-						{text: 'This week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
 						{text: 'This weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
-						{text: 'Next month', dateStart: function() { return moment().month() }, dateEnd: function() { return moment().month() } },
+						{text: 'This week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
+						{text: 'Next month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
 					], 
 				 	datepickerOptions: {
 						maxDate: '+1Y',

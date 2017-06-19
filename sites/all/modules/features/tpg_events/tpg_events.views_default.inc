@@ -344,13 +344,15 @@ function tpg_events_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Paragraphs item: Title */
+  $handler->display->display_options['fields']['field_paragraph_title']['id'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['table'] = 'field_data_field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['field'] = 'field_paragraph_title';
+  $handler->display->display_options['fields']['field_paragraph_title']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraph_title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraph_title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
@@ -429,6 +431,29 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_event_artists_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_event_artists_tid']['vocabulary'] = 'artists';
   $handler->display->display_options['filters']['field_event_artists_tid']['hierarchy'] = 1;
+  /* Filter criterion: Content: Event For (field_event_for) */
+  $handler->display->display_options['filters']['field_event_for_tid']['id'] = 'field_event_for_tid';
+  $handler->display->display_options['filters']['field_event_for_tid']['table'] = 'field_data_field_event_for';
+  $handler->display->display_options['filters']['field_event_for_tid']['field'] = 'field_event_for_tid';
+  $handler->display->display_options['filters']['field_event_for_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_event_for_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_event_for_tid']['expose']['operator_id'] = 'field_event_for_tid_op';
+  $handler->display->display_options['filters']['field_event_for_tid']['expose']['label'] = 'FOR';
+  $handler->display->display_options['filters']['field_event_for_tid']['expose']['operator'] = 'field_event_for_tid_op';
+  $handler->display->display_options['filters']['field_event_for_tid']['expose']['identifier'] = 'field_event_for_tid';
+  $handler->display->display_options['filters']['field_event_for_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    190826733 => 0,
+    151263223 => 0,
+    203538000 => 0,
+    152836380 => 0,
+    204855824 => 0,
+    199295989 => 0,
+  );
+  $handler->display->display_options['filters']['field_event_for_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_event_for_tid']['vocabulary'] = 'event_for';
   /* Filter criterion: Content: Show in current season -  start date (field_show_in_current_season) */
   $handler->display->display_options['filters']['field_show_in_current_season_value']['id'] = 'field_show_in_current_season_value';
   $handler->display->display_options['filters']['field_show_in_current_season_value']['table'] = 'field_data_field_show_in_current_season';
