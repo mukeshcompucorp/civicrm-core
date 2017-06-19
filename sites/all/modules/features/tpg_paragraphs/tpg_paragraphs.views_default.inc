@@ -201,7 +201,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_full_width_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_full_width_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_full_width_image']['settings'] = array(
-    'image_style' => 'full_width_image_1285x500',
+    'image_style' => '',
     'image_link' => 'content',
   );
   /* Field: Image field caption: Full Width Image (caption) */

@@ -75,6 +75,7 @@ features[ds_field_settings][] = paragraphs_item|attachments|full
 features[ds_field_settings][] = paragraphs_item|block_quote|full
 features[ds_field_settings][] = paragraphs_item|bulleted_list|full
 features[ds_field_settings][] = paragraphs_item|button|full
+features[ds_field_settings][] = paragraphs_item|embed_video|full
 features[ds_field_settings][] = paragraphs_item|image_left_text_right|default
 features[ds_field_settings][] = paragraphs_item|image_left_text_right|full
 features[ds_field_settings][] = paragraphs_item|title_section|full
