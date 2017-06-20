@@ -2,3 +2,9 @@
   @include rem(min-height, 420px);
   min-width: 100%;
 }
+
+@include breakpoint($md-1 0) {
+  .gmap-map {
+    max-width: 100%;
+  }
+}
