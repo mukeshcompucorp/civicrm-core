@@ -397,7 +397,7 @@ function tpg_paragraphs_views_default_views() {
   /* Display: Header Image Lightbox */
   $handler = $view->new_display('block', 'Header Image Lightbox', 'header_image_lightbox');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'header-image';
+  $handler->display->display_options['css_class'] = 'header-image header-image-lightbox';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';

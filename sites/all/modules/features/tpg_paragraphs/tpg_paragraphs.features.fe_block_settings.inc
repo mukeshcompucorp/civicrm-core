@@ -317,7 +317,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-57800a35622528c39b7316d05173e444'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'related-activities-wrapper',
     'custom' => 0,
     'delta' => '57800a35622528c39b7316d05173e444',
     'module' => 'views',
