@@ -73,6 +73,7 @@ features[field_instance][] = node-events_detail-field_paragraphs_entity
 features[field_instance][] = node-events_detail-field_show_in_current_season
 features[field_instance][] = node-events_detail-field_show_in_future_season
 features[field_instance][] = node-events_detail-field_show_membership_block
+features[field_instance][] = node-events_detail-field_show_share_block
 features[node][] = events_detail
 features[taxonomy][] = artists
 features[taxonomy][] = event_for

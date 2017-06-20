@@ -335,6 +335,11 @@ function tpg_paragraphs_paragraphs_info() {
       'bundle' => 'header_gallery',
       'locked' => '1',
     ),
+    'header_image_left_image_right' => array(
+      'name' => 'Header Image Left + Image Right',
+      'bundle' => 'header_image_left_image_right',
+      'locked' => '1',
+    ),
     'image_left_2_3_width' => array(
       'name' => '2/3 Width Image Left',
       'bundle' => 'image_left_2_3_width',

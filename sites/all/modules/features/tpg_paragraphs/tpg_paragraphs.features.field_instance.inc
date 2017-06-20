@@ -56,6 +56,52 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-paragraphs_page-field_homepage_card_tag'.
+  $field_instances['node-paragraphs_page-field_homepage_card_tag'] = array(
+    'bundle' => 'paragraphs_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_homepage_card_tag',
+    'label' => 'Card Tag',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-paragraphs_page-field_homepage_image'.
   $field_instances['node-paragraphs_page-field_homepage_image'] = array(
     'bundle' => 'paragraphs_page',
@@ -66,7 +112,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'overview' => array(
         'label' => 'above',
@@ -118,7 +164,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -133,7 +179,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -188,7 +234,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -335,7 +381,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 7,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -365,6 +411,55 @@ function tpg_paragraphs_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-paragraphs_page-field_show_share_block'.
+  $field_instances['node-paragraphs_page-field_show_share_block'] = array(
+    'bundle' => 'paragraphs_page',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_show_share_block',
+    'label' => 'Show Share Block',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 11,
     ),
   );
 
@@ -1967,6 +2062,144 @@ function tpg_paragraphs_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'paragraphs_item-header_image_left_image_right-field_header_image_left'.
+  $field_instances['paragraphs_item-header_image_left_image_right-field_header_image_left'] = array(
+    'bundle' => 'header_image_left_image_right',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_header_image_left',
+    'label' => 'Image Left',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'image_field_caption' => 0,
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 1,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(
+          '2_column_image_left_and_right_400x472' => '2_column_image_left_and_right_400x472',
+        ),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 1,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-header_image_left_image_right-field_header_image_right'.
+  $field_instances['paragraphs_item-header_image_left_image_right-field_header_image_right'] = array(
+    'bundle' => 'header_image_left_image_right',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_header_image_right',
+    'label' => 'Image Right',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'image_field_caption' => 0,
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'manualcrop_crop_info' => 1,
+        'manualcrop_default_crop_area' => 1,
+        'manualcrop_enable' => 1,
+        'manualcrop_inline_crop' => 0,
+        'manualcrop_instant_crop' => 0,
+        'manualcrop_instant_preview' => 1,
+        'manualcrop_keyboard' => 1,
+        'manualcrop_maximize_default_crop_area' => 0,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(
+          '2_column_image_left_and_right_400x472' => '2_column_image_left_and_right_400x472',
+        ),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => 1,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
   // 'paragraphs_item-image_left_2_3_width-field_paragraphs_image_2_3_width'.
   $field_instances['paragraphs_item-image_left_2_3_width-field_paragraphs_image_2_3_width'] = array(
     'bundle' => 'image_left_2_3_width',
@@ -3513,6 +3746,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Block quote');
   t('Bulleted List');
   t('Button');
+  t('Card Tag');
   t('Date Published');
   t('Description');
   t('Event Dates');
@@ -3531,6 +3765,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Reading Width Image');
   t('Related Activities');
   t('Show Logo linked to homepage');
+  t('Show Share Block');
   t('Show Tags & Viewpoints');
   t('Tags & Viewpoints');
   t('Text Left ');

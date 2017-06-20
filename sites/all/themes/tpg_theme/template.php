@@ -129,6 +129,11 @@ function tpg_theme_preprocess_node(&$variables) {
 function tpg_theme_page_alter(&$page) {
 
   $node = menu_get_object('node');
+  // Hiding Service Links Block per node value.
+  if (!$node->field_show_share_block['und'][0]['value']) {
+    unset($page['footer']['service_links_service_links']);
+  }
+
   if ($node->type == 'events_detail') {
     // Removing Members get priority block depending upon show_membership_block field value.
     if (!$node->field_show_membership_block['und'][0]['value']) {
