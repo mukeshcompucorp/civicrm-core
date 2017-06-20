@@ -216,6 +216,54 @@ function tpg_paragraphs_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-33a110961adfdc1683e63638b3441867'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => '33a110961adfdc1683e63638b3441867',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'header',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => 0,
+      ),
+    ),
+  );
+
   $export['views-561be599b982dd2ae38c000b1df22b2c'] = array(
     'cache' => -1,
     'css_class' => '',
