@@ -64,6 +64,9 @@ h4,
   }
 
   a {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
     text-decoration: inherit;
   }
 }
@@ -97,10 +100,20 @@ h3,
 h4,
 .h4 {
   @include lh-fs(18px, $h4);
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
   text-decoration: underline;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   a {
+    display: block;
+    font-size: inherit;
+    overflow: inherit;
     text-decoration: inherit;
+    text-overflow: inherit;
+    white-space: inherit;
   }
 }
 

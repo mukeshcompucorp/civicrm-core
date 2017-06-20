@@ -606,6 +606,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -719,6 +720,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
   /* Field: Paragraphs item: Overview Image */
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['id'] = 'field_paragraphs_overview_image_1';
@@ -764,6 +766,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title_1']['label'] = '';
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
