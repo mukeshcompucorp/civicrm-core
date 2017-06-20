@@ -75,6 +75,28 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_header_image_lightbox'.
+  $field_bases['field_header_image_lightbox'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_header_image_lightbox',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'image',
+    'settings' => array(
+      'default_image' => 0,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'image',
+  );
+
   // Exported field_base: 'field_header_image_right'.
   $field_bases['field_header_image_right'] = array(
     'active' => 1,
@@ -442,6 +464,21 @@ function tpg_paragraphs_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_paragraphs_header_section'.
+  $field_bases['field_paragraphs_header_section'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_paragraphs_header_section',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'paragraphs',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'paragraphs',
   );
 
   // Exported field_base: 'field_paragraphs_image_2_3_width'.

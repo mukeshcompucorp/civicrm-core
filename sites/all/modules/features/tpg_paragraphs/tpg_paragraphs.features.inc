@@ -168,6 +168,25 @@ function tpg_paragraphs_image_default_styles() {
     ),
   );
 
+  // Exported image style: header_image_lightbox.
+  $styles['header_image_lightbox'] = array(
+    'label' => 'Header Image Lightbox',
+    'effects' => array(
+      13 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 962,
+          'height' => 642,
+          'upscale' => 0,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'header_image_lightbox',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   // Exported image style: image_2_3_width_535x631.
   $styles['image_2_3_width_535x631'] = array(
     'label' => 'Image 2/3 width 535x631',
@@ -338,6 +357,11 @@ function tpg_paragraphs_paragraphs_info() {
     'header_image_left_image_right' => array(
       'name' => 'Header Image Left + Image Right',
       'bundle' => 'header_image_left_image_right',
+      'locked' => '1',
+    ),
+    'header_image_lightbox' => array(
+      'name' => 'Header Image + Lightbox',
+      'bundle' => 'header_image_lightbox',
       'locked' => '1',
     ),
     'image_left_2_3_width' => array(
