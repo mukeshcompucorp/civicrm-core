@@ -51,32 +51,57 @@ h4,
 .h2,
 .h3,
 .h4 {
+  @include clr;
   color: color(heading);
+  display: inline;
   font-weight: $bold;
-  text-decoration: underline;
+  text-decoration: none;
+
+  &:before {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  a {
+    text-decoration: inherit;
+  }
 }
 
 h1,
 .h1 {
   @include lh-fs(56px, $h1);
-  @include rem(margin-bottom, 48px);
-  line-height: 56px;
+  border-bottom: 4px solid color(heading);
+
+  &:after {
+    @include rem(margin-top, 25px);
+  }
 }
 
 h2,
 .h2 {
-  @include lh-fs(25px, $h2);
-  @include rem(margin-bottom, 15px);
+  @include lh-fs(30px, $h2);
+  border-bottom: 2px solid color(heading);
+
+  &:after {
+    @include rem(margin-top, 18px);
+  }
 }
 
 h3,
 .h3 {
   @include lh-fs(25px, $h3);
+  border-bottom: 2px solid color(heading);
 }
 
 h4,
 .h4 {
   @include lh-fs(18px, $h4);
+  text-decoration: underline;
+
+  a {
+    text-decoration: inherit;
+  }
 }
 
 a,
