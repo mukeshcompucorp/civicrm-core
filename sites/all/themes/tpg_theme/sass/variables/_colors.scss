@@ -13,9 +13,11 @@ $chroma: add-colors((
   black-lighten: #222,
   white-darken:  #ddd,
 
+  taupe-grey:    #313131,
   dark-grey:     #6d6d6d,
   light-grey:    #d7d7d7,
-  darken-grey:   #c8c8c8
+  darken-grey:   #c8c8c8,
+  silver:        #999
 ));
 
 // Define color names for functional uses.
@@ -36,6 +38,10 @@ $chroma: add-colors('functional', (
   button-color:             'white-darken',
 
   caption-color:            'dark-grey',
+  caption-bg:               'taupe-grey',
+  caption-title:            'silver',
+
+  colorbox-close-button:    'silver',
 
   darken-background:        'darken-grey',
 
