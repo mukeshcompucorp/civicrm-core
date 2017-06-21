@@ -1,0 +1,27 @@
+// Fonts
+@include font('LetteraText', LetteraTextProItalic, 400, italic);
+@include font('LetteraText', LetteraTextPro, 400, normal);
+@include font('LetteraText', LetteraTextProBold, 500, normal);
+
+$main-font: 'LetteraText', sans-serif;
+
+$light: 300;
+$normal: 400;
+$bold: 700;
+
+// Font sizes
+$h1: 46px;
+$h2: 20px;
+$h3: 16px;
+$h4: 14px;
+
+$p:    18px;
+$p-sm: 14px;
+
+$card-label: 12px;
+
+$social: 24px;
+
+// Responsive
+$h1-resp: 28px;
+$button-resp: 14px;

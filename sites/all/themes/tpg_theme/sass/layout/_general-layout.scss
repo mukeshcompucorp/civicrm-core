@@ -1,0 +1,31 @@
+.entity-paragraphs-item {
+  @include rem(margin-bottom, 48px);
+
+  &.paragraphs-item-header-gallery,
+  &.paragraphs-item-title-section {
+    margin-bottom: 0;
+  }
+}
+
+.main-content {
+  order: 1;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+}
+
+@include breakpoint($md-1 0) {
+  .flex-responsive {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entity-paragraphs-item {
+    @include rem(margin-bottom, 32px);
+  }
+}
