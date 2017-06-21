@@ -153,6 +153,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       if (is_int($key)) {
         $form['field_overview_section']['und'][$key]['field_links']['und']['form']['field_external_link_title']['und'][0]['#title_display'] = 'invisible';
         $form['field_overview_section']['und'][$key]['field_links']['und']['form']['status']['#access'] = FALSE;
+
+        // Altering the Inline entity form action buttons.
+        $form['field_overview_section']['und'][$key]['field_links']['und']['actions']['ief_add']['#value'] = t('use new');
+        $form['field_overview_section']['und'][$key]['field_links']['und']['actions']['ief_add_existing']['#value'] = t('use existing');
       }
     }
   }
