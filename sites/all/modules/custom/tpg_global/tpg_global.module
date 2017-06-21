@@ -64,6 +64,18 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
  * Implements hook_views_query_alter().
  */
 function tpg_global_views_query_alter(&$view, &$query) {
+
+  // Whats on query alter.
+  if ($view->name == 'whats_on' && in_array($view->current_display, array('now_upcoming_view_page', 'past_programme_view_page'))) {
+    if (!$view->exposed_input['range']) {
+      unset($query->where[2]);
+    }
+    else {
+      $range_values = json_decode($view->exposed_input['range']);
+      $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $range_values->start;
+      $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $range_values->end;
+    }
+  }
 }
 
 /**
@@ -146,12 +158,13 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
   }
 
   // Adding Date Range and Altering Location Proximity Search for Events Map.
-  if ($form_id == 'views_exposed_form' && ($form_state['view']->name == 'whats_on') && ( $form_state['view']->current_display == 'now_upcoming_view_page')) {
+  if ($form_id == 'views_exposed_form' && ($form_state['view']->name == 'whats_on') && ( $form_state['view']->current_display == 'now_upcoming_view_page' || $form_state['view']->current_display == 'past_programme_view_page')) {
+
     // Added Date range.
-    $form['date_range'] = array(
+    $form['combine'] = array(
       '#type' => 'daterangepicker',
       '#DateRangePicker_options' => array(
-        'initial_text' => t('WHEN'),
+        'initial_text' => t('ANYTIME'),
         'apply_button_text' => t('SEARCH'),
         'clear_button_text' => t('CLEAR'),
         'cancel_button_text' => t('CANCEL'),
@@ -165,6 +178,13 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       ),
     );
     $form['submit']['#weight'] = 5;
+
+    // Altering the filter select options.
+    $form['field_paragraphs_event_type_tid']['#options']['All'] = t('EVERYTHING');
+    $form['field_event_artists_tid']['#options']['All'] = t('ALL ARTISTS');
+    if ($form['field_event_for_tid']) {
+      $form['field_event_for_tid']['#options']['All'] = t('EVERYONE');
+    }
   }
 }
 
@@ -182,4 +202,10 @@ function _tpg_global_homepage_weight_range(&$form = array()) {
   }
   $form['field_homepage_weight']['und']['#options'] = $range;
   $form['field_homepage_weight']['und']['#default_value'] = $form['#node']->field_homepage_weight['und'][0] ? $form['#node']->field_homepage_weight['und'][0] : 0;
+
+  // Whats on weight for event details content type.
+  if ($form['field_whats_on_weight']) {
+    $form['field_whats_on_weight']['und']['#options'] = $range;
+    $form['field_whats_on_weight']['und']['#default_value'] = $form['#node']->field_whats_on_weight['und'][0] ? $form['#node']->field_whats_on_weight['und'][0] : 0;
+  }
 }

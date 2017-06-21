@@ -219,6 +219,7 @@ function tpg_paragraphs_default_fe_block_settings() {
   $export['views-33a110961adfdc1683e63638b3441867'] = array(
     'cache' => -1,
     'css_class' => '',
+    'custom' => 0,
     'delta' => '33a110961adfdc1683e63638b3441867',
     'module' => 'views',
     'node_types' => array(),
@@ -262,6 +263,8 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   $export['views-561be599b982dd2ae38c000b1df22b2c'] = array(
