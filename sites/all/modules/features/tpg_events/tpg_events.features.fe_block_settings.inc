@@ -216,6 +216,57 @@ function tpg_events_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['views-2f69d3f1d9c2e43b67a4dae5874e62e4'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => '2f69d3f1d9c2e43b67a4dae5874e62e4',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'whats-on/past-programme',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['views-db35b63cccfa6e17d8e93330e7e2a946'] = array(
     'cache' => -1,
     'css_class' => 'related-activities-wrapper',
@@ -316,6 +367,57 @@ function tpg_events_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => -22,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-whats_on-next_season_block'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'whats_on-next_season_block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'whats-on/now-upcoming',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => 0,
       ),
     ),
     'title' => '',
