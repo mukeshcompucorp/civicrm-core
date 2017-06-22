@@ -9,6 +9,7 @@
       "sass/**/main.scss",
       "sass/**/_sprite.scss",
       "sass/**/_reset.scss",
+      "sass/**/_colorbox.scss",
       "sass/**/_colors.scss"
     ]
   },

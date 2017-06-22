@@ -1,0 +1,76 @@
+#cboxOverlay {
+  opacity: 1 !important;
+}
+
+#colorbox {
+  padding-right: 20px;
+}
+
+#cboxTopLeft,
+#cboxTopCenter,
+#cboxTopRight,
+#cboxBottomLeft,
+#cboxBottomCenter,
+#cboxBottomRight,
+#cboxMiddleRight,
+#cboxMiddleLeft {
+  display: none;
+}
+
+#cboxWrapper {
+  overflow: initial;
+}
+
+#cboxContent {
+  overflow: initial;
+  margin-bottom: 40px;
+  margin-top: 35px;
+}
+
+#cboxContent,
+#cboxWrapper {
+  background: none;
+}
+
+#cboxClose {
+  background: none;
+  bottom: 100%;
+  font-size: 0;
+  height: 19px;
+  left: 100%;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  right: auto;
+  top: auto;
+  width: 19px;
+
+  &:after,
+  &:before {
+    border-bottom: 1px solid color(colorbox-close-button);
+    content: '';
+    display: block;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    margin-top: -1px;
+    transform: rotate(-45deg);
+  }
+}
+
+#cboxTitle {
+  @include lh-fs(18px, $h4);
+  background-color: color(caption-bg);
+  bottom: 0;
+  color: color(caption-title);
+  display: block !important;
+  left: 0;
+  height: auto !important;
+  padding: 15px 15px 6px !important;
+  position: fixed;
+  right: 0;
+  top: auto;
+}
