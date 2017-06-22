@@ -56,6 +56,7 @@ function tpg_events_field_group_info() {
     'children' => array(
       0 => 'field_show_in_future_season',
       1 => 'field_show_in_current_season',
+      2 => 'field_whats_on_weight',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

@@ -876,7 +876,7 @@ function tpg_events_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 42,
+      'weight' => 41,
     ),
   );
 
@@ -1030,6 +1030,50 @@ function tpg_events_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-events_detail-field_whats_on_weight'.
+  $field_instances['node-events_detail-field_whats_on_weight'] = array(
+    'bundle' => 'events_detail',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 17,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_whats_on_weight',
+    'label' => 'Whats on Weight',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 42,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Add Dates');
@@ -1049,6 +1093,7 @@ function tpg_events_field_default_field_instances() {
   t('Show in current season');
   t('Show in future season');
   t('Weight');
+  t('Whats on Weight');
 
   return $field_instances;
 }

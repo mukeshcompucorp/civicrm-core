@@ -50,8 +50,6 @@ function tpg_events_default_fe_block_boxes() {
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'whats_on_past_programme';
   $fe_block_boxes->body = '<p><a href="/whats-on/now-upcoming">Now &amp; upcoming</a><a href="/whats-on/past-programme"> &nbsp;Past Programme</a></p>
-
-<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus. Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
 ';
 
   $export['whats_on_past_programme'] = $fe_block_boxes;

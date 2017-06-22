@@ -30,7 +30,7 @@
     position: relative;
 
     h2 {
-      text-decoration: none;
+      border: 0;
     }
 
     a {
@@ -57,13 +57,7 @@
     }
 
     .field-name-field-paragraphs-tags-viewpoints {
-      a {
-        position: static;
-      }
-
-      h2 {
-        margin-bottom: 0;
-      }
+      display: none;
     }
   }
 }
