@@ -316,7 +316,7 @@ whats-on/past-programme',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-2f69d3f1d9c2e43b67a4dae5874e62e4'] = array(
@@ -367,7 +367,7 @@ whats-on/past-programme',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-aea378dfeb25249b54d7bcbb9b388c97'] = array(
@@ -418,7 +418,7 @@ whats-on/past-programme',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-db35b63cccfa6e17d8e93330e7e2a946'] = array(
@@ -575,7 +575,7 @@ whats-on/past-programme',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   return $export;
