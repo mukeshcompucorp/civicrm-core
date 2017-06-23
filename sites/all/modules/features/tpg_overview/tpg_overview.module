@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the TPG Overview feature.
- */
-
-include_once 'tpg_overview.features.inc';

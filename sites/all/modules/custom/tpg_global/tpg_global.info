@@ -1,6 +1,0 @@
-name = TPG Global
-description = Contains all the custom/global code for entire site.
-core = 7.x
-package = TPG
-scripts[] = js/tpg_global.js
-
