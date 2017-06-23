@@ -66,7 +66,7 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
 function tpg_global_views_query_alter(&$view, &$query) {
 
   // Whats on query alter.
-  if ($view->name == 'whats_on' && in_array($view->current_display, array('now_upcoming_view_page', 'past_programme_view_page'))) {
+  if ($view->name == 'whats_on' && in_array($view->current_display, array('now_upcoming_view_page'))) {
     if (!$view->exposed_input['range']) {
       unset($query->where[2]);
     }
@@ -161,33 +161,36 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 
-  // Adding Date Range and Altering Location Proximity Search for Events Map.
-  if ($form_id == 'views_exposed_form' && ($form_state['view']->name == 'whats_on') && ( $form_state['view']->current_display == 'now_upcoming_view_page' || $form_state['view']->current_display == 'past_programme_view_page')) {
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'whats_on') {
 
-    // Added Date range.
-    $form['combine'] = array(
-      '#type' => 'daterangepicker',
-      '#DateRangePicker_options' => array(
-        'initial_text' => t('ANYTIME'),
-        'apply_button_text' => t('SEARCH'),
-        'clear_button_text' => t('CLEAR'),
-        'cancel_button_text' => t('CANCEL'),
-        'range_splitter' => ' - ',
-        'date_format' => 'd M, yy',
-        // This needs to be a format recognised by javascript Date.parse method.
-        'alt_format' => 'yy-mm-dd',
-        'date_picker_options' => array (
-          'numberOfMonths' => 2,
-         ),
-      ),
-    );
-    $form['submit']['#weight'] = 5;
+    // Adding Date Range picker for News and Upcoming view filter.
+    if ($form_state['view']->current_display == 'now_upcoming_view_page') {
+      $form['combine'] = array(
+        '#type' => 'daterangepicker',
+        '#DateRangePicker_options' => array(
+          'initial_text' => t('ANYTIME'),
+          'apply_button_text' => t('SEARCH'),
+          'clear_button_text' => t('CLEAR'),
+          'cancel_button_text' => t('CANCEL'),
+          'range_splitter' => ' - ',
+          'date_format' => 'd M, yy',
+          // This needs to be a format recognised by javascript Date.parse method.
+          'alt_format' => 'yy-mm-dd',
+          'date_picker_options' => array (
+            'numberOfMonths' => 2,
+           ),
+        ),
+      );
+    }
+    if ($form_state['view']->current_display == 'now_upcoming_view_page' || $form_state['view']->current_display == 'past_programme_view_page') {
 
-    // Altering the filter select options.
-    $form['field_paragraphs_event_type_tid']['#options']['All'] = t('EVERYTHING');
-    $form['field_event_artists_tid']['#options']['All'] = t('ALL ARTISTS');
-    if ($form['field_event_for_tid']) {
-      $form['field_event_for_tid']['#options']['All'] = t('EVERYONE');
+      $form['submit']['#weight'] = 5;
+      // Altering the filter select options.
+      $form['field_paragraphs_event_type_tid']['#options']['All'] = t('EVERYTHING');
+      $form['tid']['#attributes']['placeholder'] = t('SEARCH BY NAME');
+      if ($form['field_event_for_tid']) {
+        $form['field_event_for_tid']['#options']['All'] = t('EVERYONE');
+      }
     }
   }
 }
