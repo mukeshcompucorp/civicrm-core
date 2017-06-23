@@ -1,0 +1,45 @@
+.header .flexslider {
+  @include rem(max-height, 540px);
+  background-color: color(darken-background);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  overflow: hidden;
+  padding: 0 40px 40px;
+
+  .slides img {
+    height: 500px;
+    margin: 0 auto;
+    width: auto;
+  }
+
+  .flex-direction-nav .flex-prev {
+    transform: rotate(-90deg);
+  }
+
+  .flex-direction-nav .flex-next {
+    transform: rotate(90deg);
+  }
+
+  .flex-direction-nav .flex-prev,
+  .flex-direction-nav .flex-next {
+    font-size: 0;
+
+    &:after,
+    &:before {
+      border-bottom: 1px solid color(arrows);
+      content: '';
+      display: block;
+    }
+
+    &:before {
+      margin-top: -1px;
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+  }
+}

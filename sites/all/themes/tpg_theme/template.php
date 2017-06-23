@@ -68,11 +68,13 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['sidebar_first'] = 'col-md-3';
         $classes['sidebar_second'] = 'col-md-3';
         $classes['content'] = 'col-md-6';
+        $classes['content_width'] = 'header-image-narrow';
         break;
       default:
         $classes['sidebar_first'] = 'col-md-2';
         $classes['sidebar_second'] = 'col-md-2';
         $classes['content'] = 'col-md-8';
+        $classes['content_width'] = 'header-image-wide';
         break;
     }
     if ($classes) {

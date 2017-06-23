@@ -207,7 +207,7 @@ function tpg_paragraphs_views_default_views() {
   /* Display: Header Image Left Right  */
   $handler = $view->new_display('block', 'Header Image Left Right ', 'banner_image_left_right');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'header-image';
+  $handler->display->display_options['css_class'] = 'header-image-two-col container';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -233,6 +233,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_header_image_left']['relationship'] = 'field_paragraphs_header_section_value';
   $handler->display->display_options['fields']['field_header_image_left']['label'] = '';
   $handler->display->display_options['fields']['field_header_image_left']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_header_image_left']['element_wrapper_class'] = 'col-xs-6';
   $handler->display->display_options['fields']['field_header_image_left']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image_left']['settings'] = array(
     'image_style' => '2_column_image_left_and_right_400x472',
@@ -245,6 +246,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_header_image_right']['relationship'] = 'field_paragraphs_header_section_value';
   $handler->display->display_options['fields']['field_header_image_right']['label'] = '';
   $handler->display->display_options['fields']['field_header_image_right']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_header_image_right']['element_wrapper_class'] = 'col-xs-6';
   $handler->display->display_options['fields']['field_header_image_right']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image_right']['settings'] = array(
     'image_style' => '2_column_image_left_and_right_400x472',
@@ -271,6 +273,8 @@ function tpg_paragraphs_views_default_views() {
 
   /* Display: Header Gallery Image */
   $handler = $view->new_display('block', 'Header Gallery Image', 'header_gallery_image');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'header-image-gallery';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -299,7 +303,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['type'] = 'flexslider';
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['settings'] = array(
     'optionset' => 'default',
-    'image_style' => 'gallery_image_reading_width_962x642',
+    'image_style' => 'flexslider_full',
     'caption' => '0',
   );
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['delta_offset'] = '0';
@@ -397,7 +401,7 @@ function tpg_paragraphs_views_default_views() {
   /* Display: Header Image Lightbox */
   $handler = $view->new_display('block', 'Header Image Lightbox', 'header_image_lightbox');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'header-image header-image-lightbox';
+  $handler->display->display_options['css_class'] = 'header-image';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
