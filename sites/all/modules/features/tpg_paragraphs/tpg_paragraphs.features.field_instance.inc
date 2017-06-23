@@ -3154,7 +3154,7 @@ function tpg_paragraphs_field_default_field_instances() {
   $field_instances['paragraphs_item-title_section-field_event_dates'] = array(
     'bundle' => 'title_section',
     'deleted' => 0,
-    'description' => '<strong>FOR EVENTS ONLY</strong>',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -3209,6 +3209,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_event_dates',
     'label' => 'Event Dates',
@@ -3913,7 +3914,6 @@ function tpg_paragraphs_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('2/3 Width Image Left');
-  t('<strong>FOR EVENTS ONLY</strong>');
   t('Add Dates');
   t('Attachments');
   t('Author Name');
