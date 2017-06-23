@@ -1,9 +1,0 @@
-.paragraphs-item-image-left-2-3-width img {
-  width: 100%;
-}
-
-@include breakpoint($md-1 0) {
-  .paragraphs-item-image-left-2-3-width img {
-    width: auto;
-  }
-}
