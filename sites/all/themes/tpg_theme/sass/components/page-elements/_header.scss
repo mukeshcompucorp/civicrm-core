@@ -2,10 +2,18 @@
   min-height: 144px;
 
   .logo a {
+    @include rem(max-width, 239px);
     left: 10px;
     position: absolute;
     top: 24px;
-    z-index: 1;
+    z-index: 9;
+  }
+
+  [class*='field-caption'] {
+    bottom: 0;
+    position: absolute;
+    right: 10px;
+    z-index: 9;
   }
 }
 
@@ -13,12 +21,6 @@
   @include rem(max-height, 500px);
   overflow: hidden;
   position: relative;
-
-  [class*='field-caption'] {
-    bottom: 0;
-    position: absolute;
-    right: 10px;
-  }
 
   img {
     margin-left: auto;
@@ -50,5 +52,34 @@
     img {
       margin-left: 0;
     }
+  }
+
+  &-two-col {
+    @include rem(max-height, 400px);
+    overflow: hidden;
+
+    .view-content {
+      @include make-row;
+    }
+  }
+
+  &-wide .header-image-two-col .views-row {
+    @include make-md-column(8);
+    @include make-md-column-offset(2);
+    padding: 0;
+  }
+
+  &-narrow .header-image-two-col .views-row {
+    @include make-md-column(6);
+    @include make-md-column-offset(3);
+    padding: 0;
+  }
+
+  &-gallery .views-field-caption {
+    background-color: color(darken-background);
+    margin-top: 0;
+    padding: 10px;
+    position: static;
+    text-align: left;
   }
 }

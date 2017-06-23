@@ -75,7 +75,9 @@
         </div>
       <?php endif; ?>
       <?php if ($page['header']): ?>
+        <div class="<?php print $add_classes['content_width']; ?>">
           <?php print render($page['header']); ?>
+        </div>
       <?php endif; ?>
     </div>
   </header>
