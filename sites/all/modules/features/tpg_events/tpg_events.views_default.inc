@@ -695,10 +695,6 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['sorts']['field_event_dates_value']['field'] = 'field_event_dates_value';
   $handler->display->display_options['sorts']['field_event_dates_value']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'AND',
-    2 => 'AND',
-  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -805,36 +801,13 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['default_date'] = 'today';
-  /* Filter criterion: Paragraphs item: Event Dates -  start date (field_event_dates) */
-  $handler->display->display_options['filters']['field_event_dates_value']['id'] = 'field_event_dates_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['filters']['field_event_dates_value']['field'] = 'field_event_dates_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['operator'] = '<=';
-  $handler->display->display_options['filters']['field_event_dates_value']['group'] = 2;
-  $handler->display->display_options['filters']['field_event_dates_value']['expose']['operator_id'] = 'field_event_dates_value_op';
-  $handler->display->display_options['filters']['field_event_dates_value']['expose']['operator'] = 'field_event_dates_value_op';
-  $handler->display->display_options['filters']['field_event_dates_value']['expose']['identifier'] = 'field_event_dates_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    30037204 => 0,
-    190826733 => 0,
-    151263223 => 0,
-    203538000 => 0,
-    152836380 => 0,
-    204855824 => 0,
-    199295989 => 0,
-  );
-  $handler->display->display_options['filters']['field_event_dates_value']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['field_event_dates_value']['default_date'] = 'now';
   /* Filter criterion: Paragraphs item: Event Dates - end date (field_event_dates:value2) */
   $handler->display->display_options['filters']['field_event_dates_value2']['id'] = 'field_event_dates_value2';
   $handler->display->display_options['filters']['field_event_dates_value2']['table'] = 'field_data_field_event_dates';
   $handler->display->display_options['filters']['field_event_dates_value2']['field'] = 'field_event_dates_value2';
   $handler->display->display_options['filters']['field_event_dates_value2']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['filters']['field_event_dates_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_event_dates_value2']['group'] = 2;
+  $handler->display->display_options['filters']['field_event_dates_value2']['operator'] = '<';
+  $handler->display->display_options['filters']['field_event_dates_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_event_dates_value2']['expose']['operator_id'] = 'field_event_dates_value2_op';
   $handler->display->display_options['filters']['field_event_dates_value2']['expose']['operator'] = 'field_event_dates_value2_op';
   $handler->display->display_options['filters']['field_event_dates_value2']['expose']['identifier'] = 'field_event_dates_value2';
