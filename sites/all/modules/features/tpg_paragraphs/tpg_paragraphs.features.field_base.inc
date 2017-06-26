@@ -185,6 +185,32 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
+  // Exported field_base: 'field_logo_color'.
+  $field_bases['field_logo_color'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_logo_color',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Black' => 'Black',
+        'White' => 'White',
+        'Grey' => 'Grey',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_paragraph_button'.
   $field_bases['field_paragraph_button'] = array(
     'active' => 1,

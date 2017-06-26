@@ -21,7 +21,7 @@ function tpg_paragraphs_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Homepage Publishing Options',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'field_homepage_publish_dates',
       1 => 'field_homepage_weight',

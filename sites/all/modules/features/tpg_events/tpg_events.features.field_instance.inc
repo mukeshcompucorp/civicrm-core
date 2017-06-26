@@ -21,7 +21,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -51,7 +51,7 @@ function tpg_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -71,7 +71,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'overview' => array(
         'label' => 'above',
@@ -118,7 +118,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -133,7 +133,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'overview' => array(
         'label' => 'above',
@@ -164,7 +164,7 @@ function tpg_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -179,7 +179,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'overview' => array(
         'label' => 'above',
@@ -227,7 +227,50 @@ function tpg_events_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 7,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-events_detail-field_event_logo_color'.
+  $field_instances['node-events_detail-field_event_logo_color'] = array(
+    'bundle' => 'events_detail',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_event_logo_color',
+    'label' => 'Logo Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
@@ -242,7 +285,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'overview' => array(
         'label' => 'above',
@@ -272,7 +315,7 @@ function tpg_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -287,7 +330,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'overview' => array(
         'label' => 'above',
@@ -314,7 +357,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -330,7 +373,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -409,7 +452,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -424,7 +467,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'overview' => array(
         'label' => 'above',
@@ -469,7 +512,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'overview' => array(
         'label' => 'above',
@@ -535,7 +578,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'overview' => array(
         'label' => 'above',
@@ -590,7 +633,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'overview' => array(
         'label' => 'above',
@@ -723,7 +766,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -739,7 +782,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'overview' => array(
         'label' => 'above',
@@ -823,7 +866,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -837,7 +880,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -890,7 +933,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -948,7 +991,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -977,7 +1020,7 @@ function tpg_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -996,7 +1039,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'overview' => array(
         'label' => 'above',
@@ -1026,7 +1069,7 @@ function tpg_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -1041,7 +1084,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'overview' => array(
         'label' => 'above',
@@ -1084,6 +1127,7 @@ function tpg_events_field_default_field_instances() {
   t('Event Sold out message');
   t('Event Status');
   t('Homepage Image');
+  t('Logo Color');
   t('Paragraphs Content');
   t('Paragraphs Header Section');
   t('Paragraphs Related Activities');

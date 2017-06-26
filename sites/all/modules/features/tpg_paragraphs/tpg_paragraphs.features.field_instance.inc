@@ -52,7 +52,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -112,7 +112,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'overview' => array(
         'label' => 'above',
@@ -179,7 +179,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -234,7 +234,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -263,6 +263,49 @@ function tpg_paragraphs_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-paragraphs_page-field_logo_color'.
+  $field_instances['node-paragraphs_page-field_logo_color'] = array(
+    'bundle' => 'paragraphs_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_logo_color',
+    'label' => 'Logo Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
@@ -367,7 +410,7 @@ function tpg_paragraphs_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -383,7 +426,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'overview' => array(
         'label' => 'above',
@@ -467,7 +510,7 @@ function tpg_paragraphs_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -486,7 +529,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -515,7 +558,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -534,7 +577,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'overview' => array(
         'label' => 'above',
@@ -564,7 +607,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -3934,6 +3977,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Image Right');
   t('Left Text');
   t('Location Map');
+  t('Logo Color');
   t('Overview Image');
   t('Page Type');
   t('Paragraphs Content');
