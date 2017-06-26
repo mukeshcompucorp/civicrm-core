@@ -55,10 +55,15 @@ function tpg_theme_panels_flexible($vars) {
 function tpg_theme_preprocess_page(&$vars, $hook) {
   // Removing site logo depending upon show logo field value.
   $node = menu_get_object('node');
+
   if ($node->type == 'paragraphs_page') {
     if(!$node->field_show_logo['und'][0]['value']) {
       unset($vars['logo']);
     }
+  }
+  // Setting logo color.
+  if ($node->field_event_logo_color) {
+    $vars['logo-color'] = 'logo-color-' . drupal_strtolower($node->field_event_logo_color['und'][0]['value']);
   }
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
