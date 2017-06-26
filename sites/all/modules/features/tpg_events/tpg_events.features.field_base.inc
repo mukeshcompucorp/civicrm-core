@@ -149,6 +149,32 @@ function tpg_events_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_event_logo_color'.
+  $field_bases['field_event_logo_color'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_event_logo_color',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Black' => 'Black',
+        'White' => 'White',
+        'Grey' => 'Grey',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_event_sold_out'.
   $field_bases['field_event_sold_out'] = array(
     'active' => 1,

@@ -123,10 +123,10 @@ function tpg_paragraphs_strongarm() {
           'weight' => '0',
         ),
         'locations' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
       ),
       'display' => array(
@@ -1029,7 +1029,7 @@ function tpg_paragraphs_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'gmap_marker_file';
-  $strongarm->value = '33';
+  $strongarm->value = '21';
   $export['gmap_marker_file'] = $strongarm;
 
   $strongarm = new stdClass();

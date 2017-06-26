@@ -21,7 +21,7 @@ function tpg_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Homepage Publishing Options',
-    'weight' => '15',
+    'weight' => '16',
     'children' => array(
       0 => 'field_homepage_publish_dates',
       1 => 'field_homepage_weight',
@@ -52,7 +52,7 @@ function tpg_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Whats on',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_show_in_future_season',
       1 => 'field_show_in_current_season',
