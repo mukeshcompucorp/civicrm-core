@@ -3,6 +3,10 @@
     color: color(related-activities-color);
   }
 
+  img {
+    width: 100%;
+  }
+
   &-wrapper {
     @include rem(padding-bottom, 45px);
     @include rem(padding-top, 20px);
@@ -46,5 +50,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .related-activities .views-row {
+    @include rem(margin-bottom, 20px);
   }
 }

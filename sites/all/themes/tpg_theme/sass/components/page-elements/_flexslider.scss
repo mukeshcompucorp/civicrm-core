@@ -39,7 +39,18 @@
     }
 
     &:after {
+      margin-left: 1px;
       transform: rotate(45deg);
+    }
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .header .flexslider {
+    padding: 0;
+
+    .slides img {
+      max-width: none;
     }
   }
 }
