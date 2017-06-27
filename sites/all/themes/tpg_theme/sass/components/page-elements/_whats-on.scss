@@ -1,0 +1,66 @@
+.whats-on {
+  clear: both;
+
+  &-block .block-title {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &-tabs a {
+    text-decoration: none;
+
+    &.now-upcoming {
+      @include rem(margin-right, 30px);
+    }
+  }
+
+  &-description {
+    @include rem(margin-bottom, 35px);
+    clear: both;
+
+    p {
+      @include lh-fs(22px, $p-sm);
+    }
+  }
+
+  .views-row {
+    @include rem(margin-bottom, 50px);
+  }
+
+  img {
+    margin-bottom: 10px;
+    min-width: 100%;
+  }
+
+  .date,
+  .type {
+    @include lh-fs(18px, 12px);
+    @include rem(margin-bottom, 5px);
+    color: color(main);
+    font-weight: bold;
+    text-transform: uppercase;
+
+    * {
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+
+  .date {
+    text-align: right;
+  }
+
+  .title {
+    @include ellipsis-title(82%);
+  }
+
+  @include breakpoint($screen-md) {
+    .type {
+      padding-left: 0;
+    }
+
+    .date {
+      padding-right: 0;
+    }
+  }
+}

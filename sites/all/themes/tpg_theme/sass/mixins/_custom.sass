@@ -30,3 +30,22 @@
   text-decoration: none
   +breakpoint($md-1 0)
     +lh-fs(18px, $button-resp)
+
+=ellipsis-title($mwidth: auto)
+  clear: both
+  display: block
+  max-width: $mwidth
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=triangle-bottom
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid color(main);
+  content: '';
+  height: 0;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  width: 0;

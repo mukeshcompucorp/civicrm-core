@@ -44,12 +44,7 @@
   }
 
   [class*='field-paragraph-title'] {
-    clear: both;
-    display: block;
-    max-width: 82%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @include ellipsis-title(82%);
   }
 }
 

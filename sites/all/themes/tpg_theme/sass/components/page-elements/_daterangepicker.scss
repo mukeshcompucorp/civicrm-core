@@ -1,0 +1,36 @@
+.comiseo-daterangepicker-triggerbutton {
+  .ui-button-text,
+  &.ui-button {
+    @include rem(font-size, $form-item);
+    background: color(form-bg);
+    border: 0;
+    border-radius: 0;
+    color: color(main);
+    display: inline-block;
+    line-height: 1em;
+    margin: 0;
+    min-width: auto;
+    position: relative;
+    text-transform: uppercase;
+    width: auto;
+  }
+
+  .ui-button-text {
+    padding: 0;
+  }
+
+  &.ui-button {
+    padding: 6px 18px 5px 8px;
+    position: relative;
+  }
+
+  .ui-button-icon-secondary {
+    @include triangle-bottom;
+    margin: 0;
+  }
+
+  &.comiseo-daterangepicker-active .ui-button-icon-secondary {
+    border-bottom: 4px solid color(main);
+    border-top: 0;
+  }
+}
