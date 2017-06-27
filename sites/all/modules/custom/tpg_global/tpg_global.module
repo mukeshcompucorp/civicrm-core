@@ -47,6 +47,11 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
 
           // Adding image path.
           $paragraphs_content[$key]['entity']['paragraphs_item'][$item_key]['field_paragraphs_overview_image'][0]['#path']['path'] = drupal_get_path_alias('node/' . $node->nid);
+
+          // Remove Event Start End Date display suite code field for Paragraphs page node.
+          if ($node->type == 'paragraphs_page') {
+            unset($paragraphs_content[$key]['entity']['paragraphs_item'][$item_key]['event_start_end_dates']);
+          }
         }
       }
     }
