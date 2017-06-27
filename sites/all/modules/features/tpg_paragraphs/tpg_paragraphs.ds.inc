@@ -348,8 +348,8 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'title_section';
   $ds_fieldsetting->view_mode = 'overview';
   $ds_fieldsetting->settings = array(
-    'read_more' => array(
-      'weight' => '5',
+    'event_start_end_dates' => array(
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -1694,8 +1694,9 @@ function tpg_paragraphs_ds_layout_settings_info() {
         1 => 'field_paragraphs_type',
         2 => 'field_paragraphs_event_type',
         3 => 'field_paragraphs_date_published',
-        4 => 'field_paragraph_title',
-        5 => 'field_paragraph_description',
+        4 => 'event_start_end_dates',
+        5 => 'field_paragraph_title',
+        6 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
@@ -1703,6 +1704,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'field_paragraphs_type' => 'ds_content',
       'field_paragraphs_event_type' => 'ds_content',
       'field_paragraphs_date_published' => 'ds_content',
+      'event_start_end_dates' => 'ds_content',
       'field_paragraph_title' => 'ds_content',
       'field_paragraph_description' => 'ds_content',
     ),

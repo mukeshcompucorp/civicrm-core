@@ -163,8 +163,9 @@ function tpg_overview_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
+          'events_detail' => 'events_detail',
           'external_links' => 'external_links',
-          'internal_links' => 'internal_links',
+          'paragraphs_page' => 'paragraphs_page',
         ),
       ),
       'target_type' => 'node',
