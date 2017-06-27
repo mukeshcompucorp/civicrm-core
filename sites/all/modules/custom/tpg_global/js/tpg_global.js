@@ -2,6 +2,14 @@
 
   Drupal.behaviors.global_js = {
     attach: function (context,settings) {
+
+    	//  Hide now-upcoming who filter.
+    	$('.page-whats-on .form-item-tid').hide();
+    	//  Toggle now-upcoming who filter when the element prefix is clicked.
+    	$('.page-whats-on .who-select-prefix').click(function(e) {
+    		$('.page-whats-on .form-item-tid').toggle();
+    	});
+
     	// Hiding Homepage Publishing options for Paragraphs Page.
     	$('#paragraphs-page-node-form .group-homepage-pub-options').hide();
     	$('#events-detail-node-form .group-homepage-options').hide();

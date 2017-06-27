@@ -80,6 +80,7 @@ features[ds_field_settings][] = paragraphs_item|image_left_text_right|default
 features[ds_field_settings][] = paragraphs_item|image_left_text_right|full
 features[ds_field_settings][] = paragraphs_item|title_section|full
 features[ds_field_settings][] = paragraphs_item|title_section|overview
+features[ds_fields][] = event_start_end_dates
 features[ds_fields][] = read_more
 features[ds_layout_settings][] = paragraphs_item|2_column_image_left_image_right|default
 features[ds_layout_settings][] = paragraphs_item|2_column_image_left_image_right|full
