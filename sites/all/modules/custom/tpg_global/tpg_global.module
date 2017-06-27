@@ -187,7 +187,9 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       $form['submit']['#weight'] = 5;
       // Altering the filter select options.
       $form['field_paragraphs_event_type_tid']['#options']['All'] = t('EVERYTHING');
+      $form['tid']['#prefix'] = '<div class="who-select-prefix">' . t('ALL ARTISTS') . '</div>';
       $form['tid']['#attributes']['placeholder'] = t('SEARCH BY NAME');
+
       if ($form['field_event_for_tid']) {
         $form['field_event_for_tid']['#options']['All'] = t('EVERYONE');
       }

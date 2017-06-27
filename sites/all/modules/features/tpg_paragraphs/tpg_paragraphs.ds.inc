@@ -313,6 +313,11 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'title_section';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'event_start_end_dates' => array(
+      'weight' => '3',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -359,6 +364,25 @@ function tpg_paragraphs_ds_field_settings_info() {
  */
 function tpg_paragraphs_ds_custom_fields_info() {
   $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'event_start_end_dates';
+  $ds_field->label = 'Event Start End Dates';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'paragraphs_item' => 'paragraphs_item',
+  );
+  $ds_field->ui_limit = 'title_section|*';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<div class="date-display-range">[paragraphs_item:field-event-dates:value:custom:d M] - [paragraphs_item:field-event-dates:value2:custom:d M Y]</div>
+',
+      'format' => 'full_html',
+    ),
+    'use_token' => 1,
+  );
+  $export['event_start_end_dates'] = $ds_field;
 
   $ds_field = new stdClass();
   $ds_field->api_version = 1;
@@ -1628,24 +1652,24 @@ function tpg_paragraphs_ds_layout_settings_info() {
         0 => 'field_paragraphs_type',
         1 => 'field_paragraphs_event_type',
         2 => 'field_paragraphs_date_published',
-        3 => 'field_paragraph_title',
-        4 => 'field_paragraphs_tags_viewpoints',
-        5 => 'field_paragraph_description',
+        3 => 'event_start_end_dates',
+        4 => 'field_paragraph_title',
+        5 => 'field_paragraphs_tags_viewpoints',
+        6 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
       'field_paragraphs_type' => 'center',
       'field_paragraphs_event_type' => 'center',
       'field_paragraphs_date_published' => 'center',
+      'event_start_end_dates' => 'center',
       'field_paragraph_title' => 'center',
       'field_paragraphs_tags_viewpoints' => 'center',
       'field_paragraph_description' => 'center',
     ),
     'classes' => array(),
     'wrappers' => array(
-      'sidebar_first' => 'div',
       'center' => 'div',
-      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
