@@ -3,17 +3,6 @@
   height: auto;
 
   > span {
-    @include rem(font-size, $form-item);
-    background-color: color(form-bg);
-    color: color(main);
-    display: inline-block;
-    line-height: 1em;
-    margin: 0;
-    padding: 7px 18px 5px 8px;
-    position: relative;
-    text-transform: uppercase;
-    width: auto;
-
     + div {
       display: none;
     }
@@ -66,7 +55,7 @@
   @include rem(font-size, $form-item);
   background-color: color(form-bg);
   color: color(main);
-  display: inline-block;
+  display: block;
   line-height: 1em;
   margin: 0;
   padding: 7px 18px 5px 8px;

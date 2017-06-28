@@ -3,24 +3,28 @@
   Drupal.behaviors.global_js = {
     attach: function (context,settings) {
 
-      //  Hide now-upcoming who filter.
-      $('.page-whats-on .form-item-tid', context).hide();
-      //  Toggle now-upcoming who filter when the element prefix is clicked.
-      $('.page-whats-on .who-select-prefix', context).click(function(e) {
-        $(this, context).toggleClass('active');
-        $('.page-whats-on .form-item-tid', context).toggle();
-      });
+      var $filerEl  = $('.page-whats-on .who-select-prefix', context);
+      var $searchEl = $('.page-whats-on .form-item-tid', context);
 
-      $(document, context).click(function(e) {
-        var $this = $(e.target);
-        var $openedEl = $('.who-select-prefix.active', context);
+      if($filerEl.length) {
+        //  Hide now-upcoming who filter.
+        $searchEl.hide();
+        //  Toggle now-upcoming who filter when the element prefix is clicked.
+        $filerEl.click(function(e) {
+          $(this, context).toggleClass('active');
+          $searchEl.toggle();
+        });
 
-        if($openedEl.length && !$this.hasClass('form-item-tid') && !$this.hasClass('form-autocomplete') && !$this.hasClass('who-select-prefix')) {
-          $('.who-select-prefix', context).toggleClass('active');
-          $('.page-whats-on .form-item-tid', context).toggle();
-        }
-      });
+        $(document, context).click(function(e) {
+          var $this = $(e.target);
+          var $openedEl = $('.who-select-prefix.active', context);
 
+          if($openedEl.length && !$this.hasClass('form-item-tid') && !$this.hasClass('form-autocomplete') && !$this.hasClass('who-select-prefix')) {
+            $filerEl.removeClass('active');
+            $searchEl.hide();
+          }
+        });
+      }
 
       // Hiding Homepage Publishing options for Paragraphs Page.
       $('#paragraphs-page-node-form .group-homepage-pub-options').hide();
@@ -46,7 +50,6 @@
       if ($('.page-whats-on input.daterangepicker').length) {
 
         $('input.daterangepicker').each(function(index, element) {
-
           // Enable date range for all inputs with the given class.
           $(this).daterangepicker({
             initialText: settings.daterangepicker.initialText,

@@ -5,9 +5,9 @@
 
 $main-font: 'LetteraText', sans-serif;
 
-$light: 300;
+$light:  300;
 $normal: 400;
-$bold: 700;
+$bold:   700;
 
 // Font sizes
 $h1: 46px;
@@ -18,11 +18,17 @@ $h4: 14px;
 $p:    18px;
 $p-sm: 14px;
 
-$form-item: 12px;
+$form-item:  12px;
 $card-label: 12px;
 
-$social: 24px;
+$date-cell: 20px;
+$social:    24px;
+$angle:     30px;
 
 // Responsive
-$h1-resp: 28px;
+$h1-resp:     28px;
 $button-resp: 14px;
+
+// Icons
+$fa-angle-left:  '\f104';
+$fa-angle-right: '\f105';
