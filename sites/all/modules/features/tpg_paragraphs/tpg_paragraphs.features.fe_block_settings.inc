@@ -364,7 +364,7 @@ function tpg_paragraphs_default_fe_block_settings() {
         'region' => 'full_width_bottom',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -22,
+        'weight' => -26,
       ),
     ),
     'title' => '',

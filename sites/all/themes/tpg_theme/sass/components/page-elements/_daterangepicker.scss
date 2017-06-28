@@ -74,14 +74,6 @@
     }
   }
 
-  .ui-datepicker-group-last {
-    border-left: 15px solid color(page-bg);
-  }
-
-  .ui-datepicker-group-first {
-    border-right: 15px solid color(page-bg);
-  }
-
   .ui-datepicker-multi {
     display: flex !important;
 
@@ -182,10 +174,8 @@
   // Action links
   > .ui-helper-clearfix {
     background: color(form-bg);
-    border-right: 15px solid color(page-bg);
     padding-bottom: 10px;
     padding-left: 15px;
-    width: 50%;
 
     button {
       background: color(main);

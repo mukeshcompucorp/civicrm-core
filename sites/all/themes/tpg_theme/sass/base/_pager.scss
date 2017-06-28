@@ -1,0 +1,20 @@
+.pager-load-more {
+  @include rem(padding-bottom, 64px);
+  padding-left: 0;
+  position: relative;
+  text-align: center;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    @include button;
+    background-color: color(load-more-bg);
+    color: color(main);
+  }
+
+  .ajax-progress-throbber {
+    position: absolute;
+  }
+}
