@@ -30,15 +30,9 @@ button {
   @include button;
 }
 
-// select {
-// }
-
 select:hover {
   cursor: pointer;
 }
-
-// textarea {
-// }
 
 .form-item,
 .form-actions {

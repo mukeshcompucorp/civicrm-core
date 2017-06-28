@@ -116,7 +116,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-whats_on_links'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'whats-on-tabs col-md-4',
     'custom' => 0,
     'machine_name' => 'whats_on_links',
     'module' => 'block',
@@ -168,7 +168,7 @@ whats-on/past-programme',
 
   $export['block-whats_on_now_upcoming'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'whats-on-description clearfix col-md-8',
     'custom' => 0,
     'machine_name' => 'whats_on_now_upcoming',
     'module' => 'block',
@@ -219,7 +219,7 @@ whats-on/past-programme',
 
   $export['block-whats_on_past_programme'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'whats-on-description clearfix col-md-8',
     'custom' => 0,
     'machine_name' => 'whats_on_past_programme',
     'module' => 'block',
@@ -270,7 +270,7 @@ whats-on/past-programme',
 
   $export['views-03d0390f014502c77cf86e0308dcbb1d'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'col-md-8',
     'custom' => 0,
     'delta' => '03d0390f014502c77cf86e0308dcbb1d',
     'module' => 'views',
@@ -321,7 +321,7 @@ whats-on/past-programme',
 
   $export['views-2f69d3f1d9c2e43b67a4dae5874e62e4'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'whats-on-block',
     'custom' => 0,
     'delta' => '2f69d3f1d9c2e43b67a4dae5874e62e4',
     'module' => 'views',
@@ -372,7 +372,7 @@ whats-on/past-programme',
 
   $export['views-aea378dfeb25249b54d7bcbb9b388c97'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'col-md-8',
     'custom' => 0,
     'delta' => 'aea378dfeb25249b54d7bcbb9b388c97',
     'module' => 'views',
@@ -529,7 +529,7 @@ whats-on/past-programme',
 
   $export['views-whats_on-next_season_block'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'whats-on-block',
     'custom' => 0,
     'delta' => 'whats_on-next_season_block',
     'module' => 'views',

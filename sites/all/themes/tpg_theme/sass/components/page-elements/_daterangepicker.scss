@@ -1,0 +1,206 @@
+.comiseo-daterangepicker-triggerbutton {
+  .ui-button-text,
+  &.ui-button {
+    @include rem(font-size, $form-item);
+    background: color(form-bg);
+    border: 0;
+    border-radius: 0;
+    color: color(main);
+    display: inline-block;
+    line-height: 1em;
+    margin: 0;
+    min-width: auto;
+    position: relative;
+    text-transform: uppercase;
+    width: auto;
+  }
+
+  .ui-button-text {
+    padding: 0;
+  }
+
+  &.ui-button {
+    padding: 6px 18px 5px 8px;
+    position: relative;
+  }
+
+  .ui-button-icon-secondary {
+    @include triangle-bottom;
+    margin: 0;
+  }
+
+  &.comiseo-daterangepicker-active .ui-button-icon-secondary {
+    border-bottom: 4px solid color(main);
+    border-top: 0;
+  }
+}
+
+.comiseo-daterangepicker {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+
+  .ui-datepicker-calendar thead,
+  .ui-priority-secondary,
+  .comiseo-daterangepicker-presets {
+    display: none;
+  }
+
+  .ui-widget-content {
+    border: 0;
+    display: block;
+    height: auto;
+    padding: 0;
+  }
+
+  .ui-datepicker-multi .ui-datepicker-group table {
+    width: 93%;
+  }
+
+  .ui-datepicker .ui-datepicker-header {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .ui-datepicker-title {
+    padding-bottom: 8px;
+    padding-top: 6px;
+
+    span {
+      @include rem(font-size, $h2);
+    }
+  }
+
+  .ui-datepicker-group-last {
+    border-left: 15px solid color(page-bg);
+  }
+
+  .ui-datepicker-group-first {
+    border-right: 15px solid color(page-bg);
+  }
+
+  .ui-datepicker-multi {
+    display: flex !important;
+
+    > div {
+      flex: 1 0 auto;
+      padding-bottom: 10px;
+    }
+
+    .ui-datepicker-row-break {
+      display: none;
+    }
+  }
+
+  // Prev month button
+  .ui-datepicker-next,
+  .ui-datepicker-next span,
+  .ui-datepicker-next.ui-state-hover,
+  .ui-datepicker-prev,
+  .ui-datepicker-prev span,
+  .ui-datepicker-prev.ui-state-hover {
+    background: none;
+    border: 0;
+    font-size: 0;
+    height: 30px;
+    padding: 0;
+    text-align: center;
+    text-indent: initial;
+    width: 30px;
+  }
+
+  .ui-datepicker-next span:hover,
+  .ui-datepicker-prev span:hover {
+    background: color(date-cell-h);
+    cursor: pointer;
+  }
+
+  .ui-datepicker-prev span {
+    margin-top: -14px;
+
+    &:after {
+      @include fa-icon($fa-angle-left);
+      @include rem(font-size, $angle);
+    }
+  }
+
+  .ui-datepicker-prev.ui-state-hover {
+    left: 2px;
+    top: 2px;
+  }
+
+  .ui-datepicker-next span {
+    margin-top: -14px;
+
+    &:after {
+      @include fa-icon($fa-angle-right);
+      @include rem(font-size, $angle);
+    }
+  }
+
+  .ui-datepicker .ui-datepicker-next,
+  .ui-datepicker .ui-datepicker-next.ui-state-hover {
+    right: 25px;
+    top: 2px;
+  }
+
+  // Datepicker cells
+  .comiseo-daterangepicker-main {
+    // Default cell
+    .ui-state-default,
+    .ui-widget-content .ui-state-default {
+      @include rem(font-size, $date-cell);
+      background: none;
+      border: 0;
+      height: 30px;
+      line-height: 1em;
+      text-align: center;
+      width: 30px;
+    }
+
+    // Hover and focus cell states
+    .ui-datepicker-calendar .ui-state-hover,
+    .ui-datepicker-calendar .ui-state-focus {
+      background: color(date-cell-h);
+    }
+
+    // Chosen day
+    .comiseo-daterangepicker-calendar .ui-state-highlight a.ui-state-default {
+      background: color(main);
+    }
+
+    // Current day
+    .ui-datepicker-today .ui-state-default {
+      background: none;
+      border: 1px solid color(main);
+    }
+  }
+
+  // Action links
+  > .ui-helper-clearfix {
+    background: color(form-bg);
+    border-right: 15px solid color(page-bg);
+    padding-bottom: 10px;
+    padding-left: 15px;
+    width: 50%;
+
+    button {
+      background: color(main);
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    button span {
+      @include rem(font-size, $form-item);
+      color: color(button-color);
+      margin-top: 0;
+      padding-bottom: 5px;
+      padding-top: 7px;
+      text-transform: uppercase;
+    }
+  }
+}

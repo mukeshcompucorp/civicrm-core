@@ -13,6 +13,34 @@ function tpg_events_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_disabled_themes';
+  $strongarm->value = array(
+    'bartik' => 'bartik',
+    'civicrm_wide' => 'civicrm_wide',
+    'porto' => 'porto',
+    'porto_sub' => 'porto_sub',
+    'seven' => 'seven',
+    'tpg_theme' => 0,
+  );
+  $export['chosen_disabled_themes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_include';
+  $strongarm->value = '1';
+  $export['chosen_include'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_jquery_selector';
+  $strongarm->value = 'select:visible';
+  $export['chosen_jquery_selector'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_events_detail';
   $strongarm->value = 0;
   $export['comment_anonymous_events_detail'] = $strongarm;
