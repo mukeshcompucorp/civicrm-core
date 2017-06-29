@@ -1143,6 +1143,12 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_show_in_future_season_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_show_in_future_season_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_show_in_future_season_value2']['default_date'] = 'now';
+  /* Filter criterion: Paragraphs item: Title (field_paragraph_title) */
+  $handler->display->display_options['filters']['field_paragraph_title_value']['id'] = 'field_paragraph_title_value';
+  $handler->display->display_options['filters']['field_paragraph_title_value']['table'] = 'field_data_field_paragraph_title';
+  $handler->display->display_options['filters']['field_paragraph_title_value']['field'] = 'field_paragraph_title_value';
+  $handler->display->display_options['filters']['field_paragraph_title_value']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['field_paragraph_title_value']['operator'] = 'not empty';
   $export['whats_on'] = $view;
 
   return $export;
