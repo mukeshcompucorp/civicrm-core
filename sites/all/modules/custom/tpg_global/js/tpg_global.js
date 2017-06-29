@@ -3,29 +3,6 @@
   Drupal.behaviors.global_js = {
     attach: function (context,settings) {
 
-      var $filerEl  = $('.page-whats-on .who-select-prefix', context);
-      var $searchEl = $('.page-whats-on .form-item-tid', context);
-
-      if($filerEl.length) {
-        //  Hide now-upcoming who filter.
-        $searchEl.hide();
-        //  Toggle now-upcoming who filter when the element prefix is clicked.
-        $filerEl.click(function(e) {
-          $(this, context).toggleClass('active');
-          $searchEl.toggle();
-        });
-
-        $(document, context).click(function(e) {
-          var $this = $(e.target);
-          var $openedEl = $('.who-select-prefix.active', context);
-
-          if($openedEl.length && !$this.hasClass('form-item-tid') && !$this.hasClass('form-autocomplete') && !$this.hasClass('who-select-prefix')) {
-            $filerEl.removeClass('active');
-            $searchEl.hide();
-          }
-        });
-      }
-
       // Hiding Homepage Publishing options for Paragraphs Page.
       $('#paragraphs-page-node-form .group-homepage-pub-options').hide();
       $('#events-detail-node-form .group-homepage-options').hide();

@@ -29,6 +29,7 @@
 }
 
 .chzn-container {
+  display: block;
   width: auto !important;
 
   .chzn-drop {
@@ -58,6 +59,7 @@
   display: block;
   line-height: 1em;
   margin: 0;
+  min-height: 24px;
   padding: 7px 18px 5px 8px;
   position: relative;
   text-transform: uppercase;
@@ -78,6 +80,8 @@
 }
 
 .who-select-prefix {
+  z-index: 10;
+
   &.active:after {
     border-bottom: 4px solid color(main);
     border-top: 0;
@@ -88,6 +92,7 @@
     max-width: 215px;
     padding: 8px;
     position: absolute;
+    z-index: 10;
 
     input {
       @include placeholder {
@@ -99,5 +104,33 @@
       max-width: 100%;
       padding-right: 25px;
     }
+  }
+}
+
+.filter-overlay {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+
+  &.show {
+    display: block;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .chzn-container-single .chzn-single > span,
+  .chzn-container .chzn-results li,
+  .who-select-prefix {
+    padding: 15px 18px 13px 8px;
+  }
+
+  .chzn-container-single .chzn-single > span:after,
+  .who-select-prefix:after {
+    right: 8px;
+    top: 19px;
   }
 }

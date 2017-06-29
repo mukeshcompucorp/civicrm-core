@@ -3,26 +3,24 @@
 NOTE: if you want to start working with SASS and JS in current theme,
 you need to install node modules first.
 
-
 1. run command in your terminal:
    $: npm install
-   Wait untill npm install all the node_modules also config.json will be created
-   after modules installed you will see 'prompt: target' in terminal.
-   At this step you should enter your local site url, like 'mysite.loc', this
-   made for browserSync autoreload. After that npm will run 'gulp compile'.
+   Wait untill npm install all the node_modules also config.json will be created.
+   After modules installed you will see 'prompt: target' in terminal.
+   At this step you should enter your local site url, like 'localhost/mysite' or
+   'mysite.loc', this made for browserSync autoreload.
+   After that npm will run 'gulp compile'.
 
 Gulp setup:
 
-   If you entered wrong host, just open config.json file and change it.
+   If you entered wrong host or have an error with 'fs',
+   open or create config.json file (in theme) and change it.
 
    To compile changes run:
    $: gulp compile
 
-   To watch changes run:
+   To compile and watch changes run:
    $: gulp
-
-   To make min files run:
-   $: gulp live
 
    If you don't have browser sync installed in your browser, you can comment
    strings with browser sync instructions in gulpfile.js
@@ -39,7 +37,7 @@ To save some time, you can install 'yarn'.
  * utilization so install times are faster than ever.
  */
 
-Yarn instalation:
+Yarn instalation (29.06.2017):
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn

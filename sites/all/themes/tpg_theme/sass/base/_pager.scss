@@ -10,8 +10,10 @@
 
   a {
     @include button;
+    @include rem(font-size, 16px);
     background-color: color(load-more-bg);
     color: color(main);
+    text-transform: none;
   }
 
   .ajax-progress-throbber {
