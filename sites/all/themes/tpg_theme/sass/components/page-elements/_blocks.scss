@@ -17,6 +17,7 @@
 
   [class*='book-now'] a {
     @include button;
+    @include rem(font-size, $button-resp);
     display: inline-block;
   }
 }
