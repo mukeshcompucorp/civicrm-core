@@ -288,7 +288,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['more_button_text'] = 'SHOW MORE';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -339,7 +339,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-md-6 type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-xs-6 type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Event Start Date */
@@ -369,7 +369,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
   $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-md-6 date';
+  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
     'fromto' => 'value2',
@@ -593,7 +593,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['more_button_text'] = 'SHOW MORE';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -644,7 +644,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-md-6 type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-xs-6 type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Event Start Date */
@@ -674,7 +674,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
   $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-md-6 date';
+  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
     'fromto' => 'value2',
@@ -906,7 +906,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-md-6 type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-xs-6 type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Event Start Date */
@@ -936,7 +936,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
   $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-md-6 date';
+  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
     'fromto' => 'value2',
@@ -1052,7 +1052,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-md-6 type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-xs-6 type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Event Start Date */
@@ -1082,7 +1082,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
   $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-md-6 date';
+  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
     'fromto' => 'value2',

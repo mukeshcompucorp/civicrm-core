@@ -116,7 +116,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-whats_on_links'] = array(
     'cache' => -1,
-    'css_class' => 'whats-on-tabs col-md-4',
+    'css_class' => 'whats-on-tabs col-xs-4',
     'custom' => 0,
     'machine_name' => 'whats_on_links',
     'module' => 'block',
@@ -270,7 +270,7 @@ whats-on/past-programme',
 
   $export['views-03d0390f014502c77cf86e0308dcbb1d'] = array(
     'cache' => -1,
-    'css_class' => 'col-md-8',
+    'css_class' => 'col-xs-8 clearfix whats-on-filter',
     'custom' => 0,
     'delta' => '03d0390f014502c77cf86e0308dcbb1d',
     'module' => 'views',
@@ -372,7 +372,7 @@ whats-on/past-programme',
 
   $export['views-aea378dfeb25249b54d7bcbb9b388c97'] = array(
     'cache' => -1,
-    'css_class' => 'col-md-8',
+    'css_class' => 'col-xs-8 clearfix whats-on-filter',
     'custom' => 0,
     'delta' => 'aea378dfeb25249b54d7bcbb9b388c97',
     'module' => 'views',
