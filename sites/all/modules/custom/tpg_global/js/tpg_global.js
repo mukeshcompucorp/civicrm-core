@@ -26,25 +26,24 @@
         });
       }
 
-      // Hiding Homepage Publishing options for Paragraphs Page.
-      $('#paragraphs-page-node-form .group-homepage-pub-options').hide();
-      $('#events-detail-node-form .group-homepage-options').hide();
+      var $paragraph_promote = $("#paragraphs-page-node-form input[name='promote']", context);
+      var $paragraph_homepage_options =  $('#paragraphs-page-node-form .group-homepage-pub-options', context);
 
+      var $event_promote = $("#events-detail-node-form input[name='promote']", context);
+      var $event_homepage_options =  $('#events-detail-node-form .group-homepage-options', context);
 
-      // Toogle Fieldset Homepage Publishing Options pending upon the Promoted to front page.
-      $("#paragraphs-page-node-form input[name='promote']").click(function(){
-        if ( $(this).is(':checked') ) {
-          $('#paragraphs-page-node-form .group-homepage-pub-options').show();
-        } else {
-          $('#paragraphs-page-node-form .group-homepage-pub-options').hide();
-        }
+      // Hiding Homepage Publishing group for Paragraphs Page and Event Details content type.
+      if (!($paragraph_promote.is(':checked') || $event_promote.is(':checked'))) {
+	  	$paragraph_homepage_options.hide();
+	  	$event_homepage_options.hide();
+      }
+
+      // Toogle Fieldset Homepage Publishing Options pending upon the Promoted to front page option.
+      $paragraph_promote.click(function(){
+      	$paragraph_homepage_options.toggle();
       });
-      $("#events-detail-node-form input[name='promote']").click(function(){
-        if ( $(this).is(':checked') ) {
-          $('#events-detail-node-form .group-homepage-options').show();
-        } else {
-          $('#events-detail-node-form .group-homepage-options').hide();
-        }
+      $event_promote.click(function(){
+        $event_homepage_options.toggle();
       });
 
       if ($('.page-whats-on input.daterangepicker').length) {

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TPG Homepage feature.
+ */
+
+include_once 'tpg_homepage.features.inc';
