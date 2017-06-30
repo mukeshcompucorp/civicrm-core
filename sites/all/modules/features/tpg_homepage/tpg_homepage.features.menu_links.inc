@@ -67,26 +67,6 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_search:<front>.
-  $menu_links['main-menu_search:<front>'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Search',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_search:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
   // Exported menu link: main-menu_viewpoints:<front>.
   $menu_links['main-menu_viewpoints:<front>'] = array(
     'menu_name' => 'main-menu',
@@ -147,21 +127,21 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: menu-footer_about-us:<front>.
-  $menu_links['menu-footer_about-us:<front>'] = array(
+  // Exported menu link: menu-footer_about-us:node/131.
+  $menu_links['menu-footer_about-us:node/131'] = array(
     'menu_name' => 'menu-footer',
-    'link_path' => '<front>',
-    'router_path' => '',
+    'link_path' => 'node/131',
+    'router_path' => 'node/%',
     'link_title' => 'About us',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer_about-us:<front>',
+      'identifier' => 'menu-footer_about-us:node/131',
     ),
     'module' => 'menu',
     'hidden' => 0,
-    'external' => 1,
+    'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 0,
@@ -203,6 +183,26 @@ function tpg_homepage_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -48,
+    'customized' => 1,
+  );
+  // Exported menu link: user-menu_search:<front>.
+  $menu_links['user-menu_search:<front>'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Search',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'user-menu_search:<front>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
     'customized' => 1,
   );
   // Exported menu link: user-menu_user-account:user.
