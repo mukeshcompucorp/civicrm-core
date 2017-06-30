@@ -83,3 +83,38 @@
     text-align: left;
   }
 }
+
+.block-menu {
+  background-color: color(main);
+}
+
+.block-menu ul.menu {
+  padding-left: 0;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+
+  li {
+    display: inline-block;
+    float: left;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    a {
+      color: color(main-menu-text-color);
+      font-size: $main-menu-link-size;
+      text-decoration: none;
+
+      &:hover {
+        color: color(main-menu-text-color-active);
+      }
+    }
+  }
+}
