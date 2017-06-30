@@ -75,6 +75,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['content'] = 'col-md-6';
         $classes['content_width'] = 'header-image-narrow';
         break;
+      case 'overview_page':
+        $classes['sidebar_first'] = '';
+        $classes['sidebar_second'] = '';
+        $classes['content'] = '';
+        break;
       default:
         $classes['sidebar_first'] = 'col-md-2';
         $classes['sidebar_second'] = 'col-md-2';
@@ -157,3 +162,13 @@ function tpg_theme_page_alter(&$page) {
     }
   }
 }
+
+function tpg_theme_preprocess_field (&$variables) {
+  $name = $variables['element']['#field_name'];
+  $bundle = $variables['element']['#bundle'];
+  $mode = $variables['element']['#view_mode'];
+  
+  // Add theme suggestion based on the name of the field, the bundle and the display mode
+  $variables['theme_hook_suggestions'][] = 'field__' . $name . '__' . $bundle . '__' . $mode;
+}
+
