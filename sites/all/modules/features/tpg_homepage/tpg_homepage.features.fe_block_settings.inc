@@ -12,9 +12,111 @@ function tpg_homepage_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
-  $export['system-main-menu'] = array(
+  $export['menu-menu-contact-details'] = array(
+    'cache' => -1,
+    'css_class' => 'block-contact-details',
+    'custom' => 0,
+    'delta' => 'menu-contact-details',
+    'module' => 'menu',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -31,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['menu-menu-footer'] = array(
     'cache' => -1,
     'css_class' => '',
+    'custom' => 0,
+    'delta' => 'menu-footer',
+    'module' => 'menu',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -30,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['system-main-menu'] = array(
+    'cache' => -1,
+    'css_class' => 'block-menu-main',
     'custom' => 0,
     'delta' => 'main-menu',
     'module' => 'system',
@@ -53,19 +155,19 @@ function tpg_homepage_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'header_pane',
+        'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
   $export['system-user-menu'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'block-menu-user',
     'custom' => 0,
     'delta' => 'user-menu',
     'module' => 'system',
@@ -104,13 +206,13 @@ function tpg_homepage_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'header_pane',
+        'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
@@ -210,6 +312,57 @@ function tpg_homepage_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'tpg_theme',
         'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['webform-client-block-132'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'client-block-132',
+    'module' => 'webform',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -29,
       ),
     ),
     'title' => '',
