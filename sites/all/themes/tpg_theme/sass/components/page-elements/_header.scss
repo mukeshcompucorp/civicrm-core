@@ -15,6 +15,16 @@
     right: 10px;
     z-index: 9;
   }
+
+  .embedded-video iframe {
+    display: block;
+    height: 500px;
+  }
+
+  .video-embed-description:not(:empty) {
+    display: block;
+    padding: 10px;
+  }
 }
 
 .header-image {
@@ -55,6 +65,7 @@
 
   &-two-col {
     @include rem(max-height, 400px);
+    margin-top: 24px;
     overflow: hidden;
 
     .view-content {
@@ -77,8 +88,12 @@
   &-gallery .views-field-caption {
     background-color: color(darken-background);
     margin-top: 0;
-    padding: 10px;
     position: static;
     text-align: left;
+
+    .field-content:not(:empty) {
+      display: block;
+      padding: 10px;
+    }
   }
 }
