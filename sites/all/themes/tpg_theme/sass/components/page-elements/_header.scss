@@ -84,37 +84,94 @@
   }
 }
 
-.block-menu {
+.header-pane {
   background-color: color(main);
 }
 
-.block-menu ul.menu {
-  padding-left: 0;
-
+.region-header-pane {
   &:after {
+    @include rem(font-size, 0);
     clear: both;
     content: '';
     display: block;
-    font-size: 0;
     height: 0;
     line-height: 0;
     visibility: hidden;
   }
 
-  li {
-    display: inline-block;
+  .block-menu-main {
     float: left;
-    padding-left: 16px;
-    padding-right: 16px;
+  }
 
-    a {
-      color: color(main-menu-text-color);
-      font-size: $main-menu-link-size;
-      text-decoration: none;
+  .block-menu-user {
+    float: right;
+  }
+}
 
-      &:hover {
-        color: color(main-menu-text-color-active);
-      }
+
+.region-header-pane .block-menu ul.menu {
+  padding-left: 0;
+
+  &:after {
+    @include rem(font-size, 0);
+    clear: both;
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+.region-header-pane .block-menu ul.menu li {
+  display: inline-block;
+  float: left;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+
+  &.first {
+    padding-left: 6px;
+  }
+
+  &.last {
+    padding-right: 6px;
+  }
+
+  a {
+    color: color(main-menu-text-color);
+    font-size: $main-menu-link-size;
+    text-decoration: none;
+
+    &:hover {
+      color: color(main-menu-text-color-active);
+    }
+  }
+}
+
+.region-header-pane .block-menu-user ul.menu li a {
+  color: color(user-menu-text-color);
+  font-size: $user-menu-link-size;
+
+  &:hover {
+    color: color(user-menu-text-color-active);
+  }
+
+  &.search-bar {
+    background-image: url('../images/icons/sprite.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    height: 17px;
+    margin-top: 6px;
+    position: relative;
+    text-indent: -9999px;
+    transition: none;
+    width: 16px;
+
+    &:hover {
+      background-position: -16px 0;
     }
   }
 }
