@@ -20,3 +20,10 @@
     position: absolute;
   }
 }
+
+@include breakpoint($md-1 0) {
+  .pager-load-more a {
+    background-color: color(main);
+    color: color(load-more-bg);
+  }
+}
