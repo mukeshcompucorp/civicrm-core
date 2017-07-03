@@ -7,6 +7,7 @@
     },
     addStrToElement: function(el, context) {
       var $el = $(el, context);
+
       if ($el.length) {
         $el.find('p:first-child').prepend('»');
         $el.find('p:last-child').append('«');
@@ -20,6 +21,7 @@
     },
     moveTitle: function(el, page, moveTo, newClass, row, context) {
       var $el = $(el, context);
+
       if ($el.length && $(page, context).length && $(moveTo, context).length) {
         $el.prependTo(moveTo).addClass(newClass);
         if(row) {
@@ -38,6 +40,7 @@
     },
     createingEl: function(place, elClass, elText, context) {
       var $place = $(place, context);
+
       if ($place && $place.length) {
         $place.prepend('<div class=' + elClass + '>' + Drupal.t(elText) + '</div>');
       }
@@ -59,6 +62,7 @@
 
         $el.click(function(e) {
           var $inputValue = $('#edit-tid', context).val();
+
           if ($inputValue && $inputValue.length) {
             $filerEl.text($inputValue);
           } else {
