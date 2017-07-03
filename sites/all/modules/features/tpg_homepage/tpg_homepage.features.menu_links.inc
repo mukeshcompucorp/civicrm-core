@@ -134,9 +134,7 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'About us',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
       'identifier' => 'menu-footer_about-us:node/131',
     ),
     'module' => 'menu',
@@ -144,7 +142,7 @@ function tpg_homepage_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -50,
     'customized' => 1,
   );
   // Exported menu link: user-menu_join--support:<front>.
@@ -192,10 +190,17 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Search',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
       'identifier' => 'user-menu_search:<front>',
+      'attributes' => array(
+        'class' => array(
+          0 => 'search-bar',
+        ),
+      ),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
     ),
     'module' => 'menu',
     'hidden' => 0,
