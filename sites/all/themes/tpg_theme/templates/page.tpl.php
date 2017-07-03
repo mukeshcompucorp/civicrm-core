@@ -65,6 +65,11 @@
  */
 ?>
 <div id="page-wrapper">
+  <section id="header-pane" class="header-pane">
+    <div class="container clearfix">
+      <?php print render($page['header_pane']); ?>
+    </div>
+  </section>
   <header id="header" class="header">
     <div class="header-inner clearfix">
       <?php if ($logo): ?>
