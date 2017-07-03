@@ -194,3 +194,22 @@
     }
   }
 }
+
+@include breakpoint($md-1 0) {
+  .comiseo-daterangepicker-triggerbutton {
+    .ui-button-text,
+    &.ui-button {
+      display: block;
+      width: 100%;
+    }
+
+    &.ui-button {
+      padding: 15px 18px 13px 8px;
+    }
+
+    .ui-button-icon-secondary {
+      right: 8px;
+      top: 19px;
+    }
+  }
+}
