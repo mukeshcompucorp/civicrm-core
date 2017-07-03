@@ -1645,30 +1645,37 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->entity_type = 'paragraphs_item';
   $ds_layout->bundle = 'title_section';
   $ds_layout->view_mode = 'full';
-  $ds_layout->layout = 'full_width_middle';
+  $ds_layout->layout = 'title_section';
   $ds_layout->settings = array(
     'regions' => array(
-      'center' => array(
+      'header' => array(
         0 => 'field_paragraphs_type',
         1 => 'field_paragraphs_event_type',
         2 => 'field_paragraphs_date_published',
         3 => 'event_start_end_dates',
         4 => 'field_paragraph_title',
+      ),
+      'center' => array(
         5 => 'field_paragraphs_tags_viewpoints',
         6 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
-      'field_paragraphs_type' => 'center',
-      'field_paragraphs_event_type' => 'center',
-      'field_paragraphs_date_published' => 'center',
-      'event_start_end_dates' => 'center',
-      'field_paragraph_title' => 'center',
+      'field_paragraphs_type' => 'header',
+      'field_paragraphs_event_type' => 'header',
+      'field_paragraphs_date_published' => 'header',
+      'event_start_end_dates' => 'header',
+      'field_paragraph_title' => 'header',
       'field_paragraphs_tags_viewpoints' => 'center',
       'field_paragraph_description' => 'center',
     ),
-    'classes' => array(),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
     'wrappers' => array(
+      'header' => 'div',
       'center' => 'div',
     ),
     'layout_wrapper' => 'div',
