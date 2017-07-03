@@ -223,3 +223,70 @@ function _tpg_global_homepage_weight_range(&$form = array()) {
     $form['field_whats_on_weight']['und']['#default_value'] = $form['#node']->field_whats_on_weight['und'][0] ? $form['#node']->field_whats_on_weight['und'][0] : 0;
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *    User Login Form alter.
+ */
+function tpg_global_form_user_login_alter(&$form, &$form_state, $form_id) {
+  $form['actions']['submit']['#suffix'] = l('<div class="user-forgot-password-link"> >' . t('forgot password?') . '</div>', 'user/password', array('html' => TRUE));
+  $form['name']['#title'] = t('Name or email');
+  unset($form['name']['#description']);
+  unset($form['pass']['#description']);
+  $form['actions']['submit']['#value'] = t('Login');
+  $form['actions']['#weight'] = 2;
+
+  // Fetching block id from block machine name.
+  $block_id = '';
+  if (module_exists('fe_block')) {
+    $query = db_select('fe_block_boxes', 'fe_b')
+            ->fields('fe_b', array('bid'))
+            ->condition('fe_b.machine_name', 'user_login_create_account_intro');
+    $block_id = $query->execute()->fetchField();
+  }
+  // Adding Create an account intro text.
+  if ($block_id) {
+    $create_account_intro_block_view = module_invoke('block', 'block_view', $block_id);
+    $form['user_register_intro_block'] = array(
+      '#type' => 'item',
+      '#title' => t('Create an account'),
+      '#markup' => render($create_account_intro_block_view['content']), //render($yoti_block_view['content']),
+      '#weight' => 3,
+    );
+  }
+  // Adding User Register form.
+  $form['user_register'] = array(
+    '#type' => 'item',
+    '#markup' => drupal_render(drupal_get_form('user_register_form')),
+    '#weight' => 4,
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *    User Register Form alter.
+ */
+function tpg_global_form_user_register_form_alter(&$form, &$form_state, $form_id){
+  $form['account']['name']['#title'] = t('Name');
+  unset($form['account']['name']['#description']);
+  unset($form['account']['mail']['#description']);
+  unset($form['account']['pass']['#description']);
+  $form['actions']['submit']['#value'] = t('Create an account');
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function tpg_global_menu_alter(&$items) {
+  $items['user']['title callback'] = '_tpg_global_user_menu_title';
+}
+
+/**
+ * Menu item title callback for the 'user' path.
+ *
+ * Anonymous users shouldn't see anything, but authenticated users are
+ * expected to see "My account".
+ */
+function _tpg_global_user_menu_title() {
+  return user_is_logged_in() ? t('My account') : t('');
+}
