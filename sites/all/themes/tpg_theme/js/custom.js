@@ -14,6 +14,21 @@
     }
   };
 
+  Drupal.behaviors.regionChange = {
+    attach: function (context, settings) {
+      this.moveTitle('.title-header', '.node-type-events-detail', '.post-content', 'paragraphs-item-title-section col-md-offset-3 col-md-6', true, context);
+    },
+    moveTitle: function(el, page, moveTo, newClass, row, context) {
+      var $el = $(el, context);
+      if ($el.length && $(page, context).length && $(moveTo, context).length) {
+        $el.prependTo(moveTo).addClass(newClass);
+        if(row) {
+          $el.wrap('<div class="row"></div>');
+        }
+      }
+    }
+  };
+
   Drupal.behaviors.whatsOnFilter = {
     attach: function (context, settings) {
       this.createingEl('.whats-on-filter', 'resp-filter', 'Filter', context);
