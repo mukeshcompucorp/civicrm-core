@@ -7,9 +7,26 @@
     },
     addStrToElement: function(el, context) {
       var $el = $(el, context);
+
       if ($el.length) {
         $el.find('p:first-child').prepend('»');
         $el.find('p:last-child').append('«');
+      }
+    }
+  };
+
+  Drupal.behaviors.regionChange = {
+    attach: function (context, settings) {
+      this.moveTitle('.title-header', '.node-type-events-detail', '.post-content', 'paragraphs-item-title-section col-md-offset-3 col-md-6', true, context);
+    },
+    moveTitle: function(el, page, moveTo, newClass, row, context) {
+      var $el = $(el, context);
+
+      if ($el.length && $(page, context).length && $(moveTo, context).length) {
+        $el.prependTo(moveTo).addClass(newClass);
+        if(row) {
+          $el.wrap('<div class="row"></div>');
+        }
       }
     }
   };
@@ -23,6 +40,7 @@
     },
     createingEl: function(place, elClass, elText, context) {
       var $place = $(place, context);
+
       if ($place && $place.length) {
         $place.prepend('<div class=' + elClass + '>' + Drupal.t(elText) + '</div>');
       }
@@ -44,6 +62,7 @@
 
         $el.click(function(e) {
           var $inputValue = $('#edit-tid', context).val();
+
           if ($inputValue && $inputValue.length) {
             $filerEl.text($inputValue);
           } else {

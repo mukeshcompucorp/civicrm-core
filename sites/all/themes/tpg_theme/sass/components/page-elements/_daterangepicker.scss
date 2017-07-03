@@ -42,9 +42,13 @@
   padding: 0;
 
   .ui-datepicker-calendar thead,
-  .ui-priority-secondary,
-  .comiseo-daterangepicker-presets {
+  .ui-priority-secondary {
     display: none;
+  }
+
+  .comiseo-daterangepicker-presets {
+    display: block;
+    height: auto;
   }
 
   .ui-widget-content {
