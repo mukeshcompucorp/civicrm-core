@@ -15,6 +15,8 @@ Gulp setup:
 
    If you entered wrong host or have an error with 'fs',
    open or create config.json file (in theme) and change it.
+   It should look like this:
+   {"target":"localhost/mysite"}
 
    To compile changes run:
    $: gulp compile

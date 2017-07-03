@@ -3,10 +3,6 @@
   Drupal.behaviors.global_js = {
     attach: function (context,settings) {
 
-      // Hiding Homepage Publishing options for Paragraphs Page.
-      $('#paragraphs-page-node-form .group-homepage-pub-options').hide();
-      $('#events-detail-node-form .group-homepage-options').hide();
-
       var $paragraph_promote = $("#paragraphs-page-node-form input[name='promote']", context);
       var $paragraph_homepage_options =  $('#paragraphs-page-node-form .group-homepage-pub-options', context);
 
