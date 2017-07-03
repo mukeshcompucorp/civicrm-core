@@ -40,9 +40,10 @@
             },
             presetRanges: [
               {text: 'Today', dateStart: function() { return moment() }, dateEnd: function() { return moment() } },
-              {text: 'This weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
-              {text: 'This week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
-              {text: 'Next month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
+              {text: 'This Weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
+              {text: 'This Week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
+              {text: 'Next Month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
+              {text: 'Pick a date'},
             ],
             datepickerOptions: {
               maxDate: '+1Y',
