@@ -156,9 +156,15 @@
 
   <footer id="footer" class="footer">
     <div class="footer-inner container clearfix">
+      <div class="logo-footer container">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"></a>
+      </div>
       <?php if ($page['footer']): ?>
-         <?php print render($page['footer']) ?>
-       <?php endif; ?>
+        <?php print render($page['footer']) ?>
+      <?php endif; ?>
+      <div class="logo-lottery">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Lottery Funded'); ?>"></a>
+      </div>
     </div>
   </footer>
 </div>
