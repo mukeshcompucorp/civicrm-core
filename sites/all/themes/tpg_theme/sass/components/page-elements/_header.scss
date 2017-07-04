@@ -28,40 +28,21 @@
 }
 
 .header-image {
-  @include rem(max-height, 500px);
-  overflow: hidden;
-  position: relative;
+  .views-row {
+    @include rem(height, 500px);
+    overflow: hidden;
+    position: relative;
+  }
 
   img {
-    margin-left: auto;
-    margin-right: auto;
+    @include centered-image;
+    @include rem(min-height, 500px);
+    max-width: none;
     min-width: 100%;
   }
 
   &-lightbox img {
     min-width: auto;
-  }
-
-  .views-field-field-paragraph-left-image,
-  .views-field-field-paragraph-right-image {
-    float: left;
-    width: 50%;
-  }
-
-  .views-field-field-paragraph-left-image {
-    padding-right: 10px;
-
-    img {
-      margin-right: 0;
-    }
-  }
-
-  .views-field-field-paragraph-right-image {
-    padding-left: 10px;
-
-    img {
-      margin-left: 0;
-    }
   }
 
   &-two-col {

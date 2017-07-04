@@ -314,7 +314,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['type'] = 'flexslider';
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['settings'] = array(
     'optionset' => 'default',
-    'image_style' => 'flexslider_full',
+    'image_style' => '',
     'caption' => '0',
   );
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['delta_offset'] = '0';
@@ -434,8 +434,8 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_header_image_lightbox']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image_lightbox']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_header_image_lightbox']['settings'] = array(
-    'colorbox_node_style' => 'header_image_lightbox',
-    'colorbox_node_style_first' => 'header_image_lightbox',
+    'colorbox_node_style' => 'responsive_custom_user_header_image_original_1x',
+    'colorbox_node_style_first' => 'responsive_custom_user_header_image_original_1x',
     'colorbox_image_style' => '',
     'colorbox_gallery' => 'post',
     'colorbox_gallery_custom' => '',
