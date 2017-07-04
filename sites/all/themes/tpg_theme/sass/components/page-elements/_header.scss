@@ -159,11 +159,9 @@
     @include sprite($search-bar-inactive);
     display: block;
     font-size: 0;
-    height: 17px;
     margin-top: 6px;
     position: relative;
     transition: none;
-    width: 16px;
 
     &:hover {
       @include sprite($search-bar-active);
