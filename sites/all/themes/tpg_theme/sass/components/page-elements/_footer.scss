@@ -38,9 +38,7 @@
   .logo-footer a {
     @include sprite($logo-footer);
     display: block;
-    height: 53px;
     margin-bottom: 24px;
-    width: 154px;
   }
 
   .logo-lottery {
@@ -51,8 +49,6 @@
     a {
       @include sprite($logo-lottery);
       display: block;
-      height: 36px;
-      width: 162px;
     }
   }
 
