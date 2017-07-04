@@ -90,13 +90,7 @@
 
 .region-header-pane {
   &:after {
-    @include rem(font-size, 0);
-    clear: both;
-    content: '';
-    display: block;
-    height: 0;
-    line-height: 0;
-    visibility: hidden;
+    @include clr;
   }
 
   .block-menu-main {
@@ -113,13 +107,7 @@
   padding-left: 0;
 
   &:after {
-    @include rem(font-size, 0);
-    clear: both;
-    content: '';
-    display: block;
-    height: 0;
-    line-height: 0;
-    visibility: hidden;
+    @include clr;
   }
 }
 

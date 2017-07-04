@@ -18,7 +18,8 @@ $chroma: add-colors((
   light-grey:    #d7d7d7,
   darken-grey:   #c8c8c8,
   silver:        #999,
-  light-silver:  #9b9b9b
+  light-silver:  #9b9b9b,
+  lighter-grey:  #dddddd
 ));
 
 // Define color names for functional uses.
@@ -52,6 +53,9 @@ $chroma: add-colors('functional', (
   user-menu-text-color:     'light-silver',
   user-menu-text-color-active:  'white',
   footer-text-color:            'light-grey',
+  footer-text-color-active: 'white',
+  footer-social-connectors-background-color: 'light-grey',
+  footer-stay-up-to-date-color: 'lighter-grey',
 
   colorbox-close-button:    'silver',
   arrows:                   'silver',
