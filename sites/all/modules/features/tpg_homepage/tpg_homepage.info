@@ -20,6 +20,7 @@ features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[fe_block_boxes][] = working_hours
 features[fe_block_settings][] = menu-menu-footer
+features[fe_block_settings][] = menu-menu-social-connectors
 features[fe_block_settings][] = system-main-menu
 features[fe_block_settings][] = system-user-menu
 features[fe_block_settings][] = views-6e4736d32ae81caa884e2c16b2e1fbcf
