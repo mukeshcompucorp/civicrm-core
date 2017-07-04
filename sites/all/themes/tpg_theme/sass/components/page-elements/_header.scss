@@ -101,9 +101,7 @@
 
 .header-pane {
   background-color: color(main);
-}
 
-.region-header-pane {
   &:after {
     @include clr;
   }
@@ -115,24 +113,20 @@
   .block-menu-user {
     float: right;
   }
-}
 
+  ul.menu {
+    padding-left: 0;
 
-.region-header-pane .block-menu ul.menu {
-  padding-left: 0;
-
-  &:after {
-    @include clr;
+    &:after {
+      @include clr;
+    }
   }
 }
 
-.region-header-pane .block-menu ul.menu li {
+.header-pane ul.menu li {
   display: inline-block;
   float: left;
-  padding-bottom: 5px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 7px;
+  padding: 7px 16px 5px;
 
   &.first {
     padding-left: 6px;
@@ -153,7 +147,7 @@
   }
 }
 
-.region-header-pane .block-menu-user ul.menu li a {
+.header-pane .block-menu-user ul.menu li a {
   color: color(user-menu-text-color);
   font-size: $user-menu-link-size;
 
@@ -162,19 +156,17 @@
   }
 
   &.search-bar {
-    background-image: url('../images/icons/sprite.png');
-    background-position: 0 0;
-    background-repeat: no-repeat;
+    @include sprite($search-bar-inactive);
     display: block;
+    font-size: 0;
     height: 17px;
     margin-top: 6px;
     position: relative;
-    text-indent: -9999px;
     transition: none;
     width: 16px;
 
     &:hover {
-      background-position: -16px 0;
+      @include sprite($search-bar-active);
     }
   }
 }

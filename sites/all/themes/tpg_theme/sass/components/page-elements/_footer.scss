@@ -2,14 +2,13 @@
   background-color: color(main);
   padding-bottom: 34px;
   padding-top: 41px;
-  
+
   .footer-inner {
     position: relative;
   }
 
   & * {
-    @include rem(font-size, $footer-font-size);
-    line-height: 1.65em;
+    @include lh-fs(25px, $footer-font-size);
   }
 
   ul.menu {
@@ -22,7 +21,7 @@
     color: color(footer-text-color);
   }
 
-  strong {
+  .block-working-hours strong {
     display: inline-block;
     width: 83px;
   }
@@ -37,49 +36,71 @@
   }
 
   .logo-footer a {
-    background-image: url('../images/icons/logo-footer.png');
-    background-position: top left;
-    background-repeat: no-repeat;
+    @include sprite($logo-footer);
     display: block;
     height: 53px;
     margin-bottom: 24px;
     width: 154px;
   }
-  
+
   .logo-lottery {
     bottom: 0;
-    right: 0;
     position: absolute;
-    
+    right: 0;
+
     a {
-      background-image: url('../images/icons/logo-lottery.png');
-      background-position: top left;
-      background-repeat: no-repeat;
+      @include sprite($logo-lottery);
       display: block;
       height: 36px;
       width: 162px;
     }
   }
+
+  .block-menu-footer ul.menu li,
+  a.arrow {
+    display: block;
+    list-style-type: none;
+    padding-left: 8px;
+    position: relative;
+
+    &:before {
+      @include rem(font-size, $footer-arrow-font-size);
+      content: '>';
+      left: 0;
+      line-height: 1em;
+      position: absolute;
+      top: 8px;
+    }
+  }
+
+  .block-webform-stay-up-to-date {
+    padding-bottom: 54px;
+
+    h2 {
+      color: color(footer-text-color);
+    }
+  }
 }
 
 .footer .block-menu-social-connectors ul.menu li {
-  display: inline;
+  display: inline-block;
+  float: left;
 
   a {
-    @include rem(font-size, $footer-social-connectors-font-size);
     background-color: color(footer-social-connectors-background-color);
     border-radius: 2px;
     color: color(main);
     display: inline-block;
     float: left;
+    font-size: 0;
     height: 24px;
     margin-right: 12px;
     position: relative;
     text-align: center;
-    text-indent: -9999px;
     width: 24px;
 
     &:before {
+      @include rem(font-size, $footer-social-connectors-font-size);
       bottom: 0;
       left: 0;
       line-height: 1em;
@@ -89,11 +110,8 @@
       top: 4px;
     }
 
-    &.fa-facebook-f {
-      @include rem(font-size, $footer-social-connectors-fb-font-size);
-    }
-
     &.fa-facebook-f:before {
+      @include rem(font-size, $footer-social-connectors-fb-font-size);
       left: 4px;
       top: 2px;
     }
@@ -104,35 +122,10 @@
   }
 }
 
-.footer .block-menu-footer ul.menu li,
-.footer a.arrow {
-  display: block;
-  list-style-type: none;
-  padding-left: 8px;
+.footer form.webform-client-form {
+  max-width: 70%;
   position: relative;
 
-  &:before {
-    @include rem(font-size, $footer-arrow-font-size);
-    content: '>';
-    left: 0;
-    line-height: 1em;
-    position: absolute;
-    top: 8px;
-  }
-}
-
-.footer .block-webform-stay-up-to-date {
-  padding-bottom: 54px;
-
-  h2 {
-    color: color(footer-text-color);
-  }
-}
-
-.footer form.webform-client-form-132 {
-  max-width: 291px;
-  position: relative;
-  
   &:after {
     @include clr;
   }
@@ -157,18 +150,18 @@
   }
 
   .form-actions {
-    right: 0;
     position: absolute;
+    right: 0;
     top: 0;
-    
+
     .form-submit {
       background-color: color(footer-stay-up-to-date-color);
       border: 0;
       cursor: pointer;
       display: block;
+      font-size: 0;
       height: 31px;
       padding: 0;
-      text-indent: -9999px;
       width: 31px;
     }
   }
