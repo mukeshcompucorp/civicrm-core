@@ -235,6 +235,39 @@ function tpg_global_form_user_login_alter(&$form, &$form_state, $form_id) {
   unset($form['pass']['#description']);
   $form['actions']['submit']['#value'] = t('Login');
   $form['actions']['#weight'] = 2;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function tpg_global_block_info() {
+  $blocks = array();
+  $blocks['create_account'] = array(
+    'info' => t('Create an account'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function tpg_global_block_view($delta='') {
+  $block = array();
+
+  switch($delta) {
+    case 'create_account' :
+      $block['content'] = drupal_render(drupal_get_form('create_account_form'));
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Drupal form showing User Resigter Form.
+ * @return
+ *   returns form element.
+ */
+function create_account_form($form, $form_state) {
 
   // Fetching block id from block machine name.
   $block_id = '';
@@ -260,13 +293,14 @@ function tpg_global_form_user_login_alter(&$form, &$form_state, $form_id) {
     '#markup' => drupal_render(drupal_get_form('user_register_form')),
     '#weight' => 4,
   );
+  return $form;
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
  *    User Register Form alter.
  */
-function tpg_global_form_user_register_form_alter(&$form, &$form_state, $form_id){
+function tpg_global_form_user_register_form_alter(&$form, &$form_state, $form_id) {
   $form['account']['name']['#title'] = t('Name');
   unset($form['account']['name']['#description']);
   unset($form['account']['mail']['#description']);
