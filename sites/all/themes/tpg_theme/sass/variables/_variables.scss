@@ -1,7 +1,7 @@
 // Fonts
 @include font('LetteraText', LetteraTextProItalic, 400, italic);
 @include font('LetteraText', LetteraTextPro, 400, normal);
-@include font('LetteraText', LetteraTextProBold, 500, normal);
+@include font('LetteraText', LetteraTextProBold, 700, normal);
 
 $main-font: 'LetteraText', sans-serif;
 
@@ -32,7 +32,9 @@ $date-cell: 20px;
 $social:    24px;
 $angle:     30px;
 
-// Responsive
+$tab: 20px;
+
+// Responsive font sizes
 $h1-resp:     28px;
 $button-resp: 14px;
 

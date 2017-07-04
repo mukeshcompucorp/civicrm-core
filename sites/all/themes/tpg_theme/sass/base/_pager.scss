@@ -10,11 +10,20 @@
 
   a {
     @include button;
+    @include rem(font-size, 16px);
     background-color: color(load-more-bg);
     color: color(main);
+    text-transform: none;
   }
 
   .ajax-progress-throbber {
     position: absolute;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .pager-load-more a {
+    background-color: color(main);
+    color: color(load-more-bg);
   }
 }

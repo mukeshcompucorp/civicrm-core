@@ -8,42 +8,7 @@
     text-decoration: none;
   }
 
-  form {
-    float: right;
-
-    label {
-      @include rem(font-size, $form-item);
-      font-weight: bold;
-      line-height: 1em;
-      margin-right: 8px;
-      margin-top: 7px;
-    }
-  }
-
-  form label,
-  .views-widget,
-  .views-exposed-form .views-exposed-widget {
-    float: left;
-    padding: 0;
-  }
-
-  .views-exposed-form .views-exposed-widget:not(:first-child) {
-    margin-left: 30px;
-
-    .form-submit {
-      @include rem(font-size, $form-item);
-      margin-top: 0;
-      padding-bottom: 5px;
-      padding-top: 7px;
-      text-transform: uppercase;
-    }
-
-    .ajax-progress-throbber {
-      position: absolute;
-    }
-  }
-
-  .views-widget-filter-tid:hover {
-    cursor: pointer;
+  .content-inner {
+    overflow: hidden;
   }
 }

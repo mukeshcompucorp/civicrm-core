@@ -14,6 +14,7 @@ $chroma: add-colors((
   white-darken:  #ddd,
 
   taupe-grey:    #313131,
+  dim-grey:      #333,
   dark-grey:     #6d6d6d,
   light-grey:    #d7d7d7,
   darken-grey:   #c8c8c8,
@@ -38,6 +39,8 @@ $chroma: add-colors('functional', (
   load-more-bg:             'white',
 
   form-bg:                  'white',
+  filter-bg:                'dim-grey',
+  filter-color:             'white',
   focused-input:            'black-lighten',
   button-color:             'white-darken',
   option-h:                 'white-darken',
