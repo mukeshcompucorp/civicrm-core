@@ -6,12 +6,13 @@
   text-transform: uppercase
 
 =viewpoint
-  +lh-fs(18px, $card-label)
+  +rem(font-size, $card-label);
   +rem(padding, 5px 9px 2px)
   background-color: color(card-bg)
   color: color(main)
   display: inline-block
   font-weight: $bold
+  line-height: 1em
   margin-right: 30px
   max-width: 25%
   text-decoration: none
@@ -49,3 +50,11 @@
   right: 5px;
   top: 10px;
   width: 0;
+
+=centered-image
+  left: 50%
+  margin-left: auto
+  margin-right: auto
+  position: absolute
+  top: 50%
+  transform: translate(-50%, -50%)

@@ -3,29 +3,6 @@
   Drupal.behaviors.global_js = {
     attach: function (context,settings) {
 
-      var $filerEl  = $('.page-whats-on .who-select-prefix', context);
-      var $searchEl = $('.page-whats-on .form-item-tid', context);
-
-      if($filerEl.length) {
-        //  Hide now-upcoming who filter.
-        $searchEl.hide();
-        //  Toggle now-upcoming who filter when the element prefix is clicked.
-        $filerEl.click(function(e) {
-          $(this, context).toggleClass('active');
-          $searchEl.toggle();
-        });
-
-        $(document, context).click(function(e) {
-          var $this = $(e.target);
-          var $openedEl = $('.who-select-prefix.active', context);
-
-          if($openedEl.length && !$this.hasClass('form-item-tid') && !$this.hasClass('form-autocomplete') && !$this.hasClass('who-select-prefix')) {
-            $filerEl.removeClass('active');
-            $searchEl.hide();
-          }
-        });
-      }
-
       var $paragraph_promote = $("#paragraphs-page-node-form input[name='promote']", context);
       var $paragraph_homepage_options =  $('#paragraphs-page-node-form .group-homepage-pub-options', context);
 
@@ -34,13 +11,13 @@
 
       // Hiding Homepage Publishing group for Paragraphs Page and Event Details content type.
       if (!($paragraph_promote.is(':checked') || $event_promote.is(':checked'))) {
-	  	$paragraph_homepage_options.hide();
-	  	$event_homepage_options.hide();
+        $paragraph_homepage_options.hide();
+        $event_homepage_options.hide();
       }
 
       // Toogle Fieldset Homepage Publishing Options pending upon the Promoted to front page option.
       $paragraph_promote.click(function(){
-      	$paragraph_homepage_options.toggle();
+        $paragraph_homepage_options.toggle();
       });
       $event_promote.click(function(){
         $event_homepage_options.toggle();
@@ -63,9 +40,10 @@
             },
             presetRanges: [
               {text: 'Today', dateStart: function() { return moment() }, dateEnd: function() { return moment() } },
-              {text: 'This weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
-              {text: 'This week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
-              {text: 'Next month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
+              {text: 'This Weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
+              {text: 'This Week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
+              {text: 'Next Month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
+              {text: 'Pick a date'},
             ],
             datepickerOptions: {
               maxDate: '+1Y',

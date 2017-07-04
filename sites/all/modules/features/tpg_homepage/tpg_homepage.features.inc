@@ -57,11 +57,19 @@ function tpg_homepage_image_default_styles() {
 function tpg_homepage_node_info() {
   $items = array(
     'header_image' => array(
-      'name' => t('Header Image'),
+      'name' => t('Homepage Header Image'),
       'base' => 'node_content',
       'description' => t('Use <em> header_image </em> for creating Header Image for homepage.'),
       'has_title' => '1',
       'title_label' => t('Internal Reference Name/Title'),
+      'help' => '',
+    ),
+    'webform' => array(
+      'name' => t('Webform'),
+      'base' => 'node_content',
+      'description' => t('Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

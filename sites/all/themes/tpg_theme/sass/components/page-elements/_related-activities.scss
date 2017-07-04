@@ -16,6 +16,10 @@
       @include container;
       @include rem(font-size, 18px);
     }
+
+    .whats-on > .view-content {
+      @include make-row;
+    }
   }
 
   > .view-content {

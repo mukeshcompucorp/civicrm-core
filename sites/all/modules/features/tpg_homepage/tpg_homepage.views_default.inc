@@ -294,6 +294,17 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Weight (field_homepage_weight) */
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['id'] = 'field_homepage_weight_value';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['table'] = 'field_data_field_homepage_weight';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['field'] = 'field_homepage_weight_value';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',

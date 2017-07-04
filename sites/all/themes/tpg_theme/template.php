@@ -53,9 +53,17 @@ function tpg_theme_panels_flexible($vars) {
  * Implements hook_preprocess_page().
  */
 function tpg_theme_preprocess_page(&$vars, $hook) {
+
+  // Hiding Menu Login tabs.
+  if (in_array(current_path(), array('user/login', 'user')) && user_is_anonymous()) {
+    unset($vars['tabs']);
+  }
+  elseif (in_array(current_path(), array('user/password'))) {
+    unset($vars['tabs']['#primary']['0']);
+  }
+
   // Removing site logo depending upon show logo field value.
   $node = menu_get_object('node');
-
   if ($node->type == 'paragraphs_page') {
     if(!$node->field_show_logo['und'][0]['value']) {
       unset($vars['logo']);

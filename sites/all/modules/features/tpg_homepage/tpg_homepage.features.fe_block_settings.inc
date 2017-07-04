@@ -12,6 +12,111 @@ function tpg_homepage_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['block-user_login_create_account_intro'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'machine_name' => 'user_login_create_account_intro',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => 'user/login',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'tpg_theme',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Create an account',
+    'visibility' => 1,
+  );
+
+  $export['block-user_login_intro'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'machine_name' => 'user_login_intro',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => 'user/login
+user',
+    'roles' => array(
+      'anonymous user' => 1,
+    ),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -32,
+      ),
+    ),
+    'title' => 'Login',
+    'visibility' => 1,
+  );
+
   $export['system-main-menu'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -112,6 +217,60 @@ function tpg_homepage_default_fe_block_settings() {
     ),
     'title' => '',
     'visibility' => 0,
+  );
+
+  $export['tpg_global-create_account'] = array(
+    'cache' => 1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'create_account',
+    'module' => 'tpg_global',
+    'node_types' => array(),
+    'pages' => 'user
+user/login',
+    'roles' => array(
+      'anonymous user' => 1,
+    ),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -24,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
   );
 
   $export['views-6e4736d32ae81caa884e2c16b2e1fbcf'] = array(
