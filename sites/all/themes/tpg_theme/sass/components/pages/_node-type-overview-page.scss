@@ -31,10 +31,9 @@
     margin-top: 2.0625rem;
 
     .field-item {
+      @include lh-fs(25px, $h3);
       border-bottom: 1px solid color(heading);
       display: inline-block;
-      font-size: 1rem;
-      line-height: 1.5625rem;
     }
   }
 
