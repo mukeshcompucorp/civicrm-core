@@ -31,6 +31,26 @@
     }
   };
 
+  Drupal.behaviors.removingEmptyBlock = {
+    attach: function (context, settings) {
+      this.moveTitle('.header-image', 'img');
+      this.moveTitle('.header-image-two-col', 'img');
+    },
+    moveTitle: function(el, isEmpty, context) {
+      var $el       = $(el, context);
+      var $elLength = $el.length;
+
+      for (var i = 0; i < $elLength; i++) {
+        var $this  = $el.eq(i);
+        var $image = $this.find(isEmpty);
+
+        if (!$image.length) {
+          $this.remove();
+        }
+      }
+    }
+  };
+
   Drupal.behaviors.whatsOnFilter = {
     attach: function (context, settings) {
       this.createingEl('.whats-on-filter', 'resp-filter', 'Filter', context);
