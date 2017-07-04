@@ -135,6 +135,121 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: menu-footer_charity-status:http://www.compucorp.co.uk.
+  $menu_links['menu-footer_charity-status:http://www.compucorp.co.uk'] = array(
+    'menu_name' => 'menu-footer',
+    'link_path' => 'http://www.compucorp.co.uk',
+    'router_path' => '',
+    'link_title' => 'Charity Status',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-footer_charity-status:http://www.compucorp.co.uk',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-footer_copyright:http://www.compucorp.co.uk.
+  $menu_links['menu-footer_copyright:http://www.compucorp.co.uk'] = array(
+    'menu_name' => 'menu-footer',
+    'link_path' => 'http://www.compucorp.co.uk',
+    'router_path' => '',
+    'link_title' => 'Copyright',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-footer_copyright:http://www.compucorp.co.uk',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-footer_press:http://www.compucorp.co.uk.
+  $menu_links['menu-footer_press:http://www.compucorp.co.uk'] = array(
+    'menu_name' => 'menu-footer',
+    'link_path' => 'http://www.compucorp.co.uk',
+    'router_path' => '',
+    'link_title' => 'Press',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-footer_press:http://www.compucorp.co.uk',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-footer_privacy--cookies-policy:http://www.compucorp.co.uk.
+  $menu_links['menu-footer_privacy--cookies-policy:http://www.compucorp.co.uk'] = array(
+    'menu_name' => 'menu-footer',
+    'link_path' => 'http://www.compucorp.co.uk',
+    'router_path' => '',
+    'link_title' => 'Privacy & Cookies Policy',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-footer_privacy--cookies-policy:http://www.compucorp.co.uk',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -45,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-footer_terms--conditions:http://www.compucorp.co.uk.
+  $menu_links['menu-footer_terms--conditions:http://www.compucorp.co.uk'] = array(
+    'menu_name' => 'menu-footer',
+    'link_path' => 'http://www.compucorp.co.uk',
+    'router_path' => '',
+    'link_title' => 'Terms & Conditions',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-footer_terms--conditions:http://www.compucorp.co.uk',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -46,
+    'customized' => 1,
+  );
   // Exported menu link: menu-social-connectors_facebook:https://www.facebook.com.
   $menu_links['menu-social-connectors_facebook:https://www.facebook.com'] = array(
     'menu_name' => 'menu-social-connectors',
@@ -227,6 +342,30 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
+  // Exported menu link: user-menu_login:user/login.
+  $menu_links['user-menu_login:user/login'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user/login',
+    'router_path' => 'user/login',
+    'link_title' => 'Login',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'user-menu_login:user/login',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Exported menu link: user-menu_search:<front>.
   $menu_links['user-menu_search:<front>'] = array(
     'menu_name' => 'user-menu',
@@ -277,12 +416,18 @@ function tpg_homepage_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('About us');
   t('Bookshop');
+  t('Charity Status');
+  t('Copyright');
   t('Facebook');
   t('Home');
   t('Join & Support');
   t('Log out');
+  t('Login');
+  t('Press');
   t('Print Sales');
+  t('Privacy & Cookies Policy');
   t('Search');
+  t('Terms & Conditions');
   t('Twitter');
   t('User account');
   t('Viewpoints');
