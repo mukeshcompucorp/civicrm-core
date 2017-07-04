@@ -41,15 +41,10 @@
     margin-bottom: 24px;
   }
 
-  .logo-lottery {
+  .block-arts-council-england {
     bottom: 0;
     position: absolute;
     right: 0;
-
-    a {
-      @include sprite($logo-lottery);
-      display: block;
-    }
   }
 
   .block-menu-footer ul.menu li,
@@ -78,46 +73,6 @@
   }
 }
 
-.footer .block-menu-social-connectors ul.menu li {
-  display: inline-block;
-  float: left;
-
-  a {
-    background-color: color(footer-social-connectors-background-color);
-    border-radius: 2px;
-    color: color(main);
-    display: inline-block;
-    float: left;
-    font-size: 0;
-    height: 24px;
-    margin-right: 12px;
-    position: relative;
-    text-align: center;
-    width: 24px;
-
-    &:before {
-      @include rem(font-size, $footer-social-connectors-font-size);
-      bottom: 0;
-      left: 0;
-      line-height: 1em;
-      position: absolute;
-      right: 0;
-      text-indent: 0;
-      top: 4px;
-    }
-
-    &.fa-facebook-f:before {
-      @include rem(font-size, $footer-social-connectors-fb-font-size);
-      left: 4px;
-      top: 2px;
-    }
-
-    &:hover {
-      background-color: color(footer-text-color-active);
-    }
-  }
-}
-
 .footer form.webform-client-form {
   max-width: 70%;
   position: relative;
@@ -132,7 +87,6 @@
       color: color(footer-text-color);
       opacity: 1;
     }
-
     background-color: transparent;
     border: 1px solid color(footer-stay-up-to-date-color);
     color: color(footer-text-color);
