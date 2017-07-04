@@ -16,12 +16,6 @@ function tpg_homepage_menu_default_menu_custom() {
     'title' => 'Main menu',
     'description' => 'The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.',
   );
-  // Exported menu: menu-contact-details.
-  $menus['menu-contact-details'] = array(
-    'menu_name' => 'menu-contact-details',
-    'title' => 'Contact Details',
-    'description' => '',
-  );
   // Exported menu: menu-footer.
   $menus['menu-footer'] = array(
     'menu_name' => 'menu-footer',
@@ -42,7 +36,6 @@ function tpg_homepage_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Contact Details');
   t('Footer');
   t('Main menu');
   t('Social Connectors');

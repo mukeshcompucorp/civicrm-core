@@ -117,52 +117,6 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: menu-contact-details_44-020-7087-9300:tel:+44270879300.
-  $menu_links['menu-contact-details_44-020-7087-9300:tel:+44270879300'] = array(
-    'menu_name' => 'menu-contact-details',
-    'link_path' => 'tel:+44270879300',
-    'router_path' => '',
-    'link_title' => '+44 (020) 7087 9300',
-    'options' => array(
-      'attributes' => array(),
-      'item_attributes' => array(
-        'id' => '',
-        'class' => '',
-        'style' => '',
-      ),
-      'identifier' => 'menu-contact-details_44-020-7087-9300:tel:+44270879300',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-contact-details_infotpgorguk:mailto:info@tpg.org.uk.
-  $menu_links['menu-contact-details_infotpgorguk:mailto:info@tpg.org.uk'] = array(
-    'menu_name' => 'menu-contact-details',
-    'link_path' => 'mailto:info@tpg.org.uk',
-    'router_path' => '',
-    'link_title' => 'info@tpg.org.uk',
-    'options' => array(
-      'attributes' => array(),
-      'item_attributes' => array(
-        'id' => '',
-        'class' => '',
-        'style' => '',
-      ),
-      'identifier' => 'menu-contact-details_infotpgorguk:mailto:info@tpg.org.uk',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 1,
-  );
   // Exported menu link: menu-footer_about-us:node/131.
   $menu_links['menu-footer_about-us:node/131'] = array(
     'menu_name' => 'menu-footer',
@@ -321,7 +275,6 @@ function tpg_homepage_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('+44 (020) 7087 9300');
   t('About us');
   t('Bookshop');
   t('Facebook');
@@ -335,7 +288,6 @@ function tpg_homepage_menu_default_menu_links() {
   t('Viewpoints');
   t('Visit & Do');
   t('What\'s on');
-  t('info@tpg.org.uk');
 
   return $menu_links;
 }
