@@ -338,6 +338,11 @@ function tpg_paragraphs_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_paragraphs_date_published' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['paragraphs_item|title_section|full'] = $ds_fieldsetting;
 
@@ -352,6 +357,11 @@ function tpg_paragraphs_ds_field_settings_info() {
       'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
+    ),
+    'field_paragraphs_date_published' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
     ),
   );
   $export['paragraphs_item|title_section|overview'] = $ds_fieldsetting;
@@ -1669,11 +1679,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'field_paragraphs_tags_viewpoints' => 'center',
       'field_paragraph_description' => 'center',
     ),
-    'classes' => array(
-      'layout_class' => array(
-        '' => '',
-      ),
-    ),
+    'classes' => array(),
     'wrappers' => array(
       'header' => 'div',
       'center' => 'div',

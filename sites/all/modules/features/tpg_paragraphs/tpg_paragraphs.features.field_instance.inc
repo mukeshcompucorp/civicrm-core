@@ -3452,7 +3452,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'short_date_only',
+          'format_type' => 'event_format',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -3472,7 +3472,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'short_date_only',
+          'format_type' => 'event_format',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -3500,7 +3500,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'short_date_only',
+          'format_type' => 'event_format',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
