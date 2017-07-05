@@ -88,7 +88,7 @@ function tpg_homepage_node_export_features_default() {
       ),
       \'webform\' => array(
         \'nid\' => \'132\',
-        \'next_serial\' => \'1\',
+        \'next_serial\' => \'3\',
         \'confirmation\' => \'\',
         \'confirmation_format\' => \'filtered_html\',
         \'redirect_url\' => \'<confirmation>\',
