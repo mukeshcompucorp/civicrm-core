@@ -562,6 +562,14 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_event_dates_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_date'] = 'now';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_to_date'] = 'now';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $handler->display->display_options['path'] = 'whats-on/now-upcoming';
 
   /* Display: Past Programme */
@@ -712,7 +720,7 @@ function tpg_events_views_default_views() {
     199295989 => 0,
   );
   $handler->display->display_options['filters']['field_event_dates_value_1']['granularity'] = 'year';
-  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-3:+1';
+  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-3:+0';
   /* Filter criterion: Paragraphs item: Event Type (field_paragraphs_event_type) */
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['id'] = 'field_paragraphs_event_type_tid';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['table'] = 'field_data_field_paragraphs_event_type';
@@ -801,6 +809,14 @@ function tpg_events_views_default_views() {
   );
   $handler->display->display_options['filters']['field_event_dates_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_date'] = 'now';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $handler->display->display_options['path'] = 'whats-on/past-programme';
 
   /* Display: Featured Content */
@@ -936,6 +952,14 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['filters']['in_queue']['value'] = '1';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Next Season */
   $handler = $view->new_display('block', 'Next Season', 'next_season_block');
@@ -1073,6 +1097,14 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_paragraph_title_value']['field'] = 'field_paragraph_title_value';
   $handler->display->display_options['filters']['field_paragraph_title_value']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['filters']['field_paragraph_title_value']['operator'] = 'not empty';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $export['whats_on'] = $view;
 
   return $export;
