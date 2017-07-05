@@ -56,7 +56,7 @@ function tpg_homepage_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'tpg_theme',
-        'weight' => -25,
+        'weight' => 0,
       ),
     ),
     'title' => 'Create an account',
