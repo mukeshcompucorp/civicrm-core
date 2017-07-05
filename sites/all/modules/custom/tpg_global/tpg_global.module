@@ -141,7 +141,7 @@ function tpg_global_views_pre_render(&$view) {
   }
 
   // Event Start and End markup update.
-  if (($view->name == 'whats_on' || $view->name == 'related_activities') && (in_array($view->current_display, array('next_season_block', 'now_upcoming_view_page', 'past_programme_view_page', 'featured_past_programme_block', 'event_related_activities')))) {
+  if (in_array($view->name, array('whats_on', 'related_activities', 'homepage')) && (in_array($view->current_display, array('next_season_block', 'now_upcoming_view_page', 'past_programme_view_page', 'featured_past_programme_block', 'event_related_activities', 'current_exhibitions_highlights_block')))) {
 
     foreach ($view->result as $key => $value) {
       $start_date = $value->field_field_event_dates[0]['raw']['value'];

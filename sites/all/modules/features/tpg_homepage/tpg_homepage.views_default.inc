@@ -228,25 +228,10 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['ui_name'] = 'Event Start Date';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'day_month_short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Event End Date */
-  $handler->display->display_options['fields']['field_event_dates_1']['id'] = 'field_event_dates_1';
-  $handler->display->display_options['fields']['field_event_dates_1']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['field'] = 'field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_event_dates_1']['ui_name'] = 'Event End Date';
-  $handler->display->display_options['fields']['field_event_dates_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
-    'format_type' => 'format_custom',
-    'fromto' => 'value2',
+    'format_type' => 'day_month_year',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -278,7 +263,7 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_date_published']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_date_published']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_date_published']['settings'] = array(
-    'format_type' => 'day_month_year',
+    'format_type' => 'event_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
