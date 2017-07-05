@@ -17,7 +17,9 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Bookshop',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'main-menu_bookshop:<front>',
     ),
     'module' => 'menu',
@@ -52,7 +54,9 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Print Sales',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'main-menu_print-sales:<front>',
     ),
     'module' => 'menu',
@@ -70,7 +74,9 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Viewpoints',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'main-menu_viewpoints:<front>',
     ),
     'module' => 'menu',
@@ -88,7 +94,9 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Visit & Do',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'main-menu_visit--do:<front>',
     ),
     'module' => 'menu',
@@ -106,7 +114,9 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => 'whats-on/now-upcoming',
     'link_title' => 'What\'s on',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'main-menu_whats-on:whats-on/now-upcoming',
     ),
     'module' => 'menu',
@@ -124,68 +134,14 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'About us',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'menu-footer_about-us:node/131',
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-social-connectors_facebook:https://www.facebook.com.
-  $menu_links['menu-social-connectors_facebook:https://www.facebook.com'] = array(
-    'menu_name' => 'menu-social-connectors',
-    'link_path' => 'https://www.facebook.com',
-    'router_path' => '',
-    'link_title' => 'Facebook',
-    'options' => array(
-      'attributes' => array(
-        'class' => array(
-          0 => 'fa',
-          1 => 'fa-facebook-f',
-        ),
-      ),
-      'item_attributes' => array(
-        'id' => '',
-        'class' => '',
-        'style' => '',
-      ),
-      'identifier' => 'menu-social-connectors_facebook:https://www.facebook.com',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-social-connectors_twitter:https://www.twitter.com.
-  $menu_links['menu-social-connectors_twitter:https://www.twitter.com'] = array(
-    'menu_name' => 'menu-social-connectors',
-    'link_path' => 'https://www.twitter.com',
-    'router_path' => '',
-    'link_title' => 'Twitter',
-    'options' => array(
-      'attributes' => array(
-        'class' => array(
-          0 => 'fa',
-          1 => 'fa-twitter',
-        ),
-      ),
-      'item_attributes' => array(
-        'id' => '',
-        'class' => '',
-        'style' => '',
-      ),
-      'identifier' => 'menu-social-connectors_twitter:https://www.twitter.com',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 0,
@@ -198,7 +154,9 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Join & Support',
     'options' => array(
-      'attributes' => array(),
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'user-menu_join--support:<front>',
     ),
     'module' => 'menu',
@@ -234,17 +192,10 @@ function tpg_homepage_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'Search',
     'options' => array(
-      'identifier' => 'user-menu_search:<front>',
       'attributes' => array(
-        'class' => array(
-          0 => 'search-bar',
-        ),
+        'title' => '',
       ),
-      'item_attributes' => array(
-        'id' => '',
-        'class' => '',
-        'style' => '',
-      ),
+      'identifier' => 'user-menu_search:<front>',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -277,13 +228,11 @@ function tpg_homepage_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('About us');
   t('Bookshop');
-  t('Facebook');
   t('Home');
   t('Join & Support');
   t('Log out');
   t('Print Sales');
   t('Search');
-  t('Twitter');
   t('User account');
   t('Viewpoints');
   t('Visit & Do');
