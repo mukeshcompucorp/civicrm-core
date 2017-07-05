@@ -73,8 +73,19 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
     }
   }
   // Setting logo color.
-  if ($node->field_event_logo_color) {
-    $vars['logo-color'] = 'logo-color-' . drupal_strtolower($node->field_event_logo_color['und'][0]['value']);
+  if ($node->field_logo_color || $node->field_event_logo_color) {
+    $logo_color = $node->field_logo_color ? $node->field_logo_color : $node->field_event_logo_color;
+    switch (drupal_strtolower($logo_color['und'][0]['value'])) {
+      case 'black':
+        $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-black.png';
+        break;
+      case 'grey':
+        $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-grey.png';
+        break;
+      case 'white':
+        $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
+        break;
+    }
   }
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
