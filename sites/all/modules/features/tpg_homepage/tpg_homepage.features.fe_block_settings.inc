@@ -12,6 +12,7 @@ function tpg_homepage_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+<<<<<<< HEAD
   $export['block-arts_council_england'] = array(
     'cache' => -1,
     'css_class' => 'block-arts-council-england',
@@ -216,6 +217,8 @@ function tpg_homepage_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+=======
+>>>>>>> parent of 096db15... PGW-32: Header & footer menus/links/blocks additions to the feature
   $export['menu-menu-footer'] = array(
     'cache' => -1,
     'css_class' => 'block-menu-footer col-sm-4',
