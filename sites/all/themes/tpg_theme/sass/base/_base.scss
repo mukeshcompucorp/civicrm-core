@@ -2,7 +2,9 @@ html {
   background-color: color(page-bg);
   box-sizing: border-box;
   font-family: $main-font;
+  font-feature-settings: "lnum";
   font-size: 100%;
+  font-variant-numeric: lining-nums;
   height: 100%;
 
   body {
