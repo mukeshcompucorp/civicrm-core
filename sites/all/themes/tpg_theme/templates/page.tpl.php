@@ -65,6 +65,13 @@
  */
 ?>
 <div id="page-wrapper">
+  <?php if ($page['header_pane']): ?>
+    <section id="header-pane" class="header-pane">
+      <div class="container clearfix">
+        <?php print render($page['header_pane']); ?>
+      </div>
+    </section>
+  <?php endif; ?>
   <header id="header" class="header">
     <div class="header-inner clearfix">
       <?php if ($logo): ?>
@@ -151,9 +158,12 @@
 
   <footer id="footer" class="footer">
     <div class="footer-inner container clearfix">
+      <div class="logo-footer container">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"></a>
+      </div>
       <?php if ($page['footer']): ?>
-         <?php print render($page['footer']) ?>
-       <?php endif; ?>
+        <?php print render($page['footer']) ?>
+      <?php endif; ?>
     </div>
   </footer>
 </div>
