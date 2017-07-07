@@ -1,14 +1,8 @@
-.node-type-paragraphs-page {
-  .main-content {
-    margin-top: 50px;
-  }
+.node-type-paragraphs-page .embedded-video iframe {
+  display: block;
+  height: 546px;
 
-  .embedded-video iframe {
-    display: block;
-    height: 546px;
-
-    @include breakpoint($lg-1 0) {
-      height: 360px;
-    }
+  @include breakpoint($lg-1 0) {
+    height: 360px;
   }
 }
