@@ -230,9 +230,6 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
         '#type' => 'daterangepicker',
         '#DateRangePicker_options' => array(
           'initial_text' => t('ANYTIME'),
-          'apply_button_text' => t('SEARCH'),
-          'clear_button_text' => t('CLEAR'),
-          'cancel_button_text' => t('CANCEL'),
           'range_splitter' => ' - ',
           'date_format' => 'd M, yy',
           // This needs to be a format recognised by javascript Date.parse method.
