@@ -27,6 +27,41 @@ function tpg_overview_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'field_collection_item|field_overview_section|default';
+  $ds_fieldsetting->entity_type = 'field_collection_item';
+  $ds_fieldsetting->bundle = 'field_overview_section';
+  $ds_fieldsetting->view_mode = 'default';
+  $ds_fieldsetting->settings = array(
+    'field_links' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => TRUE,
+          'fis' => TRUE,
+          'fis-el' => 'div',
+          'fis-cl' => 'field-items',
+          'fis-at' => '',
+          'fis-def-at' => FALSE,
+          'fi' => TRUE,
+          'fi-el' => 'div',
+          'fi-cl' => 'field-item col-sm-4',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
+  );
+  $export['field_collection_item|field_overview_section|default'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'node|events_detail|overview';
   $ds_fieldsetting->entity_type = 'node';
   $ds_fieldsetting->bundle = 'events_detail';
@@ -144,21 +179,23 @@ function tpg_overview_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'node|events_detail|overview';
-  $ds_layout->entity_type = 'node';
-  $ds_layout->bundle = 'events_detail';
-  $ds_layout->view_mode = 'overview';
+  $ds_layout->id = 'field_collection_item|field_overview_section|default';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_overview_section';
+  $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_paragraphs_entity',
-        1 => 'read_more_node',
+        0 => 'field_subtitle',
+        1 => 'field_subtitle_description',
+        2 => 'field_links',
       ),
     ),
     'fields' => array(
-      'field_paragraphs_entity' => 'ds_content',
-      'read_more_node' => 'ds_content',
+      'field_subtitle' => 'ds_content',
+      'field_subtitle_description' => 'ds_content',
+      'field_links' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -170,6 +207,37 @@ function tpg_overview_ds_layout_settings_info() {
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => FALSE,
+  );
+  $export['field_collection_item|field_overview_section|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|events_detail|overview';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'events_detail';
+  $ds_layout->view_mode = 'overview';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'classes' => array(),
+    'wrappers' => array(
+      'content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_paragraphs_entity',
+        1 => 'read_more_node',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraphs_entity' => 'ds_content',
+      'read_more_node' => 'ds_content',
+    ),
   );
   $export['node|events_detail|overview'] = $ds_layout;
 
