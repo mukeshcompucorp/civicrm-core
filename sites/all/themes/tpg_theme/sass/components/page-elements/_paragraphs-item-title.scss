@@ -13,6 +13,10 @@
 
   &.title-header {
     @include rem(margin-top, 48px);
+
+    h1:after {
+      margin: 0;
+    }
   }
 
   .field-name-field-paragraphs-event-type,
