@@ -2,7 +2,9 @@ html {
   background-color: color(page-bg);
   box-sizing: border-box;
   font-family: $main-font;
+  font-feature-settings: 'lnum';
   font-size: 100%;
+  font-variant-numeric: lining-nums;
   height: 100%;
 
   body {
@@ -10,6 +12,7 @@ html {
   }
 
   * {
+    @include font-smoothing;
     @include rem(font-size, $p);
     box-sizing: border-box;
     color: color(text);
@@ -122,9 +125,19 @@ p,
 li,
 label,
 blockquote {
-  @include lh-fs(28px, $p);
+  @include rem(font-size, $p);
   color: color(text);
   font-weight: $bold;
+}
+
+.content-wrap {
+  a,
+  p,
+  li,
+  label,
+  blockquote {
+    line-height: 1.62;
+  }
 }
 
 p {

@@ -101,7 +101,11 @@ function tpg_global_views_query_alter(&$view, &$query) {
     else {
       $range_values = json_decode($view->exposed_input['range']);
       $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $range_values->start;
-      $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $range_values->end;
+      if ($start_date != $end_date) {
+        $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $range_values->end;
+      } else {
+        unset($query->where[2]['conditions'][1]);
+      }
     }
   }
 }
@@ -159,6 +163,15 @@ function tpg_global_views_pre_render(&$view) {
     }
   }
 
+  // Header Image Lightbox view.
+  if ($view->name == 'paragraphs_entities' && $view->current_display == 'header_image_lightbox') {
+
+    // Converting html to plain text for Image caption.
+    if ($caption_value = &$view->result[0]->paragraphs_item_field_data_field_paragraphs_header_section_f) {
+      $caption_value = drupal_html_to_text($caption_value);
+      drupal_add_js(array('tpg_global' => array('header_image_lightbox_caption' => $caption_value)), 'setting');
+    }
+  }
 }
 
 /**
@@ -217,9 +230,6 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
         '#type' => 'daterangepicker',
         '#DateRangePicker_options' => array(
           'initial_text' => t('ANYTIME'),
-          'apply_button_text' => t('SEARCH'),
-          'clear_button_text' => t('CLEAR'),
-          'cancel_button_text' => t('CANCEL'),
           'range_splitter' => ' - ',
           'date_format' => 'd M, yy',
           // This needs to be a format recognised by javascript Date.parse method.
