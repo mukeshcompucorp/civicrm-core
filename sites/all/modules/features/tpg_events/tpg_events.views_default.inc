@@ -282,6 +282,98 @@ function tpg_events_views_default_views() {
   $handler = $view->new_display('page', 'Now & Upcoming', 'now_upcoming_view_page');
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'input_required' => 0,
+      'text_input_required' => array(
+        'text_input_required' => array(
+          'value' => 'Select any filter and click on Apply to see results',
+          'format' => 'filtered_html',
+        ),
+      ),
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+      'secondary_collapse_override' => '0',
+    ),
+    'combine' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_paragraphs_event_type_tid' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            1 => 'vocabulary',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'tid' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            1 => 'vocabulary',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_event_for_tid' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            1 => 'vocabulary',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+  );
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
@@ -349,30 +441,11 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_event_dates']['ui_name'] = 'Event Start Date';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'day_month_short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Event End Date */
-  $handler->display->display_options['fields']['field_event_dates_1']['id'] = 'field_event_dates_1';
-  $handler->display->display_options['fields']['field_event_dates_1']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['field'] = 'field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_event_dates_1']['ui_name'] = 'Event End Date';
-  $handler->display->display_options['fields']['field_event_dates_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
-  $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
-  $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
-    'fromto' => 'value2',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -581,12 +654,93 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_event_dates_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_date'] = 'now';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_to_date'] = 'now';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $handler->display->display_options['path'] = 'whats-on/now-upcoming';
 
   /* Display: Past Programme */
   $handler = $view->new_display('page', 'Past Programme', 'past_programme_view_page');
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'input_required' => 0,
+      'text_input_required' => array(
+        'text_input_required' => array(
+          'value' => 'Select any filter and click on Apply to see results',
+          'format' => 'filtered_html',
+        ),
+      ),
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+      'secondary_collapse_override' => '0',
+    ),
+    'field_event_dates_value_1' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+        'datepicker_options' => '',
+      ),
+    ),
+    'field_paragraphs_event_type_tid' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            1 => 'vocabulary',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'tid' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            1 => 'vocabulary',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+  );
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
@@ -654,30 +808,11 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_event_dates']['ui_name'] = 'Event Start Date';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'day_month_short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Event End Date */
-  $handler->display->display_options['fields']['field_event_dates_1']['id'] = 'field_event_dates_1';
-  $handler->display->display_options['fields']['field_event_dates_1']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['field'] = 'field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_event_dates_1']['ui_name'] = 'Event End Date';
-  $handler->display->display_options['fields']['field_event_dates_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
-  $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
-  $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
-    'fromto' => 'value2',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -750,7 +885,7 @@ function tpg_events_views_default_views() {
     199295989 => 0,
   );
   $handler->display->display_options['filters']['field_event_dates_value_1']['granularity'] = 'year';
-  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-3:+1';
+  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-3:+0';
   /* Filter criterion: Paragraphs item: Event Type (field_paragraphs_event_type) */
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['id'] = 'field_paragraphs_event_type_tid';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['table'] = 'field_data_field_paragraphs_event_type';
@@ -839,6 +974,14 @@ function tpg_events_views_default_views() {
   );
   $handler->display->display_options['filters']['field_event_dates_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_date'] = 'now';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $handler->display->display_options['path'] = 'whats-on/past-programme';
 
   /* Display: Featured Content */
@@ -916,30 +1059,11 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_event_dates']['ui_name'] = 'Event Start Date';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'day_month_short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Event End Date */
-  $handler->display->display_options['fields']['field_event_dates_1']['id'] = 'field_event_dates_1';
-  $handler->display->display_options['fields']['field_event_dates_1']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['field'] = 'field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_event_dates_1']['ui_name'] = 'Event End Date';
-  $handler->display->display_options['fields']['field_event_dates_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
-  $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
-  $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
-    'fromto' => 'value2',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -993,6 +1117,14 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['filters']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['filters']['in_queue']['value'] = '1';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Next Season */
   $handler = $view->new_display('block', 'Next Season', 'next_season_block');
@@ -1062,30 +1194,11 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_event_dates']['ui_name'] = 'Event Start Date';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'day_month_short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Event End Date */
-  $handler->display->display_options['fields']['field_event_dates_1']['id'] = 'field_event_dates_1';
-  $handler->display->display_options['fields']['field_event_dates_1']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['field'] = 'field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_event_dates_1']['ui_name'] = 'Event End Date';
-  $handler->display->display_options['fields']['field_event_dates_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_event_dates_1']['alter']['text'] = '[field_event_dates] - [field_event_dates_1]';
-  $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['element_wrapper_class'] = 'col-xs-6 date';
-  $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
     'format_type' => 'day_month_year',
-    'fromto' => 'value2',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -1149,6 +1262,14 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_paragraph_title_value']['field'] = 'field_paragraph_title_value';
   $handler->display->display_options['filters']['field_paragraph_title_value']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['filters']['field_paragraph_title_value']['operator'] = 'not empty';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $export['whats_on'] = $view;
 
   return $export;
