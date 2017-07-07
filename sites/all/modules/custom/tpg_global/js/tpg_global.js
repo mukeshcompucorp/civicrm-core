@@ -53,6 +53,11 @@
           });
         });
       }
+
+      // Header Image Lightbox image caption update using Drupal settings from tpg_global module.
+      if (typeof Drupal.settings.tpg_global != 'undefined' && typeof Drupal.settings.tpg_global.header_image_lightbox_caption != 'undefined') {
+        $('#colorbox #cboxTitle').text(Drupal.settings.tpg_global.header_image_lightbox_caption);
+      }
     }
   };
 })(jQuery);

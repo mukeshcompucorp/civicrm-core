@@ -90,6 +90,14 @@ function tpg_paragraphs_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'full_width_video_header' => 'full_width_video_header',
+  );
   $export['header_video'] = $view;
 
   $view = new view();
@@ -214,6 +222,14 @@ function tpg_paragraphs_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'full_width_image_caption' => 'full_width_image_caption',
+  );
 
   /* Display: Header Image Left Right  */
   $handler = $view->new_display('block', 'Header Image Left Right ', 'banner_image_left_right');
@@ -281,6 +297,14 @@ function tpg_paragraphs_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'header_image_left_image_right' => 'header_image_left_image_right',
+  );
 
   /* Display: Header Gallery Image */
   $handler = $view->new_display('block', 'Header Gallery Image', 'header_gallery_image');
@@ -342,6 +366,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+  );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'header_gallery' => 'header_gallery',
   );
 
   /* Display: Location Map */
@@ -408,6 +440,30 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['longitude']['label'] = '';
   $handler->display->display_options['fields']['longitude']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['longitude']['style'] = 'dd';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'paragraphs_page' => 'paragraphs_page',
+  );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'reading_width_maps' => 'reading_width_maps',
+  );
 
   /* Display: Header Image Lightbox */
   $handler = $view->new_display('block', 'Header Image Lightbox', 'header_image_lightbox');
@@ -466,6 +522,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+  );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'header_image_lightbox' => 'header_image_lightbox',
   );
   $export['paragraphs_entities'] = $view;
 
