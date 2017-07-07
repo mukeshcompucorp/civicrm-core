@@ -43,7 +43,7 @@
               {text: 'This Weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
               {text: 'This Week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
               {text: 'Next Month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
-              {text: 'Pick a date'},
+              {text: '<span id="pick-a-date">' + Drupal.t("Pick a date") + '</span>'},
             ],
             datepickerOptions: {
               maxDate: '+1Y',
