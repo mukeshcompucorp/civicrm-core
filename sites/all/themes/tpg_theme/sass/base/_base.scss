@@ -128,7 +128,16 @@ blockquote {
   @include rem(font-size, $p);
   color: color(text);
   font-weight: $bold;
-  line-height: 1.62;
+}
+
+.content-wrap {
+  a,
+  p,
+  li,
+  label,
+  blockquote {
+    line-height: 1.62;
+  }
 }
 
 p {
