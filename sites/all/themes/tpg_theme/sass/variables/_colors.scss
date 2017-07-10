@@ -18,44 +18,54 @@ $chroma: add-colors((
   dark-grey:     #6d6d6d,
   light-grey:    #d7d7d7,
   darken-grey:   #c8c8c8,
-  silver:        #999
+  silver:        #999,
+  light-silver:  #9b9b9b,
+  lighter-grey:  #dddddd
 ));
 
 // Define color names for functional uses.
 $chroma: define-color-scheme('functional', 'Colors used by functional parts of the design.');
 $chroma: add-colors('functional', (
   // Colors used in the main content area.
-  main:                     'black',
-  heading:                  'black',
-  text:                     'black-lighten',
+  main:                                       'black',
+  heading:                                    'black',
+  text:                                       'black-lighten',
 
-  page-bg:                  'light-grey',
+  page-bg:                                    'light-grey',
 
-  card-bg:                  'white',
-  admin-menu-text-color:    'white',
+  card-bg:                                    'white',
+  admin-menu-text-color:                      'white',
 
-  load-more-bg:             'white',
+  load-more-bg:                               'white',
 
-  form-bg:                  'white',
-  filter-bg:                'dim-grey',
-  filter-color:             'white',
-  focused-input:            'black-lighten',
-  button-color:             'white-darken',
-  option-h:                 'white-darken',
-  input-bd:                 'white-darken',
+  form-bg:                                    'white',
+  filter-bg:                                  'dim-grey',
+  filter-color:                               'white',
+  focused-input:                              'black-lighten',
+  button-color:                               'white-darken',
+  option-h:                                   'white-darken',
+  input-bd:                                   'white-darken',
 
-  caption-color:            'dark-grey',
-  caption-bg:               'taupe-grey',
-  caption-title:            'silver',
+  caption-color:                              'dark-grey',
+  caption-bg:                                 'taupe-grey',
+  caption-title:                              'silver',
 
-  date-cell-h:              'light-grey',
+  date-cell-h:                                'light-grey',
+  main-menu-text-color:                       'light-grey',
+  main-menu-text-color-active:                'white',
+  user-menu-text-color:                       'light-silver',
+  user-menu-text-color-active:                'white',
+  footer-text-color:                          'light-grey',
+  footer-text-color-active:                   'white',
+  footer-social-connectors-background-color:  'light-grey',
+  footer-stay-up-to-date-color:               'lighter-grey',
 
-  colorbox-close-button:    'silver',
-  arrows:                   'silver',
+  colorbox-close-button:                      'silver',
+  arrows:                                     'silver',
 
-  darken-background:        'darken-grey',
+  darken-background:                          'darken-grey',
 
-  related-activities-color: 'black'
+  related-activities-color:                   'black'
 ));
 
 $chroma-active-scheme: 'functional';

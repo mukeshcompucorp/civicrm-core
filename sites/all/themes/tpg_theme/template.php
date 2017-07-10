@@ -97,6 +97,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['content'] = 'col-md-6';
         $classes['content_width'] = 'header-image-narrow';
         break;
+      case 'overview_page':
+        $classes['sidebar_first'] = '';
+        $classes['sidebar_second'] = '';
+        $classes['content'] = '';
+      break;
       default:
         $classes['sidebar_first'] = 'col-md-2';
         $classes['sidebar_second'] = 'col-md-2';
