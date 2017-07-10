@@ -85,9 +85,10 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
       case 'white':
         $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
         break;
-    } else if ($node->type == 'paragraphs_page' || $node->type == 'events_detail') {
-      $vars['logo'] = '';
     }
+  }
+  elseif (in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+    $vars['logo'] = '';
   }
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
