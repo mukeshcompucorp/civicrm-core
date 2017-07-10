@@ -10,6 +10,7 @@ screenshot = screenshot.jpg
 stylesheets[all][] = dist/main.css
 ;stylesheets[all][] = dist/main.min.css
 
+regions[header_pane]       = Header Pane
 regions[header]            = Header
 regions[content]           = Content
 regions[full_width_bottom] = Full width bottom region
