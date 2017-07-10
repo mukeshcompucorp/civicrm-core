@@ -220,7 +220,7 @@
     a {
       @include rem(font-size, $form-item);
       color: color(main);
-      font-weight: 700;
+      font-weight: $bold;
       line-height: 1;
       padding: 8px 18px 8px 8px;
       position: relative;
@@ -231,7 +231,7 @@
     .ui-menu-item a.ui-state-active {
       background: color(option-h);
       border: 0;
-      font-weight: 700;
+      font-weight: $bold;
       margin: 0;
     }
 
