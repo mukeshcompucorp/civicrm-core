@@ -87,6 +87,9 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         break;
     }
   }
+  elseif (in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+    $vars['logo'] = '';
+  }
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
   if ($node) {
