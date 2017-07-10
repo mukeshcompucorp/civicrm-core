@@ -11,7 +11,6 @@ $chroma: add-colors((
   white:         #fff,
 
   black-lighten: #222,
-  white-darken:  #ddd,
 
   taupe-grey:    #313131,
   dim-grey:      #333,
@@ -20,7 +19,7 @@ $chroma: add-colors((
   darken-grey:   #c8c8c8,
   silver:        #999,
   light-silver:  #9b9b9b,
-  lighter-grey:  #dddddd
+  lighter-grey:  #ddd
 ));
 
 // Define color names for functional uses.
@@ -42,19 +41,21 @@ $chroma: add-colors('functional', (
   filter-bg:                                  'dim-grey',
   filter-color:                               'white',
   focused-input:                              'black-lighten',
-  button-color:                               'white-darken',
-  option-h:                                   'white-darken',
-  input-bd:                                   'white-darken',
+  button-color:                               'lighter-grey',
+  option-h:                                   'lighter-grey',
+  input-bd:                                   'lighter-grey',
 
   caption-color:                              'dark-grey',
   caption-bg:                                 'taupe-grey',
   caption-title:                              'silver',
 
   date-cell-h:                                'light-grey',
+
   main-menu-text-color:                       'light-grey',
   main-menu-text-color-active:                'white',
   user-menu-text-color:                       'light-silver',
   user-menu-text-color-active:                'white',
+
   footer-text-color:                          'light-grey',
   footer-text-color-active:                   'white',
   footer-social-connectors-background-color:  'light-grey',

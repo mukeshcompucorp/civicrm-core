@@ -29,14 +29,21 @@
           // Enable date range for all inputs with the given class.
           $(this).daterangepicker({
             onOpen: function(event, data) {
-              if (!$('#pick-a-date').length) {
-                $('.comiseo-daterangepicker-presets > .ui-widget').after('<span id="pick-a-date">' + Drupal.t('Pick a date') + '</span>');
-              }
+              // Hide calendar on select open
+              $('.comiseo-daterangepicker-calendar', context).hide();
+
+              // Remove date range
+              $('#pick-a-date', context).closest('li').unbind();
+
+              // Show calendar on icon click
+              $('#pick-a-date', context).once().click(function(e) {
+                e.preventDefault();
+                $('.comiseo-daterangepicker-calendar', context).toggle();
+                return false;
+              });
             },
             initialText: settings.daterangepicker.initialText,
-            applyButtonText: settings.daterangepicker.applyButtonText,
-            clearButtonText: settings.daterangepicker.clearButtonText,
-            cancelButtonText: settings.daterangepicker.cancelButtonText,
+            applyButtonText: '',
             rangeSplitter: settings.daterangepicker.rangeSplitter,
             dateFormat: settings.daterangepicker.dateFormat,
             altFormat: settings.daterangepicker.altFormat,
@@ -48,6 +55,7 @@
               {text: 'This Weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
               {text: 'This Week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
               {text: 'Next Month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
+              {text: '<a href="#" id="pick-a-date" class="pick-a-date">' + Drupal.t('Pick a date') + '</a>', dateStart: function() { return moment() }, dateEnd: function() { return moment() } },
             ],
             datepickerOptions: {
               maxDate: '+1Y',

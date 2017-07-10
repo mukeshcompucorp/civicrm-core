@@ -41,17 +41,17 @@
   border-radius: 0;
   padding: 0;
 
+  .ui-widget-content.comiseo-daterangepicker-calendar {
+    display: none;
+  }
+
   .ui-datepicker-calendar thead,
   .ui-priority-secondary {
     display: none;
   }
 
-  .comiseo-daterangepicker-presets {
-    display: block;
-    height: auto;
-  }
-
   .ui-widget-content {
+    background: none;
     border: 0;
     display: block;
     height: auto;
@@ -81,7 +81,12 @@
   .ui-datepicker-multi {
     display: flex !important;
 
+    .ui-datepicker-group-first {
+      margin-right: 30px;
+    }
+
     > div {
+      background-color: color(form-bg);
       flex: 1 0 auto;
       padding-bottom: 10px;
     }
@@ -177,26 +182,70 @@
 
   // Action links
   > .ui-helper-clearfix {
-    background: color(form-bg);
-    padding-bottom: 10px;
-    padding-left: 15px;
+    display: none;
+  }
 
-    button {
-      background: color(main);
+  // Presets menu
+  .comiseo-daterangepicker-presets {
+    @include clr;
+    display: block;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .ui-menu {
+    background-color: color(form-bg);
+    border-radius: 0;
+
+    li:last-child a:not(.pick-a-date) {
+      display: none;
+    }
+
+    .pick-a-date {
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .pick-a-date:before {
+      @include sprite($calendar);
+      content: '';
+      display: inline-block;
+      left: 8px;
+      margin-top: -8px;
+      position: absolute;
+      top: 50%;
+    }
+
+    a {
+      @include rem(font-size, $form-item);
+      color: color(main);
+      font-weight: 700;
+      line-height: 1;
+      padding: 8px 18px 8px 8px;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .ui-menu-item a.ui-state-focus,
+    .ui-menu-item a.ui-state-active {
+      background: color(option-h);
       border: 0;
-      border-radius: 0;
+      font-weight: 700;
       margin: 0;
     }
 
-    button span {
-      @include rem(font-size, $form-item);
-      color: color(button-color);
-      margin-top: 0;
-      padding-bottom: 5px;
-      padding-top: 7px;
-      text-transform: uppercase;
+    .ui-corner-all,
+    .ui-corner-bottom,
+    .ui-corner-right,
+    .ui-corner-br {
+      border-radius: 0;
     }
   }
+}
+
+input.daterangepicker {
+  opacity: 0;
 }
 
 @include breakpoint($md-1 0) {
