@@ -5,6 +5,10 @@
  * Code for the TPG Global.
  */
 
+define('MARGIN_SPACING', serialize(array(0, 24, 48)));
+define('MARGIN_BEFORE_CLASS', 'tpg_global_paragraphs_margin_before');
+define('MARGIN_AFTER_CLASS', 'tpg_global_paragraphs_margin_after');
+
 /**
  * Implements hook_node_view_alter().
  */
@@ -186,6 +190,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     // Hiding Event type and Event date fields.
     foreach ($form['field_paragraphs_content']['und'] as $key => $value) {
       if (is_int($key)) {
+
+        // Setting options for Field Collection Margin before and after fields.
+        _tpg_global_margin_before_after_options($form, 'field_paragraphs_content', $form_state, $key);
+
         if ($value['#bundle'] == 'title_section') {
           unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_event_type']);
           unset($form['field_paragraphs_content']['und'][$key]['field_event_dates']);
@@ -198,6 +206,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     // Hiding Page Type field.
     foreach ($form['field_paragraphs_entity']['und'] as $key => $value) {
       if (is_int($key)) {
+
+        // Setting options for Field Collection Margin before and after fields.
+        _tpg_global_margin_before_after_options($form, 'field_paragraphs_entity', $form_state, $key);
+
         if ($value['#bundle'] == 'title_section') {
           unset($form['field_paragraphs_entity']['und'][$key]['field_paragraphs_type']);
         }
@@ -274,6 +286,33 @@ function _tpg_global_homepage_weight_range(&$form = array()) {
   if ($form['field_whats_on_weight']) {
     $form['field_whats_on_weight']['und']['#options'] = $range;
     $form['field_whats_on_weight']['und']['#default_value'] = $form['#node']->field_whats_on_weight['und'][0] ? $form['#node']->field_whats_on_weight['und'][0] : 0;
+  }
+}
+
+/**
+ * Adding Options for Margin before and after fields.
+ *
+ * @param $form array
+ *    Content type form array.
+ */
+function _tpg_global_margin_before_after_options(&$form = array(), $field_name, $form_state, $key) {
+
+  if (isset($form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']) || isset($form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after'])) {
+
+    // Adding options to margin before and margin after fields.
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']['und']['#options'] = $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after']['und']['#options'] = unserialize(MARGIN_SPACING);
+
+    // Load field collection for margins field.
+    $field_margins_id = $form_state['field'][$field_name]['und']['entity'][$key]->field_margins['und'][0]['value'];
+    $field_collection_load = _tpg_global_field_collection_entity($field_margins_id);
+
+    // Collect Margin before and after fields value.
+    $margin_before_value = $field_collection_load->field_margin_before['und'][0]['value'];
+    $margin_after_value = $field_collection_load->field_margin_after['und'][0]['value'];;
+
+    // Adding Default value for margin before and margin after fields.
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']['und']['#default_value'] = isset($margin_before_value) ? $margin_before_value : 2;
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after']['und']['#default_value'] = isset($margin_after_value) ? $margin_after_value : 2;
   }
 }
 
@@ -376,4 +415,45 @@ function tpg_global_menu_alter(&$items) {
  */
 function _tpg_global_user_menu_title() {
   return user_is_logged_in() ? t('My account') : t('');
+}
+
+/**
+ * Alter the layout render array.
+ *
+ * @param $layout_render_array
+ *   The render array
+ * @param $context
+ *   An array with the context that is being rendered. Available keys are
+ *   - entity
+ *   - entity_type
+ *   - bundle
+ *   - view_mode
+ * @param array $vars
+ *   All variables available for render. You can use this to add css classes.
+ */
+function tpg_global_ds_pre_render_alter(&$layout_render_array, $context, &$vars) {
+
+  $margin_constant = unserialize(MARGIN_SPACING);
+  // Adding Marging before class.
+  if (isset($vars['elements']['#entity']->field_margins['und'][0]['value'])) {
+
+    $margin_fields_load = _tpg_global_field_collection_entity($vars['elements']['#entity']->field_margins['und'][0]['value']);
+    $vars['classes_array'][] = MARGIN_BEFORE_CLASS . '_' . $margin_constant[$margin_fields_load->field_margin_before['und'][0]['value']];
+    $vars['classes_array'][] = MARGIN_AFTER_CLASS . '_' . $margin_constant[$margin_fields_load->field_margin_after['und'][0]['value']];
+  }
+}
+
+/**
+ * Loads Field Collection entity.
+ *
+ * @param string
+ *  Field collection entity id.
+ *
+ * @return array
+ *  Field Collection Entity object.
+ */
+function _tpg_global_field_collection_entity($item_id = '') {
+  $field_collection_load = '';
+  $field_collection_load = entity_load('field_collection_item', array($item_id));
+  return $field_collection_load[$item_id];
 }
