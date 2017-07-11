@@ -1,5 +1,4 @@
 .header {
-  background-color: color(darken-background);
   min-height: 144px;
 
   .logo a {
@@ -73,54 +72,6 @@
     .field-content:not(:empty) {
       display: block;
       padding: 10px;
-    }
-  }
-}
-
-.header-pane {
-  background-color: color(main);
-
-  &:after {
-    @include clr;
-  }
-
-  .block-menu-main {
-    float: left;
-  }
-
-  .block-menu-user {
-    float: right;
-  }
-
-  ul.menu {
-    padding-left: 0;
-
-    &:after {
-      @include clr;
-    }
-  }
-
-  ul.menu li {
-    display: inline-block;
-    float: left;
-    padding: 7px 16px 5px;
-
-    &.first {
-      padding-left: 6px;
-    }
-
-    &.last {
-      padding-right: 6px;
-    }
-
-    a {
-      color: color(main-menu-text-color);
-      font-size: $main-menu-link-size;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: color(main-menu-text-color-active);
     }
   }
 }

@@ -122,6 +122,7 @@
     @include rem(margin-bottom, 5px);
     color: color(main);
     font-weight: bold;
+    min-height: auto;
     padding-left: 0;
     padding-right: 0;
     text-transform: uppercase;
@@ -130,6 +131,10 @@
       font-size: inherit;
       font-weight: inherit;
     }
+  }
+
+  .type {
+    clear: left;
   }
 
   .date {
