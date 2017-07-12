@@ -31,6 +31,31 @@ function tpg_paragraphs_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_background_color'.
+  $field_bases['field_background_color'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_background_color',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Black' => 'Black',
+        'White' => 'White',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_full_width_image'.
   $field_bases['field_full_width_image'] = array(
     'active' => 1,
@@ -78,7 +103,7 @@ function tpg_paragraphs_field_default_field_bases() {
   // Exported field_base: 'field_header_image_lightbox'.
   $field_bases['field_header_image_lightbox'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_header_image_lightbox',
@@ -785,7 +810,7 @@ function tpg_paragraphs_field_default_field_bases() {
   // Exported field_base: 'field_reading_image'.
   $field_bases['field_reading_image'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_reading_image',

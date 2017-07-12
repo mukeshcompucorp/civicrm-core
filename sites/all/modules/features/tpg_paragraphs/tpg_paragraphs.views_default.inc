@@ -480,6 +480,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['relationships']['field_paragraphs_header_section_value']['field'] = 'field_paragraphs_header_section_value';
   $handler->display->display_options['relationships']['field_paragraphs_header_section_value']['delta'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Paragraphs item: Background Color */
+  $handler->display->display_options['fields']['field_background_color']['id'] = 'field_background_color';
+  $handler->display->display_options['fields']['field_background_color']['table'] = 'field_data_field_background_color';
+  $handler->display->display_options['fields']['field_background_color']['field'] = 'field_background_color';
+  $handler->display->display_options['fields']['field_background_color']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['fields']['field_background_color']['label'] = '';
+  $handler->display->display_options['fields']['field_background_color']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_background_color']['element_label_colon'] = FALSE;
   /* Field: Paragraphs item: Header Image Lightbox */
   $handler->display->display_options['fields']['field_header_image_lightbox']['id'] = 'field_header_image_lightbox';
   $handler->display->display_options['fields']['field_header_image_lightbox']['table'] = 'field_data_field_header_image_lightbox';

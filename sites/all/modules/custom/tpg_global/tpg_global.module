@@ -170,10 +170,23 @@ function tpg_global_views_pre_render(&$view) {
   // Header Image Lightbox view.
   if ($view->name == 'paragraphs_entities' && $view->current_display == 'header_image_lightbox') {
 
+    // Adding background class using background class field.
+    if ($bg_color_value = $view->result[0]->field_field_background_color[0]['raw']['value']) {
+      drupal_add_js(array('tpg_global' => array('header_image_lightbox_bg_color' => 'colorbox-background-' . drupal_strtolower($bg_color_value))), 'setting');
+    }
+    $caption_value = '';
     // Converting html to plain text for Image caption.
     if ($caption_value = &$view->result[0]->paragraphs_item_field_data_field_paragraphs_header_section_f) {
       $caption_value = drupal_html_to_text($caption_value);
       drupal_add_js(array('tpg_global' => array('header_image_lightbox_caption' => $caption_value)), 'setting');
+    }
+
+    // Adding Image title.
+    if ($image_title_value = $view->result[0]->field_field_header_image_lightbox[0]['raw']['title']) {
+      $caption_value = $image_title_value . $caption_value;
+    }
+    else {
+      $caption_value = '';
     }
   }
 }
