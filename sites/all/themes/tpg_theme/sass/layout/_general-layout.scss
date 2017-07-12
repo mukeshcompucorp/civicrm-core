@@ -5,6 +5,32 @@
   &.paragraphs-item-title-section {
     margin-bottom: 0;
   }
+
+  &.tpg_global_paragraphs_margin {
+    &_before_0 {
+      margin-top: 0;
+    }
+
+    &_before_24 {
+      @include rem(margin-top, 24px);
+    }
+
+    &_before_48 {
+      @include rem(margin-top, 48px);
+    }
+
+    &_after_0 {
+      margin-bottom: 0;
+    }
+
+    &_after_24 {
+      @include rem(margin-bottom, 24px);
+    }
+
+    &_after_48 {
+      @include rem(margin-bottom, 48px);
+    }
+  }
 }
 
 .main-content {
