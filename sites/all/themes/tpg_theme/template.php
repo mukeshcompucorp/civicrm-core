@@ -87,6 +87,13 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         break;
     }
   }
+  elseif (in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+    $vars['logo'] = '';
+  }
+  elseif ($vars['is_front']) {
+    $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
+  }
+
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
   if ($node) {
