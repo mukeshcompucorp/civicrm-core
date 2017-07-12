@@ -6,30 +6,28 @@
     margin-bottom: 0;
   }
 
-  &.tpg_global_paragraphs_margin_before {
-    &_0 {
+  &.tpg_global_paragraphs_margin {
+    &_before_0 {
       margin-top: 0;
     }
 
-    &_24 {
+    &_before_24 {
       @include rem(margin-top, 24px);
     }
 
-    &_48 {
+    &_before_48 {
       @include rem(margin-top, 48px);
     }
-  }
 
-  &.tpg_global_paragraphs_margin_after {
-    &_0 {
+    &_after_0 {
       margin-bottom: 0;
     }
 
-    &_24 {
+    &_after_24 {
       @include rem(margin-bottom, 24px);
     }
 
-    &_48 {
+    &_after_48 {
       @include rem(margin-bottom, 48px);
     }
   }
