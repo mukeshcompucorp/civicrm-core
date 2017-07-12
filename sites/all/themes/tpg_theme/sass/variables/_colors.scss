@@ -20,7 +20,11 @@ $chroma: add-colors((
   darken-grey:   #c8c8c8,
   silver:        #999,
   light-silver:  #9b9b9b,
-  lighter-grey:  #dddddd
+  lighter-grey:  #dddddd,
+  platinum:      #e8e8e8,
+
+  side-1:        #141414,
+  side-2:        #1c1111
 ));
 
 // Define color names for functional uses.
@@ -30,10 +34,16 @@ $chroma: add-colors('functional', (
   main:                                       'black',
   heading:                                    'black',
   text:                                       'black-lighten',
+  text-on-dark:                               'white',
 
   page-bg:                                    'light-grey',
+  front-page-grad-1:                          'side-1',
+  front-page-grad-2:                          'side-2',
+
+  header-image-arrow-bg:                      'light-grey',
 
   card-bg:                                    'white',
+  card-darken-bg:                             'platinum',
   admin-menu-text-color:                      'white',
 
   load-more-bg:                               'white',
@@ -69,3 +79,6 @@ $chroma: add-colors('functional', (
 ));
 
 $chroma-active-scheme: 'functional';
+
+$front-page-gradient: linear-gradient(270deg, color(front-page-grad-1) 0%, color(front-page-grad-2) 51.75%, color(front-page-grad-1) 100%);
+$arrow-down: rgba(color(header-image-arrow-bg), .5);

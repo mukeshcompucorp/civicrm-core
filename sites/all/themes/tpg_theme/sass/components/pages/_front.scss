@@ -1,0 +1,47 @@
+.front {
+  background: $front-page-gradient;
+
+  .header {
+    min-height: auto;
+  }
+
+  * {
+    color: color(text-on-dark);
+  }
+
+  .flex-responsive {
+    margin-left: 0;
+    margin-right: 0;
+
+  }
+
+  .view-header-image {
+    margin-bottom: 40px;
+
+    img {
+      width: 100%;
+    }
+
+    .views-row {
+      position: relative;
+    }
+
+    .views-row:before {
+      background: url('../images/icons/arrow.png') center no-repeat $arrow-down;
+      bottom: 0;
+      content: '';
+      display: inline-block;
+      height: 40px;
+      left: 50%;
+      margin-left: -10px;
+      position: absolute;
+      transform: rotate(-90deg);
+      width: 40px;
+    }
+  }
+
+  .pane-title {
+    border-bottom-color: color(text-on-dark);
+    color: color(text-on-dark);
+  }
+}
