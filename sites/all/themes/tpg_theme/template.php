@@ -154,9 +154,15 @@ function tpg_theme_preprocess_node(&$variables) {
       // Loading paragraphs bundle from automated id.
       $data = paragraphs_item_load($paragraph_item['value']);
 
-      // Reading width colorbox image caption.
-      if ($data->bundle == 'image_reading_width_colorbox' && isset($data->field_reading_image['und'][0]['image_field_caption']['value'])) {
-        drupal_add_js(array('tpg_theme' => array('reading_image_lightbox_caption' => drupal_html_to_text($data->field_reading_image['und'][0]['image_field_caption']['value']))), 'setting');
+      if ($data->bundle == 'image_reading_width_colorbox') {
+        // Reading width colorbox image caption.
+        if (isset($data->field_reading_image['und'][0]['image_field_caption']['value'])) {
+          drupal_add_js(array('tpg_theme' => array('reading_image_lightbox_caption' => drupal_html_to_text($data->field_reading_image['und'][0]['image_field_caption']['value']))), 'setting');
+        }
+        // Adding background class using background class field.
+        if ($bg_color_value = $data->field_background_color['und'][0]['value']) {
+          drupal_add_js(array('tpg_theme' => array('reading_image_lightbox_bg_color' => 'colorbox-background-' . drupal_strtolower($bg_color_value))), 'setting');
+        }
       }
 
       if ($data->bundle == 'title_section') {
