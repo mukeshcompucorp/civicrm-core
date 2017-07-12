@@ -11,10 +11,6 @@
       if ($parent.length) {
         var $parentLength = $parent.length;
 
-        window.onload=function(){
-          $parent.addClass('show');
-        }
-
         for (var i = 0; i < $parentLength; i++) {
           var $el = $parent.eq(i).find(el);
           var $elLength = $el.length;
@@ -35,6 +31,10 @@
             firstCol.appendTo('.columns-wrapper .col-1');
             secondCol.appendTo('.columns-wrapper .col-2');
             thirdCol.appendTo('.columns-wrapper .col-3');
+
+            if (j >= $elLength - 3) {
+              $parent.addClass('show');
+            }
           }
         }
       }
