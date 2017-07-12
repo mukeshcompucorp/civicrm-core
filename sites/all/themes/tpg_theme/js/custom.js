@@ -140,5 +140,23 @@
   $(document).ajaxComplete(function(event, xhr, settings) {
     Drupal.behaviors.multipleBlocks.attach();
   });
+  
+  Drupal.behaviors.searchBlockForm = {
+    attach: function (context, settings) {
+      var header_pane = $('.header-pane');
+      var menu_link_search_bar = $('a.search-bar', header_pane);
+      var button_close = $('.block-search-form .form-item-search-block-form label');
+      
+      $(menu_link_search_bar).click(function (e) {
+        e.preventDefault();
+        $(header_pane).addClass('show-search-form');
+      });
+      
+      $(button_close).click(function (e) {
+        e.preventDefault();
+        $(header_pane).removeClass('show-search-form');
+      });
+    }
+  };
 
 })(jQuery);
