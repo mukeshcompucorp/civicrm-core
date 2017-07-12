@@ -32,4 +32,19 @@
       text-transform: uppercase;
     }
   }
+
+  .pager a {
+    background-color: color(text-on-dark);
+    color: color(main);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .exhibitions-and-highlights {
+    overflow: hidden;
+
+    .col {
+      padding: 0;
+    }
+  }
 }

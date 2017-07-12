@@ -18,9 +18,9 @@
           if (!$('.columns-wrapper').length) {
             $parent.eq(i).prepend(`
                 <div class="columns-wrapper">
-                  <div class="col-1 col-md-4"></div>
-                  <div class="col-2 col-md-4"></div>
-                  <div class="col-3 col-md-4"></div>
+                  <div class="col col-1 col-md-4"></div>
+                  <div class="col col-2 col-md-4"></div>
+                  <div class="col col-3 col-md-4"></div>
                 </div>
             `);
           }
