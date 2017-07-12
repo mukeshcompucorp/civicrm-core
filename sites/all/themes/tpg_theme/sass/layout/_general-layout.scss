@@ -1,6 +1,5 @@
 .entity-paragraphs-item {
-  @include rem(margin-bottom, 28px);
-
+  @include rem(margin-bottom, 48px);
   &.paragraphs-item-header-gallery,
   &.paragraphs-item-title-section {
     margin-bottom: 0;
@@ -17,6 +16,15 @@
 
 .flex {
   display: flex;
+}
+
+.node-type-events-detail,
+.node-type-paragraphs-page {
+  .first-sidebar,
+  .second-sidebar,
+  .main-content {
+    margin-top: 50px;
+  }
 }
 
 @include breakpoint($md-1 0) {

@@ -167,14 +167,28 @@ function tpg_homepage_views_default_views() {
   $handler = $view->new_display('block', 'Current Exhibitions Highlights', 'current_exhibitions_highlights_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Current Exhibitions and Highlights';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'exhibitions-and-highlights row whats-on';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['more_button_text'] = 'SHOW MORE';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_event_dates' => 'field_event_dates',
+    'field_event_dates_1' => 'field_event_dates_1',
+  );
+  $handler->display->display_options['row_options']['separator'] = '-';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Paragraphs Content (field_paragraphs_entity) */
   $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
@@ -194,30 +208,42 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Homepage Image */
-  $handler->display->display_options['fields']['field_homepage_image']['id'] = 'field_homepage_image';
-  $handler->display->display_options['fields']['field_homepage_image']['table'] = 'field_data_field_homepage_image';
-  $handler->display->display_options['fields']['field_homepage_image']['field'] = 'field_homepage_image';
-  $handler->display->display_options['fields']['field_homepage_image']['label'] = '';
-  $handler->display->display_options['fields']['field_homepage_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_homepage_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_homepage_image']['settings'] = array(
-    'image_style' => '',
-    'image_link' => 'content',
-  );
   /* Field: Content: Card Tag */
   $handler->display->display_options['fields']['field_homepage_card_tag']['id'] = 'field_homepage_card_tag';
   $handler->display->display_options['fields']['field_homepage_card_tag']['table'] = 'field_data_field_homepage_card_tag';
   $handler->display->display_options['fields']['field_homepage_card_tag']['field'] = 'field_homepage_card_tag';
   $handler->display->display_options['fields']['field_homepage_card_tag']['label'] = '';
+  $handler->display->display_options['fields']['field_homepage_card_tag']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_homepage_card_tag']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_homepage_card_tag']['element_wrapper_class'] = 'tag';
+  $handler->display->display_options['fields']['field_homepage_card_tag']['hide_empty'] = TRUE;
+  /* Field: Content: Homepage Image */
+  $handler->display->display_options['fields']['field_homepage_image']['id'] = 'field_homepage_image';
+  $handler->display->display_options['fields']['field_homepage_image']['table'] = 'field_data_field_homepage_image';
+  $handler->display->display_options['fields']['field_homepage_image']['field'] = 'field_homepage_image';
+  $handler->display->display_options['fields']['field_homepage_image']['label'] = '';
+  $handler->display->display_options['fields']['field_homepage_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_homepage_image']['alter']['text'] = '[field_homepage_image]
+<div class="tag">[field_homepage_card_tag]</div>';
+  $handler->display->display_options['fields']['field_homepage_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_homepage_image']['element_wrapper_class'] = 'image';
+  $handler->display->display_options['fields']['field_homepage_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_homepage_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
   /* Field: Paragraphs item: Event Type */
   $handler->display->display_options['fields']['field_paragraphs_event_type']['id'] = 'field_paragraphs_event_type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['table'] = 'field_data_field_paragraphs_event_type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['field'] = 'field_paragraphs_event_type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['alter']['text'] = 'hello [field_paragraphs_event_type]';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-xs-6 type';
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_event_type']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_paragraphs_event_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['delta_offset'] = '0';
   /* Field: Event Start Date */
@@ -228,25 +254,12 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['ui_name'] = 'Event Start Date';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
+  $handler->display->display_options['fields']['field_event_dates']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'day_month_short',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Event End Date */
-  $handler->display->display_options['fields']['field_event_dates_1']['id'] = 'field_event_dates_1';
-  $handler->display->display_options['fields']['field_event_dates_1']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['field'] = 'field_event_dates';
-  $handler->display->display_options['fields']['field_event_dates_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_event_dates_1']['ui_name'] = 'Event End Date';
-  $handler->display->display_options['fields']['field_event_dates_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_dates_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates_1']['settings'] = array(
-    'format_type' => 'format_custom',
-    'fromto' => 'value2',
+    'format_type' => 'day_month_year',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -260,7 +273,10 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraph_title']['element_wrapper_class'] = 'title';
+  $handler->display->display_options['fields']['field_paragraph_title']['hide_empty'] = TRUE;
   /* Field: Paragraphs item: Page Type */
   $handler->display->display_options['fields']['field_paragraphs_type']['id'] = 'field_paragraphs_type';
   $handler->display->display_options['fields']['field_paragraphs_type']['table'] = 'field_data_field_paragraphs_type';
@@ -268,6 +284,8 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_type']['relationship'] = 'field_paragraphs_content_value';
   $handler->display->display_options['fields']['field_paragraphs_type']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_type']['element_wrapper_class'] = 'col-xs-6 type';
+  $handler->display->display_options['fields']['field_paragraphs_type']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_paragraphs_type']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_paragraphs_type']['delta_offset'] = '0';
   /* Field: Paragraphs item: Date Published */
@@ -277,8 +295,11 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_date_published']['relationship'] = 'field_paragraphs_content_value';
   $handler->display->display_options['fields']['field_paragraphs_date_published']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_date_published']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['element_wrapper_class'] = 'col-xs-6 date';
+  $handler->display->display_options['fields']['field_paragraphs_date_published']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_paragraphs_date_published']['settings'] = array(
-    'format_type' => 'day_month_year',
+    'format_type' => 'event_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -294,6 +315,19 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraph_title_1']['element_wrapper_class'] = 'title';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Weight (field_homepage_weight) */
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['id'] = 'field_homepage_weight_value';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['table'] = 'field_data_field_homepage_weight';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['field'] = 'field_homepage_weight_value';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',

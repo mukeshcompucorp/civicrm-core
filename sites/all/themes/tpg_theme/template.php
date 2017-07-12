@@ -53,18 +53,47 @@ function tpg_theme_panels_flexible($vars) {
  * Implements hook_preprocess_page().
  */
 function tpg_theme_preprocess_page(&$vars, $hook) {
+
+  // @todo remove below assignment for breadcrumb once we need to enable breadcrumbs.
+  $vars['breadcrumb'] = '';
+
+  // Hiding Menu Login tabs.
+  if (in_array(current_path(), array('user/login', 'user')) && user_is_anonymous()) {
+    unset($vars['tabs']);
+  }
+  elseif (in_array(current_path(), array('user/password'))) {
+    unset($vars['tabs']['#primary']['0']);
+  }
+
   // Removing site logo depending upon show logo field value.
   $node = menu_get_object('node');
-
   if ($node->type == 'paragraphs_page') {
     if(!$node->field_show_logo['und'][0]['value']) {
       unset($vars['logo']);
     }
   }
   // Setting logo color.
-  if ($node->field_event_logo_color) {
-    $vars['logo-color'] = 'logo-color-' . drupal_strtolower($node->field_event_logo_color['und'][0]['value']);
+  if ($node->field_logo_color || $node->field_event_logo_color) {
+    $logo_color = $node->field_logo_color ? $node->field_logo_color : $node->field_event_logo_color;
+    switch (drupal_strtolower($logo_color['und'][0]['value'])) {
+      case 'black':
+        $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-black.png';
+        break;
+      case 'grey':
+        $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-grey.png';
+        break;
+      case 'white':
+        $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
+        break;
+    }
   }
+  elseif (in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+    $vars['logo'] = '';
+  }
+  elseif ($vars['is_front']) {
+    $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
+  }
+
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
   if ($node) {
@@ -75,6 +104,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['content'] = 'col-md-6';
         $classes['content_width'] = 'header-image-narrow';
         break;
+      case 'overview_page':
+        $classes['sidebar_first'] = '';
+        $classes['sidebar_second'] = '';
+        $classes['content'] = '';
+      break;
       default:
         $classes['sidebar_first'] = 'col-md-2';
         $classes['sidebar_second'] = 'col-md-2';
@@ -121,6 +155,9 @@ function tpg_theme_preprocess_node(&$variables) {
       $data = paragraphs_item_load($paragraph_item['value']);
 
       if ($data->bundle == 'title_section') {
+        // Unset Event Start End Dates ds field.
+        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['event_start_end_dates']);
+
         // Unset Subtype field value depending upon Show tags field value.
         if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
           unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);

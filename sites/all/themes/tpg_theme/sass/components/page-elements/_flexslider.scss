@@ -1,15 +1,14 @@
 .header .flexslider {
-  @include rem(max-height, 540px);
+  @include rem(height, 640px);
   background-color: color(darken-background);
   border: 0;
   border-radius: 0;
   box-shadow: none;
   margin-bottom: 0;
   overflow: hidden;
-  padding: 0 40px 40px;
 
   .slides img {
-    height: 500px;
+    @include rem(height, 640px);
     margin: 0 auto;
     width: auto;
   }

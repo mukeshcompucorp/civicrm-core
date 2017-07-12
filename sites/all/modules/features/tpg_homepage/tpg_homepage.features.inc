@@ -57,7 +57,7 @@ function tpg_homepage_image_default_styles() {
 function tpg_homepage_node_info() {
   $items = array(
     'header_image' => array(
-      'name' => t('Header Image'),
+      'name' => t('Homepage Header Image'),
       'base' => 'node_content',
       'description' => t('Use <em> header_image </em> for creating Header Image for homepage.'),
       'has_title' => '1',

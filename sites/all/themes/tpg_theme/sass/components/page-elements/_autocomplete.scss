@@ -1,0 +1,18 @@
+.form-item-tid #autocomplete {
+  background: color(form-bg);
+  border: none;
+  left: 0 !important;
+  right: 0;
+  top: 100% !important;
+  width: 100% !important;
+
+  div {
+    @include rem(font-size, $p-sm);
+    padding: 3px 10px;
+
+    &:hover {
+      background-color: color(option-h);
+      cursor: pointer;
+    }
+  }
+}
