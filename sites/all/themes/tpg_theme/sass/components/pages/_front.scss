@@ -45,3 +45,15 @@
     color: color(text-on-dark);
   }
 }
+
+@include breakpoint($md-1 0) {
+  .front .view-header-image {
+    overflow: hidden;
+
+    img {
+      @include rem(height, 590px);
+      max-width: none;
+      width: auto;
+    }
+  }
+}
