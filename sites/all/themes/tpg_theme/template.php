@@ -154,6 +154,11 @@ function tpg_theme_preprocess_node(&$variables) {
       // Loading paragraphs bundle from automated id.
       $data = paragraphs_item_load($paragraph_item['value']);
 
+      // Reading width colorbox image caption.
+      if ($data->bundle == 'image_reading_width_colorbox' && isset($data->field_reading_image['und'][0]['image_field_caption']['value'])) {
+        drupal_add_js(array('tpg_theme' => array('reading_image_lightbox_caption' => drupal_html_to_text($data->field_reading_image['und'][0]['image_field_caption']['value']))), 'setting');
+      }
+
       if ($data->bundle == 'title_section') {
         // Unset Event Start End Dates ds field.
         unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['event_start_end_dates']);
