@@ -26,6 +26,11 @@
     padding-top: 11px;
   }
 
+  .field-name-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .field-name-field-subtitle {
     @include rem('margin-bottom', 25px);
     @include rem('margin-top', 33px);
