@@ -1639,8 +1639,8 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
 
   Drupal.behaviors.dateRangePicker = {
     attach: function(context, settings) {
-      $('#edit-combine-wrapper .views-widget', context).once().append('<input type="text" id="config-demo" class="form-control">');
-      $('input#config-demo', context).once().daterangepicker({
+      $('#edit-combine-wrapper .views-widget', context).once().append('<input type="text" id="daterangepicker" class="form-control">');
+      $('input#daterangepicker', context).once().daterangepicker({
         "autoApply": true
       });
     },
@@ -1661,10 +1661,6 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       if ($parent.length) {
         var $parentLength = $parent.length;
 
-        window.onload=function(){
-          $parent.addClass('show');
-        }
-
         for (var i = 0; i < $parentLength; i++) {
           var $el = $parent.eq(i).find(el);
           var $elLength = $el.length;
@@ -1672,9 +1668,9 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
           if (!$('.columns-wrapper').length) {
             $parent.eq(i).prepend(`
                 <div class="columns-wrapper">
-                  <div class="col-1 col-md-4"></div>
-                  <div class="col-2 col-md-4"></div>
-                  <div class="col-3 col-md-4"></div>
+                  <div class="col col-1 col-md-4"></div>
+                  <div class="col col-2 col-md-4"></div>
+                  <div class="col col-3 col-md-4"></div>
                 </div>
             `);
           }
@@ -1685,6 +1681,10 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
             firstCol.appendTo('.columns-wrapper .col-1');
             secondCol.appendTo('.columns-wrapper .col-2');
             thirdCol.appendTo('.columns-wrapper .col-3');
+
+            if (j >= $elLength - 3) {
+              $parent.addClass('show');
+            }
           }
         }
       }
@@ -1784,6 +1784,24 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
           $searchEl.toggle();
         });
       }
+    }
+  };
+  
+  Drupal.behaviors.searchBlockForm = {
+    attach: function (context, settings) {
+      var headerPane = $('.header-pane', context);
+      var menuLinkSearchBar = $('a.search-bar', headerPane);
+      var buttonClose = $('.block-search-form .form-item-search-block-form label', context);
+      
+      menuLinkSearchBar.click(function (e) {
+        e.preventDefault();
+        headerPane.addClass('show-search-form');
+      });
+      
+      buttonClose.click(function (e) {
+        e.preventDefault();
+        headerPane.removeClass('show-search-form');
+      });
     }
   };
 

@@ -533,7 +533,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'embed_video' => -1,
         'full_width_image_caption' => 'full_width_image_caption',
         'full_width_video_header' => 'full_width_video_header',
-        'header_gallery' => 'header_gallery',
+        'header_gallery' => -1,
         'header_image_left_image_right' => 'header_image_left_image_right',
         'header_image_lightbox' => 'header_image_lightbox',
         'image_left_2_3_width' => -1,
@@ -3048,6 +3048,53 @@ function tpg_paragraphs_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'paragraphs_item-header_image_lightbox-field_background_color'.
+  $field_instances['paragraphs_item-header_image_lightbox-field_background_color'] = array(
+    'bundle' => 'header_image_lightbox',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 1,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_background_color',
+    'label' => 'Background Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
   // 'paragraphs_item-header_image_lightbox-field_header_image_lightbox'.
   $field_instances['paragraphs_item-header_image_lightbox-field_header_image_lightbox'] = array(
     'bundle' => 'header_image_lightbox',
@@ -3536,6 +3583,59 @@ function tpg_paragraphs_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-image_reading_width_colorbox-field_background_color'.
+  $field_instances['paragraphs_item-image_reading_width_colorbox-field_background_color'] = array(
+    'bundle' => 'image_reading_width_colorbox',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_background_color',
+    'label' => 'Background Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
     ),
   );
 
@@ -5116,6 +5216,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Add Dates');
   t('Attachments');
   t('Author Name');
+  t('Background Color');
   t('Block quote');
   t('Bulleted List');
   t('Button');

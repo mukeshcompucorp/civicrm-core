@@ -238,8 +238,6 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_event_type']['field'] = 'field_paragraphs_event_type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraphs_event_type']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_paragraphs_event_type']['alter']['text'] = 'hello [field_paragraphs_event_type]';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_event_type']['element_wrapper_class'] = 'col-xs-6 type';
   $handler->display->display_options['fields']['field_paragraphs_event_type']['hide_empty'] = TRUE;
@@ -314,6 +312,7 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title_1']['label'] = '';
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_title_1']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraph_title_1']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraph_title_1']['element_wrapper_class'] = 'title';
   $handler->display->display_options['fields']['field_paragraph_title_1']['hide_empty'] = TRUE;

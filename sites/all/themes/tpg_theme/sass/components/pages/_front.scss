@@ -5,7 +5,7 @@
     min-height: auto;
   }
 
-  * {
+  .main-content * {
     color: color(text-on-dark);
   }
 
@@ -43,5 +43,17 @@
   .pane-title {
     border-bottom-color: color(text-on-dark);
     color: color(text-on-dark);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .front .view-header-image {
+    overflow: hidden;
+
+    img {
+      @include rem(height, 590px);
+      max-width: none;
+      width: auto;
+    }
   }
 }

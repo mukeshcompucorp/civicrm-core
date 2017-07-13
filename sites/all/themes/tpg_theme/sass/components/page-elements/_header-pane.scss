@@ -1,6 +1,8 @@
 .header-pane {
   @include clr;
   background-color: color(main);
+  padding-bottom: 3px;
+  padding-top: 3px;
 
   .block-menu-main {
     float: left;
@@ -36,6 +38,16 @@
 
     a:hover {
       color: color(main-menu-text-color-active);
+    }
+  }
+
+  &.show-search-form {
+    .block-menu-user {
+      display: none;
+    }
+
+    .block-search-form {
+      display: block;
     }
   }
 }
