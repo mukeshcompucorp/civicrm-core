@@ -13,6 +13,13 @@ function tpg_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_search_contains';
+  $strongarm->value = 0;
+  $export['chosen_search_contains'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_header_image';
   $strongarm->value = 0;
   $export['comment_anonymous_header_image'] = $strongarm;
