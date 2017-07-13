@@ -67,6 +67,15 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
 
   // Removing site logo depending upon show logo field value.
   $node = menu_get_object('node');
+
+  // Fetching Homepage header image node for Logo Color.
+  if ($vars['is_front']) {
+    $header_image_result = views_get_view_result('header_image', 'header_image_view_block');
+    if (isset($header_image_result[0]->nid)) {
+      $node = node_load($header_image_result[0]->nid);
+    }
+  }
+
   if ($node->type == 'paragraphs_page') {
     if(!$node->field_show_logo['und'][0]['value']) {
       unset($vars['logo']);
