@@ -136,6 +136,24 @@
       }
     }
   };
+  
+  Drupal.behaviors.searchBlockForm = {
+    attach: function (context, settings) {
+      var headerPane = $('.header-pane', context);
+      var menuLinkSearchBar = $('a.search-bar', headerPane);
+      var buttonClose = $('.block-search-form .form-item-search-block-form label', context);
+      
+      menuLinkSearchBar.click(function (e) {
+        e.preventDefault();
+        headerPane.addClass('show-search-form');
+      });
+      
+      buttonClose.click(function (e) {
+        e.preventDefault();
+        headerPane.removeClass('show-search-form');
+      });
+    }
+  };
 
   $(document).ajaxComplete(function(event, xhr, settings) {
     Drupal.behaviors.multipleBlocks.attach();

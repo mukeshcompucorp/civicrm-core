@@ -321,6 +321,57 @@ user',
     'visibility' => 0,
   );
 
+  $export['search-form'] = array(
+    'cache' => -1,
+    'css_class' => 'col-md-3 block-search-form',
+    'custom' => 0,
+    'delta' => 'form',
+    'module' => 'search',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bartik',
+        'weight' => -1,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => -1,
+      ),
+      'porto' => array(
+        'region' => 'header_top',
+        'status' => 1,
+        'theme' => 'porto',
+        'weight' => -1,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => -1,
+      ),
+      'seven' => array(
+        'region' => 'dashboard_sidebar',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => -10,
+      ),
+      'tpg_theme' => array(
+        'region' => 'header_pane',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -1,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
   $export['system-main-menu'] = array(
     'cache' => -1,
     'css_class' => 'block-menu-main',
@@ -365,7 +416,7 @@ user',
         'region' => 'header_pane',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -35,
+        'weight' => -34,
       ),
     ),
     'title' => '<none>',
