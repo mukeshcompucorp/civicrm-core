@@ -1637,20 +1637,6 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
 (function($) {
   "use strict";
 
-  Drupal.behaviors.dateRangePicker = {
-    attach: function(context, settings) {
-      $('#edit-combine-wrapper .views-widget', context).once().append('<input type="text" id="daterangepicker" class="form-control">');
-      $('input#daterangepicker', context).once().daterangepicker({
-        "autoApply": true
-      });
-    },
-  };
-
-})(jQuery);
-
-(function($) {
-  "use strict";
-
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
       this.nWrapper('.exhibitions-and-highlights', '.view-content .views-row', 3, context);

@@ -39,7 +39,7 @@ var $css = [
 var $js = [
   './libraries/bootstrap-daterangepicker/moment.min.js',
   './libraries/bootstrap-daterangepicker/daterangepicker.js',
-  './js/daterangepicker.js',
+  // './js/daterangepicker.js',
   './js/custom.js'
 ];
 
