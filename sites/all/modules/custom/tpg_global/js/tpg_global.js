@@ -55,9 +55,45 @@
       }
 
       // Header Image Lightbox image caption update using Drupal settings from tpg_global module.
-      if (typeof Drupal.settings.tpg_global != 'undefined' && typeof Drupal.settings.tpg_global.header_image_lightbox_caption != 'undefined') {
-        $('#colorbox #cboxTitle').text(Drupal.settings.tpg_global.header_image_lightbox_caption);
+      if (typeof Drupal.settings.tpg_global != 'undefined' && (typeof Drupal.settings.tpg_global.header_image_lightbox_caption != 'undefined' || typeof Drupal.settings.tpg_global.header_image_lightbox_bg_color != 'undefined')) {
+        $('.views-field-field-header-image-lightbox a').on('click', function() {
+           $(this).data('clicked', true);
+        });
+        if ($('.views-field-field-header-image-lightbox a').data('clicked')) {
+          $('#cboxOverlay').removeAttr('class');
+          $('#cboxOverlay').addClass(Drupal.settings.tpg_global.header_image_lightbox_bg_color);
+          $('#colorbox #cboxTitle').append("<div class='colorbox-caption'>" + Drupal.settings.tpg_global.header_image_lightbox_caption + "</div>");
+          $('.views-field-field-header-image-lightbox a').data('clicked', false);
+        }
       }
+
+      // Paragraphs bundle Reading width image lightbox.
+      if (typeof Drupal.settings.tpg_theme != 'undefined' && typeof Drupal.settings.tpg_theme.reading_image_lightbox_caption != 'undefined') {
+        $('.field-name-field-reading-image a').on('click', function() {
+           $(this).data('clicked', true);
+        });
+        // Updating caption for lightbox.
+        if ($('.field-name-field-reading-image a').data('clicked')) {
+          $('#cboxOverlay').removeAttr('class');
+          $('#cboxOverlay').addClass(Drupal.settings.tpg_theme.reading_image_lightbox_bg_color);
+          $('#colorbox #cboxTitle').append("<div class='colorbox-caption'>" + Drupal.settings.tpg_theme.reading_image_lightbox_caption + "</div>");
+          $('.field-name-field-reading-image a').data('clicked', false);
+        }
+      }
+
+      // Removing images from Header Image Lightbox showing only the first one.
+      $('.views-field-field-header-image-lightbox a').each(function(i) {
+        if (i > 0) {
+          this.style.display = 'none';
+        }
+      });
+
+      // Removing images from Reading width Image Lightbox showing only the first one.
+      $('.paragraphs-item-image-reading-width-colorbox a').each(function(i) {
+        if (i > 0) {
+          this.style.display = 'none';
+        }
+      });
     }
   };
 })(jQuery);

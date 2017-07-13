@@ -1,0 +1,50 @@
+.exhibitions-and-highlights {
+  opacity: 0;
+
+  .h3,
+  h3 {
+    border-bottom-color: color(text-on-dark);
+  }
+
+  &.show {
+    opacity: 1;
+  }
+
+  .view-content {
+    @include clr;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .image {
+    position: relative;
+
+    .tag:not(:empty) {
+      @include rem(font-size, $card-label);
+      background-color: color(card-darken-bg);
+      bottom: 0;
+      color: color(main);
+      left: 0;
+      padding: 3px 4px 0;
+      position: absolute;
+      text-transform: uppercase;
+    }
+  }
+
+  .pager a {
+    background-color: color(text-on-dark);
+    color: color(main);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .exhibitions-and-highlights {
+    overflow: hidden;
+
+    .col {
+      padding: 0;
+    }
+  }
+}

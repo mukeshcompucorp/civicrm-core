@@ -1,0 +1,21 @@
+.block-menu-user ul.menu li a {
+  color: color(user-menu-text-color);
+  font-size: $user-menu-link-size;
+
+  &:hover {
+    color: color(user-menu-text-color-active);
+  }
+
+  &.search-bar {
+    @include sprite($search-bar-inactive);
+    display: block;
+    font-size: 0;
+    margin-top: 3px;
+    position: relative;
+    transition: none;
+
+    &:hover {
+      @include sprite($search-bar-active);
+    }
+  }
+}

@@ -10,7 +10,7 @@
 
   a {
     @include button;
-    @include rem(font-size, 16px);
+    @include rem(font-size, $pager-button);
     background-color: color(load-more-bg);
     color: color(main);
     text-transform: none;
@@ -23,7 +23,9 @@
 
 @include breakpoint($md-1 0) {
   .pager-load-more a {
+    @include rem(font-size, $pager-button);
     background-color: color(main);
     color: color(load-more-bg);
+    line-height: 1em;
   }
 }

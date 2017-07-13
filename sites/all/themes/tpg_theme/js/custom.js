@@ -1,8 +1,48 @@
 (function($) {
   "use strict";
 
-  Drupal.behaviors.qoutes = {
+  Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
+      this.nWrapper('.exhibitions-and-highlights', '.view-content .views-row', 3, context);
+    },
+    nWrapper: function (wrapper, el, n, context) {
+      var $parent       = $(wrapper, context);
+      var $elNumber     = n;
+      if ($parent.length) {
+        var $parentLength = $parent.length;
+
+        for (var i = 0; i < $parentLength; i++) {
+          var $el = $parent.eq(i).find(el);
+          var $elLength = $el.length;
+
+          if (!$('.columns-wrapper').length) {
+            $parent.eq(i).prepend(`
+                <div class="columns-wrapper">
+                  <div class="col col-1 col-md-4"></div>
+                  <div class="col col-2 col-md-4"></div>
+                  <div class="col col-3 col-md-4"></div>
+                </div>
+            `);
+          }
+          for(var j = 0; j < $elLength; j += 3) {
+            var firstCol = $el.eq(j);
+            var secondCol = $el.eq(j+1);
+            var thirdCol = $el.eq(j+2);
+            firstCol.appendTo('.columns-wrapper .col-1');
+            secondCol.appendTo('.columns-wrapper .col-2');
+            thirdCol.appendTo('.columns-wrapper .col-3');
+
+            if (j >= $elLength - 3) {
+              $parent.addClass('show');
+            }
+          }
+        }
+      }
+    }
+  };
+
+  Drupal.behaviors.qoutes = {
+    attach: function(context, settings) {
       this.addStrToElement('blockquote:not(.image-field-caption)', context);
     },
     addStrToElement: function(el, context) {
@@ -16,7 +56,7 @@
   };
 
   Drupal.behaviors.regionChange = {
-    attach: function (context, settings) {
+    attach: function(context, settings) {
       this.moveTitle('.title-header', '.node-type-events-detail', '.post-content', 'paragraphs-item-title-section col-md-offset-3 col-md-6', true, context);
       this.moveTitle('.title-header', '.node-type-paragraphs-page', '.post-content', 'paragraphs-item-title-section col-md-offset-2 col-md-8', true, context);
     },
@@ -33,7 +73,7 @@
   };
 
   Drupal.behaviors.removingEmptyBlock = {
-    attach: function (context, settings) {
+    attach: function(context, settings) {
       this.moveTitle('.header-image', 'img');
       this.moveTitle('.header-image-two-col', 'img');
     },
@@ -53,7 +93,7 @@
   };
 
   Drupal.behaviors.whatsOnFilter = {
-    attach: function (context, settings) {
+    attach: function(context, settings) {
       this.createingEl('.whats-on-filter', 'resp-filter', 'Filter', context);
       this.openEl('.resp-filter', '.whats-on-filter > .content', 'show', context);
       this.searchField('.page-whats-on .who-select-prefix', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
@@ -96,5 +136,27 @@
       }
     }
   };
+  
+  Drupal.behaviors.searchBlockForm = {
+    attach: function (context, settings) {
+      var headerPane = $('.header-pane', context);
+      var menuLinkSearchBar = $('a.search-bar', headerPane);
+      var buttonClose = $('.block-search-form .form-item-search-block-form label', context);
+      
+      menuLinkSearchBar.click(function (e) {
+        e.preventDefault();
+        headerPane.addClass('show-search-form');
+      });
+      
+      buttonClose.click(function (e) {
+        e.preventDefault();
+        headerPane.removeClass('show-search-form');
+      });
+    }
+  };
+
+  $(document).ajaxComplete(function(event, xhr, settings) {
+    Drupal.behaviors.multipleBlocks.attach();
+  });
 
 })(jQuery);
