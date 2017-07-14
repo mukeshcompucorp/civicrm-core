@@ -14,16 +14,13 @@ function tpg_homepage_ckeditor_profile_defaults() {
       'settings' => array(
         'ss' => 2,
         'toolbar' => '[
-    [\'Source\'],
-    [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\',\'-\',\'SpellChecker\',\'Scayt\'],
-    [\'Undo\',\'Redo\',\'Find\',\'Replace\',\'-\',\'SelectAll\'],
-    [\'Image\',\'Flash\',\'Table\',\'HorizontalRule\',\'Smiley\',\'SpecialChar\'],
-    [\'Maximize\',\'ShowBlocks\'],
+    [\'Cut\',\'Copy\',\'Paste\'],
+    [\'Undo\',\'Redo\'],
+    [\'Maximize\'],
     \'/\',
     [\'Format\'],
-    [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
-    [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\'],
-    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],
+    [\'Bold\',\'Italic\',\'Underline\',\'RemoveFormat\'],
+    [\'NumberedList\',\'BulletedList\',\'Blockquote\'],
     [\'Button\',\'Link\',\'Unlink\',\'Anchor\']
 ]',
         'expand' => 't',
