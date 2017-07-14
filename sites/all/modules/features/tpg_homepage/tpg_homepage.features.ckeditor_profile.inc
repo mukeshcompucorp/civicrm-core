@@ -14,13 +14,14 @@ function tpg_homepage_ckeditor_profile_defaults() {
       'settings' => array(
         'ss' => 2,
         'toolbar' => '[
+    [\'Source\'],
     [\'Cut\',\'Copy\',\'Paste\'],
     [\'Undo\',\'Redo\'],
     [\'Maximize\'],
     \'/\',
     [\'Format\'],
-    [\'Bold\',\'Italic\',\'Underline\',\'RemoveFormat\'],
-    [\'NumberedList\',\'BulletedList\',\'Blockquote\'],
+    [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'RemoveFormat\'],
+    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'NumberedList\',\'BulletedList\',\'Blockquote\'],
     [\'Button\',\'Link\',\'Unlink\',\'Anchor\']
 ]',
         'expand' => 't',
