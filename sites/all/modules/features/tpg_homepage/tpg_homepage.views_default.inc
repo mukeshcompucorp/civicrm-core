@@ -40,7 +40,7 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_header_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_header_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image']['settings'] = array(
-    'image_style' => 'header_image',
+    'image_style' => '',
     'image_link' => '',
   );
   /* Sort criterion: Content: Show on Dates -  start date (field_show_on_dates) */
