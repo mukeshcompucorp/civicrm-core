@@ -1,9 +1,23 @@
 #cboxOverlay {
   opacity: 1 !important;
+
+  &.colorbox-background-white {
+    background-color: color(colorbox-bg-light);
+  }
+
+  &.colorbox-background-black {
+    background-color: color(colorbox-bg-dark);
+  }
 }
 
-#colorbox {
-  padding-right: 20px;
+#cboxCurrent {
+  display: none !important;
+}
+
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
+  overflow: visible;
 }
 
 #cboxTopLeft,
@@ -61,6 +75,12 @@
   }
 }
 
+.colorbox-caption {
+  @include lh-fs(18px, $h4);
+  color: color(caption-title);
+  display: none;
+}
+
 #cboxTitle {
   @include lh-fs(18px, $h4);
   background-color: color(caption-bg);
@@ -74,15 +94,55 @@
   right: 0;
   top: auto;
 
-  &:before {
+  .colorbox-icon {
     @include sprite($caption);
     content: '';
+    cursor: pointer;
     display: block;
     left: 15px;
     margin-top: -16px;
     position: absolute;
     top: 50%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.show {
+      @include sprite($caption-close);
+    }
+
+    &.show + .colorbox-caption {
+      display: block;
+    }
   }
+}
+
+
+#cboxNext,
+#cboxPrevious {
+  margin-top: -40px;
+  position: absolute;
+  top: 50%;
+}
+
+#cboxNext,
+#cboxNext:hover,
+#cboxPrevious,
+#cboxPrevious:hover {
+  @include sprite($cbox-arrow);
+}
+
+#cboxPrevious {
+  left: auto;
+  margin-right: 5px;
+  right: 100%;
+}
+
+#cboxNext {
+  left: 100%;
+  margin-left: 5px;
+  transform: rotate(180deg);
 }
 
 .header-image-lightbox {
