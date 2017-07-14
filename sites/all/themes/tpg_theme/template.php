@@ -105,7 +105,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
 
   // Setting page layout.
   $classes = $vars['add_classes'] = [];
-  if ($node) {
+  if ($node && !$vars['is_front']) {
     switch ($node->type) {
       case 'events_detail':
         $classes['sidebar_first'] = 'col-md-3';
