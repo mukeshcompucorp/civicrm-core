@@ -55,6 +55,8 @@ $chroma: add-colors('functional', (
   option-h:                                   'lighter-grey',
   input-bd:                                   'lighter-grey',
 
+  forgot-password-color:                      'dark-grey',
+
   caption-color:                              'dark-grey',
   caption-bg:                                 'taupe-grey',
   caption-title:                              'silver',
@@ -75,6 +77,9 @@ $chroma: add-colors('functional', (
   arrows:                                     'silver',
 
   darken-background:                          'darken-grey',
+
+  colorbox-bg-dark:                           'black',
+  colorbox-bg-light:                          'white',
 
   related-activities-color:                   'black'
 ));

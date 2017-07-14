@@ -334,7 +334,7 @@ function _tpg_global_margin_before_after_options(&$form = array(), $field_name, 
  *    User Login Form alter.
  */
 function tpg_global_form_user_login_alter(&$form, &$form_state, $form_id) {
-  $form['actions']['submit']['#suffix'] = l('<div class="user-forgot-password-link"> >' . t('forgot password?') . '</div>', 'user/password', array('html' => TRUE));
+  $form['actions']['submit']['#suffix'] = l('<div class="user-forgot-password-link"> › ' . t('forgot password?') . '</div>', 'user/password', array('html' => TRUE));
   $form['name']['#title'] = t('Name or email');
   unset($form['name']['#description']);
   unset($form['pass']['#description']);

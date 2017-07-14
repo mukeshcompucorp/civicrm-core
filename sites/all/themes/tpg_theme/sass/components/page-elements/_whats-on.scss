@@ -52,15 +52,13 @@
       padding: 0;
     }
 
-    .views-exposed-form {
-      .views-exposed-widget {
-        margin-left: 30px;
-      }
+    .views-exposed-form .views-exposed-widget {
+      margin-left: 30px;
+    }
 
-      .views-exposed-widget:first-child,
-      .views-submit-button {
-        margin-left: 0;
-      }
+    .views-exposed-form .views-exposed-widget:first-child,
+    .views-exposed-form .views-submit-button {
+      margin-left: 0;
     }
 
     .views-exposed-form .form-submit {
@@ -74,6 +72,10 @@
 
     .ajax-progress-throbber {
       position: absolute;
+    }
+
+    .views-widget-filter-tid .form-text {
+      background: url('../images/icons/search.png') no-repeat 100% center;
     }
 
     .views-widget-filter-tid:hover {
