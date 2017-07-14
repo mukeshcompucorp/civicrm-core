@@ -2,6 +2,7 @@
   @include make-md-column-offset(2);
   @include make-md-column(8);
 
+  .form-required,
   .page-title {
     display: none;
   }
