@@ -64,10 +64,6 @@
       margin-bottom: 16px;
       margin-top: 17px;
 
-      @include breakpoint($md-1 0) {
-        margin-bottom: 8px;
-        margin-top: 11px;
-      }
     }
 
     .field-name-field-paragraph-title a,
@@ -114,6 +110,16 @@
 
       &:nth-child(3n+4) {
         clear: left;
+      }
+    }
+  }
+
+  @include breakpoint($md-1 0) {
+    .field-name-field-links {
+      .field-name-field-paragraph-title,
+      .field-name-field-external-link-title {
+        margin-bottom: 8px;
+        margin-top: 11px;
       }
     }
   }
