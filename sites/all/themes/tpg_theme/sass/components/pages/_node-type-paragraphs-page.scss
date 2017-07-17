@@ -8,6 +8,15 @@
     height: 546px;
   }
 
+  .field-name-field-paragraphs-content > .field-items > .field-item {
+    &:before,
+    &:after {
+      content: '.';
+      display: table;
+      font-size: 0;
+    }
+  }
+
   @include breakpoint($lg-1 0) {
     height: 360px;
   }
