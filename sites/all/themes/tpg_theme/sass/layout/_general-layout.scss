@@ -45,14 +45,6 @@
   display: flex;
 }
 
-.node-type-events-detail {
-  .first-sidebar,
-  .second-sidebar,
-  .main-content {
-    margin-top: 50px;
-  }
-}
-
 @include breakpoint($md-1 0) {
   .flex-responsive {
     display: flex;
