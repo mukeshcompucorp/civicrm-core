@@ -260,6 +260,7 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       $form['combine'] = array(
         '#type' => 'textfield',
         '#size' => false,
+        '#default_value' => t('Anytime'),
         '#prefix' => '<div class="daterangepicker-wrapper">',
         '#suffix' => '</div>',
         '#attributes' => array(
