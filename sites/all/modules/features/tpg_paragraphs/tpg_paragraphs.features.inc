@@ -260,13 +260,13 @@ function tpg_paragraphs_image_default_styles() {
 
   // Exported image style: overview_page_image_400x271.
   $styles['overview_page_image_400x271'] = array(
-    'label' => 'Overview page Image 400x271',
+    'label' => 'Overview page Image 400x240',
     'effects' => array(
       12 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 400,
-          'height' => 271,
+          'height' => 240,
           'upscale' => 1,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
