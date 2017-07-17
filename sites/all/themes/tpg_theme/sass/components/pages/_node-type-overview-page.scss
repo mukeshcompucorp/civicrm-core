@@ -59,12 +59,6 @@
       margin-bottom: 0;
     }
 
-    .field-name-field-link-description,
-    .field-name-field-paragraph-description {
-      @include rem('height', 66px);
-      overflow: hidden;
-    }
-
     .field-name-field-paragraph-title,
     .field-name-field-external-link-title {
       margin-bottom: 16px;
@@ -112,6 +106,10 @@
       padding-left: 10px;
       padding-right: 10px;
       vertical-align: top;
+
+      &:nth-child(3n+4) {
+        clear: left;
+      }
     }
   }
 }
