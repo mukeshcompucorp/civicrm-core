@@ -4,7 +4,10 @@
   display: none;
   margin-top: 0;
   padding: 0;
-  width: 620px;
+
+  &.show-calendar {
+    width: 620px;
+  }
 
   table {
     border-collapse: separate;
@@ -21,12 +24,13 @@
 
   &-input[type='text'] {
     @include placeholder {
+      @include rem(font-size, $form-item);
       color: color(main);
     };
     @include rem(font-size, $form-item);
     background: color(form-bg);
     background-image: url('../images/icons/triangle-bottom.png');
-    background-position: right 6px center;
+    background-position: right 8px center;
     background-repeat: no-repeat;
     border: 0;
     border-radius: 0;
@@ -40,9 +44,31 @@
     text-transform: uppercase;
     width: auto;
 
+    &.empty {
+      color: transparent;
+      width: 113px;
+    }
+
     &.opened {
       background-image: url('../images/icons/triangle-top.png');
     }
+
+    + .temp-title {
+      @include rem(font-size, $form-item);
+      color: color(main);
+      height: 100%;
+      left: 0;
+      padding: 5px 6px 6px 10px;
+      position: absolute;
+      right: 0;
+      text-transform: uppercase;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  &-wrapper {
+    position: relative;
   }
 
   .ranges {
@@ -176,5 +202,32 @@
       background: color(main);
       color: color(text-on-dark);
     }
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .daterangepicker {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+
+    &.ltr .calendar.left {
+      margin-right: 0;
+    }
+
+    &-input[type='text'],
+    &-input[type='text'].empty {
+      padding: 14px 10px 11px;
+      width: 100%;
+
+      + .temp-title {
+        padding: 14px 10px 11px;
+      }
+    }
+
+    &.show-calendar {
+      width: 100%;
+    }
+
   }
 }
