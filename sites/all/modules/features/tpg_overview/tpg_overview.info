@@ -32,6 +32,7 @@ features[ds_layout_settings][] = field_collection_item|field_overview_section|de
 features[ds_layout_settings][] = node|events_detail|overview
 features[ds_layout_settings][] = node|external_links|default
 features[ds_layout_settings][] = node|external_links|overview
+features[ds_layout_settings][] = node|overview_page|default
 features[ds_layout_settings][] = node|paragraphs_page|overview
 features[features_api][] = api:2
 features[field_base][] = body

@@ -187,9 +187,8 @@ function tpg_global_views_pre_render(&$view) {
       drupal_add_js(array('tpg_global' => array('header_image_lightbox_caption' => $caption_value)), 'setting');
     }
 
-    // Adding Image title.
     if ($image_title_value = $view->result[0]->field_field_header_image_lightbox[0]['raw']['title']) {
-      $caption_value = $image_title_value . $caption_value;
+      drupal_add_js(array('tpg_global' => array('header_image_lightbox_title' => $image_title_value)), 'setting');
     }
     else {
       $caption_value = '';

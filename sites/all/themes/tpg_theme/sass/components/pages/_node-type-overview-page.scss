@@ -112,4 +112,14 @@
       }
     }
   }
+
+  @include breakpoint($md-1 0) {
+    .field-name-field-links {
+      .field-name-field-paragraph-title,
+      .field-name-field-external-link-title {
+        margin-bottom: 8px;
+        margin-top: 11px;
+      }
+    }
+  }
 }
