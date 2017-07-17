@@ -8,6 +8,10 @@
     height: 546px;
   }
 
+  .field-name-field-paragraphs-content > .field-items > .field-item {
+    @include clr;
+  }
+
   @include breakpoint($lg-1 0) {
     height: 360px;
   }
