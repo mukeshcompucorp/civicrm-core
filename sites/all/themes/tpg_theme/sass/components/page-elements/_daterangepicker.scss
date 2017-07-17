@@ -20,6 +20,9 @@
   }
 
   &-input[type='text'] {
+    @include placeholder {
+      color: color(main);
+    };
     @include rem(font-size, $form-item);
     background: color(form-bg);
     background-image: url('../images/icons/triangle-bottom.png');
