@@ -5,6 +5,7 @@
     attach: function(context, settings) {
       var $datepickerInput = $('input#daterangepicker', context);
       if ($datepickerInput.length) {
+        $datepickerInput.attr('placeholder', $datepickerInput.attr('value'));
         $datepickerInput.once().daterangepicker({
           autoApply: true,
           parentEl: '.daterangepicker-wrapper',
@@ -24,9 +25,7 @@
         });
 
         window.onload=function(){
-          if ($datepickerInput.attr('value').length) {
-            $datepickerInput.val($datepickerInput.attr('value'));
-          }
+          $datepickerInput.val('');
         }
       }
     },
