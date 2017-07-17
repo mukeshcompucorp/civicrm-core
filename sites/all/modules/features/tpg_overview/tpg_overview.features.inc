@@ -20,30 +20,6 @@ function tpg_overview_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
- * Implements hook_image_default_styles().
- */
-function tpg_overview_image_default_styles() {
-  $styles = array();
-
-  // Exported image style: whats_on_400x324.
-  $styles['whats_on_400x324'] = array(
-    'label' => 'whats on 400x324',
-    'effects' => array(
-      2 => array(
-        'name' => 'image_scale_and_crop',
-        'data' => array(
-          'width' => 400,
-          'height' => 324,
-        ),
-        'weight' => 1,
-      ),
-    ),
-  );
-
-  return $styles;
-}
-
-/**
  * Implements hook_node_info().
  */
 function tpg_overview_node_info() {
