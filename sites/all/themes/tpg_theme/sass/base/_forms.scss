@@ -12,6 +12,10 @@ button * {
   }
 }
 
+select {
+  opacity: 0;
+}
+
 select,
 input[type='password'],
 input[type='email'],

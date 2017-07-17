@@ -38,7 +38,7 @@ function tpg_events_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Whats On Links';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'whats_on_links';
-  $fe_block_boxes->body = '<div><a class="now-upcoming" href="/whats-on/now-upcoming">Now &amp; upcoming</a><a class="past-programme" href="/whats-on/past-programme">Past Programme</a></div>
+  $fe_block_boxes->body = '<div><a class="now-upcoming" href="/whats-on/now-upcoming">Now &amp; upcoming</a><a class="past-programme" href="/whats-on/past-programme">Past programme</a></div>
 ';
 
   $export['whats_on_links'] = $fe_block_boxes;
