@@ -10,7 +10,8 @@
           autoApply: true,
           parentEl: '.daterangepicker-wrapper',
           locale: {
-            customRangeLabel: Drupal.t('Pick a date')
+            customRangeLabel: Drupal.t('Pick a date'),
+            format: 'DD MMM YYYY'
           },
           ranges: {
              'Today': [moment(), moment()],
