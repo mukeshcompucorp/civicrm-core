@@ -26,6 +26,11 @@
     padding-top: 11px;
   }
 
+  .field-name-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .field-name-field-subtitle {
     @include rem('margin-bottom', 25px);
     @include rem('margin-top', 33px);
@@ -54,12 +59,6 @@
       margin-bottom: 0;
     }
 
-    .field-name-field-link-description,
-    .field-name-field-paragraph-description {
-      @include rem('max-height', 66px);
-      overflow: hidden;
-    }
-
     .field-name-field-paragraph-title,
     .field-name-field-external-link-title {
       margin-bottom: 16px;
@@ -76,7 +75,18 @@
 
   .field-name-read-more a,
   .field-name-read-more-node a {
+    padding-left: 8px;
+    position: relative;
     text-decoration: none;
+
+    &:before {
+      @include rem(font-size, $read-more-arrow-font-size);
+      content: '>';
+      left: 0;
+      line-height: 1em;
+      position: absolute;
+      top: 3px;
+    }
 
     &:hover {
       text-decoration: underline;
@@ -92,10 +102,14 @@
 
     & > .field-item {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 34px;
       padding-left: 10px;
       padding-right: 10px;
       vertical-align: top;
+
+      &:nth-child(3n+4) {
+        clear: left;
+      }
     }
   }
 }
