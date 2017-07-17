@@ -214,3 +214,67 @@ function tpg_theme_page_alter(&$page) {
     }
   }
 }
+
+
+/**
+ * Returns HTML for an image using a specific Colorbox image style.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - image: image item as array.
+ *   - path: The path of the image that should be displayed in the Colorbox.
+ *   - title: The title text that will be used as a caption in the Colorbox.
+ *   - gid: Gallery id for Colorbox image grouping.
+ *
+ * @return string
+ *   An HTML string containing a link to the given path.
+ *
+ * @ingroup themeable
+ */
+function tpg_theme_colorbox_imagefield($variables) {
+
+  $file_load = file_load_multiple(array(), array('uri' => $variables['image']['path']));
+  $results = '';
+  if ($file_load) {
+    // Header Image Lightbox caption.
+    $query = db_select('field_data_field_header_image_lightbox', 'h');
+    $query->join('field_image_field_caption', 'c', 'h.entity_id = c.entity_id AND h.delta = c.delta');
+    $query->fields('c', array('caption'))
+          ->condition('h.field_header_image_lightbox_fid', key($file_load));
+    $results = $query->execute()->fetchField();
+    // Reading width image caption.
+    if (empty($results)) {
+      $query = db_select('field_data_field_reading_image', 'r');
+      $query->join('field_image_field_caption', 'c', 'r.entity_id = c.entity_id AND r.delta = c.delta');
+      $query->fields('c', array('caption'))
+          ->condition('r.field_reading_image_fid', key($file_load));
+      $results = $query->execute()->fetchField();
+    }
+  }
+
+  $class = array('colorbox');
+
+  if ($variables['image']['style_name'] == 'hide') {
+    $image = '';
+    $class[] = 'js-hide';
+  }
+  elseif (!empty($variables['image']['style_name'])) {
+    $image = theme('image_style', $variables['image']);
+  }
+  else {
+    $image = theme('image', $variables['image']);
+  }
+
+  $options = drupal_parse_url($variables['path']);
+  $options += array(
+    'html' => TRUE,
+    'attributes' => array(
+      'title' => $variables['title'] . '/' . $results,
+      'class' => $class,
+      'data-colorbox-gallery' => $variables['gid'],
+      'data-cbox-img-attrs' => '{"title": "' . $variables['image']['title'] . '", "alt": "' . $variables['image']['alt'] . '"}',
+    ),
+  );
+
+  return l($image, $options['path'], $options);
+}
