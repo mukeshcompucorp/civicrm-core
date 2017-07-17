@@ -14,7 +14,7 @@
             format: 'DD MMM YYYY'
           },
           ranges: {
-             'Anytime': [moment(), moment()],
+             'Anytime': [],
              'Today': [moment(), moment()],
              'This Weekend': [moment().day(6), moment().day(7)],
              'This Week': [moment().day(1), moment().day(7)],
@@ -31,13 +31,15 @@
           $datepickerInput.val('');
           $('.daterangepicker', context).find('li').click(function(event) {
             $datepickerInput.attr('placeholder', $(this, context).attr('data-range-key'));
-            setTimeout(function(){
-              $datepickerInput.val('');
-            }, 10);
           });
         }
+        $(document, context).ajaxComplete(function(event, xhr, settings) {
+          $datepickerInput.val('');
+        });
       }
     },
   };
+
+
 
 })(jQuery);
