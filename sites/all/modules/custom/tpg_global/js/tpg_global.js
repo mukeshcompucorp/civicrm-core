@@ -23,15 +23,28 @@
         $event_homepage_options.toggle();
       });
 
+      /*
       if ($('.page-whats-on input.daterangepicker').length) {
 
         $('input.daterangepicker').each(function(index, element) {
           // Enable date range for all inputs with the given class.
           $(this).daterangepicker({
+            onOpen: function(event, data) {
+              // Hide calendar on select open
+              $('.comiseo-daterangepicker-calendar', context).hide();
+
+              // Remove date range
+              $('#pick-a-date', context).closest('li').unbind();
+
+              // Show calendar on icon click
+              $('#pick-a-date', context).once().click(function(e) {
+                e.preventDefault();
+                $('.comiseo-daterangepicker-calendar', context).toggle();
+                return false;
+              });
+            },
             initialText: settings.daterangepicker.initialText,
-            applyButtonText: settings.daterangepicker.applyButtonText,
-            clearButtonText: settings.daterangepicker.clearButtonText,
-            cancelButtonText: settings.daterangepicker.cancelButtonText,
+            applyButtonText: '',
             rangeSplitter: settings.daterangepicker.rangeSplitter,
             dateFormat: settings.daterangepicker.dateFormat,
             altFormat: settings.daterangepicker.altFormat,
@@ -43,7 +56,7 @@
               {text: 'This Weekend', dateStart: function() { return moment().day(6) }, dateEnd: function() { return moment().day(7) } },
               {text: 'This Week', dateStart: function() { return moment().day(1) }, dateEnd: function() { return moment().day(7) } },
               {text: 'Next Month', dateStart: function() { return moment().add(1, 'month').startOf('month') }, dateEnd: function() { return moment().add(1, 'month').endOf('month') } },
-              {text: '<span id="pick-a-date">' + Drupal.t("Pick a date") + '</span>'},
+              {text: '<a href="#" id="pick-a-date" class="pick-a-date">' + Drupal.t('Pick a date') + '</a>', dateStart: function() { return moment() }, dateEnd: function() { return moment() } },
             ],
             datepickerOptions: {
               maxDate: '+1Y',
@@ -52,7 +65,7 @@
             }
           });
         });
-      }
+      }*/
 
       // Header Image Lightbox image caption update using Drupal settings from tpg_global module.
       if (typeof Drupal.settings.tpg_global != 'undefined' && (typeof Drupal.settings.tpg_global.header_image_lightbox_caption != 'undefined' || typeof Drupal.settings.tpg_global.header_image_lightbox_bg_color != 'undefined')) {

@@ -99,15 +99,21 @@ function tpg_global_views_query_alter(&$view, &$query) {
 
   // Whats on query alter.
   if ($view->name == 'whats_on' && in_array($view->current_display, array('now_upcoming_view_page'))) {
-    if (!$view->exposed_input['range']) {
+    // Adding daterange picker values to expose filters.
+    // Combine filter is altered to show daterangepicker plugin using form alter.
+    if (!$view->exposed_input['combine']) {
       unset($query->where[2]);
     }
-    else {
-      $range_values = json_decode($view->exposed_input['range']);
-      $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $range_values->start;
+    elseif ($view->exposed_input['combine']) {
+      $range_values = explode('-', $view->exposed_input['combine']);
+      $start_date = format_date(strtotime($range_values[0]), 'custom', 'Y-m-d');
+      $end_date = format_date(strtotime($range_values[1]), 'custom', 'Y-m-d');
+      // Adding starting date.
+      $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $start_date;
       if ($start_date != $end_date) {
-        $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $range_values->end;
-      } else {
+        $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $end_date;
+      }
+      else {
         unset($query->where[2]['conditions'][1]);
       }
     }
@@ -252,19 +258,18 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     // Adding Date Range picker for News and Upcoming view filter.
     if ($form_state['view']->current_display == 'now_upcoming_view_page') {
       $form['combine'] = array(
-        '#type' => 'daterangepicker',
-        '#DateRangePicker_options' => array(
-          'initial_text' => t('ANYTIME'),
-          'range_splitter' => ' - ',
-          'date_format' => 'd M, yy',
-          // This needs to be a format recognised by javascript Date.parse method.
-          'alt_format' => 'yy-mm-dd',
-          'date_picker_options' => array (
-            'numberOfMonths' => 2,
-           ),
+        '#type' => 'textfield',
+        '#size' => false,
+        '#default_value' => t('Anytime'),
+        '#prefix' => '<div class="daterangepicker-wrapper">',
+        '#suffix' => '</div>',
+        '#attributes' => array(
+          'id' => array('daterangepicker'),
+          'class' => array('daterangepicker-input'),
         ),
       );
     }
+
     if ($form_state['view']->current_display == 'now_upcoming_view_page' || $form_state['view']->current_display == 'past_programme_view_page') {
 
       $form['submit']['#weight'] = 5;

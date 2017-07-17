@@ -31,11 +31,15 @@ var $fonts = [
 ];
 
 var $css = [
+  './libraries/bootstrap-daterangepicker/daterangepicker.css',
   './node_modules/font-awesome/css/font-awesome.min.css',
   './dist/main.css'
 ];
 
 var $js = [
+  './libraries/bootstrap-daterangepicker/moment.min.js',
+  './libraries/bootstrap-daterangepicker/daterangepicker.js',
+  // './js/daterangepicker.js',
   './js/custom.js'
 ];
 
