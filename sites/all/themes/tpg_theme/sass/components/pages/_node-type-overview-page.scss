@@ -64,7 +64,7 @@
       margin-bottom: 16px;
       margin-top: 17px;
 
-      @media (max-width: $screen-xs) {
+      @include breakpoint($md-1 0) {
         margin-bottom: 8px;
         margin-top: 11px;
       }
