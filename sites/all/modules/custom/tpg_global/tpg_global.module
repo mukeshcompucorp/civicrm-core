@@ -259,8 +259,12 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     if ($form_state['view']->current_display == 'now_upcoming_view_page') {
       $form['combine'] = array(
         '#type' => 'textfield',
+        '#size' => false,
+        '#prefix' => '<div class="daterangepicker-wrapper">',
+        '#suffix' => '</div>',
         '#attributes' => array(
           'id' => array('daterangepicker'),
+          'class' => array('daterangepicker-input'),
         ),
       );
     }
