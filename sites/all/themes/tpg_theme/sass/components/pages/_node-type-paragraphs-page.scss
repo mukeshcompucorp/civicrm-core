@@ -9,8 +9,12 @@
   }
 
   .field-name-field-paragraphs-content > .field-items > .field-item {
-    float: left;
-    width: 100%;
+    &:before,
+    &:after {
+      content: '.';
+      display: table;
+      font-size: 0;
+    }
   }
 
   @include breakpoint($lg-1 0) {
