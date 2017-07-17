@@ -9,8 +9,7 @@
   }
 
   .field-name-field-paragraphs-content > .field-items > .field-item {
-    float: left;
-    width: 100%;
+    @include clr;
   }
 
   @include breakpoint($lg-1 0) {
