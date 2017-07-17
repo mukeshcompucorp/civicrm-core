@@ -5,15 +5,16 @@
     attach: function(context, settings) {
       var $datepickerInput = $('input#daterangepicker', context);
       if ($datepickerInput.length) {
-        $datepickerInput.attr('placeholder', $datepickerInput.attr('value'));
         $datepickerInput.once().daterangepicker({
           autoApply: true,
           parentEl: '.daterangepicker-wrapper',
+          linkedCalendars: false,
           locale: {
             customRangeLabel: Drupal.t('Pick a date'),
             format: 'DD MMM YYYY'
           },
           ranges: {
+             'Anytime': [moment(), moment()],
              'Today': [moment(), moment()],
              'This Weekend': [moment().day(6), moment().day(7)],
              'This Week': [moment().day(1), moment().day(7)],
@@ -26,7 +27,14 @@
         });
 
         window.onload=function(){
+          $datepickerInput.attr('placeholder', $datepickerInput.attr('value'));
           $datepickerInput.val('');
+          $('.daterangepicker', context).find('li').click(function(event) {
+            $datepickerInput.attr('placeholder', $(this, context).attr('data-range-key'));
+            setTimeout(function(){
+              $datepickerInput.val('');
+            }, 10);
+          });
         }
       }
     },
