@@ -81,6 +81,28 @@ function tpg_homepage_views_default_views() {
 
   /* Display: Header Image */
   $handler = $view->new_display('block', 'Header Image', 'header_image_view_block');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_header_image']['id'] = 'field_header_image';
+  $handler->display->display_options['fields']['field_header_image']['table'] = 'field_data_field_header_image';
+  $handler->display->display_options['fields']['field_header_image']['field'] = 'field_header_image';
+  $handler->display->display_options['fields']['field_header_image']['label'] = '';
+  $handler->display->display_options['fields']['field_header_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_header_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_header_image']['settings'] = array(
+    'image_style' => 'homepage_header_image_1920x1000',
+    'image_link' => '',
+  );
+  $translatables['header_image'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Header Image'),
+  );
   $export['header_image'] = $view;
 
   $view = new view();
@@ -229,7 +251,7 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_homepage_image']['element_wrapper_class'] = 'image';
   $handler->display->display_options['fields']['field_homepage_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_homepage_image']['settings'] = array(
-    'image_style' => 'homepage_header_image_1920x1000',
+    'image_style' => '',
     'image_link' => 'content',
   );
   /* Field: Paragraphs item: Event Type */

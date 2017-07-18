@@ -3382,7 +3382,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '2_column_image_left_402x267',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -3392,7 +3392,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '2_column_image_left_402x267',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,

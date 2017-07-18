@@ -136,22 +136,42 @@
       }
     }
   };
-  
+
   Drupal.behaviors.searchBlockForm = {
     attach: function (context, settings) {
       var headerPane = $('.header-pane', context);
       var menuLinkSearchBar = $('a.search-bar', headerPane);
       var buttonClose = $('.block-search-form .form-item-search-block-form label', context);
-      
+
       menuLinkSearchBar.click(function (e) {
         e.preventDefault();
         headerPane.addClass('show-search-form');
       });
-      
+
       buttonClose.click(function (e) {
         e.preventDefault();
         headerPane.removeClass('show-search-form');
       });
+    }
+  };
+
+  Drupal.behaviors.lightboxCaption = {
+    attach: function (context, settings) {
+      this.captionIcon('.caption-icon', '.header-image-lightbox [class*="field-caption"]', context);
+      this.changingHeaderBg('.header-image-lightbox', '.header', '#c8c8c8');
+    },
+    captionIcon: function(el, parent, context) {
+      if ($(parent, context).length) {
+        $(parent, context).prepend('<span class="caption-icon"></span>');
+        $(el, context).click(function(event) {
+          $(this, context).toggleClass('show');
+        });
+      }
+    },
+    changingHeaderBg: function(el, backgroundEl, hashColor, context) {
+      if ($(el, context).length) {
+        $(backgroundEl, context).css('background-color', hashColor)
+      }
     }
   };
 

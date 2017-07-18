@@ -94,7 +94,7 @@
   right: 0;
   top: auto;
 
-  .colorbox-icon {
+  .caption-icon {
     @include sprite($caption);
     content: '';
     cursor: pointer;
@@ -162,23 +162,44 @@
     position: relative;
     text-align: left;
 
-    &:before {
+    .caption-icon {
       @include sprite($caption);
-      content: '';
       display: block;
-      left: 0;
-      margin-top: -16px;
+      left: 10px;
       position: absolute;
-      top: 50%;
+      top: 0;
+    }
+
+    .caption-icon:hover {
+      cursor: pointer;
+    }
+
+    .header-image-lightbox-title {
+      display: block;
+      margin-left: 42px;
+      margin-top: 4px;
     }
 
     .field-content {
-      margin-left: 32px;
+      @include rem(font-size, $p-sm);
+      display: none;
+      margin-left: 42px;
+      text-align: left;
+    }
+
+    .show ~ .field-content {
+      display: block;
     }
   }
 
+  // Removing coma and hiding unnecessary header images
   .field-content {
+    font-size: 0;
     text-align: center;
+
+    a ~ a {
+      display: none;
+    }
   }
 
   a.colorbox {

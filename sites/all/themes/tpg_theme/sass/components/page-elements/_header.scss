@@ -62,16 +62,4 @@
     @include make-md-column-offset(3);
     padding: 0;
   }
-
-  &-gallery .views-field-caption {
-    background-color: color(darken-background);
-    margin-top: 0;
-    position: static;
-    text-align: left;
-
-    .field-content:not(:empty) {
-      display: block;
-      padding: 10px;
-    }
-  }
 }
