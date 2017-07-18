@@ -251,6 +251,11 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'image_left_text_right';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_left_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -275,6 +280,11 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'image_left_text_right';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_left_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
     'field_paragraph_right_text' => array(
       'formatter_settings' => array(
         'ft' => array(

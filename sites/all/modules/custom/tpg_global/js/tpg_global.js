@@ -69,70 +69,37 @@
 
       // Header Image Lightbox image caption update using Drupal settings from tpg_global module.
       if (typeof Drupal.settings.tpg_global != 'undefined' && (typeof Drupal.settings.tpg_global.header_image_lightbox_caption != 'undefined' || typeof Drupal.settings.tpg_global.header_image_lightbox_bg_color != 'undefined')) {
-        $('.views-field-field-header-image-lightbox a').on('click', function() {
-           $(this).data('clicked', true);
+        $('.views-field-field-header-image-lightbox a', context).on('click', function() {
+          $('#cboxOverlay', context).removeAttr('class');
+          $('#cboxOverlay', context).addClass(Drupal.settings.tpg_global.header_image_lightbox_bg_color);
         });
-        if ($('.views-field-field-header-image-lightbox a').data('clicked')) {
-          // Adding background class to colorbox.
-          $('#cboxOverlay').removeAttr('class');
-          $('#cboxOverlay').addClass(Drupal.settings.tpg_global.header_image_lightbox_bg_color);
-          
-          cbox_update();
-          $('.views-field-field-header-image-lightbox a').data('clicked', false);
-          $('.colorbox-icon').click(function(event) {
-            $(this, context).toggleClass('show');
-          });
-        }
-      }
-
-      // Prepending Image Title for Header image lightbox paragraph bundle.
-      if (typeof Drupal.settings.tpg_global != 'undefined' && typeof Drupal.settings.tpg_global.header_image_lightbox_title != 'undefined') {
-        $('.view-display-id-header_image_lightbox .header-image-lightbox-title').remove();
-        $('.view-display-id-header_image_lightbox .view-content .views-field-caption-1').prepend("<span class='header-image-lightbox-title'>" + Drupal.settings.tpg_global.header_image_lightbox_title + "</span>");
       }
 
       // Paragraphs bundle Reading width image lightbox.
       if (typeof Drupal.settings.tpg_theme != 'undefined' && typeof Drupal.settings.tpg_theme.reading_image_lightbox_caption != 'undefined') {
-        $('.field-name-field-reading-image a').on('click', function() {
-           $(this).data('clicked', true);
+        $('.field-name-field-reading-image a', context).on('click', function() {
+          $('#cboxOverlay', context).removeAttr('class');
+          $('#cboxOverlay', context).addClass(Drupal.settings.tpg_theme.reading_image_lightbox_bg_color);
         });
-        // Updating caption for lightbox.
-        if ($('.field-name-field-reading-image a').data('clicked')) {
-          // Adding background class to colorbox.
-          $('#cboxOverlay').removeAttr('class');
-          $('#cboxOverlay').addClass(Drupal.settings.tpg_theme.reading_image_lightbox_bg_color);
-
-          cbox_update();
-          $('.field-name-field-reading-image a').data('clicked', false);
-          $('.colorbox-icon').click(function(event) {
-            $(this, context).toggleClass('show');
-          });
-        }
       }
 
-      // Removing images from Header Image Lightbox showing only the first one.
-      $('.views-field-field-header-image-lightbox a').each(function(i) {
-        if (i > 0) {
-          this.style.display = 'none';
-        }
-      });
-
-      // Removing images from Reading width Image Lightbox showing only the first one.
-      $('.paragraphs-item-image-reading-width-colorbox a').each(function(i) {
-        if (i > 0) {
-          this.style.display = 'none';
-        }
-      });
+      // Prepending Image Title for Header image lightbox paragraph bundle.
+      if (typeof Drupal.settings.tpg_global != 'undefined' && typeof Drupal.settings.tpg_global.header_image_lightbox_title != 'undefined') {
+        $('.view-display-id-header_image_lightbox .header-image-lightbox-title', context).remove();
+        $('.view-display-id-header_image_lightbox .view-content .views-field-caption-1', context).prepend("<span class='header-image-lightbox-title'>" + Drupal.settings.tpg_global.header_image_lightbox_title + "</span>");
+      }
     }
   };
 
   // Adding Colorbox title and caption.
-  function cbox_update(param) {
+  $(document).bind('cbox_complete', function(){
     var cboxTitle = $('#colorbox #cboxTitle').text();
     var cbox_data = cboxTitle.split('/');
     $('#colorbox #cboxTitle').text(cbox_data[0]);
-    $('#colorbox #cboxTitle').prepend("<div class='colorbox-icon'></div>");
     $('#colorbox #cboxTitle').append("<div class='colorbox-caption'>" + cbox_data[1] + "</div>");
-  }
+
+    Drupal.behaviors.lightboxCaption.captionIcon('#colorbox .caption-icon', '#colorbox #cboxTitle');
+  });
+
 })(jQuery);
 
