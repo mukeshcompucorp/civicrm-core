@@ -50,6 +50,7 @@ features[field_instance][] = node-header_image-field_logo_color
 features[field_instance][] = node-header_image-field_show_on_dates
 features[filter][] = filtered_html
 features[image][] = header_image
+features[image][] = homepage_header_image_1920x1000
 features[menu_custom][] = main-menu
 features[menu_custom][] = menu-footer
 features[menu_custom][] = menu-social-connectors

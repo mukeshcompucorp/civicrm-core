@@ -48,6 +48,25 @@ function tpg_homepage_image_default_styles() {
     ),
   );
 
+  // Exported image style: homepage_header_image_1920x1000.
+  $styles['homepage_header_image_1920x1000'] = array(
+    'label' => 'Homepage header image 1920x1000',
+    'effects' => array(
+      4 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 1920,
+          'height' => 1000,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'homepage_header_image_1920x1000',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   return $styles;
 }
 

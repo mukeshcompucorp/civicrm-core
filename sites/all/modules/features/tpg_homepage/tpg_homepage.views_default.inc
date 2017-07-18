@@ -229,7 +229,7 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_homepage_image']['element_wrapper_class'] = 'image';
   $handler->display->display_options['fields']['field_homepage_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_homepage_image']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'homepage_header_image_1920x1000',
     'image_link' => 'content',
   );
   /* Field: Paragraphs item: Event Type */

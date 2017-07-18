@@ -60,7 +60,7 @@ function tpg_homepage_field_default_field_instances() {
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(),
         'manualcrop_styles_list' => array(
-          'header_image' => 'header_image',
+          'homepage_header_image_1920x1000' => 'homepage_header_image_1920x1000',
         ),
         'manualcrop_styles_mode' => 'include',
         'manualcrop_thumblist' => 1,
