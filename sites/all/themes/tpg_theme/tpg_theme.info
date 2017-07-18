@@ -16,6 +16,7 @@ regions[content]           = Content
 regions[full_width_bottom] = Full width bottom region
 regions[sidebar_first]     = First Sidebar
 regions[sidebar_second]    = Second Sidebar
+regions[share_section]     = Share links
 regions[footer]            = Footer
 
 scripts[] = js/daterangepicker.js

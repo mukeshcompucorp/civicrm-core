@@ -81,6 +81,10 @@
   display: none;
 }
 
+.paragraphs-item-image-reading-width-colorbox .field-item ~ .field-item {
+  display: none;
+}
+
 #cboxTitle {
   @include lh-fs(18px, $h4);
   background-color: color(caption-bg);
