@@ -4,7 +4,15 @@
   Drupal.behaviors.dateRangePicker = {
     attach: function(context, settings) {
       var $datepickerInput = $('input#daterangepicker', context);
+
       if ($datepickerInput.length) {
+
+        // Prevent input focus
+        $datepickerInput.focus(function(event) {
+          $(this, context).blur();
+        });
+
+        // Initializing daterangepicker
         $datepickerInput.once().daterangepicker({
           autoApply: true,
           parentEl: '.daterangepicker-wrapper',
@@ -27,19 +35,43 @@
         });
 
         window.onload=function(){
+          var $check = true;
+
+          // Setting values on page load
           $datepickerInput.attr('placeholder', $datepickerInput.attr('value'));
+          $datepickerInput.addClass('empty');
           $datepickerInput.val('');
-          $('.daterangepicker', context).find('li').click(function(event) {
+
+          // Click on 'Pick a date' button
+          $('.daterangepicker', context).find('li:last-child').click(function(event) {
+            $check = false;
+          });
+
+          // Click on any other buttons
+          $('.daterangepicker', context).find('li:not(:last-child)').click(function(event) {
+            $check = true;
+            $datepickerInput.addClass('empty');
             $datepickerInput.attr('placeholder', $(this, context).attr('data-range-key'));
+            // Creating temporary input value
+            $datepickerInput.after('<div class="temp-title">' + $(this, context).attr('data-range-key') + '</div>');
+          });
+
+          $(document, context).ajaxComplete(function(event, xhr, settings) {
+            // Removing temporary input value after ajax completed
+            $('.temp-title').remove();
+
+            if ($check) {
+              $datepickerInput.addClass('empty');
+              $datepickerInput.val('');
+            } else {
+              $datepickerInput.removeClass('empty');
+              $check = false;
+              return false;
+            }
           });
         }
-        $(document, context).ajaxComplete(function(event, xhr, settings) {
-          $datepickerInput.val('');
-        });
       }
     },
   };
-
-
 
 })(jQuery);
