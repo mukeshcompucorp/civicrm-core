@@ -88,6 +88,9 @@
         $('.view-display-id-header_image_lightbox .header-image-lightbox-title', context).remove();
         $('.view-display-id-header_image_lightbox .view-content .views-field-caption-1', context).prepend("<span class='header-image-lightbox-title'>" + Drupal.settings.tpg_global.header_image_lightbox_title + "</span>");
       }
+      if (!$('.header-image-lightbox-title', context).length && $('.view-display-id-header_image_lightbox .view-content .views-field-caption-1', context).length) {
+        $('.view-display-id-header_image_lightbox .view-content .views-field-caption-1', context).hide();
+      }
     }
   };
 
