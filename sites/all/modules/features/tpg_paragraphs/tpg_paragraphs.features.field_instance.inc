@@ -1031,7 +1031,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'image_full_reading_width_820x622',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -1041,7 +1041,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'image_full_reading_width_820x622',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -1423,7 +1423,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '2_column_image_right_400_39x601_91',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -1433,7 +1433,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '2_column_image_right_400_39x601_91',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -1697,7 +1697,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '3_column_image_left_505x337',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -1707,7 +1707,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '3_column_image_left_505x337',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -3232,7 +3232,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'image_2_3_width_535x631',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -3242,7 +3242,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'image_2_3_width_535x631',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -3876,7 +3876,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'image_full_reading_width_820x622',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -3886,7 +3886,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'image_full_reading_width_820x622',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,

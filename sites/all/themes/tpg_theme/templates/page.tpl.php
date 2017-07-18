@@ -136,6 +136,10 @@
             <?php endif; ?>
             <?php print render($title_suffix); ?>
             <?php print render($page['content']); ?>
+
+            <?php if ($page['share_section']): ?>
+              <?php print render($page['share_section']); ?>
+            <?php endif; ?>
           </div>
 
           <div class="<?php print $add_classes['sidebar_second']; ?>">
