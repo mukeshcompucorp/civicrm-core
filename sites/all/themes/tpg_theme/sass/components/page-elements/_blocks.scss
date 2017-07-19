@@ -37,4 +37,16 @@
   .membership-block {
     @include rem(margin-bottom, 15px);
   }
+
+  .membership-block {
+    @include clr;
+
+    .block-title {
+      float: left;
+    }
+
+    .content {
+      float: right;
+    }
+  }
 }
