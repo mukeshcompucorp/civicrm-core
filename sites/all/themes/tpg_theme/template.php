@@ -195,7 +195,7 @@ function tpg_theme_page_alter(&$page) {
   $node = menu_get_object('node');
   // Hiding Service Links Block per node value.
   if (!$node->field_show_share_block['und'][0]['value']) {
-    unset($page['footer']['service_links_service_links']);
+    unset($page['share_section']);
   }
 
   if ($node->type == 'events_detail') {
