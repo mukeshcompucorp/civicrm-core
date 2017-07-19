@@ -158,7 +158,7 @@ function tpg_homepage_search_autocomplete_config_features_default_settings() {
       'data_source' => 'view',
       'data_callback' => 'search_autocomplete/autocomplete/3/',
       'data_static' => '',
-      'data_view' => 'nodes_autocomplete',
+      'data_view' => 'search_autocomplete',
       'theme' => 'basic-green.css',
     ),
   );
