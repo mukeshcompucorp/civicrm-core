@@ -7,7 +7,7 @@
   padding: 0;
 
   &.show-calendar {
-    width: 620px;
+    width: 640px;
   }
 
   table {
@@ -106,7 +106,7 @@
     margin-right: 30px;
 
     .calendar-table {
-      padding: 12px 13px 17px;
+      padding: 1px 5px 10px;
     }
   }
 
@@ -117,7 +117,7 @@
 
     &-table {
       border-radius: 0;
-      padding: 12px 13px 17px;
+      padding: 1px 5px 10px;
     }
 
     &.left {
@@ -126,7 +126,8 @@
   }
 
   .month {
-    padding-bottom: 2px;
+    border: 0;
+    padding-top: 7px;
     vertical-align: bottom;
   }
 
@@ -137,9 +138,26 @@
   .prev,
   .next {
     border: 0;
-    border-radius: 0;
-    padding-bottom: 4px;
     padding-top: 4px;
+  }
+
+  th.prev,
+  th.next,
+  .month {
+    border-bottom: 12px solid color(form-bg);
+    border-radius: 0;
+
+    &:hover {
+      border-color: color(form-bg);
+    }
+  }
+
+  .prev {
+    text-align: left;
+  }
+
+  .next {
+    text-align: right;
   }
 
   .fa {
@@ -165,10 +183,10 @@
     height: 30px;
     line-height: 1em;
     min-width: auto;
-    padding-top: 5px;
+    padding-top: 3px;
     text-align: center;
     vertical-align: middle;
-    width: 30px;
+    width: 33px;
 
     &.off {
       color: color(date-cell-inactive);
