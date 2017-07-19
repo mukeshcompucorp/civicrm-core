@@ -1794,7 +1794,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
   Drupal.behaviors.lightboxCaption = {
     attach: function (context, settings) {
       this.captionIcon('.caption-icon', '.header-image-lightbox [class*="field-caption"]', context);
-      this.changingHeaderBg('.header-image-lightbox', '.header', '#c8c8c8');
+      this.changingHeaderBg('.header-image-lightbox img', '.header', '#c8c8c8');
     },
     captionIcon: function(el, parent, context) {
       if ($(parent, context).length) {
