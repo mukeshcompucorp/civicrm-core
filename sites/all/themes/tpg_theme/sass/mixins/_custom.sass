@@ -6,7 +6,7 @@
   text-transform: uppercase
 
 =viewpoint
-  +rem(font-size, $card-label);
+  +rem(font-size, $card-label)
   +rem(padding, 5px 9px 2px)
   background-color: color(card-bg)
   color: color(main)
@@ -22,13 +22,16 @@
   white-space: nowrap
 
 =button
-  +rem(padding, 14px 12px 10px)
+  +rem(padding, 13px 12px 11px)
   background-color: color(main)
   border: 0
   color: color(button-color)
   display: inline-block
   line-height: 1
   text-decoration: none
+
+  &:hover
+    cursor: pointer
   +breakpoint($md-1 0)
     +lh-fs(18px, $button-resp)
 
@@ -41,15 +44,15 @@
   white-space: nowrap
 
 =triangle-bottom
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid color(main);
-  content: '';
-  height: 0;
-  position: absolute;
-  right: 5px;
-  top: 10px;
-  width: 0;
+  border-left: 4px solid transparent
+  border-right: 4px solid transparent
+  border-top: 4px solid color(main)
+  content: ''
+  height: 0
+  position: absolute
+  right: 5px
+  top: 10px
+  width: 0
 
 =centered-image
   left: 50%
@@ -58,3 +61,7 @@
   position: absolute
   top: 50%
   transform: translate(-50%, -50%)
+
+=font-smoothing
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased

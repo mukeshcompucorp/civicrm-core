@@ -12,6 +12,10 @@ button * {
   }
 }
 
+select {
+  opacity: 0;
+}
+
 select,
 input[type='password'],
 input[type='email'],
@@ -25,6 +29,8 @@ input[type='text'] {
   }
 }
 
+input[type='button'],
+input[type='reset'],
 input[type='submit'],
 button {
   @include button;

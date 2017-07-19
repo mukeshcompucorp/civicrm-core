@@ -1,3 +1,75 @@
 .footer {
   background-color: color(main);
+  overflow: hidden;
+  padding-bottom: 34px;
+  padding-top: 41px;
+
+  .footer-inner {
+    position: relative;
+  }
+
+  & * {
+    @include lh-fs(25px, $footer-font-size);
+  }
+
+  ul.menu {
+    padding-left: 0;
+  }
+
+  p,
+  li,
+  strong {
+    color: color(footer-text-color);
+  }
+
+  .block-working-hours strong {
+    display: inline-block;
+    width: 83px;
+  }
+
+  a {
+    color: color(footer-text-color);
+    text-decoration: none;
+
+    &:hover {
+      color: color(footer-text-color-active);
+    }
+  }
+
+  .logo-footer a {
+    @include sprite($logo-footer);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .block-arts-council-england {
+    bottom: 0;
+    position: absolute;
+    right: 10px;
+  }
+
+  .block-menu-footer ul.menu li,
+  a.arrow {
+    display: block;
+    list-style-type: none;
+    padding-left: 8px;
+    position: relative;
+
+    &:before {
+      @include rem(font-size, $footer-arrow-font-size);
+      content: '>';
+      left: 0;
+      line-height: 1em;
+      position: absolute;
+      top: 8px;
+    }
+  }
+
+  .block-webform-stay-up-to-date {
+    padding-bottom: 54px;
+
+    h2 {
+      color: color(footer-text-color);
+    }
+  }
 }

@@ -14,7 +14,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['service_links-service_links'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'share-links',
     'custom' => 0,
     'delta' => 'service_links',
     'module' => 'service_links',
@@ -53,13 +53,13 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'footer',
+        'region' => 'share_section',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -21,
+        'weight' => -34,
       ),
     ),
-    'title' => '<none>',
+    'title' => 'Share',
     'visibility' => 0,
   );
 

@@ -66,6 +66,11 @@
   width: auto;
 }
 
+.chzn-container .chzn-results li {
+  padding-bottom: 7px;
+  padding-top: 9px;
+}
+
 .views-widget {
   position: relative;
 }
@@ -89,6 +94,7 @@
 
   + .form-item {
     background-color: color(form-bg);
+    display: none;
     max-width: 215px;
     padding: 8px;
     position: absolute;

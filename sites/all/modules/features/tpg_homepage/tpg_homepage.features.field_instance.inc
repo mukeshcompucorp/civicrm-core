@@ -20,7 +20,7 @@ function tpg_homepage_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -60,7 +60,7 @@ function tpg_homepage_field_default_field_instances() {
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(),
         'manualcrop_styles_list' => array(
-          'header_image' => 'header_image',
+          'homepage_header_image_1920x1000' => 'homepage_header_image_1920x1000',
         ),
         'manualcrop_styles_mode' => 'include',
         'manualcrop_thumblist' => 1,
@@ -69,6 +69,45 @@ function tpg_homepage_field_default_field_instances() {
       ),
       'type' => 'image_image',
       'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-header_image-field_logo_color'.
+  $field_instances['node-header_image-field_logo_color'] = array(
+    'bundle' => 'header_image',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_logo_color',
+    'label' => 'Logo Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 34,
     ),
   );
 
@@ -82,7 +121,7 @@ function tpg_homepage_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -123,6 +162,7 @@ function tpg_homepage_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Header Image');
+  t('Logo Color');
   t('Show on Dates');
 
   return $field_instances;

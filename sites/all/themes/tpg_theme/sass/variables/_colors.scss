@@ -11,51 +11,81 @@ $chroma: add-colors((
   white:         #fff,
 
   black-lighten: #222,
-  white-darken:  #ddd,
 
   taupe-grey:    #313131,
   dim-grey:      #333,
   dark-grey:     #6d6d6d,
   light-grey:    #d7d7d7,
   darken-grey:   #c8c8c8,
-  silver:        #999
+  silver:        #999,
+  light-silver:  #9b9b9b,
+  lighter-grey:  #ddd,
+  platinum:      #e8e8e8,
+
+  side-1:        #141414,
+  side-2:        #1c1111
 ));
 
 // Define color names for functional uses.
 $chroma: define-color-scheme('functional', 'Colors used by functional parts of the design.');
 $chroma: add-colors('functional', (
   // Colors used in the main content area.
-  main:                     'black',
-  heading:                  'black',
-  text:                     'black-lighten',
+  main:                                       'black',
+  heading:                                    'black',
+  text:                                       'black-lighten',
+  text-on-dark:                               'white',
 
-  page-bg:                  'light-grey',
+  page-bg:                                    'light-grey',
+  front-page-grad-1:                          'side-1',
+  front-page-grad-2:                          'side-2',
 
-  card-bg:                  'white',
-  admin-menu-text-color:    'white',
+  header-image-arrow-bg:                      'light-grey',
 
-  load-more-bg:             'white',
+  card-bg:                                    'white',
+  card-darken-bg:                             'platinum',
+  admin-menu-text-color:                      'white',
 
-  form-bg:                  'white',
-  filter-bg:                'dim-grey',
-  filter-color:             'white',
-  focused-input:            'black-lighten',
-  button-color:             'white-darken',
-  option-h:                 'white-darken',
-  input-bd:                 'white-darken',
+  load-more-bg:                               'white',
 
-  caption-color:            'dark-grey',
-  caption-bg:               'taupe-grey',
-  caption-title:            'silver',
+  form-bg:                                    'white',
+  filter-bg:                                  'dim-grey',
+  filter-color:                               'white',
+  focused-input:                              'black-lighten',
+  button-color:                               'lighter-grey',
+  option-h:                                   'lighter-grey',
+  input-bd:                                   'lighter-grey',
 
-  date-cell-h:              'light-grey',
+  forgot-password-color:                      'dark-grey',
 
-  colorbox-close-button:    'silver',
-  arrows:                   'silver',
+  caption-color:                              'dark-grey',
+  caption-bg:                                 'taupe-grey',
+  caption-title:                              'silver',
 
-  darken-background:        'darken-grey',
+  date-cell-h:                                'light-grey',
+  date-cell-inactive:                         'darken-grey',
 
-  related-activities-color: 'black'
+  main-menu-text-color:                       'light-grey',
+  main-menu-text-color-active:                'white',
+  user-menu-text-color:                       'light-silver',
+  user-menu-text-color-active:                'white',
+
+  footer-text-color:                          'light-grey',
+  footer-text-color-active:                   'white',
+  footer-social-connectors-background-color:  'light-grey',
+  footer-stay-up-to-date-color:               'lighter-grey',
+
+  colorbox-close-button:                      'silver',
+  arrows:                                     'silver',
+
+  darken-background:                          'darken-grey',
+
+  colorbox-bg-dark:                           'black',
+  colorbox-bg-light:                          'white',
+
+  related-activities-color:                   'black'
 ));
 
 $chroma-active-scheme: 'functional';
+
+$front-page-gradient: linear-gradient(270deg, color(front-page-grad-1) 0%, color(front-page-grad-2) 51.75%, color(front-page-grad-1) 100%);
+$arrow-down: rgba(color(header-image-arrow-bg), .5);
