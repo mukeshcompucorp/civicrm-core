@@ -33,6 +33,11 @@
   }
 }
 
+.second-sidebar,
+.first-sidebar {
+  margin-top: 48px;
+}
+
 .main-content {
   order: 1;
 }
@@ -46,6 +51,11 @@
 }
 
 @include breakpoint($md-1 0) {
+  .second-sidebar,
+  .first-sidebar {
+    margin-top: 30px;
+  }
+
   .flex-responsive {
     display: flex;
     flex-direction: column;
