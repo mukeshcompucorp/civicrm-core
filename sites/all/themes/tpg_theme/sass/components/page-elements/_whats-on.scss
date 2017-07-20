@@ -159,6 +159,18 @@
   }
 }
 
+@include breakpoint($large-screen $screen-md) {
+  .whats-on-filter .views-exposed-form .views-widget-filter-field_event_for_tid .chzn-single-with-drop + .chzn-drop {
+    left: auto !important;
+    right: 0;
+    text-align: right;
+
+    .chzn-results {
+      text-align: left;
+    }
+  }
+}
+
 @include breakpoint($md-1 0) {
   .whats-on-filter {
     clear: both;

@@ -65,7 +65,7 @@ function tpg_events_default_fe_block_settings() {
 
   $export['block-membership_block'] = array(
     'cache' => -1,
-    'css_class' => 'membership-block',
+    'css_class' => 'membership-block col-xs-6 col-md-12',
     'custom' => 0,
     'machine_name' => 'membership_block',
     'module' => 'block',
@@ -476,7 +476,7 @@ whats-on/past-programme',
 
   $export['views-events_entity-events_book_now'] = array(
     'cache' => -1,
-    'css_class' => 'book-tickets',
+    'css_class' => 'book-tickets col-xs-6 col-md-12',
     'custom' => 0,
     'delta' => 'events_entity-events_book_now',
     'module' => 'views',
