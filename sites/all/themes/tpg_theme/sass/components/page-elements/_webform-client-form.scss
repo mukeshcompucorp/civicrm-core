@@ -30,7 +30,7 @@ article .webform-client-form {
     margin-top: 10px;
 
     &.webform-component-markup,
-    .webform-component--introduction {
+    &.webform-component--introduction {
       margin-left: 0;
       margin-right: 0;
     }
