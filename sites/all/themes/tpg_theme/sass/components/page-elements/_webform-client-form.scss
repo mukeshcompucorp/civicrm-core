@@ -1,0 +1,130 @@
+article .webform-client-form {
+  padding-bottom: 45px;
+
+  .webform-container-inline label {
+    margin-right: 0;
+  }
+
+  table {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .chzn-container-single .chzn-single > span,
+  .chzn-container .chzn-results li,
+  .who-select-prefix {
+    padding: 11px 18px 9px 8px;
+
+    &:after {
+      top: 15px;
+    }
+  }
+
+  .element-invisible {
+    display: none;
+  }
+
+  .form-item {
+    @include make-row;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    &.webform-component-markup,
+    .webform-component--introduction {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .form-item {
+      margin: 0;
+    }
+
+    label:not(.option) {
+      @include make-md-column(3);
+      padding-top: 3px;
+    }
+
+    label + select,
+    label + input {
+      margin-left: 10px;
+      margin-right: 10px;
+      opacity: 1;
+      width: 50%;
+    }
+  }
+
+  .form-checkboxes {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50%;
+  }
+
+  .webform-component-radios.form-item .form-type-radio {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .webform-component-textarea.form-item > label,
+  .webform-component-radios.form-item > label,
+  .webform-component-date.form-item label {
+    float: none;
+    width: auto;
+  }
+
+  .webform-component-textarea.form-item,
+  .webform-component-date.form-item {
+    margin-left: 0;
+    margin-right: 0;
+
+    label {
+      padding: 0;
+    }
+  }
+
+  .webform-component-date.form-item {
+    .chzn-container {
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+
+    .error {
+      border: 1px solid;
+    }
+
+    .chzn-results {
+      display: block;
+    }
+  }
+
+  .chzn-container {
+    float: left;
+    margin-left: 10px;
+    width: 50% !important;
+  }
+
+  .webform-component-textarea {
+    margin: 10px 0;
+
+    textarea {
+      resize: none;
+    }
+
+    .grippie {
+      display: none;
+    }
+  }
+
+  .description {
+    clear: both;
+    padding: 10px;
+  }
+
+  .form-actions input ~ input {
+    margin-left: 10px;
+  }
+
+  input[type='image'] {
+    padding: 0;
+  }
+}
