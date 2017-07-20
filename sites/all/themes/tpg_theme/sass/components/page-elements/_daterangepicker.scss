@@ -6,6 +6,11 @@
   margin-top: 0;
   padding: 0;
 
+  &.dropdown-menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+
   &.show-calendar {
     width: 640px;
   }
@@ -27,6 +32,7 @@
     @include placeholder {
       @include rem(font-size, $form-item);
       color: color(main);
+      opacity: 1;
     };
     @include rem(font-size, $form-item);
     background: color(form-bg);
@@ -37,6 +43,7 @@
     border-radius: 0;
     color: color(main);
     display: inline-block;
+    height: 24px;
     line-height: 1em;
     margin: 0;
     min-width: auto;
@@ -236,6 +243,7 @@
 
     &-input[type='text'],
     &-input[type='text'].empty {
+      height: auto;
       padding: 14px 10px 11px;
       width: 100%;
 
