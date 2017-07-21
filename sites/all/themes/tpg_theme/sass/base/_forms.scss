@@ -50,23 +50,26 @@ input[type='checkbox'] {
   @include rem(height, 32px);
   @include rem(width, 32px);
   appearance: checkbox;
-  margin: -5px 0 0;
+  height: 0;
+  margin: 0;
   opacity: 0;
+  padding: 0;
+  width: 0;
 
   + label {
-    display: inline-block;
+    display: block;
     font-weight: $bold;
-    padding-left: 14px;
+    padding-left: 46px;
     padding-top: 5px;
     position: relative;
 
     &:before {
       @include rem(height, 32px);
-      @include rem(left, -35px);
       @include rem(width, 32px);
       background-color: color(form-bg);
       content: '';
       display: inline-block;
+      left: 0;
       position: absolute;
       top: 0;
     }
@@ -75,8 +78,8 @@ input[type='checkbox'] {
   &:checked + label:after {
     @include fa-icon('\f00d');
     @include rem(height, 16px);
-    @include rem(left, -27px);
-    @include rem(top, 9px);
+    @include rem(left, 9px);
+    @include rem(top, 8px);
     @include rem(width, 16px);
     position: absolute;
     text-align: center;
@@ -85,5 +88,41 @@ input[type='checkbox'] {
 }
 
 input[type='radio'] {
+  @include rem(height, 20px);
+  @include rem(width, 20px);
   appearance: radio;
+  margin: -5px 0 0;
+  opacity: 0;
+
+  + label {
+    display: inline-block;
+    font-weight: $bold;
+    padding-left: 14px;
+    position: relative;
+
+    &:before {
+      @include rem(height, 20px);
+      @include rem(left, -13px);
+      @include rem(width, 20px);
+      background-color: color(form-bg);
+      border-radius: 50%;
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 1px;
+    }
+  }
+
+  &:checked + label:after {
+    @include rem(height, 8px);
+    @include rem(left, -7px);
+    @include rem(top, 7px);
+    @include rem(width, 8px);
+    background-color: color(main);
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+  }
 }
