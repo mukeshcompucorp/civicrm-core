@@ -221,24 +221,6 @@
       outline: none;
     }
 
-    span {
-      @include sprite($cbox-arrow);
-      display: block;
-      position: absolute;
-      top: 50%;
-    }
-
-    .left {
-      margin-right: 8px;
-      right: 100%;
-      transform: translateY(-50%);
-    }
-
-    .right {
-      left: 100%;
-      margin-left: 8px;
-      transform: translateY(-50%) rotate(180deg);
-    }
 
     &:after {
       @include sprite($fullscreen);
@@ -248,6 +230,28 @@
       left: 8px;
       position: absolute;
     }
+  }
+
+  .right,
+  .left {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .left {
+    @include sprite($arrow-left);
+    left: 19px;
+  }
+
+  .right {
+    @include sprite($arrow-right);
+    right: 19px;
   }
 }
 

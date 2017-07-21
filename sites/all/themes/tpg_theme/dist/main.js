@@ -1693,14 +1693,22 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
 
   Drupal.behaviors.lightBoxArrows = {
     attach: function(context, settings) {
-      this.arrowCreation('.header-image-lightbox a.colorbox', context);
+      this.arrowCreation('.header-image-lightbox .field-content', context);
+      this.openLightbox('.header-image-lightbox .left', context);
+      this.openLightbox('.header-image-lightbox .right', context);
     },
     arrowCreation: function(el, context) {
       var $el = $(el, context);
 
       if ($el.length) {
-        $(el, context).prepend('<span class="left"></span><span class="right"></span>');
+        $(el, context).append('<span class="left"></span><span class="right"></span>');
       }
+    },
+    openLightbox: function(el, context) {
+      var $el = $(el, context);
+      $el.click(function(event) {
+        $(this, context).parent().find('.colorbox:first-child').click();
+      });
     }
   };
 
