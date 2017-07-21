@@ -65,7 +65,7 @@
         if ($(afterEl, context).length) {
           $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterEl);
         } else {
-          $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterElAlt);
+          $(wrapper, context).clone().addClass('second-sidebar-responsive').appendTo(afterElAlt);
         }
       }
     }

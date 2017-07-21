@@ -1701,7 +1701,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
         if ($(afterEl, context).length) {
           $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterEl);
         } else {
-          $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterElAlt);
+          $(wrapper, context).clone().addClass('second-sidebar-responsive').appendTo(afterElAlt);
         }
       }
     }
