@@ -63,8 +63,9 @@
     },
     arrowCreation: function(el, context) {
       var $el = $(el, context);
+      var $item = $el.find('a');
 
-      if ($el.length) {
+      if ($el.length && $item.length >= 2) {
         $(el, context).append('<span class="left"></span><span class="right"></span>');
       }
     },
