@@ -1699,8 +1699,9 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
     },
     arrowCreation: function(el, context) {
       var $el = $(el, context);
+      var $item = $el.find('a');
 
-      if ($el.length) {
+      if ($el.length && $item.length >= 2) {
         $(el, context).append('<span class="left"></span><span class="right"></span>');
       }
     },
