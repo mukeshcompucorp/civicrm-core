@@ -20,6 +20,7 @@
     border-spacing: 6px;
   }
 
+  tbody tr:not(:first-child) .off,
   thead tr:last-child,
   &:before,
   .input-mini,
