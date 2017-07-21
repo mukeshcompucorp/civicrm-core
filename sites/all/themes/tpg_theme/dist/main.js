@@ -1691,6 +1691,19 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
     }
   };
 
+  Drupal.behaviors.lightBoxArrows = {
+    attach: function(context, settings) {
+      this.arrowCreation('.header-image-lightbox a.colorbox', context);
+    },
+    arrowCreation: function(el, context) {
+      var $el = $(el, context);
+
+      if ($el.length) {
+        $(el, context).prepend('<span class="left"></span><span class="right"></span>');
+      }
+    }
+  };
+
   Drupal.behaviors.removingEmptyBlock = {
     attach: function(context, settings) {
       this.moveTitle('.header-image', 'img');
