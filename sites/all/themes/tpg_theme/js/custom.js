@@ -55,6 +55,22 @@
     }
   };
 
+
+  Drupal.behaviors.sidebarCopy = {
+    attach: function(context, settings) {
+      this.sa('.plan-your-visit', '.book-tickets', '.membership-block', '.second-sidebar', 'article .paragraphs-items > .field > .field-items > .field-item:first-child', '.main-content', context);
+    },
+    sa: function(el1, el2, el3, wrapper, afterEl, afterElAlt, context) {
+      if ($(el1, context).length || $(el2, context).length || $(el3, context).length) {
+        if ($(afterEl, context).length) {
+          $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterEl);
+        } else {
+          $(wrapper, context).clone().addClass('second-sidebar-responsive').appendTo(afterElAlt);
+        }
+      }
+    }
+  };
+
   Drupal.behaviors.lightBoxArrows = {
     attach: function(context, settings) {
       this.arrowCreation('.header-image-lightbox .field-content', context);

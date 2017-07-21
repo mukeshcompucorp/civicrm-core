@@ -121,7 +121,7 @@
 
           <div class="<?php print $add_classes['sidebar_first']; ?>">
             <?php if ($page['sidebar_first']): ?>
-              <aside id="first-sidebar" class="first-sidebar" role="complementary">
+              <aside id="first-sidebar" class="first-sidebar clearfix" role="complementary">
                 <?php print render($page['sidebar_first']); ?>
               </aside>
             <?php endif; ?>
@@ -144,7 +144,7 @@
 
           <div class="<?php print $add_classes['sidebar_second']; ?>">
             <?php if ($page['sidebar_second']): ?>
-              <aside id="second-sidebar" class="second-sidebar" role="complementary">
+              <aside id="second-sidebar" class="second-sidebar clearfix" role="complementary">
                 <?php print render($page['sidebar_second']); ?>
               </aside>
             <?php endif; ?>

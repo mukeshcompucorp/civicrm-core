@@ -160,12 +160,14 @@
     }
   }
 
-  .prev {
-    text-align: left;
+  th.prev {
+    left: -6px;
+    position: relative;
   }
 
-  .next {
-    text-align: right;
+  th.next {
+    position: relative;
+    right: -5px;
   }
 
   .fa {
