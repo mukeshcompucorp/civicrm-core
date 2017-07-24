@@ -29,6 +29,8 @@
 
   a {
     color: color(footer-text-color);
+    font-variant-numeric: initial;
+    font-feature-settings: initial;
     text-decoration: none;
 
     &:hover {
