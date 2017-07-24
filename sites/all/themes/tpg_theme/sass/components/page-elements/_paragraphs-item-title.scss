@@ -57,10 +57,6 @@
       top: auto;
     }
   }
-
-  .field-name-field-paragraph-description {
-    @include rem(margin-bottom, 48px);
-  }
 }
 
 @include breakpoint($md-1 0) {
@@ -72,10 +68,6 @@
 
     &.title-header {
       @include rem(margin-top, 14px);
-    }
-
-    .field-name-field-paragraph-description {
-      @include rem(margin-bottom, 32px);
     }
 
     .field-name-field-paragraphs-tags-viewpoints {

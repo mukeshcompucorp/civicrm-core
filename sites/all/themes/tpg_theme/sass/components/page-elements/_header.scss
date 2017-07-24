@@ -42,12 +42,15 @@
   }
 
   &-two-col {
-    @include rem(max-height, 400px);
     margin-top: 24px;
     overflow: hidden;
 
     .view-content {
       @include make-row;
+    }
+
+    img {
+      width: 100%;
     }
   }
 

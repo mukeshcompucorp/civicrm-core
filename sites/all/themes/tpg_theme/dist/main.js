@@ -1677,6 +1677,19 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
     }
   };
 
+  Drupal.behaviors.respMenu = {
+    attach: function(context, settings) {
+      this.showMenu('.resp-menu', '.region-header-pane', context);
+    },
+    showMenu: function(el, toggleMenu, context) {
+      var $el = $(el, context);
+      $el.click(function(event) {
+        $(toggleMenu, context).slideToggle();
+        $('body', context).toggleClass('fixed-menu');
+      });
+    }
+  };
+
   Drupal.behaviors.qoutes = {
     attach: function(context, settings) {
       this.addStrToElement('blockquote:not(.image-field-caption)', context);
@@ -1688,6 +1701,44 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
         $el.find('p:first-child').prepend('»');
         $el.find('p:last-child').append('«');
       }
+    }
+  };
+
+  Drupal.behaviors.sidebarCopy = {
+    attach: function(context, settings) {
+      this.sa('.plan-your-visit', '.book-tickets', '.membership-block', '.second-sidebar', 'article .paragraphs-items > .field > .field-items > .field-item:first-child', '.main-content', context);
+    },
+    sa: function(el1, el2, el3, wrapper, afterEl, afterElAlt, context) {
+      if ($(el1, context).length || $(el2, context).length || $(el3, context).length) {
+        if ($(afterEl, context).length) {
+          $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterEl);
+        } else {
+          $(wrapper, context).clone().addClass('second-sidebar-responsive').appendTo(afterElAlt);
+        }
+      }
+    }
+  };
+
+  Drupal.behaviors.lightBoxArrows = {
+    attach: function(context, settings) {
+      this.arrowCreation('.header-image-lightbox .field-content', context);
+      this.openLightbox('.header-image-lightbox .left', context);
+      this.openLightbox('.header-image-lightbox .right', context);
+    },
+    arrowCreation: function(el, context) {
+      var $el = $(el, context);
+      var $item = $el.find('a');
+
+      if ($el.length && $item.length >= 2) {
+        $(el, context).append('<span class="left"></span><span class="right"></span>');
+      }
+    },
+    openLightbox: function(el, context) {
+      var $el = $(el, context);
+
+      $el.click(function(event) {
+        $(this, context).parent().find('.colorbox:first-child').click();
+      });
     }
   };
 

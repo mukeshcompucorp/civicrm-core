@@ -69,6 +69,11 @@
     <section id="header-pane" class="header-pane">
       <div class="container clearfix">
         <?php print render($page['header_pane']); ?>
+        <div class="resp-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </section>
   <?php endif; ?>
@@ -76,6 +81,11 @@
     <div class="header-inner clearfix">
       <?php if ($logo): ?>
         <div id="logo" class="logo container clearfix relative">
+          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+            <img src="<?php print $logo; ?>"/>
+          </a>
+        </div>
+        <div id="responsive-logo" class="responsive-logo">
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
             <img src="<?php print $logo; ?>"/>
           </a>
@@ -121,7 +131,7 @@
 
           <div class="<?php print $add_classes['sidebar_first']; ?>">
             <?php if ($page['sidebar_first']): ?>
-              <aside id="first-sidebar" class="first-sidebar" role="complementary">
+              <aside id="first-sidebar" class="first-sidebar clearfix" role="complementary">
                 <?php print render($page['sidebar_first']); ?>
               </aside>
             <?php endif; ?>
@@ -144,7 +154,7 @@
 
           <div class="<?php print $add_classes['sidebar_second']; ?>">
             <?php if ($page['sidebar_second']): ?>
-              <aside id="second-sidebar" class="second-sidebar" role="complementary">
+              <aside id="second-sidebar" class="second-sidebar clearfix" role="complementary">
                 <?php print render($page['sidebar_second']); ?>
               </aside>
             <?php endif; ?>

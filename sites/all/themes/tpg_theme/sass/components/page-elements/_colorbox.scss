@@ -203,6 +203,7 @@
   // Removing coma and hiding unnecessary header images
   .field-content {
     font-size: 0;
+    overflow: hidden;
     text-align: center;
 
     a ~ a {
@@ -213,8 +214,13 @@
   a.colorbox {
     display: inline-block;
     max-width: 100%;
-    overflow: hidden;
+    outline: none;
     position: relative;
+
+    * {
+      outline: none;
+    }
+
 
     &:after {
       @include sprite($fullscreen);
@@ -224,6 +230,28 @@
       left: 8px;
       position: absolute;
     }
+  }
+
+  .right,
+  .left {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .left {
+    @include sprite($arrow-left);
+    left: 19px;
+  }
+
+  .right {
+    @include sprite($arrow-right);
+    right: 19px;
   }
 }
 

@@ -20,6 +20,7 @@
     border-spacing: 6px;
   }
 
+  tbody tr:not(:first-child) .off,
   thead tr:last-child,
   &:before,
   .input-mini,
@@ -159,12 +160,14 @@
     }
   }
 
-  .prev {
-    text-align: left;
+  th.prev {
+    left: -6px;
+    position: relative;
   }
 
-  .next {
-    text-align: right;
+  th.next {
+    position: relative;
+    right: -5px;
   }
 
   .fa {
