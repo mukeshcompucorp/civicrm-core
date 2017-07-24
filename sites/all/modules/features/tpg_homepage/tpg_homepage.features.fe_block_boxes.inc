@@ -46,7 +46,7 @@ function tpg_homepage_default_fe_block_boxes() {
 <strong>Sun</strong> 11.00 - 18.00<br />
 <a class="arrow" href="http://www.compucorp.co.uk">Plan your visit</a></p>
 
-<p><a href="mailto:info@tpl.org.uk">info@tpl.org.uk</a>&nbsp;<a href="+44270879300">+44 (020) 7087 9300</a></p>
+<p><a href="mailto:info@tpg.org.uk">info@tpg.org.uk</a>&nbsp;<a href="+44270879300">+44 (020) 7087 9300</a></p>
 ';
 
   $export['working_hours'] = $fe_block_boxes;
