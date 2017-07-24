@@ -94,15 +94,13 @@
     }
   }
 
-  ul[data-sa-theme='basic-green'].ui-menu {
-    .ui-menu-item {
-      background-color: color(form-bg);
-      border-top: 0;
+  ul[data-sa-theme='basic-green'].ui-menu .ui-menu-item {
+    background-color: color(form-bg);
+    border-top: 0;
 
-      a {
-        background-image: none;
-        margin: 0;
-      }
+    a {
+      background-image: none;
+      margin: 0;
     }
   }
 
