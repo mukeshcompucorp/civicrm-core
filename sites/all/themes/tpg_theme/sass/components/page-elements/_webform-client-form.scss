@@ -72,8 +72,22 @@ article .webform-client-form {
     width: auto;
   }
 
-  .webform-component-textarea.form-item,
-  .webform-component-date.form-item {
+  .webform-component-date .form-item {
+    @include make-md-column(3);
+
+    // Override default inline value
+    .chzn-container {
+      width: 100% !important;
+    }
+
+    &[class*='date-month'],
+    &[class*='date-year'] {
+      margin-left: 10px;
+      padding-left: 0;
+    }
+  }
+
+  .webform-component-textarea.form-item {
     margin-left: 0;
     margin-right: 0;
 
