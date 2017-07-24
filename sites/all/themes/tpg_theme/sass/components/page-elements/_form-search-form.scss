@@ -85,6 +85,16 @@
     padding-top: 1px;
     width: 100% !important;
 
+    .ui-autocomplete-field-title {
+      @include lh-fs($form-search-font-size, $form-search-font-size);
+    }
+
+    .ui-autocomplete-fields {
+      padding: 6px 10px 2px;
+    }
+  }
+
+  ul[data-sa-theme='basic-green'].ui-menu {
     .ui-menu-item {
       background-color: color(form-bg);
       border-top: 0;
@@ -93,14 +103,6 @@
         background-image: none;
         margin: 0;
       }
-    }
-
-    .ui-autocomplete-field-title {
-      @include lh-fs($form-search-font-size, $form-search-font-size);
-    }
-
-    .ui-autocomplete-fields {
-      padding: 6px 10px 2px;
     }
   }
 
