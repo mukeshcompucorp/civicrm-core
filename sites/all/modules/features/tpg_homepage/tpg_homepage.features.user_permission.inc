@@ -15,6 +15,8 @@ function tpg_homepage_user_default_permissions() {
     'name' => 'use Search Autocomplete',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'search_autocomplete',
   );
