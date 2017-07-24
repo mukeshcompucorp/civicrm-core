@@ -1,0 +1,56 @@
+@include breakpoint($tablet-1 0) {
+  .resp-menu {
+    float: right;
+    height: 16px;
+    padding: 7px 0;
+    position: relative;
+    transition: .5s ease-in-out;
+    width: 18px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      background: color(responsive-menu-icon);
+      display: block;
+      height: 2px;
+      left: 0;
+      position: absolute;
+      transition: .25s ease-in-out;
+      width: 100%;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        margin-top: -1px;
+        top: 50%;
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+  }
+
+  .fixed-menu .resp-menu {
+    span:nth-child(1) {
+      margin-top: -1px;
+      top: 50%;
+      transform: rotate(135deg);
+    }
+
+    span:nth-child(2) {
+      left: -60px;
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      bottom: 50%;
+      margin-bottom: -1px;
+      transform: rotate(-135deg);
+    }
+  }
+}

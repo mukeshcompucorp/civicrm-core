@@ -19,3 +19,29 @@
     }
   }
 }
+
+@include breakpoint($tablet-1 0) {
+  .block-menu-user ul.menu li a {
+    @include lh-fs(38px, $user-menu-link-size-responsive);
+    color: color(user-menu-responsive);
+
+    // Reverting default states for searchbar
+    &.search-bar:hover,
+    &.search-bar {
+      @include rem(font-size, $user-menu-link-size-responsive);
+      background: none;
+      height: auto;
+      margin-top: 0;
+      width: auto;
+    }
+
+    &.search-bar:before {
+      @include sprite($search-bar-responsive);
+      content: '';
+      display: inline-block;
+      left: -5px;
+      position: relative;
+      top: 3px;
+    }
+  }
+}
