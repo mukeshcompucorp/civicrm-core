@@ -124,11 +124,31 @@
   .ui-state-focus,
   .ui-widget-content .ui-state-focus,
   .ui-widget-header .ui-state-focus {
-    background-color: color(autocomplete-hover);
+    // background-color: color(autocomplete-hover);
     border: 0;
   }
 }
 
 html.js .block-search-form input.form-autocomplete {
   background-image: none;
+}
+
+@include breakpoint($tablet-1 0) {
+  .block-search-form {
+    float: none;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .form-actions {
+      left: 10px;
+    }
+
+    .form-item-search-block-form label {
+      right: 19px;
+    }
+
+    input.form-text {
+      padding-right: 30px;
+    }
+  }
 }

@@ -73,3 +73,9 @@
     flex-direction: column;
   }
 }
+
+@include breakpoint($tablet-1 0) {
+  body {
+    padding-top: 40px;
+  }
+}
