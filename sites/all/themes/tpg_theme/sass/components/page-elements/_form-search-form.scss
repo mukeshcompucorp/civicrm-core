@@ -45,6 +45,11 @@
     @include lh-fs($form-search-font-size, $form-search-font-size);
     padding: 4px 10px 0 36px;
     width: 100%;
+
+    &:active,
+    &:focus {
+      border-color: color(form-bg);
+    }
   }
 
   .form-actions {
@@ -64,6 +69,68 @@
       top: -2px;
     }
   }
+
+  .ui-widget-content {
+    @include lh-fs($form-search-font-size, $form-search-font-size);
+    border: 0;
+  }
+
+  .ui-menu-divider {
+    display: none;
+  }
+
+  ul[data-sa-theme='basic-green'].ui-menu {
+    background: transparent;
+    min-width: 0;
+    padding-top: 1px;
+    width: 100% !important;
+
+    .ui-autocomplete-field-title {
+      @include lh-fs($form-search-font-size, $form-search-font-size);
+    }
+
+    .ui-autocomplete-field-term {
+      @include lh-fs($form-search-font-size, $form-search-font-size);
+      font-weight: $bold;
+    }
+
+    .ui-autocomplete-fields {
+      padding: 6px 10px 2px;
+    }
+  }
+
+  ul[data-sa-theme='basic-green'].ui-menu .ui-menu-item {
+    background-color: color(form-bg);
+    border-top: 0;
+
+    a {
+      background-image: none;
+      margin: 0;
+    }
+  }
+
+  .ui-corner-all,
+  .ui-corner-bottom,
+  .ui-corner-left,
+  .ui-corner-right,
+  .ui-corner-top,
+  .ui-corner-br {
+    border-radius: 0;
+  }
+
+  .ui-state-hover,
+  .ui-widget-content .ui-state-hover,
+  .ui-widget-header .ui-state-hover,
+  .ui-state-focus,
+  .ui-widget-content .ui-state-focus,
+  .ui-widget-header .ui-state-focus {
+    // background-color: color(autocomplete-hover);
+    border: 0;
+  }
+}
+
+html.js .block-search-form input.form-autocomplete {
+  background-image: none;
 }
 
 @include breakpoint($tablet-1 0) {

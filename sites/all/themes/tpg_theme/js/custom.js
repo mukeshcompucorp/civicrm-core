@@ -8,6 +8,7 @@
     nWrapper: function (wrapper, el, n, context) {
       var $parent       = $(wrapper, context);
       var $elNumber     = n;
+
       if ($parent.length) {
         var $parentLength = $parent.length;
 
@@ -28,6 +29,7 @@
             var firstCol = $el.eq(j);
             var secondCol = $el.eq(j+1);
             var thirdCol = $el.eq(j+2);
+
             firstCol.appendTo('.columns-wrapper .col-1');
             secondCol.appendTo('.columns-wrapper .col-2');
             thirdCol.appendTo('.columns-wrapper .col-3');
@@ -47,6 +49,7 @@
     },
     showMenu: function(el, toggleMenu, context) {
       var $el = $(el, context);
+
       $el.click(function(event) {
         $(toggleMenu, context).slideToggle();
         $('body', context).toggleClass('fixed-menu');
@@ -70,14 +73,18 @@
 
   Drupal.behaviors.sidebarCopy = {
     attach: function(context, settings) {
-      this.sa('.plan-your-visit', '.book-tickets', '.membership-block', '.second-sidebar', 'article .paragraphs-items > .field > .field-items > .field-item:first-child', '.main-content', context);
+      this.elClone('.plan-your-visit', '.book-tickets', '.membership-block',
+                   '.second-sidebar', 'second-sidebar-responsive',
+                   'article .paragraphs-items > .field > .field-items > .field-item:first-child',
+                   '.main-content', context
+                  );
     },
-    sa: function(el1, el2, el3, wrapper, afterEl, afterElAlt, context) {
+    elClone: function(el1, el2, el3, classToAdd, wrapper, afterEl, afterElAlt, context) {
       if ($(el1, context).length || $(el2, context).length || $(el3, context).length) {
         if ($(afterEl, context).length) {
-          $(wrapper, context).clone().addClass('second-sidebar-responsive').insertAfter(afterEl);
+          $(wrapper, context).clone().addClass(classToAdd).insertAfter(afterEl);
         } else {
-          $(wrapper, context).clone().addClass('second-sidebar-responsive').appendTo(afterElAlt);
+          $(wrapper, context).clone().addClass(classToAdd).appendTo(afterElAlt);
         }
       }
     }

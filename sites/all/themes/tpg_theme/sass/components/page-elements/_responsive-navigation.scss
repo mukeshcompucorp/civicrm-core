@@ -21,12 +21,12 @@
       width: 100%;
 
       &:nth-child(1) {
-        top: 0px;
+        top: 0;
       }
 
       &:nth-child(2) {
-        top: 50%;
         margin-top: -1px;
+        top: 50%;
       }
 
       &:nth-child(3) {
@@ -43,8 +43,8 @@
     }
 
     span:nth-child(2) {
-      opacity: 0;
       left: -60px;
+      opacity: 0;
     }
 
     span:nth-child(3) {
