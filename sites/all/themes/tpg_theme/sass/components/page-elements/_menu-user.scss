@@ -25,7 +25,7 @@
     @include lh-fs(38px, $user-menu-link-size-responsive);
     color: color(user-menu-responsive);
 
-    // Reverting default sattes for searchbar
+    // Reverting default states for searchbar
     &.search-bar:hover,
     &.search-bar {
       @include rem(font-size, $user-menu-link-size-responsive);
