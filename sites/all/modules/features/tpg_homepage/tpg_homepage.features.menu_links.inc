@@ -253,7 +253,7 @@ function tpg_homepage_menu_default_menu_links() {
   // Exported menu link: menu-social-connectors_facebook:https://www.facebook.com.
   $menu_links['menu-social-connectors_facebook:https://www.facebook.com'] = array(
     'menu_name' => 'menu-social-connectors',
-    'link_path' => 'https://www.facebook.com',
+    'link_path' => 'https://www.facebook.com/ThePhotographersGalleryLDN/',
     'router_path' => '',
     'link_title' => 'Facebook',
     'options' => array(
@@ -281,7 +281,7 @@ function tpg_homepage_menu_default_menu_links() {
   // Exported menu link: menu-social-connectors_twitter:https://www.twitter.com.
   $menu_links['menu-social-connectors_twitter:https://www.twitter.com'] = array(
     'menu_name' => 'menu-social-connectors',
-    'link_path' => 'https://www.twitter.com',
+    'link_path' => 'https://twitter.com/TPGallery',
     'router_path' => '',
     'link_title' => 'Twitter',
     'options' => array(
