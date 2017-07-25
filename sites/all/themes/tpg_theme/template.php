@@ -290,7 +290,12 @@ function tpg_theme_preprocess_search_result(&$variables) {
   // Adding overview image.
   $overview_image_result = views_get_view_result('search_autocomplete', 'overview_image_search', $node->nid);
   if ($overview_image_result) {
-    $variables['overview_image'] = $overview_image_result[0]->field_field_paragraphs_overview_image[0]['rendered'];
+    if ($node->type == 'events_detail') {
+      $variables['overview_image'] = $overview_image_result[0]->field_field_paragraphs_overview_image[0]['rendered'];
+    }
+    elseif ($node->type == 'paragraphs_page') {
+      $variables['overview_image'] = $overview_image_result[0]->field_field_paragraphs_overview_image_1[0]['rendered'];
+    }
   }
   unset($variables['info']);
 }
