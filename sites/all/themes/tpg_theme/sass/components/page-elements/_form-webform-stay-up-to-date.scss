@@ -41,8 +41,8 @@
     }
 
     &:after {
+      @include fa-icon('\f105');
       @include rem(font-size, $footer-button-arrow-font-size);
-      content: '\f105';
       display: block;
       font-family: $fontawesome;
       left: 50%;
