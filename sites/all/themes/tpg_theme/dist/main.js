@@ -1710,10 +1710,11 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
   Drupal.behaviors.sidebarCopy = {
     attach: function(context, settings) {
       this.elClone('.plan-your-visit', '.book-tickets', '.membership-block',
-                   '.second-sidebar', 'second-sidebar-responsive',
+                   'second-sidebar-responsive', '.second-sidebar',
                    'article .paragraphs-items > .field > .field-items > .field-item:first-child',
-                   '.main-content', context
-                  );
+                   '.main-content', context);
+      this.additionalGutters('article .paragraphs-items > .field > .field-items > .field-item:first-child',
+                             '.second-sidebar:not(.second-sidebar-responsive)', context);
     },
     elClone: function(el1, el2, el3, classToAdd, wrapper, afterEl, afterElAlt, context) {
       if ($(el1, context).length || $(el2, context).length || $(el3, context).length) {
@@ -1722,6 +1723,26 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
         } else {
           $(wrapper, context).clone().addClass(classToAdd).appendTo(afterElAlt);
         }
+      }
+    },
+    additionalGutters: function(el, elOffset, context) {
+      var $el       = $(el, context);
+      var $elOffset = $(elOffset, context);
+
+      if ($el.length && $elOffset.length) {
+        var $elHeight     = $el.height();
+        var $marginArray  = $el.find('.entity-paragraphs-item').attr('class').match(/\d+/g);
+        var $botMargin    = parseInt($marginArray[$marginArray.length-1]);
+        var $topMargin    = parseInt($marginArray[$marginArray.length-2]);
+        var $summ;
+
+        if ($el.find('.entity-paragraphs-item').hasClass('paragraphs-item-title-section')) {
+          $summ = $topMargin + $botMargin + $elHeight;
+        } else {
+          $summ = $topMargin;
+        }
+
+        $(elOffset, context).css('margin-top', $summ + 'px');
       }
     }
   };

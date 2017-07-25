@@ -482,6 +482,100 @@ function tpg_homepage_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'search_autocomplete';
+
+  /* Display: Overview Image */
+  $handler = $view->new_display('block', 'Overview Image', 'overview_image_search');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_entity) */
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['table'] = 'field_data_field_paragraphs_entity';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['field'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['delta'] = '-1';
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['id'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['id'] = 'field_paragraphs_overview_image_1';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
+  $handler->display->display_options['filters']['bundle']['group'] = 2;
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle_1']['id'] = 'bundle_1';
+  $handler->display->display_options['filters']['bundle_1']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle_1']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle_1']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle_1']['value'] = array(
+    'title_section' => 'title_section',
+  );
+  $handler->display->display_options['filters']['bundle_1']['group'] = 2;
   $export['search_autocomplete'] = $view;
 
   return $export;
