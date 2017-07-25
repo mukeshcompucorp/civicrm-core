@@ -221,6 +221,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
   }
 
   if ($form_id == 'events_detail_node_form') {
+
+    // @TODO - For enabling Artists Field remove below line.
+    $form['field_event_artists']['#access'] = FALSE;
+
     // Hiding Page Type field.
     foreach ($form['field_paragraphs_entity']['und'] as $key => $value) {
       if (is_int($key)) {
@@ -276,7 +280,8 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       $form['field_paragraphs_event_type_tid']['#options']['All'] = t('EVERYTHING');
       $form['tid']['#prefix'] = '<div class="who-select-prefix">' . t('ALL ARTISTS') . '</div>';
       $form['tid']['#attributes']['placeholder'] = t('SEARCH BY NAME');
-
+      // @TODO : Remove below to enable Artists Filter.
+      unset($form['tid']);
       if ($form['field_event_for_tid']) {
         $form['field_event_for_tid']['#options']['All'] = t('EVERYONE');
       }
