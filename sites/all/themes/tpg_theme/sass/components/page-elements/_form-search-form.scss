@@ -86,7 +86,8 @@
     padding-top: 1px;
     width: 100% !important;
 
-    .ui-autocomplete-field-title {
+    .ui-autocomplete-field-title,
+    .ui-autocomplete-field-label {
       @include lh-fs($form-search-font-size, $form-search-font-size);
     }
 
