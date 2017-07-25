@@ -29,15 +29,31 @@
     &.last {
       padding-right: 0;
     }
+  }
 
-    a {
-      color: color(main-menu-text-color);
-      font-size: $main-menu-link-size;
-      text-decoration: none;
+  ul.menu li a {
+    color: color(main-menu-text-color);
+    font-size: $main-menu-link-size;
+    position: relative;
+    text-decoration: none;
+
+    &.active:after {
+      background-color: color(main-menu-text-color);
+      bottom: -2px;
+      content: '';
+      display: block;
+      font-size: 0;
+      height: 2px;
+      left: 0;
+      line-height: 0;
+      position: absolute;
+      right: 0;
+      transition: opacity .4s ease-in-out;
     }
 
-    a:hover {
-      color: color(main-menu-text-color-active);
+    &.no-hover,
+    &.active.no-hover:after {
+      opacity: .5;
     }
   }
 
