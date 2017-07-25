@@ -110,12 +110,7 @@ function tpg_global_views_query_alter(&$view, &$query) {
       $end_date = format_date(strtotime($range_values[1]), 'custom', 'Y-m-d');
       // Adding starting date.
       $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $start_date;
-      if ($start_date != $end_date) {
-        $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $end_date;
-      }
-      else {
-        unset($query->where[2]['conditions'][1]);
-      }
+      $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $end_date;
     }
   }
 }
