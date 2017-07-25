@@ -16,7 +16,7 @@
     border: 1px solid color(footer-stay-up-to-date-color);
     color: color(footer-text-color);
     height: 31px;
-    padding: 9px 37px 3px 6px;
+    padding: 8px 37px 4px 6px;
     width: 100%;
   }
 
@@ -38,6 +38,17 @@
       height: 31px;
       padding: 0;
       width: 31px;
+    }
+
+    &:after {
+      @include fa-icon($fa-angle-right);
+      @include rem(font-size, $footer-button-arrow-font-size);
+      display: block;
+      left: 50%;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
     }
   }
 }

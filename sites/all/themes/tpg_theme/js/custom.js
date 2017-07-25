@@ -216,6 +216,18 @@
       });
     }
   };
+  
+  Drupal.behaviors.headerPaneMenu = {
+    attach: function (context, settings) {
+      var $headerPane = $('.header-pane', context);
+      var $menuLinks = $('ul.menu li a', $headerPane);
+      $menuLinks.mouseover(function () {
+        $menuLinks.not(this).addClass('no-hover');
+      }).mouseout(function () {
+        $menuLinks.removeClass('no-hover');
+      });
+    }
+  };
 
   Drupal.behaviors.lightboxCaption = {
     attach: function (context, settings) {
