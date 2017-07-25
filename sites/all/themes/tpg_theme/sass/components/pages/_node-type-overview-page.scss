@@ -82,7 +82,7 @@
 
     &:before {
       @include rem(font-size, $read-more-arrow-font-size);
-      content: '>\00a0';
+      content: $read-more-arrow;
       display: inline-block;
       line-height: 1em;
       position: relative;
