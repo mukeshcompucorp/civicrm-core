@@ -415,7 +415,7 @@ function tpg_paragraphs_ds_custom_fields_info() {
   $ds_field->ui_limit = '*|*';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '<p><a class="entity-read-more" href="[node:field-external-link-title:url]">&gt; read more</a></p>
+      'value' => '<p><a class="entity-read-more" href="[node:field-external-link-title:url]">read more</a></p>
 ',
       'format' => 'full_html',
     ),
