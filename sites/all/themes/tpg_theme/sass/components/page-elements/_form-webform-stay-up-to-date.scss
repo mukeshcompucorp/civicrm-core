@@ -41,7 +41,7 @@
     }
 
     &:after {
-      @include fa-icon('\f105');
+      @include fa-icon($fa-angle-right);
       @include rem(font-size, $footer-button-arrow-font-size);
       display: block;
       font-family: $fontawesome;
