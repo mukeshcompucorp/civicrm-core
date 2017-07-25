@@ -17,6 +17,7 @@ dependencies[] = page_manager
 dependencies[] = password_policy
 dependencies[] = search
 dependencies[] = search_autocomplete
+dependencies[] = service_links
 dependencies[] = strongarm
 dependencies[] = tpg_events
 dependencies[] = tpg_global
