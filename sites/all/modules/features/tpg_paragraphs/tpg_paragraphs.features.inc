@@ -434,6 +434,11 @@ function tpg_paragraphs_paragraphs_info() {
       'bundle' => 'full_width_image_caption',
       'locked' => '1',
     ),
+    'full_width_image_caption_content' => array(
+      'name' => 'Full Width Image + Caption Content',
+      'bundle' => 'full_width_image_caption_content',
+      'locked' => '1',
+    ),
     'full_width_video_header' => array(
       'name' => 'Full Width Video Header',
       'bundle' => 'full_width_video_header',
