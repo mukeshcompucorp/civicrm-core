@@ -284,7 +284,6 @@ function tpg_theme_colorbox_imagefield($variables) {
  *
  * @see search-results.tpl.php
  */
-
 function tpg_theme_preprocess_search_results(&$variables) {
   $total = $GLOBALS['pager_total_items'][0];
   $keyword = arg(2);
