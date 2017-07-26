@@ -280,6 +280,23 @@ function tpg_theme_colorbox_imagefield($variables) {
 }
 
 /**
+ * Process variables for search-results.tpl.php.
+ *
+ * @see search-results.tpl.php
+ */
+
+function tpg_theme_preprocess_search_results(&$variables) {
+  $total = $GLOBALS['pager_total_items'][0];
+  $keyword = 'misho';
+  if ($total == 1) {
+    $variables['search_results_title'] = t('1 Result for \'@term\'', array('@term' => $keyword));
+  }
+  else {
+    $variables['search_results_title'] = t('@total Results for \'@term\'', array('@total' => $total, '@term' => $keyword));
+  }
+}
+
+/**
  * Process variables for search-result.tpl.php.
  *
  * @see search-result.tpl.php
