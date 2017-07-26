@@ -1,0 +1,35 @@
+.page-search {
+  .page-title,
+  .region-content .search-form {
+    display: none;
+  }
+}
+
+.search-results {
+  padding-left: 0;
+  padding-top: 4px;
+
+  li {
+    margin-bottom: 42px;
+  }
+
+  .search-overview-image {
+    margin-bottom: 13px;
+  }
+
+  .search-snippet-info {
+    padding-left: 0;
+
+    p {
+      @include rem(font-size, $p-sm);
+    }
+  }
+
+  .title {
+    @include rem(font-size, $h3);
+  }
+
+  .search-snippet {
+    margin-top: 11px;
+  }
+}
