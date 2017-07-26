@@ -287,7 +287,7 @@ function tpg_theme_colorbox_imagefield($variables) {
 
 function tpg_theme_preprocess_search_results(&$variables) {
   $total = $GLOBALS['pager_total_items'][0];
-  $keyword = 'misho';
+  $keyword = arg(2);
   if ($total == 1) {
     $variables['search_results_title'] = t('1 Result for \'@term\'', array('@term' => $keyword));
   }
