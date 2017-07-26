@@ -189,13 +189,6 @@ function tpg_homepage_ckeditor_profile_defaults() {
             ),
             'default' => 't',
           ),
-          'picture_ckeditor' => array(
-            'name' => 'picture_ckeditor',
-            'desc' => 'Support responsive images with the Picture module.',
-            'buttons' => FALSE,
-            'path' => '%base_path%sites/all/modules/contrib/picture/ckeditor/plugins/',
-            'default' => 't',
-          ),
         ),
       ),
       'input_formats' => array(
