@@ -494,6 +494,11 @@ function tpg_paragraphs_paragraphs_info() {
       'bundle' => 'related_activities',
       'locked' => '1',
     ),
+    'social_media_links' => array(
+      'name' => 'Social Media Links',
+      'bundle' => 'social_media_links',
+      'locked' => '1',
+    ),
     'text_reading_width' => array(
       'name' => 'Reading Width Text',
       'bundle' => 'text_reading_width',
