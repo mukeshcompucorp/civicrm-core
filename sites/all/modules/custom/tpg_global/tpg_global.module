@@ -211,6 +211,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
           unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_event_type']);
           unset($form['field_paragraphs_content']['und'][$key]['field_event_dates']);
         }
+        // Removing Share Block Field.
+        if ($value['#bundle'] == 'social_media_links') {
+          unset($form['field_paragraphs_content']['und'][$key]['field_show_share_block']);
+        }
       }
     }
   }
@@ -229,6 +233,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
 
         if ($value['#bundle'] == 'title_section') {
           unset($form['field_paragraphs_entity']['und'][$key]['field_paragraphs_type']);
+        }
+        // Removing Share Block Field.
+        if ($value['#bundle'] == 'social_media_links') {
+          unset($form['field_paragraphs_entity']['und'][$key]['field_show_share_block']);
         }
       }
     }
