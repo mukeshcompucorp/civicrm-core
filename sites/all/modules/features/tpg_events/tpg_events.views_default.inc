@@ -806,20 +806,12 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraph_title']['element_wrapper_class'] = 'title';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Sticky */
-  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
-  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
-  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
-  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Whats on Weight (field_whats_on_weight) */
-  $handler->display->display_options['sorts']['field_whats_on_weight_value']['id'] = 'field_whats_on_weight_value';
-  $handler->display->display_options['sorts']['field_whats_on_weight_value']['table'] = 'field_data_field_whats_on_weight';
-  $handler->display->display_options['sorts']['field_whats_on_weight_value']['field'] = 'field_whats_on_weight_value';
   /* Sort criterion: Paragraphs item: Event Dates -  start date (field_event_dates) */
   $handler->display->display_options['sorts']['field_event_dates_value']['id'] = 'field_event_dates_value';
   $handler->display->display_options['sorts']['field_event_dates_value']['table'] = 'field_data_field_event_dates';
   $handler->display->display_options['sorts']['field_event_dates_value']['field'] = 'field_event_dates_value';
   $handler->display->display_options['sorts']['field_event_dates_value']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['sorts']['field_event_dates_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -887,22 +879,6 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['vocabulary'] = 'event_type';
-  /* Filter criterion: Content: Show in current season -  start date (field_show_in_current_season) */
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['id'] = 'field_show_in_current_season_value';
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['table'] = 'field_data_field_show_in_current_season';
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['field'] = 'field_show_in_current_season_value';
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['operator'] = '<=';
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['field_show_in_current_season_value']['default_date'] = 'today';
-  /* Filter criterion: Content: Show in current season - end date (field_show_in_current_season:value2) */
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['id'] = 'field_show_in_current_season_value2';
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['table'] = 'field_data_field_show_in_current_season';
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['field'] = 'field_show_in_current_season_value2';
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['group'] = 1;
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['field_show_in_current_season_value2']['default_date'] = 'today';
   /* Filter criterion: Paragraphs item: Event Dates - end date (field_event_dates:value2) */
   $handler->display->display_options['filters']['field_event_dates_value2']['id'] = 'field_event_dates_value2';
   $handler->display->display_options['filters']['field_event_dates_value2']['table'] = 'field_data_field_event_dates';
@@ -934,6 +910,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['bundle']['value'] = array(
     'title_section' => 'title_section',
   );
+  $handler->display->display_options['filters']['bundle']['group'] = 1;
   $handler->display->display_options['path'] = 'whats-on/past-programme';
 
   /* Display: Featured Content */
