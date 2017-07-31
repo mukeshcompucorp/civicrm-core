@@ -24,6 +24,26 @@ function tpg_homepage_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_gd_infinite_scroll_settings_info().
+ */
+function tpg_homepage_gd_infinite_scroll_settings_info() {
+  $items = array(
+    'search_load_more' => array(
+      'pager_selector' => 'ul.pager',
+      'next_selector' => 'li.pager-next a:first',
+      'content_selector' => '.search-results',
+      'items_selector' => '.search-result.col-sm-4',
+      'load_more' => 1,
+      'load_more_markup' => '<button class="load-more">Show more</button>',
+      'ajax_pager' => 0,
+      'database_override' => TRUE,
+      'url' => 'search/node/*',
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implements hook_image_default_styles().
  */
 function tpg_homepage_image_default_styles() {
