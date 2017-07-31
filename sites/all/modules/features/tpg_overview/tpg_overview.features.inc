@@ -25,6 +25,25 @@ function tpg_overview_ctools_plugin_api($module = NULL, $api = NULL) {
 function tpg_overview_image_default_styles() {
   $styles = array();
 
+  // Exported image style: overview_page_image.
+  $styles['overview_page_image'] = array(
+    'label' => 'Overview Page Image',
+    'effects' => array(
+      1 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 400,
+          'height' => 240,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'overview_page_image',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   // Exported image style: whats_on_400x324.
   $styles['whats_on_400x324'] = array(
     'label' => 'whats on 400x324',

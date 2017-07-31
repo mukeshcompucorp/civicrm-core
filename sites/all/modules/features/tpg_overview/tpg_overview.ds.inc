@@ -87,6 +87,11 @@ function tpg_overview_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
+    'field_card_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['node|external_links|overview'] = $ds_fieldsetting;
 

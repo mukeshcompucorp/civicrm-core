@@ -149,7 +149,7 @@ function tpg_overview_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'overview_page_image_400x271',
+          'image_style' => 'overview_page_image',
         ),
         'type' => 'image',
         'weight' => 0,
