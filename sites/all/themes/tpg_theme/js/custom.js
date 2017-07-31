@@ -229,6 +229,23 @@
     }
   };
 
+  Drupal.behaviors.viewpointTags = {
+    attach: function (context, settings) {
+      var $paragraphsTitle = $('.paragraphs-item-title-section', context);
+      var $viewpointTag = $('.field-name-field-paragraphs-tags-viewpoints', $paragraphsTitle);
+      var $paragraphsTitleFieldItem = $paragraphsTitle.closest('.field-item');
+      var $paragraphsFieldItemNext = $paragraphsTitleFieldItem.next();
+      var $paragraphsItemNext = $paragraphsFieldItemNext.children('.entity-paragraphs-item');
+      
+      var $paragraphsTitleDescription = $paragraphsTitle.find('.field-name-field-paragraph-description');
+      if ($paragraphsTitleDescription.length > 0) {
+        return;
+      }
+      
+      $paragraphsItemNext.prepend($viewpointTag);
+    }
+  };
+
   Drupal.behaviors.lightboxCaption = {
     attach: function (context, settings) {
       this.captionIcon('.caption-icon', '.header-image-lightbox [class*="field-caption"]', context);

@@ -1,0 +1,29 @@
+.entity-paragraphs-item {
+  position: relative;
+
+  .field-name-field-paragraphs-tags-viewpoints {
+    position: relative;
+
+    h2 {
+      border: 0;
+    }
+
+    h2:before,
+    h2:after {
+      display: none;
+    }
+
+    a {
+      @include viewpoint;
+      position: absolute;
+      right: 100%;
+      top: auto;
+    }
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .entity-paragraphs-item .field-name-field-paragraphs-tags-viewpoints {
+    display: none;
+  }
+}
