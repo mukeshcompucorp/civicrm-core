@@ -17,7 +17,19 @@
       @include viewpoint;
       position: absolute;
       right: 100%;
-      top: auto;
+      top: 0;
+    }
+  }
+  
+  &.paragraphs-item-2-column-left-text-only,
+  &.paragraphs-item-2-column-text-left-image-right,
+  &.paragraphs-item-3-column-text-left-image-right,
+  &.paragraphs-item-attachments,
+  &.paragraphs-item-block-quote,
+  &.paragraphs-item-bulleted-list,
+  &.paragraphs-item-social-media-links {
+    .field-name-field-paragraphs-tags-viewpoints a {
+      top: 2px;
     }
   }
 }
