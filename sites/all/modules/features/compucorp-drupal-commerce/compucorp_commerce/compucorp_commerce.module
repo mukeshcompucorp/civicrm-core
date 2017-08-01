@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Compucorp Commerce feature.
+ */
+
+include_once 'compucorp_commerce.features.inc';
