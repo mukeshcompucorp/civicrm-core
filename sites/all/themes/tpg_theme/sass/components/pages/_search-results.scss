@@ -12,6 +12,10 @@
     min-width: 0;
     padding-bottom: 8px;
   }
+  
+  .gd_infinite_scroll-ajax-loader {
+    display: none;
+  }
 }
 
 .search-results {
@@ -30,6 +34,7 @@
     background-color: color(search-result-image-bg);
     height: 240px;
     margin-bottom: 13px;
+    overflow: hidden;
   }
 
   .search-snippet-info {
