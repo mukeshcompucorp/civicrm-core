@@ -66,9 +66,11 @@
 ?>
 <li class="<?php print $classes; ?> col-sm-4"<?php print $attributes; ?>>
   <div class="search-snippet-info">
+    <p class="search-overview-image">
     <?php if ($overview_image): ?>
-      <p class="search-overview-image"><?php print render($overview_image); ?></p>
-    <?php endif; ?>  
+      <?php print render($overview_image); ?>
+    <?php endif; ?>
+    </p>
     <?php print render($title_prefix); ?>
     <h3 class="title"<?php print $title_attributes; ?>>
       <a href="<?php print $url; ?>"><?php print $title; ?></a>
