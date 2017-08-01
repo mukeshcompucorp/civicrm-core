@@ -1,0 +1,44 @@
+<?php
+/**
+ * @file
+ * compucorp_commerce.rules_defaults.inc
+ */
+
+/**
+ * Implements hook_default_rules_configuration().
+ */
+function compucorp_commerce_default_rules_configuration() {
+  $items = array();
+  $items['commerce_payment_commerce_payment_example'] = entity_import('rules_config', '{ "commerce_payment_commerce_payment_example" : {
+      "LABEL" : "Example payment",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "TAGS" : [ "Commerce Payment" ],
+      "REQUIRES" : [ "commerce_payment" ],
+      "ON" : { "commerce_payment_methods" : [] },
+      "DO" : [
+        { "commerce_payment_enable_commerce_payment_example" : {
+            "commerce_order" : [ "commerce-order" ],
+            "payment_method" : "commerce_payment_example"
+          }
+        }
+      ]
+    }
+  }');
+  $items['commerce_shipping_service_free_shipping'] = entity_import('rules_config', '{ "commerce_shipping_service_free_shipping" : {
+      "LABEL" : "Rate Free shipping",
+      "PLUGIN" : "rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "commerce_shipping" ],
+      "USES VARIABLES" : { "commerce_order" : { "type" : "commerce_order", "label" : "Order" } },
+      "DO" : [
+        { "commerce_shipping_service_rate_order" : {
+            "shipping_service_name" : "free_shipping",
+            "commerce_order" : [ "commerce-order" ]
+          }
+        }
+      ]
+    }
+  }');
+  return $items;
+}
