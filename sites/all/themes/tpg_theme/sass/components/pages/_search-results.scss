@@ -3,6 +3,14 @@
   .region-content .search-form {
     display: none;
   }
+
+  .gd-infinite-scroll-load-more {
+    background-color: color(load-more-bg);
+    clear: both;
+    color: color(load-more-text);
+    margin-bottom: 46px;
+    min-width: 0;
+  }
 }
 
 .search-results {
