@@ -120,7 +120,7 @@ function tpg_viewpoints_strongarm() {
           'weight' => '10',
         ),
         'title' => array(
-          'weight' => '5',
+          'weight' => '4',
         ),
         'path' => array(
           'weight' => '9',
