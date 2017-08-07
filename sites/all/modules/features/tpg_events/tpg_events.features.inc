@@ -88,7 +88,7 @@ function tpg_events_node_info() {
       'base' => 'node_content',
       'description' => t('Use <em> events_detail </em> for creating Events page.'),
       'has_title' => '1',
-      'title_label' => t('Internal Reference Name/Title'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );
