@@ -366,7 +366,7 @@ function tpg_paragraphs_node_info() {
       'base' => 'node_content',
       'description' => t('Use <em> paragraphs_page </em> for creating content using Paragraph Bundles.'),
       'has_title' => '1',
-      'title_label' => t('Internal Reference Name/Title'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

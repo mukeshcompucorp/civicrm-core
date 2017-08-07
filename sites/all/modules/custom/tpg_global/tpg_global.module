@@ -290,6 +290,13 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+
+  // Explore all content view.
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'expore_all_content') {
+    // Changing All option filter value.
+    $form['field_paragraphs_type_tid']['#options']['All'] = t('EVERYTHING');
+    $form['field_form_tid']['#options']['All'] = t('EVERYTHING');
+  }
 }
 
 /**
