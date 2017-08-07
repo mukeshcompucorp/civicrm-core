@@ -124,6 +124,52 @@ function tpg_paragraphs_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-paragraphs_page-field_form'.
+  $field_instances['node-paragraphs_page-field_form'] = array(
+    'bundle' => 'paragraphs_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_form',
+    'label' => 'Form',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-paragraphs_page-field_homepage_card_tag'.
   $field_instances['node-paragraphs_page-field_homepage_card_tag'] = array(
     'bundle' => 'paragraphs_page',
@@ -5407,6 +5453,7 @@ function tpg_paragraphs_field_default_field_instances() {
   t('Description');
   t('Event Dates');
   t('Event Type');
+  t('Form');
   t('Full Width Image');
   t('Gallery Image');
   t('Header Image Lightbox');
