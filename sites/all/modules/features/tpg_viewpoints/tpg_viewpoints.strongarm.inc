@@ -108,7 +108,7 @@ function tpg_viewpoints_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'revision' => array(
         'custom_settings' => FALSE,

@@ -100,6 +100,25 @@ function tpg_viewpoints_image_default_styles() {
     ),
   );
 
+  // Exported image style: viewpoint_overview_image_-_half_width.
+  $styles['viewpoint_overview_image_-_half_width'] = array(
+    'label' => 'Viewpoint Overview Image - Half Width',
+    'effects' => array(
+      2 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 610,
+          'height' => 440,
+          'upscale' => 0,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'viewpoint_overview_image_-_half_width',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   return $styles;
 }
 
