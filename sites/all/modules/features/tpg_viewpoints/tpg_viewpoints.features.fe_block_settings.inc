@@ -20,7 +20,7 @@ function tpg_viewpoints_default_fe_block_settings() {
     'module' => 'block',
     'node_types' => array(),
     'pages' => 'viewpoints
-expore-all-content',
+explore-all-content',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(

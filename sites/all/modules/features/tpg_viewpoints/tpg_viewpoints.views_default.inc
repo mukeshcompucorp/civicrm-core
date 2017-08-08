@@ -192,7 +192,7 @@ function tpg_viewpoints_views_default_views() {
   $handler->display->display_options['filters']['field_paragraphs_type_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_paragraphs_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_paragraphs_type_tid']['vocabulary'] = 'page_type';
-  /* Filter criterion: : field_form (field_form) */
+  /* Filter criterion: Content: Form (field_form) */
   $handler->display->display_options['filters']['field_form_tid']['id'] = 'field_form_tid';
   $handler->display->display_options['filters']['field_form_tid']['table'] = 'field_data_field_form';
   $handler->display->display_options['filters']['field_form_tid']['field'] = 'field_form_tid';
@@ -229,7 +229,7 @@ function tpg_viewpoints_views_default_views() {
 
   /* Display: All Content */
   $handler = $view->new_display('page', 'All Content', 'all_content');
-  $handler->display->display_options['path'] = 'expore-all-content';
+  $handler->display->display_options['path'] = 'explore-all-content';
   $export['expore_all_content'] = $view;
 
   $view = new view();
