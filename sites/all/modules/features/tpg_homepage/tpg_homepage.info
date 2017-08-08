@@ -127,6 +127,7 @@ features[variable][] = site_frontpage
 features[variable][] = user_register
 features[views_view][] = header_image
 features[views_view][] = homepage
+features[views_view][] = homepage_content_listing
 features[views_view][] = search_autocomplete
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][features] = features

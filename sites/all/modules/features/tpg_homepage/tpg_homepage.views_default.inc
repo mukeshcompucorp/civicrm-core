@@ -402,6 +402,179 @@ function tpg_homepage_views_default_views() {
   $export['homepage'] = $view;
 
   $view = new view();
+  $view->name = 'homepage_content_listing';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Homepage content listing';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Homepage Content';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'nid' => 'nid',
+    'title' => 'title',
+    'type' => 'type',
+    'field_homepage_weight' => 'field_homepage_weight',
+    'field_homepage_publish_dates' => 'field_homepage_publish_dates',
+    'field_homepage_publish_dates_1' => 'field_homepage_publish_dates_1',
+    'nothing' => 'nothing',
+  );
+  $handler->display->display_options['style_options']['default'] = 'field_homepage_weight';
+  $handler->display->display_options['style_options']['info'] = array(
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_homepage_weight' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_homepage_publish_dates' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_homepage_publish_dates_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = 'Content Type';
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  /* Field: Content: Weight */
+  $handler->display->display_options['fields']['field_homepage_weight']['id'] = 'field_homepage_weight';
+  $handler->display->display_options['fields']['field_homepage_weight']['table'] = 'field_data_field_homepage_weight';
+  $handler->display->display_options['fields']['field_homepage_weight']['field'] = 'field_homepage_weight';
+  /* Field: Content: Add Dates */
+  $handler->display->display_options['fields']['field_homepage_publish_dates']['id'] = 'field_homepage_publish_dates';
+  $handler->display->display_options['fields']['field_homepage_publish_dates']['table'] = 'field_data_field_homepage_publish_dates';
+  $handler->display->display_options['fields']['field_homepage_publish_dates']['field'] = 'field_homepage_publish_dates';
+  $handler->display->display_options['fields']['field_homepage_publish_dates']['label'] = 'From';
+  $handler->display->display_options['fields']['field_homepage_publish_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_homepage_publish_dates']['settings'] = array(
+    'format_type' => 'day_month_year',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Content: Add Dates */
+  $handler->display->display_options['fields']['field_homepage_publish_dates_1']['id'] = 'field_homepage_publish_dates_1';
+  $handler->display->display_options['fields']['field_homepage_publish_dates_1']['table'] = 'field_data_field_homepage_publish_dates';
+  $handler->display->display_options['fields']['field_homepage_publish_dates_1']['field'] = 'field_homepage_publish_dates';
+  $handler->display->display_options['fields']['field_homepage_publish_dates_1']['label'] = 'To';
+  $handler->display->display_options['fields']['field_homepage_publish_dates_1']['settings'] = array(
+    'format_type' => 'day_month_year',
+    'fromto' => 'value2',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Operations';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/node/[nid]/edit">edit</a>';
+  /* Sort criterion: Content: Weight (field_homepage_weight) */
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['id'] = 'field_homepage_weight_value';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['table'] = 'field_data_field_homepage_weight';
+  $handler->display->display_options['sorts']['field_homepage_weight_value']['field'] = 'field_homepage_weight_value';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Promoted to front page */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '1';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'events_detail' => 'events_detail',
+    'paragraphs_page' => 'paragraphs_page',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'admin/content/homepage-content-listing';
+  $handler->display->display_options['menu']['title'] = 'Homepage Content';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['type'] = 'tab';
+  $handler->display->display_options['tab_options']['title'] = 'Content';
+  $handler->display->display_options['tab_options']['weight'] = '0';
+  $export['homepage_content_listing'] = $view;
+
+  $view = new view();
   $view->name = 'search_autocomplete';
   $view->description = '';
   $view->tag = 'default';
