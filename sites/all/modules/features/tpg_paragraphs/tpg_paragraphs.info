@@ -295,6 +295,7 @@ features[image][] = image_2_3_width_535x631
 features[image][] = image_full_reading_width_820x622
 features[image][] = image_right_350x350
 features[image][] = overview_page_image_400x271
+features[image][] = overview_page_image_400x324
 features[image][] = responsive_custom_user_header_image_mobile_1x
 features[image][] = responsive_custom_user_header_image_original_1x
 features[image][] = responsive_custom_user_header_image_tablet_1x
