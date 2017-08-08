@@ -772,7 +772,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'overview_page_image_400x324',
     'image_link' => '',
   );
   /* Field: Paragraphs item: Page Type */
@@ -818,7 +818,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'overview_page_image_400x324',
     'image_link' => 'content',
   );
   /* Field: Paragraphs item: Event Type */
