@@ -2846,7 +2846,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'full_width_image_1285x500',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
