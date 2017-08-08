@@ -302,6 +302,9 @@ function tpg_theme_preprocess_search_results(&$variables) {
  */
 function tpg_theme_preprocess_search_result(&$variables) {
   $node = $variables['result']['node'];
+  
+  // Adding content type
+  $variables['content_type'] = node_type_get_name($node);
 
   // Adding overview image.
   $overview_image_result = views_get_view_result('search_autocomplete', 'overview_image_search', $node->nid);

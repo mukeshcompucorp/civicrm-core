@@ -24,7 +24,7 @@
  */
 ?>
 <?php if ($search_results): ?>
-  <div class="col-sm-12"><h2><?php print $search_results_title;?></h2></div>
+  <div class="col-sm-12"><h2 class="search-results-title"><?php print $search_results_title;?></h2></div>
   <ol class="search-results <?php print $module; ?>-results">
     <?php print $search_results; ?>
   </ol>
