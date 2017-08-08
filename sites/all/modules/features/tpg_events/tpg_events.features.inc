@@ -79,6 +79,30 @@ function tpg_events_fe_nodequeue_export_fields() {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function tpg_events_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: whats_on_featured_content_and_next_season_400x240.
+  $styles['whats_on_featured_content_and_next_season_400x240'] = array(
+    'label' => 'Whats On Featured Content and Next Season 400x240',
+    'effects' => array(
+      6 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 240,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function tpg_events_node_info() {
