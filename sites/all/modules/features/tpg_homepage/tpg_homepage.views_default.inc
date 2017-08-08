@@ -441,21 +441,21 @@ function tpg_homepage_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'type' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_homepage_weight' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -469,7 +469,7 @@ function tpg_homepage_views_default_views() {
       'empty_column' => 0,
     ),
     'field_homepage_publish_dates_1' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -561,6 +561,18 @@ function tpg_homepage_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Content: Add Dates -  start date (field_homepage_publish_dates) */
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value']['id'] = 'field_homepage_publish_dates_value';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value']['table'] = 'field_data_field_homepage_publish_dates';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value']['field'] = 'field_homepage_publish_dates_value';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Add Dates - end date (field_homepage_publish_dates:value2) */
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['id'] = 'field_homepage_publish_dates_value2';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['table'] = 'field_data_field_homepage_publish_dates';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['field'] = 'field_homepage_publish_dates_value2';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['default_date'] = 'now';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
