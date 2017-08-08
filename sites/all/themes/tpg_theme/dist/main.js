@@ -1852,7 +1852,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       });
     }
   };
-  
+
   Drupal.behaviors.headerPaneMenu = {
     attach: function (context, settings) {
       var $headerPane = $('.header-pane', context);
@@ -1872,12 +1872,12 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       var $paragraphsTitleFieldItem = $paragraphsTitle.closest('.field-item');
       var $paragraphsFieldItemNext = $paragraphsTitleFieldItem.next();
       var $paragraphsItemNext = $paragraphsFieldItemNext.children('.entity-paragraphs-item');
-      
+
       var $paragraphsTitleDescription = $paragraphsTitle.find('.field-name-field-paragraph-description');
       if ($paragraphsTitleDescription.length > 0) {
         return;
       }
-      
+
       $paragraphsItemNext.prepend($viewpointTag);
     }
   };

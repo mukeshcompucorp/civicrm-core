@@ -1,0 +1,97 @@
+.paragraphs-item-social-media-links,
+.share-links {
+  margin-bottom: 40px;
+
+  h2 {
+    @include clr;
+    @include lh-fs(18px, $h4);
+    border-bottom: 0;
+    color: color(heading);
+    display: inline-block;
+    font-weight: $bold;
+    max-width: 100%;
+    overflow: hidden;
+    text-decoration: underline;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    a {
+      color: inherit;
+      display: block;
+      font-size: inherit;
+      font-weight: inherit;
+      overflow: inherit;
+      text-decoration: inherit;
+      text-overflow: inherit;
+      white-space: inherit;
+    }
+
+    &:before {
+      clear: both;
+      content: '';
+      display: block;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  a {
+    font-size: 0;
+
+    img {
+      display: none;
+    }
+
+    &[href*='twitter']:after {
+      @include fa-icon('\f081');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='instagram']:after {
+      @include fa-icon('\f16d');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='linkedin']:after {
+      @include fa-icon('\f08c');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='google']:after {
+      @include fa-icon('\f0d4');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='vimeo']:after {
+      @include fa-icon('\f194');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='github']:after {
+      @include fa-icon('\f092');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='bitbucket']:after {
+      @include fa-icon('\f172');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='tumblr']:after {
+      @include fa-icon('\f174');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='facebook']:after {
+      @include fa-icon('\f082');
+      @include rem(font-size, $social);
+    }
+
+    &[href*='youtube']:after {
+      @include fa-icon('\f166');
+      @include rem(font-size, $social);
+    }
+  }
+}
