@@ -14,7 +14,7 @@ function tpg_viewpoints_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Browse Viewpoints Explore All Content Links';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'viewpoints_explore_content_links';
-  $fe_block_boxes->body = '<div><a class="browse-viewpoints" href="/viewpoints">Browse Viewpoints</a><a class="explore-all-content" href="/expore-all-content">Explore all content</a></div>
+  $fe_block_boxes->body = '<div><a class="browse-viewpoints" href="/viewpoints">Browse Viewpoints</a><a class="explore-all-content" href="/explore-all-content">Explore all content</a></div>
 ';
 
   $export['viewpoints_explore_content_links'] = $fe_block_boxes;
