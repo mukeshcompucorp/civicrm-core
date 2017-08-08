@@ -7,6 +7,7 @@ dependencies[] = better_exposed_filters
 dependencies[] = ds
 dependencies[] = tpg_homepage
 dependencies[] = tpg_overview
+dependencies[] = views
 dependencies[] = views_contextual_filters_or
 features[ctools][] = ds:ds:1
 features[ctools][] = strongarm:strongarm:1
