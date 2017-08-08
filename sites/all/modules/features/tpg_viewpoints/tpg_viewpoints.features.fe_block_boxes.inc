@@ -19,5 +19,14 @@ function tpg_viewpoints_default_fe_block_boxes() {
 
   $export['viewpoints_explore_content_links'] = $fe_block_boxes;
 
+  $fe_block_boxes = new stdClass();
+  $fe_block_boxes->info = 'Viewpoints Intro';
+  $fe_block_boxes->format = 'filtered_html';
+  $fe_block_boxes->machine_name = 'viewpoints_intro';
+  $fe_block_boxes->body = '<p>A short introtext about TPGs editorial approach. A writer selects one image from our current exhibitions and responds to it. For our Spring 2016 programme, we have invited students.</p>
+';
+
+  $export['viewpoints_intro'] = $fe_block_boxes;
+
   return $export;
 }
