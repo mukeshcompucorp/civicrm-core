@@ -348,6 +348,26 @@ function tpg_paragraphs_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'paragraphs_item|image_reading_width_colorbox|full';
+  $ds_fieldsetting->entity_type = 'paragraphs_item';
+  $ds_fieldsetting->bundle = 'image_reading_width_colorbox';
+  $ds_fieldsetting->view_mode = 'full';
+  $ds_fieldsetting->settings = array(
+    'reading_width_image_lightbox_tit' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'field_reading_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
+  );
+  $export['paragraphs_item|image_reading_width_colorbox|full'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'paragraphs_item|social_media_links|default';
   $ds_fieldsetting->entity_type = 'paragraphs_item';
   $ds_fieldsetting->bundle = 'social_media_links';
@@ -482,6 +502,25 @@ function tpg_paragraphs_ds_custom_fields_info() {
     'use_token' => 1,
   );
   $export['read_more'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'reading_width_image_lightbox_tit';
+  $ds_field->label = 'Reading Width Image Lightbox Title';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'paragraphs_item' => 'paragraphs_item',
+  );
+  $ds_field->ui_limit = 'image_reading_width_colorbox|full';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<p>[node:field_paragraphs_content:1:field_reading_image:title]</p>
+',
+      'format' => 'full_html',
+    ),
+    'use_token' => 1,
+  );
+  $export['reading_width_image_lightbox_tit'] = $ds_field;
 
   $ds_field = new stdClass();
   $ds_field->api_version = 1;
@@ -1452,6 +1491,37 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|image_reading_width_colorbox|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'paragraphs_item|image_reading_width_colorbox|full';
+  $ds_layout->entity_type = 'paragraphs_item';
+  $ds_layout->bundle = 'image_reading_width_colorbox';
+  $ds_layout->view_mode = 'full';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_reading_image',
+        1 => 'reading_width_image_lightbox_tit',
+      ),
+    ),
+    'fields' => array(
+      'field_reading_image' => 'ds_content',
+      'reading_width_image_lightbox_tit' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['paragraphs_item|image_reading_width_colorbox|full'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
