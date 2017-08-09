@@ -35,7 +35,7 @@
     }
 
     .views-row:before {
-      background: url('../images/icons/arrow.png') center no-repeat $arrow-down;
+      background: url('../images/icons/arrow-down.png') center no-repeat color(header-image-arrow-bg);
       bottom: 0;
       content: '';
       display: inline-block;
@@ -43,7 +43,6 @@
       left: 50%;
       margin-left: -10px;
       position: absolute;
-      transform: rotate(-90deg);
       width: 40px;
     }
   }
