@@ -26,6 +26,32 @@ function tpg_global_node_view_alter(&$build) {
  */
 function tpg_global_node_view($node, $view_mode, $langcode) {
 
+  // Altering Full view mode.
+  if ($view_mode == 'full' && in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+    $paragraphs_data = array();
+    switch ($node->type) {
+      case 'events_detail':
+        $paragraphs_data = &$node->content['field_paragraphs_entity'];
+        break;
+      case 'paragraphs_page':
+        $paragraphs_data = &$node->content['field_paragraphs_content'];
+        break;
+    }
+    foreach ($paragraphs_data as $key => $value) {
+      if (is_int($key)) {
+        // Fetching the key of the paragraphs item.
+        $item_key = key($value['entity']['paragraphs_item']);
+
+        // Altering Reading width Lightbox paragraphs bundle.
+        if ($value['entity']['paragraphs_item'][$item_key]['#bundle'] == 'image_reading_width_colorbox') {
+          // Fetching Reading width image title value.
+          $image_title = $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['field_reading_image']['#items'][0]['title'];
+          $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['reading_width_image_lightbox_tit'][0]['#markup'] = '<div class="colorbox-content-image-title">' . $image_title . '<div>';
+        }
+      }
+    }
+  }
+
   // Event Dates format markup updated.
   if (($view_mode == 'full' || $view_mode == 'overview') && $node->type == 'events_detail') {
     $paragraphs_entity = array();
