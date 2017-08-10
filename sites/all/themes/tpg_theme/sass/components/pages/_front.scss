@@ -1,5 +1,6 @@
 .front {
   background: $front-page-gradient;
+  background-image: url('../images/gradient.png');
 
   &.admin-menu .view-header-image img {
     height: calc(100vh - 69px);
