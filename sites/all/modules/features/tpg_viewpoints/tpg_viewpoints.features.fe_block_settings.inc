@@ -20,7 +20,7 @@ function tpg_viewpoints_default_fe_block_settings() {
     'module' => 'block',
     'node_types' => array(),
     'pages' => 'viewpoints
-expore-all-content',
+explore-all-content',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -58,6 +58,57 @@ expore-all-content',
         'status' => 1,
         'theme' => 'tpg_theme',
         'weight' => -37,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
+  $export['block-viewpoints_intro'] = array(
+    'cache' => -1,
+    'css_class' => 'viewpoints-intro',
+    'custom' => 0,
+    'machine_name' => 'viewpoints_intro',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => 'viewpoints',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -31,
       ),
     ),
     'title' => '',

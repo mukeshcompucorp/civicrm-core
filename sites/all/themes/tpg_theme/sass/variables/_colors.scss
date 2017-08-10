@@ -42,7 +42,7 @@ $chroma: add-colors('functional', (
   front-page-grad-1:                          'side-1',
   front-page-grad-2:                          'side-2',
 
-  header-image-arrow-bg:                      'light-grey',
+  header-image-arrow-bg:                      'black',
 
   card-bg:                                    'white',
   card-darken-bg:                             'platinum',
@@ -50,7 +50,7 @@ $chroma: add-colors('functional', (
 
   search-result-image-bg:                     'black',
   search-result-highlight:                    'white',
-  
+
   load-more-bg:                               'white',
   load-more-text:                             'black',
 
@@ -96,4 +96,3 @@ $chroma: add-colors('functional', (
 $chroma-active-scheme: 'functional';
 
 $front-page-gradient: linear-gradient(270deg, color(front-page-grad-1) 0%, color(front-page-grad-2) 51.75%, color(front-page-grad-1) 100%);
-$arrow-down: rgba(color(header-image-arrow-bg), .5);

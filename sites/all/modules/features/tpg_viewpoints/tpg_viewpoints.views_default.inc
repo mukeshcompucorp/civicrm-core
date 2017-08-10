@@ -229,7 +229,7 @@ function tpg_viewpoints_views_default_views() {
 
   /* Display: All Content */
   $handler = $view->new_display('page', 'All Content', 'all_content');
-  $handler->display->display_options['path'] = 'expore-all-content';
+  $handler->display->display_options['path'] = 'explore-all-content';
   $export['expore_all_content'] = $view;
 
   $view = new view();
@@ -245,6 +245,7 @@ function tpg_viewpoints_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Viewpoints';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -255,16 +256,23 @@ function tpg_viewpoints_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['more_button_text'] = 'Show more';
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = 'A short introtext about TPGs editorial approach. A writer selects one image from our current exhibitions and responds to it. For our Spring 2016 programme, we have invited students.';
-  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['load_comments'] = 0;
+  $handler->display->display_options['row_options']['alternating'] = 1;
+  $handler->display->display_options['row_options']['grouping'] = 0;
+  $handler->display->display_options['row_options']['advanced'] = 0;
+  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
+  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'nodequeue_nodes|position';
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
+  $handler->display->display_options['row_options']['alternating_fieldset']['alternating'] = TRUE;
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_0'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_1'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_2'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_3'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_4'] = 'overview';
   /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
