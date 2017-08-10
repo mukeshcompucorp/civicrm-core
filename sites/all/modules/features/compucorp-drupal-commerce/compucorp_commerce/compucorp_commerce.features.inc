@@ -56,6 +56,43 @@ function compucorp_commerce_commerce_product_default_types() {
 }
 
 /**
+ * Implements hook_commerce_tax_default_rates().
+ */
+function compucorp_commerce_commerce_tax_default_rates() {
+  $items = array(
+    'vat_0' => array(
+      'name' => 'vat_0',
+      'display_title' => 'VAT 0',
+      'description' => '',
+      'rate' => 0,
+      'type' => 'vat',
+      'rules_component' => 'commerce_tax_rate_vat_0',
+      'default_rules_component' => 1,
+      'price_component' => 'tax|vat_0',
+      'calculation_callback' => 'commerce_tax_rate_calculate',
+      'module' => 'commerce_tax_ui',
+      'title' => 'VAT 0',
+      'admin_list' => TRUE,
+    ),
+    'vat_20' => array(
+      'name' => 'vat_20',
+      'display_title' => 'VAT 20',
+      'description' => '',
+      'rate' => 0.2,
+      'type' => 'vat',
+      'rules_component' => 'commerce_tax_rate_vat_20',
+      'default_rules_component' => 1,
+      'price_component' => 'tax|vat_20',
+      'calculation_callback' => 'commerce_tax_rate_calculate',
+      'module' => 'commerce_tax_ui',
+      'title' => 'VAT 20',
+      'admin_list' => TRUE,
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implements hook_commerce_tax_default_types().
  */
 function compucorp_commerce_commerce_tax_default_types() {
