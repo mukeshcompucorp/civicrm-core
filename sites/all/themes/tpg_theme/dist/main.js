@@ -1865,6 +1865,17 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
     }
   };
 
+  Drupal.behaviors.callColorbox = {
+    attach: function (context, settings) {
+      this.openOnElClick('.colorbox-content-image-title', context);
+    },
+    openOnElClick: function(el, context) {
+      $(el, context).click(function() {
+        $(this, context).closest('.entity-paragraphs-item').find('.field-item:first-child .cboxElement').click();
+      });
+    }
+  };
+
   Drupal.behaviors.viewpointTags = {
     attach: function (context, settings) {
       var $paragraphsTitle = $('.paragraphs-item-title-section', context);

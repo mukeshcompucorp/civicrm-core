@@ -46,7 +46,7 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
         if ($value['entity']['paragraphs_item'][$item_key]['#bundle'] == 'image_reading_width_colorbox') {
           // Fetching Reading width image title value.
           $image_title = $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['field_reading_image']['#items'][0]['title'];
-          $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['reading_width_image_lightbox_tit'][0]['#markup'] = '<div class="colorbox-content-image-title">' . $image_title . '<div>';
+          $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['reading_width_image_lightbox_tit'][0]['#markup'] = '<div class="colorbox-content-image-title">' . $image_title . '</div>';
         }
       }
     }
