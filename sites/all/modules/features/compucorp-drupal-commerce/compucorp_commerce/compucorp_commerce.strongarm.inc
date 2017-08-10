@@ -130,6 +130,13 @@ function compucorp_commerce_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'commerce_default_currency';
+  $strongarm->value = 'GBP';
+  $export['commerce_default_currency'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_commerce_product__product';
   $strongarm->value = array(
     'view_modes' => array(
@@ -180,6 +187,10 @@ function compucorp_commerce_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'node_teaser' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
         ),
         'status' => array(
           'default' => array(
@@ -187,6 +198,10 @@ function compucorp_commerce_strongarm() {
             'visible' => FALSE,
           ),
           'add_to_cart_confirmation_view' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'node_teaser' => array(
             'weight' => '3',
             'visible' => FALSE,
           ),
