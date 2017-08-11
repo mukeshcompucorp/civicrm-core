@@ -43,6 +43,12 @@
     }
   };
 
+  Drupal.behaviors.formValidation = {
+    attach: function(context, settings) {
+      $('article .webform-client-form').validate();
+    }
+  };
+
   Drupal.behaviors.respMenu = {
     attach: function(context, settings) {
       this.showMenu('.resp-menu', '.region-header-pane', context);
