@@ -22,6 +22,8 @@ $chroma: add-colors((
   lighter-grey:  #ddd,
   platinum:      #e8e8e8,
 
+  red:           #ff3600,
+
   side-1:        #141414,
   side-2:        #1c1111
 ));
@@ -57,9 +59,11 @@ $chroma: add-colors('functional', (
   responsive-menu-icon:                       'white',
 
   form-bg:                                    'white',
+  form-error:                                 'red',
+  form-label:                                 'dim-grey',
   filter-bg:                                  'dim-grey',
   filter-color:                               'white',
-  focused-input:                              'black-lighten',
+  focused-input:                              'dim-grey',
   button-color:                               'lighter-grey',
   option-h:                                   'lighter-grey',
   input-bd:                                   'lighter-grey',
