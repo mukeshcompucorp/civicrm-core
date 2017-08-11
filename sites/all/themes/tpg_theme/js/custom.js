@@ -43,9 +43,23 @@
     }
   };
 
+  Drupal.behaviors.fullWidthImage = {
+    attach: function(context, settings) {
+      this.removingClasses('.paragraphs-item-full-width-image-caption-content', context);
+    },
+    removingClasses: function(el, context) {
+      var $el = $(el, context);
+      if ($el.length) {
+        for (var i = 0; i < $el.length; i++) {
+          $el.eq(i).closest('.field-item').removeClass('field-item');
+        }
+      }
+    }
+  };
+
   Drupal.behaviors.formValidation = {
     attach: function(context, settings) {
-      $('article .webform-client-form').validate();
+      $('article .webform-client-form', context).validate();
     }
   };
 
@@ -100,11 +114,16 @@
       var $elOffset = $(elOffset, context);
 
       if ($el.length && $elOffset.length) {
+        var $summ = 0;
+        var $botMargin = 0;
+        var $topMargin = 0;
         var $elHeight     = $el.height();
         var $marginArray  = $el.find('.entity-paragraphs-item').attr('class').match(/\d+/g);
-        var $botMargin    = parseInt($marginArray[$marginArray.length-1]);
-        var $topMargin    = parseInt($marginArray[$marginArray.length-2]);
-        var $summ;
+
+        if ($marginArray) {
+          $botMargin = parseInt($marginArray[$marginArray.length-1]);
+          $topMargin = parseInt($marginArray[$marginArray.length-2]);
+        }
 
         if ($el.find('.entity-paragraphs-item').hasClass('paragraphs-item-title-section')) {
           $summ = $topMargin + $botMargin + $elHeight;

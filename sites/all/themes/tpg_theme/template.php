@@ -103,15 +103,33 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
     $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
   }
 
-  // Setting page layout.
+  $visible = FALSE;
+  if(!empty($node) && $node->type == 'paragraphs_page' || $node->type == 'events_detail') {
+    // Changing page layout if full_width_image isset.
+    $node_wrapper =  entity_metadata_wrapper('node', $node);
+
+    $paragraph = isset($node_wrapper->field_paragraphs_content) ?
+          $node_wrapper->field_paragraphs_content :
+          $node_wrapper->field_paragraphs_entity;
+
+    if(isset($paragraph)) {
+      foreach ($paragraph->value() as $paragraph_item) {
+        if ($paragraph_item->bundle == 'full_width_image_caption_content') {
+          $visible = TRUE;
+        }
+      }
+    }
+  }
+
   $classes = $vars['add_classes'] = [];
   if ($node && !$vars['is_front']) {
     switch ($node->type) {
       case 'events_detail':
-        $classes['sidebar_first'] = 'col-md-3';
-        $classes['sidebar_second'] = 'col-md-3';
-        $classes['content'] = 'col-md-6';
+        $classes['sidebar_first'] = !$visible ? 'col-md-3' : '';
+        $classes['sidebar_second'] = !$visible ? 'col-md-3' : 'container';
+        $classes['content'] = !$visible ? 'col-md-6' : '';
         $classes['content_width'] = 'header-image-narrow';
+        $classes['container'] = !$visible ? '' : 'full-width-image-page events-type';
         break;
       case 'overview_page':
         $classes['sidebar_first'] = '';
@@ -119,10 +137,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['content'] = '';
       break;
       default:
-        $classes['sidebar_first'] = 'col-md-2';
-        $classes['sidebar_second'] = 'col-md-2';
-        $classes['content'] = 'col-md-8';
+        $classes['sidebar_first'] = !$visible ? 'col-md-2' : '';
+        $classes['sidebar_second'] = !$visible ? 'col-md-2' : 'container';
+        $classes['content'] = !$visible ? 'col-md-8' : '';
         $classes['content_width'] = 'header-image-wide';
+        $classes['container'] = !$visible ? '' : 'full-width-image-page paragraphs-type';
         break;
     }
     if ($classes) {
@@ -302,7 +321,7 @@ function tpg_theme_preprocess_search_results(&$variables) {
  */
 function tpg_theme_preprocess_search_result(&$variables) {
   $node = $variables['result']['node'];
-  
+
   // Adding content type
   $variables['content_type'] = node_type_get_name($node);
 

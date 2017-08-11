@@ -9,3 +9,43 @@
     width: 100%;
   }
 }
+
+.full-width-image-page {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+
+  .field-type-paragraphs > .field-items > .field-item {
+    @include container;
+  }
+
+  .entity-paragraphs-item:not(.paragraphs-item-full-width-image-caption-content) {
+    @include make-md-column(6);
+    @include make-md-column-offset(3);
+    clear: both;
+  }
+
+  .second-sidebar {
+    @include make-row;
+    margin-top: 0 !important;
+  }
+
+  .region-sidebar-second {
+    @include make-md-column(3);
+    @include make-md-column-offset(9);
+  }
+
+  .region-share-section {
+    @include container;
+  }
+
+  &.events-type .region-share-section .block-service-links {
+    @include make-md-column(6);
+    @include make-md-column-offset(3);
+  }
+
+  &.paragraphs-type .region-share-section .block-service-links {
+    @include make-md-column(6);
+    @include make-md-column-offset(3);
+  }
+}
