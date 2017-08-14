@@ -88,7 +88,7 @@
         </div>
         <div id="responsive-logo" class="responsive-logo">
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-            <img src="<?php print $logo; ?>"/>
+            <img src="<?php print '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png'?>"/>
           </a>
         </div>
       <?php endif; ?>

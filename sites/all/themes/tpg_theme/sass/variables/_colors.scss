@@ -16,6 +16,7 @@ $chroma: add-colors((
   dim-grey:      #333,
   dark-grey:     #6d6d6d,
   light-grey:    #d7d7d7,
+  light-grey2:   #d8d8d8,
   darken-grey:   #c8c8c8,
   silver:        #999,
   light-silver:  #9b9b9b,
@@ -23,6 +24,7 @@ $chroma: add-colors((
   platinum:      #e8e8e8,
 
   red:           #ff3600,
+
 
   side-1:        #141414,
   side-2:        #1c1111
@@ -56,7 +58,7 @@ $chroma: add-colors('functional', (
   load-more-bg:                               'white',
   load-more-text:                             'black',
 
-  responsive-menu-icon:                       'white',
+  responsive-menu-icon:                       'light-grey2',
 
   form-bg:                                    'white',
   form-error:                                 'red',
