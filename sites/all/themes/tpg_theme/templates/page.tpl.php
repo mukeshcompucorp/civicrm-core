@@ -106,11 +106,11 @@
           <?php print render($tabs); ?>
         </div>
       <?php endif; ?>
-        <?php if ($action_links): ?>
-          <ul class="container action-links">
-            <?php print render($action_links); ?>
-          </ul>
-        <?php endif; ?>
+      <?php if ($action_links): ?>
+        <ul class="container action-links">
+          <?php print render($action_links); ?>
+        </ul>
+      <?php endif; ?>
       <?php if ($messages): ?>
         <div class="container">
           <?php print $messages; ?>

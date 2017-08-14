@@ -1754,24 +1754,24 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       var $elOffset = $(elOffset, context);
 
       if ($el.length && $elOffset.length) {
-        var $summ = 0;
-        var $botMargin = 0;
-        var $topMargin = 0;
-        var $elHeight     = $el.height();
-        var $marginArray  = $el.find('.entity-paragraphs-item').attr('class').match(/\d+/g);
+        var summ        = 0;
+        var botMargin   = 0;
+        var topMargin   = 0;
+        var elHeight    = $el.height();
+        var marginArray = $el.find('.entity-paragraphs-item').attr('class').match(/\d+/g);
 
-        if ($marginArray) {
-          $botMargin = parseInt($marginArray[$marginArray.length-1]);
-          $topMargin = parseInt($marginArray[$marginArray.length-2]);
+        if (marginArray) {
+          botMargin = parseInt(marginArray[marginArray.length-1]);
+          topMargin = parseInt(marginArray[marginArray.length-2]);
         }
 
         if ($el.find('.entity-paragraphs-item').hasClass('paragraphs-item-title-section')) {
-          $summ = $topMargin + $botMargin + $elHeight;
+          summ = topMargin + botMargin + elHeight;
         } else {
-          $summ = $topMargin;
+          summ = topMargin;
         }
 
-        $(elOffset, context).css('margin-top', $summ + 'px');
+        $(elOffset, context).css('margin-top', summ + 'px');
       }
     }
   };

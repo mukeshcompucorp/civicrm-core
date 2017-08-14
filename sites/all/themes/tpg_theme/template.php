@@ -116,6 +116,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
       foreach ($paragraph->value() as $paragraph_item) {
         if ($paragraph_item->bundle == 'full_width_image_caption_content') {
           $visible = TRUE;
+          break;
         }
       }
     }
