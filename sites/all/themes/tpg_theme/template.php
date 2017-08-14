@@ -104,7 +104,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
   }
 
   $visible = FALSE;
-  if(!empty($node) && $node->type == 'paragraphs_page' || $node->type == 'events_detail') {
+  if ($node->type == 'paragraphs_page' || $node->type == 'events_detail') {
     // Changing page layout if full_width_image isset.
     $node_wrapper =  entity_metadata_wrapper('node', $node);
 
@@ -112,7 +112,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
           $node_wrapper->field_paragraphs_content :
           $node_wrapper->field_paragraphs_entity;
 
-    if(isset($paragraph)) {
+    if (isset($paragraph)) {
       foreach ($paragraph->value() as $paragraph_item) {
         if ($paragraph_item->bundle == 'full_width_image_caption_content') {
           $visible = TRUE;
