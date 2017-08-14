@@ -71,6 +71,14 @@
     display: flex;
     flex-direction: column;
   }
+
+  .field-type-paragraphs > .field-items > .field-item:first-child > .entity {
+    margin-top: 14px;
+
+    .title-header {
+      margin-top: 0;
+    }
+  }
 }
 
 @include breakpoint($tablet-1 0) {

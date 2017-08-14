@@ -260,12 +260,51 @@
     a.colorbox {
       @include rem(height, 580px);
       display: block;
+
+      &:after {
+        display: none;
+      }
     }
 
     img {
       @include centered-image;
       @include rem(height, 580px);
       max-width: none;
+    }
+
+    [class*="field-caption"] {
+      margin-bottom: 0;
+      margin-top: -32px;
+
+      &.opened:before {
+        background: color(page-bg);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 30px;
+        width: 100%;
+      }
+
+      .caption-icon ~ span {
+        display: none;
+      }
+
+      .caption-icon.show ~ span {
+        display: block;
+      }
+
+      .header-image-lightbox-title {
+        color: color(main);
+        margin-top: 40px;
+      }
+
+      .field-content {
+        margin-top: 4px;
+        padding-bottom: 22px;
+      }
     }
   }
 }
