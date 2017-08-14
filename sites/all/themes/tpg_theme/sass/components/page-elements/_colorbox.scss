@@ -276,6 +276,18 @@
       margin-bottom: 0;
       margin-top: -32px;
 
+      &.opened:before {
+        background: color(page-bg);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 30px;
+        width: 100%;
+      }
+
       .caption-icon ~ span {
         display: none;
       }
