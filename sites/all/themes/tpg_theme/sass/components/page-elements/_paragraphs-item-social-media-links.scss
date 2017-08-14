@@ -95,3 +95,14 @@
     }
   }
 }
+
+@include breakpoint($md-1 0) {
+  .paragraphs-item-social-media-links .service-links a,
+  .share-links .service-links a {
+    margin-right: 4px;
+
+    &:after {
+      @include rem(font-size, $social-resp);
+    }
+  }
+}

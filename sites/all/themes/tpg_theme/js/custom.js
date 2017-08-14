@@ -277,8 +277,21 @@
       }
     },
     changingHeaderBg: function(el, backgroundEl, hashColor, context) {
-      if ($(el, context).length) {
-        $(backgroundEl, context).css('background-color', hashColor)
+      var $wWidth = $(window).width();
+
+      $(window, context).resize(function(){
+        $wWidth = $(window, context).width();
+        if ($(el, context).length && $wWidth >= 991) {
+          $(backgroundEl, context).css('background-color', hashColor);
+        } else {
+          $(backgroundEl, context).css('background-color', '#fff');
+        }
+      });
+
+      if ($(el, context).length && $wWidth >= 991) {
+        $(backgroundEl, context).css('background-color', hashColor);
+      } else {
+        $(backgroundEl, context).css('background-color', '#fff');
       }
     }
   };
