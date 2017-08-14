@@ -1937,18 +1937,18 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       }
     },
     changingHeaderBg: function(el, backgroundEl, hashColor, context) {
-      var $wWidth = $(window).width();
+      var wWidth = $(window).width();
 
       $(window, context).resize(function(){
-        $wWidth = $(window, context).width();
-        if ($(el, context).length && $wWidth >= 991) {
+        wWidth = $(window, context).width();
+        if ($(el, context).length && wWidth >= 991) {
           $(backgroundEl, context).css('background-color', hashColor);
         } else {
           $(backgroundEl, context).css('background-color', '#fff');
         }
       });
 
-      if ($(el, context).length && $wWidth >= 991) {
+      if ($(el, context).length && wWidth >= 991) {
         $(backgroundEl, context).css('background-color', hashColor);
       } else {
         $(backgroundEl, context).css('background-color', '#fff');
