@@ -57,6 +57,21 @@
     }
   };
 
+  Drupal.behaviors.exhibitionsTagResponsive = {
+    attach: function(context, settings) {
+      this.removingClasses('.front .exhibitions-and-highlights .image .tag:not(:empty)', context);
+    },
+    removingClasses: function(el, context) {
+      var $el = $(el, context);
+      if ($el.length) {
+        for (var i = 0; i < $el.length; i++) {
+          var tag = $el.eq(i).clone();
+          $el.eq(i).closest('.views-row').find('.type').prepend(tag);
+        }
+      }
+    }
+  };
+
   Drupal.behaviors.formValidation = {
     attach: function(context, settings) {
       $('article .webform-client-form', context).validate();

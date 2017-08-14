@@ -22,14 +22,7 @@
     position: relative;
 
     .tag:not(:empty) {
-      @include rem(font-size, $card-label);
-      background-color: color(card-darken-bg);
-      bottom: 0;
-      color: color(main);
-      left: 0;
-      padding: 3px 4px 0;
-      position: absolute;
-      text-transform: uppercase;
+      @include tag;
     }
   }
 
