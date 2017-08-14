@@ -301,16 +301,16 @@
 
       $(window, context).resize(function(){
         wWidth = $(window, context).width();
-        if ($(el, context).length && wWidth >= 991) {
+        if ($(el, context).length && wWidth >= 992 || $('.view-header-video .video-embed-description').length) {
           $(backgroundEl, context).css('background-color', hashColor);
-        } else {
+        } else if($(el, context).length && wWidth < 991) {
           $(backgroundEl, context).css('background-color', '#fff');
         }
       });
 
-      if ($(el, context).length && wWidth >= 991) {
+      if ($(el, context).length && wWidth >= 992 || $('.view-header-video .video-embed-description').length) {
         $(backgroundEl, context).css('background-color', hashColor);
-      } else {
+      } else if($(el, context).length && wWidth < 991) {
         $(backgroundEl, context).css('background-color', '#fff');
       }
     }
