@@ -106,6 +106,11 @@
           <?php print render($tabs); ?>
         </div>
       <?php endif; ?>
+      <?php if ($action_links): ?>
+        <ul class="container action-links">
+          <?php print render($action_links); ?>
+        </ul>
+      <?php endif; ?>
       <?php if ($messages): ?>
         <div class="container">
           <?php print $messages; ?>
@@ -120,14 +125,7 @@
         </div>
       <?php endif; ?>
 
-      <section id="post-content" class="post-content container" role="main">
-
-        <?php if ($action_links): ?>
-          <ul class="action-links">
-            <?php print render($action_links); ?>
-          </ul>
-        <?php endif; ?>
-
+      <section id="post-content" class="post-content container <?php print $add_classes['container']; ?>" role="main">
         <div class="row flex-responsive">
 
           <div class="<?php print $add_classes['sidebar_first']; ?>">
@@ -173,11 +171,13 @@
 
   <footer id="footer" class="footer">
     <div class="footer-inner container clearfix">
-      <div class="logo-footer container">
+      <div class="logo-footer">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"></a>
       </div>
       <?php if ($page['footer']): ?>
-        <?php print render($page['footer']) ?>
+        <div class="row">
+          <?php print render($page['footer']) ?>
+        </div>
       <?php endif; ?>
     </div>
   </footer>
