@@ -17,7 +17,6 @@
   .flex-responsive {
     margin-left: 0;
     margin-right: 0;
-
   }
 
   .view-header-image {
@@ -76,6 +75,13 @@
   .front {
     .view-header-image {
       margin-bottom: 27px;
+
+      img {
+        left: 50%;
+        min-width: 100%;
+        position: relative;
+        transform: translateX(-50%);
+      }
     }
 
     .whats-on {
