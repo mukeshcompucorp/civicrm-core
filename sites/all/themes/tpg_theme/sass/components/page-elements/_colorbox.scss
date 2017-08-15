@@ -308,4 +308,83 @@
       }
     }
   }
+
+  #cboxClose {
+    position: fixed;
+    left: auto;
+    top: 8px;
+    right: 8px;
+  }
+
+  #cboxNext,
+  #cboxPrevious {
+    display: none !important;
+  }
+
+  #colorbox,
+  .cboxPhoto,
+  #cboxWrapper,
+  #cboxContent,
+  #cboxLoadedContent {
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  #cboxContent {
+    margin: 0;
+  }
+
+  #colorbox {
+    left: 0 !important;
+  }
+
+  #cboxLoadedContent {
+    box-sizing: border-box;
+    margin: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #cboxTitle {
+    background-color: transparent;
+    font-size: 0;
+    overflow: visible !important;
+
+    .caption-icon {
+      @include sprite($caption-resp);
+      bottom: 8px;
+      left: 8px;
+      margin-top: 0;
+      top: auto;
+
+      &.show {
+        background: url('../images/icons/caption.png') no-repeat 2px center, color(caption-icon-bg);
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    &.opened {
+      @include rem(font-size, $h4);
+      background-color: color(text-on-dark);
+      color: color(main);
+
+      .caption-icon {
+        bottom: 100%;
+      }
+    }
+  }
+
+  #cboxCurrent {
+    @include rem(font-size, $p-sm);
+    bottom: auto;
+    color: color(colorbox-counter);
+    display: block !important;
+    left: 15px;
+    position: fixed;
+    top: 8px;
+  }
 }

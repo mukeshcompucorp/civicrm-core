@@ -311,6 +311,21 @@
         });
       }
     },
+    hideCaption: function(image, caption, context) {
+      if ($(image, context).length) {
+        $(image, context).click(function(event) {
+          if($(caption, context).length) {
+            $(caption, context).removeClass('opened');
+          }
+        });
+      }
+    },
+    counterTextReplacement: function(el, context) {
+      if ($(el, context).length) {
+        var $el = $(el, context);
+        $el.text($el.text().replace(' of ', '/'));
+      }
+    },
     changingHeaderBg: function(el, backgroundEl, hashColor, context) {
       var wWidth = $(window).width();
 
