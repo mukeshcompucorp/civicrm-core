@@ -25,7 +25,6 @@
 
     img {
       height: 100vh;
-      left: 50%;
       margin: -40px auto 0;
       max-width: none;
       width: auto;
@@ -74,14 +73,15 @@
 
 @include breakpoint($md-1 0) {
   .front {
-    .view-header-image img {
-      min-width: 100%;
-      position: relative;
-      transform: translateX(-50%);
-    }
-
     .view-header-image {
       margin-bottom: 27px;
+
+      img {
+        left: 50%;
+        min-width: 100%;
+        position: relative;
+        transform: translateX(-50%);
+      }
     }
 
     .whats-on {
