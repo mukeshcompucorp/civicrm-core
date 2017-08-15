@@ -182,20 +182,9 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_full_width_image']['label'] = '';
   $handler->display->display_options['fields']['field_full_width_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_full_width_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_full_width_image']['type'] = 'picture';
   $handler->display->display_options['fields']['field_full_width_image']['settings'] = array(
-    'picture_mapping' => 'full_width_responsive_header_image',
-    'fallback_image_style' => '_original image_',
-    'lazyload' => 0,
-    'lazyload_aspect_ratio' => 0,
+    'image_style' => 'full_width_image_1285x500',
     'image_link' => '',
-    'colorbox_settings' => array(
-      'colorbox_group' => 'full_width_responsive_header_image',
-      'colorbox_gallery' => 'post',
-      'colorbox_gallery_custom' => '',
-      'colorbox_caption' => 'auto',
-      'colorbox_caption_custom' => '',
-    ),
   );
   /* Field: Image field caption: Full Width Image (caption) */
   $handler->display->display_options['fields']['caption']['id'] = 'caption';
