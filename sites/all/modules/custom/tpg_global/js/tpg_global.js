@@ -102,6 +102,8 @@
     $('#colorbox #cboxTitle').append("<div class='colorbox-caption'>" + cbox_data[1] + "</div>");
 
     Drupal.behaviors.lightboxCaption.captionIcon('#colorbox .caption-icon', '#colorbox #cboxTitle');
+    Drupal.behaviors.lightboxCaption.hideCaption('.cboxPhoto', '#cboxTitle.opened');
+    Drupal.behaviors.lightboxCaption.counterTextReplacement('#cboxCurrent');
   });
 
 })(jQuery);
