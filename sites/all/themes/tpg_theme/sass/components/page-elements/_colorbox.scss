@@ -352,6 +352,7 @@
     background-color: transparent;
     font-size: 0;
     overflow: visible !important;
+    padding: 13px 8px !important;
 
     .caption-icon {
       @include sprite($caption-resp);
