@@ -40,25 +40,6 @@ function compucorp_commerce_default_rules_configuration() {
       ]
     }
   }');
-  $items['commerce_tax_rate_vat_0'] = entity_import('rules_config', '{ "commerce_tax_rate_vat_0" : {
-      "LABEL" : "Calculate VAT 0",
-      "PLUGIN" : "rule",
-      "OWNER" : "rules",
-      "TAGS" : [ "Commerce Tax", "vat" ],
-      "REQUIRES" : [ "commerce_tax" ],
-      "USES VARIABLES" : { "commerce_line_item" : { "type" : "commerce_line_item", "label" : "Line item" } },
-      "DO" : [
-        { "commerce_tax_rate_apply" : {
-            "USING" : {
-              "commerce_line_item" : [ "commerce-line-item" ],
-              "tax_rate_name" : "vat_0"
-            },
-            "PROVIDE" : { "applied_tax" : { "applied_tax" : "Applied tax" } }
-          }
-        }
-      ]
-    }
-  }');
   $items['commerce_tax_rate_vat_20'] = entity_import('rules_config', '{ "commerce_tax_rate_vat_20" : {
       "LABEL" : "Calculate VAT 20",
       "PLUGIN" : "rule",
