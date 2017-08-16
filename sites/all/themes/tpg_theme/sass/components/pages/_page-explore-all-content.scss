@@ -21,7 +21,8 @@
     clear: both;
   }
 
-  .field-name-read-more-node {
+  .field-name-read-more-node,
+  .field-type-text-with-summary {
     display: none;
   }
 
@@ -33,4 +34,5 @@
   h3 {
     border-bottom-color: color(text-on-dark);
   }
+
 }
