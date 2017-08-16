@@ -14,7 +14,7 @@ function tpg_viewpoints_default_fe_block_settings() {
 
   $export['block-viewpoints_explore_content_links'] = array(
     'cache' => -1,
-    'css_class' => 'col-xs-4',
+    'css_class' => 'whats-on-tabs col-xs-4',
     'custom' => 0,
     'machine_name' => 'viewpoints_explore_content_links',
     'module' => 'block',
@@ -66,7 +66,7 @@ explore-all-content',
 
   $export['block-viewpoints_intro'] = array(
     'cache' => -1,
-    'css_class' => 'viewpoints-intro',
+    'css_class' => 'viewpoints-intro whats-on-description clearfix col-md-8',
     'custom' => 0,
     'machine_name' => 'viewpoints_intro',
     'module' => 'block',

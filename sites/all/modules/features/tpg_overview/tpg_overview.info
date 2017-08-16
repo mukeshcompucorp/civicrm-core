@@ -56,6 +56,7 @@ features[field_instance][] = node-external_links-field_link_description
 features[field_instance][] = node-internal_links-field_linked_entity
 features[field_instance][] = node-overview_page-body
 features[field_instance][] = node-overview_page-field_overview_section
+features[image][] = explore_all_content_400x240
 features[image][] = overview_page_image
 features[image][] = whats_on_400x324
 features[node][] = external_links

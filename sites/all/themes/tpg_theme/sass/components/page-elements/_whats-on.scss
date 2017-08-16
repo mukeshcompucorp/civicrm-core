@@ -17,7 +17,8 @@
       text-decoration: none;
     }
 
-    .now-upcoming {
+    .now-upcoming,
+    .browse-viewpoints {
       @include rem(margin-right, 30px);
     }
   }
@@ -30,6 +31,11 @@
     p {
       @include lh-fs(22px, $p-sm);
     }
+  }
+
+  // No result description
+  .view-empty {
+    padding: 20px 10px 25px;
   }
 
   // Filter form
