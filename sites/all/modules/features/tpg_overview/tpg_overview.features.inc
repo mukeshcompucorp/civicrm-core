@@ -25,6 +25,21 @@ function tpg_overview_ctools_plugin_api($module = NULL, $api = NULL) {
 function tpg_overview_image_default_styles() {
   $styles = array();
 
+  // Exported image style: explore_all_content_400x240.
+  $styles['explore_all_content_400x240'] = array(
+    'label' => 'Explore all content 400x324',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 324,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: overview_page_image.
   $styles['overview_page_image'] = array(
     'label' => 'Overview Page Image',

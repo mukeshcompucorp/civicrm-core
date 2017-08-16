@@ -5169,7 +5169,7 @@ function tpg_paragraphs_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
-      'default_image' => 0,
+      'default_image' => 353,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'image_field_caption' => 0,
