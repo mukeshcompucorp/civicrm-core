@@ -99,7 +99,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
   elseif (in_array($node->type, array('events_detail', 'paragraphs_page'))) {
     $vars['logo'] = '';
   }
-  elseif ($vars['is_front'] || in_array(current_path(), array('explore-all-content')) || in_array(current_path(), array('viewpoints'))) {
+  elseif ($vars['is_front'] || in_array(current_path(), array('explore-all-content', 'viewpoints'))) {
     $vars['logo'] = '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png';
   }
 
