@@ -17,8 +17,35 @@
       @include rem(font-size, 18px);
     }
 
-    .whats-on > .view-content {
+    .views-more-link {
+      @include rem(font-size, $p-sm);
+      text-decoration: none;
+    }
+
+    .views-more-link:before {
+      @include rem(font-size, $read-more-arrow-font-size);
+      content: '>';
+      display: inline-block;
+      margin-right: 2px;
+    }
+  }
+
+  &-wrapper .whats-on {
+    .views-row {
+      margin-bottom: 0;
+    }
+
+    .views-field-field-paragraph-description {
+      margin-top: 15px;
+    }
+
+    > .view-content {
       @include make-row;
+    }
+
+    .views-field-field-paragraph-description p {
+      @include rem(font-size, $p-sm);
+      margin-bottom: 0;
     }
   }
 
