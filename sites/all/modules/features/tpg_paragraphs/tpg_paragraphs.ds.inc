@@ -453,6 +453,26 @@ function tpg_paragraphs_ds_field_settings_info() {
         'ft' => array(),
       ),
     ),
+    'field_paragraph_title' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'title',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+          'fi' => TRUE,
+          'fi-el' => 'h3',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['paragraphs_item|title_section|overview'] = $ds_fieldsetting;
 
