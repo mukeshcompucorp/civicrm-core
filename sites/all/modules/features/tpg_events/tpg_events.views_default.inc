@@ -1015,7 +1015,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraph_description']['field'] = 'field_paragraph_description';
   $handler->display->display_options['fields']['field_paragraph_description']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_paragraph_description']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraph_description']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_paragraph_description']['alter']['max_length'] = '140';
   $handler->display->display_options['fields']['field_paragraph_description']['alter']['more_link'] = TRUE;
   $handler->display->display_options['fields']['field_paragraph_description']['alter']['more_link_text'] = 'read more';
   $handler->display->display_options['fields']['field_paragraph_description']['alter']['more_link_path'] = '[path]';
