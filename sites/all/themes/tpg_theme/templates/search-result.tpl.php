@@ -71,8 +71,8 @@
       <?php print render($overview_image); ?>
     <?php endif; ?>
     </p>
-    <?php if ($content_type) : ?>
-      <div class="content-type"><?php print $content_type; ?></div>
+    <?php if ($page_type) : ?>
+      <div class="content-type"><?php print $page_type; ?></div>
     <?php endif; ?>
     <?php print render($title_prefix); ?>
     <h3 class="title"<?php print $title_attributes; ?>>

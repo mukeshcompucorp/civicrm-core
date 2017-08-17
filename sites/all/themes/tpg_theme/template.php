@@ -329,9 +329,12 @@ function tpg_theme_preprocess_search_results(&$variables) {
  */
 function tpg_theme_preprocess_search_result(&$variables) {
   $node = $variables['result']['node'];
-
-  // Adding content type
-  $variables['content_type'] = node_type_get_name($node);
+  // Adding page/event type.
+  $variables['page_type'] = '';
+  $page_type = views_get_view_result('search_autocomplete', 'page_event_type', $node->nid);
+  if ($page_type) {
+    $variables['page_type'] = isset($page_type[0]->field_field_paragraphs_type[0]) ? $page_type[0]->field_field_paragraphs_type[0]['rendered']['#markup'] : $page_type[0]->field_field_paragraphs_event_type[0]['rendered']['#markup'];
+  }
 
   // Adding overview image.
   $overview_image_result = views_get_view_result('search_autocomplete', 'overview_image_search', $node->nid);
