@@ -31,6 +31,10 @@
   }
 
   &-wrapper .whats-on {
+    .views-row {
+      margin-bottom: 0;
+    }
+
     .views-field-field-paragraph-description {
       margin-top: 15px;
     }
@@ -44,7 +48,6 @@
       margin-bottom: 0;
     }
   }
-
 
   > .view-content {
     @include make-row;
