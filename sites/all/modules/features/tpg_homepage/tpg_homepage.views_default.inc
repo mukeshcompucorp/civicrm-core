@@ -178,7 +178,7 @@ function tpg_homepage_views_default_views() {
   /* Display: Current Exhibitions Highlights */
   $handler = $view->new_display('block', 'Current Exhibitions Highlights', 'current_exhibitions_highlights_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Current Exhibitions and Highlights';
+  $handler->display->display_options['title'] = '<a name="current-exhibitions-highlights"></a>Current Exhibitions and Highlights';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'exhibitions-and-highlights row whats-on';
   $handler->display->display_options['defaults']['pager'] = FALSE;
