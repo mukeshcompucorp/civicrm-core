@@ -27,11 +27,6 @@
  * @ingroup views_templates
  */
 ?>
-<?php if ($exposed): ?>
-  <div class="view-filters col-xs-8 clearfix whats-on-filter">
-    <?php print $exposed; ?>
-  </div>
-<?php endif; ?>
 
 <div class="<?php print $classes; ?>">
   <?php print render($title_prefix); ?>
@@ -42,6 +37,12 @@
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if ($exposed): ?>
+    <div class="view-filters col-xs-8 clearfix whats-on-filter">
+      <?php print $exposed; ?>
     </div>
   <?php endif; ?>
 
