@@ -149,8 +149,8 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
       $vars['add_classes'] = $classes;
     }
   }
-
-  if (in_array(current_path(), array('viewpoints'))) {
+  // Removing classes to have full width page.
+  elseif (in_array(current_path(), array('viewpoints'))) {
     $classes['sidebar_first'] = '';
     $classes['sidebar_second'] = '';
     $classes['content'] = '';
