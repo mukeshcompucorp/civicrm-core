@@ -302,8 +302,8 @@
       }
 
       .caption-icon.show:after {
-        bottom: -2px;
         background-color: color(caption-icon-bg);
+        bottom: -2px;
         content: '';
         display: block;
         height: 2px;
