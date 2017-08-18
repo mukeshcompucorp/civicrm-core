@@ -358,6 +358,7 @@ features[variable][] = field_bundle_settings_paragraphs_item__bulleted_list
 features[variable][] = field_bundle_settings_paragraphs_item__button
 features[variable][] = field_bundle_settings_paragraphs_item__embed_video
 features[variable][] = field_bundle_settings_paragraphs_item__full_width_image_caption
+features[variable][] = field_bundle_settings_paragraphs_item__full_width_image_caption_content
 features[variable][] = field_bundle_settings_paragraphs_item__full_width_video_header
 features[variable][] = field_bundle_settings_paragraphs_item__header_gallery
 features[variable][] = field_bundle_settings_paragraphs_item__header_image_left_image_right
