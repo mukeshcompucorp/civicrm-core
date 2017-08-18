@@ -275,7 +275,8 @@
 
     [class*="field-caption"] {
       margin-bottom: 0;
-      margin-top: -32px;
+      margin-top: -39px;
+      min-height: 39px;
 
       &.opened:before {
         background: color(page-bg);
@@ -285,12 +286,30 @@
         height: 2px;
         left: 0;
         position: absolute;
-        top: 30px;
+        top: 39px;
         width: 100%;
+      }
+
+      .caption-icon,
+      .caption-icon.show {
+        background: url('../images/icons/caption.png') no-repeat center, color(caption-icon-bg);
+        height: 39px;
+        width: 39px;
       }
 
       .caption-icon ~ span {
         display: none;
+      }
+
+      .caption-icon.show:after {
+        bottom: -2px;
+        background-color: color(caption-icon-bg);
+        content: '';
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
       }
 
       .caption-icon.show ~ span {
@@ -299,10 +318,12 @@
 
       .header-image-lightbox-title {
         color: color(main);
-        margin-top: 40px;
+        margin-left: 0;
+        margin-top: 47px;
       }
 
       .field-content {
+        margin-left: 0;
         margin-top: 4px;
         padding-bottom: 22px;
       }
