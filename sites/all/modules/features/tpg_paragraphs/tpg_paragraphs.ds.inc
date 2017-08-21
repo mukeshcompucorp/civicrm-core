@@ -460,7 +460,7 @@ function tpg_paragraphs_ds_field_settings_info() {
           'ow' => TRUE,
           'ow-el' => 'div',
           'ow-cl' => 'title',
-          'ow-def-cl' => FALSE,
+          'ow-def-cl' => TRUE,
           'ow-at' => '',
           'ow-def-at' => FALSE,
           'fi' => TRUE,
