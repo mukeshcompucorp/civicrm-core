@@ -14,7 +14,7 @@ function tpg_homepage_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Arts Council England Logo';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'arts_council_england';
-  $fe_block_boxes->body = '<p><img alt="" src="/sites/default/private/logo-lottery.png" /></p>
+  $fe_block_boxes->body = '<p><img alt="" src="/sites/default/files/logo-lottery.png" style="height:57px; width:180px" /></p>
 ';
 
   $export['arts_council_england'] = $fe_block_boxes;
