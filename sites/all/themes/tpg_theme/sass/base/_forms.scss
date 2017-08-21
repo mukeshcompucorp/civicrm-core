@@ -83,12 +83,15 @@ input[type='checkbox'] {
   }
 
   &:checked + label:after {
-    @include rem(left, 7px);
-    @include rem(top, 7px);
-    @include sprite($cross);
+    @include rem(left, 8px);
+    @include rem(top, 8px);
+    background: url('../images/icons/cross.png') no-repeat center;
+    background-size: contain;
     content: '';
+    height: 16px;
     position: absolute;
     text-align: center;
+    width: 16px;
     z-index: 1;
   }
 }
