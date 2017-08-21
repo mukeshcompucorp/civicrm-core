@@ -137,6 +137,10 @@ function tpg_global_views_query_alter(&$view, &$query) {
       // Adding starting date.
       $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $start_date;
       $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $end_date;
+      // Unset date condition for Anytime select value.
+      if (!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $view->exposed_input['combine'])) {
+        unset($query->where[2]);
+      }
     }
   }
 }

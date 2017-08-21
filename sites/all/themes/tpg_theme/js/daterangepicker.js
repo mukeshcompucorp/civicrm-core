@@ -22,7 +22,7 @@
             format: 'DD MMM YYYY'
           },
           ranges: {
-             'Anytime': [],
+             'Anytime': 'Anytime',
              'Today': [moment(), moment()],
              'This Weekend': [moment().day(6), moment().day(7)],
              'This Week': [moment().day(1), moment().day(7)],
