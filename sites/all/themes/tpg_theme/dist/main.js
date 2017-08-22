@@ -1648,7 +1648,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
     },
     nWrapper: function (wrapper, el, n, context) {
       var $parent       = $(wrapper, context);
-      var $elNumber     = n;
+      var elNumber     = n;
 
       if ($parent.length) {
         var $parentLength = $parent.length;
@@ -1660,14 +1660,14 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
           if (!$('.columns-wrapper').length) {
               $parent.eq(i).prepend(`
                 <div class="columns-wrapper clearfix">
-                  <div class="col col-1 col-md-` + 12/$elNumber + `"></div>
-                  <div class="col col-2 col-md-` + 12/$elNumber + `"></div>
-                  <div class="col col-3 col-md-`  + 12/$elNumber + `"></div>
+                  <div class="col col-1 col-md-` + 12/elNumber + `"></div>
+                  <div class="col col-2 col-md-` + 12/elNumber + `"></div>
+                  <div class="col col-3 col-md-`  + 12/elNumber + `"></div>
                 </div>
             `);
           }
 
-          for(var j = 0; j < $elLength; j += $elNumber) {
+          for(var j = 0; j < $elLength; j += elNumber) {
             var firstCol = $el.eq(j);
             var secondCol = $el.eq(j+1);
             var thirdCol = $el.eq(j+2);
@@ -1676,7 +1676,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
             secondCol.appendTo('.columns-wrapper .col-2');
             thirdCol.appendTo('.columns-wrapper .col-3');
 
-            if (j >= $elLength - $elNumber) {
+            if (j >= $elLength - elNumber) {
               $parent.addClass('show');
             }
           }
