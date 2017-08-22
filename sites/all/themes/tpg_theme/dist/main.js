@@ -1643,29 +1643,31 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
 
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
-      this.nWrapper('.exhibitions-and-highlights', '.view-content .views-row', 3, context);
+      this.nWrapper('.front .exhibitions-and-highlights', '.view-content .views-row', 3, context);
+      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, context);
     },
     nWrapper: function (wrapper, el, n, context) {
       var $parent       = $(wrapper, context);
-      var $elNumber     = n;
+      var elNumber     = n;
 
       if ($parent.length) {
         var $parentLength = $parent.length;
 
         for (var i = 0; i < $parentLength; i++) {
-          var $el = $parent.eq(i).find(el);
+          var $el       = $parent.eq(i).find(el);
           var $elLength = $el.length;
 
           if (!$('.columns-wrapper').length) {
-            $parent.eq(i).prepend(`
-                <div class="columns-wrapper">
-                  <div class="col col-1 col-md-4"></div>
-                  <div class="col col-2 col-md-4"></div>
-                  <div class="col col-3 col-md-4"></div>
+              $parent.eq(i).prepend(`
+                <div class="columns-wrapper clearfix">
+                  <div class="col col-1 col-md-` + 12/elNumber + `"></div>
+                  <div class="col col-2 col-md-` + 12/elNumber + `"></div>
+                  <div class="col col-3 col-md-`  + 12/elNumber + `"></div>
                 </div>
             `);
           }
-          for(var j = 0; j < $elLength; j += 3) {
+
+          for(var j = 0; j < $elLength; j += elNumber) {
             var firstCol = $el.eq(j);
             var secondCol = $el.eq(j+1);
             var thirdCol = $el.eq(j+2);
@@ -1674,7 +1676,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
             secondCol.appendTo('.columns-wrapper .col-2');
             thirdCol.appendTo('.columns-wrapper .col-3');
 
-            if (j >= $elLength - 3) {
+            if (j >= $elLength - elNumber) {
               $parent.addClass('show');
             }
           }
