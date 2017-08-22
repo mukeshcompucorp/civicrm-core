@@ -57,6 +57,25 @@
     }
   };
 
+  Drupal.behaviors.arrowScrollDown = {
+    attach: function(context, settings) {
+      this.creatingEl('.front .view-header-image .views-row', '<div class="before"></div>', context);
+      this.moveToEl('.front .view-header-image .views-row .before', 'current-exhibitions-highlights', context);
+    },
+    creatingEl: function(el, markup, context) {
+      if ($(el, context).length) {
+        $(el, context).prepend(markup);
+      }
+    },
+    moveToEl: function(el, anchorName, context) {
+      $(el, context).click(function() {
+        $('html, body', context).animate({
+            scrollTop: $('a[name*=' + anchorName + ']').offset().top
+        }, 600);
+      });
+    }
+  };
+
   Drupal.behaviors.exhibitionsTagResponsive = {
     attach: function(context, settings) {
       this.removingClasses('.front .exhibitions-and-highlights .image .tag:not(:empty)', context);
@@ -196,12 +215,12 @@
 
   Drupal.behaviors.whatsOnFilter = {
     attach: function(context, settings) {
-      this.createingEl('<div class="whats-on-filter"></div>', 'resp-filter', 'Filter', context);
+      this.creatingEl('<div class="whats-on-filter"></div>', 'resp-filter', 'Filter', context);
       this.openEl('.resp-filter', '.whats-on-filter > .content', 'show', context);
       this.searchField('.page-whats-on .who-select-prefix', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
       this.searchField('.filter-overlay', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
     },
-    createingEl: function(place, elClass, elText, context) {
+    creatingEl: function(place, elClass, elText, context) {
       var $place = $(place, context);
 
       if ($place && $place.length) {

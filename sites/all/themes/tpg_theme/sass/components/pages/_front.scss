@@ -34,10 +34,11 @@
       position: relative;
     }
 
-    .views-row:before {
-      background: url('../images/icons/arrow-down.png') center no-repeat color(header-image-arrow-bg);
+    .views-row .before {
+      background: $homepage-arrow-down center no-repeat, $front-page-gradient, $homepage-gradient repeat;
       bottom: 0;
       content: '';
+      cursor: pointer;
       display: inline-block;
       height: 40px;
       left: 50%;
