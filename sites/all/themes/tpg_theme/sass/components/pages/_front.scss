@@ -101,8 +101,13 @@
         @include tag;
         display: block;
         float: left;
+        margin-top: -5px;
         position: static;
       }
+    }
+
+    .pager-load-more {
+      padding-bottom: 33px;
     }
   }
 }
