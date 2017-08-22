@@ -35,7 +35,7 @@
     }
 
     .views-row .before {
-      background: url('../images/icons/arrow-down.png') center no-repeat, $front-page-gradient, $homepage-gradient repeat;
+      background: $homepage-arrow-down center no-repeat, $front-page-gradient, $homepage-gradient repeat;
       bottom: 0;
       content: '';
       cursor: pointer;
