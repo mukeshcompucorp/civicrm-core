@@ -355,6 +355,8 @@ function tpg_viewpoints_views_default_views() {
   /* Display: Header Image */
   $handler = $view->new_display('block', 'Header Image', 'viewpoint_header_image');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'header-image';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';

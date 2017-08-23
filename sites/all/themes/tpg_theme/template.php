@@ -157,7 +157,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
   }
 
   // Hiding page title.
-  $pages = array('events_detail', 'paragraphs_page');
+  $pages = array('events_detail', 'paragraphs_page', 'viewpoint');
   if (in_array($node->type, $pages)) {
     $vars['title'] = '';
   }

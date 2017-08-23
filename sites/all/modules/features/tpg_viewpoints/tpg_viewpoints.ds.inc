@@ -97,15 +97,13 @@ function tpg_viewpoints_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_header_image',
-        1 => 'field_homepage_card_tag',
-        2 => 'title',
-        3 => 'body',
-        4 => 'field_events_paragraphs',
+        0 => 'field_homepage_card_tag',
+        1 => 'title',
+        2 => 'body',
+        3 => 'field_events_paragraphs',
       ),
     ),
     'fields' => array(
-      'field_header_image' => 'ds_content',
       'field_homepage_card_tag' => 'ds_content',
       'title' => 'ds_content',
       'body' => 'ds_content',
