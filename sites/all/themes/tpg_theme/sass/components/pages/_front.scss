@@ -67,10 +67,6 @@
     border-bottom-color: color(text-on-dark);
     color: color(text-on-dark);
   }
-
-  .ajax-progress {
-    display: none;
-  }
 }
 
 @include breakpoint($md-1 0) {
