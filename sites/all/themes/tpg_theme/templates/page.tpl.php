@@ -65,6 +65,19 @@
  */
 ?>
 <div id="page-wrapper">
+  <?php if ($page['header_pane']): ?>
+    <section id="header-pane" class="header-pane">
+      <div class="container clearfix">
+        <?php print render($page['header_pane']); ?>
+        <div class="resp-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
   <header id="header" class="header">
     <div class="header-inner clearfix">
       <?php if ($logo): ?>
@@ -73,9 +86,16 @@
             <img src="<?php print $logo; ?>"/>
           </a>
         </div>
+        <div id="responsive-logo" class="responsive-logo">
+          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+            <img src="<?php print '/' . drupal_get_path('theme', 'tpg_theme') . '/images/logo-white.png'?>"/>
+          </a>
+        </div>
       <?php endif; ?>
       <?php if ($page['header']): ?>
+        <div class="<?php print $add_classes['content_width']; ?>">
           <?php print render($page['header']); ?>
+        </div>
       <?php endif; ?>
     </div>
   </header>
@@ -85,6 +105,11 @@
         <div class="tabs-wrapper container">
           <?php print render($tabs); ?>
         </div>
+      <?php endif; ?>
+      <?php if ($action_links): ?>
+        <ul class="container action-links">
+          <?php print render($action_links); ?>
+        </ul>
       <?php endif; ?>
       <?php if ($messages): ?>
         <div class="container">
@@ -100,19 +125,12 @@
         </div>
       <?php endif; ?>
 
-      <section id="post-content" class="post-content container" role="main">
-
-        <?php if ($action_links): ?>
-          <ul class="action-links">
-            <?php print render($action_links); ?>
-          </ul>
-        <?php endif; ?>
-
+      <section id="post-content" class="post-content container <?php print $add_classes['container']; ?>" role="main">
         <div class="row flex-responsive">
 
           <div class="<?php print $add_classes['sidebar_first']; ?>">
             <?php if ($page['sidebar_first']): ?>
-              <aside id="first-sidebar" class="first-sidebar" role="complementary">
+              <aside id="first-sidebar" class="first-sidebar clearfix" role="complementary">
                 <?php print render($page['sidebar_first']); ?>
               </aside>
             <?php endif; ?>
@@ -127,11 +145,15 @@
             <?php endif; ?>
             <?php print render($title_suffix); ?>
             <?php print render($page['content']); ?>
+
+            <?php if ($page['share_section']): ?>
+              <?php print render($page['share_section']); ?>
+            <?php endif; ?>
           </div>
 
           <div class="<?php print $add_classes['sidebar_second']; ?>">
             <?php if ($page['sidebar_second']): ?>
-              <aside id="second-sidebar" class="second-sidebar" role="complementary">
+              <aside id="second-sidebar" class="second-sidebar clearfix" role="complementary">
                 <?php print render($page['sidebar_second']); ?>
               </aside>
             <?php endif; ?>
@@ -149,9 +171,14 @@
 
   <footer id="footer" class="footer">
     <div class="footer-inner container clearfix">
+      <div class="logo-footer">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"></a>
+      </div>
       <?php if ($page['footer']): ?>
-         <?php print render($page['footer']) ?>
-       <?php endif; ?>
+        <div class="row">
+          <?php print render($page['footer']) ?>
+        </div>
+      <?php endif; ?>
     </div>
   </footer>
 </div>

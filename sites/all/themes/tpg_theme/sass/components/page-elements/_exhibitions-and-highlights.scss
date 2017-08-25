@@ -1,0 +1,43 @@
+.exhibitions-and-highlights {
+  opacity: 0;
+
+  .h3,
+  h3 {
+    border-bottom-color: color(text-on-dark);
+  }
+
+  &.show {
+    opacity: 1;
+  }
+
+  .view-content {
+    @include clr;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .image {
+    position: relative;
+
+    .tag:not(:empty) {
+      @include tag;
+    }
+  }
+
+  .pager a {
+    background-color: color(text-on-dark);
+    color: color(main);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .exhibitions-and-highlights {
+    overflow: hidden;
+
+    .col {
+      padding: 0;
+    }
+  }
+}

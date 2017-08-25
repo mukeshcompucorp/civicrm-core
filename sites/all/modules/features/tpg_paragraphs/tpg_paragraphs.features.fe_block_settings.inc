@@ -14,7 +14,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['service_links-service_links'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'share-links',
     'custom' => 0,
     'delta' => 'service_links',
     'module' => 'service_links',
@@ -53,13 +53,13 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'footer',
+        'region' => 'share_section',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -21,
+        'weight' => -34,
       ),
     ),
-    'title' => '<none>',
+    'title' => 'Share',
     'visibility' => 0,
   );
 
@@ -219,6 +219,7 @@ function tpg_paragraphs_default_fe_block_settings() {
   $export['views-33a110961adfdc1683e63638b3441867'] = array(
     'cache' => -1,
     'css_class' => '',
+    'custom' => 0,
     'delta' => '33a110961adfdc1683e63638b3441867',
     'module' => 'views',
     'node_types' => array(),
@@ -262,6 +263,8 @@ function tpg_paragraphs_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   $export['views-561be599b982dd2ae38c000b1df22b2c'] = array(
@@ -317,7 +320,7 @@ function tpg_paragraphs_default_fe_block_settings() {
 
   $export['views-57800a35622528c39b7316d05173e444'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'related-activities-wrapper',
     'custom' => 0,
     'delta' => '57800a35622528c39b7316d05173e444',
     'module' => 'views',
@@ -361,7 +364,7 @@ function tpg_paragraphs_default_fe_block_settings() {
         'region' => 'full_width_bottom',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -22,
+        'weight' => -26,
       ),
     ),
     'title' => '',

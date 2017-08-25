@@ -1,0 +1,147 @@
+﻿.node-type-overview-page {
+  h1.page-title {
+    @include lh-fs(32px, $h2);
+    border-bottom-width: 2px;
+  }
+
+  .main-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.node-overview-page {
+  a,
+  p,
+  li,
+  label,
+  blockquote {
+    @include lh-fs(22px, $p-sm);
+  }
+
+  .field-collection-container {
+    border: 0;
+    clear: both;
+    margin: 0;
+  }
+
+  .field-type-field-collection > .field-items > .field-item {
+    margin-bottom: 0;
+  }
+
+  .field-collection-view {
+    margin: 0;
+    padding: 0;
+
+    &-final {
+      padding-bottom: 5px;
+    }
+
+    &-final .field-name-field-subtitle {
+      margin-top: 0;
+    }
+  }
+
+  .field-name-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .field-name-field-subtitle {
+    @include rem('margin-bottom', 25px);
+    @include rem('margin-top', 33px);
+
+    .field-item {
+      @include lh-fs(25px, $h3);
+      border-bottom: 1px solid color(heading);
+      display: inline-block;
+    }
+  }
+
+  .field-name-field-subtitle-description {
+    @include rem('margin-bottom', 25px);
+  }
+
+  .field-name-field-links {
+    h2.title,
+    .field-type-datetime,
+    .field-type-taxonomy-term-reference,
+    .field-name-event-start-end-dates {
+      display: none;
+    }
+
+    .entity-paragraphs-item,
+    .field-name-field-paragraph-description {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .field-name-field-paragraph-title,
+    .field-name-field-external-link-title {
+      margin-bottom: 16px;
+      margin-top: 17px;
+    }
+
+    .field-name-field-paragraph-title a,
+    .field-name-field-external-link-title a {
+      @include lh-fs(25px, $h3);
+      border-bottom: 1px solid color(heading);
+      text-decoration: none;
+    }
+
+    h3 {
+      border-bottom: 0;
+    }
+  }
+
+  .field-name-read-more a,
+  .field-name-read-more-node a {
+    display: inline-block;
+    height: 14px;
+    position: relative;
+    text-decoration: none;
+
+    &:before {
+      @include rem(font-size, $read-more-arrow-font-size);
+      content: $read-more-arrow;
+      display: inline-block;
+      line-height: 1em;
+      position: relative;
+      top: -1px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .field-name-field-links > .field-items {
+    @include make-row;
+
+    &:after {
+      @include clr;
+    }
+
+    & > .field-item {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
+      vertical-align: top;
+
+      &:nth-child(3n+4) {
+        clear: left;
+      }
+    }
+  }
+
+  @include breakpoint($md-1 0) {
+    .field-name-field-links {
+      .field-name-field-paragraph-title,
+      .field-name-field-external-link-title {
+        margin-bottom: 8px;
+        margin-top: 11px;
+      }
+    }
+  }
+}

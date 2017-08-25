@@ -1,0 +1,156 @@
+.block-search-form {
+  display: none;
+  float: right;
+  margin-top: 4px;
+  max-width: 288px;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+
+  .form-item-search-block-form label {
+    clip: auto;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 11px;
+    right: 9px;
+    top: 8px;
+    width: 11px;
+    z-index: 1;
+
+    &:before,
+    &:after {
+      background-color: color(main);
+      content: '.';
+      display: block;
+      font-size: 0;
+      height: 1px;
+      pointer-events: none;
+      position: absolute;
+      right: -2px;
+      top: 5px;
+      width: 15px;
+      z-index: 1;
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+  }
+
+  input.form-text {
+    @include lh-fs($form-search-font-size, $form-search-font-size);
+    padding: 4px 10px 0 36px;
+    width: 100%;
+
+    &:active,
+    &:focus {
+      border-color: color(form-bg);
+    }
+  }
+
+  .form-actions {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    input.form-submit {
+      @include sprite($search-bar-form);
+      background-color: transparent;
+      cursor: pointer;
+      font-size: 0;
+      margin-left: 10px;
+      padding: 0;
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  .ui-widget-content {
+    @include lh-fs($form-search-font-size, $form-search-font-size);
+    border: 0;
+  }
+
+  .ui-menu-divider {
+    display: none;
+  }
+
+  ul[data-sa-theme='basic-green'].ui-menu {
+    background: transparent;
+    min-width: 0;
+    padding-top: 1px;
+    width: 100% !important;
+
+    .ui-autocomplete-field-title,
+    .ui-autocomplete-field-label {
+      @include lh-fs($form-search-font-size, $form-search-font-size);
+    }
+
+    .ui-autocomplete-field-term {
+      @include lh-fs($form-search-font-size, $form-search-font-size);
+      font-weight: $bold;
+    }
+
+    .ui-autocomplete-fields {
+      padding: 6px 10px 2px;
+    }
+  }
+
+  ul[data-sa-theme='basic-green'].ui-menu .ui-menu-item {
+    background-color: color(form-bg);
+    border-top: 0;
+
+    a {
+      background-image: none;
+      margin: 0;
+    }
+  }
+
+  .ui-corner-all,
+  .ui-corner-bottom,
+  .ui-corner-left,
+  .ui-corner-right,
+  .ui-corner-top,
+  .ui-corner-br {
+    border-radius: 0;
+  }
+
+  .ui-state-hover,
+  .ui-widget-content .ui-state-hover,
+  .ui-widget-header .ui-state-hover,
+  .ui-state-focus,
+  .ui-widget-content .ui-state-focus,
+  .ui-widget-header .ui-state-focus {
+    // background-color: color(autocomplete-hover);
+    border: 0;
+  }
+}
+
+html.js .block-search-form input.form-autocomplete {
+  background-image: none;
+}
+
+@include breakpoint($tablet-1 0) {
+  .block-search-form {
+    float: none;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .form-actions {
+      left: 10px;
+    }
+
+    .form-item-search-block-form label {
+      right: 19px;
+    }
+
+    input.form-text {
+      padding-right: 30px;
+    }
+  }
+}

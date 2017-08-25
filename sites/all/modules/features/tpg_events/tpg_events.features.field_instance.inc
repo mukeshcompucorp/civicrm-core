@@ -21,7 +21,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 15,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -51,7 +51,7 @@ function tpg_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -71,7 +71,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'overview' => array(
         'label' => 'above',
@@ -118,7 +118,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -133,7 +133,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'overview' => array(
         'label' => 'above',
@@ -164,7 +164,7 @@ function tpg_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -179,7 +179,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'overview' => array(
         'label' => 'above',
@@ -227,7 +227,52 @@ function tpg_events_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 7,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-events_detail-field_event_logo_color'.
+  $field_instances['node-events_detail-field_event_logo_color'] = array(
+    'bundle' => 'events_detail',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_event_logo_color',
+    'label' => 'Logo Color',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
@@ -242,7 +287,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'overview' => array(
         'label' => 'above',
@@ -272,7 +317,7 @@ function tpg_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -287,7 +332,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 12,
       ),
       'overview' => array(
         'label' => 'above',
@@ -314,7 +359,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -330,7 +375,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 11,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -409,7 +454,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -424,7 +469,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 7,
       ),
       'overview' => array(
         'label' => 'above',
@@ -469,7 +514,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'overview' => array(
         'label' => 'above',
@@ -535,7 +580,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 8,
       ),
       'overview' => array(
         'label' => 'above',
@@ -590,7 +635,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'overview' => array(
         'label' => 'above',
@@ -616,7 +661,9 @@ function tpg_events_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 44,
     ),
@@ -673,6 +720,7 @@ function tpg_events_field_default_field_instances() {
         'button' => 'button',
         'embed_video' => 'embed_video',
         'full_width_image_caption' => -1,
+        'full_width_image_caption_content' => 'full_width_image_caption_content',
         'full_width_video_header' => -1,
         'header_gallery' => -1,
         'header_image_left_image_right' => -1,
@@ -684,34 +732,37 @@ function tpg_events_field_default_field_instances() {
         'reading_width_maps' => 'reading_width_maps',
         'reading_width_webform' => 'reading_width_webform',
         'related_activities' => -1,
+        'social_media_links' => 'social_media_links',
         'text_reading_width' => 'text_reading_width',
         'title_section' => 'title_section',
       ),
       'bundle_weights' => array(
-        '2_column_image_left_image_right' => 2,
-        '2_column_image_left_no_image' => 3,
-        '2_column_left_text_only' => 4,
-        '2_column_text_left_image_right' => 5,
-        '3_column_text_left_image_right' => 6,
-        'attachments' => 7,
-        'block_quote' => 8,
-        'bulleted_list' => 9,
-        'button' => 10,
-        'embed_video' => 11,
-        'full_width_image_caption' => 12,
-        'full_width_video_header' => 35,
-        'header_gallery' => 13,
-        'header_image_left_image_right' => -48,
-        'header_image_lightbox' => -48,
-        'image_left_2_3_width' => 14,
-        'image_left_text_right' => 15,
-        'image_reading_width_colorbox' => 16,
-        'reading_width_image_caption' => 17,
-        'reading_width_maps' => 18,
-        'reading_width_webform' => 19,
-        'related_activities' => 20,
-        'text_reading_width' => 21,
-        'title_section' => 22,
+        '2_column_image_left_image_right' => -50,
+        '2_column_image_left_no_image' => -49,
+        '2_column_left_text_only' => -48,
+        '2_column_text_left_image_right' => -47,
+        '3_column_text_left_image_right' => -44,
+        'attachments' => -43,
+        'block_quote' => -42,
+        'bulleted_list' => -41,
+        'button' => -40,
+        'embed_video' => -39,
+        'full_width_image_caption' => -37,
+        'full_width_image_caption_content' => -38,
+        'full_width_video_header' => -27,
+        'header_gallery' => -36,
+        'header_image_left_image_right' => -51,
+        'header_image_lightbox' => -52,
+        'image_left_2_3_width' => -45,
+        'image_left_text_right' => -46,
+        'image_reading_width_colorbox' => -35,
+        'reading_width_image_caption' => -34,
+        'reading_width_maps' => -33,
+        'reading_width_webform' => -32,
+        'related_activities' => -31,
+        'social_media_links' => -29,
+        'text_reading_width' => -30,
+        'title_section' => -28,
       ),
       'default_edit_mode' => 'closed',
       'title' => 'Paragraph',
@@ -723,7 +774,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -739,7 +790,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'overview' => array(
         'label' => 'above',
@@ -774,7 +825,7 @@ function tpg_events_field_default_field_instances() {
         'embed_video' => -1,
         'full_width_image_caption' => 'full_width_image_caption',
         'full_width_video_header' => 'full_width_video_header',
-        'header_gallery' => 'header_gallery',
+        'header_gallery' => -1,
         'header_image_left_image_right' => 'header_image_left_image_right',
         'header_image_lightbox' => 'header_image_lightbox',
         'image_left_2_3_width' => -1,
@@ -823,7 +874,7 @@ function tpg_events_field_default_field_instances() {
       'module' => 'paragraphs',
       'settings' => array(),
       'type' => 'paragraphs_embed',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -837,7 +888,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -876,7 +927,7 @@ function tpg_events_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 42,
+      'weight' => 41,
     ),
   );
 
@@ -890,7 +941,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -948,7 +999,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 18,
       ),
       'overview' => array(
         'label' => 'hidden',
@@ -977,7 +1028,7 @@ function tpg_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -996,7 +1047,7 @@ function tpg_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'overview' => array(
         'label' => 'above',
@@ -1026,7 +1077,52 @@ function tpg_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 14,
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'node-events_detail-field_whats_on_weight'.
+  $field_instances['node-events_detail-field_whats_on_weight'] = array(
+    'bundle' => 'events_detail',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'overview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_whats_on_weight',
+    'label' => 'Whats on Weight',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 42,
     ),
   );
 
@@ -1041,6 +1137,7 @@ function tpg_events_field_default_field_instances() {
   t('Event Sold out message');
   t('Event Status');
   t('Homepage Image');
+  t('Logo Color');
   t('Paragraphs Content');
   t('Paragraphs Header Section');
   t('Paragraphs Related Activities');
@@ -1049,6 +1146,7 @@ function tpg_events_field_default_field_instances() {
   t('Show in current season');
   t('Show in future season');
   t('Weight');
+  t('Whats on Weight');
 
   return $field_instances;
 }

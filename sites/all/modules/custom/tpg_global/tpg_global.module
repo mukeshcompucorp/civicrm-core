@@ -5,6 +5,10 @@
  * Code for the TPG Global.
  */
 
+define('MARGIN_SPACING', serialize(array(0, 24, 48)));
+define('MARGIN_BEFORE_CLASS', 'tpg_global_paragraphs_margin_before');
+define('MARGIN_AFTER_CLASS', 'tpg_global_paragraphs_margin_after');
+
 /**
  * Implements hook_node_view_alter().
  */
@@ -21,6 +25,55 @@ function tpg_global_node_view_alter(&$build) {
  * Implements hook_node_view().
  */
 function tpg_global_node_view($node, $view_mode, $langcode) {
+
+  // Altering Full view mode.
+  if ($view_mode == 'full' && in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+    $paragraphs_data = array();
+    switch ($node->type) {
+      case 'events_detail':
+        $paragraphs_data = &$node->content['field_paragraphs_entity'];
+        break;
+      case 'paragraphs_page':
+        $paragraphs_data = &$node->content['field_paragraphs_content'];
+        break;
+    }
+    foreach ($paragraphs_data as $key => $value) {
+      if (is_int($key)) {
+        // Fetching the key of the paragraphs item.
+        $item_key = key($value['entity']['paragraphs_item']);
+
+        // Altering Reading width Lightbox paragraphs bundle.
+        if ($value['entity']['paragraphs_item'][$item_key]['#bundle'] == 'image_reading_width_colorbox') {
+          // Fetching Reading width image title value.
+          $image_title = $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['field_reading_image']['#items'][0]['title'];
+          $paragraphs_data[$key]['entity']['paragraphs_item'][$item_key]['reading_width_image_lightbox_tit'][0]['#markup'] = '<div class="colorbox-content-image-title">' . $image_title . '</div>';
+        }
+      }
+    }
+  }
+
+  // Event Dates format markup updated.
+  if (($view_mode == 'full' || $view_mode == 'overview') && $node->type == 'events_detail') {
+    $paragraphs_entity = array();
+    $paragraphs_entity = &$node->content['field_paragraphs_entity'];
+
+    foreach ($paragraphs_entity as $key => $value) {
+      if (is_int($key)) {
+        // Fetching the key of the paragraphs item.
+        $item_key = key($value['entity']['paragraphs_item']);
+
+        if ($value['entity']['paragraphs_item'][$item_key]['#bundle'] == 'title_section') {
+          // Fetching Title section pragraph bundle event start date and end date.
+          $start_date = $paragraphs_entity[$key]['entity']['paragraphs_item'][$item_key]['#entity']->field_event_dates['und'][0]['value'];
+          $end_date = $paragraphs_entity[$key]['entity']['paragraphs_item'][$item_key]['#entity']->field_event_dates['und'][0]['value2'];
+          // Changing format of Event Date display.
+          if ($start_date == $end_date) {
+            $paragraphs_entity[$key]['entity']['paragraphs_item'][$item_key]['event_start_end_dates'][0]['#markup'] = '<div class="date-display-range">' . format_date(strtotime($start_date), 'event_format') . '</div>';
+          }
+        }
+      }
+    }
+  }
 
   // Altering the Overview view mode content.
   if ($view_mode == 'overview') {
@@ -47,6 +100,11 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
 
           // Adding image path.
           $paragraphs_content[$key]['entity']['paragraphs_item'][$item_key]['field_paragraphs_overview_image'][0]['#path']['path'] = drupal_get_path_alias('node/' . $node->nid);
+
+          // Remove Event Start End Date display suite code field for Paragraphs page node.
+          if ($node->type == 'paragraphs_page') {
+            unset($paragraphs_content[$key]['entity']['paragraphs_item'][$item_key]['event_start_end_dates']);
+          }
         }
       }
     }
@@ -64,6 +122,27 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
  * Implements hook_views_query_alter().
  */
 function tpg_global_views_query_alter(&$view, &$query) {
+
+  // Whats on query alter.
+  if ($view->name == 'whats_on' && in_array($view->current_display, array('now_upcoming_view_page'))) {
+    // Adding daterange picker values to expose filters.
+    // Combine filter is altered to show daterangepicker plugin using form alter.
+    if (!$view->exposed_input['combine']) {
+      unset($query->where[2]);
+    }
+    elseif ($view->exposed_input['combine']) {
+      $range_values = explode('-', $view->exposed_input['combine']);
+      $start_date = format_date(strtotime($range_values[0]), 'custom', 'Y-m-d');
+      $end_date = format_date(strtotime($range_values[1]), 'custom', 'Y-m-d');
+      // Adding starting date.
+      $query->where[2]['conditions'][0]['value'][':field_data_field_event_dates_field_event_dates_value'] = $start_date;
+      $query->where[2]['conditions'][1]['value'][':field_data_field_event_dates_field_event_dates_value2'] = $end_date;
+      // Unset date condition for Anytime select value.
+      if (!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $view->exposed_input['combine'])) {
+        unset($query->where[2]);
+      }
+    }
+  }
 }
 
 /**
@@ -99,6 +178,47 @@ function tpg_global_views_pre_render(&$view) {
     }
     $view->result = $related_nodes;
   }
+
+  // Event Start and End markup update.
+  if (in_array($view->name, array('whats_on', 'related_activities', 'homepage')) && (in_array($view->current_display, array('next_season_block', 'now_upcoming_view_page', 'past_programme_view_page', 'featured_past_programme_block', 'event_related_activities', 'current_exhibitions_highlights_block')))) {
+
+    foreach ($view->result as $key => $value) {
+      $start_date = $value->field_field_event_dates[0]['raw']['value'];
+      $end_date = $value->field_field_event_dates[0]['raw']['value2'];
+
+      if ($start_date == $end_date) {
+        $markup = '<div class="date-display-range">' . format_date(strtotime($end_date), 'event_format') . '</div>';
+      }
+      else {
+        $markup = '<div class="date-display-range"><span class="date-display-start">' . format_date(strtotime($start_date), "day_month_short") . '</span> - <span class="date-display-end">' . format_date(strtotime($end_date), "day_month_year") . '</span></div>';
+      }
+      if ($markup) {
+        $view->result[$key]->field_field_event_dates[0]['rendered']['#markup'] = $markup;
+      }
+    }
+  }
+
+  // Header Image Lightbox view.
+  if ($view->name == 'paragraphs_entities' && $view->current_display == 'header_image_lightbox') {
+
+    // Adding background class using background class field.
+    if ($bg_color_value = $view->result[0]->field_field_background_color[0]['raw']['value']) {
+      drupal_add_js(array('tpg_global' => array('header_image_lightbox_bg_color' => 'colorbox-background-' . drupal_strtolower($bg_color_value))), 'setting');
+    }
+    $caption_value = '';
+    // Converting html to plain text for Image caption.
+    if ($caption_value = &$view->result[0]->paragraphs_item_field_data_field_paragraphs_header_section_f) {
+      $caption_value = drupal_html_to_text($caption_value);
+      drupal_add_js(array('tpg_global' => array('header_image_lightbox_caption' => $caption_value)), 'setting');
+    }
+
+    if ($image_title_value = $view->result[0]->field_field_header_image_lightbox[0]['raw']['title']) {
+      drupal_add_js(array('tpg_global' => array('header_image_lightbox_title' => $image_title_value)), 'setting');
+    }
+    else {
+      $caption_value = '';
+    }
+  }
 }
 
 /**
@@ -113,20 +233,40 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     // Hiding Event type and Event date fields.
     foreach ($form['field_paragraphs_content']['und'] as $key => $value) {
       if (is_int($key)) {
+
+        // Setting options for Field Collection Margin before and after fields.
+        _tpg_global_margin_before_after_options($form, 'field_paragraphs_content', $form_state, $key);
+
         if ($value['#bundle'] == 'title_section') {
           unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_event_type']);
           unset($form['field_paragraphs_content']['und'][$key]['field_event_dates']);
+        }
+        // Removing Share Block Field.
+        if ($value['#bundle'] == 'social_media_links') {
+          unset($form['field_paragraphs_content']['und'][$key]['field_show_share_block']);
         }
       }
     }
   }
 
   if ($form_id == 'events_detail_node_form') {
+
+    // @TODO - For enabling Artists Field remove below line.
+    $form['field_event_artists']['#access'] = FALSE;
+
     // Hiding Page Type field.
     foreach ($form['field_paragraphs_entity']['und'] as $key => $value) {
       if (is_int($key)) {
+
+        // Setting options for Field Collection Margin before and after fields.
+        _tpg_global_margin_before_after_options($form, 'field_paragraphs_entity', $form_state, $key);
+
         if ($value['#bundle'] == 'title_section') {
           unset($form['field_paragraphs_entity']['und'][$key]['field_paragraphs_type']);
+        }
+        // Removing Share Block Field.
+        if ($value['#bundle'] == 'social_media_links') {
+          unset($form['field_paragraphs_entity']['und'][$key]['field_show_share_block']);
         }
       }
     }
@@ -141,30 +281,51 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
       if (is_int($key)) {
         $form['field_overview_section']['und'][$key]['field_links']['und']['form']['field_external_link_title']['und'][0]['#title_display'] = 'invisible';
         $form['field_overview_section']['und'][$key]['field_links']['und']['form']['status']['#access'] = FALSE;
+
+        // Altering the Inline entity form action buttons.
+        $form['field_overview_section']['und'][$key]['field_links']['und']['actions']['ief_add']['#value'] = t('use new');
+        $form['field_overview_section']['und'][$key]['field_links']['und']['actions']['ief_add_existing']['#value'] = t('use existing');
       }
     }
   }
 
-  // Adding Date Range and Altering Location Proximity Search for Events Map.
-  if ($form_id == 'views_exposed_form' && ($form_state['view']->name == 'whats_on') && ( $form_state['view']->current_display == 'now_upcoming_view_page')) {
-    // Added Date range.
-    $form['date_range'] = array(
-      '#type' => 'daterangepicker',
-      '#DateRangePicker_options' => array(
-        'initial_text' => t('WHEN'),
-        'apply_button_text' => t('SEARCH'),
-        'clear_button_text' => t('CLEAR'),
-        'cancel_button_text' => t('CANCEL'),
-        'range_splitter' => ' - ',
-        'date_format' => 'd M, yy',
-        // This needs to be a format recognised by javascript Date.parse method.
-        'alt_format' => 'yy-mm-dd',
-        'date_picker_options' => array (
-          'numberOfMonths' => 2,
-         ),
-      ),
-    );
-    $form['submit']['#weight'] = 5;
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'whats_on') {
+
+    // Adding Date Range picker for News and Upcoming view filter.
+    if ($form_state['view']->current_display == 'now_upcoming_view_page') {
+      $form['combine'] = array(
+        '#type' => 'textfield',
+        '#size' => false,
+        '#default_value' => t('Anytime'),
+        '#prefix' => '<div class="daterangepicker-wrapper">',
+        '#suffix' => '</div>',
+        '#attributes' => array(
+          'id' => array('daterangepicker'),
+          'class' => array('daterangepicker-input'),
+        ),
+      );
+    }
+
+    if ($form_state['view']->current_display == 'now_upcoming_view_page' || $form_state['view']->current_display == 'past_programme_view_page') {
+
+      $form['submit']['#weight'] = 5;
+      // Altering the filter select options.
+      $form['field_paragraphs_event_type_tid']['#options']['All'] = t('EVERYTHING');
+      $form['tid']['#prefix'] = '<div class="who-select-prefix">' . t('ALL ARTISTS') . '</div>';
+      $form['tid']['#attributes']['placeholder'] = t('SEARCH BY NAME');
+      // @TODO : Remove below to enable Artists Filter.
+      unset($form['tid']);
+      if ($form['field_event_for_tid']) {
+        $form['field_event_for_tid']['#options']['All'] = t('EVERYONE');
+      }
+    }
+  }
+
+  // Explore all content view.
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'expore_all_content') {
+    // Changing All option filter value.
+    $form['field_paragraphs_type_tid']['#options']['All'] = t('EVERYTHING');
+    $form['field_form_tid']['#options']['All'] = t('EVERYTHING');
   }
 }
 
@@ -182,4 +343,179 @@ function _tpg_global_homepage_weight_range(&$form = array()) {
   }
   $form['field_homepage_weight']['und']['#options'] = $range;
   $form['field_homepage_weight']['und']['#default_value'] = $form['#node']->field_homepage_weight['und'][0] ? $form['#node']->field_homepage_weight['und'][0] : 0;
+
+  // Whats on weight for event details content type.
+  if ($form['field_whats_on_weight']) {
+    $form['field_whats_on_weight']['und']['#options'] = $range;
+    $form['field_whats_on_weight']['und']['#default_value'] = $form['#node']->field_whats_on_weight['und'][0] ? $form['#node']->field_whats_on_weight['und'][0] : 0;
+  }
+}
+
+/**
+ * Adding Options for Margin before and after fields.
+ *
+ * @param $form array
+ *    Content type form array.
+ */
+function _tpg_global_margin_before_after_options(&$form = array(), $field_name, $form_state, $key) {
+
+  if (isset($form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']) || isset($form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after'])) {
+
+    // Adding options to margin before and margin after fields.
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']['und']['#options'] = $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after']['und']['#options'] = unserialize(MARGIN_SPACING);
+
+    // Load field collection for margins field.
+    $field_margins_id = $form_state['field'][$field_name]['und']['entity'][$key]->field_margins['und'][0]['value'];
+    $field_collection_load = _tpg_global_field_collection_entity($field_margins_id);
+
+    // Collect Margin before and after fields value.
+    $margin_before_value = $field_collection_load->field_margin_before['und'][0]['value'];
+    $margin_after_value = $field_collection_load->field_margin_after['und'][0]['value'];;
+
+    // Adding Default value for margin before and margin after fields.
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']['und']['#default_value'] = isset($margin_before_value) ? $margin_before_value : 2;
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after']['und']['#default_value'] = isset($margin_after_value) ? $margin_after_value : 2;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *    User Login Form alter.
+ */
+function tpg_global_form_user_login_alter(&$form, &$form_state, $form_id) {
+  $form['actions']['submit']['#suffix'] = l('<div class="user-forgot-password-link"> › ' . t('forgot password?') . '</div>', 'user/password', array('html' => TRUE));
+  $form['name']['#title'] = t('Name or email');
+  unset($form['name']['#description']);
+  unset($form['pass']['#description']);
+  $form['actions']['submit']['#value'] = t('Login');
+  $form['actions']['#weight'] = 2;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function tpg_global_block_info() {
+  $blocks = array();
+  $blocks['create_account'] = array(
+    'info' => t('Create an account'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function tpg_global_block_view($delta='') {
+  $block = array();
+
+  switch($delta) {
+    case 'create_account' :
+      $block['content'] = drupal_render(drupal_get_form('create_account_form'));
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Drupal form showing User Resigter Form.
+ * @return
+ *   returns form element.
+ */
+function create_account_form($form, $form_state) {
+
+  // Fetching block id from block machine name.
+  $block_id = '';
+  if (module_exists('fe_block')) {
+    $query = db_select('fe_block_boxes', 'fe_b')
+            ->fields('fe_b', array('bid'))
+            ->condition('fe_b.machine_name', 'user_login_create_account_intro');
+    $block_id = $query->execute()->fetchField();
+  }
+  // Adding Create an account intro text.
+  if ($block_id) {
+    $create_account_intro_block_view = module_invoke('block', 'block_view', $block_id);
+    $form['user_register_intro_block'] = array(
+      '#type' => 'item',
+      '#title' => t('Create an account'),
+      '#markup' => render($create_account_intro_block_view['content']), //render($yoti_block_view['content']),
+      '#weight' => 3,
+    );
+  }
+  // Adding User Register form.
+  $form['user_register'] = array(
+    '#type' => 'item',
+    '#markup' => drupal_render(drupal_get_form('user_register_form')),
+    '#weight' => 4,
+  );
+  return $form;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *    User Register Form alter.
+ */
+function tpg_global_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  $form['account']['name']['#title'] = t('Name');
+  unset($form['account']['name']['#description']);
+  unset($form['account']['mail']['#description']);
+  unset($form['account']['pass']['#description']);
+  $form['actions']['submit']['#value'] = t('Create an account');
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function tpg_global_menu_alter(&$items) {
+  $items['user']['title callback'] = '_tpg_global_user_menu_title';
+}
+
+/**
+ * Menu item title callback for the 'user' path.
+ *
+ * Anonymous users shouldn't see anything, but authenticated users are
+ * expected to see "My account".
+ */
+function _tpg_global_user_menu_title() {
+  return user_is_logged_in() ? t('My account') : t('');
+}
+
+/**
+ * Alter the layout render array.
+ *
+ * @param $layout_render_array
+ *   The render array
+ * @param $context
+ *   An array with the context that is being rendered. Available keys are
+ *   - entity
+ *   - entity_type
+ *   - bundle
+ *   - view_mode
+ * @param array $vars
+ *   All variables available for render. You can use this to add css classes.
+ */
+function tpg_global_ds_pre_render_alter(&$layout_render_array, $context, &$vars) {
+
+  $margin_constant = unserialize(MARGIN_SPACING);
+  // Adding Marging before class.
+  if (isset($vars['elements']['#entity']->field_margins['und'][0]['value'])) {
+
+    $margin_fields_load = _tpg_global_field_collection_entity($vars['elements']['#entity']->field_margins['und'][0]['value']);
+    $vars['classes_array'][] = MARGIN_BEFORE_CLASS . '_' . $margin_constant[$margin_fields_load->field_margin_before['und'][0]['value']];
+    $vars['classes_array'][] = MARGIN_AFTER_CLASS . '_' . $margin_constant[$margin_fields_load->field_margin_after['und'][0]['value']];
+  }
+}
+
+/**
+ * Loads Field Collection entity.
+ *
+ * @param string
+ *  Field collection entity id.
+ *
+ * @return array
+ *  Field Collection Entity object.
+ */
+function _tpg_global_field_collection_entity($item_id = '') {
+  $field_collection_load = '';
+  $field_collection_load = entity_load('field_collection_item', array($item_id));
+  return $field_collection_load[$item_id];
 }

@@ -1,0 +1,40 @@
+.pager-load-more {
+  @include rem(padding-bottom, 64px);
+  padding-left: 0;
+  position: relative;
+  text-align: center;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    @include button;
+    @include rem(font-size, $pager-button);
+    background-color: color(load-more-bg);
+    color: color(main);
+    text-transform: none;
+  }
+
+  .ajax-progress-throbber {
+    position: absolute;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .pager-load-more a {
+    @include rem(font-size, $pager-button);
+    background-color: color(main);
+    color: color(load-more-bg);
+    line-height: 1em;
+  }
+}
+
+.ajax-progress-throbber {
+  position: absolute;
+
+  .throbber {
+    background: $throbber no-repeat 0 center;
+    background-size: contain;
+  }
+}

@@ -17,7 +17,6 @@ var sassGlob         = require('gulp-sass-glob');
 var sassLint         = require('gulp-sass-lint');
 var sourcemaps       = require("gulp-sourcemaps");
 var spritesmith      = require('gulp.spritesmith');
-var stripCssComments = require('gulp-strip-css-comments');
 var watch            = require('gulp-watch');
 var sassLintConf     = require('./sass-lint');
 var config           = require('./config');
@@ -32,11 +31,15 @@ var $fonts = [
 ];
 
 var $css = [
+  './libraries/bootstrap-daterangepicker/daterangepicker.css',
   './node_modules/font-awesome/css/font-awesome.min.css',
   './dist/main.css'
 ];
 
 var $js = [
+  './libraries/bootstrap-daterangepicker/moment.min.js',
+  './libraries/bootstrap-daterangepicker/daterangepicker.js',
+  './node_modules/jquery-validation/dist/jquery.validate.min.js',
   './js/custom.js'
 ];
 
@@ -112,10 +115,8 @@ gulp.task('sass', function () {
     })))
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
-    .pipe(stripCssComments())
     .pipe(sass({
       style: 'expanded',
-      sourceComments: 'map',
       sourceMap: 'sass',
       outputStyle: 'nested',
     }))

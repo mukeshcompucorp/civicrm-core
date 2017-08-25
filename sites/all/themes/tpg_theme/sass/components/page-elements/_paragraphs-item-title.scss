@@ -1,5 +1,7 @@
 .paragraphs-item-title-section {
   .field-name-field-paragraphs-type,
+  .field-name-field-paragraphs-event-type,
+  .field-name-event-start-end-dates,
   .field-name-field-paragraphs-date-published {
     @include rem(margin-bottom, 5px);
 
@@ -9,11 +11,32 @@
     }
   }
 
+  &.tpg_global_paragraphs_margin_after_24,
+  &.tpg_global_paragraphs_margin_after_48 {
+    .field-type-text-with-summary {
+      margin-bottom: 0;
+    }
+  }
+
+  .field-type-text-with-summary {
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  .title-header,
+  &.title-header {
+    h1:after {
+      margin: 0;
+    }
+  }
+
+  .field-name-field-paragraphs-event-type,
   .field-name-field-paragraphs-type {
     float: left;
     text-transform: uppercase;
   }
 
+  .field-name-event-start-end-dates,
   .field-name-field-paragraphs-date-published {
     float: right;
 
@@ -25,45 +48,17 @@
   .field-name-field-paragraph-title {
     clear: both;
   }
-
-  .field-name-field-paragraphs-tags-viewpoints {
-    position: relative;
-
-    h2 {
-      text-decoration: none;
-    }
-
-    a {
-      @include viewpoint;
-      position: absolute;
-      right: 100%;
-      top: auto;
-    }
-  }
-
-  .field-name-field-paragraph-description {
-    @include rem(margin-bottom, 48px);
-  }
 }
 
 @include breakpoint($md-1 0) {
   .paragraphs-item-title-section {
+    .field-name-event-start-end-dates,
     .field-name-field-paragraphs-date-published {
       text-transform: uppercase;
     }
 
-    .field-name-field-paragraph-description {
-      @include rem(margin-bottom, 32px);
-    }
-
-    .field-name-field-paragraphs-tags-viewpoints {
-      a {
-        position: static;
-      }
-
-      h2 {
-        margin-bottom: 0;
-      }
+    &.title-header {
+      @include rem(margin-top, 14px);
     }
   }
 }

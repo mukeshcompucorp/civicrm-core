@@ -1,0 +1,50 @@
+.page-user .main-content {
+  @include make-md-column-offset(2);
+  @include make-md-column(8);
+
+  .form-required,
+  .page-title {
+    display: none;
+  }
+
+  .header {
+    min-height: 120px;
+  }
+
+  .content {
+    @include rem(margin-top, 25px);
+  }
+
+  form {
+    @include rem(padding-bottom, 40px);
+  }
+
+  .form-item {
+    @include make-row;
+    @include rem(margin-bottom, 12px);
+  }
+
+  label {
+    @include make-md-column(3);
+    @include rem(margin-top, 3px);
+  }
+
+  .form-text {
+    @include make-md-column(6);
+    border-width: 2px;
+  }
+
+  .form-actions {
+    @include rem(margin-top, 24px);
+
+    a {
+      text-decoration: none;
+    }
+
+    .user-forgot-password-link {
+      @include rem(font-size, $p-sm);
+      @include rem(margin-top, 10px);
+      color: color(forgot-password-color);
+    }
+  }
+}

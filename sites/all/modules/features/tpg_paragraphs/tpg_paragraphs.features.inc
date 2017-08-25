@@ -8,11 +8,20 @@
  * Implements hook_ctools_plugin_api().
  */
 function tpg_paragraphs_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "breakpoints" && $api == "default_breakpoint_group") {
+    return array("version" => "1");
+  }
+  if ($module == "breakpoints" && $api == "default_breakpoints") {
+    return array("version" => "1");
+  }
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
+  }
+  if ($module == "picture" && $api == "default_picture_mapping") {
+    return array("version" => "2");
   }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
@@ -34,6 +43,7 @@ function tpg_paragraphs_views_api($module = NULL, $api = NULL) {
  */
 function tpg_paragraphs_fe_date_custom_date_formats() {
   $custom_date_formats = array();
+  $custom_date_formats['D d M Y'] = 'D d M Y';
   $custom_date_formats['M d, Y'] = 'M d, Y';
   return $custom_date_formats;
 }
@@ -43,6 +53,10 @@ function tpg_paragraphs_fe_date_custom_date_formats() {
  */
 function tpg_paragraphs_date_format_types() {
   $format_types = array();
+  // Exported date format type: event_format
+  $format_types['event_format'] = 'Event Format';
+  // Exported date format type: format_custom
+  $format_types['format_custom'] = 'Format custom';
   // Exported date format type: short_date_only
   $format_types['short_date_only'] = 'Short date only';
   return $format_types;
@@ -246,17 +260,112 @@ function tpg_paragraphs_image_default_styles() {
 
   // Exported image style: overview_page_image_400x271.
   $styles['overview_page_image_400x271'] = array(
-    'label' => 'Overview page Image 400x271',
+    'label' => 'Overview page Image 400x240',
     'effects' => array(
       12 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 400,
-          'height' => 271,
+          'height' => 240,
           'upscale' => 1,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,
           'style_name' => 'overview_page_image_400x271',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported image style: overview_page_image_400x324.
+  $styles['overview_page_image_400x324'] = array(
+    'label' => 'Overview page Image 400x324',
+    'effects' => array(
+      1 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 400,
+          'height' => 324,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'overview_page_image_400x324',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported image style: responsive_custom_user_header_image_mobile_1x.
+  $styles['responsive_custom_user_header_image_mobile_1x'] = array(
+    'label' => 'responsive_custom_user_header_image_mobile_1x',
+    'effects' => array(
+      10 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 767,
+          'height' => 500,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'responsive_custom_user_header_image_mobile_1x',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported image style: responsive_custom_user_header_image_original_1x.
+  $styles['responsive_custom_user_header_image_original_1x'] = array(
+    'label' => 'responsive_custom_user_header_image_original_1x',
+    'effects' => array(
+      9 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 1920,
+          'height' => 500,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'responsive_custom_user_header_image_original_1x',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported image style: responsive_custom_user_header_image_tablet_1x.
+  $styles['responsive_custom_user_header_image_tablet_1x'] = array(
+    'label' => 'responsive_custom_user_header_image_tablet_1x',
+    'effects' => array(
+      11 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 991,
+          'height' => 500,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'responsive_custom_user_header_image_tablet_1x',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported image style: responsive_custom_user_header_image_wide_1x.
+  $styles['responsive_custom_user_header_image_wide_1x'] = array(
+    'label' => 'responsive_custom_user_header_image_wide_1x',
+    'effects' => array(
+      12 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 1285,
+          'height' => 500,
+          'upscale' => 1,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'full_width_image_1285x500',
         ),
         'weight' => 0,
       ),
@@ -276,7 +385,7 @@ function tpg_paragraphs_node_info() {
       'base' => 'node_content',
       'description' => t('Use <em> paragraphs_page </em> for creating content using Paragraph Bundles.'),
       'has_title' => '1',
-      'title_label' => t('Internal Reference Name/Title'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );
@@ -344,6 +453,11 @@ function tpg_paragraphs_paragraphs_info() {
       'bundle' => 'full_width_image_caption',
       'locked' => '1',
     ),
+    'full_width_image_caption_content' => array(
+      'name' => 'Full Width Image + Caption Content',
+      'bundle' => 'full_width_image_caption_content',
+      'locked' => '1',
+    ),
     'full_width_video_header' => array(
       'name' => 'Full Width Video Header',
       'bundle' => 'full_width_video_header',
@@ -397,6 +511,11 @@ function tpg_paragraphs_paragraphs_info() {
     'related_activities' => array(
       'name' => 'Related Activities',
       'bundle' => 'related_activities',
+      'locked' => '1',
+    ),
+    'social_media_links' => array(
+      'name' => 'Social Media Links',
+      'bundle' => 'social_media_links',
       'locked' => '1',
     ),
     'text_reading_width' => array(

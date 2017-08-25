@@ -1,13 +1,13 @@
 // Fonts
 @include font('LetteraText', LetteraTextProItalic, 400, italic);
 @include font('LetteraText', LetteraTextPro, 400, normal);
-@include font('LetteraText', LetteraTextProBold, 500, normal);
+@include font('LetteraText', LetteraTextProBold, 700, normal);
 
 $main-font: 'LetteraText', sans-serif;
 
-$light: 300;
+$light:  300;
 $normal: 400;
-$bold: 700;
+$bold:   700;
 
 // Font sizes
 $h1: 46px;
@@ -15,13 +15,53 @@ $h2: 20px;
 $h3: 16px;
 $h4: 14px;
 
+$form-search-font-size: 16px;
+$search-result-content-type-font-size: 12px;
+
+$main-menu-link-size: 16px;
+$user-menu-link-size: 14px;
+$main-menu-link-size-responsive: 20px;
+$user-menu-link-size-responsive: 18px;
+
+$footer-font-size: 16px;
+$footer-social-connectors-font-size: 18px;
+$footer-social-connectors-fb-font-size: 21px;
+$footer-arrow-font-size: 10px;
+$footer-button-arrow-font-size: 20px;
+$footer-stay-up-to-date-font-size: 14px;
+
+$read-more-arrow-font-size: 10px;
+
 $p:    18px;
 $p-sm: 14px;
 
+$pager-button: 16px;
+
+$form-label: 16px;
+$form-item:  12px;
+$form-error: 14px;
 $card-label: 12px;
 
-$social: 24px;
+$date-cell: 20px;
+$social:    24px;
+$angle:     30px;
 
-// Responsive
-$h1-resp: 28px;
+$tab: 20px;
+
+$homepage-gradient: url('../images/gradient.png');
+$homepage-arrow-down: url('../images/icons/arrow-down.png');
+
+$throbber: url('../images/loading.gif');
+
+// Responsive font sizes
+$h1-resp:     28px;
 $button-resp: 14px;
+
+$social-resp: 40px;
+
+// Icons
+$fa-angle-left:  '\f104';
+$fa-angle-right: '\f105';
+
+// Characters
+$read-more-arrow: '>\00a0';

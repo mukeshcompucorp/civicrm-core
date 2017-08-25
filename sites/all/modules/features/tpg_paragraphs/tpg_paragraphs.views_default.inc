@@ -90,6 +90,14 @@ function tpg_paragraphs_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'full_width_video_header' => 'full_width_video_header',
+  );
   $export['header_video'] = $view;
 
   $view = new view();
@@ -175,7 +183,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_full_width_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_full_width_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_full_width_image']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'full_width_image_1285x500',
     'image_link' => '',
   );
   /* Field: Image field caption: Full Width Image (caption) */
@@ -203,11 +211,19 @@ function tpg_paragraphs_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'full_width_image_caption' => 'full_width_image_caption',
+  );
 
   /* Display: Header Image Left Right  */
   $handler = $view->new_display('block', 'Header Image Left Right ', 'banner_image_left_right');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'header-image';
+  $handler->display->display_options['css_class'] = 'header-image-two-col container';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -233,6 +249,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_header_image_left']['relationship'] = 'field_paragraphs_header_section_value';
   $handler->display->display_options['fields']['field_header_image_left']['label'] = '';
   $handler->display->display_options['fields']['field_header_image_left']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_header_image_left']['element_wrapper_class'] = 'col-xs-6';
   $handler->display->display_options['fields']['field_header_image_left']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image_left']['settings'] = array(
     'image_style' => '2_column_image_left_and_right_400x472',
@@ -245,6 +262,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_header_image_right']['relationship'] = 'field_paragraphs_header_section_value';
   $handler->display->display_options['fields']['field_header_image_right']['label'] = '';
   $handler->display->display_options['fields']['field_header_image_right']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_header_image_right']['element_wrapper_class'] = 'col-xs-6';
   $handler->display->display_options['fields']['field_header_image_right']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image_right']['settings'] = array(
     'image_style' => '2_column_image_left_and_right_400x472',
@@ -268,9 +286,19 @@ function tpg_paragraphs_views_default_views() {
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'header_image_left_image_right' => 'header_image_left_image_right',
+  );
 
   /* Display: Header Gallery Image */
   $handler = $view->new_display('block', 'Header Gallery Image', 'header_gallery_image');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'header-image-lightbox';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -299,7 +327,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['type'] = 'flexslider';
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['settings'] = array(
     'optionset' => 'default',
-    'image_style' => 'gallery_image_reading_width_962x642',
+    'image_style' => '',
     'caption' => '0',
   );
   $handler->display->display_options['fields']['field_paragraphs_gallery_image']['delta_offset'] = '0';
@@ -327,6 +355,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+  );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'header_gallery' => 'header_gallery',
   );
 
   /* Display: Location Map */
@@ -393,11 +429,35 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['longitude']['label'] = '';
   $handler->display->display_options['fields']['longitude']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['longitude']['style'] = 'dd';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'paragraphs_page' => 'paragraphs_page',
+  );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'reading_width_maps' => 'reading_width_maps',
+  );
 
   /* Display: Header Image Lightbox */
   $handler = $view->new_display('block', 'Header Image Lightbox', 'header_image_lightbox');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'header-image';
+  $handler->display->display_options['css_class'] = 'header-image-lightbox';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -409,6 +469,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['relationships']['field_paragraphs_header_section_value']['field'] = 'field_paragraphs_header_section_value';
   $handler->display->display_options['relationships']['field_paragraphs_header_section_value']['delta'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Paragraphs item: Background Color */
+  $handler->display->display_options['fields']['field_background_color']['id'] = 'field_background_color';
+  $handler->display->display_options['fields']['field_background_color']['table'] = 'field_data_field_background_color';
+  $handler->display->display_options['fields']['field_background_color']['field'] = 'field_background_color';
+  $handler->display->display_options['fields']['field_background_color']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['fields']['field_background_color']['label'] = '';
+  $handler->display->display_options['fields']['field_background_color']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_background_color']['element_label_colon'] = FALSE;
   /* Field: Paragraphs item: Header Image Lightbox */
   $handler->display->display_options['fields']['field_header_image_lightbox']['id'] = 'field_header_image_lightbox';
   $handler->display->display_options['fields']['field_header_image_lightbox']['table'] = 'field_data_field_header_image_lightbox';
@@ -419,8 +487,8 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_header_image_lightbox']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_header_image_lightbox']['type'] = 'colorbox';
   $handler->display->display_options['fields']['field_header_image_lightbox']['settings'] = array(
-    'colorbox_node_style' => 'header_image_lightbox',
-    'colorbox_node_style_first' => 'header_image_lightbox',
+    'colorbox_node_style' => '',
+    'colorbox_node_style_first' => '',
     'colorbox_image_style' => '',
     'colorbox_gallery' => 'post',
     'colorbox_gallery_custom' => '',
@@ -451,6 +519,14 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+  );
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_header_section_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'header_image_lightbox' => 'header_image_lightbox',
   );
   $export['paragraphs_entities'] = $view;
 
@@ -571,7 +647,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'overview_page_image_400x324',
     'image_link' => '',
   );
   /* Field: Paragraphs item: Page Type */
@@ -591,7 +667,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_date_published']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_date_published']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_date_published']['settings'] = array(
-    'format_type' => 'short_date_only',
+    'format_type' => 'event_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -685,7 +761,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'overview_page_image_400x324',
     'image_link' => '',
   );
   /* Field: Paragraphs item: Page Type */
@@ -705,7 +781,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_date_published']['label'] = '';
   $handler->display->display_options['fields']['field_paragraphs_date_published']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_date_published']['settings'] = array(
-    'format_type' => 'short_date_only',
+    'format_type' => 'event_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -731,7 +807,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image_1']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'overview_page_image_400x324',
     'image_link' => 'content',
   );
   /* Field: Paragraphs item: Event Type */
@@ -750,8 +826,9 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
-    'format_type' => 'short_date_only',
+    'format_type' => 'day_month_year',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -809,71 +886,6 @@ function tpg_paragraphs_views_default_views() {
     'title_section' => 'title_section',
   );
   $handler->display->display_options['filters']['bundle_1']['group'] = 2;
-
-  /* Display: Entity Reference */
-  $handler = $view->new_display('entityreference', 'Entity Reference', 'entityreference_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'entityreference_style';
-  $handler->display->display_options['style_options']['search_fields'] = array(
-    'field_paragraph_title' => 'field_paragraph_title',
-    'field_paragraph_title_1' => 'field_paragraph_title_1',
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Entity Reference: Referencing entity */
-  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['id'] = 'reverse_field_related_activities_paragraphs_item';
-  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['field'] = 'reverse_field_related_activities_paragraphs_item';
-  $handler->display->display_options['relationships']['reverse_field_related_activities_paragraphs_item']['required'] = TRUE;
-  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
-  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
-  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
-  /* Relationship: Content: Paragraphs Content (field_paragraphs_entity) */
-  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['id'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['table'] = 'field_data_field_paragraphs_entity';
-  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['field'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['relationships']['field_paragraphs_entity_value']['delta'] = '-1';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Paragraphs item: Title */
-  $handler->display->display_options['fields']['field_paragraph_title']['id'] = 'field_paragraph_title';
-  $handler->display->display_options['fields']['field_paragraph_title']['table'] = 'field_data_field_paragraph_title';
-  $handler->display->display_options['fields']['field_paragraph_title']['field'] = 'field_paragraph_title';
-  $handler->display->display_options['fields']['field_paragraph_title']['relationship'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['fields']['field_paragraph_title']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraph_title']['element_label_colon'] = FALSE;
-  /* Field: Paragraphs item: Title */
-  $handler->display->display_options['fields']['field_paragraph_title_1']['id'] = 'field_paragraph_title_1';
-  $handler->display->display_options['fields']['field_paragraph_title_1']['table'] = 'field_data_field_paragraph_title';
-  $handler->display->display_options['fields']['field_paragraph_title_1']['field'] = 'field_paragraph_title';
-  $handler->display->display_options['fields']['field_paragraph_title_1']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['fields']['field_paragraph_title_1']['label'] = '';
-  $handler->display->display_options['fields']['field_paragraph_title_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Paragraphs item: Bundle */
-  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
-  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
-  $handler->display->display_options['filters']['bundle']['value'] = array(
-    'title_section' => 'title_section',
-  );
   $export['related_activities'] = $view;
 
   return $export;

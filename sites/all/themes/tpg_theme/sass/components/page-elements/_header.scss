@@ -2,49 +2,73 @@
   min-height: 144px;
 
   .logo a {
+    @include rem(max-width, 239px);
     left: 10px;
     position: absolute;
     top: 24px;
-    z-index: 1;
+    z-index: 9;
+  }
+
+  .embedded-video iframe {
+    display: block;
+    height: 500px;
+  }
+
+  .video-embed-description:not(:empty) {
+    display: block;
+    padding: 10px;
   }
 }
 
 .header-image {
-  @include rem(max-height, 500px);
-  overflow: hidden;
-  position: relative;
-
-  .image-field-caption {
+  [class*='field-caption'] {
     bottom: 0;
     position: absolute;
     right: 10px;
+    z-index: 9;
+  }
+
+  .views-row {
+    @include rem(height, 500px);
+    overflow: hidden;
+    position: relative;
   }
 
   img {
-    margin-left: auto;
-    margin-right: auto;
+    @include centered-image;
+    @include rem(min-height, 500px);
+    max-width: none;
     min-width: 100%;
   }
 
-  .views-field-field-paragraph-left-image,
-  .views-field-field-paragraph-right-image {
-    float: left;
-    width: 50%;
-  }
+  &-two-col {
+    margin-top: 24px;
+    overflow: hidden;
 
-  .views-field-field-paragraph-left-image {
-    padding-right: 10px;
+    .view-content {
+      @include make-row;
+    }
 
     img {
-      margin-right: 0;
+      width: 100%;
     }
   }
 
-  .views-field-field-paragraph-right-image {
-    padding-left: 10px;
+  &-wide .header-image-two-col .views-row {
+    @include make-md-column(8);
+    @include make-md-column-offset(2);
+    padding: 0;
+  }
 
-    img {
-      margin-left: 0;
-    }
+  &-narrow .header-image-two-col .views-row {
+    @include make-md-column(6);
+    @include make-md-column-offset(3);
+    padding: 0;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .header .logo a img {
+    max-width: 172px;
   }
 }
