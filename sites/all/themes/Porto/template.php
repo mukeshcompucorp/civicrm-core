@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Define $root global variable.
@@ -12,7 +12,7 @@ $parent_root = base_path() . drupal_get_path('theme', 'porto');
 *  Implements theme_js_alter().
 */
 function porto_js_alter(&$js) {
- global $user; 
+ global $user;
  if ( (theme_get_setting('sticky_header') != '1') || (in_array('administrator', array_values($user->roles)))) {
    unset($js[drupal_get_path('theme', 'porto') . '/js/sticky.js']);
  }
@@ -88,77 +88,77 @@ function porto_menu_local_tasks(&$variables) {
 * Add several style-related elements into the <head> tag.
 */
 function porto_preprocess_html(&$vars){
- global $parent_root;
- 
- if (theme_get_setting('rtl') == 1) {
-	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/theme-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
-	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/theme-elements-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
-	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/theme-blog-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
-	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/ie-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
- }
- 
- $viewport = array(
-   '#type' => 'html_tag',
-   '#tag' => 'meta',
-   '#attributes' => array(
-     'name' => 'viewport',
-     'content' =>  'width=device-width, initial-scale=1, maximum-scale=1',
-   ),
-   '#weight' => 1,
- );
+   global $parent_root;
 
-  $background_image = array(
-   '#type' => 'markup',
-   '#markup' => "<style type='text/css'>body {background-image:url(".$parent_root."/img/patterns/".theme_get_setting('background_select').".png);}</style> ",
-   '#weight' => 2,
- );
+   if (theme_get_setting('rtl') == 1) {
+  	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/theme-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
+  	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/theme-elements-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
+  	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/theme-blog-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
+  	 drupal_add_css(drupal_get_path('theme', 'porto') . '/css/ie-rtl.css', array('group' => CSS_DEFAULT, 'type' => 'file'));
+   }
 
- $background_color = array(
-   '#type' => 'markup',
-   '#markup' => "<style type='text/css'>body {background-color: #".theme_get_setting('body_background_color')." !important;}</style> ",
-   '#weight' => 3,
- );
- 
- drupal_add_html_head( $viewport, 'viewport');
+   $viewport = array(
+     '#type' => 'html_tag',
+     '#tag' => 'meta',
+     '#attributes' => array(
+       'name' => 'viewport',
+       'content' =>  'width=device-width, initial-scale=1, maximum-scale=1',
+     ),
+     '#weight' => 1,
+   );
 
- if (theme_get_setting('body_background') == "porto_backgrounds" && theme_get_setting('site_layout') == "boxed") {
-   drupal_add_html_head( $background_image, 'background_image');
- }
+    $background_image = array(
+     '#type' => 'markup',
+     '#markup' => "<style type='text/css'>body {background-image:url(".$parent_root."/img/patterns/".theme_get_setting('background_select').".png);}</style> ",
+     '#weight' => 2,
+   );
 
- if (theme_get_setting('body_background') == "custom_background_color") {
-   drupal_add_html_head( $background_color, 'background_color');
- }
- // Add boxed class if layout is set that way.
- if (theme_get_setting('site_layout') == 'boxed'){
-   $vars['classes_array'][] = 'boxed';
- }
- 
-}
+   $background_color = array(
+     '#type' => 'markup',
+     '#markup' => "<style type='text/css'>body {background-color: #".theme_get_setting('body_background_color')." !important;}</style> ",
+     '#weight' => 3,
+   );
+
+   drupal_add_html_head( $viewport, 'viewport');
+
+   if (theme_get_setting('body_background') == "porto_backgrounds" && theme_get_setting('site_layout') == "boxed") {
+     drupal_add_html_head( $background_image, 'background_image');
+   }
+
+   if (theme_get_setting('body_background') == "custom_background_color") {
+     drupal_add_html_head( $background_color, 'background_color');
+   }
+   // Add boxed class if layout is set that way.
+   if (theme_get_setting('site_layout') == 'boxed'){
+     $vars['classes_array'][] = 'boxed';
+   }
+
+  }
 
 /**
  * Assign theme hook suggestions for custom templates and pass color theme setting
  * to skin.less file.
- */  
+ */
 function porto_preprocess_page(&$vars, $hook) {
-   
+
   if (isset($vars['node'])) {
     $suggest = "page__node__{$vars['node']->type}";
     $vars['theme_hook_suggestions'][] = $suggest;
   }
-  
+
   if (arg(0) == 'taxonomy' && arg(1) == 'term' ){
     $term = taxonomy_term_load(arg(2));
     $vars['theme_hook_suggestions'][] = 'page--taxonomy--vocabulary--' . $term->vid;
   }
-  
+
   if (request_path() == 'one-page') {
     $vars['theme_hook_suggestions'][] = 'page__onepage';
-  }  
- 
+  }
+
   if (theme_get_setting('gradient') == "1") {
 	  //Pass the color value from theme settings to @skinColor variable in skin.less
 	  drupal_add_css(drupal_get_path('theme', 'porto') .'/css/less/skin-gradient.less', array(
-	  
+
 	    'group' => CSS_THEME,
 	    'preprocess' => false,
 	    'less' => array(
@@ -166,14 +166,14 @@ function porto_preprocess_page(&$vars, $hook) {
 	        '@skinColor' => '#'.theme_get_setting('skin_color').'',
 	      ),
 	    ),
-	
-	  )); 
-	} 
-	
+
+	  ));
+	}
+
 	if (theme_get_setting('gradient') == "0") {
 	  //Pass the color value from theme settings to @skinColor variable in skin.less
 	  drupal_add_css(drupal_get_path('theme', 'porto') .'/css/less/skin.less', array(
-	  
+
 	    'group' => CSS_THEME,
 	    'preprocess' => false,
 	    'less' => array(
@@ -181,16 +181,54 @@ function porto_preprocess_page(&$vars, $hook) {
 	        '@skinColor' => '#'.theme_get_setting('skin_color').'',
 	      ),
 	    ),
-	
-	  )); 
+
+	  ));
 	}
-	 
+
+  // Removing site logo depending upon show logo field value.
+  $node = menu_get_object('node');
+  if ($node->type == 'paragraphs_page') {
+    if(!$node->field_show_logo['und'][0]['value']) {
+      unset($vars['logo']);
+    }
+  }
 }
 
 /**
- * Define some variables for use in theme templates.
+ * Implements template_preprocess_node().
  */
-function porto_process_page(&$variables) {	
+function porto_preprocess_node(&$variables) {
+
+  // Events Detail Node.
+  if ($variables['type'] == 'events_detail') {
+    foreach ($variables['field_paragraphs_entity'] as $key => $paragraph_item) {
+      // Loading paragraphs bundle from automated id.
+      $data = paragraphs_item_load($paragraph_item['value']);
+      if ($data->bundle == 'title_section') {
+        // Unset Date Published field for events node as we want to show event dates.
+        unset($variables['content']['field_paragraphs_entity'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_date_published']);
+      }
+    }
+  }
+
+  // Paragraphs page node.
+  foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
+    // Loading paragraphs bundle from automated id.
+    $data = paragraphs_item_load($paragraph_item['value']);
+
+    if ($data->bundle == 'title_section') {
+      // Unset Subtype field value depending upon Show tags field value.
+      if (!$data->field_paragraphs_show_tags['und'][0]['value']) {
+        unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['field_paragraphs_tags_viewpoints']);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_process_page().
+ */
+function porto_process_page(&$variables) {
   // Assign site name and slogan toggle theme settings to variables.
   $variables['disable_site_name']   = theme_get_setting('toggle_name') ? FALSE : TRUE;
   $variables['disable_site_slogan'] = theme_get_setting('toggle_slogan') ? FALSE : TRUE;
@@ -201,7 +239,7 @@ function porto_process_page(&$variables) {
   if ($variables['disable_site_slogan']) {
     $variables['site_slogan'] = filter_xss_admin(variable_get('site_slogan', ''));
   }
-}	
+}
 
 /**
  * Add list classes for links in "Header Menu" region.
@@ -222,20 +260,20 @@ function porto_menu_link__header_menu(array $variables) {
     $element['#attributes']['class'][] = 'dropdown '.$element['#original_link']['mlid'].'';
     $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle disabled';
   }
-  
+
   if ( ($element['#below']) && ($depth == "2") ) {
     $element['#attributes']['class'][] = 'dropdown-submenu';
   }
-  
+
   $sub_menu = $element['#below'] ? drupal_render($element['#below']) : '';
   $output .= l($element['#title'], $element['#href'], $element['#localized_options']);
   // if link class is active, make li class as active too
   if(strpos($output,"active")>0){
     $element['#attributes']['class'][] = "active";
   }
- 
+
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . '</li>';
-  
+
 }
 
 /**
@@ -243,7 +281,7 @@ function porto_menu_link__header_menu(array $variables) {
  */
 function porto_menu_tree__header_menu($variables){
   return '<ul class="nav nav-pills nav-main" id="mainMenu">' . $variables['tree'] . '</ul>';
-  
+
 }
 
 /**
@@ -276,7 +314,7 @@ function porto_status_messages($variables) {
 	    case 'error':
 	      $output .= "<div class=\"alert alert-danger\">\n";
 	    break;
-	    default: 
+	    default:
 	      $output .= "<div class=\"messages $type\">\n";
 	    break;
     }
@@ -299,38 +337,61 @@ function porto_status_messages($variables) {
 }
 
 /**
- * Impelements hook_form_alter()
+ * Impelements hook_form_alter().
  */
 function porto_form_alter(&$form, &$form_state, $form_id) {
-  
+
   if ($form_id == 'search_block_form') {
-    
+
     $form['search_block_form']['#title'] = t('Search'); // Change the text on the label element
     $form['search_block_form']['#title_display'] = 'invisible'; // Toggle label visibilty
     $form['search_block_form']['#size'] = 40;  // define size of the textfield
     $form['search_block_form']['#title'] = t('Search'); // Change the text on the label element
     $form['search_block_form']['#title_display'] = 'invisible'; // Toggle label visibilty
     $form['search_block_form']['#attributes']['class'] = array('form-control', 'search');
-    
+
     // Add/remove default text on input status.
     $form['search_block_form']['#attributes']['onblur'] = "if (this.value == '') {this.value = 'Search';}";
     $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == 'Search') {this.value = '';}";
-    
+
      // Prevent user from searching the default text.
     $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
-    
+
      // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('Search');
-       
+
     $form['actions']['submit'] =  array(
       '#type' => 'submit',
     	'#prefix' => '<span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="icon icon-search">',
     	'#suffix' => '</i></button></span>',
-    	
+
     );
-    
+
   }
-} 
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function porto_page_alter(&$page){
+
+  $node = menu_get_object('node');
+  if ($node->type == 'events_detail') {
+    // Removing Members get priority block depending upon show_membership_block field value.
+    if (!$node->field_show_membership_block['und'][0]['value']) {
+      // Fetching block id of Members get priority from fe_block machine name.
+      $block_query = db_select('fe_block_boxes', 'fb')
+              ->fields('fb', array('bid'))
+              ->condition('fb.machine_name', 'membership_block')
+              ->execute();
+      $block_id = $block_query->fetchField();
+
+      if ($block_id) {
+        unset($page["sidebar_right"]["block_$block_id"]);
+      }
+    }
+  }
+}
 
 /**
  * Implements hook_block_view_alter().
@@ -344,21 +405,21 @@ function porto_block_view_alter(&$data, $block) {
     unset($data['content']['actions']['submit']['#theme_wrappers']);
   }
 
-  if ( ($block->region == 'header_menu') && !isset($data['content']['#type']) ) {   
+  if ( ($block->region == 'header_menu') && !isset($data['content']['#type']) ) {
     $data['content']['#theme_wrappers'] = array('menu_tree__header_menu');
 
     foreach($data['content'] as &$key):
-     
+
       if (isset($key['#theme'])) {
         $key['#theme'] = 'menu_link__header_menu';
       }
       if (isset($key['#below']['#theme_wrappers'])) {
         $key['#below']['#theme_wrappers'] = array('menu_tree__header_menu_below');
       }
-      
+
       if (isset($key['#below'])) {
         foreach($key['#below'] as &$key2):
-        
+
            if (isset($key2['#theme'])) {
              $key2['#theme'] = 'menu_link__header_menu';
            }
@@ -367,15 +428,15 @@ function porto_block_view_alter(&$data, $block) {
            }
            if (isset($key2['#below'])) {
               foreach($key2['#below'] as &$key3):
-              
+
                 if (isset($key3['#theme'])) {
                   $key3['#theme'] = 'menu_link__header_menu';
                 }
               endforeach;
-              
+
            }
         endforeach;
-       
+
       }
     endforeach;
   }
@@ -400,15 +461,15 @@ function porto_breadcrumb($variables) {
  $breadcrumb = $variables['breadcrumb'];
  $title = drupal_get_title();
  $crumbs = '';
- 
+
  if (!empty($breadcrumb)) {
    $crumbs = '<ul class="breadcrumb">';
    foreach($breadcrumb as $value) {
      $crumbs .= '<li>'.$value.'</li> ';
    }
-   
+
    $crumbs .= '</ul>';
-    
+
  }
  return $crumbs;
 }
@@ -419,7 +480,7 @@ function porto_breadcrumb($variables) {
 function porto_preprocess_username(&$vars) {
   global $theme_key;
   $theme_name = $theme_key;
-  
+
   // Add rel=author for SEO and supporting search engines
   if (isset($vars['link_path'])) {
     $vars['link_attributes']['rel'][] = 'author';
@@ -440,24 +501,24 @@ function porto_node_pagination($node, $mode = 'n') {
     ->entityCondition('bundle', $node->type);
   $result = $query->execute();
   $nids = array_keys($result['node']);
-  
+
   while ($node->nid != current($nids)) {
     next($nids);
   }
-  
+
   switch($mode) {
     case 'p':
       prev($nids);
     break;
-		
+
     case 'n':
       next($nids);
     break;
-		
+
     default:
     return NULL;
   }
-  
+
   return current($nids);
 }
 
@@ -489,7 +550,7 @@ function porto_item_list($variables) {
       $children = array();
       $data = '';
       $i++;
-      
+
       //if ( is_array($item) && in_array('pager-current', $item['class'])) {
       if ( isset($item['class']) && is_array($item) && in_array('pager-current', $item['class'])) {
         $item['class'] = array('active');
@@ -516,12 +577,12 @@ function porto_item_list($variables) {
         // Render nested list.
         $data .= theme_item_list(array('items' => $children, 'title' => NULL, 'type' => $type, 'attributes' => $attributes));
       }
-      
+
       $output .= '<li' . drupal_attributes($attributes) . '>' . $data . "</li>\n";
     }
     $output .= "</$type>";
   }
-  
+
   return $output;
 
 }
@@ -530,14 +591,14 @@ function porto_item_list($variables) {
  * Add a comma delimiter between several field types.
  */
 function porto_field($variables) {
- 
+
   $output = '';
- 
+
   // Render the label, if it's not hidden.
   if (!$variables['label_hidden']) {
-    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';  
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
   }
-  
+
   if ($variables['element']['#field_name'] == 'field_tags') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -545,7 +606,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_portfolio_category') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -553,7 +614,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_team_bio') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -561,7 +622,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
    elseif ($variables['element']['#field_name'] == 'field_team_category') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -569,7 +630,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_testimonial_content') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -577,7 +638,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
    elseif ($variables['element']['#field_name'] == 'field_testimonial_name') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -585,7 +646,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
    elseif ($variables['element']['#field_name'] == 'field_testimonial_info') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -593,7 +654,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_background_position') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -601,7 +662,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_parallax_icon') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -609,7 +670,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_big_caption') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -617,7 +678,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_small_caption') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -625,7 +686,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_text_color') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -633,7 +694,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_twitter_link') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -641,7 +702,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_facebook_link') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -649,7 +710,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_linkedin_link') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -657,7 +718,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-  
+
   elseif ($variables['element']['#field_name'] == 'field_active') {
     // For tags, concatenate into a single, comma-delimitated string.
     foreach ($variables['items'] as $delta => $item) {
@@ -665,7 +726,7 @@ function porto_field($variables) {
     }
     $output .= implode(', ', $rendered_tags);
   }
-       
+
   else {
     $output .= '<div class="field-items"' . $variables['content_attributes'] . '>';
     // Default rendering taken from theme_field().
@@ -677,7 +738,7 @@ function porto_field($variables) {
     // Render the top-level DIV.
     $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
   }
-  
+
   // Render the top-level DIV.
   return $output;
 }
@@ -691,6 +752,6 @@ function porto_user_css() {
 	  echo "<style type='text/css'>";
 	  echo theme_get_setting('user_css');
 	  echo "</style>";
-	  echo "<!-- End user defined CSS -->";	
+	  echo "<!-- End user defined CSS -->";
   }
 }
