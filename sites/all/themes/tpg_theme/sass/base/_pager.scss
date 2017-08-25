@@ -29,12 +29,3 @@
     line-height: 1em;
   }
 }
-
-.ajax-progress-throbber {
-  position: absolute;
-
-  .throbber {
-    background: $throbber no-repeat 0 center;
-    background-size: contain;
-  }
-}

@@ -150,3 +150,14 @@ textarea {
     display: none;
   }
 }
+
+.ajax-progress-throbber {
+  position: absolute;
+
+  .throbber {
+    background: $throbber no-repeat 0 center;
+    background-size: contain;
+    height: 19px;
+    width: 19px;
+  }
+}
