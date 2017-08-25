@@ -1857,7 +1857,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
 
   Drupal.behaviors.whatsOnFilter = {
     attach: function(context, settings) {
-      this.creatingEl('<div class="whats-on-filter"></div>', 'resp-filter', 'Filter', context);
+      this.creatingEl('.whats-on-filter', 'resp-filter', 'Filter', context);
       this.openEl('.resp-filter', '.whats-on-filter > .content', 'show', context);
       this.searchField('.page-whats-on .who-select-prefix', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
       this.searchField('.filter-overlay', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
