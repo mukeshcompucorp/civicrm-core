@@ -290,3 +290,13 @@
     margin-top: 15px;
   }
 }
+
+@include breakpoint($md-1 0) {
+  .whats-on.featured .views-row {
+    margin-bottom: 30px;
+
+    &-last {
+      margin-bottom: 0;
+    }
+  }
+}
