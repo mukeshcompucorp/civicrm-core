@@ -81,7 +81,6 @@ features[menu_links][] = user-menu_login:user/login
 features[menu_links][] = user-menu_search:<front>
 features[menu_links][] = user-menu_user-account:user
 features[node][] = header_image
-features[node][] = webform
 features[node_export_features][] = fce35389-11fb-4c20-9cbe-93d8a0038077
 features[page_manager_pages][] = home_page
 features[search_autocomplete_config][] = 1

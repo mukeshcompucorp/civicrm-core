@@ -29,6 +29,7 @@ function tpg_homepage_views_api($module = NULL, $api = NULL) {
 function tpg_homepage_gd_infinite_scroll_settings_info() {
   $items = array(
     'search_load_more' => array(
+      'exported' => TRUE,
       'pager_selector' => 'ul.pager',
       'next_selector' => 'li.pager-next a:first',
       'content_selector' => '.search-results',
@@ -103,14 +104,6 @@ function tpg_homepage_node_info() {
       'title_label' => t('Internal Reference Name/Title'),
       'help' => '',
     ),
-    'webform' => array(
-      'name' => t('Webform'),
-      'base' => 'node_content',
-      'description' => t('Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;
@@ -126,6 +119,7 @@ function tpg_homepage_search_autocomplete_config_features_default_settings() {
       'title' => 'Search page - Node Tab  (search/node/%)',
       'selector' => '#search-form[action="/search/node"] #edit-keys',
       'weight' => 0,
+      'enabled' => 0,
       'parent_fid' => 0,
       'min_char' => 3,
       'max_sug' => 10,
@@ -145,6 +139,7 @@ function tpg_homepage_search_autocomplete_config_features_default_settings() {
       'title' => 'Search page - User Tab  (search/user/%)',
       'selector' => '#search-form[action="/search/user"] #edit-keys',
       'weight' => 1,
+      'enabled' => 0,
       'parent_fid' => 0,
       'min_char' => 3,
       'max_sug' => 10,

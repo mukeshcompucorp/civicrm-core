@@ -10,17 +10,6 @@
 function tpg_homepage_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'access service links'.
-  $permissions['access service links'] = array(
-    'name' => 'access service links',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'service_links',
-  );
-
   // Exported permission: 'use Search Autocomplete'.
   $permissions['use Search Autocomplete'] = array(
     'name' => 'use Search Autocomplete',
