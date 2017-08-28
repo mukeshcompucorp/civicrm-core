@@ -1,0 +1,134 @@
+.header-pane {
+  @include clr;
+  background-color: color(main);
+  padding-bottom: 3px;
+  padding-top: 3px;
+
+  .block-menu-main {
+    float: left;
+  }
+
+  .block-menu-user {
+    float: right;
+  }
+
+  ul.menu {
+    @include clr;
+    padding-left: 0;
+  }
+
+  ul.menu li {
+    float: left;
+    list-style-type: none;
+    padding: 7px 16px 5px;
+
+    &.first {
+      padding-left: 0;
+    }
+
+    &.last {
+      padding-right: 0;
+    }
+  }
+
+  ul.menu li a {
+    color: color(main-menu-text-color);
+    font-size: $main-menu-link-size;
+    position: relative;
+    text-decoration: none;
+
+    &.active:after {
+      background-color: color(main-menu-text-color);
+      bottom: -2px;
+      content: '';
+      display: block;
+      font-size: 0;
+      height: 2px;
+      left: 0;
+      line-height: 0;
+      position: absolute;
+      right: 0;
+      transition: opacity .4s ease-in-out;
+    }
+
+    &.no-hover,
+    &.active.no-hover:after {
+      opacity: .5;
+    }
+  }
+
+  &.show-search-form {
+    .block-menu-user {
+      display: none;
+    }
+
+    .block-search-form {
+      display: block;
+    }
+  }
+}
+
+.responsive-logo {
+  display: none;
+}
+
+@include breakpoint($tablet-1 0) {
+  .header-pane {
+    height: 40px;
+    left: 0;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 997;
+
+    .block-menu-user,
+    .block-menu-main,
+    ul.menu li {
+      display: block;
+      float: none;
+      padding: 0;
+    }
+
+    .block-menu-main ul.menu li a {
+      @include lh-fs(44px, $main-menu-link-size-responsive);
+      color: color(main-menu-responsive);
+    }
+
+    .region-header-pane {
+      background-color: color(main);
+      display: none;
+      left: 0;
+      padding-bottom: 37px;
+      position: fixed;
+      right: 0;
+      text-align: center;
+      top: 40px;
+      width: 100%;
+      z-index: 997;
+    }
+  }
+
+  .fixed-menu {
+    .region-header-pane {
+      top: 100px;
+    }
+
+    .header-pane {
+      height: 100px;
+    }
+
+    header .responsive-logo {
+      display: block;
+
+      a {
+        left: 10px;
+        position: fixed;
+        top: 10px;
+        width: 172px;
+        z-index: 998;
+      }
+    }
+  }
+}

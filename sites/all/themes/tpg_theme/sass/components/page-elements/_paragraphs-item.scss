@@ -1,0 +1,42 @@
+.entity-paragraphs-item {
+  position: relative;
+
+  .field-name-field-paragraphs-tags-viewpoints {
+    position: relative;
+
+    h2 {
+      border: 0;
+    }
+
+    h2:before,
+    h2:after {
+      display: none;
+    }
+
+    a {
+      @include viewpoint;
+      position: absolute;
+      right: 100%;
+      top: 0;
+    }
+  }
+
+  &.paragraphs-item-2-column-left-text-only,
+  &.paragraphs-item-2-column-text-left-image-right,
+  &.paragraphs-item-3-column-text-left-image-right,
+  &.paragraphs-item-attachments,
+  &.paragraphs-item-block-quote,
+  &.paragraphs-item-bulleted-list,
+  &.paragraphs-item-text-reading-width,
+  &.paragraphs-item-social-media-links {
+    .field-name-field-paragraphs-tags-viewpoints a {
+      top: 2px;
+    }
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .entity-paragraphs-item .field-name-field-paragraphs-tags-viewpoints {
+    display: none;
+  }
+}

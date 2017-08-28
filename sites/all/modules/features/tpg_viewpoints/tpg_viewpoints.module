@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TPG Viewpoints feature.
+ */
+
+include_once 'tpg_viewpoints.features.inc';

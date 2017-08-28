@@ -1,0 +1,152 @@
+input,
+button,
+input *,
+button * {
+  appearance: none;
+  outline: none;
+
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none;
+  }
+}
+
+select,
+input[type='password'],
+input[type='email'],
+input[type='text'] {
+  background-color: color(form-bg);
+  border: 1px solid transparent;
+  padding: 6px 10px 2px;
+
+  &:focus {
+    border-color: color(focused-input);
+  }
+
+  &.error {
+    border-color: color(form-error);
+    color: color(text);
+  }
+}
+
+select {
+  opacity: 0;
+  padding-bottom: 4px;
+  padding-left: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input[type='button'],
+input[type='reset'],
+input[type='submit'],
+button {
+  @include button;
+}
+
+.form-item,
+.form-actions {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+input[type='checkbox'] {
+  @include rem(height, 32px);
+  @include rem(width, 32px);
+  appearance: checkbox;
+  height: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  width: 0;
+
+  + label {
+    display: block;
+    font-weight: $bold;
+    padding-left: 46px;
+    padding-top: 5px;
+    position: relative;
+
+    &:before {
+      @include rem(height, 32px);
+      @include rem(width, 32px);
+      background-color: color(form-bg);
+      content: '';
+      display: inline-block;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &:checked + label:after {
+    @include rem(left, 7px);
+    @include rem(top, 7px);
+    @include sprite($cross);
+    content: '';
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+  }
+}
+
+input[type='radio'] {
+  @include rem(height, 20px);
+  @include rem(width, 20px);
+  appearance: radio;
+  margin: -5px 0 0;
+  opacity: 0;
+
+  + label {
+    display: inline-block;
+    font-weight: $bold;
+    padding-left: 14px;
+    position: relative;
+
+    &:before {
+      @include rem(height, 20px);
+      @include rem(left, -13px);
+      @include rem(width, 20px);
+      background-color: color(form-bg);
+      border-radius: 50%;
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 1px;
+    }
+  }
+
+  &:checked + label:after {
+    @include rem(height, 8px);
+    @include rem(left, -7px);
+    @include rem(top, 7px);
+    @include rem(width, 8px);
+    background-color: color(main);
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+  }
+}
+
+textarea {
+  background-color: color(form-bg);
+  border: 1px solid transparent;
+  height: 182px;
+  outline: none;
+  padding: 6px 10px;
+  resize: none;
+  width: 100%;
+
+  &:focus {
+    border-color: color(focused-input);
+  }
+
+  + .grippie {
+    display: none;
+  }
+}

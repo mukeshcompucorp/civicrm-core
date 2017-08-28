@@ -1,0 +1,86 @@
+.related-activities {
+  * {
+    color: color(related-activities-color);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &-wrapper {
+    @include rem(padding-bottom, 45px);
+    @include rem(padding-top, 20px);
+    background-color: color(darken-background);
+
+    .block-title {
+      @include container;
+      @include rem(font-size, 18px);
+    }
+
+    .views-more-link {
+      @include rem(font-size, $p-sm);
+      text-decoration: none;
+    }
+
+    .views-more-link:before {
+      @include rem(font-size, $read-more-arrow-font-size);
+      content: '>';
+      display: inline-block;
+      margin-right: 2px;
+    }
+  }
+
+  &-wrapper .whats-on {
+    .views-row {
+      margin-bottom: 0;
+    }
+
+    .views-field-field-paragraph-description {
+      margin-top: 15px;
+    }
+
+    > .view-content {
+      @include make-row;
+    }
+
+    .views-field-field-paragraph-description p {
+      @include rem(font-size, $p-sm);
+      margin-bottom: 0;
+    }
+  }
+
+  > .view-content {
+    @include make-row;
+  }
+
+  [class*='field-paragraphs-overview-image'] {
+    @include rem(margin-bottom, 10px);
+  }
+
+  [class*='field-event-dates'] *,
+  [class*='-type'] *,
+  [class*='field-paragraphs-date-published'] * {
+    @include lh-fs(18px, 12px);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  [class*='field-event-dates'] *,
+  [class*='field-paragraphs-date-published'] * {
+    float: right;
+  }
+
+  [class*='-type'] * {
+    float: left;
+  }
+
+  [class*='field-paragraph-title'] {
+    @include ellipsis-title(82%);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .related-activities .views-row {
+    @include rem(margin-bottom, 20px);
+  }
+}

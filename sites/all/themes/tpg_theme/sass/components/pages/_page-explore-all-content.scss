@@ -1,0 +1,47 @@
+.page-viewpoints,
+.page-explore-all-content {
+  background-color: color(explore-all-content);
+
+  .main-content * {
+    color: color(text-on-dark);
+  }
+
+  .pager-load-more a {
+    color: color(main);
+  }
+}
+
+.page-explore-all-content .region-content {
+  position: relative;
+}
+
+.page-viewpoints .whats-on-tabs .browse-viewpoints,
+.page-explore-all-content .whats-on-tabs .explore-all-content {
+  border-bottom: 2px solid color(text-on-dark);
+}
+
+.explore-all-content {
+  .views-row:nth-child(3n+4) {
+    clear: both;
+  }
+
+  .whats-on-filter {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .field-name-read-more-node,
+  .field-type-text-with-summary {
+    display: none;
+  }
+
+  .entity {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  h3 {
+    border-bottom-color: color(text-on-dark);
+  }
+}

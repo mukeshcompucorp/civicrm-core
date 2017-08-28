@@ -1,0 +1,14 @@
+.page-whats-on {
+  &-past-programme .past-programme,
+  &-now-upcoming .now-upcoming {
+    border-bottom: 2px solid color(heading);
+    color: color(main);
+    display: inline;
+    font-weight: $bold;
+    text-decoration: none;
+  }
+
+  .content-inner {
+    overflow: hidden;
+  }
+}

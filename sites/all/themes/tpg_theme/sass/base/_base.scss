@@ -1,0 +1,165 @@
+html {
+  background-color: color(page-bg);
+  box-sizing: border-box;
+  font-family: $main-font;
+  font-feature-settings: 'lnum';
+  font-size: 100%;
+  font-variant-numeric: lining-nums;
+
+  body {
+    height: 100%;
+  }
+
+  * {
+    @include font-smoothing;
+    @include rem(font-size, $p);
+    box-sizing: border-box;
+    color: color(text);
+    font-family: $main-font;
+    font-weight: $bold;
+  }
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  width: 100%;
+}
+
+a {
+  text-decoration: underline;
+  transition: all .4s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  @include clr;
+  color: color(heading);
+  display: inline;
+  font-weight: $bold;
+  text-decoration: none;
+
+  &:before {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+  }
+}
+
+h1,
+.h1 {
+  @include lh-fs(56px, $h1);
+  border-bottom: 4px solid color(heading);
+
+  &:after {
+    @include rem(margin-top, 25px);
+  }
+}
+
+h2,
+.h2 {
+  @include lh-fs(25px, $h2);
+  border-bottom: 2px solid color(heading);
+
+  &:after {
+    @include rem(margin-top, 18px);
+  }
+}
+
+h3,
+.h3 {
+  @include lh-fs(25px, $h3);
+  border-bottom: 2px solid color(heading);
+}
+
+h4,
+.h4 {
+  @include lh-fs(18px, $h4);
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  a {
+    display: block;
+    font-size: inherit;
+    overflow: inherit;
+    text-decoration: inherit;
+    text-overflow: inherit;
+    white-space: inherit;
+  }
+}
+
+a,
+p,
+li,
+label,
+blockquote {
+  @include rem(font-size, $p);
+  color: color(text);
+  font-weight: $bold;
+}
+
+.content-wrap {
+  a,
+  p,
+  li,
+  label,
+  blockquote {
+    line-height: 1.62;
+  }
+}
+
+p {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  padding-left: 30px;
+}
+
+@include breakpoint($md-1 0) {
+  h1,
+  .h1 {
+    @include lh-fs(38px, $h1-resp);
+    @include rem(margin-bottom, 26px);
+  }
+}

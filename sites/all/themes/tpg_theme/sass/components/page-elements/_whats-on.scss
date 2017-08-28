@@ -1,0 +1,302 @@
+.whats-on {
+  clear: both;
+
+  // Next Season and Featured block
+  &-block .block-title {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  // Tabs
+  &-tabs {
+    margin-bottom: 10px;
+    width: auto;
+
+    a {
+      @include rem(font-size, $tab);
+      text-decoration: none;
+    }
+
+    .now-upcoming,
+    .browse-viewpoints {
+      @include rem(margin-right, 30px);
+    }
+  }
+
+  // Block with description
+  &-description {
+    @include rem(margin-bottom, 35px);
+    clear: both;
+
+    p {
+      @include lh-fs(22px, $p-sm);
+    }
+  }
+
+  // No result description
+  .view-empty {
+    padding: 20px 10px 25px;
+  }
+
+  // Filter form
+  &-filter {
+    float: right;
+    width: auto;
+
+    label {
+      @include rem(font-size, $form-item);
+      font-weight: bold;
+      line-height: 1em;
+      margin-right: 8px;
+      margin-top: 7px;
+    }
+
+    label,
+    .views-widget,
+    .views-exposed-form .views-exposed-widget {
+      float: left;
+      padding: 0;
+    }
+
+    .views-exposed-form .views-exposed-widget {
+      margin-left: 30px;
+    }
+
+    .views-exposed-form .views-exposed-widget:first-child,
+    .views-exposed-form .views-submit-button {
+      margin-left: 0;
+    }
+
+    .views-exposed-form .form-submit {
+      @include rem(font-size, $form-item);
+      cursor: pointer;
+      margin-top: 0;
+      padding-bottom: 5px;
+      padding-top: 7px;
+      text-transform: uppercase;
+    }
+
+    .ajax-progress-throbber {
+      position: absolute;
+    }
+
+    .views-widget-filter-tid .form-text {
+      background: url('../images/icons/search.png') no-repeat 100% center;
+    }
+
+    .views-widget-filter-tid:hover {
+      cursor: pointer;
+    }
+
+    .resp-filter {
+      @include rem(font-size, $form-item);
+      background-color: color(filter-bg);
+      color: color(filter-color);
+      cursor: pointer;
+      display: none;
+      float: right;
+      line-height: 1em;
+      padding: 14px 17px;
+      position: relative;
+      text-transform: uppercase;
+      z-index: 8;
+    }
+
+    .resp-filter:before {
+      @include triangle-bottom;
+      border-top-color: color(filter-color);
+      display: inline-block;
+      margin-right: 4px;
+      padding-bottom: 2px;
+      position: static;
+    }
+
+    .resp-filter.active:before {
+      border-bottom: 4px solid color(filter-color);
+      border-top: 0;
+    }
+  }
+
+  // Main View
+  .views-row {
+    @include rem(margin-bottom, 48px);
+  }
+
+  > .view-content {
+    @include clr;
+  }
+
+  img {
+    margin-bottom: 10px;
+    min-width: 100%;
+  }
+
+  .date,
+  .type {
+    @include lh-fs(18px, 12px);
+    @include rem(margin-bottom, 5px);
+    color: color(main);
+    font-weight: bold;
+    min-height: auto;
+    padding-left: 0;
+    padding-right: 0;
+    text-transform: uppercase;
+
+    * {
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+
+  .type {
+    clear: left;
+  }
+
+  .date {
+    float: right;
+    text-align: right;
+  }
+
+  .title {
+    @include ellipsis-title(82%);
+  }
+
+  .item-list {
+    clear: both;
+  }
+}
+
+@include breakpoint($large-screen $screen-md) {
+  .whats-on-filter .views-exposed-form .views-widget-filter-field_event_for_tid .chzn-single-with-drop + .chzn-drop {
+    left: auto !important;
+    right: 0;
+    text-align: right;
+
+    .chzn-results {
+      text-align: left;
+    }
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .whats-on-filter {
+    clear: both;
+    float: none;
+    width: 100%;
+
+    .resp-filter {
+      display: inline-block;
+    }
+
+    > .content {
+      height: 0;
+      min-height: 0;
+      overflow: hidden;
+
+      &.show {
+        background-color: color(filter-bg);
+        height: auto;
+        left: 10px;
+        overflow: visible;
+        padding-right: 10px;
+        padding-top: 24px;
+        position: absolute;
+        right: 10px;
+        top: 100%;
+        z-index: 10;
+      }
+
+      &.show:after {
+        left: 100%;
+      }
+
+      &.show:before {
+        right: 100%;
+      }
+
+      &.show:after,
+      &.show:before {
+        background-color: color(filter-bg);
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    .element-invisible {
+      display: none;
+
+      + div {
+        margin-left: 0;
+      }
+    }
+
+    .views-widget,
+    .container-inline-date .date-padding,
+    .views-exposed-form .views-exposed-widget,
+    .container-inline-date .form-item .form-item {
+      float: none;
+    }
+
+    .views-exposed-form .views-exposed-widget:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .views-submit-button {
+      text-align: right;
+    }
+
+    .container-inline-date {
+      clear: none;
+
+      > .form-item {
+        width: 100%;
+      }
+    }
+
+    label {
+      color: color(filter-color);
+      margin-top: 14px;
+      text-align: right;
+      width: 50px;
+
+      + * {
+        display: block;
+        margin-left: 65px;
+      }
+    }
+
+    .views-exposed-widgets {
+      margin-bottom: 0;
+    }
+
+    .views-exposed-form {
+      .views-exposed-widget {
+        margin-bottom: 15px;
+      }
+
+      .form-submit {
+        background-color: color(filter-color);
+        color: color(filter-bg);
+        line-height: 1em;
+      }
+    }
+  }
+
+  .whats-on-description {
+    margin-top: 15px;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .whats-on.featured .views-row {
+    margin-bottom: 30px;
+
+    &-last {
+      margin-bottom: 0;
+    }
+  }
+}
