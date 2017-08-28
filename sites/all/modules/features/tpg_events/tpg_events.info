@@ -118,5 +118,6 @@ features[variable][] = menu_parent_events_detail
 features[variable][] = node_options_events_detail
 features[variable][] = node_preview_events_detail
 features[variable][] = node_submitted_events_detail
+features[variable][] = pathauto_node_events_detail_pattern
 features[views_view][] = events_entity
 features[views_view][] = whats_on
