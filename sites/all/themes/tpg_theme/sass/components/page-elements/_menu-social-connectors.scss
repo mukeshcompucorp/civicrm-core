@@ -35,12 +35,5 @@
     &:hover {
       background-color: color(footer-text-color-active);
     }
-
-    &[href*='instagram']:before {
-      @include fa-icon($fa-instagram);
-      font-size: $footer-social-connectors-fb-font-size;
-      position: absolute;
-      top: 2px;
-    }
   }
 }
