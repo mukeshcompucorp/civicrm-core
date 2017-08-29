@@ -27,6 +27,20 @@ function tpg_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'colorbox_mobile_detect';
+  $strongarm->value = '1';
+  $export['colorbox_mobile_detect'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'colorbox_mobile_device_width';
+  $strongarm->value = '300px';
+  $export['colorbox_mobile_device_width'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_header_image';
   $strongarm->value = 0;
   $export['comment_anonymous_header_image'] = $strongarm;
