@@ -48,14 +48,18 @@
   Drupal.behaviors.changeAttrValue = {
     attach: function(context, settings) {
       this.setAttr('input.webform-calendar', 'src', '/sites/all/themes/tpg_theme/images/icons/calendar.png', context);
+      this.classAdd('.page-explore-all-content .ctools-auto-submit-full-form', 'content', context);
     },
     setAttr: function(el, attrName, attrVal, context) {
       var $el = $(el, context);
       if ($el.length) {
         for (var i = 0; i < $el.length; i++) {
-          $el.eq(i).attr(attrName, attrVal);;
+          $el.eq(i).attr(attrName, attrVal);
         }
       }
+    },
+    classAdd: function(el,className, context) {
+      $(el, context).addClass(className)
     }
   };
 
