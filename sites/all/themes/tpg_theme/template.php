@@ -161,6 +161,9 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
   if (in_array($node->type, $pages)) {
     $vars['title'] = '';
   }
+
+  // Call chosen library.
+  drupal_add_library('chosen', 'drupal.chosen');
 }
 
 /**
