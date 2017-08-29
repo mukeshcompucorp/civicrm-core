@@ -54,7 +54,7 @@
       var $el = $(el, context);
       if ($el.length) {
         for (var i = 0; i < $el.length; i++) {
-          $el.eq(i).attr(attrName, attrVal);;
+          $el.eq(i).attr(attrName, attrVal);
         }
       }
     },

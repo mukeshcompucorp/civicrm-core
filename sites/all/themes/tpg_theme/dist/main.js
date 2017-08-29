@@ -1694,7 +1694,7 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       var $el = $(el, context);
       if ($el.length) {
         for (var i = 0; i < $el.length; i++) {
-          $el.eq(i).attr(attrName, attrVal);;
+          $el.eq(i).attr(attrName, attrVal);
         }
       }
     },
