@@ -101,6 +101,11 @@ article .webform-client-form {
       width: 100% !important;
     }
 
+    &[class*='date-day'] {
+      margin-right: 10px;
+      padding-right: 0;
+    }
+
     &[class*='date-month'],
     &[class*='date-year'] {
       margin-left: 10px;

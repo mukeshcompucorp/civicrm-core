@@ -1647,8 +1647,8 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
       this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, context);
     },
     nWrapper: function (wrapper, el, n, context) {
-      var $parent       = $(wrapper, context);
-      var elNumber     = n;
+      var $parent  = $(wrapper, context);
+      var elNumber = n;
 
       if ($parent.length) {
         var $parentLength = $parent.length;
@@ -1668,9 +1668,9 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
           }
 
           for(var j = 0; j < $elLength; j += elNumber) {
-            var firstCol = $el.eq(j);
+            var firstCol  = $el.eq(j);
             var secondCol = $el.eq(j+1);
-            var thirdCol = $el.eq(j+2);
+            var thirdCol  = $el.eq(j+2);
 
             firstCol.appendTo('.columns-wrapper .col-1');
             secondCol.appendTo('.columns-wrapper .col-2');
@@ -1683,6 +1683,28 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
         }
       }
     }
+  };
+
+  Drupal.behaviors.changeAttrValue = {
+    attach: function(context, settings) {
+      this.setAttr('input.webform-calendar', 'src', '/sites/all/themes/tpg_theme/images/icons/calendar.png', context);
+    },
+    setAttr: function(el, attrName, attrVal, context) {
+      var $el = $(el, context);
+      if ($el.length) {
+        for (var i = 0; i < $el.length; i++) {
+          $el.eq(i).attr(attrName, attrVal);;
+        }
+      }
+    }
+  };
+
+  Drupal.behaviors.chosenInclude = {
+    attach: function(context, settings) {
+      setTimeout(function(){
+        $('select', context).chosen();
+      }, 10);
+    },
   };
 
   Drupal.behaviors.fullWidthImage = {
