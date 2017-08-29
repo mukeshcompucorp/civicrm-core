@@ -1,0 +1,77 @@
+=subheadline($fs: $h4)
+  +lh-fs(18px, $fs)
+  color: color(main)
+  font-weight: $bold
+  text-decoration: none
+  text-transform: uppercase
+
+=viewpoint
+  +rem(font-size, $card-label)
+  +rem(padding, 5px 9px 2px)
+  background-color: color(card-bg)
+  color: color(main)
+  display: inline-block
+  font-weight: $bold
+  line-height: 1em
+  margin-right: 20px
+  max-width: 25%
+  text-decoration: none
+  text-overflow: ellipsis
+  text-transform: uppercase
+  overflow: hidden
+  white-space: nowrap
+
+=button
+  +rem(padding, 13px 12px 11px)
+  background-color: color(main)
+  border: 0
+  color: color(button-color)
+  display: inline-block
+  line-height: 1
+  text-decoration: none
+
+  &:hover
+    cursor: pointer
+  +breakpoint($md-1 0)
+    +lh-fs(18px, $button-resp)
+
+=ellipsis-title($mwidth: auto)
+  clear: both
+  display: block
+  max-width: $mwidth
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=triangle-bottom
+  border-left: 4px solid transparent
+  border-right: 4px solid transparent
+  border-top: 4px solid color(main)
+  content: ''
+  height: 0
+  position: absolute
+  right: 5px
+  top: 10px
+  width: 0
+
+=centered-image
+  left: 50%
+  margin-left: auto
+  margin-right: auto
+  position: absolute
+  top: 50%
+  transform: translate(-50%, -50%)
+
+=font-smoothing
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+
+=tag
+  +rem(font-size, $card-label)
+  background-color: color(card-darken-bg)
+  bottom: 0
+  color: color(main)
+  left: 0
+  padding: 4px 4px 1px
+  position: absolute
+  text-transform: uppercase

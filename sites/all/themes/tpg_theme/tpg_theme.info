@@ -1,0 +1,24 @@
+name = TPG bootstrap theme
+description = Bootstrap sass theme
+core = 7.x
+version = 7.52
+engine = phptemplate
+project = TPG
+datestamp = 1447187950
+screenshot = screenshot.jpg
+
+stylesheets[all][] = dist/main.css
+;stylesheets[all][] = dist/main.min.css
+
+regions[header_pane]       = Header Pane
+regions[header]            = Header
+regions[content]           = Content
+regions[full_width_bottom] = Full width bottom region
+regions[sidebar_first]     = First Sidebar
+regions[sidebar_second]    = Second Sidebar
+regions[share_section]     = Share links
+regions[footer]            = Footer
+
+scripts[] = js/daterangepicker.js
+scripts[] = dist/main.js
+;scripts[] = dist/main.min.js

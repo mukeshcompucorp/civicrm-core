@@ -1,0 +1,111 @@
+.front {
+  background: $front-page-gradient;
+  background-image: $homepage-gradient;
+
+  &.admin-menu .view-header-image img {
+    margin-top: -69px;
+  }
+
+  .header {
+    min-height: auto;
+  }
+
+  .main-content * {
+    color: color(text-on-dark);
+  }
+
+  .flex-responsive {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .view-header-image {
+    margin-bottom: 40px;
+    overflow: hidden;
+
+    img {
+      height: 100vh;
+      margin: -40px auto 0;
+      max-width: none;
+      width: auto;
+    }
+
+    .views-row {
+      position: relative;
+    }
+
+    .views-row .before {
+      background: $homepage-arrow-down center no-repeat, $front-page-gradient, $homepage-gradient repeat;
+      bottom: 0;
+      content: '';
+      cursor: pointer;
+      display: inline-block;
+      height: 40px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 40px;
+      z-index: 2;
+    }
+  }
+
+  .whats-on {
+    .date {
+      float: left;
+    }
+
+    .type .tag {
+      display: none;
+    }
+
+    .date-display-range {
+      letter-spacing: 1px;
+    }
+  }
+
+  .pane-title {
+    border-bottom-color: color(text-on-dark);
+    color: color(text-on-dark);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .front {
+    .view-header-image {
+      margin-bottom: 27px;
+
+      img {
+        left: 50%;
+        min-width: 100%;
+        position: relative;
+        transform: translateX(-50%);
+      }
+    }
+
+    .whats-on {
+      margin-left: -2px;
+      margin-right: -2px;
+
+      .views-row {
+        margin-bottom: 30px;
+      }
+
+      .image .tag,
+      .type .tag + .field-content {
+        display: none;
+      }
+
+      .type .tag {
+        @include tag;
+        display: block;
+        float: left;
+        margin-top: -5px;
+        position: static;
+      }
+    }
+
+    .pager-load-more {
+      padding-bottom: 33px;
+    }
+  }
+}

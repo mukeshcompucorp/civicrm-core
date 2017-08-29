@@ -1,0 +1,411 @@
+#cboxOverlay {
+  opacity: 1 !important;
+
+  &.colorbox-background-white {
+    background-color: color(colorbox-bg-light);
+  }
+
+  &.colorbox-background-black {
+    background-color: color(colorbox-bg-dark);
+  }
+}
+
+#cboxCurrent {
+  display: none !important;
+}
+
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
+  overflow: visible;
+}
+
+#cboxTopLeft,
+#cboxTopCenter,
+#cboxTopRight,
+#cboxBottomLeft,
+#cboxBottomCenter,
+#cboxBottomRight,
+#cboxMiddleRight,
+#cboxMiddleLeft {
+  display: none;
+}
+
+#cboxWrapper {
+  overflow: initial;
+}
+
+#cboxContent {
+  overflow: initial;
+  margin-bottom: 40px;
+  margin-top: 35px;
+}
+
+#cboxContent,
+#cboxWrapper {
+  background: none;
+}
+
+#cboxClose {
+  background: none;
+  bottom: auto;
+  font-size: 0;
+  height: 26px;
+  left: auto;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  position: fixed;
+  right: 7px;
+  top: 7px;
+  width: 26px;
+
+  &:after,
+  &:before {
+    border-bottom: 1px solid color(colorbox-close-button);
+    content: '';
+    display: block;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    margin-top: -1px;
+    transform: rotate(-45deg);
+  }
+}
+
+.colorbox-caption {
+  @include lh-fs(18px, $h4);
+  color: color(caption-title);
+  display: none;
+}
+
+.paragraphs-item-image-reading-width-colorbox .field-item ~ .field-item {
+  display: none;
+}
+
+#cboxTitle {
+  @include lh-fs(18px, $h4);
+  background-color: color(caption-bg);
+  bottom: 0;
+  color: color(caption-title);
+  display: block !important;
+  left: 0;
+  height: auto !important;
+  padding: 26px 15px 20px 58px !important;
+  position: fixed;
+  right: 0;
+  top: auto;
+
+  .caption-icon {
+    @include sprite($caption);
+    content: '';
+    cursor: pointer;
+    display: block;
+    left: 15px;
+    margin-top: -16px;
+    position: absolute;
+    top: 50%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.show {
+      @include sprite($caption-close);
+    }
+
+    &.show + .colorbox-caption {
+      display: block;
+    }
+  }
+}
+
+
+#cboxNext,
+#cboxPrevious {
+  margin-top: -40px;
+  position: absolute;
+  top: 50%;
+}
+
+#cboxNext,
+#cboxNext:hover,
+#cboxPrevious,
+#cboxPrevious:hover {
+  @include sprite($cbox-arrow);
+}
+
+#cboxPrevious {
+  left: auto;
+  margin-right: 5px;
+  right: 100%;
+}
+
+#cboxNext {
+  left: 100%;
+  margin-left: 5px;
+  transform: rotate(180deg);
+}
+
+.header-image-lightbox {
+  img {
+    @include rem(height, 640px);
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+
+  [class*="field-caption"] {
+    @include container;
+    margin-bottom: 13px;
+    margin-top: 0;
+    min-height: 32px;
+    padding-top: 5px;
+    position: relative;
+    text-align: left;
+
+    .caption-icon {
+      @include sprite($caption);
+      display: block;
+      left: 10px;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+    }
+
+    .caption-icon.show {
+      @include sprite($caption-close);
+    }
+
+    .caption-icon:hover {
+      cursor: pointer;
+    }
+
+    .header-image-lightbox-title {
+      display: block;
+      margin-left: 42px;
+      margin-top: 4px;
+    }
+
+    .field-content {
+      @include rem(font-size, $p-sm);
+      display: none;
+      margin-left: 42px;
+      text-align: left;
+    }
+
+    .show ~ .field-content {
+      display: block;
+    }
+  }
+
+  // Removing coma and hiding unnecessary header images
+  .field-content {
+    font-size: 0;
+    overflow: hidden;
+    text-align: center;
+
+    a ~ a {
+      display: none;
+    }
+  }
+
+  a.colorbox {
+    display: inline-block;
+    max-width: 100%;
+    outline: none;
+    position: relative;
+
+    * {
+      outline: none;
+    }
+
+
+    &:after {
+      @include sprite($fullscreen);
+      bottom: 8px;
+      content: '';
+      display: block;
+      left: 8px;
+      position: absolute;
+    }
+  }
+
+  .right,
+  .left {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .left {
+    @include sprite($arrow-left);
+    left: 19px;
+  }
+
+  .right {
+    @include sprite($arrow-right);
+    right: 19px;
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .header-image-lightbox {
+    a.colorbox {
+      @include rem(height, 580px);
+      display: block;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    img {
+      @include centered-image;
+      @include rem(height, 580px);
+      max-width: none;
+    }
+
+    [class*="field-caption"] {
+      margin-bottom: 0;
+      margin-top: -39px;
+      min-height: 39px;
+
+      &.opened:before {
+        background: color(page-bg);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 39px;
+        width: 100%;
+      }
+
+      .caption-icon,
+      .caption-icon.show {
+        background: url('../images/icons/caption.png') no-repeat center, color(caption-icon-bg);
+        height: 39px;
+        width: 39px;
+      }
+
+      .caption-icon ~ span {
+        display: none;
+      }
+
+      .caption-icon.show:after {
+        background-color: color(caption-icon-bg);
+        bottom: -2px;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+
+      .caption-icon.show ~ span {
+        display: block;
+      }
+
+      .header-image-lightbox-title {
+        color: color(main);
+        margin-left: 0;
+        margin-top: 47px;
+      }
+
+      .field-content {
+        margin-left: 0;
+        margin-top: 4px;
+        padding-bottom: 22px;
+      }
+    }
+  }
+
+  #cboxClose {
+    top: 8px;
+    right: 8px;
+  }
+
+  #cboxNext,
+  #cboxPrevious {
+    display: none !important;
+  }
+
+  #colorbox,
+  .cboxPhoto,
+  #cboxWrapper,
+  #cboxContent,
+  #cboxLoadedContent {
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  #cboxContent {
+    margin: 0;
+  }
+
+  #colorbox {
+    left: 0 !important;
+  }
+
+  #cboxLoadedContent {
+    box-sizing: border-box;
+    margin: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #cboxTitle {
+    background-color: transparent;
+    font-size: 0;
+    overflow: visible !important;
+    padding: 13px 8px !important;
+
+    .caption-icon {
+      @include sprite($caption-resp);
+      bottom: 8px;
+      left: 8px;
+      margin-top: 0;
+      top: auto;
+
+      &.show {
+        background: url('../images/icons/caption.png') no-repeat 2px center, color(caption-icon-bg);
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    &.opened {
+      @include rem(font-size, $h4);
+      background-color: color(text-on-dark);
+      color: color(main);
+
+      .caption-icon {
+        bottom: 100%;
+      }
+    }
+  }
+
+  #cboxCurrent {
+    @include rem(font-size, $p-sm);
+    bottom: auto;
+    color: color(colorbox-counter);
+    display: block !important;
+    left: 15px;
+    position: fixed;
+    top: 8px;
+  }
+}

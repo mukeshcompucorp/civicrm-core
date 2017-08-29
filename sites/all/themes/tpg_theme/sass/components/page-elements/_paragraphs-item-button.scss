@@ -1,0 +1,12 @@
+.paragraphs-item-button .field-name-field-paragraph-button {
+  @include clr;
+
+  .field-item {
+    @include rem(margin-right, 8px);
+    float: left;
+
+    a {
+      @include button;
+    }
+  }
+}
