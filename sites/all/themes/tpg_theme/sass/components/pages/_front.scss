@@ -34,16 +34,18 @@
       position: relative;
     }
 
-    .views-row:before {
-      background: url('../images/icons/arrow-down.png') center no-repeat color(header-image-arrow-bg);
+    .views-row .before {
+      background: $homepage-arrow-down center no-repeat, $front-page-gradient, $homepage-gradient repeat;
       bottom: 0;
       content: '';
+      cursor: pointer;
       display: inline-block;
       height: 40px;
       left: 50%;
       position: absolute;
       transform: translateX(-50%);
       width: 40px;
+      z-index: 2;
     }
   }
 
@@ -65,10 +67,6 @@
     border-bottom-color: color(text-on-dark);
     color: color(text-on-dark);
   }
-
-  .ajax-progress {
-    display: none;
-  }
 }
 
 @include breakpoint($md-1 0) {
@@ -88,10 +86,6 @@
       margin-left: -2px;
       margin-right: -2px;
 
-      .views-row {
-        margin-bottom: 30px;
-      }
-
       .image .tag,
       .type .tag + .field-content {
         display: none;
@@ -101,8 +95,13 @@
         @include tag;
         display: block;
         float: left;
+        margin-top: -5px;
         position: static;
       }
+    }
+
+    .pager-load-more {
+      padding-bottom: 33px;
     }
   }
 }

@@ -1,20 +1,8 @@
 .page-viewpoints {
   .view-viewpoints {
     clear: both;
-  }
-
-  // Replacing default layout to full width
-  .logo.container,
-  .header-pane .container,
-  .footer-inner.container,
-  .post-content.container {
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-  }
-
-  .header .logo a {
-    left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .viewpoints-intro {

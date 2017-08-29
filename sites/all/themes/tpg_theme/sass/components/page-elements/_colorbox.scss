@@ -48,15 +48,16 @@
 
 #cboxClose {
   background: none;
-  bottom: 100%;
+  bottom: auto;
   font-size: 0;
-  height: 19px;
-  left: 100%;
+  height: 26px;
+  left: auto;
   margin-bottom: 12px;
   margin-left: 12px;
-  right: auto;
-  top: auto;
-  width: 19px;
+  position: fixed;
+  right: 7px;
+  top: 7px;
+  width: 26px;
 
   &:after,
   &:before {
@@ -331,8 +332,6 @@
   }
 
   #cboxClose {
-    position: fixed;
-    left: auto;
     top: 8px;
     right: 8px;
   }

@@ -1526,6 +1526,13 @@ function tpg_paragraphs_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_paragraphs_page_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_paragraphs_page_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'service_links_append_to_url';
   $strongarm->value = '';
   $export['service_links_append_to_url'] = $strongarm;
@@ -1549,9 +1556,12 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_category_vocs';
   $strongarm->value = array(
-    4 => 0,
     3 => 0,
+    5 => 0,
+    4 => 0,
+    7 => 0,
     2 => 0,
+    6 => 0,
     1 => 0,
   );
   $export['service_links_category_vocs'] = $strongarm;
@@ -1615,10 +1625,15 @@ function tpg_paragraphs_strongarm() {
   $strongarm->value = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+    'viewpoint' => 'viewpoint',
     'article' => 0,
     'page' => 0,
     'document' => 0,
+    'external_links' => 0,
+    'header_image' => 0,
+    'internal_links' => 0,
     'overview_page' => 0,
+    'product_display' => 0,
     'webform' => 0,
   );
   $export['service_links_node_types'] = $strongarm;

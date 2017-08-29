@@ -4804,8 +4804,10 @@ function tpg_paragraphs_field_default_field_instances() {
       'overview' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
+        'settings' => array(
+          'trim_length' => 220,
+        ),
+        'type' => 'text_trimmed',
         'weight' => 6,
       ),
       'paragraphs_editor_preview' => array(
@@ -5140,7 +5142,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'overview_page_image_400x271',
+          'image_style' => 'overview_page_image',
         ),
         'type' => 'image',
         'weight' => 0,

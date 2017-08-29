@@ -424,6 +424,7 @@ features[variable][] = override_sharethis&quot
 features[variable][] = override_twitter
 features[variable][] = override_twitter&amp;quot
 features[variable][] = override_twitter&quot
+features[variable][] = pathauto_node_paragraphs_page_pattern
 features[variable][] = service_links_append_to_url
 features[variable][] = service_links_block_style
 features[variable][] = service_links_category_types

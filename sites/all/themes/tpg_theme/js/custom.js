@@ -3,29 +3,31 @@
 
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
-      this.nWrapper('.exhibitions-and-highlights', '.view-content .views-row', 3, context);
+      this.nWrapper('.front .exhibitions-and-highlights', '.view-content .views-row', 3, context);
+      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, context);
     },
     nWrapper: function (wrapper, el, n, context) {
       var $parent       = $(wrapper, context);
-      var $elNumber     = n;
+      var elNumber     = n;
 
       if ($parent.length) {
         var $parentLength = $parent.length;
 
         for (var i = 0; i < $parentLength; i++) {
-          var $el = $parent.eq(i).find(el);
+          var $el       = $parent.eq(i).find(el);
           var $elLength = $el.length;
 
           if (!$('.columns-wrapper').length) {
-            $parent.eq(i).prepend(`
-                <div class="columns-wrapper">
-                  <div class="col col-1 col-md-4"></div>
-                  <div class="col col-2 col-md-4"></div>
-                  <div class="col col-3 col-md-4"></div>
+              $parent.eq(i).prepend(`
+                <div class="columns-wrapper clearfix">
+                  <div class="col col-1 col-md-` + 12/elNumber + `"></div>
+                  <div class="col col-2 col-md-` + 12/elNumber + `"></div>
+                  <div class="col col-3 col-md-`  + 12/elNumber + `"></div>
                 </div>
             `);
           }
-          for(var j = 0; j < $elLength; j += 3) {
+
+          for(var j = 0; j < $elLength; j += elNumber) {
             var firstCol = $el.eq(j);
             var secondCol = $el.eq(j+1);
             var thirdCol = $el.eq(j+2);
@@ -34,7 +36,7 @@
             secondCol.appendTo('.columns-wrapper .col-2');
             thirdCol.appendTo('.columns-wrapper .col-3');
 
-            if (j >= $elLength - 3) {
+            if (j >= $elLength - elNumber) {
               $parent.addClass('show');
             }
           }
@@ -54,6 +56,25 @@
           $el.eq(i).closest('.field-item').removeClass('field-item');
         }
       }
+    }
+  };
+
+  Drupal.behaviors.arrowScrollDown = {
+    attach: function(context, settings) {
+      this.creatingEl('.front .view-header-image .views-row', '<div class="before"></div>', context);
+      this.moveToEl('.front .view-header-image .views-row .before', 'current-exhibitions-highlights', context);
+    },
+    creatingEl: function(el, markup, context) {
+      if ($(el, context).length) {
+        $(el, context).prepend(markup);
+      }
+    },
+    moveToEl: function(el, anchorName, context) {
+      $(el, context).click(function() {
+        $('html, body', context).animate({
+            scrollTop: $('a[name*=' + anchorName + ']').offset().top
+        }, 600);
+      });
     }
   };
 
@@ -196,12 +217,12 @@
 
   Drupal.behaviors.whatsOnFilter = {
     attach: function(context, settings) {
-      this.createingEl('<div class="whats-on-filter"></div>', 'resp-filter', 'Filter', context);
+      this.creatingEl('.whats-on-filter', 'resp-filter', 'Filter', context);
       this.openEl('.resp-filter', '.whats-on-filter > .content', 'show', context);
       this.searchField('.page-whats-on .who-select-prefix', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
       this.searchField('.filter-overlay', '.page-whats-on .who-select-prefix', '.page-whats-on .form-item-tid', context);
     },
-    createingEl: function(place, elClass, elText, context) {
+    creatingEl: function(place, elClass, elText, context) {
       var $place = $(place, context);
 
       if ($place && $place.length) {

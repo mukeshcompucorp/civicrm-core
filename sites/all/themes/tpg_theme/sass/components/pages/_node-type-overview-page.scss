@@ -19,11 +19,27 @@
     @include lh-fs(22px, $p-sm);
   }
 
+  .field-collection-container {
+    border: 0;
+    clear: both;
+    margin: 0;
+  }
+
+  .field-type-field-collection > .field-items > .field-item {
+    margin-bottom: 0;
+  }
+
   .field-collection-view {
-    margin-left: 0;
-    margin-right: 0;
-    padding-bottom: 0;
-    padding-top: 11px;
+    margin: 0;
+    padding: 0;
+
+    &-final {
+      padding-bottom: 5px;
+    }
+
+    &-final .field-name-field-subtitle {
+      margin-top: 0;
+    }
   }
 
   .field-name-body {
@@ -72,6 +88,10 @@
       border-bottom: 1px solid color(heading);
       text-decoration: none;
     }
+
+    h3 {
+      border-bottom: 0;
+    }
   }
 
   .field-name-read-more a,
@@ -104,7 +124,7 @@
 
     & > .field-item {
       display: inline-block;
-      margin-bottom: 34px;
+      margin-bottom: 40px;
       padding-left: 10px;
       padding-right: 10px;
       vertical-align: top;
