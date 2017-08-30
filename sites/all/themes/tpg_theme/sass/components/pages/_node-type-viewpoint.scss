@@ -70,3 +70,28 @@
     }
   }
 }
+
+@include breakpoint($md-1 0) {
+  .node-type-viewpoint {
+    .header-image {
+      margin-bottom: 16px;
+    }
+
+    h1:after,
+    .field-name-title h1:after {
+      margin-top: 27px;
+    }
+
+    .field-type-entityreference {
+      margin-top: 17px;
+
+      .col-2 .field-item:last-child {
+        margin-bottom: 5px;
+      }
+
+      .col > .field-item {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

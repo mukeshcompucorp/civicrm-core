@@ -59,6 +59,11 @@
     bottom: 84px;
     left: 15px;
     position: absolute;
+
+    .field-item {
+      @include rem(font-size, $p-sm);
+      text-transform: uppercase;
+    }
   }
 
   .field-name-title {
@@ -74,6 +79,32 @@
 
     &:after {
       display: none;
+    }
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .view-viewpoints {
+    .field-name-title {
+      bottom: 16px;
+    }
+
+    .views-row .view-mode-teaser {
+      padding: 0;
+      width: 100%;
+    }
+
+    .field-type-taxonomy-term-reference {
+      bottom: 57px;
+    }
+
+    h2 {
+      @include rem(font-size, $h1-resp);
+      border-bottom-width: 2px;
+
+      a {
+        @include rem(font-size, $h1-resp);
+      }
     }
   }
 }
