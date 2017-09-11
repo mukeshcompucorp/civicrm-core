@@ -85,6 +85,11 @@
 
 @include breakpoint($md-1 0) {
   .view-viewpoints {
+    img,
+    .views-row .view-mode-overview {
+      height: 410px;
+    }
+
     .field-name-title {
       bottom: 16px;
     }
