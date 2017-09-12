@@ -37,3 +37,23 @@
     }
   }
 }
+
+@include breakpoint($md-1 0) {
+  .block-menu-social-connectors {
+    @include clr;
+
+    ul.menu li a {
+      height: 40px;
+      width: 40px;
+
+      &.fa-facebook-f:before {
+        top: 4px;
+      }
+
+      &.fa-facebook-f:before,
+      &:before {
+        @include rem(font-size, $menu-social-resp);
+      }
+    }
+  }
+}
