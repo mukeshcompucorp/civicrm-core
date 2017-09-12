@@ -84,6 +84,17 @@ article .webform-client-form {
     width: auto;
   }
 
+
+  .webform-component-textfield .chzn-container-single .chzn-single > span,
+  .webform-component-select .chzn-container-single .chzn-single > span {
+    padding-right: 30px;
+
+    &:after {
+      border-width: 7px;
+      right: 11px;
+    }
+  }
+
   .form-item > label.error {
     @include rem(font-size, $form-error);
     color: color(form-error);
