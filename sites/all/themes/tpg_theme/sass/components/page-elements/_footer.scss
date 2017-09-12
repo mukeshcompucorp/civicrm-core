@@ -75,3 +75,21 @@
     }
   }
 }
+
+@include breakpoint($md-1 0) {
+  .footer {
+    .block-working-hours {
+      margin-bottom: 30px;
+    }
+
+    .block-menu-footer {
+      margin-bottom: 48px;
+    }
+
+    .block-arts-council-england {
+      margin-top: 80px;
+      padding: 0 10px;
+      position: static;
+    }
+  }
+}
