@@ -60,6 +60,8 @@
 
     &.opened {
       background-image: url('../images/icons/triangle-top.png');
+      position: relative;
+      z-index: -1;
     }
 
     + .temp-title {
