@@ -55,7 +55,9 @@
 
 @include breakpoint($md-1 0) {
   .footer .block-webform-stay-up-to-date {
-    max-width: 100%;
+    .webform-client-form {
+      max-width: 100%;
+    }
 
     h2:after {
       margin: 0;
