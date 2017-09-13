@@ -3,12 +3,13 @@
 
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
-      this.nWrapper('.page-home .exhibitions-and-highlights', '.view-content .views-row', 3, context);
-      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, context);
+      this.nWrapper('.page-home .exhibitions-and-highlights', '.view-content .views-row', 3, '.exhibitions-and-highlights', context);
+      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, '.field-type-entityreference > .field-items', context);
     },
-    nWrapper: function (wrapper, el, n, context) {
+    nWrapper: function (wrapper, el, n, view, context) {
       var $parent       = $(wrapper, context);
-      var elNumber     = n;
+      var $view         = $(view, context);
+      var elNumber      = n;
 
       if ($parent.length) {
         var $parentLength = $parent.length;
@@ -41,6 +42,8 @@
             }
           }
         }
+      } else if (!$parent.length && $view.length) {
+        $view.addClass('show');
       }
     }
   };

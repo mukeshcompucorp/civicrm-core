@@ -1,3 +1,4 @@
+.page-home,
 .front {
   background: $front-page-gradient;
   background-image: $homepage-gradient;
@@ -70,6 +71,7 @@
 }
 
 @include breakpoint($md-1 0) {
+  .page-home,
   .front {
     .view-header-image {
       margin-bottom: 27px;
