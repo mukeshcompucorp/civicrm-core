@@ -3,7 +3,7 @@
 
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
-      this.nWrapper('.front .exhibitions-and-highlights', '.view-content .views-row', 3, context);
+      this.nWrapper('.page-home .exhibitions-and-highlights', '.view-content .views-row', 3, context);
       this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, context);
     },
     nWrapper: function (wrapper, el, n, context) {
