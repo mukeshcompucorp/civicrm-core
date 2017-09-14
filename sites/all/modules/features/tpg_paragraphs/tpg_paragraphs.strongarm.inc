@@ -146,6 +146,9 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -166,6 +169,10 @@ function tpg_paragraphs_strongarm() {
             'visible' => TRUE,
           ),
           'overview' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'overview_original_image' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),
@@ -526,35 +533,6 @@ function tpg_paragraphs_strongarm() {
     ),
   );
   $export['field_bundle_settings_paragraphs_item__full_width_image_caption'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_paragraphs_item__full_width_image_caption_content';
-  $strongarm->value = array(
-    'view_modes' => array(
-      'paragraphs_editor_preview' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'overview' => array(
-        'custom_settings' => TRUE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(),
-      'display' => array(),
-    ),
-  );
-  $export['field_bundle_settings_paragraphs_item__full_width_image_caption_content'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -989,6 +967,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -1556,12 +1537,9 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_category_vocs';
   $strongarm->value = array(
-    3 => 0,
-    5 => 0,
     4 => 0,
-    7 => 0,
+    3 => 0,
     2 => 0,
-    6 => 0,
     1 => 0,
   );
   $export['service_links_category_vocs'] = $strongarm;
@@ -1625,15 +1603,10 @@ function tpg_paragraphs_strongarm() {
   $strongarm->value = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
-    'viewpoint' => 'viewpoint',
     'article' => 0,
     'page' => 0,
     'document' => 0,
-    'external_links' => 0,
-    'header_image' => 0,
-    'internal_links' => 0,
     'overview_page' => 0,
-    'product_display' => 0,
     'webform' => 0,
   );
   $export['service_links_node_types'] = $strongarm;

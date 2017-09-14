@@ -448,33 +448,28 @@ function tpg_paragraphs_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
-    'field_paragraphs_date_published' => array(
+    'field_paragraphs_overview_image' => array(
       'formatter_settings' => array(
         'ft' => array(),
       ),
     ),
-    'field_paragraph_title' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'ow' => TRUE,
-          'ow-el' => 'div',
-          'ow-cl' => 'title',
-          'ow-def-cl' => TRUE,
-          'ow-at' => '',
-          'ow-def-at' => FALSE,
-          'fi' => TRUE,
-          'fi-el' => 'h3',
-          'fi-cl' => '',
-          'fi-at' => '',
-          'fi-def-at' => FALSE,
-          'fi-odd-even' => FALSE,
-          'fi-first-last' => FALSE,
-        ),
-      ),
-    ),
   );
   $export['paragraphs_item|title_section|overview'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'paragraphs_item|title_section|overview_original_image';
+  $ds_fieldsetting->entity_type = 'paragraphs_item';
+  $ds_fieldsetting->bundle = 'title_section';
+  $ds_fieldsetting->view_mode = 'overview_original_image';
+  $ds_fieldsetting->settings = array(
+    'event_start_end_dates' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+  );
+  $export['paragraphs_item|title_section|overview_original_image'] = $ds_fieldsetting;
 
   return $export;
 }
@@ -2074,6 +2069,16 @@ function tpg_paragraphs_ds_view_modes_info() {
     'paragraphs_item' => 'paragraphs_item',
   );
   $export['overview'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'overview_original_image';
+  $ds_view_mode->label = 'Overview - Original Image';
+  $ds_view_mode->entities = array(
+    'node' => 'node',
+    'paragraphs_item' => 'paragraphs_item',
+  );
+  $export['overview_original_image'] = $ds_view_mode;
 
   return $export;
 }

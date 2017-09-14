@@ -277,25 +277,6 @@ function tpg_paragraphs_image_default_styles() {
     ),
   );
 
-  // Exported image style: overview_page_image_400x324.
-  $styles['overview_page_image_400x324'] = array(
-    'label' => 'Overview page Image 400x324',
-    'effects' => array(
-      1 => array(
-        'name' => 'manualcrop_crop_and_scale',
-        'data' => array(
-          'width' => 400,
-          'height' => 324,
-          'upscale' => 1,
-          'respectminimum' => 1,
-          'onlyscaleifcrop' => 0,
-          'style_name' => 'overview_page_image_400x324',
-        ),
-        'weight' => 0,
-      ),
-    ),
-  );
-
   // Exported image style: responsive_custom_user_header_image_mobile_1x.
   $styles['responsive_custom_user_header_image_mobile_1x'] = array(
     'label' => 'responsive_custom_user_header_image_mobile_1x',
