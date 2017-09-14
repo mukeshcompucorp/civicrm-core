@@ -119,12 +119,8 @@ function tpg_viewpoints_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'viewpoint_header_image',
-        ),
-        'type' => 'image',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'overview' => array(
@@ -174,7 +170,7 @@ function tpg_viewpoints_field_default_field_instances() {
           'viewpoint_header_image' => 'viewpoint_header_image',
         ),
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 0,
+        'manualcrop_thumblist' => 1,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -442,7 +438,7 @@ function tpg_viewpoints_field_default_field_instances() {
           'viewpoint_overview_image_-_half_width' => 'viewpoint_overview_image_-_half_width',
         ),
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 0,
+        'manualcrop_thumblist' => 1,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
