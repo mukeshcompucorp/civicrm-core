@@ -85,11 +85,11 @@ function tpg_viewpoints_image_default_styles() {
   $styles['viewpoint_overview_image'] = array(
     'label' => 'Viewpoint Overview Image',
     'effects' => array(
-      2 => array(
+      1 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 1240,
-          'height' => 606,
+          'width' => 1920,
+          'height' => 935,
           'upscale' => 0,
           'respectminimum' => 1,
           'onlyscaleifcrop' => 0,

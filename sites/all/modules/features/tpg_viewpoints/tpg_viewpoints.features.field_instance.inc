@@ -72,7 +72,7 @@ function tpg_viewpoints_field_default_field_instances() {
         'settings' => array(
           'links' => 0,
           'use_content_language' => 1,
-          'view_mode' => 'overview',
+          'view_mode' => 'overview_original_image',
         ),
         'type' => 'entityreference_entity_view',
         'weight' => 4,
@@ -119,8 +119,12 @@ function tpg_viewpoints_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'viewpoint_header_image',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
       'overview' => array(
@@ -170,7 +174,7 @@ function tpg_viewpoints_field_default_field_instances() {
           'viewpoint_header_image' => 'viewpoint_header_image',
         ),
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 1,
+        'manualcrop_thumblist' => 0,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -438,7 +442,7 @@ function tpg_viewpoints_field_default_field_instances() {
           'viewpoint_overview_image_-_half_width' => 'viewpoint_overview_image_-_half_width',
         ),
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 1,
+        'manualcrop_thumblist' => 0,
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
