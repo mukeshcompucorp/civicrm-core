@@ -546,7 +546,7 @@ function tpg_paragraphs_strongarm() {
       'full' => array(
         'custom_settings' => FALSE,
       ),
-    'diff_standard' => array(
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
       'token' => array(
@@ -1566,9 +1566,12 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_category_vocs';
   $strongarm->value = array(
-    4 => 0,
     3 => 0,
+    5 => 0,
+    4 => 0,
+    7 => 0,
     2 => 0,
+    6 => 0,
     1 => 0,
   );
   $export['service_links_category_vocs'] = $strongarm;
@@ -1632,10 +1635,15 @@ function tpg_paragraphs_strongarm() {
   $strongarm->value = array(
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+    'viewpoint' => 'viewpoint',
     'article' => 0,
     'page' => 0,
     'document' => 0,
+    'external_links' => 0,
+    'header_image' => 0,
+    'internal_links' => 0,
     'overview_page' => 0,
+    'product_display' => 0,
     'webform' => 0,
   );
   $export['service_links_node_types'] = $strongarm;
