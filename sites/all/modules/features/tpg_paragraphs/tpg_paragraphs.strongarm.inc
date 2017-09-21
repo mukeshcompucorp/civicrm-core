@@ -146,6 +146,9 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -166,6 +169,10 @@ function tpg_paragraphs_strongarm() {
             'visible' => TRUE,
           ),
           'overview' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'overview_original_image' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),
@@ -989,6 +996,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
