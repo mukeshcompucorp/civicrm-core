@@ -12,4 +12,24 @@
   .pager-load-more a {
     background-color: color(text-on-dark);
   }
+
+  .whats-on-description {
+    margin-bottom: 48px;
+  }
+
+  .view-viewpoints .card-tag {
+    @include viewpoint;
+    display: block;
+    float: left;
+    font-size: $p-sm;
+    margin-right: 10px;
+    max-width: none;
+    padding: 6px 9px 2px;
+    position: relative;
+    top: -4px;
+
+    + * {
+      float: left;
+    }
+  }
 }

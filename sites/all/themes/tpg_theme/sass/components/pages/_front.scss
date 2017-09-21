@@ -58,6 +58,7 @@
       display: none;
     }
 
+    .field-content,
     .date-display-range {
       letter-spacing: 1px;
     }
@@ -83,9 +84,6 @@
     }
 
     .whats-on {
-      margin-left: -2px;
-      margin-right: -2px;
-
       .image .tag,
       .type .tag + .field-content {
         display: none;
@@ -103,5 +101,12 @@
     .pager-load-more {
       padding-bottom: 33px;
     }
+  }
+}
+
+@include breakpoint($tablet-1 0) {
+  .front .whats-on {
+    margin-left: -2px;
+    margin-right: -2px;
   }
 }

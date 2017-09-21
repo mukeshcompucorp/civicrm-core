@@ -4,14 +4,13 @@
 
   h2 {
     @include clr;
-    @include lh-fs(18px, $h4);
-    border-bottom: 0;
-    color: color(heading);
+    @include lh-fs(14px, $h4);
+    border-width: 1px;
+    color: color(text);
     display: inline-block;
     font-weight: $bold;
     max-width: 100%;
     overflow: hidden;
-    text-decoration: underline;
     text-overflow: ellipsis;
     white-space: nowrap;
 

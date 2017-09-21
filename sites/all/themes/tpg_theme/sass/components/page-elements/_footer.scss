@@ -76,7 +76,7 @@
   }
 }
 
-@include breakpoint($md-1 0) {
+@include breakpoint($tablet-1 0) {
   .footer {
     .block-working-hours {
       margin-bottom: 30px;
