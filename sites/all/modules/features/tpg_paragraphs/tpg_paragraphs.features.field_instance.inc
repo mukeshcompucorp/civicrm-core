@@ -4833,10 +4833,10 @@ function tpg_paragraphs_field_default_field_instances() {
       'overview' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'type' => 'text_trimmed',
         'settings' => array(
           'trim_length' => 220,
         ),
+        'type' => 'text_trimmed',
         'weight' => 6,
       ),
       'overview_original_image' => array(
@@ -4936,7 +4936,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 2,
       ),
     ),
