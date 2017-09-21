@@ -869,7 +869,7 @@ function tpg_events_views_default_views() {
     199295989 => 0,
   );
   $handler->display->display_options['filters']['field_event_dates_value_1']['granularity'] = 'year';
-  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-3:+0';
+  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-5:+0';
   /* Filter criterion: Paragraphs item: Event Type (field_paragraphs_event_type) */
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['id'] = 'field_paragraphs_event_type_tid';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['table'] = 'field_data_field_paragraphs_event_type';
