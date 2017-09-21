@@ -93,6 +93,14 @@ function tpg_homepage_views_default_views() {
     'image_style' => 'homepage_header_image_1920x1000',
     'image_link' => '',
   );
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['nothing']['element_wrapper_class'] = 'current-exhibitions-highlights';
   $export['header_image'] = $view;
 
   $view = new view();
@@ -178,7 +186,7 @@ function tpg_homepage_views_default_views() {
   /* Display: Current Exhibitions Highlights */
   $handler = $view->new_display('block', 'Current Exhibitions Highlights', 'current_exhibitions_highlights_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = '<a name="current-exhibitions-highlights"></a>Current Exhibitions and Highlights';
+  $handler->display->display_options['title'] = 'Current Exhibitions and Highlights';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'exhibitions-and-highlights row whats-on';
   $handler->display->display_options['defaults']['pager'] = FALSE;

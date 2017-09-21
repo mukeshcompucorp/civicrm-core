@@ -38,7 +38,7 @@
   }
 }
 
-@include breakpoint($md-1 0) {
+@include breakpoint($tablet-1 0) {
   .block-menu-social-connectors {
     @include clr;
 

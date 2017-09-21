@@ -123,7 +123,6 @@
   }
 }
 
-
 #cboxNext,
 #cboxPrevious {
   margin-top: -40px;
@@ -161,11 +160,16 @@
   [class*="field-caption"] {
     @include container;
     margin-bottom: 13px;
-    margin-top: 0;
+    margin-top: 2px;
     min-height: 32px;
     padding-top: 5px;
     position: relative;
     text-align: left;
+
+    .left,
+    .right {
+      display: none;
+    }
 
     .caption-icon {
       @include sprite($caption);
@@ -243,6 +247,7 @@
 
     &:hover {
       cursor: pointer;
+      opacity: .2;
     }
   }
 
@@ -279,38 +284,20 @@
       margin-top: -39px;
       min-height: 39px;
 
-      &.opened:before {
-        background: color(page-bg);
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 2px;
-        left: 0;
-        position: absolute;
-        top: 39px;
-        width: 100%;
+      .caption-icon {
+        background: url('../images/icons/caption.png') no-repeat center, color(caption-icon-bg);
+        height: 39px;
+        width: 39px;
       }
 
-      .caption-icon,
       .caption-icon.show {
-        background: url('../images/icons/caption.png') no-repeat center, color(caption-icon-bg);
+        background: url('../images/icons/caption-close.png') no-repeat center, color(caption-icon-bg);
         height: 39px;
         width: 39px;
       }
 
       .caption-icon ~ span {
         display: none;
-      }
-
-      .caption-icon.show:after {
-        background-color: color(caption-icon-bg);
-        bottom: -2px;
-        content: '';
-        display: block;
-        height: 2px;
-        left: 0;
-        position: absolute;
-        width: 100%;
       }
 
       .caption-icon.show ~ span {

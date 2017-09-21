@@ -69,7 +69,7 @@
       color: color(main);
       height: 100%;
       left: 0;
-      padding: 5px 6px 6px 10px;
+      padding: 6px 6px 4px 10px;
       position: absolute;
       right: 0;
       text-transform: uppercase;
@@ -85,6 +85,10 @@
   .ranges {
     background-color: color(form-bg);
     margin: 0;
+
+    ul {
+      width: 168px;
+    }
   }
 
   .ranges li {
@@ -128,6 +132,10 @@
     &-table {
       border-radius: 0;
       padding: 1px 5px 10px;
+    }
+
+    &.right {
+      display: none;
     }
 
     &.left {
@@ -241,6 +249,10 @@
     left: 0 !important;
     right: 0 !important;
     width: 100%;
+
+    .ranges ul {
+      width: 100%;
+    }
 
     &.ltr .calendar.left {
       margin-right: 0;

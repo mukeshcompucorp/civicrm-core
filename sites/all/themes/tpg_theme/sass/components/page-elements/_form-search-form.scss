@@ -44,6 +44,7 @@
 
   input.form-text {
     @include lh-fs($form-search-font-size, $form-search-font-size);
+    height: 26px;
     padding: 4px 10px 0 36px;
     width: 100%;
 

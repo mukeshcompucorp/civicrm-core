@@ -3,10 +3,10 @@
 
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
-      this.nWrapper('.front .exhibitions-and-highlights', '.view-content .views-row', 3, context);
-      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, context);
+      this.nWrapper('.front .exhibitions-and-highlights', '.view-content .views-row', 3, 'sm', context);
+      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, 'md', context);
     },
-    nWrapper: function (wrapper, el, n, context) {
+    nWrapper: function (wrapper, el, n, breakpoint, context) {
       var $parent  = $(wrapper, context);
       var elNumber = n;
 
@@ -20,14 +20,14 @@
           if (!$('.columns-wrapper').length) {
               $parent.eq(i).prepend(`
                 <div class="columns-wrapper clearfix">
-                  <div class="col col-1 col-md-` + 12/elNumber + `"></div>
-                  <div class="col col-2 col-md-` + 12/elNumber + `"></div>
-                  <div class="col col-3 col-md-`  + 12/elNumber + `"></div>
+                  <div class="col col-1 col-` + breakpoint + `-` + 12/elNumber + `"></div>
+                  <div class="col col-2 col-` + breakpoint + `-` + 12/elNumber + `"></div>
+                  <div class="col col-3 col-` + breakpoint + `-` + 12/elNumber + `"></div>
                 </div>
             `);
           }
 
-          for(var j = 0; j < $elLength; j += elNumber) {
+          for (var j = 0; j < $elLength; j += elNumber) {
             var firstCol  = $el.eq(j);
             var secondCol = $el.eq(j+1);
             var thirdCol  = $el.eq(j+2);
@@ -65,7 +65,7 @@
 
   Drupal.behaviors.chosenInclude = {
     attach: function(context, settings) {
-      setTimeout(function(){
+      setTimeout(function() {
         $('select', context).chosen();
       }, 10);
     },
@@ -88,17 +88,17 @@
   Drupal.behaviors.arrowScrollDown = {
     attach: function(context, settings) {
       this.creatingEl('.front .view-header-image .views-row', '<div class="before"></div>', context);
-      this.moveToEl('.front .view-header-image .views-row .before', 'current-exhibitions-highlights', context);
+      this.moveToEl('.front .view-header-image .views-row .before', '.current-exhibitions-highlights', context);
     },
     creatingEl: function(el, markup, context) {
       if ($(el, context).length) {
         $(el, context).prepend(markup);
       }
     },
-    moveToEl: function(el, anchorName, context) {
+    moveToEl: function(el, anchor, context) {
       $(el, context).click(function() {
         $('html, body', context).animate({
-            scrollTop: $('a[name*=' + anchorName + ']').offset().top
+            scrollTop: $(anchor, context).offset().top
         }, 600);
       });
     }
@@ -341,6 +341,18 @@
       }
 
       $paragraphsItemNext.prepend($viewpointTag);
+
+      this.moveTag('.page-viewpoints .view-viewpoints .views-row', '.field-type-taxonomy-term-reference', context);
+    },
+    moveTag: function(el, place, context) {
+      var $el      = $(el, context);
+      var elLength = $el.length;
+      console.log($el);
+      if (elLength) {
+        for (var i = 0; i < elLength; i++) {
+          $el.eq(i).find('.card-tag').prependTo($el.eq(i).find(place));
+        }
+      }
     }
   };
 
@@ -376,7 +388,7 @@
     changingHeaderBg: function(el, backgroundEl, hashColor, context) {
       var wWidth = $(window).width();
 
-      $(window, context).resize(function(){
+      $(window, context).resize(function() {
         wWidth = $(window, context).width();
         if ($(el, context).length && wWidth >= 992 || $('.view-header-video .video-embed-description').length) {
           $(backgroundEl, context).css('background-color', hashColor);
@@ -395,6 +407,7 @@
 
   $(document).ajaxComplete(function(event, xhr, settings) {
     Drupal.behaviors.multipleBlocks.attach();
+    Drupal.behaviors.viewpointTags.moveTag('.page-viewpoints .view-viewpoints .views-row', '.field-type-taxonomy-term-reference');
   });
 
 })(jQuery);
