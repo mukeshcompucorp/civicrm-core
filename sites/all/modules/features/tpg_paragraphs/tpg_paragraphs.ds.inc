@@ -448,6 +448,11 @@ function tpg_paragraphs_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
+    'field_paragraphs_date_published' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
     'field_paragraphs_overview_image' => array(
       'formatter_settings' => array(
         'ft' => array(),
