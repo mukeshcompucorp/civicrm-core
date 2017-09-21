@@ -148,10 +148,10 @@ function tpg_paragraphs_image_default_styles() {
   $styles['full_width_image_1285x500'] = array(
     'label' => 'Full Width Image 1285x500',
     'effects' => array(
-      3 => array(
+      2 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 1285,
+          'width' => 1920,
           'height' => 500,
           'upscale' => 1,
           'respectminimum' => 1,
