@@ -227,6 +227,13 @@ function tpg_viewpoints_views_default_views() {
     'title_section' => 'title_section',
   );
   $handler->display->display_options['filters']['bundle']['group'] = 1;
+  /* Filter criterion: Content: Form (field_form) */
+  $handler->display->display_options['filters']['field_form_tid_1']['id'] = 'field_form_tid_1';
+  $handler->display->display_options['filters']['field_form_tid_1']['table'] = 'field_data_field_form';
+  $handler->display->display_options['filters']['field_form_tid_1']['field'] = 'field_form_tid';
+  $handler->display->display_options['filters']['field_form_tid_1']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_form_tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['field_form_tid_1']['vocabulary'] = 'form';
 
   /* Display: All Content */
   $handler = $view->new_display('page', 'All Content', 'all_content');
