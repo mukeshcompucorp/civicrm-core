@@ -503,6 +503,11 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'title_section';
   $ds_fieldsetting->view_mode = 'overview_original_image';
   $ds_fieldsetting->settings = array(
+    'event_start_end_dates' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'field_paragraph_description' => array(
       'formatter_settings' => array(
         'ft' => array(
