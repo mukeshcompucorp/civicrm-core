@@ -210,6 +210,7 @@
   .field-content {
     font-size: 0;
     overflow: hidden;
+    position: relative;
     text-align: center;
 
     a ~ a {
@@ -394,5 +395,14 @@
     left: 15px;
     position: fixed;
     top: 8px;
+  }
+}
+
+@include breakpoint($tablet-1 0) {
+  .header-image-lightbox {
+    img,
+    a.colorbox {
+      height: 75vh;
+    }
   }
 }

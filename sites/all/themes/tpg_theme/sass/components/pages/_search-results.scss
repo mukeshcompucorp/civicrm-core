@@ -71,3 +71,9 @@
     overflow: hidden;
   }
 }
+
+@include breakpoint($tablet-1 0) {
+  .page-search .search-overview-image {
+    height: 215px;
+  }
+}
