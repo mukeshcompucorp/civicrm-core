@@ -29,6 +29,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 21,
       ),
+      'overview_original_image' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -78,6 +84,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 19,
+      ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -141,6 +153,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 12,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -186,6 +204,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 16,
+      ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -250,6 +274,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -294,6 +324,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 20,
+      ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -340,6 +376,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 18,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -382,6 +424,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 17,
+      ),
+      'overview_original_image' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -477,6 +525,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 13,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -521,6 +575,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 5,
+      ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -588,6 +648,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 14,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -643,6 +709,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 15,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -690,6 +762,15 @@ function tpg_events_field_default_field_instances() {
         'module' => 'paragraphs',
         'settings' => array(
           'view_mode' => 'overview',
+        ),
+        'type' => 'paragraphs_view',
+        'weight' => 0,
+      ),
+      'overview_original_image' => array(
+        'label' => 'hidden',
+        'module' => 'paragraphs',
+        'settings' => array(
+          'view_mode' => 'overview_original_image',
         ),
         'type' => 'paragraphs_view',
         'weight' => 0,
@@ -798,6 +879,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -896,6 +983,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 22,
       ),
+      'overview_original_image' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -948,6 +1041,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 23,
+      ),
+      'overview_original_image' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1007,6 +1106,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 25,
       ),
+      'overview_original_image' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 28,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1055,6 +1160,12 @@ function tpg_events_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1099,6 +1210,12 @@ function tpg_events_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'overview_original_image' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',

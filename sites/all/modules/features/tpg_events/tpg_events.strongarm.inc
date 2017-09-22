@@ -190,6 +190,9 @@ function tpg_events_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

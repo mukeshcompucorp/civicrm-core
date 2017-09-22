@@ -12,6 +12,21 @@ function tpg_paragraphs_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|paragraphs_page|overview_original_image';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'paragraphs_page';
+  $ds_fieldsetting->view_mode = 'overview_original_image';
+  $ds_fieldsetting->settings = array(
+    'read_more_node' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+  );
+  $export['node|paragraphs_page|overview_original_image'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'paragraphs_item|2_column_left_text_only|full';
   $ds_fieldsetting->entity_type = 'paragraphs_item';
   $ds_fieldsetting->bundle = '2_column_left_text_only';
@@ -281,11 +296,6 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'image_left_text_right';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'field_paragraph_left_image' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
-      ),
-    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -488,10 +498,12 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'title_section';
   $ds_fieldsetting->view_mode = 'overview_original_image';
   $ds_fieldsetting->settings = array(
-    'event_start_end_dates' => array(
-      'weight' => '4',
-      'label' => 'hidden',
-      'format' => 'default',
+    'field_paragraph_description' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'suffix' => '...',
+        ),
+      ),
     ),
   );
   $export['paragraphs_item|title_section|overview_original_image'] = $ds_fieldsetting;
@@ -585,6 +597,37 @@ function tpg_paragraphs_ds_custom_fields_info() {
  */
 function tpg_paragraphs_ds_layout_settings_info() {
   $export = array();
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|paragraphs_page|overview_original_image';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'paragraphs_page';
+  $ds_layout->view_mode = 'overview_original_image';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_paragraphs_content',
+        1 => 'read_more_node',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraphs_content' => 'ds_content',
+      'read_more_node' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['node|paragraphs_page|overview_original_image'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
@@ -1005,9 +1048,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
     ),
     'classes' => array(),
     'wrappers' => array(
-      'sidebar_first' => 'div',
       'center' => 'div',
-      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -1069,9 +1110,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
     ),
     'classes' => array(),
     'wrappers' => array(
-      'sidebar_first' => 'div',
       'center' => 'div',
-      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -1362,14 +1401,15 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_2col';
   $ds_layout->settings = array(
-    'regions' => array(),
-    'fields' => array(),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
     'layout_disable_css' => 0,
   );
@@ -1877,9 +1917,7 @@ function tpg_paragraphs_ds_layout_settings_info() {
     ),
     'classes' => array(),
     'wrappers' => array(
-      'sidebar_first' => 'div',
       'center' => 'div',
-      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -2046,6 +2084,45 @@ function tpg_paragraphs_ds_layout_settings_info() {
     'layout_disable_css' => FALSE,
   );
   $export['paragraphs_item|title_section|overview'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'paragraphs_item|title_section|overview_original_image';
+  $ds_layout->entity_type = 'paragraphs_item';
+  $ds_layout->bundle = 'title_section';
+  $ds_layout->view_mode = 'overview_original_image';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_paragraphs_overview_image',
+        1 => 'field_paragraphs_type',
+        2 => 'field_paragraphs_event_type',
+        3 => 'field_paragraphs_date_published',
+        4 => 'field_paragraph_title',
+        5 => 'field_paragraph_description',
+      ),
+    ),
+    'fields' => array(
+      'field_paragraphs_overview_image' => 'ds_content',
+      'field_paragraphs_type' => 'ds_content',
+      'field_paragraphs_event_type' => 'ds_content',
+      'field_paragraphs_date_published' => 'ds_content',
+      'field_paragraph_title' => 'ds_content',
+      'field_paragraph_description' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['paragraphs_item|title_section|overview_original_image'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
