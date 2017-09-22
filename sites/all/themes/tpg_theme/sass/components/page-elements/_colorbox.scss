@@ -397,3 +397,12 @@
     top: 8px;
   }
 }
+
+@include breakpoint($tablet-1 0) {
+  .header-image-lightbox {
+    img,
+    a.colorbox {
+      @include rem(height, 350px);
+    }
+  }
+}
