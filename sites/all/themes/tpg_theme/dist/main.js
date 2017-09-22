@@ -7618,7 +7618,6 @@ return $;
     moveTag: function(el, place, context) {
       var $el      = $(el, context);
       var elLength = $el.length;
-      console.log($el);
       if (elLength) {
         for (var i = 0; i < elLength; i++) {
           $el.eq(i).find('.card-tag').prependTo($el.eq(i).find(place));
