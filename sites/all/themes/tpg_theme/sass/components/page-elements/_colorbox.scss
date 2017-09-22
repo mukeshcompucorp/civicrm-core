@@ -402,7 +402,7 @@
   .header-image-lightbox {
     img,
     a.colorbox {
-      @include rem(height, 350px);
+      height: 75vh;
     }
   }
 }
