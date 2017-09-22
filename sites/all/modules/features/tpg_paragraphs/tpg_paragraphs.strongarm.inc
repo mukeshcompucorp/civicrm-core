@@ -206,6 +206,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -237,6 +240,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -270,6 +276,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -301,6 +310,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -334,6 +346,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -365,6 +380,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -398,6 +416,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -429,6 +450,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -462,6 +486,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -493,6 +520,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -526,6 +556,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -553,6 +586,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'overview_original_image' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -587,6 +623,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -619,6 +658,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -648,6 +690,9 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -675,6 +720,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'overview_original_image' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -709,6 +757,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -740,6 +791,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -773,6 +827,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -804,6 +861,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -837,6 +897,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -868,6 +931,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'token' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -901,6 +967,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -929,6 +998,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'overview' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -961,6 +1033,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
