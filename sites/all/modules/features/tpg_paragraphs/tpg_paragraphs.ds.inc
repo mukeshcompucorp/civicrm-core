@@ -296,6 +296,11 @@ function tpg_paragraphs_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'image_left_text_right';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
+    'field_paragraph_left_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
     'field_paragraph_title' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -1048,7 +1053,9 @@ function tpg_paragraphs_ds_layout_settings_info() {
     ),
     'classes' => array(),
     'wrappers' => array(
+      'sidebar_first' => 'div',
       'center' => 'div',
+      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -1110,7 +1117,9 @@ function tpg_paragraphs_ds_layout_settings_info() {
     ),
     'classes' => array(),
     'wrappers' => array(
+      'sidebar_first' => 'div',
       'center' => 'div',
+      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
@@ -1401,15 +1410,14 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->view_mode = 'default';
   $ds_layout->layout = 'ds_2col';
   $ds_layout->settings = array(
+    'regions' => array(),
+    'fields' => array(),
     'classes' => array(),
-    'wrappers' => array(
-      'left' => 'div',
-      'right' => 'div',
-    ),
+    'wrappers' => array(),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
+    'layout_attributes_merge' => TRUE,
+    'layout_link_attribute' => FALSE,
     'layout_link_custom' => '',
     'layout_disable_css' => 0,
   );
@@ -1917,7 +1925,9 @@ function tpg_paragraphs_ds_layout_settings_info() {
     ),
     'classes' => array(),
     'wrappers' => array(
+      'sidebar_first' => 'div',
       'center' => 'div',
+      'sidebar_second' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
