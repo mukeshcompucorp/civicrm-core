@@ -33,14 +33,14 @@
   .field-name-field-paragraphs-event-type,
   .field-name-field-paragraphs-type {
     float: left;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
     text-transform: uppercase;
   }
 
   .field-name-event-start-end-dates,
   .field-name-field-paragraphs-date-published {
     float: right;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
 
     ~ * {
       clear: both;
