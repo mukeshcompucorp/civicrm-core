@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function tpg_theme_preprocess_html(&$vars) {
+  // Setting head title.
+  if ($vars['is_front']) {
+    $vars['head_title'] = t('Home | ') . $vars['head_title'];
+  }
+}
+
+/**
  * Implements hook_css_alter().
  */
 function tpg_theme_css_alter(&$css) {

@@ -280,6 +280,8 @@ function tpg_events_views_default_views() {
 
   /* Display: Now & Upcoming */
   $handler = $view->new_display('page', 'Now & Upcoming', 'now_upcoming_view_page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'What\'s On';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
@@ -650,6 +652,8 @@ function tpg_events_views_default_views() {
 
   /* Display: Past Programme */
   $handler = $view->new_display('page', 'Past Programme', 'past_programme_view_page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'What\'s On';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;

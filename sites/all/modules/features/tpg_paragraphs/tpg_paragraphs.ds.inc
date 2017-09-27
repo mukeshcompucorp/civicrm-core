@@ -493,6 +493,11 @@ function tpg_paragraphs_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_paragraph_description' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['paragraphs_item|title_section|overview'] = $ds_fieldsetting;
 
@@ -2033,7 +2038,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
       ),
       'center' => array(
         5 => 'field_paragraphs_tags_viewpoints',
-        6 => 'field_paragraph_description',
       ),
     ),
     'fields' => array(
@@ -2043,7 +2047,6 @@ function tpg_paragraphs_ds_layout_settings_info() {
       'event_start_end_dates' => 'header',
       'field_paragraph_title' => 'header',
       'field_paragraphs_tags_viewpoints' => 'center',
-      'field_paragraph_description' => 'center',
     ),
     'classes' => array(),
     'wrappers' => array(
