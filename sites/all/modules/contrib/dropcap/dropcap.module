@@ -1,0 +1,225 @@
+<?php 
+// $Id: dropcap.module,v 1.4.2.1 2010/03/02 17:15:26 lefnire Exp $ 
+
+/**
+*  Implementation of hook_menu
+*/
+function dropcap_menu() {
+  $items = array();
+  $items['admin/appearance/dropcap'] = array(
+    'title' => 'Drop Cap',
+    'description' => 'Configure drop cap settings (selectors, images, etc).',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('dropcap_admin_settings'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 10,
+    'access arguments' => array('administer site configuration'),
+  );
+  return $items;
+}
+
+/**
+*  Admin settings page, creates a textarea where users enter the jQuery selectors for dropcaps.
+*/
+function dropcap_admin_settings(){
+	$form = array();
+  $form['dropcap'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Drop Cap Settings'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+  
+  $form['dropcap']['advanced'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Advanced Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#weight' => 10
+  );
+  
+  $form['titling'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Titling Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  
+	  /* jquery selector */
+	  $form['dropcap']['dropcap_selectors'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Drop Cap paragraph selectors'),
+	    '#default_value' => variable_get('dropcap_selectors', ''),
+	    '#description' => t('Specify which jQuery selectors are to have a drop cap as their first letter. E.g., "#main_content p:first" for the first paragraph of the main content, and "#main_content p" would dropcap all paragraphs in #main_content. Enter one per line. Do not include quotes. Drop cap casing will not be applied until some selectors are specified. This module ignores anything wrapped in a tag that is not specified, so for instance, if you specify a paragraph and that paragraph\'s first letter is wrapped in a link tag, it will not be dropcapped. This means that you can also wrap first letters in the alternate dropcapping class below (if "Search for abitrary letters to dropcap" is turned on) to select alternate letters, like if you had two differen "a", "a" and "a2". More info on that below. More info on jQuery selectors in the README.txt file included with this module.'),
+	  );
+	  
+	  /* alphabet image set */
+	  $alphabet_dirs = glob(drupal_get_path('module','dropcap').'/alphabet/*',GLOB_ONLYDIR);
+    $enabled_themes = list_themes();
+    foreach ($enabled_themes as $theme) {
+      $path = drupal_get_path('theme', $theme->name);
+      $theme_alphabet_dirs = glob($path.'/dropcap/*',GLOB_ONLYDIR);
+      if (isset($theme_alphabet_dirs[0])) {
+        $alphabet_dirs =  array_merge($theme_alphabet_dirs, $alphabet_dirs);
+      }
+    }
+	  $options = array();
+	  foreach($alphabet_dirs as $dir){
+	  	preg_match( '|(?<=/)[^/]+$|', (string)$dir, $matches );
+		  if($matches[0]!='CVS') {
+        $options[$dir]=$matches[0];
+      }
+	  }
+	  $options['spans'] = 'span tags (no font images)';
+	  
+    $default_path = drupal_get_path('module', 'dropcap') . '/alphabet/default';
+    
+	  $form['dropcap']['dropcap_alphabet'] = array(
+	  	'#type' => 'select',
+  		'#title' => t('Select alphabet image set'),
+  		'#options' => $options,
+  		'#default_value' => variable_get('dropcap_alphabet', array('default' => $default_path)),
+  		'#description' => t('Select "span tags (no font images)" to wrap the first letter with a span tag and style with CSS, rather than using font images. Module searches for files named lettername.png or lettername.gif in the directory specified. All of the files must be the same, either gif or png. If you have random text files in the directory with readme or license information, make sure that the first file in the directory by alphabetical listing bears the ending .gif or .png.'),
+	  );
+    
+	  $form['dropcap']['advanced']['non_alpha_chars'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Non-alphabet Characters to Drop Cap'),
+	    '#default_value' => variable_get('non_alpha_chars', ""),
+	    '#description' => t('If you want to select characters to drop cap that are not A-Z (either capital or not-capital) add them here. You\'ll need to also create an image file for them, of course. Quotes, single and double, are supported, those files should be singlequote.png and quote.png. Period images should be named period.png. Forward and back slash are supported, forwardslash.png and backslash.png. &lt; and &gt; are not supported. Each character should be on a new line. Enter the character itself, not the character name.'),
+	  );
+    
+		$form['dropcap']['advanced']['dropcap_spacer_spans_before'] = array(
+	  	'#type' => 'textfield',
+  		'#title' => t('Number of spacer spans to place before image.'),
+  		'#default_value' => variable_get('dropcap_spacer_spans_before', '0'),
+  		'#description' => t('This adds span spacers before or after the image. Enabling this also turns on extra body and content classes, because if you\'re using span tags like this, I assume you\'re doing fancy illuminations. See the readme for more information.'),
+    );
+    
+		$form['dropcap']['advanced']['dropcap_spacer_spans_after'] = array(
+	  	'#type' => 'textfield',
+  		'#title' => t('Number of spacer spans to place after image.'),
+  		'#default_value' => variable_get('dropcap_spacer_spans_after', '0'),
+  		'#description' => t('See description of "Number of spacer spans to place before image."'),
+    );
+    
+	  $form['dropcap']['advanced']['dropcap_excludes'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Selectors to exclude for automatic first-letter dropcapping'),
+	    '#default_value' => variable_get('dropcap_excludes', ''),
+	    '#description' => t('These jQuery selectors will be filtered and excluded for automatic first letter drop capping. These excludes do not count towards arbitrary dropcapping below, only towards automatic first letter dropcapping. All children of the selector will also be excluded. More info on jQuery selectors in the README.txt file included with this module.'),
+	  );
+	
+		$form['dropcap']['advanced']['dropcap_dropcapify_arbitrary'] = array(
+	  	'#type' => 'checkbox',
+  		'#title' => t('Search for abitrary letters to dropcap'),
+  		'#default_value' => variable_get('dropcap_dropcapify_arbitrary', '0'),
+  		'#description' => t('Dropcapify arbitrary letters using &lt;span dropcap-arbitrary-my-letter-name&gt;my-letter&lt;/span&gt;. Dropcap will look for the file my-letter-name.png (as specified by the class) in the directory specified under "Select alphabet image set" above and add that image and normal dropcap classes, while using my-letter for the alt text.'),
+    );
+    
+	  $form['dropcap']['advanced']['dropcap_arbitrary_excludes'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Selectors to exclude for arbitrary dropcapping'),
+	    '#default_value' => variable_get('dropcap_arbitrary_excludes', ''),
+	    '#description' => t('These jQuery selectors will be filtered and excluded for only dropcap arbitrary spans. These excludes to not count towards automatic first-letter dropcapping above. All children of the selector will also be excluded. More info on jQuery selectors in the README.txt file included with this module.'),
+	  );
+    
+	  $form['dropcap']['advanced']['dropcap_arbitrary_selectors'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Arbitrary dropcapping selectors'),
+	    '#default_value' => variable_get('dropcap_arbitrary_selectors', ''),
+	    '#description' => t('Specify which jQuery selectors (ex, "p.main_content") we should search within to dropcap arbitrary letters. If the above checkbox "Search for abitrary letters to dropcap" is not selected, this will do nothing. If it is selected, and nothing is in this field, then the whole DOM will be search for tag &lt;span dropcap-arbitrary-my-letter-name&gt;my-letter&lt;/span&gt;. If selectors are added above and "Search for abitrary letters to dropcap" is selected, then the search for &lt;span dropcap-arbitrary-my-letter-name&gt;my-letter&lt;/span&gt; will be constrained to those selectors. More info on jQuery selectors in the README.txt file included with this module.'),
+	  );
+      
+	  $form['titling']['dropcap_titling_selectors'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Titling selectors'),
+	    '#default_value' => variable_get('dropcap_titling_selectors', ''),
+	    '#description' => t('Specify which jQuery selectors (ex, "p.main_content") are to use titling. Title-casing is when the first x letters of a paragraph are in all capitals.  Enter one selector per line. Do not include quotes. Titling will not be applied until some selectors are specified. More info on jQuery selectors in the README.txt file included with this module.'),
+	  );
+  
+	  $form['titling']['dropcap_titling_numchars'] = array(
+	    '#type' => 'textfield',
+	    '#title' => t('Titling: number of characters to title'),
+	    '#default_value' => variable_get('dropcap_titling_numchars', 51),
+	    '#description' => t('You probably want the first line of the first paragraph of your posts to be in all caps. However, there is no great way to detect a linebreak in javascript. Therefore, specify the approximate number of characters that make up one line of text. This module will search for the next space following the number of characters specified and wrap that length of text in a span tag with the class "dropcap-titling". If you don\'t like where a specific post is breaking, add your own span tag &lt;span dropcap-titling&gt;my-letter&lt;/span&gt; around the text you want titled and the element containing that span tag with the class "dropcap-titling" will be ignored and no titling span classes will be added to that element.'),
+	  );
+  
+	  $form['titling']['dropcap_titling_excludes'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Selectors to exclude'),
+	    '#default_value' => variable_get('dropcap_titling_excludes', ''),
+	    '#description' => t('These jQuery selectors will be filtered and excluded for titline. All children of the selector will also be excluded. More info on jQuery selectors in the README.txt file included with this module.'),
+	  );
+  
+	  $form['titling']['dropcap_titling_breakpoints'] = array(
+	    '#type' => 'textarea',
+	    '#title' => t('Titling breakpoints'),
+	    '#default_value' => variable_get('dropcap_titling_breakpoints', ".\n!\n,\n?\n\"\n"),
+	    '#description' => t('When capitalizing the first x characters of a paragraph (titling), often it looks best to break titling on a punctuation symbol rather than a number of characters or a new line. Specify which characters will end titling above, each character on a new line.'),
+	  );
+  	  
+    $form['#submit'][] = 'dropcap_admin_settings_submit';
+    
+	  return system_settings_form($form);
+}
+
+function dropcap_admin_settings_submit($form, &$form_state) {
+  $first_file = reset(file_scan_directory($form_state['values']['dropcap_alphabet'], '/\.*/'));
+  $first_file_array = explode('.', $first_file->filename);
+  $file_extension = end($first_file_array);
+  variable_set('dropcap_alphabet_extension', $file_extension);
+}
+
+/**
+*  Implementation of hook_init
+*/
+function dropcap_init() {  
+  static $core_sent; //don't load multiple times, hook_init can be called multiple times.
+  if (!$core_sent) {
+    $dropcap_selectors = variable_get('dropcap_selectors', '');
+    $dropcap_titling_selectors = variable_get('dropcap_titling_selectors', '');
+    $dropcap_dropcapify_arbitrary = variable_get('dropcap_dropcapify_arbitrary', 0);
+	  if($dropcap_selectors || $dropcap_titling_selectors || $dropcap_dropcapify_arbitrary) {		
+    	$path = drupal_get_path('module','dropcap');
+      drupal_add_js(array('dropcap' => 
+      	array( 
+          'path' => '/'.variable_get('dropcap_alphabet', 'default').'/',
+        )), 
+		  'setting');
+      if ($dropcap_titling_selectors){
+    	  drupal_add_js( $path . '/dropcapTitle.js');
+        drupal_add_js(array('dropcap' => 
+        	array( 
+            'dropcap_titling_numchars' => variable_get('dropcap_titling_numchars', 0),
+            'dropcap_titling_selectors' => preg_split("/\\r\\n|\\r|\\n/", $dropcap_titling_selectors),
+            'dropcap_titling_breakpoints' => preg_split("/\\r\\n|\\r|\\n/", variable_get('dropcap_titling_breakpoints', '')),
+            'dropcap_titling_excludes' => preg_split("/\\r\\n|\\r|\\n/", variable_get('dropcap_titling_excludes', '')),
+          )), 
+  		  'setting');
+      }
+      if ($dropcap_dropcapify_arbitrary || $dropcap_selectors) {
+        drupal_add_css($path .'/dropcap.css');
+        drupal_add_js( $path.'/dropcap.js');
+        drupal_add_js(array('dropcap' => 
+        	array( 
+            'selectors' => preg_split("/\\r\\n|\\r|\\n/", $dropcap_selectors),
+            'dropcap_excludes' => preg_split("/\\r\\n|\\r|\\n/", variable_get('dropcap_excludes', '') ),
+            'alphabet' => variable_get('dropcap_alphabet',  $path . '/alphabet/default'),
+            'dropcap_alphabet_extension' => variable_get('dropcap_alphabet_extension', 'gif'),
+            'non_alpha_chars' => variable_get('non_alpha_chars',  ''),
+  					'dropcapify_arbitrary' => $dropcap_dropcapify_arbitrary,
+            'dropcap_arbitrary_selectors' => preg_split("/\\r\\n|\\r|\\n/", variable_get('dropcap_arbitrary_selectors', '')),
+            'dropcap_arbitrary_excludes' => preg_split("/\\r\\n|\\r|\\n/", variable_get('dropcap_arbitrary_excludes', '')),
+            'dropcap_spacer_spans_after' => variable_get('dropcap_spacer_spans_after', 0),
+            'dropcap_spacer_spans_before' => variable_get('dropcap_spacer_spans_before', 0),
+          )), 
+  		  'setting');
+      }
+      $core_sent = TRUE;
+		}
+    else {
+      $core_sent = TRUE;
+    }
+	}
+}
