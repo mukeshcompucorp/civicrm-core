@@ -434,8 +434,8 @@ function _tpg_global_margin_before_after_options(&$form = array(), $field_name, 
     $margin_after_value = $field_collection_load->field_margin_after['und'][0]['value'];;
 
     // Adding Default value for margin before and margin after fields.
-    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']['und']['#default_value'] = isset($margin_before_value) ? $margin_before_value : 2;
-    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after']['und']['#default_value'] = isset($margin_after_value) ? $margin_after_value : 2;
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_before']['und']['#default_value'] = isset($margin_before_value) ? $margin_before_value : 0;
+    $form[$field_name]['und'][$key]['field_margins']['und'][0]['field_margin_after']['und']['#default_value'] = isset($margin_after_value) ? $margin_after_value : 1;
   }
 }
 

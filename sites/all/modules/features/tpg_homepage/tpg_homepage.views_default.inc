@@ -581,6 +581,28 @@ function tpg_homepage_views_default_views() {
   $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['field'] = 'field_homepage_publish_dates_value2';
   $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_homepage_publish_dates_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'word';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Search by Title';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    190826733 => 0,
+    85239486 => 0,
+    151263223 => 0,
+    203538000 => 0,
+    152836380 => 0,
+    204855824 => 0,
+    199295989 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
