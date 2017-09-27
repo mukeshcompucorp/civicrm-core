@@ -421,7 +421,11 @@ function tpg_paragraphs_field_default_field_instances() {
   // Exported field_instance: 'node-paragraphs_page-field_logo_color'.
   $field_instances['node-paragraphs_page-field_logo_color'] = array(
     'bundle' => 'paragraphs_page',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'White',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(

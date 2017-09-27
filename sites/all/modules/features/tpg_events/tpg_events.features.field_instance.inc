@@ -258,7 +258,11 @@ function tpg_events_field_default_field_instances() {
   // Exported field_instance: 'node-events_detail-field_event_logo_color'.
   $field_instances['node-events_detail-field_event_logo_color'] = array(
     'bundle' => 'events_detail',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'White',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
