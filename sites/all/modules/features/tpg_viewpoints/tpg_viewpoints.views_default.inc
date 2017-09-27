@@ -279,14 +279,12 @@ function tpg_viewpoints_views_default_views() {
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['view_mode'] = 'overview';
   $handler->display->display_options['row_options']['load_comments'] = 0;
-  $handler->display->display_options['row_options']['alternating'] = 1;
-  $handler->display->display_options['row_options']['grouping'] = 0;
+  $handler->display->display_options['row_options']['alternating'] = 0;
   $handler->display->display_options['row_options']['advanced'] = 0;
   $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
-  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'nodequeue_nodes|position';
-  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
-  $handler->display->display_options['row_options']['alternating_fieldset']['alternating'] = TRUE;
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'overview';
   $handler->display->display_options['row_options']['alternating_fieldset']['item_0'] = 'overview';
   $handler->display->display_options['row_options']['alternating_fieldset']['item_1'] = 'overview';
   $handler->display->display_options['row_options']['alternating_fieldset']['item_2'] = 'overview';
@@ -414,6 +412,60 @@ function tpg_viewpoints_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'viewpoint' => 'viewpoint',
+  );
+
+  /* Display: Related Viewpoints Events */
+  $handler = $view->new_display('block', 'Related Viewpoints Events', 'related_viewpoint');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Related viewpoint';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_options']['relationship'] = 'field_related_viewpoints_target_id';
+  $handler->display->display_options['row_options']['view_mode'] = 'overview';
+  $handler->display->display_options['row_options']['load_comments'] = 0;
+  $handler->display->display_options['row_options']['alternating'] = 1;
+  $handler->display->display_options['row_options']['advanced'] = 0;
+  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
+  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['alternating'] = TRUE;
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_0'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_1'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_2'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_3'] = 'overview';
+  $handler->display->display_options['row_options']['alternating_fieldset']['item_4'] = 'overview';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_related_viewpoints_target_id']['id'] = 'field_related_viewpoints_target_id';
+  $handler->display->display_options['relationships']['field_related_viewpoints_target_id']['table'] = 'field_data_field_related_viewpoints';
+  $handler->display->display_options['relationships']['field_related_viewpoints_target_id']['field'] = 'field_related_viewpoints_target_id';
+  $handler->display->display_options['relationships']['field_related_viewpoints_target_id']['required'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'events_detail' => 'events_detail',
   );
   $export['viewpoints'] = $view;
 
