@@ -5478,6 +5478,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'paragraphs_item',
     'field_name' => 'field_paragraphs_date_published',
     'label' => 'Date Published',
@@ -5494,7 +5495,7 @@ function tpg_paragraphs_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
-        'input_format' => 'M j Y - g:i:sa',
+        'input_format' => 'M j Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'above',
         'no_fieldset' => 0,
