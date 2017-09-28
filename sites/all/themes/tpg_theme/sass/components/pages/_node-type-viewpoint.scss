@@ -50,8 +50,21 @@
     }
 
     .field-type-text-with-summary {
-      margin-bottom: 10px;
       margin-top: 10px;
+    }
+
+    .field-name-field-paragraph-title .field-item {
+      @include clr;
+      @include lh-fs(25px, $h3);
+      border-bottom: 1px solid color(heading);
+      color: color(heading);
+      display: inline;
+      font-weight: $bold;
+      text-decoration: none;
+    }
+
+    .field-name-field-paragraph-title {
+      margin-top: 16px;
     }
 
     p,
