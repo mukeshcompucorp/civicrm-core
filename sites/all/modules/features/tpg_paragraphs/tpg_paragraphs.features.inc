@@ -44,6 +44,7 @@ function tpg_paragraphs_views_api($module = NULL, $api = NULL) {
 function tpg_paragraphs_fe_date_custom_date_formats() {
   $custom_date_formats = array();
   $custom_date_formats['D d M Y'] = 'D d M Y';
+  $custom_date_formats['D d M Y - G:i'] = 'D d M Y - G:i';
   $custom_date_formats['M d, Y'] = 'M d, Y';
   return $custom_date_formats;
 }
@@ -53,6 +54,8 @@ function tpg_paragraphs_fe_date_custom_date_formats() {
  */
 function tpg_paragraphs_date_format_types() {
   $format_types = array();
+  // Exported date format type: date_published
+  $format_types['date_published'] = 'Date Published';
   // Exported date format type: event_format
   $format_types['event_format'] = 'Event Format';
   // Exported date format type: format_custom

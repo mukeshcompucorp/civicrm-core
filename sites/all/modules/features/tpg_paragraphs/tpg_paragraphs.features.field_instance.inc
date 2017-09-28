@@ -5396,7 +5396,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'event_format',
+          'format_type' => 'date_published',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
