@@ -23,7 +23,7 @@ function tpg_homepage_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Stay up-to-date';
   $fe_block_boxes->format = 'filtered_html';
   $fe_block_boxes->machine_name = 'stay_up_to_date';
-  $fe_block_boxes->body = '<p>Stay up-to-date</p><a href="/content/join-our-mailing-list">></a>
+  $fe_block_boxes->body = '<p><a href="/content/join-our-mailing-list">Stay up-to-date &gt;</a></p>
 ';
 
   $export['stay_up_to_date'] = $fe_block_boxes;
