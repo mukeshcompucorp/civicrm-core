@@ -1001,14 +1001,16 @@ function tpg_events_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_related_viewpoints',
     'label' => 'Related Viewpoints',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'entityreference',
       'settings' => array(
         'match_operator' => 'CONTAINS',
