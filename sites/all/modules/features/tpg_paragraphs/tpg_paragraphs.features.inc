@@ -149,9 +149,9 @@ function tpg_paragraphs_image_default_styles() {
 
   // Exported image style: full_width_image_1285x500.
   $styles['full_width_image_1285x500'] = array(
-    'label' => 'Full Width Image 1285x500',
+    'label' => 'Full Width Image 1920x500',
     'effects' => array(
-      2 => array(
+      1 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 1920,
