@@ -166,6 +166,12 @@
           <?php print render($page['full_width_bottom']); ?>
         </div>
       <?php endif; ?>
+
+      <?php if ($page['reading_width_bottom']): ?>
+        <div id="full-width-bottom" class="reading-width-bottom container" role="complementary">
+          <?php print render($page['reading_width_bottom']); ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 

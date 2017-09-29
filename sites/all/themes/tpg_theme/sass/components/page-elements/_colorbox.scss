@@ -254,12 +254,12 @@
 
   .left {
     @include sprite($arrow-left);
-    left: 19px;
+    left: -25px;
   }
 
   .right {
     @include sprite($arrow-right);
-    right: 19px;
+    right: -25px;
   }
 }
 
