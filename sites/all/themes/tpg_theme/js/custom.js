@@ -19,13 +19,13 @@
           var $elLength = $el.length;
 
           if (!$('.columns-wrapper').length) {
-              $parent.eq(i).prepend(`
-                <div class="columns-wrapper clearfix">
-                  <div class="col col-1 col-md-` + 12/elNumber + `"></div>
-                  <div class="col col-2 col-md-` + 12/elNumber + `"></div>
-                  <div class="col col-3 col-md-`  + 12/elNumber + `"></div>
-                </div>
-            `);
+              $parent.eq(i).prepend(
+                '<div class="columns-wrapper clearfix">' +
+                  '<div class="col col-1 col-md-' + 12/elNumber + '"></div>' +
+                  '<div class="col col-2 col-md-' + 12/elNumber + '"></div>' +
+                  '<div class="col col-3 col-md-'  + 12/elNumber + '"></div>' +
+                '</div>'
+            );
           }
 
           for(var j = 0; j < $elLength; j += elNumber) {
