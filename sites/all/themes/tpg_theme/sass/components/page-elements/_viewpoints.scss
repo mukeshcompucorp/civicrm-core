@@ -1,3 +1,4 @@
+.related-viewpoints,
 .view-viewpoints {
   .views-row {
     .view-mode-overview {
@@ -80,6 +81,22 @@
     &:after {
       display: none;
     }
+  }
+}
+
+.related-viewpoints {
+  &-block {
+    padding-bottom: 48px;
+    padding-top: 48px;
+  }
+
+  .field-name-title a,
+  .field-type-taxonomy-term-reference .field-item {
+    color: color(text-on-dark);
+  }
+
+  .views-row:last-child .view-mode-overview {
+    margin-bottom: 0;
   }
 }
 
