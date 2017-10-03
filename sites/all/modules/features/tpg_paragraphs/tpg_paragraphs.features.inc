@@ -44,7 +44,7 @@ function tpg_paragraphs_views_api($module = NULL, $api = NULL) {
 function tpg_paragraphs_fe_date_custom_date_formats() {
   $custom_date_formats = array();
   $custom_date_formats['D d M Y'] = 'D d M Y';
-  $custom_date_formats['D d M Y - G:i'] = 'D d M Y - G:i';
+  $custom_date_formats['D d M Y - G.i'] = 'D d M Y - G.i';
   $custom_date_formats['M d, Y'] = 'M d, Y';
   return $custom_date_formats;
 }
