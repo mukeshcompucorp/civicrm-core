@@ -5676,6 +5676,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'manualcrop_require_cropping' => array(),
         'manualcrop_styles_list' => array(
           'overview_page_image_400x271' => 'overview_page_image_400x271',
+          'what_s_on_400x324' => 'what_s_on_400x324',
         ),
         'manualcrop_styles_mode' => 'include',
         'manualcrop_thumblist' => 1,
