@@ -59,17 +59,21 @@ function tpg_overview_image_default_styles() {
     ),
   );
 
-  // Exported image style: whats_on_400x324.
-  $styles['whats_on_400x324'] = array(
-    'label' => 'whats on 400x324',
+  // Exported image style: what_s_on_400x324.
+  $styles['what_s_on_400x324'] = array(
+    'label' => 'What\'s on 400x324',
     'effects' => array(
       2 => array(
-        'name' => 'image_scale_and_crop',
+        'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 400,
           'height' => 324,
+          'upscale' => 0,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'what_s_on_400x324',
         ),
-        'weight' => 1,
+        'weight' => 0,
       ),
     ),
   );

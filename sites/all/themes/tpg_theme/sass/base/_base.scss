@@ -96,16 +96,16 @@ h2,
 h3,
 .h3 {
   @include lh-fs(25px, $h3);
-  border-bottom: 2px solid color(heading);
+  border-bottom: 1px solid color(heading);
 }
 
 h4,
 .h4 {
   @include lh-fs(18px, $h4);
-  display: inline-block;
+  border-bottom: 1px solid color(heading);
+  display: inline;
   max-width: 100%;
   overflow: hidden;
-  text-decoration: underline;
   text-overflow: ellipsis;
   white-space: nowrap;
 

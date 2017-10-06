@@ -52,3 +52,24 @@
     }
   }
 }
+
+@include breakpoint($md-1 0) {
+  .footer .block-webform-stay-up-to-date {
+    .webform-client-form {
+      max-width: 100%;
+    }
+
+    h2:after {
+      margin: 0;
+    }
+
+    input.form-text {
+      height: 40px;
+    }
+
+    .form-actions .form-submit {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}

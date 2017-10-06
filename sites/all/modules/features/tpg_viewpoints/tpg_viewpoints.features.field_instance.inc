@@ -72,7 +72,7 @@ function tpg_viewpoints_field_default_field_instances() {
         'settings' => array(
           'links' => 0,
           'use_content_language' => 1,
-          'view_mode' => 'overview',
+          'view_mode' => 'overview_original_image',
         ),
         'type' => 'entityreference_entity_view',
         'weight' => 4,

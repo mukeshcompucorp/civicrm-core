@@ -250,8 +250,8 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => -46,
     'customized' => 1,
   );
-  // Exported menu link: menu-social-connectors_facebook:https://www.facebook.com.
-  $menu_links['menu-social-connectors_facebook:https://www.facebook.com'] = array(
+  // Exported menu link: menu-social-connectors_facebook:https://www.facebook.com/ThePhotographersGalleryLDN/.
+  $menu_links['menu-social-connectors_facebook:https://www.facebook.com/ThePhotographersGalleryLDN/'] = array(
     'menu_name' => 'menu-social-connectors',
     'link_path' => 'https://www.facebook.com/ThePhotographersGalleryLDN/',
     'router_path' => '',
@@ -268,7 +268,7 @@ function tpg_homepage_menu_default_menu_links() {
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-social-connectors_facebook:https://www.facebook.com',
+      'identifier' => 'menu-social-connectors_facebook:https://www.facebook.com/ThePhotographersGalleryLDN/',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -278,8 +278,36 @@ function tpg_homepage_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-social-connectors_twitter:https://www.twitter.com.
-  $menu_links['menu-social-connectors_twitter:https://www.twitter.com'] = array(
+  // Exported menu link: menu-social-connectors_instagram:http://www.instagram.com/thephotographersgallery.
+  $menu_links['menu-social-connectors_instagram:http://www.instagram.com/thephotographersgallery'] = array(
+    'menu_name' => 'menu-social-connectors',
+    'link_path' => 'http://www.instagram.com/thephotographersgallery',
+    'router_path' => '',
+    'link_title' => 'Instagram',
+    'options' => array(
+      'attributes' => array(
+        'class' => array(
+          0 => 'fa',
+          1 => 'fa-instagram',
+        ),
+      ),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'menu-social-connectors_instagram:http://www.instagram.com/thephotographersgallery',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-social-connectors_twitter:https://twitter.com/TPGallery.
+  $menu_links['menu-social-connectors_twitter:https://twitter.com/TPGallery'] = array(
     'menu_name' => 'menu-social-connectors',
     'link_path' => 'https://twitter.com/TPGallery',
     'router_path' => '',
@@ -296,7 +324,7 @@ function tpg_homepage_menu_default_menu_links() {
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-social-connectors_twitter:https://www.twitter.com',
+      'identifier' => 'menu-social-connectors_twitter:https://twitter.com/TPGallery',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -420,6 +448,7 @@ function tpg_homepage_menu_default_menu_links() {
   t('Copyright');
   t('Facebook');
   t('Home');
+  t('Instagram');
   t('Join & Support');
   t('Log out');
   t('Login');

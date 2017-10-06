@@ -83,6 +83,17 @@ article .webform-client-form {
     width: auto;
   }
 
+
+  .webform-component-textfield .chzn-container-single .chzn-single > span,
+  .webform-component-select .chzn-container-single .chzn-single > span {
+    padding-right: 30px;
+
+    &:after {
+      border-width: 7px;
+      right: 11px;
+    }
+  }
+
   .form-item > label.error {
     @include rem(font-size, $form-error);
     color: color(form-error);
@@ -98,6 +109,11 @@ article .webform-client-form {
     // Override default inline value
     .chzn-container {
       width: 100% !important;
+    }
+
+    &[class*='date-day'] {
+      margin-right: 10px;
+      padding-right: 0;
     }
 
     &[class*='date-month'],

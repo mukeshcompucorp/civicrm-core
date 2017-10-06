@@ -4,9 +4,18 @@
     margin-right: auto;
   }
 
-  &-content img {
-    height: auto;
-    width: 100%;
+  &-content {
+    margin-bottom: 0;
+    overflow: hidden;
+
+    img {
+      height: auto;
+      left: 50%;
+      max-width: none;
+      min-width: 100%;
+      position: relative;
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -48,6 +57,10 @@
   }
 
   @include breakpoint($md-1 0) {
+    .second-sidebar-responsive {
+      margin-bottom: 15px;
+    }
+
     .second-sidebar-responsive,
     &.events-type .region-share-section .block-service-links,
     &.paragraphs-type .region-share-section .block-service-links,

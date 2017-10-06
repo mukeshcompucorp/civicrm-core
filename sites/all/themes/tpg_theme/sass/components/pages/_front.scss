@@ -1,6 +1,8 @@
 .front {
   background: $front-page-gradient;
   background-image: $homepage-gradient;
+  background-repeat: repeat;
+  background-size: 100% auto;
 
   &.admin-menu .view-header-image img {
     margin-top: -69px;
@@ -58,8 +60,9 @@
       display: none;
     }
 
+    .field-content,
     .date-display-range {
-      letter-spacing: 1px;
+      letter-spacing: .8px;
     }
   }
 
@@ -83,13 +86,6 @@
     }
 
     .whats-on {
-      margin-left: -2px;
-      margin-right: -2px;
-
-      .views-row {
-        margin-bottom: 30px;
-      }
-
       .image .tag,
       .type .tag + .field-content {
         display: none;
@@ -107,5 +103,12 @@
     .pager-load-more {
       padding-bottom: 33px;
     }
+  }
+}
+
+@include breakpoint($tablet-1 0) {
+  .front .whats-on {
+    margin-left: -2px;
+    margin-right: -2px;
   }
 }
