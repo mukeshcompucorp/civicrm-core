@@ -62,6 +62,13 @@ function tpg_paragraphs_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_date_published';
+  $strongarm->value = 'D d M Y - G.i';
+  $export['date_format_date_published'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_format_event_format';
   $strongarm->value = 'D d M Y';
   $export['date_format_event_format'] = $strongarm;
@@ -146,6 +153,9 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -166,6 +176,10 @@ function tpg_paragraphs_strongarm() {
             'visible' => TRUE,
           ),
           'overview' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'overview_original_image' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),
@@ -199,6 +213,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -230,6 +247,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -263,6 +283,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -294,6 +317,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -327,6 +353,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -358,6 +387,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -391,6 +423,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -422,6 +457,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -455,6 +493,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -486,6 +527,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -519,6 +563,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -546,6 +593,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'overview_original_image' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -580,6 +630,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -612,6 +665,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -641,6 +697,9 @@ function tpg_paragraphs_strongarm() {
       'overview' => array(
         'custom_settings' => TRUE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -668,6 +727,9 @@ function tpg_paragraphs_strongarm() {
         'custom_settings' => FALSE,
       ),
       'overview' => array(
+        'custom_settings' => TRUE,
+      ),
+      'overview_original_image' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -702,6 +764,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -733,6 +798,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -766,6 +834,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -797,6 +868,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -830,6 +904,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -861,6 +938,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'token' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -894,6 +974,9 @@ function tpg_paragraphs_strongarm() {
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
       ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -922,6 +1005,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'overview' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -954,6 +1040,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -989,6 +1078,9 @@ function tpg_paragraphs_strongarm() {
       ),
       'full_content_narrow' => array(
         'custom_settings' => FALSE,
+      ),
+      'overview_original_image' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(

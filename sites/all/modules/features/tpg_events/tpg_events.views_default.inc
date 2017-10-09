@@ -280,6 +280,8 @@ function tpg_events_views_default_views() {
 
   /* Display: Now & Upcoming */
   $handler = $view->new_display('page', 'Now & Upcoming', 'now_upcoming_view_page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'What\'s On';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
@@ -376,7 +378,7 @@ function tpg_events_views_default_views() {
   );
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '9';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
@@ -384,7 +386,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-4';
+  $handler->display->display_options['style_options']['row_class'] = 'col-sm-4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -428,7 +430,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'whats_on_400x324',
+    'image_style' => 'what_s_on_400x324',
     'image_link' => '',
   );
   /* Field: Paragraphs item: Event Type */
@@ -650,6 +652,8 @@ function tpg_events_views_default_views() {
 
   /* Display: Past Programme */
   $handler = $view->new_display('page', 'Past Programme', 'past_programme_view_page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'What\'s On';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
@@ -727,7 +731,7 @@ function tpg_events_views_default_views() {
   );
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '9';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
@@ -735,7 +739,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-4';
+  $handler->display->display_options['style_options']['row_class'] = 'col-sm-4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -779,7 +783,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'whats_on_400x324',
+    'image_style' => 'what_s_on_400x324',
     'image_link' => '',
   );
   /* Field: Paragraphs item: Event Type */
@@ -869,7 +873,7 @@ function tpg_events_views_default_views() {
     199295989 => 0,
   );
   $handler->display->display_options['filters']['field_event_dates_value_1']['granularity'] = 'year';
-  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-3:+0';
+  $handler->display->display_options['filters']['field_event_dates_value_1']['year_range'] = '-5:+0';
   /* Filter criterion: Paragraphs item: Event Type (field_paragraphs_event_type) */
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['id'] = 'field_paragraphs_event_type_tid';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['table'] = 'field_data_field_paragraphs_event_type';
@@ -924,7 +928,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-4';
+  $handler->display->display_options['style_options']['row_class'] = 'col-sm-4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1067,7 +1071,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-4';
+  $handler->display->display_options['style_options']['row_class'] = 'col-sm-4';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1102,7 +1106,7 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'whats_on_400x324',
+    'image_style' => 'what_s_on_400x324',
     'image_link' => '',
   );
   /* Field: Paragraphs item: Event Type */

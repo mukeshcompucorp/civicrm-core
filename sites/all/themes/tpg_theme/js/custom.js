@@ -3,13 +3,12 @@
 
   Drupal.behaviors.multipleBlocks = {
     attach: function (context, settings) {
-      this.nWrapper('.page-home .exhibitions-and-highlights', '.view-content .views-row', 3, '.exhibitions-and-highlights', context);
-      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, '.field-type-entityreference > .field-items', context);
+      this.nWrapper('.front .exhibitions-and-highlights', '.view-content .views-row', 3, 'sm', context);
+      this.nWrapper('.node-type-viewpoint .field-type-entityreference > .field-items', '> .field-item', 2, 'md', context);
     },
-    nWrapper: function (wrapper, el, n, view, context) {
-      var $parent       = $(wrapper, context);
-      var $view         = $(view, context);
-      var elNumber      = n;
+    nWrapper: function (wrapper, el, n, breakpoint, context) {
+      var $parent  = $(wrapper, context);
+      var elNumber = n;
 
       if ($parent.length) {
         var $parentLength = $parent.length;
@@ -19,19 +18,19 @@
           var $elLength = $el.length;
 
           if (!$('.columns-wrapper').length) {
-              $parent.eq(i).prepend(
-                '<div class="columns-wrapper clearfix">' +
-                  '<div class="col col-1 col-md-' + 12/elNumber + '"></div>' +
-                  '<div class="col col-2 col-md-' + 12/elNumber + '"></div>' +
-                  '<div class="col col-3 col-md-'  + 12/elNumber + '"></div>' +
-                '</div>'
-            );
+              $parent.eq(i).prepend(`
+                <div class="columns-wrapper clearfix">
+                  <div class="col col-1 col-` + breakpoint + `-` + 12/elNumber + `"></div>
+                  <div class="col col-2 col-` + breakpoint + `-` + 12/elNumber + `"></div>
+                  <div class="col col-3 col-` + breakpoint + `-` + 12/elNumber + `"></div>
+                </div>
+            `);
           }
 
-          for(var j = 0; j < $elLength; j += elNumber) {
-            var firstCol = $el.eq(j);
+          for (var j = 0; j < $elLength; j += elNumber) {
+            var firstCol  = $el.eq(j);
             var secondCol = $el.eq(j+1);
-            var thirdCol = $el.eq(j+2);
+            var thirdCol  = $el.eq(j+2);
 
             firstCol.appendTo('.columns-wrapper .col-1');
             secondCol.appendTo('.columns-wrapper .col-2');
@@ -46,6 +45,32 @@
         $view.addClass('show');
       }
     }
+  };
+
+  Drupal.behaviors.changeAttrValue = {
+    attach: function(context, settings) {
+      this.setAttr('input.webform-calendar', 'src', '/sites/all/themes/tpg_theme/images/icons/calendar.png', context);
+      this.classAdd('.page-explore-all-content .ctools-auto-submit-full-form', 'content', context);
+    },
+    setAttr: function(el, attrName, attrVal, context) {
+      var $el = $(el, context);
+      if ($el.length) {
+        for (var i = 0; i < $el.length; i++) {
+          $el.eq(i).attr(attrName, attrVal);
+        }
+      }
+    },
+    classAdd: function(el,className, context) {
+      $(el, context).addClass(className)
+    }
+  };
+
+  Drupal.behaviors.chosenInclude = {
+    attach: function(context, settings) {
+      setTimeout(function() {
+        $('select', context).chosen();
+      }, 10);
+    },
   };
 
   Drupal.behaviors.fullWidthImage = {
@@ -65,17 +90,17 @@
   Drupal.behaviors.arrowScrollDown = {
     attach: function(context, settings) {
       this.creatingEl('.front .view-header-image .views-row', '<div class="before"></div>', context);
-      this.moveToEl('.front .view-header-image .views-row .before', 'current-exhibitions-highlights', context);
+      this.moveToEl('.front .view-header-image .views-row .before', '.current-exhibitions-highlights', context);
     },
     creatingEl: function(el, markup, context) {
       if ($(el, context).length) {
         $(el, context).prepend(markup);
       }
     },
-    moveToEl: function(el, anchorName, context) {
+    moveToEl: function(el, anchor, context) {
       $(el, context).click(function() {
         $('html, body', context).animate({
-            scrollTop: $('a[name*=' + anchorName + ']').offset().top
+            scrollTop: $(anchor, context).offset().top
         }, 600);
       });
     }
@@ -177,16 +202,15 @@
 
   Drupal.behaviors.lightBoxArrows = {
     attach: function(context, settings) {
-      this.arrowCreation('.header-image-lightbox .field-content', context);
-      this.openLightbox('.header-image-lightbox .left', context);
-      this.openLightbox('.header-image-lightbox .right', context);
+      this.arrowCreation('.header-image-lightbox .field-content > a:first-child', context);
+      this.openLightbox('.header-image-lightbox span', context);
     },
     arrowCreation: function(el, context) {
       var $el = $(el, context);
-      var $item = $el.find('a');
+      var $item = $el.parent().find('a');
 
       if ($el.length && $item.length >= 2) {
-        $(el, context).append('<span class="left"></span><span class="right"></span>');
+        $(el, context).append('<div class="arrows"><span class="left"></span><span class="right"></span></div>');
       }
     },
     openLightbox: function(el, context) {
@@ -200,8 +224,9 @@
 
   Drupal.behaviors.removingEmptyBlock = {
     attach: function(context, settings) {
-      this.moveTitle('.header-image', 'img');
-      this.moveTitle('.header-image-two-col', 'img');
+      this.moveTitle('.header-image', 'img', context);
+      this.moveTitle('.header-image-two-col', 'img', context);
+      this.moveElement('.field-type-paragraphs .book-tickets', '.field-type-paragraphs > .field-items', context);
     },
     moveTitle: function(el, isEmpty, context) {
       var $el       = $(el, context);
@@ -214,6 +239,14 @@
         if (!$image.length) {
           $this.remove();
         }
+      }
+    },
+    moveElement: function(el, place, context) {
+      var $el    = $(el, context);
+      var $place = $(place, context);
+
+      if ($el.length) {
+        $el.prependTo($place).addClass('clonned');
       }
     }
   };
@@ -318,6 +351,18 @@
       }
 
       $paragraphsItemNext.prepend($viewpointTag);
+
+      this.moveTag('.page-viewpoints .view-viewpoints .views-row', '.field-type-taxonomy-term-reference', context);
+      this.moveTag('.node-type-events-detail .view-viewpoints .views-row', '.field-type-taxonomy-term-reference', context);
+    },
+    moveTag: function(el, place, context) {
+      var $el      = $(el, context);
+      var elLength = $el.length;
+      if (elLength) {
+        for (var i = 0; i < elLength; i++) {
+          $el.eq(i).find('.card-tag').prependTo($el.eq(i).find(place));
+        }
+      }
     }
   };
 
@@ -353,7 +398,7 @@
     changingHeaderBg: function(el, backgroundEl, hashColor, context) {
       var wWidth = $(window).width();
 
-      $(window, context).resize(function(){
+      $(window, context).resize(function() {
         wWidth = $(window, context).width();
         if ($(el, context).length && wWidth >= 992 || $('.view-header-video .video-embed-description').length) {
           $(backgroundEl, context).css('background-color', hashColor);
@@ -372,6 +417,7 @@
 
   $(document).ajaxComplete(function(event, xhr, settings) {
     Drupal.behaviors.multipleBlocks.attach();
+    Drupal.behaviors.viewpointTags.moveTag('.page-viewpoints .view-viewpoints .views-row', '.field-type-taxonomy-term-reference');
   });
 
 })(jQuery);

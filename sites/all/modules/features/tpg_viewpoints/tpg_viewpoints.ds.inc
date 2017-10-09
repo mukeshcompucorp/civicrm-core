@@ -49,6 +49,19 @@ function tpg_viewpoints_ds_field_settings_info() {
         'ft' => array(),
       ),
     ),
+    'field_homepage_card_tag' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'card-tag',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['node|viewpoint|overview'] = $ds_fieldsetting;
 
@@ -70,9 +83,17 @@ function tpg_viewpoints_ds_field_settings_info() {
         'ft' => array(),
       ),
     ),
-    'field_viewpoint_overview_image' => array(
+    'field_homepage_card_tag' => array(
       'formatter_settings' => array(
-        'ft' => array(),
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'card-tag',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
       ),
     ),
   );
