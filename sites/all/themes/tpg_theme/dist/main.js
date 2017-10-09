@@ -7312,6 +7312,8 @@ return $;
             }
           }
         }
+      } else if (!$parent.length && $view.length) {
+        $view.addClass('show');
       }
     }
   };
