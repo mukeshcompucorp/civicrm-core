@@ -10,14 +10,15 @@ screenshot = screenshot.jpg
 stylesheets[all][] = dist/main.css
 ;stylesheets[all][] = dist/main.min.css
 
-regions[header_pane]       = Header Pane
-regions[header]            = Header
-regions[content]           = Content
-regions[full_width_bottom] = Full width bottom region
-regions[sidebar_first]     = First Sidebar
-regions[sidebar_second]    = Second Sidebar
-regions[share_section]     = Share links
-regions[footer]            = Footer
+regions[header_pane]          = Header Pane
+regions[header]               = Header
+regions[content]              = Content
+regions[sidebar_first]        = First Sidebar
+regions[sidebar_second]       = Second Sidebar
+regions[share_section]        = Share links
+regions[full_width_bottom]    = Full width bottom region
+regions[reading_width_bottom] = Reading width bottom region
+regions[footer]               = Footer
 
 scripts[] = js/daterangepicker.js
 scripts[] = dist/main.js

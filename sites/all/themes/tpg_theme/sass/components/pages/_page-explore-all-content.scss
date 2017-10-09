@@ -13,6 +13,10 @@
 
 .page-explore-all-content .region-content {
   position: relative;
+
+  .whats-on-tabs + .block {
+    clear: both;
+  }
 }
 
 .page-viewpoints .whats-on-tabs .browse-viewpoints,
@@ -21,6 +25,8 @@
 }
 
 .explore-all-content {
+  padding-top: 13px;
+
   .views-row:nth-child(3n+4) {
     clear: both;
   }
@@ -43,5 +49,24 @@
 
   h3 {
     border-bottom-color: color(text-on-dark);
+  }
+}
+
+@include breakpoint($md-1 0) {
+  .explore-all-content {
+    .whats-on-filter {
+      margin-bottom: 7px;
+      position: relative;
+      right: auto;
+      top: auto;
+    }
+
+    .field-type-paragraphs > .field-items > .field-item:first-child > .entity {
+      margin-top: 0;
+    }
+  }
+
+  .page-explore-all-content .content-inner {
+    overflow: hidden;
   }
 }

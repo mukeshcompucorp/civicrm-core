@@ -1,0 +1,10 @@
+name = Drop Cap
+description = "Creates a drop-cap (those giant fancy letters at the beginning of old-english book-chapters) at the beginning of each page's content."
+package = Other 
+core = 7.x
+; Information added by Drupal.org packaging script on 2014-08-15
+version = "7.x-2.0-beta2"
+core = "7.x"
+project = "dropcap"
+datestamp = "1408119829"
+

@@ -123,7 +123,6 @@
   }
 }
 
-
 #cboxNext,
 #cboxPrevious {
   margin-top: -40px;
@@ -152,7 +151,7 @@
 
 .header-image-lightbox {
   img {
-    @include rem(height, 640px);
+    height: 70vh;
     margin-left: auto;
     margin-right: auto;
     width: auto;
@@ -161,11 +160,16 @@
   [class*="field-caption"] {
     @include container;
     margin-bottom: 13px;
-    margin-top: 0;
+    margin-top: 2px;
     min-height: 32px;
     padding-top: 5px;
     position: relative;
     text-align: left;
+
+    .left,
+    .right {
+      display: none;
+    }
 
     .caption-icon {
       @include sprite($caption);
@@ -206,6 +210,7 @@
   .field-content {
     font-size: 0;
     overflow: hidden;
+    position: relative;
     text-align: center;
 
     a ~ a {
@@ -243,24 +248,24 @@
 
     &:hover {
       cursor: pointer;
+      opacity: .2;
     }
   }
 
   .left {
     @include sprite($arrow-left);
-    left: 19px;
+    left: -25px;
   }
 
   .right {
     @include sprite($arrow-right);
-    right: 19px;
+    right: -25px;
   }
 }
 
 @include breakpoint($md-1 0) {
   .header-image-lightbox {
     a.colorbox {
-      @include rem(height, 580px);
       display: block;
 
       &:after {
@@ -270,7 +275,6 @@
 
     img {
       @include centered-image;
-      @include rem(height, 580px);
       max-width: none;
     }
 
@@ -279,38 +283,20 @@
       margin-top: -39px;
       min-height: 39px;
 
-      &.opened:before {
-        background: color(page-bg);
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 2px;
-        left: 0;
-        position: absolute;
-        top: 39px;
-        width: 100%;
+      .caption-icon {
+        background: url('../images/icons/caption.png') no-repeat center, color(caption-icon-bg);
+        height: 39px;
+        width: 39px;
       }
 
-      .caption-icon,
       .caption-icon.show {
-        background: url('../images/icons/caption.png') no-repeat center, color(caption-icon-bg);
+        background: url('../images/icons/caption-close.png') no-repeat center, color(caption-icon-bg);
         height: 39px;
         width: 39px;
       }
 
       .caption-icon ~ span {
         display: none;
-      }
-
-      .caption-icon.show:after {
-        background-color: color(caption-icon-bg);
-        bottom: -2px;
-        content: '';
-        display: block;
-        height: 2px;
-        left: 0;
-        position: absolute;
-        width: 100%;
       }
 
       .caption-icon.show ~ span {
@@ -407,5 +393,14 @@
     left: 15px;
     position: fixed;
     top: 8px;
+  }
+}
+
+@include breakpoint($tablet-1 0) {
+  .header-image-lightbox {
+    img,
+    a.colorbox {
+      height: 65vh;
+    }
   }
 }

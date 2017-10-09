@@ -32,14 +32,14 @@ var $fonts = [
 
 var $css = [
   './libraries/bootstrap-daterangepicker/daterangepicker.css',
-  './node_modules/font-awesome/css/font-awesome.min.css',
+  './node_modules/font-awesome/css/font-awesome.css',
   './dist/main.css'
 ];
 
 var $js = [
-  './libraries/bootstrap-daterangepicker/moment.min.js',
+  './libraries/bootstrap-daterangepicker/moment.js',
   './libraries/bootstrap-daterangepicker/daterangepicker.js',
-  './node_modules/jquery-validation/dist/jquery.validate.min.js',
+  './node_modules/jquery-validation/dist/jquery.validate.js',
   './js/custom.js'
 ];
 

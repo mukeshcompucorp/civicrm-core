@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function tpg_theme_preprocess_html(&$vars) {
+  // Setting head title.
+  if ($vars['is_front']) {
+    $vars['head_title'] = t('Home | ') . $vars['head_title'];
+  }
+}
+
+/**
  * Implements hook_css_alter().
  */
 function tpg_theme_css_alter(&$css) {
@@ -161,6 +171,9 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
   if (in_array($node->type, $pages)) {
     $vars['title'] = '';
   }
+
+  // Call chosen library.
+  drupal_add_library('chosen', 'drupal.chosen');
 }
 
 /**

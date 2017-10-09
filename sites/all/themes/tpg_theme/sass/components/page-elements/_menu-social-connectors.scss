@@ -1,3 +1,7 @@
+.block-menu-social-connectors {
+  margin-top: 60px;
+}
+
 .block-menu-social-connectors ul.menu li {
   display: inline-block;
   float: left;
@@ -34,6 +38,26 @@
 
     &:hover {
       background-color: color(footer-text-color-active);
+    }
+  }
+}
+
+@include breakpoint($tablet-1 0) {
+  .block-menu-social-connectors {
+    @include clr;
+
+    ul.menu li a {
+      height: 40px;
+      width: 40px;
+
+      &.fa-facebook-f:before {
+        top: 4px;
+      }
+
+      &.fa-facebook-f:before,
+      &:before {
+        @include rem(font-size, $menu-social-resp);
+      }
     }
   }
 }

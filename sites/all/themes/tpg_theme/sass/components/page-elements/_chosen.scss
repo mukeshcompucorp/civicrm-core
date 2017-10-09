@@ -34,6 +34,7 @@
 
   .chzn-drop {
     background: none;
+    min-width: 100%;
   }
 
   .chzn-search {
@@ -41,7 +42,7 @@
   }
 
   .chzn-results {
-    display: inline-block;
+    display: block;
 
     .highlighted {
       background: color(option-h);

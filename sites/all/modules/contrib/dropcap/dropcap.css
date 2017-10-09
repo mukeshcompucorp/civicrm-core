@@ -1,0 +1,15 @@
+img.dropcap{
+	border:0pt none;
+	display:inline;
+	float:left;
+	margin:2px 2px 0px 0px;
+}
+
+.dropcap-paragraph, .dropcap-paragraph-siblings {
+  z-index:1;
+  position:relative;
+}
+
+.dropcap-titling {
+  text-transform:uppercase;
+}
