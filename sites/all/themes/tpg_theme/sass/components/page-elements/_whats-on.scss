@@ -76,10 +76,6 @@
       text-transform: uppercase;
     }
 
-    .ajax-progress-throbber {
-      position: absolute;
-    }
-
     .views-widget-filter-tid .form-text {
       background: url('../images/icons/search.png') no-repeat 100% center;
     }
@@ -120,6 +116,10 @@
   // Main View
   .views-row {
     @include rem(margin-bottom, 48px);
+
+    &:nth-child(3n+4) {
+      clear: both;
+    }
   }
 
   > .view-content {
@@ -137,6 +137,7 @@
     @include rem(margin-bottom, 5px);
     color: color(main);
     font-weight: bold;
+    letter-spacing: .8px;
     min-height: auto;
     padding-left: 0;
     padding-right: 0;
@@ -167,6 +168,7 @@
 }
 
 @include breakpoint($large-screen $screen-md) {
+  .whats-on-filter .views-exposed-form .views-widget-filter-field_paragraphs_event_type_tid .chzn-single-with-drop + .chzn-drop,
   .whats-on-filter .views-exposed-form .views-widget-filter-field_event_for_tid .chzn-single-with-drop + .chzn-drop {
     left: auto !important;
     right: 0;

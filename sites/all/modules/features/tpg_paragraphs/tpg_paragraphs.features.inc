@@ -44,6 +44,7 @@ function tpg_paragraphs_views_api($module = NULL, $api = NULL) {
 function tpg_paragraphs_fe_date_custom_date_formats() {
   $custom_date_formats = array();
   $custom_date_formats['D d M Y'] = 'D d M Y';
+  $custom_date_formats['D d M Y - G.i'] = 'D d M Y - G.i';
   $custom_date_formats['M d, Y'] = 'M d, Y';
   return $custom_date_formats;
 }
@@ -53,6 +54,8 @@ function tpg_paragraphs_fe_date_custom_date_formats() {
  */
 function tpg_paragraphs_date_format_types() {
   $format_types = array();
+  // Exported date format type: date_published
+  $format_types['date_published'] = 'Date Published';
   // Exported date format type: event_format
   $format_types['event_format'] = 'Event Format';
   // Exported date format type: format_custom
@@ -146,12 +149,12 @@ function tpg_paragraphs_image_default_styles() {
 
   // Exported image style: full_width_image_1285x500.
   $styles['full_width_image_1285x500'] = array(
-    'label' => 'Full Width Image 1285x500',
+    'label' => 'Full Width Image 1920x500',
     'effects' => array(
-      3 => array(
+      1 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
-          'width' => 1285,
+          'width' => 1920,
           'height' => 500,
           'upscale' => 1,
           'respectminimum' => 1,

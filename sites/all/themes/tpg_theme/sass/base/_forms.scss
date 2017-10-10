@@ -31,7 +31,6 @@ input[type='text'] {
 }
 
 select {
-  opacity: 0;
   padding-bottom: 4px;
   padding-left: 3px;
 
@@ -83,12 +82,15 @@ input[type='checkbox'] {
   }
 
   &:checked + label:after {
-    @include rem(left, 7px);
-    @include rem(top, 7px);
-    @include sprite($cross);
+    @include rem(left, 8px);
+    @include rem(top, 8px);
+    background: $cross-icon no-repeat center;
+    background-size: contain;
     content: '';
+    height: 16px;
     position: absolute;
     text-align: center;
+    width: 16px;
     z-index: 1;
   }
 }
@@ -148,5 +150,16 @@ textarea {
 
   + .grippie {
     display: none;
+  }
+}
+
+.ajax-progress-throbber {
+  position: absolute;
+
+  .throbber {
+    background: $throbber no-repeat 0 center;
+    background-size: contain;
+    height: 19px;
+    width: 19px;
   }
 }

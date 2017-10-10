@@ -5,7 +5,9 @@
   text-align: center;
 
   li {
+    display: inline-block;
     list-style: none;
+    position: relative;
   }
 
   a {
@@ -17,7 +19,10 @@
   }
 
   .ajax-progress-throbber {
+    left: 100%;
+    margin-top: -12px;
     position: absolute;
+    top: 50%;
   }
 }
 
@@ -27,14 +32,5 @@
     background-color: color(main);
     color: color(load-more-bg);
     line-height: 1em;
-  }
-}
-
-.ajax-progress-throbber {
-  position: absolute;
-
-  .throbber {
-    background: $throbber no-repeat 0 center;
-    background-size: contain;
   }
 }

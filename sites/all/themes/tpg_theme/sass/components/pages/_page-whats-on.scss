@@ -2,7 +2,6 @@
   &-past-programme .past-programme,
   &-now-upcoming .now-upcoming {
     border-bottom: 2px solid color(heading);
-    color: color(main);
     display: inline;
     font-weight: $bold;
     text-decoration: none;
@@ -10,5 +9,35 @@
 
   .content-inner {
     overflow: hidden;
+  }
+}
+
+.now-upcoming,
+.past-programme {
+  color: color(main);
+}
+
+@include breakpoint($tablet-1 0) {
+  .page-whats-on .region-content {
+    display: flex;
+    flex-direction: column;
+
+    .whats-on-tabs {
+      order: 1;
+    }
+
+    .whats-on-description {
+      margin-bottom: 20px;
+      order: 2;
+    }
+
+    .whats-on-filter {
+      margin-bottom: 7px;
+      order: 3;
+    }
+
+    > .block-system {
+      order: 4;
+    }
   }
 }
