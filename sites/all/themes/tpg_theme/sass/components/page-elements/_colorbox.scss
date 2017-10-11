@@ -151,9 +151,10 @@
 
 .header-image-lightbox {
   img {
-    height: 70vh;
+    height: 80vh;
     margin-left: auto;
     margin-right: auto;
+    max-width: none;
     width: auto;
   }
 
@@ -271,11 +272,6 @@
       &:after {
         display: none;
       }
-    }
-
-    img {
-      @include centered-image;
-      max-width: none;
     }
 
     [class*="field-caption"] {
