@@ -7289,13 +7289,13 @@ return $;
           var $elLength = $el.length;
 
           if (!$('.columns-wrapper').length) {
-              $parent.eq(i).prepend(`
-                <div class="columns-wrapper clearfix">
-                  <div class="col col-1 col-` + breakpoint + `-` + 12/elNumber + `"></div>
-                  <div class="col col-2 col-` + breakpoint + `-` + 12/elNumber + `"></div>
-                  <div class="col col-3 col-` + breakpoint + `-` + 12/elNumber + `"></div>
-                </div>
-            `);
+              $parent.eq(i).prepend(
+                '<div class="columns-wrapper clearfix">' +
+                  '<div class=\"col col-1 col-' + breakpoint + '-' + 12/elNumber + '\"></div>' +
+                  '<div class=\"col col-2 col-' + breakpoint + '-' + 12/elNumber + '\"></div>' +
+                  '<div class=\"col col-3 col-' + breakpoint + '-' + 12/elNumber + '\"></div>' +
+                '</div>'
+            );
           }
 
           for (var j = 0; j < $elLength; j += elNumber) {
@@ -7312,8 +7312,6 @@ return $;
             }
           }
         }
-      } else if (!$parent.length && $view.length) {
-        $view.addClass('show');
       }
     }
   };
