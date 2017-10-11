@@ -63,7 +63,7 @@ function tpg_paragraphs_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_date_published';
-  $strongarm->value = 'D d M Y - G:i';
+  $strongarm->value = 'D d M Y - G.i';
   $export['date_format_date_published'] = $strongarm;
 
   $strongarm = new stdClass();

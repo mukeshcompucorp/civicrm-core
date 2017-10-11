@@ -65,7 +65,7 @@ function tpg_homepage_default_fe_block_settings() {
 
   $export['block-stay_up_to_date'] = array(
     'cache' => -1,
-    'css_class' => 'Stay up-to-date',
+    'css_class' => 'col-sm-3 stay-up-to-date',
     'custom' => 0,
     'machine_name' => 'stay_up_to_date',
     'module' => 'block',
@@ -272,7 +272,7 @@ user',
 
   $export['menu-menu-footer'] = array(
     'cache' => -1,
-    'css_class' => 'block-menu-footer col-sm-4',
+    'css_class' => 'block-menu-footer col-sm-3',
     'custom' => 0,
     'delta' => 'menu-footer',
     'module' => 'menu',
@@ -323,7 +323,7 @@ user',
 
   $export['menu-menu-social-connectors'] = array(
     'cache' => -1,
-    'css_class' => 'block-menu-social-connectors col-sm-4',
+    'css_class' => 'block-menu-social-connectors col-sm-3',
     'custom' => 0,
     'delta' => 'menu-social-connectors',
     'module' => 'menu',

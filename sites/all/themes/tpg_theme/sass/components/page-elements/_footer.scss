@@ -24,9 +24,19 @@
     color: color(footer-text-color);
   }
 
-  .block-working-hours strong {
-    display: inline-block;
-    width: 83px;
+  .block-working-hours {
+    p {
+      margin-bottom: 23px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      display: inline-block;
+      width: 83px;
+    }
   }
 
   a {
@@ -45,7 +55,7 @@
   }
 
   .block-arts-council-england {
-    bottom: -7px;
+    bottom: 0;
     position: absolute;
     right: 10px;
   }
@@ -65,6 +75,14 @@
       position: absolute;
       top: 8px;
     }
+  }
+
+  .stay-up-to-date p a {
+    background-color: color(footer-social-connectors-background-color);
+    color: color(main);
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 30px 4px;
   }
 
   .block-webform-stay-up-to-date {

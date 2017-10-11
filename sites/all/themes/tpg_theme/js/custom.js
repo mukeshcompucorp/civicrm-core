@@ -200,16 +200,15 @@
 
   Drupal.behaviors.lightBoxArrows = {
     attach: function(context, settings) {
-      this.arrowCreation('.header-image-lightbox .field-content', context);
-      this.openLightbox('.header-image-lightbox .left', context);
-      this.openLightbox('.header-image-lightbox .right', context);
+      this.arrowCreation('.header-image-lightbox .field-content > a:first-child', context);
+      this.openLightbox('.header-image-lightbox span', context);
     },
     arrowCreation: function(el, context) {
       var $el = $(el, context);
-      var $item = $el.find('a');
+      var $item = $el.parent().find('a');
 
       if ($el.length && $item.length >= 2) {
-        $(el, context).append('<span class="left"></span><span class="right"></span>');
+        $(el, context).append('<div class="arrows"><span class="left"></span><span class="right"></span></div>');
       }
     },
     openLightbox: function(el, context) {
@@ -223,8 +222,9 @@
 
   Drupal.behaviors.removingEmptyBlock = {
     attach: function(context, settings) {
-      this.moveTitle('.header-image', 'img');
-      this.moveTitle('.header-image-two-col', 'img');
+      this.moveTitle('.header-image', 'img', context);
+      this.moveTitle('.header-image-two-col', 'img', context);
+      this.moveElement('.field-type-paragraphs .book-tickets', '.field-type-paragraphs > .field-items', context);
     },
     moveTitle: function(el, isEmpty, context) {
       var $el       = $(el, context);
@@ -237,6 +237,14 @@
         if (!$image.length) {
           $this.remove();
         }
+      }
+    },
+    moveElement: function(el, place, context) {
+      var $el    = $(el, context);
+      var $place = $(place, context);
+
+      if ($el.length) {
+        $el.prependTo($place).addClass('clonned');
       }
     }
   };
@@ -343,6 +351,7 @@
       $paragraphsItemNext.prepend($viewpointTag);
 
       this.moveTag('.page-viewpoints .view-viewpoints .views-row', '.field-type-taxonomy-term-reference', context);
+      this.moveTag('.node-type-events-detail .view-viewpoints .views-row', '.field-type-taxonomy-term-reference', context);
     },
     moveTag: function(el, place, context) {
       var $el      = $(el, context);

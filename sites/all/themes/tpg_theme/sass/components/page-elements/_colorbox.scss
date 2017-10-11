@@ -151,9 +151,10 @@
 
 .header-image-lightbox {
   img {
-    @include rem(height, 640px);
+    height: 80vh;
     margin-left: auto;
     margin-right: auto;
+    max-width: none;
     width: auto;
   }
 
@@ -254,30 +255,23 @@
 
   .left {
     @include sprite($arrow-left);
-    left: 19px;
+    left: -25px;
   }
 
   .right {
     @include sprite($arrow-right);
-    right: 19px;
+    right: -25px;
   }
 }
 
 @include breakpoint($md-1 0) {
   .header-image-lightbox {
     a.colorbox {
-      @include rem(height, 580px);
       display: block;
 
       &:after {
         display: none;
       }
-    }
-
-    img {
-      @include centered-image;
-      @include rem(height, 580px);
-      max-width: none;
     }
 
     [class*="field-caption"] {

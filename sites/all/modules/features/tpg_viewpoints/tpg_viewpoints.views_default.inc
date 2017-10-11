@@ -84,7 +84,7 @@ function tpg_viewpoints_views_default_views() {
     ),
   );
   $handler->display->display_options['pager']['type'] = 'load_more';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '9';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
@@ -418,6 +418,8 @@ function tpg_viewpoints_views_default_views() {
   $handler = $view->new_display('block', 'Related Viewpoints Events', 'related_viewpoint');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Related viewpoint';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'related-viewpoints row';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
