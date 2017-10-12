@@ -367,10 +367,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     $form['field_form_tid']['#options']['All'] = t('EVERYTHING');
   }
 
-  // Setting Unpublished as default pusblishing option.
+  // Setting Unpublished as default publishing option for new nodes..
   $content_types =  array('article_node_form', 'page_node_form', 'document_node_form', 'events_detail_node_form', 'external_links_node_form', 'header_image_node_form', 'internal_links_node_form', 'overview_page_node_form', 'paragraphs_page_node_form', 'product_display_node_form', 'viewpoint_node_form');
 
-  if (in_array($form_id, $content_types)) {
+  if (in_array($form_id, $content_types) && empty($form['nid']['#value'])) {
     $form['options']['status']['#default_value'] = 0;
   }
 }
