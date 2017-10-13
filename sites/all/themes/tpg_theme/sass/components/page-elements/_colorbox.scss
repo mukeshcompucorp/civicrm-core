@@ -392,11 +392,40 @@
   }
 }
 
-@include breakpoint($tablet-1 0) {
+// Setting image height for laptop
+@include breakpoint($laptop $screen-md) {
+  .header-image-lightbox img {
+    height: 73vh;
+  }
+}
+
+// Setting image height according to devices orientation: portrait or landscape
+@media screen and (max-width: $tablet-1) {
+  .header-image-lightbox {
+    img,
+    a.colorbox {
+      height: 80vh;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-1) and (orientation: landscape) {
   .header-image-lightbox {
     img,
     a.colorbox {
       height: 65vh;
     }
+  }
+}
+
+@media screen and (min-width: $tablet) and (max-width: $tablet-landscape) {
+  .header-image-lightbox img {
+    height: 87vh;
+  }
+}
+
+@media screen and (min-width: $tablet) and (max-width: $tablet-landscape) and (orientation: landscape) {
+  .header-image-lightbox img {
+    height: 73vh;
   }
 }
