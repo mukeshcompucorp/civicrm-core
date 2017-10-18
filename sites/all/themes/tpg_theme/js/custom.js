@@ -224,7 +224,6 @@
     attach: function(context, settings) {
       this.moveTitle('.header-image', 'img', context);
       this.moveTitle('.header-image-two-col', 'img', context);
-      this.moveElement('.field-type-paragraphs .book-tickets', '.field-type-paragraphs > .field-items', context);
     },
     moveTitle: function(el, isEmpty, context) {
       var $el       = $(el, context);
