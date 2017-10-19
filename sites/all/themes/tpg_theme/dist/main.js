@@ -7436,9 +7436,10 @@ return $;
     elClone: function(el1, el2, el3, classToAdd, wrapper, afterEl, afterElAlt, context) {
       if ($(el1, context).length || $(el2, context).length || $(el3, context).length) {
         if ($(afterEl, context).length) {
-          $(wrapper, context).clone().addClass(classToAdd).insertAfter(afterEl);
-        } else {
           $(wrapper, context).clone().addClass(classToAdd).appendTo(afterElAlt);
+          if ($('.paragraphs-item-title-section').length) {
+            $('.' + classToAdd, context).find(el2).addClass('clonned').insertAfter('.paragraphs-item-title-section');
+          }
         }
       }
     },
