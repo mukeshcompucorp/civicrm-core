@@ -826,7 +826,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['fields']['field_event_dates']['relationship'] = 'field_paragraphs_entity_value';
   $handler->display->display_options['fields']['field_event_dates']['label'] = '';
   $handler->display->display_options['fields']['field_event_dates']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'col-xs-6 date';
+  $handler->display->display_options['fields']['field_event_dates']['element_wrapper_class'] = 'field-paragraphs-date-published';
   $handler->display->display_options['fields']['field_event_dates']['settings'] = array(
     'format_type' => 'day_month_year',
     'fromto' => 'both',

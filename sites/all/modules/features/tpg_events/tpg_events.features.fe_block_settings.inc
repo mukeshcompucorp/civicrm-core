@@ -59,7 +59,7 @@ function tpg_events_default_fe_block_settings() {
         'weight' => -23,
       ),
     ),
-    'title' => 'Plan your visit',
+    'title' => 'Information',
     'visibility' => 1,
   );
 
