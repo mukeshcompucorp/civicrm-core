@@ -126,19 +126,10 @@ function variablemembershipgraceperiod_civicrm_alterSettingsFolders(&$metaDataFo
 
 function variablemembershipgraceperiod_civicrm_alterCalculatedMembershipStatus(&$membershipStatus, $arguments, $membership) {
 
-  $memberships = array(
-    //Contemporaries, Contemporaries Annual DD, Contemporaries Monthly DD, Contemporaries Discounted
-    //Contemporaries Discounted Annual DD, Contemporaries Discounted Monthly DD
-    20, 21, 22, 23, 24 ,25,
-    //Patron, Patron Annual DD, Patron Monthly DD, Directors' Circle,
-    //Directors' Circle Annual DD, Directors' Circle Monthly DD, Council, Council Annual DD
-    10, 9, 8, 16, 15, 14, 19, 18,
-    //Advisory TPGC Committee, Advisory TPGC Committee Annual DD, Advisory TPGC Committee Monthly DD
-    //Honorary TPGC Committee, Honorary TPGC Ambassador, Honorary TPGC Patron
-    28, 29, 30, 31, 32, 35
-  );
+  $gracePeriodMembershipTypes = new ReflectionClass('CRM_VariableMembership_GracePeriodMembershipTypes');
+  $membershipsTypes = $gracePeriodMembershipTypes ->getConstants();
 
-  if(empty($arguments['membership_type_id']) || in_array($arguments['membership_type_id'], $memberships) || empty($arguments['end_date'])) {
+  if(empty($arguments['membership_type_id']) || in_array($arguments['membership_type_id'], $membershipsTypes) || empty($arguments['end_date'])) {
     return;
   }
 

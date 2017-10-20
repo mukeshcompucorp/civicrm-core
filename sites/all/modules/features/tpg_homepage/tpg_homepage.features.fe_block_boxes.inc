@@ -53,7 +53,7 @@ function tpg_homepage_default_fe_block_boxes() {
   $fe_block_boxes->body = '<p><strong>Mon - Sat</strong> 10.00 - 18.00<br />
 <strong>Thu</strong> 10.00 - 20.00 during exhibitions<br />
 <strong>Sun</strong> 11.00 - 18.00<br />
-<a class="arrow" href="http://www.compucorp.co.uk">Plan your visit</a></p>
+<a class="arrow" href="/visit-and-do/plan-your-visit">Plan your visit</a></p>
 
 <p><a href="mailto:info@tpg.org.uk">info@tpg.org.uk</a>&nbsp;<a href="+44270879300">+44 (020) 7087 9300</a></p>
 ';

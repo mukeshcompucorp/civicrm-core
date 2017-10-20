@@ -11,7 +11,7 @@ function tpg_events_default_fe_block_boxes() {
   $export = array();
 
   $fe_block_boxes = new stdClass();
-  $fe_block_boxes->info = 'Plan your visit';
+  $fe_block_boxes->info = 'Visit Us';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'event_plan_your_visit';
   $fe_block_boxes->body = '<p>Mon - Sat: 10.00 - 18.00</p>
@@ -47,7 +47,7 @@ function tpg_events_default_fe_block_boxes() {
   $fe_block_boxes->info = 'What\'s on Now & upcoming';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'whats_on_now_upcoming';
-  $fe_block_boxes->body = '<p>Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus.</p>
+  $fe_block_boxes->body = '<p>We have a wide range of talks and events, including artist talks, exhibition tours, workshops and courses, and career advice for aspiring photographers</p>
 ';
 
   $export['whats_on_now_upcoming'] = $fe_block_boxes;
