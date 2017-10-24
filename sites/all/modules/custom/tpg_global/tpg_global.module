@@ -70,15 +70,24 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
           $end_date_year = date('Y', strtotime($end_date));
           $date_string = '';
 
+          $start_date_without_time = date('d m Y', strtotime($start_date));
+          $end_date_without_time = date('d m Y', strtotime($end_date));
+
+          $start_time = date('G:i', strtotime($start_date));
+          $end_time = date('G:i', strtotime($end_date));
+
           // Changing format of Event Date display.
           if ($start_date == $end_date) {
             $date_string = format_date(strtotime($start_date), 'event_format');
           }
+          elseif ($start_date_without_time == $end_date_without_time && $start_time != $end_time) {
+            $date_string = format_date(strtotime($start_date), 'event_format') . ' - ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
+          }
           elseif ($start_date_year == $end_date_year) {
-            $date_string = format_date(strtotime($start_date), 'day_month_short') . ' - ' . format_date(strtotime($end_date), 'day_month_year');
+            $date_string = format_date(strtotime($start_date), 'day_month_short') . ' - ' . format_date(strtotime($end_date), 'day_month_year') . ' ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
           }
           else {
-            $date_string = format_date(strtotime($start_date), 'day_month_year') . ' - ' . format_date(strtotime($end_date), 'day_month_year');
+            $date_string = format_date(strtotime($start_date), 'day_month_year') . ' - ' . format_date(strtotime($end_date), 'day_month_year') . ' - ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
           }
           $paragraphs_entity[$key]['entity']['paragraphs_item'][$item_key]['event_start_end_dates'][0]['#markup'] = '<div class="date-display-range">' . $date_string . '</div>';
         }
@@ -367,10 +376,10 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
     $form['field_form_tid']['#options']['All'] = t('EVERYTHING');
   }
 
-  // Setting Unpublished as default pusblishing option.
+  // Setting Unpublished as default publishing option for new nodes..
   $content_types =  array('article_node_form', 'page_node_form', 'document_node_form', 'events_detail_node_form', 'external_links_node_form', 'header_image_node_form', 'internal_links_node_form', 'overview_page_node_form', 'paragraphs_page_node_form', 'product_display_node_form', 'viewpoint_node_form');
 
-  if (in_array($form_id, $content_types)) {
+  if (in_array($form_id, $content_types) && empty($form['nid']['#value'])) {
     $form['options']['status']['#default_value'] = 0;
   }
 }

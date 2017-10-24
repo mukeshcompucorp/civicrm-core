@@ -7436,9 +7436,10 @@ return $;
     elClone: function(el1, el2, el3, classToAdd, wrapper, afterEl, afterElAlt, context) {
       if ($(el1, context).length || $(el2, context).length || $(el3, context).length) {
         if ($(afterEl, context).length) {
-          $(wrapper, context).clone().addClass(classToAdd).insertAfter(afterEl);
-        } else {
           $(wrapper, context).clone().addClass(classToAdd).appendTo(afterElAlt);
+          if ($('.paragraphs-item-title-section').length) {
+            $('.' + classToAdd, context).find(el2).addClass('clonned').insertAfter('.paragraphs-item-title-section');
+          }
         }
       }
     },
@@ -7495,7 +7496,6 @@ return $;
     attach: function(context, settings) {
       this.moveTitle('.header-image', 'img', context);
       this.moveTitle('.header-image-two-col', 'img', context);
-      this.moveElement('.field-type-paragraphs .book-tickets', '.field-type-paragraphs > .field-items', context);
     },
     moveTitle: function(el, isEmpty, context) {
       var $el       = $(el, context);

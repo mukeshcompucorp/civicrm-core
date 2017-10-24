@@ -38,7 +38,7 @@
 
 @include breakpoint($md-1 0) {
   .book-tickets {
-    @include rem(margin-bottom, 5px);
+    @include rem(margin-bottom, 30px);
   }
 
   .membership-block {
