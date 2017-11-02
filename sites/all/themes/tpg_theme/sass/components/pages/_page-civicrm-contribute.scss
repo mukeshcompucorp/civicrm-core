@@ -1,0 +1,27 @@
+.page-civicrm-contribute {
+  .flex-responsive {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .chzn-container {
+    border: 1px solid color(arrows);
+    max-width: 237px;
+  }
+
+  #crm-container.crm-public input[type='text'],
+  #crm-container.crm-public input[type='password'],
+  #crm-container.crm-public input[type='email'],
+  #crm-container.crm-public select {
+    max-width: 230px;
+  }
+
+  .crm-credit_card_type-icons a {
+    margin-bottom: 10px;
+    margin-top: 3px;
+  }
+
+  .crm-submit-buttons {
+    margin-bottom: 30px;
+  }
+}
