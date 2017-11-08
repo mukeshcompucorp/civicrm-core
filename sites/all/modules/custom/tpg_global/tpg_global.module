@@ -180,6 +180,31 @@ function tpg_global_views_query_alter(&$view, &$query) {
   }
   // Artist view.
   if ($view->name == 'artist' && in_array($view->current_display, array('collection_0', 'collection_1', 'collection_2', 'collection_3', 'collection_4'))) {
+
+    // Altering contextual filter value for Prints page changing target id to related artist node id.
+    $node = menu_get_object('node');
+    if ($node->type == 'prints' && !empty($node->field_print_artist['und'][0]['target_id'])) {
+      // Artist node nid related to Print Artist field.
+      $artist_nid = $node->field_print_artist['und'][0]['target_id'];
+      // Contextual filter alter.
+      $view->args[0] = $artist_nid;
+      // Fetching field id for each of the collection view block.
+      $field_id = key($query->where[0]['conditions'][0]['value']);
+      $query->where[0]['conditions'][0]['value']["$field_id"] = $artist_nid;
+
+      // Removing current prints node from collections list.
+      $query->where[1]['conditions'][] = array(
+        'field' => 'node.nid',
+        'value' => $node->nid,
+        'operator' => '!='
+      );
+
+      // Altering view tilte for collections.
+      if ($view->current_display == 'collection_0') {
+        $view->build_info['title'] = t('More works from this artist');
+      }
+    }
+
     // Loading collection term ids for each artist node.
     if (!empty($view->args[0])) {
       $collection_term_ids = _tpg_global_fetch_collection_term_id_artist_node($view->args[0]);
@@ -200,7 +225,7 @@ function tpg_global_views_query_alter(&$view, &$query) {
  *
  * @param string $artist_nid  The artist node nid.
  *
- * @return array Collection term ids for related artist node.
+ * @return array $collection_term_ids Collection term ids for related artist node.
  */
 function _tpg_global_fetch_collection_term_id_artist_node($artist_nid) {
   $collection_term_ids = array();

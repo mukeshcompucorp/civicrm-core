@@ -18,7 +18,10 @@ function tpg_artist_and_prints_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'artist-collection_0',
     'module' => 'views',
-    'node_types' => array(),
+    'node_types' => array(
+      0 => 'artist',
+      1 => 'prints',
+    ),
     'pages' => '',
     'roles' => array(),
     'themes' => array(
@@ -71,6 +74,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
     'module' => 'views',
     'node_types' => array(
       0 => 'artist',
+      1 => 'prints',
     ),
     'pages' => '',
     'roles' => array(),
@@ -124,6 +128,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
     'module' => 'views',
     'node_types' => array(
       0 => 'artist',
+      1 => 'prints',
     ),
     'pages' => '',
     'roles' => array(),
@@ -177,6 +182,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
     'module' => 'views',
     'node_types' => array(
       0 => 'artist',
+      1 => 'prints',
     ),
     'pages' => '',
     'roles' => array(),
@@ -230,6 +236,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
     'module' => 'views',
     'node_types' => array(
       0 => 'artist',
+      1 => 'prints',
     ),
     'pages' => '',
     'roles' => array(),
