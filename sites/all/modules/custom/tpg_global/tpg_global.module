@@ -178,6 +178,40 @@ function tpg_global_views_query_alter(&$view, &$query) {
       $query->where[1]['conditions'][2]['value'][':field_data_field_event_dates_field_event_dates_value'] = '2012';
     }
   }
+  // Artist view.
+  if ($view->name == 'artist' && in_array($view->current_display, array('collection_0', 'collection_1', 'collection_2', 'collection_3', 'collection_4'))) {
+    // Loading collection term ids for each artist node.
+    if (!empty($view->args[0])) {
+      $collection_term_ids = _tpg_global_fetch_collection_term_id_artist_node($view->args[0]);
+    }
+    $display_state = TRUE;
+    // Altering Collection term id for each collection attached to artist entity reference for prints type.
+    foreach($collection_term_ids as $key => $value) {
+      if ($view->current_display == "collection_$key") {
+        $query->where[1]['conditions'][1]['value'] = $value;
+        $display_state = FALSE;
+      }
+    }
+  }
+}
+
+/**
+ * Loads collection term ids for particular artist node nid argument from print content type using views.
+ *
+ * @param string $artist_nid  The artist node nid.
+ *
+ * @return array Collection term ids for related artist node.
+ */
+function _tpg_global_fetch_collection_term_id_artist_node($artist_nid) {
+  $collection_term_ids = array();
+  $collection_terms = views_get_view_result('artist', 'collections_artist', $artist_nid);
+    foreach ($collection_terms as $key => $value) {
+    // Removing duplicate object terms.
+    if (!in_array($value->taxonomy_term_data_field_data_field_print_collections_tid, $collection_term_ids)) {
+      $collection_term_ids[] = $value->taxonomy_term_data_field_data_field_print_collections_tid;
+    }
+  }
+  return $collection_term_ids;
 }
 
 /**
