@@ -90,12 +90,18 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
   /* Display: All works from this artist */
-  $handler = $view->new_display('block', 'All works from this artist', 'work_from_this_artist');
+  $handler = $view->new_display('block', 'All works from this artist', 'collection_0');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'All works from this artist';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
@@ -110,6 +116,17 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['relationships']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
@@ -162,6 +179,21 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
+  $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
 
   /* Display: Related Artist */
   $handler = $view->new_display('block', 'Related Artist', 'related_artist');
@@ -256,6 +288,482 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['bundle']['value'] = array(
     'title_section' => 'title_section',
   );
+
+  /* Display: Artist Collections  */
+  $handler = $view->new_display('block', 'Artist Collections ', 'collections_artist');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'All works from this artist';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['relationships']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'field_print_collections_tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Collection 1 */
+  $handler = $view->new_display('block', 'Collection 1', 'collection_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '1';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_print_collections',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['relationships']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Print Collections */
+  $handler->display->display_options['fields']['field_print_collections']['id'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['field'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['label'] = '';
+  $handler->display->display_options['fields']['field_print_collections']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_print_collections']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_collections']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_print_collections']['delta_offset'] = '0';
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['id'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
+  $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+
+  /* Display: Collection 2 */
+  $handler = $view->new_display('block', 'Collection 2', 'collection_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '2';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_print_collections',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['relationships']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Print Collections */
+  $handler->display->display_options['fields']['field_print_collections']['id'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['field'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['label'] = '';
+  $handler->display->display_options['fields']['field_print_collections']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_print_collections']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_collections']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_print_collections']['delta_offset'] = '0';
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['id'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
+  $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+
+  /* Display: Collection 3 */
+  $handler = $view->new_display('block', 'Collection 3', 'collection_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '3';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_print_collections',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['relationships']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Print Collections */
+  $handler->display->display_options['fields']['field_print_collections']['id'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['field'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['label'] = '';
+  $handler->display->display_options['fields']['field_print_collections']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_print_collections']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_collections']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_print_collections']['delta_offset'] = '0';
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['id'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
+  $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+
+  /* Display: Collection 4 */
+  $handler = $view->new_display('block', 'Collection 4', 'collection_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'load_more';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '3';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['effects']['speed'] = 'slow';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_print_collections',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Paragraphs Content (field_paragraphs_content) */
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['id'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['table'] = 'field_data_field_paragraphs_content';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['field'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['relationships']['field_paragraphs_content_value']['delta'] = '-1';
+  /* Relationship: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['relationships']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  $handler->display->display_options['relationships']['field_print_collections_tid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Print Collections */
+  $handler->display->display_options['fields']['field_print_collections']['id'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['field'] = 'field_print_collections';
+  $handler->display->display_options['fields']['field_print_collections']['label'] = '';
+  $handler->display->display_options['fields']['field_print_collections']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_print_collections']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_collections']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_print_collections']['delta_offset'] = '0';
+  /* Field: Paragraphs item: Overview Image */
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['id'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['table'] = 'field_data_field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['field'] = 'field_paragraphs_overview_image';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['label'] = '';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
+    'image_style' => 'overview_page_image_400x271',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
+  $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
   $export['artist'] = $view;
 
   $view = new view();
