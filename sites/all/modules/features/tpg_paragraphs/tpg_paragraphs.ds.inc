@@ -155,6 +155,20 @@ function tpg_paragraphs_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_paragraph_title' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'h2',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+          'fi-first-last' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['paragraphs_item|attachments|full'] = $ds_fieldsetting;
 
@@ -993,10 +1007,12 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_paragraphs_attachments',
+        0 => 'field_paragraph_title',
+        1 => 'field_paragraphs_attachments',
       ),
     ),
     'fields' => array(
+      'field_paragraph_title' => 'ds_content',
       'field_paragraphs_attachments' => 'ds_content',
     ),
     'classes' => array(),
@@ -1022,10 +1038,12 @@ function tpg_paragraphs_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'center' => array(
-        0 => 'field_paragraphs_attachments',
+        0 => 'field_paragraph_title',
+        1 => 'field_paragraphs_attachments',
       ),
     ),
     'fields' => array(
+      'field_paragraph_title' => 'center',
       'field_paragraphs_attachments' => 'center',
     ),
     'classes' => array(),

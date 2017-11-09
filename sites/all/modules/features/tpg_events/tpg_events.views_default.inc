@@ -908,13 +908,13 @@ function tpg_events_views_default_views() {
     'title_section' => 'title_section',
   );
   $handler->display->display_options['filters']['bundle']['group'] = 1;
-  /* Filter criterion: Paragraphs item: Event Dates -  start date (field_event_dates) */
-  $handler->display->display_options['filters']['field_event_dates_value']['id'] = 'field_event_dates_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['table'] = 'field_data_field_event_dates';
-  $handler->display->display_options['filters']['field_event_dates_value']['field'] = 'field_event_dates_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['filters']['field_event_dates_value']['operator'] = '<';
-  $handler->display->display_options['filters']['field_event_dates_value']['default_date'] = 'now';
+  /* Filter criterion: Paragraphs item: Event Dates - end date (field_event_dates:value2) */
+  $handler->display->display_options['filters']['field_event_dates_value2']['id'] = 'field_event_dates_value2';
+  $handler->display->display_options['filters']['field_event_dates_value2']['table'] = 'field_data_field_event_dates';
+  $handler->display->display_options['filters']['field_event_dates_value2']['field'] = 'field_event_dates_value2';
+  $handler->display->display_options['filters']['field_event_dates_value2']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['field_event_dates_value2']['operator'] = '<';
+  $handler->display->display_options['filters']['field_event_dates_value2']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'whats-on/past-programme';
 
   /* Display: Featured Content */
