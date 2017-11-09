@@ -147,6 +147,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['sidebar_second'] = '';
         $classes['content'] = '';
       break;
+      case 'artist':
+        $classes['sidebar_first'] = !$visible ? 'col-md-3' : '';
+        $classes['sidebar_second'] = !$visible ? 'col-md-3' : 'container';
+        $classes['content'] = !$visible ? 'col-md-6' : '';
+      break;
       default:
         $classes['sidebar_first'] = !$visible ? 'col-md-2' : '';
         $classes['sidebar_second'] = !$visible ? 'col-md-2' : 'container';

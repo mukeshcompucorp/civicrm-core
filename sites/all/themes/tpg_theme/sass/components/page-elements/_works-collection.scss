@@ -3,6 +3,10 @@
 
   &-block {
     margin-top: 40px;
+
+    .block-title h2 {
+      font-size: $p;
+    }
   }
 
   .view-content {
@@ -11,6 +15,10 @@
 
   .title {
     margin-bottom: 24px;
+
+    h3 {
+      font-size: $h4;
+    }
   }
 
   .pager-load-more {
