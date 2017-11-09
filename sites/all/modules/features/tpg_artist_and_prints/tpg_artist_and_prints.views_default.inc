@@ -93,6 +93,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler = $view->new_display('block', 'All works from this artist', 'collection_0');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'All works from this artist';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'works-collection vertical';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -111,6 +113,7 @@ function tpg_artist_and_prints_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['row_class'] = 'col-md-3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -155,7 +158,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'artists_overview_200x280',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -165,6 +168,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Print Collections (field_print_collections) */
   $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
@@ -348,6 +353,8 @@ function tpg_artist_and_prints_views_default_views() {
   /* Display: Collection 1 */
   $handler = $view->new_display('block', 'Collection 1', 'collection_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'container works-collection square';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -366,6 +373,7 @@ function tpg_artist_and_prints_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['row_class'] = 'col-md-3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -410,7 +418,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'overview_page_image_400x271',
+    'image_style' => 'artists_overview_last_280x190',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -420,6 +428,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Print Collections (field_print_collections) */
   $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
