@@ -14,7 +14,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
 
   $export['block-print_sales_explore_artist_intro'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'col-md-8 whats-on-description',
     'custom' => 0,
     'machine_name' => 'print_sales_explore_artist_intro',
     'module' => 'block',
@@ -65,7 +65,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
 
   $export['block-print_sales_explore_artwork_intr'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'col-md-8 whats-on-description',
     'custom' => 0,
     'machine_name' => 'print_sales_explore_artwork_intr',
     'module' => 'block',
@@ -116,7 +116,7 @@ function tpg_artist_and_prints_default_fe_block_settings() {
 
   $export['block-print_sales_links'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'whats-on-tabs col-xs-4',
     'custom' => 0,
     'machine_name' => 'print_sales_links',
     'module' => 'block',
