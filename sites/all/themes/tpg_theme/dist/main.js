@@ -7496,6 +7496,7 @@ return $;
     attach: function(context, settings) {
       this.moveTitle('.header-image', 'img', context);
       this.moveTitle('.header-image-two-col', 'img', context);
+      this.moveElement('.print-sales .view-filters', '.region-content', context);
     },
     moveTitle: function(el, isEmpty, context) {
       var $el       = $(el, context);

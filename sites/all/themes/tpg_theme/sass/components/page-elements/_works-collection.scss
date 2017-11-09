@@ -9,6 +9,14 @@
     }
   }
 
+  .views-row {
+    margin-bottom: 20px;
+
+    ~ .title {
+      display: none;
+    }
+  }
+
   .view-content {
     @include make-row;
   }
@@ -22,7 +30,6 @@
   }
 
   .pager-load-more {
-    margin-top: 20px;
     padding-bottom: 0;
   }
 
@@ -45,16 +52,11 @@
 
   // Title wrapper
   .views-field-title {
+    @include ellipsis-title;
     margin-top: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
     h3 a {
-      display: inline;
       font-size: $h4;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
   }
 }
