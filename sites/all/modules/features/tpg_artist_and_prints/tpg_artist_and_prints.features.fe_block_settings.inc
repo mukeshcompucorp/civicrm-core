@@ -168,7 +168,7 @@ print-sales/explore-artist',
 
   $export['views-artist-collection_0'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'container works-collection-block',
     'custom' => 0,
     'delta' => 'artist-collection_0',
     'module' => 'views',

@@ -1,0 +1,52 @@
+.works-collection {
+  margin-bottom: 89px;
+
+  &-block {
+    margin-top: 40px;
+  }
+
+  .view-content {
+    @include make-row;
+  }
+
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .pager-load-more {
+    margin-top: 20px;
+    padding-bottom: 0;
+  }
+
+  // Image wrapper
+  &.vertical .views-field-field-paragraphs-overview-image {
+    padding: 8px 52px;
+  }
+
+  &.square .views-field-field-paragraphs-overview-image {
+    padding: 55px 8px;
+  }
+
+  .views-field-field-paragraphs-overview-image {
+    background-color: color(view-image-background);
+
+    img {
+      min-width: 100%;
+    }
+  }
+
+  // Title wrapper
+  .views-field-title {
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    h3 a {
+      display: inline;
+      font-size: $h4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

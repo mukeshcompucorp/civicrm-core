@@ -21,6 +21,45 @@ function tpg_artist_and_prints_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function tpg_artist_and_prints_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: artists_overview_200x280.
+  $styles['artists_overview_200x280'] = array(
+    'label' => 'Artists overview 200x280',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 200,
+          'height' => 280,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: artists_overview_last_280x190.
+  $styles['artists_overview_last_280x190'] = array(
+    'label' => 'Artists overview last 280x190',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 280,
+          'height' => 190,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function tpg_artist_and_prints_node_info() {
