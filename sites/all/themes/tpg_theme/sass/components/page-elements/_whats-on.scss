@@ -159,7 +159,7 @@
   }
 
   .title {
-    @include ellipsis-title(82%);
+    clear: both;
   }
 
   .item-list {
