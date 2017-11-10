@@ -161,6 +161,17 @@ function tpg_artist_and_prints_views_default_views() {
     'image_style' => 'artists_overview_200x280',
     'image_link' => '',
   );
+  /* Field: Content: Print Artist */
+  $handler->display->display_options['fields']['field_print_artist']['id'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['table'] = 'field_data_field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['field'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -199,6 +210,14 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
   $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Related Artist */
   $handler = $view->new_display('block', 'Related Artist', 'related_artist');
@@ -421,6 +440,17 @@ function tpg_artist_and_prints_views_default_views() {
     'image_style' => 'artists_overview_last_280x190',
     'image_link' => '',
   );
+  /* Field: Content: Print Artist */
+  $handler->display->display_options['fields']['field_print_artist']['id'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['table'] = 'field_data_field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['field'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -459,6 +489,14 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
   $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Collection 2 */
   $handler = $view->new_display('block', 'Collection 2', 'collection_2');
@@ -528,6 +566,17 @@ function tpg_artist_and_prints_views_default_views() {
     'image_style' => 'overview_page_image_400x271',
     'image_link' => '',
   );
+  /* Field: Content: Print Artist */
+  $handler->display->display_options['fields']['field_print_artist']['id'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['table'] = 'field_data_field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['field'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -564,6 +613,14 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
   $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Collection 3 */
   $handler = $view->new_display('block', 'Collection 3', 'collection_3');
@@ -633,6 +690,17 @@ function tpg_artist_and_prints_views_default_views() {
     'image_style' => 'overview_page_image_400x271',
     'image_link' => '',
   );
+  /* Field: Content: Print Artist */
+  $handler->display->display_options['fields']['field_print_artist']['id'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['table'] = 'field_data_field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['field'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -669,6 +737,14 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
   $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
 
   /* Display: Collection 4 */
   $handler = $view->new_display('block', 'Collection 4', 'collection_4');
@@ -738,6 +814,17 @@ function tpg_artist_and_prints_views_default_views() {
     'image_style' => 'overview_page_image_400x271',
     'image_link' => '',
   );
+  /* Field: Content: Print Artist */
+  $handler->display->display_options['fields']['field_print_artist']['id'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['table'] = 'field_data_field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['field'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -774,6 +861,14 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['relationship'] = 'field_print_collections_tid';
   $handler->display->display_options['filters']['tid_raw']['value']['value'] = 'query_alter';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_content_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
   $export['artist'] = $view;
 
   $view = new view();
@@ -1076,6 +1171,17 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
+  );
+  /* Field: Content: Print Artist */
+  $handler->display->display_options['fields']['field_print_artist']['id'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['table'] = 'field_data_field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['field'] = 'field_print_artist';
+  $handler->display->display_options['fields']['field_print_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
+    'bypass_access' => 1,
+    'link' => 0,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
