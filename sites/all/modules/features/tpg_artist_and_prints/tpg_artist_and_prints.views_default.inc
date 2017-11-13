@@ -170,7 +170,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
     'bypass_access' => 1,
-    'link' => 0,
+    'link' => 1,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -449,7 +449,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
     'bypass_access' => 1,
-    'link' => 0,
+    'link' => 1,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -575,7 +575,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
     'bypass_access' => 1,
-    'link' => 0,
+    'link' => 1,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -699,7 +699,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
     'bypass_access' => 1,
-    'link' => 0,
+    'link' => 1,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -823,7 +823,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
     'bypass_access' => 1,
-    'link' => 0,
+    'link' => 1,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
