@@ -5729,7 +5729,10 @@ function tpg_paragraphs_field_default_field_instances() {
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(),
         'manualcrop_styles_list' => array(
+          'artists_overview_200x280' => 'artists_overview_200x280',
+          'artists_overview_last_280x190' => 'artists_overview_last_280x190',
           'overview_page_image_400x271' => 'overview_page_image_400x271',
+          'print_sales_384x384' => 'print_sales_384x384',
           'what_s_on_400x324' => 'what_s_on_400x324',
         ),
         'manualcrop_styles_mode' => 'include',
