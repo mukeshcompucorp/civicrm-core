@@ -55,18 +55,6 @@
     padding: 8px;
     position: relative;
 
-    &:hover:after {
-      background-color: $view-image-overlay;
-      content: '';
-      display: block;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 100%;
-    }
-
     .field-content {
       height: 100%;
       position: relative;
