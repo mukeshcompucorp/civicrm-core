@@ -44,6 +44,7 @@
 
   .views-field-field-paragraphs-overview-image {
     background-color: color(view-image-background);
+    margin-bottom: 6px;
 
     img {
       min-width: 100%;
@@ -51,10 +52,11 @@
   }
 
   // Title wrapper
+  .views-field-field-print-artist,
   .views-field-title {
     @include ellipsis-title;
-    margin-top: 5px;
 
+    h3,
     h3 a {
       font-size: $h4;
     }
