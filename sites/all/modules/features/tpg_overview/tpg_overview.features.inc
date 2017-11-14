@@ -61,9 +61,9 @@ function tpg_overview_image_default_styles() {
 
   // Exported image style: what_s_on_400x324.
   $styles['what_s_on_400x324'] = array(
-    'label' => 'What\'s on 400x324',
+    'label' => 'What\'s on',
     'effects' => array(
-      2 => array(
+      9 => array(
         'name' => 'manualcrop_crop_and_scale',
         'data' => array(
           'width' => 400,

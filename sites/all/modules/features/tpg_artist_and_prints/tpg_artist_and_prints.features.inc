@@ -28,7 +28,7 @@ function tpg_artist_and_prints_image_default_styles() {
 
   // Exported image style: artists_overview_200x280.
   $styles['artists_overview_200x280'] = array(
-    'label' => 'Artists overview 200x280',
+    'label' => 'Artists overview',
     'effects' => array(
       6 => array(
         'name' => 'manualcrop_crop_and_scale',
@@ -47,7 +47,7 @@ function tpg_artist_and_prints_image_default_styles() {
 
   // Exported image style: artists_overview_last_280x190.
   $styles['artists_overview_last_280x190'] = array(
-    'label' => 'Artists overview last 280x190',
+    'label' => 'Artists overview bottom',
     'effects' => array(
       7 => array(
         'name' => 'manualcrop_crop_and_scale',
@@ -66,7 +66,7 @@ function tpg_artist_and_prints_image_default_styles() {
 
   // Exported image style: print_sales_384x384.
   $styles['print_sales_384x384'] = array(
-    'label' => 'Print sales 384x384',
+    'label' => 'Print sales',
     'effects' => array(
       8 => array(
         'name' => 'manualcrop_crop_and_scale',
