@@ -1,15 +1,13 @@
-.node-type-artist {
-  .paragraphs-item-title-section {
-    .field-type-datetime {
-      display: none;
-    }
+.node-type-artist .paragraphs-item-title-section {
+  .field-type-datetime {
+    display: none;
+  }
 
-    .field-name-field-paragraphs-type {
-      margin-bottom: 1px;
-    }
+  .field-name-field-paragraphs-type {
+    margin-bottom: 1px;
+  }
 
-    .title-header {
-      margin-bottom: 16px;
-    }
+  .title-header {
+    margin-bottom: 16px;
   }
 }
