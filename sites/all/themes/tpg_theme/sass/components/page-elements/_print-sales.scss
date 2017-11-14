@@ -49,7 +49,7 @@
     margin-top: 5px;
   }
 
-  .field-image {
+  &-artist .field-image {
     background-color: color(view-image-background);
     height: 400px;
     padding: 8px;
@@ -69,6 +69,20 @@
       top: 50%;
       transform: translate(-50%, -50%);
       width: auto;
+    }
+  }
+}
+
+@include breakpoint($large-screen $screen-md) {
+  .page-print-sales {
+    .views-widget-filter-field_print_type_tid_2 .chzn-single-with-drop + .chzn-drop {
+      left: auto !important;
+      right: 0;
+      text-align: right;
+
+      .chzn-results {
+        text-align: left;
+      }
     }
   }
 }
