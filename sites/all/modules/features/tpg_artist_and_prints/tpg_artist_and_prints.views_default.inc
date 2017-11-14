@@ -1035,7 +1035,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_wrapper_class'] = 'field-image';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'print_sales_384x384',
+    'image_style' => 'what_s_on_400x324',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -1169,7 +1169,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['element_wrapper_class'] = 'field-image';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_paragraphs_overview_image']['settings'] = array(
-    'image_style' => 'what_s_on_400x324',
+    'image_style' => 'print_sales_384x384',
     'image_link' => '',
   );
   /* Field: Content: Print Artist */
