@@ -72,3 +72,17 @@
     }
   }
 }
+
+@include breakpoint($large-screen $screen-md) {
+  .page-print-sales {
+    .views-widget-filter-field_print_type_tid_2 .chzn-single-with-drop + .chzn-drop {
+      left: auto !important;
+      right: 0;
+      text-align: right;
+
+      .chzn-results {
+        text-align: left;
+      }
+    }
+  }
+}
