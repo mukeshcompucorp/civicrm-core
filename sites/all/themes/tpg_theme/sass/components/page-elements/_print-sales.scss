@@ -50,26 +50,7 @@
   }
 
   &-artwork .field-image {
-    background-color: color(view-image-background);
     height: 400px;
-    padding: 8px;
-    position: relative;
-
-    .field-content {
-      height: 100%;
-      position: relative;
-      width: 100%;
-    }
-
-    img {
-      left: 50%;
-      max-height: 100%;
-      max-width: 100%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-    }
   }
 }
 
