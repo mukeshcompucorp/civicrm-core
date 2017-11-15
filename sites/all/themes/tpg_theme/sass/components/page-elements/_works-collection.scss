@@ -34,21 +34,9 @@
   }
 
   // Image wrapper
-  &.vertical .views-field-field-paragraphs-overview-image {
-    padding: 8px 52px;
-  }
-
-  &.square .views-field-field-paragraphs-overview-image {
-    padding: 55px 8px;
-  }
-
   .views-field-field-paragraphs-overview-image {
-    background-color: color(view-image-background);
+    height: 295px;
     margin-bottom: 6px;
-
-    img {
-      min-width: 100%;
-    }
   }
 
   // Title wrapper
@@ -60,5 +48,28 @@
     h3 a {
       font-size: $h4;
     }
+  }
+}
+
+.print-sales-artwork .field-image,
+.works-collection .views-field-field-paragraphs-overview-image {
+  background-color: color(view-image-background);
+  padding: 8px;
+  position: relative;
+
+  .field-content {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  img {
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
   }
 }
