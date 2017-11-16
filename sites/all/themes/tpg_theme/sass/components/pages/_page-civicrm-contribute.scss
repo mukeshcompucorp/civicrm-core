@@ -106,9 +106,10 @@
     }
   }
 
-  #crm-container.crm-public input.hasDatepicker {
-    + input.dateplugin,
-    + input.dateplugin + .crm-clear-link {
+  #crm-container.crm-public input.hasDatepicker + input.dateplugin {
+    display: none;
+
+    + .crm-clear-link {
       display: none;
     }
   }
