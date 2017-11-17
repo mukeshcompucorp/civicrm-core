@@ -73,7 +73,7 @@
 
   Drupal.behaviors.datePickerInclude = {
     attach: function(context, settings) {
-      $('.page-civicrm-event-register input#birth_date').datepicker();
+      $('.page-civicrm-event-register input#birth_date', context).datepicker();
     }
   }
 
