@@ -105,4 +105,12 @@
       background-image: url('/sites/all/modules/civicrm/i/icons/jquery-ui-52534D.png');
     }
   }
+
+  #crm-container.crm-public input.hasDatepicker + input.dateplugin {
+    display: none;
+
+    + .crm-clear-link {
+      display: none;
+    }
+  }
 }
