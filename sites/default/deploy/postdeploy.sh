@@ -6,6 +6,7 @@
 #drush commands
 
 #PGW-83
+drush en title -y
 drush en tpg_artist_and_prints -y
 
 #PGW-89
