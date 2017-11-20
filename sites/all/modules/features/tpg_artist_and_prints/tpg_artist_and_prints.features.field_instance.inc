@@ -151,7 +151,7 @@ function tpg_artist_and_prints_field_default_field_instances() {
         'full_width_image_caption' => 'full_width_image_caption',
         'full_width_image_caption_content' => -1,
         'full_width_video_header' => 'full_width_video_header',
-        'header_gallery' => 'header_gallery',
+        'header_gallery' => -1,
         'header_image_left_image_right' => 'header_image_left_image_right',
         'header_image_lightbox' => 'header_image_lightbox',
         'image_left_2_3_width' => -1,
