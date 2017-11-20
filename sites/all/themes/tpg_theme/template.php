@@ -179,6 +179,9 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
 
   // Call chosen library.
   drupal_add_library('chosen', 'drupal.chosen');
+
+  // Call datepicker library.
+  drupal_add_library('system', 'ui.datepicker');
 }
 
 /**

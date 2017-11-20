@@ -7342,6 +7342,12 @@ return $;
     },
   };
 
+  Drupal.behaviors.datePickerInclude = {
+    attach: function(context, settings) {
+      $('.page-civicrm-event-register input#birth_date', context).datepicker();
+    }
+  }
+
   Drupal.behaviors.fullWidthImage = {
     attach: function(context, settings) {
       this.removingClasses('.paragraphs-item-full-width-image-caption-content', context);
