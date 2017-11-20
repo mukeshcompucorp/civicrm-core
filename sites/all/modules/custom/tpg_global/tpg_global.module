@@ -27,13 +27,15 @@ function tpg_global_node_view_alter(&$build) {
 function tpg_global_node_view($node, $view_mode, $langcode) {
 
   // Altering Full view mode.
-  if ($view_mode == 'full' && in_array($node->type, array('events_detail', 'paragraphs_page'))) {
+  if ($view_mode == 'full' && in_array($node->type, array('events_detail', 'paragraphs_page', 'artist', 'prints'))) {
     $paragraphs_data = array();
     switch ($node->type) {
       case 'events_detail':
         $paragraphs_data = &$node->content['field_paragraphs_entity'];
         break;
       case 'paragraphs_page':
+      case 'artist':
+      case 'prints':
         $paragraphs_data = &$node->content['field_paragraphs_content'];
         break;
     }
@@ -176,6 +178,65 @@ function tpg_global_views_query_alter(&$view, &$query) {
       $query->where[1]['conditions'][2]['value'][':field_data_field_event_dates_field_event_dates_value'] = '2012';
     }
   }
+  // Artist view.
+  if ($view->name == 'artist' && in_array($view->current_display, array('collection_0', 'collection_1', 'collection_2', 'collection_3', 'collection_4'))) {
+
+    // Altering contextual filter value for Prints page changing target id to related artist node id.
+    $node = menu_get_object('node');
+    if ($node->type == 'prints' && !empty($node->field_print_artist['und'][0]['target_id'])) {
+      // Artist node nid related to Print Artist field.
+      $artist_nid = $node->field_print_artist['und'][0]['target_id'];
+      // Contextual filter alter.
+      $view->args[0] = $artist_nid;
+      // Fetching field id for each of the collection view block.
+      $field_id = key($query->where[0]['conditions'][0]['value']);
+      $query->where[0]['conditions'][0]['value']["$field_id"] = $artist_nid;
+
+      // Removing current prints node from collections list.
+      $query->where[1]['conditions'][] = array(
+        'field' => 'node.nid',
+        'value' => $node->nid,
+        'operator' => '!='
+      );
+
+      // Altering view tilte for collections.
+      if ($view->current_display == 'collection_0') {
+        $view->build_info['title'] = t('More works from this artist');
+      }
+    }
+
+    // Loading collection term ids for each artist node.
+    if (!empty($view->args[0])) {
+      $collection_term_ids = _tpg_global_fetch_collection_term_id_artist_node($view->args[0]);
+    }
+    $display_state = TRUE;
+    // Altering Collection term id for each collection attached to artist entity reference for prints type.
+    foreach($collection_term_ids as $key => $value) {
+      if ($view->current_display == "collection_$key") {
+        $query->where[1]['conditions'][1]['value'] = $value;
+        $display_state = FALSE;
+      }
+    }
+  }
+}
+
+/**
+ * Loads collection term ids for particular artist node nid argument from print content type using views.
+ *
+ * @param string $artist_nid  The artist node nid.
+ *
+ * @return array $collection_term_ids Collection term ids for related artist node.
+ */
+function _tpg_global_fetch_collection_term_id_artist_node($artist_nid) {
+  $collection_term_ids = array();
+  $collection_terms = views_get_view_result('artist', 'collections_artist', $artist_nid);
+    foreach ($collection_terms as $key => $value) {
+    // Removing duplicate object terms.
+    if (!in_array($value->taxonomy_term_data_field_data_field_print_collections_tid, $collection_term_ids)) {
+      $collection_term_ids[] = $value->taxonomy_term_data_field_data_field_print_collections_tid;
+    }
+  }
+  return $collection_term_ids;
 }
 
 /**
@@ -214,7 +275,6 @@ function tpg_global_views_pre_render(&$view) {
 
   // Event Start and End markup update.
   if (in_array($view->name, array('whats_on', 'related_activities', 'homepage')) && (in_array($view->current_display, array('next_season_block', 'now_upcoming_view_page', 'past_programme_view_page', 'featured_past_programme_block', 'event_related_activities', 'current_exhibitions_highlights_block')))) {
-
     foreach ($view->result as $key => $value) {
       $start_date = $value->field_field_event_dates[0]['raw']['value'];
       $end_date = $value->field_field_event_dates[0]['raw']['value2'];
@@ -264,7 +324,7 @@ function tpg_global_views_pre_render(&$view) {
  */
 function tpg_global_form_alter(&$form, &$form_state, $form_id) {
 
-  if ($form_id == 'paragraphs_page_node_form') {
+  if ($form_id == 'paragraphs_page_node_form' || $form_id == 'artist_node_form' || $form_id == 'prints_node_form') {
     // Adding homepage weight options.
     _tpg_global_homepage_weight_range($form);
 
@@ -278,6 +338,12 @@ function tpg_global_form_alter(&$form, &$form_state, $form_id) {
         if ($value['#bundle'] == 'title_section') {
           unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_event_type']);
           unset($form['field_paragraphs_content']['und'][$key]['field_event_dates']);
+          // Unset fields.
+          if (in_array($form_id, array('artist_node_form', 'prints_node_form'))) {
+            unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_tags_viewpoints']);
+            unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_show_tags']);
+            unset($form['field_paragraphs_content']['und'][$key]['field_paragraphs_date_published']);
+          }
         }
         // Removing Share Block Field.
         if ($value['#bundle'] == 'social_media_links') {

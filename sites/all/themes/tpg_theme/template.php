@@ -147,6 +147,11 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
         $classes['sidebar_second'] = '';
         $classes['content'] = '';
       break;
+      case 'artist':
+        $classes['sidebar_first'] = !$visible ? 'col-md-3' : '';
+        $classes['sidebar_second'] = !$visible ? 'col-md-3' : 'container';
+        $classes['content'] = !$visible ? 'col-md-6' : '';
+      break;
       default:
         $classes['sidebar_first'] = !$visible ? 'col-md-2' : '';
         $classes['sidebar_second'] = !$visible ? 'col-md-2' : 'container';
@@ -167,7 +172,7 @@ function tpg_theme_preprocess_page(&$vars, $hook) {
   }
 
   // Hiding page title.
-  $pages = array('events_detail', 'paragraphs_page', 'viewpoint');
+  $pages = array('events_detail', 'paragraphs_page', 'viewpoint', 'artist', 'prints');
   if (in_array($node->type, $pages)) {
     $vars['title'] = '';
   }
@@ -199,9 +204,9 @@ function tpg_theme_preprocess_node(&$variables) {
       }
     }
   }
-  // Paragraphs Page Node.
-  if ($variables['type'] == 'paragraphs_page') {
-    // Paragraphs page node.
+  // Paragraphs Page, Artist and Prints Node.
+  if ($variables['type'] == 'paragraphs_page' || $variables['type'] == 'artist' || $variables['type'] == 'prints') {
+    // Paragraphs content field load.
     foreach ($variables['field_paragraphs_content'] as $key => $paragraph_item) {
       // Loading paragraphs bundle from automated id.
       $data = paragraphs_item_load($paragraph_item['value']);
@@ -216,7 +221,7 @@ function tpg_theme_preprocess_node(&$variables) {
           drupal_add_js(array('tpg_theme' => array('reading_image_lightbox_bg_color' => 'colorbox-background-' . drupal_strtolower($bg_color_value))), 'setting');
         }
       }
-
+      // Title Section paragraphs bundle.
       if ($data->bundle == 'title_section') {
         // Unset Event Start End Dates ds field.
         unset($variables['content']['field_paragraphs_content'][$key]['entity']['paragraphs_item'][$data->item_id]['event_start_end_dates']);

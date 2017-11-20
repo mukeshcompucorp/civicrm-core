@@ -1649,10 +1649,12 @@ function tpg_paragraphs_strongarm() {
   $strongarm->name = 'service_links_category_vocs';
   $strongarm->value = array(
     3 => 0,
+    8 => 0,
     5 => 0,
     4 => 0,
     7 => 0,
     2 => 0,
+    9 => 0,
     6 => 0,
     1 => 0,
   );
@@ -1699,6 +1701,7 @@ function tpg_paragraphs_strongarm() {
     'diff_standard' => 0,
     'token' => 0,
     'overview' => 0,
+    'overview_original_image' => 0,
     'revision' => 0,
   );
   $export['service_links_link_view_modes'] = $strongarm;
@@ -1715,6 +1718,7 @@ function tpg_paragraphs_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_node_types';
   $strongarm->value = array(
+    'artist' => 'artist',
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
     'viewpoint' => 'viewpoint',
@@ -1725,6 +1729,7 @@ function tpg_paragraphs_strongarm() {
     'header_image' => 0,
     'internal_links' => 0,
     'overview_page' => 0,
+    'prints' => 0,
     'product_display' => 0,
     'webform' => 0,
   );
@@ -1743,6 +1748,7 @@ function tpg_paragraphs_strongarm() {
     'diff_standard' => 0,
     'token' => 0,
     'overview' => 0,
+    'overview_original_image' => 0,
     'revision' => 0,
   );
   $export['service_links_node_view_modes'] = $strongarm;

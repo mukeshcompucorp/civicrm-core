@@ -1,0 +1,79 @@
+.works-collection {
+  margin-bottom: 40px;
+
+  &.square {
+    margin-bottom: 50px;
+  }
+
+  &-block {
+    margin-top: 40px;
+
+    .block-title h2 {
+      font-size: $p;
+    }
+  }
+
+  .views-row {
+    margin-bottom: 20px;
+
+    ~ .title {
+      display: none;
+    }
+  }
+
+  .view-content {
+    @include make-row;
+  }
+
+  .title {
+    margin-bottom: 24px;
+
+    h3 {
+      font-size: $h4;
+    }
+  }
+
+  .pager-load-more {
+    padding-bottom: 0;
+  }
+
+  // Image wrapper
+  .views-field-field-paragraphs-overview-image {
+    height: 295px;
+    margin-bottom: 6px;
+  }
+
+  // Title wrapper
+  .views-field-field-print-artist,
+  .views-field-title {
+    @include ellipsis-title;
+
+    h3,
+    h3 a {
+      font-size: $h4;
+    }
+  }
+}
+
+.print-sales-artwork .field-image,
+.works-collection .views-field-field-paragraphs-overview-image {
+  background-color: color(view-image-background);
+  padding: 8px;
+  position: relative;
+
+  .field-content {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  img {
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+  }
+}
