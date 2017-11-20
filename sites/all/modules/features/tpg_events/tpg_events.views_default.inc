@@ -508,27 +508,6 @@ function tpg_events_views_default_views() {
     'events_detail' => 'events_detail',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Global: Combine fields filter */
-  $handler->display->display_options['filters']['combine']['id'] = 'combine';
-  $handler->display->display_options['filters']['combine']['table'] = 'views';
-  $handler->display->display_options['filters']['combine']['field'] = 'combine';
-  $handler->display->display_options['filters']['combine']['group'] = 1;
-  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'WHEN';
-  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
-  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    30037204 => 0,
-    190826733 => 0,
-    151263223 => 0,
-    203538000 => 0,
-    152836380 => 0,
-    204855824 => 0,
-    199295989 => 0,
-  );
   /* Filter criterion: Paragraphs item: Event Type (field_paragraphs_event_type) */
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['id'] = 'field_paragraphs_event_type_tid';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['table'] = 'field_data_field_paragraphs_event_type';
@@ -554,6 +533,27 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_paragraphs_event_type_tid']['vocabulary'] = 'event_type';
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'WHEN';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    190826733 => 0,
+    151263223 => 0,
+    203538000 => 0,
+    152836380 => 0,
+    204855824 => 0,
+    199295989 => 0,
+  );
   /* Filter criterion: Content: Event For (field_event_for) */
   $handler->display->display_options['filters']['field_event_for_tid']['id'] = 'field_event_for_tid';
   $handler->display->display_options['filters']['field_event_for_tid']['table'] = 'field_data_field_event_for';
@@ -593,6 +593,15 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_show_in_current_season_value2']['default_date'] = 'today';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'title_section' => 'title_section',
+  );
+  $handler->display->display_options['filters']['bundle']['group'] = 1;
   /* Filter criterion: Paragraphs item: Event Dates -  start date (field_event_dates) */
   $handler->display->display_options['filters']['field_event_dates_value']['id'] = 'field_event_dates_value';
   $handler->display->display_options['filters']['field_event_dates_value']['table'] = 'field_data_field_event_dates';
@@ -640,14 +649,6 @@ function tpg_events_views_default_views() {
   $handler->display->display_options['filters']['field_event_dates_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_date'] = 'now';
   $handler->display->display_options['filters']['field_event_dates_value2']['default_to_date'] = 'now';
-  /* Filter criterion: Paragraphs item: Bundle */
-  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
-  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['relationship'] = 'field_paragraphs_entity_value';
-  $handler->display->display_options['filters']['bundle']['value'] = array(
-    'title_section' => 'title_section',
-  );
   $handler->display->display_options['path'] = 'whats-on/now-upcoming';
 
   /* Display: Past Programme */
