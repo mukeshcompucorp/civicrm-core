@@ -182,15 +182,15 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Print Collections (field_print_collections) */
-  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -462,15 +462,15 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Print Collections (field_print_collections) */
-  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -586,15 +586,15 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Print Collections (field_print_collections) */
-  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -710,15 +710,15 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Print Collections (field_print_collections) */
-  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -834,15 +834,15 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Print Collections (field_print_collections) */
-  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
-  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Print Collections (field_print_collections) */
+  $handler->display->display_options['sorts']['field_print_collections_tid']['id'] = 'field_print_collections_tid';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['table'] = 'field_data_field_print_collections';
+  $handler->display->display_options['sorts']['field_print_collections_tid']['field'] = 'field_print_collections_tid';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
