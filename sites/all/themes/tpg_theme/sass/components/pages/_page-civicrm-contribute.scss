@@ -1,3 +1,4 @@
+.page-civicrm-event,
 .page-civicrm-contribute {
   .flex-responsive {
     margin-left: 0;
@@ -88,5 +89,28 @@
 
   .crm-container .crm-button-icon {
     display: none;
+  }
+
+  .crm-container a.crm-hover-button,
+  .crm-container span.crm-hover-button,
+  .crm-container .crm-hover-button:hover,
+  .crm-container a.crm-hover-button:hover,
+  .crm-container a.crm-hover-button:active {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: color(main);
+
+    .icon {
+      background-image: url('/sites/all/modules/civicrm/i/icons/jquery-ui-52534D.png');
+    }
+  }
+
+  #crm-container.crm-public input.hasDatepicker + input.dateplugin {
+    display: none;
+
+    + .crm-clear-link {
+      display: none;
+    }
   }
 }

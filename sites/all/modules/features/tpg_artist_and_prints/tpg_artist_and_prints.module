@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TPG Artist and Prints feature.
+ */
+
+include_once 'tpg_artist_and_prints.features.inc';
