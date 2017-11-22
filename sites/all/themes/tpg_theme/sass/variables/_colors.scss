@@ -91,6 +91,9 @@ $chroma: add-colors('functional', (
   footer-social-connectors-background-color:  'light-grey',
   footer-stay-up-to-date-color:               'lighter-grey',
 
+  view-image-background:                      'white',
+  view-image-overlay:                         'dim-grey',
+
   colorbox-close-button:                      'silver',
   arrows:                                     'silver',
 
@@ -104,4 +107,5 @@ $chroma: add-colors('functional', (
 
 $chroma-active-scheme: 'functional';
 
+$view-image-overlay: rgba(color(view-image-overlay), .5);
 $front-page-gradient: linear-gradient(to left, color(front-page-grad-1) 0%, color(front-page-grad-2) 50%, color(front-page-grad-1) 100%);

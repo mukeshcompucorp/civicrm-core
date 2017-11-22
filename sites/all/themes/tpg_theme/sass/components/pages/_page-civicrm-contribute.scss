@@ -1,0 +1,118 @@
+.page-civicrm-event,
+.page-civicrm-contribute {
+  .flex-responsive {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  label {
+    font-size: $form-label;
+    font-weight: $bold;
+  }
+
+  .chzn-container {
+    max-width: 252px;
+  }
+
+  #crm-container.crm-public .chzn-search input {
+    background-color: color(form-bg);
+    margin-bottom: -1px;
+    width: 100% !important;
+  }
+
+  #crm-container.crm-public input[type='text'],
+  #crm-container.crm-public input[type='password'],
+  #crm-container.crm-public input[type='email'],
+  #crm-container.crm-public select {
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    max-width: 230px;
+    padding: 6px 10px 2px;
+    width: 100%;
+
+    &:focus {
+      border-color: color(focused-input);
+    }
+
+    &.error {
+      border-color: color(form-error);
+      color: color(text);
+    }
+  }
+
+  #crm-container #cvv2 {
+    max-width: 177px;
+  }
+
+  .chzn-container-single .chzn-single > span,
+  .chzn-container .chzn-results li,
+  .who-select-prefix {
+    height: 32px;
+    padding-top: 12px;
+
+    &:after {
+      top: 15px;
+    }
+  }
+
+  .crm-credit_card_type-icons a {
+    margin-bottom: 10px;
+    margin-top: 3px;
+  }
+
+  .crm-submit-buttons,
+  #crm-submit-buttons {
+    @include clr;
+    margin-bottom: 30px;
+  }
+
+  .crm-container .crm-submit-buttons,
+  .crm-container .action-link {
+    @include clr;
+    height: auto;
+  }
+
+  .crm-container .crm-button.crm-icon-button {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    text-shadow: none;
+
+    input {
+      @include button;
+      border-radius: 0;
+      font-size: $p;
+      font-weight: $bold;
+    }
+  }
+
+  .crm-container .crm-button-icon {
+    display: none;
+  }
+
+  .crm-container a.crm-hover-button,
+  .crm-container span.crm-hover-button,
+  .crm-container .crm-hover-button:hover,
+  .crm-container a.crm-hover-button:hover,
+  .crm-container a.crm-hover-button:active {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: color(main);
+
+    .icon {
+      background-image: url('/sites/all/modules/civicrm/i/icons/jquery-ui-52534D.png');
+    }
+  }
+
+  #crm-container.crm-public input.hasDatepicker + input.dateplugin {
+    display: none;
+
+    + .crm-clear-link {
+      display: none;
+    }
+  }
+}

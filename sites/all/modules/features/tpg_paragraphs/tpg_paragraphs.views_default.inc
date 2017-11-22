@@ -87,6 +87,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
@@ -208,6 +209,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'artist' => 'artist',
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
@@ -283,6 +285,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'artist' => 'artist',
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
@@ -353,6 +356,7 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'artist' => 'artist',
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
   );
@@ -443,7 +447,9 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
     'paragraphs_page' => 'paragraphs_page',
+    'prints' => 'prints',
   );
   /* Filter criterion: Paragraphs item: Bundle */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
@@ -517,8 +523,10 @@ function tpg_paragraphs_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'artist' => 'artist',
     'events_detail' => 'events_detail',
     'paragraphs_page' => 'paragraphs_page',
+    'prints' => 'prints',
   );
   /* Filter criterion: Paragraphs item: Bundle */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';

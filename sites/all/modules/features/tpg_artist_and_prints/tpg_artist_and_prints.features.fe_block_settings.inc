@@ -1,25 +1,25 @@
 <?php
 /**
  * @file
- * tpg_events.features.fe_block_settings.inc
+ * tpg_artist_and_prints.features.fe_block_settings.inc
  */
 
 /**
  * Implements hook_default_fe_block_settings().
  */
-function tpg_events_default_fe_block_settings() {
+function tpg_artist_and_prints_default_fe_block_settings() {
   $export = array();
 
   $export['version'] = '2.0';
 
-  $export['block-event_plan_your_visit'] = array(
+  $export['block-print_sales_explore_artist_intro'] = array(
     'cache' => -1,
-    'css_class' => 'plan-your-visit',
+    'css_class' => 'col-md-8 whats-on-description',
     'custom' => 0,
-    'machine_name' => 'event_plan_your_visit',
+    'machine_name' => 'print_sales_explore_artist_intro',
     'module' => 'block',
     'node_types' => array(),
-    'pages' => 'events/*',
+    'pages' => 'print-sales/explore-artist',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -41,10 +41,10 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'porto_sub' => array(
-        'region' => 'sidebar_right',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'porto_sub',
-        'weight' => -23,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -53,24 +53,24 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'sidebar_second',
+        'region' => 'content',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -23,
+        'weight' => -41,
       ),
     ),
-    'title' => 'Information',
+    'title' => '',
     'visibility' => 1,
   );
 
-  $export['block-membership_block'] = array(
+  $export['block-print_sales_explore_artwork_intr'] = array(
     'cache' => -1,
-    'css_class' => 'membership-block col-md-12',
+    'css_class' => 'col-md-8 whats-on-description',
     'custom' => 0,
-    'machine_name' => 'membership_block',
+    'machine_name' => 'print_sales_explore_artwork_intr',
     'module' => 'block',
     'node_types' => array(),
-    'pages' => 'events/*',
+    'pages' => 'print-sales/explore-artwork',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -92,10 +92,10 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'porto_sub' => array(
-        'region' => 'sidebar_right',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'porto_sub',
-        'weight' => -21,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -104,25 +104,25 @@ function tpg_events_default_fe_block_settings() {
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'sidebar_second',
+        'region' => 'content',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -21,
+        'weight' => -40,
       ),
     ),
-    'title' => 'Members get priority',
+    'title' => '',
     'visibility' => 1,
   );
 
-  $export['block-whats_on_links'] = array(
+  $export['block-print_sales_links'] = array(
     'cache' => -1,
     'css_class' => 'whats-on-tabs col-xs-4',
     'custom' => 0,
-    'machine_name' => 'whats_on_links',
+    'machine_name' => 'print_sales_links',
     'module' => 'block',
     'node_types' => array(),
-    'pages' => 'whats-on/now-upcoming
-whats-on/past-programme',
+    'pages' => 'print-sales/explore-artwork
+print-sales/explore-artist',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -159,174 +159,24 @@ whats-on/past-programme',
         'region' => 'content',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -39,
+        'weight' => -42,
       ),
     ),
     'title' => '',
     'visibility' => 1,
   );
 
-  $export['block-whats_on_now_upcoming'] = array(
+  $export['views-artist-collection_0'] = array(
     'cache' => -1,
-    'css_class' => 'whats-on-description clearfix col-md-8',
+    'css_class' => 'container works-collection-block',
     'custom' => 0,
-    'machine_name' => 'whats_on_now_upcoming',
-    'module' => 'block',
-    'node_types' => array(),
-    'pages' => 'whats-on/now-upcoming',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'civicrm_wide' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'civicrm_wide',
-        'weight' => 0,
-      ),
-      'porto' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto',
-        'weight' => 0,
-      ),
-      'porto_sub' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto_sub',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-      'tpg_theme' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'tpg_theme',
-        'weight' => -36,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['block-whats_on_past_programme'] = array(
-    'cache' => -1,
-    'css_class' => 'whats-on-description clearfix col-md-8',
-    'custom' => 0,
-    'machine_name' => 'whats_on_past_programme',
-    'module' => 'block',
-    'node_types' => array(),
-    'pages' => 'whats-on/past-programme',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'civicrm_wide' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'civicrm_wide',
-        'weight' => 0,
-      ),
-      'porto' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto',
-        'weight' => 0,
-      ),
-      'porto_sub' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto_sub',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-      'tpg_theme' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'tpg_theme',
-        'weight' => -35,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['views-03d0390f014502c77cf86e0308dcbb1d'] = array(
-    'cache' => -1,
-    'css_class' => 'col-xs-8 clearfix whats-on-filter',
-    'custom' => 0,
-    'delta' => '03d0390f014502c77cf86e0308dcbb1d',
+    'delta' => 'artist-collection_0',
     'module' => 'views',
-    'node_types' => array(),
-    'pages' => 'whats-on/past-programme',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'civicrm_wide' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'civicrm_wide',
-        'weight' => 0,
-      ),
-      'porto' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto',
-        'weight' => 0,
-      ),
-      'porto_sub' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto_sub',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-      'tpg_theme' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'tpg_theme',
-        'weight' => -37,
-      ),
+    'node_types' => array(
+      0 => 'artist',
+      1 => 'prints',
     ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['views-2f69d3f1d9c2e43b67a4dae5874e62e4'] = array(
-    'cache' => -1,
-    'css_class' => 'whats-on-block related-activities-wrapper',
-    'custom' => 0,
-    'delta' => '2f69d3f1d9c2e43b67a4dae5874e62e4',
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => 'whats-on/past-programme',
+    'pages' => '',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -363,72 +213,22 @@ whats-on/past-programme',
         'region' => 'full_width_bottom',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -37,
+        'weight' => -44,
       ),
     ),
     'title' => '',
-    'visibility' => 1,
+    'visibility' => 0,
   );
 
-  $export['views-aea378dfeb25249b54d7bcbb9b388c97'] = array(
+  $export['views-artist-collection_1'] = array(
     'cache' => -1,
-    'css_class' => 'col-xs-8 clearfix whats-on-filter',
+    'css_class' => '',
     'custom' => 0,
-    'delta' => 'aea378dfeb25249b54d7bcbb9b388c97',
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => 'whats-on/now-upcoming',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'civicrm_wide' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'civicrm_wide',
-        'weight' => 0,
-      ),
-      'porto' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto',
-        'weight' => 0,
-      ),
-      'porto_sub' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'porto_sub',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-      'tpg_theme' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'tpg_theme',
-        'weight' => -38,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['views-db35b63cccfa6e17d8e93330e7e2a946'] = array(
-    'cache' => -1,
-    'css_class' => 'related-activities-wrapper',
-    'custom' => 0,
-    'delta' => 'db35b63cccfa6e17d8e93330e7e2a946',
+    'delta' => 'artist-collection_1',
     'module' => 'views',
     'node_types' => array(
-      0 => 'events_detail',
+      0 => 'artist',
+      1 => 'prints',
     ),
     'pages' => '',
     'roles' => array(),
@@ -452,8 +252,8 @@ whats-on/past-programme',
         'weight' => 0,
       ),
       'porto_sub' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'porto_sub',
         'weight' => 0,
       ),
@@ -467,21 +267,22 @@ whats-on/past-programme',
         'region' => 'full_width_bottom',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -39,
+        'weight' => -43,
       ),
     ),
     'title' => '',
     'visibility' => 0,
   );
 
-  $export['views-events_entity-events_book_now'] = array(
+  $export['views-artist-collection_2'] = array(
     'cache' => -1,
-    'css_class' => 'book-tickets col-md-12',
+    'css_class' => '',
     'custom' => 0,
-    'delta' => 'events_entity-events_book_now',
+    'delta' => 'artist-collection_2',
     'module' => 'views',
     'node_types' => array(
-      0 => 'events_detail',
+      0 => 'artist',
+      1 => 'prints',
     ),
     'pages' => '',
     'roles' => array(),
@@ -505,10 +306,10 @@ whats-on/past-programme',
         'weight' => 0,
       ),
       'porto_sub' => array(
-        'region' => 'sidebar_right',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'porto_sub',
-        'weight' => -22,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -517,24 +318,81 @@ whats-on/past-programme',
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'sidebar_second',
+        'region' => 'full_width_bottom',
         'status' => 1,
         'theme' => 'tpg_theme',
-        'weight' => -22,
+        'weight' => -42,
       ),
     ),
     'title' => '',
     'visibility' => 0,
   );
 
-  $export['views-whats_on-next_season_block'] = array(
+  $export['views-artist-collection_3'] = array(
     'cache' => -1,
-    'css_class' => 'whats-on-block related-activities-wrapper',
+    'css_class' => '',
     'custom' => 0,
-    'delta' => 'whats_on-next_season_block',
+    'delta' => 'artist-collection_3',
     'module' => 'views',
-    'node_types' => array(),
-    'pages' => 'whats-on/now-upcoming',
+    'node_types' => array(
+      0 => 'artist',
+      1 => 'prints',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'full_width_bottom',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -41,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-artist-collection_4'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'artist-collection_4',
+    'module' => 'views',
+    'node_types' => array(
+      0 => 'artist',
+      1 => 'prints',
+    ),
+    'pages' => '',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -575,7 +433,164 @@ whats-on/past-programme',
       ),
     ),
     'title' => '',
-    'visibility' => 1,
+    'visibility' => 0,
+  );
+
+  $export['views-artist-collections_artist'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'artist-collections_artist',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'tpg_theme',
+        'weight' => -44,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-artist-related_artist'] = array(
+    'cache' => -1,
+    'css_class' => 'related-activities-wrapper',
+    'custom' => 0,
+    'delta' => 'artist-related_artist',
+    'module' => 'views',
+    'node_types' => array(
+      0 => 'artist',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'full_width_bottom',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -39,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-prints-prints_related_artist'] = array(
+    'cache' => -1,
+    'css_class' => 'related-activities-wrapper',
+    'custom' => 0,
+    'delta' => 'prints-prints_related_artist',
+    'module' => 'views',
+    'node_types' => array(
+      0 => 'prints',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'civicrm_wide' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'civicrm_wide',
+        'weight' => 0,
+      ),
+      'porto' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto',
+        'weight' => 0,
+      ),
+      'porto_sub' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'porto_sub',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'tpg_theme' => array(
+        'region' => 'full_width_bottom',
+        'status' => 1,
+        'theme' => 'tpg_theme',
+        'weight' => -38,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   return $export;
