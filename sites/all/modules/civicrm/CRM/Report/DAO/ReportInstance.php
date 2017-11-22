@@ -275,8 +275,8 @@ class CRM_Report_DAO_ReportInstance extends CRM_Core_DAO {
           'title' => ts('Report template ID') ,
           'description' => 'FK to civicrm_option_value for the report template',
           'required' => true,
-          'maxlength' => 64,
-          'size' => CRM_Utils_Type::BIG,
+          'maxlength' => 512,
+          'size' => CRM_Utils_Type::HUGE,
           'html' => array(
             'type' => 'Select',
           ) ,
