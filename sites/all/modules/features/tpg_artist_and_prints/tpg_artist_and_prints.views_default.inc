@@ -1242,15 +1242,13 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['field_print_type_tid']['table'] = 'field_data_field_print_type';
   $handler->display->display_options['filters']['field_print_type_tid']['field'] = 'field_print_type_tid';
   $handler->display->display_options['filters']['field_print_type_tid']['value'] = array(
-    49 => '49',
-    47 => '47',
-    45 => '45',
-    46 => '46',
-    48 => '48',
+    2 => '2',
+    3 => '3',
   );
   $handler->display->display_options['filters']['field_print_type_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_print_type_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_print_type_tid']['expose']['operator_id'] = 'field_print_type_tid_op';
+  $handler->display->display_options['filters']['field_print_type_tid']['expose']['label'] = 'Period';
   $handler->display->display_options['filters']['field_print_type_tid']['expose']['operator'] = 'field_print_type_tid_op';
   $handler->display->display_options['filters']['field_print_type_tid']['expose']['identifier'] = 'field_print_type_tid';
   $handler->display->display_options['filters']['field_print_type_tid']['expose']['remember_roles'] = array(
@@ -1258,12 +1256,9 @@ function tpg_artist_and_prints_views_default_views() {
     1 => 0,
     30037204 => 0,
     190826733 => 0,
-    85239486 => 0,
-    151263223 => 0,
-    203538000 => 0,
     152836380 => 0,
-    204855824 => 0,
-    199295989 => 0,
+    200861419 => 0,
+    202560020 => 0,
   );
   $handler->display->display_options['filters']['field_print_type_tid']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_print_type_tid']['reduce_duplicates'] = TRUE;
@@ -1274,13 +1269,16 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['field_print_type_tid_1']['table'] = 'field_data_field_print_type';
   $handler->display->display_options['filters']['field_print_type_tid_1']['field'] = 'field_print_type_tid';
   $handler->display->display_options['filters']['field_print_type_tid_1']['value'] = array(
-    51 => '51',
-    52 => '52',
-    53 => '53',
+    7 => '7',
+    6 => '6',
+    4 => '4',
+    5 => '5',
+    8 => '8',
   );
   $handler->display->display_options['filters']['field_print_type_tid_1']['group'] = 2;
   $handler->display->display_options['filters']['field_print_type_tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['operator_id'] = 'field_print_type_tid_1_op';
+  $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['label'] = 'Genre';
   $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['operator'] = 'field_print_type_tid_1_op';
   $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['identifier'] = 'field_print_type_tid_1';
   $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['remember_roles'] = array(
@@ -1288,12 +1286,9 @@ function tpg_artist_and_prints_views_default_views() {
     1 => 0,
     30037204 => 0,
     190826733 => 0,
-    85239486 => 0,
-    151263223 => 0,
-    203538000 => 0,
     152836380 => 0,
-    204855824 => 0,
-    199295989 => 0,
+    200861419 => 0,
+    202560020 => 0,
   );
   $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_print_type_tid_1']['reduce_duplicates'] = TRUE;
@@ -1304,12 +1299,13 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['field_print_type_tid_2']['table'] = 'field_data_field_print_type';
   $handler->display->display_options['filters']['field_print_type_tid_2']['field'] = 'field_print_type_tid';
   $handler->display->display_options['filters']['field_print_type_tid_2']['value'] = array(
-    54 => '54',
-    55 => '55',
+    9 => '9',
+    10 => '10',
   );
   $handler->display->display_options['filters']['field_print_type_tid_2']['group'] = 2;
   $handler->display->display_options['filters']['field_print_type_tid_2']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['operator_id'] = 'field_print_type_tid_2_op';
+  $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['label'] = 'B&W or Colour';
   $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['operator'] = 'field_print_type_tid_2_op';
   $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['identifier'] = 'field_print_type_tid_2';
   $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['remember_roles'] = array(
@@ -1317,12 +1313,9 @@ function tpg_artist_and_prints_views_default_views() {
     1 => 0,
     30037204 => 0,
     190826733 => 0,
-    85239486 => 0,
-    151263223 => 0,
-    203538000 => 0,
     152836380 => 0,
-    204855824 => 0,
-    199295989 => 0,
+    200861419 => 0,
+    202560020 => 0,
   );
   $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_print_type_tid_2']['reduce_duplicates'] = TRUE;
