@@ -5666,7 +5666,7 @@ function tpg_paragraphs_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'overview_page_image',
+          'image_style' => 'overview_page_image_400x271',
         ),
         'type' => 'image',
         'weight' => 0,
