@@ -356,5 +356,12 @@ function tpg_artist_and_prints_strongarm() {
   $strongarm->value = '[node:title]';
   $export['pathauto_node_prints_pattern'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'uuid_features_entity_taxonomy_term_print_type';
+  $strongarm->value = 'print_type';
+  $export['uuid_features_entity_taxonomy_term_print_type'] = $strongarm;
+
   return $export;
 }
