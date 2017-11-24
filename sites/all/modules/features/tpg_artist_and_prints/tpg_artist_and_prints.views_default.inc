@@ -1242,8 +1242,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['filters']['field_print_type_tid']['table'] = 'field_data_field_print_type';
   $handler->display->display_options['filters']['field_print_type_tid']['field'] = 'field_print_type_tid';
   $handler->display->display_options['filters']['field_print_type_tid']['value'] = array(
-    2 => '2',
-    3 => '3',
+    12 => '12',
+    13 => '13',
   );
   $handler->display->display_options['filters']['field_print_type_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_print_type_tid']['exposed'] = TRUE;
