@@ -503,6 +503,8 @@ function tpg_artist_and_prints_views_default_views() {
   /* Display: Collection 2 */
   $handler = $view->new_display('block', 'Collection 2', 'collection_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'container works-collection square';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -522,6 +524,7 @@ function tpg_artist_and_prints_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['row_class'] = 'col-md-3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -587,6 +590,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
@@ -628,6 +633,8 @@ function tpg_artist_and_prints_views_default_views() {
   /* Display: Collection 3 */
   $handler = $view->new_display('block', 'Collection 3', 'collection_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'container works-collection square';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -647,6 +654,7 @@ function tpg_artist_and_prints_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['row_class'] = 'col-md-3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -712,6 +720,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
@@ -753,6 +763,8 @@ function tpg_artist_and_prints_views_default_views() {
   /* Display: Collection 4 */
   $handler = $view->new_display('block', 'Collection 4', 'collection_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'container works-collection square';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -772,6 +784,7 @@ function tpg_artist_and_prints_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['row_class'] = 'col-md-3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -837,6 +850,8 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
@@ -1052,6 +1067,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'views-field-title';
   $handler->display->display_options['path'] = 'print-sales/explore-artist';
 
   /* Display: Explore by Artwork */
@@ -1184,6 +1200,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['fields']['field_print_artist']['label'] = '';
   $handler->display->display_options['fields']['field_print_artist']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_print_artist']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_print_artist']['element_wrapper_class'] = 'views-field-title';
   $handler->display->display_options['fields']['field_print_artist']['settings'] = array(
     'bypass_access' => 1,
     'link' => 0,
