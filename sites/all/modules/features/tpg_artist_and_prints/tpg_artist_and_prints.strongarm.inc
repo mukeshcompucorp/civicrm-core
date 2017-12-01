@@ -359,9 +359,30 @@ function tpg_artist_and_prints_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'uuid_features_entity_taxonomy_term_print_type';
-  $strongarm->value = 'print_type';
-  $export['uuid_features_entity_taxonomy_term_print_type'] = $strongarm;
+  $strongarm->name = 'uuid_features_entity_taxonomy_term_print_b_w_or_colour';
+  $strongarm->value = 'print_b_w_or_colour';
+  $export['uuid_features_entity_taxonomy_term_print_b_w_or_colour'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'uuid_features_entity_taxonomy_term_print_genre';
+  $strongarm->value = 'print_genre';
+  $export['uuid_features_entity_taxonomy_term_print_genre'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'uuid_features_entity_taxonomy_term_print_period';
+  $strongarm->value = 'print_period';
+  $export['uuid_features_entity_taxonomy_term_print_period'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'uuid_features_vocabulary_terms';
+  $strongarm->value = 1;
+  $export['uuid_features_vocabulary_terms'] = $strongarm;
 
   return $export;
 }

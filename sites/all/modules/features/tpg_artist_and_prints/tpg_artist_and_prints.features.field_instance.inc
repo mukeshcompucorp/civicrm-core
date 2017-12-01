@@ -551,6 +551,46 @@ function tpg_artist_and_prints_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-prints-field_print_b_w_or_colour'.
+  $field_instances['node-prints-field_print_b_w_or_colour'] = array(
+    'bundle' => 'prints',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_print_b_w_or_colour',
+    'label' => 'B&W or Colour',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 13,
+    ),
+  );
+
   // Exported field_instance: 'node-prints-field_print_collections'.
   $field_instances['node-prints-field_print_collections'] = array(
     'bundle' => 'prints',
@@ -591,18 +631,19 @@ function tpg_artist_and_prints_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-prints-field_print_type'.
-  $field_instances['node-prints-field_print_type'] = array(
+  // Exported field_instance: 'node-prints-field_print_genre'.
+  $field_instances['node-prints-field_print_genre'] = array(
     'bundle' => 'prints',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -613,21 +654,60 @@ function tpg_artist_and_prints_field_default_field_instances() {
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_print_type',
-    'label' => 'Print type',
+    'field_name' => 'field_print_genre',
+    'label' => 'Genre',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'taxonomy',
+      'active' => 1,
+      'module' => 'options',
       'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
+        'apply_chosen' => '',
       ),
-      'type' => 'taxonomy_autocomplete',
-      'weight' => 5,
+      'type' => 'options_select',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'node-prints-field_print_period'.
+  $field_instances['node-prints-field_print_period'] = array(
+    'bundle' => 'prints',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_print_period',
+    'label' => 'Period',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 11,
     ),
   );
 
@@ -675,11 +755,13 @@ function tpg_artist_and_prints_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('B&W or Colour');
+  t('Genre');
   t('Paragraphs Content');
   t('Paragraphs Header Section');
+  t('Period');
   t('Print Artist');
   t('Print Collections');
-  t('Print type');
   t('Related Artist');
   t('Title');
 
