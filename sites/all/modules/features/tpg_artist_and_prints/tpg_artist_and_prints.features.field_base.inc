@@ -48,7 +48,7 @@ function tpg_artist_and_prints_field_default_field_bases() {
   // Exported field_base: 'field_print_b_w_or_colour'.
   $field_bases['field_print_b_w_or_colour'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_print_b_w_or_colour',
@@ -102,7 +102,7 @@ function tpg_artist_and_prints_field_default_field_bases() {
   // Exported field_base: 'field_print_genre'.
   $field_bases['field_print_genre'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_print_genre',
@@ -129,7 +129,7 @@ function tpg_artist_and_prints_field_default_field_bases() {
   // Exported field_base: 'field_print_period'.
   $field_bases['field_print_period'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_print_period',
