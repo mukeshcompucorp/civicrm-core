@@ -5,6 +5,7 @@ package = TPG
 version = 7.x-1.0
 dependencies[] = better_exposed_filters
 dependencies[] = image
+dependencies[] = options
 dependencies[] = text
 dependencies[] = title
 dependencies[] = tpg_paragraphs
