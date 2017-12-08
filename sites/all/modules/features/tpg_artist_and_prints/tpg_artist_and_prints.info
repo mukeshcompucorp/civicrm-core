@@ -21,6 +21,7 @@ features[fe_block_boxes][] = print_sales_links
 features[fe_block_settings][] = block-print_sales_explore_artist_intro
 features[fe_block_settings][] = block-print_sales_explore_artwork_intr
 features[fe_block_settings][] = block-print_sales_links
+features[fe_block_settings][] = views-85eb054ce4d30cf6225cc058c65fbb6e
 features[fe_block_settings][] = views-artist-collection_0
 features[fe_block_settings][] = views-artist-collection_1
 features[fe_block_settings][] = views-artist-collection_2
