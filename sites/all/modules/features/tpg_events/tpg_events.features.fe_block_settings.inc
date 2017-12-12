@@ -19,7 +19,7 @@ function tpg_events_default_fe_block_settings() {
     'machine_name' => 'event_plan_your_visit',
     'module' => 'block',
     'node_types' => array(),
-    'pages' => 'events/*',
+    'pages' => 'whats-on/exhibitions/*',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -258,8 +258,8 @@ whats-on/past-programme',
         'weight' => 0,
       ),
       'tpg_theme' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'tpg_theme',
         'weight' => -36,
       ),

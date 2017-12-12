@@ -21,7 +21,29 @@ function tpg_events_default_fe_block_boxes() {
 <p>Sun: 11.00 - 18.00</p>
 
 <p>&nbsp;</p>
-';
+
+<p>16 - 18 Ramillies Street</p>
+
+<p>London</p>
+
+<p>W1F 7LW</p>
+
+<p>Nearest Tube: Oxford Circus</p>
+
+<p>&nbsp;</p>
+
+<p>Admission to Exhibitions</p>
+
+<p>&nbsp;</p>
+
+<p>Free admission before 12.00 every day</p>
+
+<p>Exhibition Day Pass £4 (£2.50 concessions)</p>
+
+<p>Advance Online Booking £2.50</p>
+
+<p>&nbsp;</p>
+ ';
 
   $export['event_plan_your_visit'] = $fe_block_boxes;
 
@@ -47,7 +69,11 @@ function tpg_events_default_fe_block_boxes() {
   $fe_block_boxes->info = 'What\'s on Now & upcoming';
   $fe_block_boxes->format = 'full_html';
   $fe_block_boxes->machine_name = 'whats_on_now_upcoming';
-  $fe_block_boxes->body = '<p>We have a wide range of talks and events, including artist talks, exhibition tours, workshops and courses, and career advice for aspiring photographers</p>
+  $fe_block_boxes->body = '<div>Browse everything in our current programme including exhibitions, special events, talks, tours, workshops and courses.&nbsp; Filter by date, type or suitability for specific audiences and groups.</div>
+
+<div>&nbsp;</div>
+
+<div>For general visiting information and activities to enhance your experience go to our <a href="/visit-and-do">Visit</a>&nbsp;section.&nbsp;</div>
 ';
 
   $export['whats_on_now_upcoming'] = $fe_block_boxes;

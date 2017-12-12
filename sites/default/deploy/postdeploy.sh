@@ -7,6 +7,9 @@
 
 #PGW-98
 drush fr tpg_artist_and_prints -y
+drush fr tpg_events.fe_block_settings -y
+drush fr tpg_homepage.fe_block_settings -y
+drush fr tpg_viewpoints.fe_block_settings -y
 
 #To be run with every deployment / Do not delete:
 

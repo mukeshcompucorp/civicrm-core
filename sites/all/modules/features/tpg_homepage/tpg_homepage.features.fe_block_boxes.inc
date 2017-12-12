@@ -23,7 +23,7 @@ function tpg_homepage_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Stay up-to-date';
   $fe_block_boxes->format = 'filtered_html';
   $fe_block_boxes->machine_name = 'stay_up_to_date';
-  $fe_block_boxes->body = '<p><a href="/content/join-our-mailing-list">Sign up to our Newsletter</a></p>
+  $fe_block_boxes->body = '<p><a href="/join-our-mailing-list">Sign up to our Newsletter</a></p>
 ';
 
   $export['stay_up_to_date'] = $fe_block_boxes;
@@ -55,7 +55,7 @@ function tpg_homepage_default_fe_block_boxes() {
 <strong>Sun</strong> 11.00 - 18.00<br />
 <a class="arrow" href="/visit-and-do/plan-your-visit">Plan your visit</a></p>
 
-<p><a href="mailto:info@tpg.org.uk">info@tpg.org.uk</a>&nbsp;<a href="+44270879300">+44 (020) 7087 9300</a></p>
+<p><a href="mailto:info@tpg.org.uk">info@tpg.org.uk</a>&nbsp;<a href="tel:+442070879300">+44 (0) 20&nbsp;7087 9300</a></p>
 ';
 
   $export['working_hours'] = $fe_block_boxes;
