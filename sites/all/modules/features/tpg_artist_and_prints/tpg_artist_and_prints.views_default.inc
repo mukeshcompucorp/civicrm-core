@@ -1094,7 +1094,7 @@ function tpg_artist_and_prints_views_default_views() {
       'secondary_label' => 'Advanced options',
       'secondary_collapse_override' => '0',
     ),
-    'field_print_type_tid' => array(
+    'field_print_period_tid' => array(
       'bef_format' => 'default',
       'more_options' => array(
         'bef_select_all_none' => FALSE,
@@ -1114,7 +1114,7 @@ function tpg_artist_and_prints_views_default_views() {
         ),
       ),
     ),
-    'field_print_type_tid_1' => array(
+    'field_print_genre_tid' => array(
       'bef_format' => 'default',
       'more_options' => array(
         'bef_select_all_none' => FALSE,
@@ -1134,7 +1134,7 @@ function tpg_artist_and_prints_views_default_views() {
         ),
       ),
     ),
-    'field_print_type_tid_2' => array(
+    'field_print_b_w_or_colour_tid' => array(
       'bef_format' => 'default',
       'more_options' => array(
         'bef_select_all_none' => FALSE,
@@ -1170,6 +1170,7 @@ function tpg_artist_and_prints_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
@@ -1254,23 +1255,17 @@ function tpg_artist_and_prints_views_default_views() {
     'title_section' => 'title_section',
   );
   $handler->display->display_options['filters']['bundle']['group'] = 1;
-  /* Filter criterion: Content: Print type (field_print_type) */
-  $handler->display->display_options['filters']['field_print_type_tid']['id'] = 'field_print_type_tid';
-  $handler->display->display_options['filters']['field_print_type_tid']['table'] = 'field_data_field_print_type';
-  $handler->display->display_options['filters']['field_print_type_tid']['field'] = 'field_print_type_tid';
-  $handler->display->display_options['filters']['field_print_type_tid']['value'] = array(
-    49 => '49',
-    47 => '47',
-    45 => '45',
-    46 => '46',
-    48 => '48',
-  );
-  $handler->display->display_options['filters']['field_print_type_tid']['group'] = 2;
-  $handler->display->display_options['filters']['field_print_type_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid']['expose']['operator_id'] = 'field_print_type_tid_op';
-  $handler->display->display_options['filters']['field_print_type_tid']['expose']['operator'] = 'field_print_type_tid_op';
-  $handler->display->display_options['filters']['field_print_type_tid']['expose']['identifier'] = 'field_print_type_tid';
-  $handler->display->display_options['filters']['field_print_type_tid']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Period (field_print_period) */
+  $handler->display->display_options['filters']['field_print_period_tid']['id'] = 'field_print_period_tid';
+  $handler->display->display_options['filters']['field_print_period_tid']['table'] = 'field_data_field_print_period';
+  $handler->display->display_options['filters']['field_print_period_tid']['field'] = 'field_print_period_tid';
+  $handler->display->display_options['filters']['field_print_period_tid']['group'] = 2;
+  $handler->display->display_options['filters']['field_print_period_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_print_period_tid']['expose']['operator_id'] = 'field_print_period_tid_op';
+  $handler->display->display_options['filters']['field_print_period_tid']['expose']['label'] = 'Period';
+  $handler->display->display_options['filters']['field_print_period_tid']['expose']['operator'] = 'field_print_period_tid_op';
+  $handler->display->display_options['filters']['field_print_period_tid']['expose']['identifier'] = 'field_print_period_tid';
+  $handler->display->display_options['filters']['field_print_period_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     30037204 => 0,
@@ -1282,25 +1277,20 @@ function tpg_artist_and_prints_views_default_views() {
     204855824 => 0,
     199295989 => 0,
   );
-  $handler->display->display_options['filters']['field_print_type_tid']['expose']['reduce'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_print_type_tid']['vocabulary'] = 'print_type';
-  /* Filter criterion: Content: Print type (field_print_type) */
-  $handler->display->display_options['filters']['field_print_type_tid_1']['id'] = 'field_print_type_tid_1';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['table'] = 'field_data_field_print_type';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['field'] = 'field_print_type_tid';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['value'] = array(
-    51 => '51',
-    52 => '52',
-    53 => '53',
-  );
-  $handler->display->display_options['filters']['field_print_type_tid_1']['group'] = 2;
-  $handler->display->display_options['filters']['field_print_type_tid_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['operator_id'] = 'field_print_type_tid_1_op';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['operator'] = 'field_print_type_tid_1_op';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['identifier'] = 'field_print_type_tid_1';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['field_print_period_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_print_period_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_print_period_tid']['vocabulary'] = 'print_period';
+  /* Filter criterion: Content: Genre (field_print_genre) */
+  $handler->display->display_options['filters']['field_print_genre_tid']['id'] = 'field_print_genre_tid';
+  $handler->display->display_options['filters']['field_print_genre_tid']['table'] = 'field_data_field_print_genre';
+  $handler->display->display_options['filters']['field_print_genre_tid']['field'] = 'field_print_genre_tid';
+  $handler->display->display_options['filters']['field_print_genre_tid']['group'] = 2;
+  $handler->display->display_options['filters']['field_print_genre_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_print_genre_tid']['expose']['operator_id'] = 'field_print_genre_tid_op';
+  $handler->display->display_options['filters']['field_print_genre_tid']['expose']['label'] = 'Genre';
+  $handler->display->display_options['filters']['field_print_genre_tid']['expose']['operator'] = 'field_print_genre_tid_op';
+  $handler->display->display_options['filters']['field_print_genre_tid']['expose']['identifier'] = 'field_print_genre_tid';
+  $handler->display->display_options['filters']['field_print_genre_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     30037204 => 0,
@@ -1312,24 +1302,20 @@ function tpg_artist_and_prints_views_default_views() {
     204855824 => 0,
     199295989 => 0,
   );
-  $handler->display->display_options['filters']['field_print_type_tid_1']['expose']['reduce'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid_1']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid_1']['type'] = 'select';
-  $handler->display->display_options['filters']['field_print_type_tid_1']['vocabulary'] = 'print_type';
-  /* Filter criterion: Content: Print type (field_print_type) */
-  $handler->display->display_options['filters']['field_print_type_tid_2']['id'] = 'field_print_type_tid_2';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['table'] = 'field_data_field_print_type';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['field'] = 'field_print_type_tid';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['value'] = array(
-    54 => '54',
-    55 => '55',
-  );
-  $handler->display->display_options['filters']['field_print_type_tid_2']['group'] = 2;
-  $handler->display->display_options['filters']['field_print_type_tid_2']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['operator_id'] = 'field_print_type_tid_2_op';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['operator'] = 'field_print_type_tid_2_op';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['identifier'] = 'field_print_type_tid_2';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['field_print_genre_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_print_genre_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_print_genre_tid']['vocabulary'] = 'print_genre';
+  /* Filter criterion: Content: B&amp;W or Colour (field_print_b_w_or_colour) */
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['id'] = 'field_print_b_w_or_colour_tid';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['table'] = 'field_data_field_print_b_w_or_colour';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['field'] = 'field_print_b_w_or_colour_tid';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['group'] = 2;
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['expose']['operator_id'] = 'field_print_b_w_or_colour_tid_op';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['expose']['label'] = 'B&W or Colour';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['expose']['operator'] = 'field_print_b_w_or_colour_tid_op';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['expose']['identifier'] = 'field_print_b_w_or_colour_tid';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     30037204 => 0,
@@ -1341,10 +1327,9 @@ function tpg_artist_and_prints_views_default_views() {
     204855824 => 0,
     199295989 => 0,
   );
-  $handler->display->display_options['filters']['field_print_type_tid_2']['expose']['reduce'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid_2']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_print_type_tid_2']['type'] = 'select';
-  $handler->display->display_options['filters']['field_print_type_tid_2']['vocabulary'] = 'print_type';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_print_b_w_or_colour_tid']['vocabulary'] = 'print_b_w_or_colour';
   $handler->display->display_options['path'] = 'print-sales/explore-artwork';
   $export['print_sales'] = $view;
 

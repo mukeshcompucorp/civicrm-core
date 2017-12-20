@@ -86,10 +86,20 @@ function tpg_global_node_view($node, $view_mode, $langcode) {
             $date_string = format_date(strtotime($start_date), 'event_format') . ' - ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
           }
           elseif ($start_date_year == $end_date_year) {
-            $date_string = format_date(strtotime($start_date), 'day_month_short') . ' - ' . format_date(strtotime($end_date), 'day_month_year') . ' ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
+            // Checking empty start and end time.
+            if (empty((int)$start_time) && empty((int)$end_time)) {
+              $date_string = format_date(strtotime($start_date), 'day_month_short') . ' - ' . format_date(strtotime($end_date), 'day_month_year');
+            } else {
+              $date_string = format_date(strtotime($start_date), 'day_month_short') . ' - ' . format_date(strtotime($end_date), 'day_month_year') . ' ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
+            }
           }
           else {
-            $date_string = format_date(strtotime($start_date), 'day_month_year') . ' - ' . format_date(strtotime($end_date), 'day_month_year') . ' - ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
+            // Checking empty start and end time.
+            if (empty((int)$start_time) && empty((int)$end_time)) {
+              $date_string = format_date(strtotime($start_date), 'day_month_year') . ' - ' . format_date(strtotime($end_date), 'day_month_year');
+            } else {
+              $date_string = format_date(strtotime($start_date), 'day_month_year') . ' - ' . format_date(strtotime($end_date), 'day_month_year') . ' - ' . format_date(strtotime($start_date), 'custom', 'G:i') . ' - ' . format_date(strtotime($end_date), 'custom', 'G:i');
+            }
           }
           $paragraphs_entity[$key]['entity']['paragraphs_item'][$item_key]['event_start_end_dates'][0]['#markup'] = '<div class="date-display-range">' . $date_string . '</div>';
         }
