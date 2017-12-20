@@ -44,6 +44,14 @@
     }
   }
 
+  .view-content {
+    @include clearfix;
+  }
+
+  .item-list {
+    clear: both;
+  }
+
   .views-field-title {
     @include ellipsis-title;
     margin-top: 5px;
