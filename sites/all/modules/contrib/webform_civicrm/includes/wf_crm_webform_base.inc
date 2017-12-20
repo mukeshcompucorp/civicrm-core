@@ -7,6 +7,14 @@
 
 module_load_include('inc', 'webform_civicrm', 'includes/utils');
 
+/**
+ * Class wf_crm_webform_base
+ *
+ * @property array $payment_processor
+ * @property array $contribution_page
+ * @property number $tax_rate
+ * @property number $civicrm_version
+ */
 abstract class wf_crm_webform_base {
   protected $node;
   protected $settings = array();
@@ -23,8 +31,6 @@ abstract class wf_crm_webform_base {
   private $_contribution_page;
   // tax integration
   private $_tax_rate;
-
-  private $_civicrm_version;
 
   /**
    * Magic method to retrieve otherwise inaccessible properties
@@ -54,18 +60,14 @@ abstract class wf_crm_webform_base {
           if ($this->contribution_page) {
             // tax integration
             $taxRates = CRM_Core_PseudoConstant::getTaxRates();
-            $this->_tax_rate = $taxRates[$this->_contribution_page['financial_type_id']];
+            $this->_tax_rate = isset($taxRates[$this->_contribution_page['financial_type_id']]) ? $taxRates[$this->_contribution_page['financial_type_id']] : NULL;
           }
           return $this->_tax_rate;
         }
-        return;
+        return NULL;
 
       case 'civicrm_version':
-        if (!$this->_civicrm_version) {
-          $civicrm = system_get_info('module', 'civicrm');
-          $this->_civicrm_version = $civicrm['version'];
-        }
-        return $this->_civicrm_version;
+        return CRM_Utils_System::version();
 
       default:
         throw new Exception('Unknown property');
@@ -105,7 +107,7 @@ abstract class wf_crm_webform_base {
         }
         $result = wf_civicrm_api($ent, 'get', $params);
         // Handle location field sorting
-        if(in_array($ent, wf_crm_location_fields())){
+        if (in_array($ent, wf_crm_location_fields())) {
           $result['values'] = $this->reorderByLocationType($c, $ent, $result['values']);
         }
         if (!empty($result['values'])) {
@@ -128,6 +130,10 @@ abstract class wf_crm_webform_base {
                 }
               }
             }
+            // User id
+            if (isset($this->enabled[$prefix . 'contact_user_id'])) {
+              $result[1]['user_id'] = wf_crm_user_cid($cid, 'contact');
+            }
             // Hack for gender as textfield. More general solution needed for all pseudoconsant fields
             $gender_field = $this->getComponent("civicrm_{$c}_contact_1_contact_gender_id");
             if ($gender_field && $gender_field['type'] == 'textfield') {
@@ -142,7 +148,7 @@ abstract class wf_crm_webform_base {
                 $address['state_province_id'] = wf_crm_state_abbr($address['state_province_id']);
               }
               // Load custom data
-              if(isset($address['id'])){
+              if (isset($address['id'])){
                 $custom = $this->getCustomData($address['id'], 'address');
                 if (!empty($custom['address'])) {
                   $address += $custom['address'][1];
@@ -219,6 +225,83 @@ abstract class wf_crm_webform_base {
   }
 
   /**
+   * Find an existing contact based on matching criteria
+   * Used to populate a webform existing contact field
+   *
+   * @param array $component
+   *   Webform component of type 'civicrm_contact'
+   */
+  protected function findContact($component) {
+    module_load_include('inc', 'webform_civicrm', 'includes/contact_component');
+    list(, $c,) = explode('_', $component['form_key'], 3);
+    $filters = wf_crm_search_filters($this->node, $component);
+    // Start with the url - that trumps everything.
+    if (isset($_GET["cid$c"]) || ($c == 1 && isset($_GET['cid']))) {
+      $cid = isset($_GET["cid$c"]) ? $_GET["cid$c"] : $_GET['cid'];
+      if (wf_crm_is_positive($cid) || $cid === '0' || $cid === 0) {
+        $cid = (int) $cid;
+        if ($cid === 0) {
+          $this->ent['contact'][$c]['id'] = $cid;
+          return;
+        }
+        // This property may not exist in components created before v4.12 so default to TRUE if not set
+        elseif (wf_crm_aval($component['extra'], 'allow_url_autofill', TRUE, TRUE)) {
+          if (wf_crm_contact_access($component, $filters, $cid) !== FALSE) {
+            $this->ent['contact'][$c]['id'] = $cid;
+          }
+        }
+      }
+    }
+    if (empty($this->ent['contact'][$c]['id'])) {
+      $found = array();
+      switch ($component['extra']['default']) {
+        case 'user':
+          $cid = wf_crm_user_cid();
+          $found = ($c == 1 && $cid) ? array($cid) : array();
+          break;
+        case 'contact_id':
+          if ($component['extra']['default_contact_id']) {
+            $found = array($component['extra']['default_contact_id']);
+          }
+          break;
+        case 'relationship':
+          if (!empty($this->ent['contact'][1]['id'])) {
+            $found = wf_crm_find_relations($this->ent['contact'][1]['id'], $component['extra']['default_relationship']);
+          }
+          break;
+        case 'auto':
+          $component['extra']['allow_create'] = FALSE;
+          $found = array_keys(wf_crm_contact_search($this->node, $component, $filters));
+          break;
+      }
+      if ($component['extra']['randomize']) {
+        shuffle($found);
+      }
+      if (in_array($component['extra']['default'], array('user', 'contact_id'))) {
+        $dupes_allowed = TRUE;
+      }
+      else {
+        $dupes_allowed = $component['extra']['dupes_allowed'];
+      }
+      foreach ($found as $cid) {
+        // Don't pick the same contact twice unless explicitly told to do so
+        if (!$dupes_allowed) {
+          foreach($this->ent['contact'] as $contact) {
+            if (!empty($contact['id']) && $cid == $contact['id']) {
+              continue 2;
+            }
+          }
+        }
+        // Check filters except for 'auto' which already applied them
+        if ($component['extra']['default'] == 'auto' || wf_crm_contact_access($component, $filters, $cid) !== FALSE) {
+          $this->ent['contact'][$c]['id'] = $cid;
+          break;
+        }
+      }
+    }
+  }
+
+  /**
    * Reorder returned results according to settings chosen in wf_civicrm backend
    *
    * @param integer $c
@@ -229,10 +312,14 @@ abstract class wf_crm_webform_base {
   protected function reorderByLocationType($c, $ent, $values = array()){
     $reorderedArray = array();
 
-    if(isset($this->settings['data']['contact'][$c][$ent])){
+    if (isset($this->settings['data']['contact'][$c][$ent])){
       // First pass
-      $reorderedArray = $this->matchLocationTypes($c, $ent, $values);
-
+      if ($ent == 'website') {
+        $reorderedArray = $this->matchWebsiteTypes($c, $ent, $values);
+      }
+      else {
+        $reorderedArray = $this->matchLocationTypes($c, $ent, $values);
+      }
       // Second pass
       $reorderedArray = $this->handleRemainingValues($reorderedArray, $values);
 
@@ -260,25 +347,71 @@ abstract class wf_crm_webform_base {
     foreach ($settingsArray[$ent] as $setting) {
       $valueFound = false;
       foreach($values as $key => $value){
-        if((in_array($ent, array('address', 'email')) && $value['location_type_id'] == $setting['location_type_id'])
+        if ((in_array($ent, array('address', 'email')) && $value['location_type_id'] == $setting['location_type_id'])
            ||
-          ($value['location_type_id'] == $setting['location_type_id'] && $value[$ent.'_type_id'] == $setting[$ent.'_type_id'])     
-          ){
+          ($value['location_type_id'] == $setting['location_type_id'] && $value[$ent.'_type_id'] == $setting[$ent.'_type_id'])
+          ) {
             $reorderedArray[$key] = $value;
             $valueFound = true;
             unset($values[$key]);
             break;
-        } else if(empty($setting['location_type_id'])) { // for 'user-select' fields
-            $valueFound = true;
-            $reorderedArray['us'.$userSelectIndex] = 'user-select';
-            $userSelectIndex ++;
-            break;
+        }
+        // For 'user-select' fields
+        else if (empty($setting['location_type_id'])) {
+          $valueFound = true;
+          $reorderedArray['us'.$userSelectIndex] = 'user-select';
+          $userSelectIndex ++;
+          break;
         }
       }
 
       // always keep number of returned values equal to chosen settings
       // if value is not found then set an empty array
-      if(!$valueFound){
+      if (!$valueFound){
+        $reorderedArray[] = array();
+      }
+    }
+    return $reorderedArray;
+  }
+
+  /**
+   * Organize values according to website types
+   *
+   * @param integer $c
+   * @param string $ent
+   * @param array $values
+   * @return array $reorderedArray
+   */
+  protected function matchWebsiteTypes($c, $ent, &$values) {
+    // create temporary settings array to include 'user-select' fields
+    // on the right place in array
+    $settingsArray = $this->add_user_select_field_placeholder($ent, $this->settings['data']['contact'][$c]);
+    $userSelectIndex = 0;
+    // Go through the array and match up locations by type
+    // Put placeholder 'user-select' where location_type_id is empty for second pass
+    foreach ($settingsArray[$ent] as $setting) {
+      $valueFound = FALSE;
+      foreach ($values as $key => $value) {
+        if (($value[$ent . '_type_id'] == $setting[$ent . '_type_id'])
+        ) {
+          $reorderedArray[$key] = $value;
+          $valueFound = TRUE;
+          unset($values[$key]);
+          break;
+        }
+        else {
+          if (empty($setting['website_type_id'])) { // for 'user-select' fields
+            $valueFound = TRUE;
+            $reorderedArray['us' . $userSelectIndex] = 'user-select';
+            $userSelectIndex++;
+            break;
+          }
+        }
+      }
+
+      // always keep number of returned values equal to chosen settings
+      // if value is not found then set an empty array
+      if (!$valueFound){
         $reorderedArray[] = array();
       }
     }
@@ -295,7 +428,7 @@ abstract class wf_crm_webform_base {
   protected function handleRemainingValues($reorderedArray, &$values){
     // Put leftover values in fields marked as 'user-select'
     foreach($reorderedArray as $key => $value){
-      if($reorderedArray[$key] == 'user-select'){
+      if ($reorderedArray[$key] == 'user-select'){
         $reorderedArray[$key] = !empty($values) ? array_shift($values) : '';
       }
     }
@@ -310,9 +443,9 @@ abstract class wf_crm_webform_base {
    * @return array $settings
    */
   protected function add_user_select_field_placeholder($ent, $settings = array()){
-    if($settings['number_of_'.$ent] > count($settings[$ent])){
+    if ($settings['number_of_'.$ent] > count($settings[$ent])){
       for($i = 1; $i <= $settings['number_of_'.$ent]; $i++){
-        if(!array_key_exists($i, $settings[$ent])){
+        if (!array_key_exists($i, $settings[$ent])){
           $settings[$ent][$i]['location_type_id'] = NULL;
         }
       }
@@ -334,6 +467,10 @@ abstract class wf_crm_webform_base {
    */
   protected function getRelationship($r_types, $cid1, $cid2) {
     $found = array();
+    $active_clause = '';
+    if (!empty($this->settings['create_new_relationship'])) {
+      $active_clause = 'AND is_active = 1 AND (end_date IS NULL OR end_date >= now())';
+    }
     if ($r_types && $cid1 && $cid2) {
       $types = array();
       foreach ($r_types as $r_type) {
@@ -342,7 +479,7 @@ abstract class wf_crm_webform_base {
       }
       $sql = "SELECT * FROM civicrm_relationship
       WHERE relationship_type_id IN (" . implode(',', $types) . ")
-      AND ((contact_id_a = $cid1 AND contact_id_b = $cid2) OR (contact_id_a = $cid2 AND contact_id_b = $cid1))
+      AND ((contact_id_a = $cid1 AND contact_id_b = $cid2) OR (contact_id_a = $cid2 AND contact_id_b = $cid1)) $active_clause
       ORDER BY is_active DESC, IF(end_date, 1, 0), end_date DESC";
       $dao = CRM_Core_DAO::executeQuery($sql);
       while ($dao->fetch()) {
@@ -674,7 +811,7 @@ abstract class wf_crm_webform_base {
    * @param int $id: drupal file id
    * @return int|null Civi file id
    */
-  static function saveDrupalFileToCivi($id) {
+  public static function saveDrupalFileToCivi($id) {
     $file = file_load($id);
     if ($file) {
       $config = CRM_Core_Config::singleton();

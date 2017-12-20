@@ -16,7 +16,7 @@ var wfCivi = (function ($, D) {
       // Fill name fields with name typed
       if (cid.length > 1) {
         var names = {first: '', last: ''};
-        var s = cid.substr(1).split(' ');
+        var s = cid.substr(1).replace(/%/g, ' ').split(' ');
         for (var i in s) {
           var str = s[i].substr(0,1).toUpperCase() + s[i].substr(1).toLowerCase();
           if (i < 1) {
@@ -146,6 +146,10 @@ var wfCivi = (function ($, D) {
           var fn = (op === 'hide' && (!showEmpty || !isFormItemBlank($el))) ? 'hide' : 'show';
           $(':input', $el).webformProp('disabled', fn === 'hide');
           $(':input', $el).webformProp('readonly', fn === 'hide');
+          $('select.civicrm-enabled[name*="_address_state_province_id"]').each(function() {
+            $(this).webformProp('disabled', fn === 'hide');
+            $(this).webformProp('readonly', fn === 'hide');
+          });
           if (hideOrDisable === 'hide') {
             $el[fn](speed, function() {$el[fn];});
           }
@@ -197,6 +201,12 @@ var wfCivi = (function ($, D) {
           $el.attr('data-val', val);
         }
         else if ($el.val() !== val) {
+          if ($el.data('tokenInputObject')) {
+            $el.tokenInput('clear').tokenInput('add', {id: val, name: this.display});
+          }
+          else if ($el.is('[type=hidden]')) {
+            $el.siblings('.token-input-list').find('p').text(this.display);
+          }
           $el.val(val).trigger('change', 'webform_civicrm:autofill');
         }
       }
@@ -276,12 +286,7 @@ var wfCivi = (function ($, D) {
     if (!$.isEmptyObject(data || [])) {
       if (!data['']) {
         var text = $el.hasClass('required') ? Drupal.t('- Select -') : Drupal.t('- None -');
-        if ($el.hasClass('has-default')) {
-          $el.removeClass('has-default');
-        }
-        else {
-          $el.append('<option value="">'+text+'</option>');
-        }
+        $el.append('<option value="">'+text+'</option>');
       }
       $.each(data, function(key, val) {
         $el.append('<option value="'+key+'">'+val+'</option>');
@@ -289,7 +294,6 @@ var wfCivi = (function ($, D) {
       $el.val(value);
     }
     else {
-      $el.removeClass('has-default');
       $el.append('<option value="-">'+Drupal.t('- N/A -')+'</option>');
     }
     $el.removeAttr('disabled').trigger('change', 'webform_civicrm:chainselect');
@@ -334,9 +338,6 @@ var wfCivi = (function ($, D) {
       classes = $el.attr('class').replace('text', 'select'),
       id = $el.attr('id'),
       $form = $el.closest('form');
-    if (value !== '') {
-      classes = classes + ' has-default';
-    }
     $el.replaceWith('<select id="'+$el.attr('id')+'" name="'+$el.attr('name')+'"' + ' class="' + classes + ' civicrm-processed" data-val="' + value + '"></select>');
     return $('#' + id, $form).change(function() {
       $(this).attr('data-val', '');
@@ -357,24 +358,36 @@ var wfCivi = (function ($, D) {
         var key = parseName($el.attr('name'));
         var countrySelect = $el.parents('form').find('.civicrm-enabled[name*="['+(key.replace('state_province', 'country'))+']"]');
         var $county = $el.parents('form').find('.civicrm-enabled[name*="['+(key.replace('state_province', 'county'))+']"]');
-        if (!$el.attr('readonly')) {
-          $el = makeSelect($el);
-          if ($county.length && !$county.attr('readonly')) {
-            $county = makeSelect($county);
-            $el.change(populateCounty);
-          }
 
-          var countryVal = 'default';
-          if (countrySelect.length === 1) {
-            countryVal = $(countrySelect).val();
-          }
-          else if (countrySelect.length > 1) {
-            countryVal = $(countrySelect).filter(':checked').val();
-          }
-          countryVal || (countryVal = '');
+        var readOnly = $el.attr('readonly');
 
-          populateStates($el, countryVal);
+        $el = makeSelect($el);
+        if ($county.length && !$county.attr('readonly')) {
+          $county = makeSelect($county);
+          $el.change(populateCounty);
         }
+
+        var countryVal = 'default';
+        if (countrySelect.length === 1) {
+          countryVal = $(countrySelect).val();
+        }
+        else if (countrySelect.length > 1) {
+          countryVal = $(countrySelect).filter(':checked').val();
+        }
+        countryVal || (countryVal = '');
+
+        populateStates($el, countryVal);
+
+        if (readOnly) {
+          $el.webformProp('readonly', true);
+          $el.webformProp('disabled', true);
+        }
+      });
+
+      // Support CiviCRM's quirky way of doing optgroups
+      $('option[value^=crm_optgroup]', context).each(function () {
+        $(this).nextUntil('option[value^=crm_optgroup]').wrapAll('<optgroup label="' + $(this).text() + '" />');
+        $(this).remove();
       });
 
       // Add handler to country field to trigger ajax refresh of corresponding state/prov

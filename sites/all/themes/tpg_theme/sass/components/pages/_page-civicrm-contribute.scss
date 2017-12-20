@@ -61,7 +61,9 @@
     margin-top: 3px;
   }
 
-  .crm-submit-buttons {
+  .crm-submit-buttons,
+  #crm-submit-buttons {
+    @include clr;
     margin-bottom: 30px;
   }
 

@@ -176,3 +176,27 @@ article .webform-client-form {
     padding: 0;
   }
 }
+
+.webform-progressbar-page .webform-progressbar-page-label {
+  font-size: $form-label;
+  margin: 0 -11em;
+}
+
+@include breakpoint($laptop $tablet) {
+  .webform-progressbar-page .webform-progressbar-page-label {
+    font-size: $p-sm;
+  }
+}
+
+@include breakpoint($tablet-1 0) {
+  .webform-progressbar {
+    width: 85%;
+
+    &-page .webform-progressbar-page-label {
+      font-size: 9px;
+      display: block;
+      left: -7px;
+      margin: 0;
+    }
+  }
+}
