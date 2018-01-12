@@ -177,9 +177,31 @@ article .webform-client-form {
   }
 }
 
-.webform-progressbar-page .webform-progressbar-page-label {
-  font-size: $form-label;
-  margin: 0 -11em;
+.webform-progressbar {
+  .webform-progressbar-outer,
+  .webform-progressbar-page {
+    border-color: color(main);
+  }
+
+  .webform-progressbar-inner {
+    background-color: color(main);
+    height: 2px;
+    float: left;
+  }
+
+  .webform-progressbar-page {
+    margin-top: -3px;
+
+    &.current,
+    &.completed {
+      background-color: color(main);
+    }
+
+    .webform-progressbar-page-label {
+      font-size: $form-label;
+      margin: 0 -11em;
+    }
+  }
 }
 
 @include breakpoint($laptop $tablet) {
