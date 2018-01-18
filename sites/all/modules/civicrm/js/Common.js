@@ -846,7 +846,7 @@ CRM.strings = CRM.strings || {};
       if ($("input:radio[name=radio_ts]").size() == 1) {
         $("input:radio[name=radio_ts]").prop("checked", true);
       }
-      $('.crm-select2:not(.select2-offscreen, .select2-container)', e.target).crmSelect2();
+      $('select.crm-select2:not(.select2-offscreen, .select2-container)', e.target).crmSelect2();
       $('.crm-form-entityref:not(.select2-offscreen, .select2-container)', e.target).crmEntityRef();
       $('select.crm-chain-select-control', e.target).off('.chainSelect').on('change.chainSelect', chainSelect);
       // Cache Form Input initial values
